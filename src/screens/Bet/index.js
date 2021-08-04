@@ -104,9 +104,8 @@ const Bet = ({ showPopup }) => {
                       <RelatedBetCard
                           key={index}
                           title={bet.marketQuestion}
-                          userId={bet.creator}
-                          image={event.previewImageUrl}
                           onClick={onBetClick(betId)}
+                          bet={bet}
                       />
                   );
               }
@@ -228,10 +227,9 @@ const Bet = ({ showPopup }) => {
                                   onSwiper={setSwiper}
                               >
                                   <SwiperSlide className={styles.carouselSlide}>
-                                      <BetView
-                                          closed={false}
-                                          showEventEnd={true}
-                                      />
+                                      <div>
+                                        {renderRelatedBetList()}
+                                      </div>
                                   </SwiperSlide>
                                   <SwiperSlide className={styles.carouselSlide}>
                                       <Chat
@@ -240,16 +238,10 @@ const Bet = ({ showPopup }) => {
                                       />
                                   </SwiperSlide>
                                   <SwiperSlide className={styles.carouselSlide}>
-                                      <div
-                                          className={styles.headline}
-                                          style={{ flexDirection: 'row', display: 'flex', marginBottom: '1rem', alignItems: 'center' }}
-                                      >
-                                          <h2 style={{ fontSize: '16px', marginRight: '0.5rem' }}>🚀 Related Bets</h2>
-                                          <LiveBadge />
-                                      </div>
-                                      <div>
-                                          {renderRelatedBetList()}
-                                      </div>
+                                      <BetView
+                                          closed={false}
+                                          showEventEnd={true}
+                                      />
                                   </SwiperSlide>
                               </Swiper>
                           </div>

@@ -27,7 +27,8 @@
         margin-right:     10px;
     }
 
-    &.resolved
+    &.resolved,
+    &.active
     {
         color:            $colorGreen;
         background-color: $colorGreen30;

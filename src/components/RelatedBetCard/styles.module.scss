@@ -3,10 +3,9 @@
 .relatedBetCard
 {
     width:           100%;
-    border-radius:   10px;
+    border-radius:   6px;
     font-family:     $fontLight;
-    color:           $colorWhite;
-    padding:         1.5rem 1.5rem;
+    color:           $colorBlack;
     display:         flex;
     position:        relative;
     justify-content: space-between;
@@ -16,40 +15,49 @@
     overflow:        hidden;
     z-index:         1;
     margin-bottom:   0.5rem;
-
-    .eventCardBackground,
-    .eventCardBackgroundBlur
+    
+    .relatedBetCardContent
     {
-        position:            absolute;
-        z-index:             -1;
-        top:                 0;
-        left:                0;
-        width:               100%;
-        height:              100%;
-        background-repeat:   no-repeat;
-        background-position: center;
-        background-size:     cover;
-        background-color:    $colorPrimary66;
-
-        &.eventCardBackgroundBlur
-        {
-            filter:         blur(2px);
-            -webkit-filter: blur(2px);
-        }
+        padding:          1.5rem 1.5rem;
+        border-radius:    6px 6px 0 0;
+        background-color: $colorWhite;
+        position:         relative;
+        display:          flex;
+        justify-content:  space-between;
+        flex-flow:        row wrap;
     }
 
     .title
     {
         font-family: $fontBold;
         display:     flex;
+        margin:      0 0 1rem;
+        flex-basis:  90%;
     }
 
-    .organizer
+    .menuItem
     {
-        display:       flex;
-        font-size:     12px;
-        margin-bottom: 0.5rem;
-        color:         #b0b0b0;
-        opacity:       0.6;
+        flex-basis:  10%;
+    }
+
+    .relatedBetCardFooter
+    {
+        width:            100%;
+        display:          flex;
+        justify-content:  flex-end;
+        align-items:      center;
+        background-color: rgba(241, 242, 246, 0.33);
+        padding:          1rem 1.5rem;
+        border-radius:    0 0 6px 6px;
+        color:            $colorWhite;
+
+        .timeLeftCounterContainer
+        {
+            display:     flex;
+            align-items: center;
+            color:       $colorWhite;
+            font-family: $fontLight;
+            font-size:   10px;
+        }
     }
 }
