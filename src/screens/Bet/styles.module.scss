@@ -370,3 +370,14 @@
         }
     }
 }
+
+.activeBetPopup {
+    position:      fixed;
+    left:          0;
+    right:         0;
+    bottom:        0;
+    top:           1rem;
+    overflow:      auto;
+    z-index:       100;
+    border-radius: 6px;
+}

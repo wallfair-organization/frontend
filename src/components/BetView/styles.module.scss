@@ -12,6 +12,21 @@
     color:            $colorPrimaryDark;
     border-radius:    10px;
 
+    .backButton
+    {
+        position:         fixed;
+        top:              1rem;
+        left:             0;
+        padding:          1rem;
+        background-color: $colorWhite;
+        border-radius:    6px;
+        display:          flex;
+        > :first-child
+        {
+            margin-right: 0.5rem;
+        }
+    }
+
     .placeBetContainer
     {
         display:        flex;

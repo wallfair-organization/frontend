@@ -24,13 +24,15 @@ import classNames                   from 'classnames';
 import FixedEventCreationIconButton from '../../components/FixedEventCreationIconButton';
 import { SwiperSlide, Swiper }      from 'swiper/react';
 import React                        from 'react';
+import ReactDOM                 from 'react-dom';
 
 const Bet = ({ showPopup }) => {
-          const history                         = useHistory();
-          const [swiper, setSwiper]             = useState(null);
-          const { eventId }                     = useParams();
-          const [currentSlide, setCurrentSlide] = useState(0);
-
+          const history                           = useHistory();
+          const [swiper, setSwiper]               = useState(null);
+          const { eventId, betId }                = useParams();
+          const [currentSlide, setCurrentSlide]   = useState(0);
+          const [selectedBetId, setSelectedBetId] = useState(betId || null);
+          
           const event = useSelector(
               (state) => _.find(
                   state.event.events,
@@ -93,8 +95,43 @@ const Bet = ({ showPopup }) => {
                           betId,
                       },
                   ));
+                
+                  setSelectedBetId(betId);
+
               };
           };
+
+          const onBetBack = () => {
+            const eventId = _.get(event, '_id', null);
+
+            history.push(Routes.getRouteWithParameters(
+                Routes.bet,
+                {
+                    eventId,
+                    betId: '',
+                },
+            ));
+
+            setSelectedBetId(null);
+          }
+
+					const renderBetModal = () => {
+						return (
+							selectedBetId !== null ?
+							ReactDOM.createPortal(                                
+								<div className={styles.activeBetPopup}>
+									<BetView
+										closed={false}
+										showEventEnd={true}
+										showBackButton={true}
+										onBackButtonClick={onBetBack}
+									/>
+								</div>,
+								document.getElementById('root')
+							)
+							: ''
+						)
+					}
 
           const renderRelatedBetCard = (bet, index) => {
               if (bet) {
@@ -227,9 +264,10 @@ const Bet = ({ showPopup }) => {
                                   onSwiper={setSwiper}
                               >
                                   <SwiperSlide className={styles.carouselSlide}>
-                                      <div>
+                                    <div>
                                         {renderRelatedBetList()}
-                                      </div>
+                                    </div> 
+                                    {renderBetModal()}
                                   </SwiperSlide>
                                   <SwiperSlide className={styles.carouselSlide}>
                                       <Chat

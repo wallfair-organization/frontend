@@ -62,6 +62,8 @@ const BetView = ({
                      pullOutBet,
                      fetchOutcomes,
                      showPopup,
+                     showBackButton = false,
+                     onBackButtonClick = () => {}
                  }) => {
     const params                                          = useParams();
     const defaultBetValue                                 = _.max([balance, 10]);
@@ -425,6 +427,18 @@ const BetView = ({
         );
     };
 
+    const renderBackButton = () => {
+        return (
+            showBackButton ?
+                <span className={styles.backButton} onClick={onBackButtonClick}>
+                    <Icon iconType={'arrowLeft'} iconTheme={'black'}/>
+                    Back
+                </span>
+                :
+                ''
+        )
+    }
+
     const renderTokenSelection = () => {
         const isSell = hasSellView();
 
@@ -540,6 +554,7 @@ const BetView = ({
             <>
                 {renderSwitchableView()}
                 <div className={styles.placeBetContentContainer}>
+                    {renderBackButton()}
                     {renderTokenSelection()}
                     <div
                         className={classNames(
