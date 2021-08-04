@@ -275,12 +275,6 @@ const Bet = ({ showPopup }) => {
                                           className={styles.mobileChat}
                                       />
                                   </SwiperSlide>
-                                  <SwiperSlide className={styles.carouselSlide}>
-                                      <BetView
-                                          closed={false}
-                                          showEventEnd={true}
-                                      />
-                                  </SwiperSlide>
                               </Swiper>
                           </div>
                       </div>
@@ -314,7 +308,6 @@ const Bet = ({ showPopup }) => {
                       <div className={styles.indicators}>
                           {renderMobileMenuIndicator(0)}
                           {renderMobileMenuIndicator(1)}
-                          {renderMobileMenuIndicator(2)}
                       </div>
                   </div>
                   {renderEventCreationButton()}
