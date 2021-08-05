@@ -2,9 +2,9 @@ import _                  from 'lodash';
 import styles             from './styles.module.scss';
 import { connect }        from 'react-redux';
 import { getDefaultUser } from '../../helper/Profile';
-import TimeLeftCounter              from 'components/TimeLeftCounter';
-import Icon from 'components/Icon';
-import StateBadge from 'components/StateBadge';
+import TimeLeftCounter    from 'components/TimeLeftCounter';
+import Icon               from 'components/Icon';
+import StateBadge         from 'components/StateBadge';
 
 const RelatedBetCard = ({ onClick, bet }) => {
     const renderFooter = () => {    
