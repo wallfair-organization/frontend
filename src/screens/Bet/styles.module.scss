@@ -183,6 +183,7 @@
 
             .streamContainer
             {
+                min-height:     670px;
                 display:        flex;
                 flex-direction: column;
                 flex:           1;
@@ -230,6 +231,31 @@
             {
                 flex: 1;
             }
+
+            .switchableViewContainer 
+            {
+                margin-bottom: 1rem;
+                padding:       0 0.5rem;
+            }
+
+            .betViewClose 
+            {
+                display:     flex;
+                cursor:      pointer;
+                font-size:   15px;
+                padding-top: 0.5rem;
+
+                .arrowBack 
+                {
+                    width:        fit-content;
+                    margin-right: 1rem;
+                }
+            }
+
+            .betViewContent 
+            {
+                padding-top: 2.3rem;
+            }
         }
     }
 
@@ -273,21 +299,28 @@
                 }
             }
 
-            .relatedBetSlide
+            &.oneCarouselPage 
             {
-                height:          100%;
-                display:         flex;
-                flex-direction:  column;
-                justify-content: space-evenly;
-
-                > div
+                > div:first-child 
                 {
-                    flex:          1 0;
-                    padding:       1.5rem 1.5rem;
-                    margin-bottom: 0.5rem;
+                    > ul 
+                    {
+                        display: none;
+                    }
                 }
             }
         }
+    }
+
+    .relatedBetsNone 
+    {
+        margin:          2rem 0;
+        padding:         2rem;
+        border-radius:   10px;
+        background:      $colorWhite;
+        color:           $colorPrimaryDark;
+        display:         flex;
+        justify-content: center;
     }
 
     .mobileChat
@@ -359,7 +392,7 @@
 
     .carouselSlide
     {
-        padding: 0 0.25rem 60px;
+        padding: 0 0 60px;
     }
 
     .fixedChatButton

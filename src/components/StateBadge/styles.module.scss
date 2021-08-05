@@ -38,6 +38,17 @@
         }
     }
 
+    &.active
+    {
+        color:            $colorGreen;
+        background-color: $colorGreen30;
+
+        span
+        {
+            background-color: $colorGreen;
+        }
+    }
+
     &.closed
     {
         color:            $colorPurpleDark;

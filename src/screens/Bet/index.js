@@ -3,6 +3,7 @@ import _                            from 'lodash';
 import darkModeLogo                 from '../../data/images/logo-demo.svg';
 import FixedIconButton              from '../../components/FixedIconButton';
 import IconType                     from '../../components/Icon/IconType';
+import Icon                         from '../../components/Icon';
 import Link                         from '../../components/Link';
 import LiveBadge                    from 'components/LiveBadge';
 import Routes                       from '../../constants/Routes';
@@ -23,13 +24,18 @@ import Chat                         from '../../components/Chat';
 import classNames                   from 'classnames';
 import FixedEventCreationIconButton from '../../components/FixedEventCreationIconButton';
 import { SwiperSlide, Swiper }      from 'swiper/react';
+import SwitchableContainer          from '../../components/SwitchableContainer';
+import SwitchableHelper             from '../../helper/SwitchableHelper';
 import React                        from 'react';
 
 const Bet = ({ showPopup }) => {
-          const history                         = useHistory();
-          const [swiper, setSwiper]             = useState(null);
-          const { eventId }                     = useParams();
-          const [currentSlide, setCurrentSlide] = useState(0);
+          const history                            = useHistory();
+          const [swiper, setSwiper]                = useState(null);
+          const { eventId, betId }                 = useParams();
+          const [currentSlide, setCurrentSlide]    = useState(0);
+          const [betAction, setBetAction]          = useState(0);
+          const [activeBetId, setActiveBetId]      = useState(betId || null);
+          const [betViewIsOpen, setBetViewIsOpen]  = useState(false); 
 
           const event = useSelector(
               (state) => _.find(
@@ -70,7 +76,7 @@ const Bet = ({ showPopup }) => {
           };
 
           const getRelatedBetSliderPages = () => {
-              return _.ceil(_.size(getRelatedBets()) / 2);
+              return _.ceil(_.size(getRelatedBets()) / 3);
           };
 
           const renderRelatedBetList = () => {
@@ -93,6 +99,9 @@ const Bet = ({ showPopup }) => {
                           betId,
                       },
                   ));
+
+                  setActiveBetId(betId);
+                  setBetViewIsOpen(true);
               };
           };
 
@@ -103,9 +112,7 @@ const Bet = ({ showPopup }) => {
                   return (
                       <RelatedBetCard
                           key={index}
-                          title={bet.marketQuestion}
-                          userId={bet.creator}
-                          image={event.previewImageUrl}
+                          bet={bet}
                           onClick={onBetClick(betId)}
                       />
                   );
@@ -125,8 +132,12 @@ const Bet = ({ showPopup }) => {
 
           const renderRelatedBetSlider = (pageIndex, index) => {
               const bets        = getRelatedBets();
-              const firstIndex  = pageIndex * 2;
-              const secondIndex = firstIndex + 1;
+              const indexes = [];
+              const listLength = bets.length > 3 ? 3 : bets.length;
+
+              for(let i=0; i<listLength; i++) {
+                indexes.push(pageIndex * 3 + i);
+              }
 
               return (
                   <div
@@ -139,18 +150,129 @@ const Bet = ({ showPopup }) => {
                       {renderRelatedBetCard(
                           _.get(
                               bets,
-                              '[' + firstIndex + ']',
+                              '[' + indexes[0] + ']',
                           ),
                       )}
                       {renderRelatedBetCard(
                           _.get(
                               bets,
-                              '[' + secondIndex + ']',
+                              '[' + indexes[1] + ']',
+                          ),
+                      )}
+                      {renderRelatedBetCard(
+                          _.get(
+                              bets,
+                              '[' + indexes[2] + ']',
                           ),
                       )}
                   </div>
               );
           };
+
+          const renderBetSidebarContent = () => {
+            if(betViewIsOpen) {
+                return (
+                    <div>
+                        <div 
+                            className={styles.betViewClose} 
+                            onClick={onBetClose()}
+                        >
+                            <Icon iconType={'arrowLeft'} iconTheme={'white'} className={styles.arrowBack}/>
+                            <span>Go back to all tracks</span>
+                        </div>
+                        <div className={styles.betViewContent}>
+                            <BetView
+                                closed={false}
+                                showEventEnd={true}
+                            />
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div>
+                    {renderSwitchableView()}
+                    <div className={styles.contentContainer}>
+                        {renderContent()}
+                    </div>
+                </div>
+            );
+        }
+
+        
+
+        const onBetActionSwitch = (newIndex) => {
+            setBetAction(newIndex);
+        };
+
+          const renderSwitchableView = () => {
+            const switchableViews = [
+                SwitchableHelper.getSwitchableView(
+                    'Event Trades',
+                ),
+                SwitchableHelper.getSwitchableView(
+                    'My Trades',
+                ),
+            ];
+    
+            return (
+                <SwitchableContainer
+                    className={styles.switchableViewContainer}
+                    whiteBackground={false}
+                    switchableViews={switchableViews}
+                    currentIndex={betAction}
+                    setCurrentIndex={onBetActionSwitch}
+                />
+            );
+        };
+
+        const renderContent = () => {
+            if (betAction === 0) {
+
+                return (
+                    <div className={styles.relatedBets}>
+                        <Carousel
+                            className={classNames(
+                                styles.relatedBetsCarousel,
+                                getRelatedBets().length > 3 ? '' : styles.oneCarouselPage,
+                            )}
+                            dynamicHeight={false}
+                            emulateTouch={true}
+                            infiniteLoop={true}
+                            autoPlay={false}
+                            showArrows={false}
+                            showStatus={false}
+                        >
+                            {renderRelatedBetSliders()}
+                        </Carousel>
+                    </div>
+                );
+            }
+
+            return (
+                <div className={styles.relatedBetsNone}>
+                    No trades placed.
+                </div>
+            )
+        };
+
+        const onBetClose = () => {
+            return () => {
+                const eventId = _.get(event, '_id', null);
+
+                history.push(Routes.getRouteWithParameters(
+                    Routes.bet,
+                    {
+                        eventId,
+                        betId: '',
+                    },
+                ));
+
+                setActiveBetId(null);
+                setBetViewIsOpen(false);
+            };
+          }
 
           const renderMobileMenuIndicator = (index) => {
               return (
@@ -255,29 +377,7 @@ const Bet = ({ showPopup }) => {
                           </div>
                       </div>
                       <div className={styles.columnRight}>
-                          <div>
-                              <BetView
-                                  closed={false}
-                                  showEventEnd={true}
-                              />
-                          </div>
-                          <div className={styles.relatedBets}>
-                              <div className={styles.headline}>
-                                  <h2>🚀 Related Bets</h2>
-                                  <LiveBadge />
-                              </div>
-                              <Carousel
-                                  className={styles.relatedBetsCarousel}
-                                  dynamicHeight={false}
-                                  emulateTouch={true}
-                                  infiniteLoop={true}
-                                  autoPlay={false}
-                                  showArrows={false}
-                                  showStatus={false}
-                              >
-                                  {renderRelatedBetSliders()}
-                              </Carousel>
-                          </div>
+                          {renderBetSidebarContent()}
                       </div>
                   </div>
                   <div className={styles.mobileMenu}>
