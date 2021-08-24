@@ -45,7 +45,6 @@ const App = () => {
                             webvisor: true,
                         }}
                     />
-<<<<<<< HEAD
                     <Switch>
                         <Route exact path={Routes.logout} component={Logout} />
                         <Route exact path={Routes.join} component={Join} />
@@ -109,63 +108,6 @@ const App = () => {
                     </NavbarFooter>
                 </ConnectedRouter>
             </Provider>
-=======
-                    <Route
-                        exact
-                        path={Routes.privacyPolicy}
-                        component={PrivacyPolicy}
-                    />
-                    <Route exact path={Routes.home} component={Home} />
-                    <Route exact path={Routes.bet} component={Bet} />
-                    <Route
-                        exact
-                        path={Routes.walletDeposit}
-                        component={WalletDeposit}
-                    />
-                    <Route
-                        exact
-                        path={Routes.walletConfirmation}
-                        component={PaymentConfirmation}
-                    />
-                    <Route
-                        exact
-                        path={Routes.liveEvents}
-                        component={LiveEvents}
-                    />
-                    <Route exact path={Routes.events} component={Events} />
-                    <Route exact path={Routes.rosiGame} component={RosiGame} />
-                    <Route path={Routes.wallet} component={Wallet} />
-                    <Route path={Routes.betOverview} component={BetOverview} />
-                    <Route path={Routes.verify} component={EmailVerification} />
-                    <Redirect to={Routes.home} />
-                </Switch>
-                <NavbarFooter
-                    skipRoutes={[Routes.bet, Routes.join, Routes.verify]}
-                >
-                    <NavbarFooterAction
-                        route={Routes.home}
-                        iconType={IconType.home}
-                        text="Home"
-                    />
-                    <NavbarFooterAction
-                        route={`/live-events`}
-                        iconType={IconType.camera}
-                        text="Live Stream"
-                    />
-                    <NavbarFooterAction
-                        route={`/events`}
-                        iconType={IconType.bet2}
-                        text="Events"
-                    />
-                    <NavbarFooterAction
-                        route={Routes.rosiGame}
-                        iconType={IconType.shuttle}
-                        text="Rosi Game"
-                    />
-                </NavbarFooter>
-            </ConnectedRouter>
-        </Provider>
->>>>>>> f02ba6d61a09f72cde2dc43253bb714dacbe41ec
     );
 };
 
