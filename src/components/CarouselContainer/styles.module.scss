@@ -2,7 +2,10 @@
 
 .carouselContainer
 {
-    margin-top: 40px;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 100%;
 
     .titleContainer
     {
@@ -10,51 +13,57 @@
         flex-direction:  row;
         align-items:     center;
         justify-content: space-between;
-        padding:         0 3rem;
         margin-bottom:   30px;
 
         .title
         {
             color:       $colorWhite;
-            font-family: $fontBold;
             font-size:   24px;
         }
 
+        .titleLink {
+            font-size: 14px;
+            color: $colorWhite;
+            line-height: 12px;
+            letter-spacing: 0.6px;
+            margin-left: 20px;
+        }
     }
 
     .carousel
     {
-        padding-left: 30px;
+        display: flex;
+        align-items: flex-start;
 
-        @media (min-width: $screen-sm)
-        {
-            padding-left: 3rem;
-        }
-    }
-
-    &.carouselContainerWithoutPadding
-    {
-        .titleContainer
-        {
-            padding: 0;
+        @media (max-width: 1300px) {
+            overflow-x: scroll;
         }
 
-        .carousel
-        {
-            padding-left: 0;
+        a {
+            text-decoration: none;
+
+            @media (max-width: $screen-md) {
+                margin-bottom: 10px;
+            }
         }
     }
 }
 
 .scrollButtons
 {
-    display:         none;
+    display: flex;
     justify-content: center;
     align-items:     center;
 
     @media (min-width: $screen-md)
     {
         // display: flex;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .arrowNext,
@@ -67,71 +76,11 @@
         display:          flex;
         justify-content:  center;
         align-items:      center;
+        cursor: pointer;
 
-        span
-        {
-            cursor: pointer;
-
-            &:before
-            {
-                border-style:   solid;
-                border-width:   2px 2px 0 0;
-                content:        '';
-                display:        inline-block;
-                height:         15px;
-                position:       relative;
-                vertical-align: middle;
-                width:          15px;
-                transition:     border-color .2s ease-in;
-                border-color:   $colorWhite30;
-            }
-
-            &:hover:before
-            {
-                border-color: $colorWhite50;
-            }
-
+        &.inactive {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
-
-        &.active
-        {
-            span
-            {
-                &:before
-                {
-                    border-color: #ffffff;
-                }
-
-                &:hover:before
-                {
-                    border-color: $colorWhite70;
-                }
-            }
-        }
-
-        &.arrowNext
-        {
-
-            span:before
-            {
-                transform: rotate(45deg);
-            }
-        }
-
-        &.arrowPrev
-        {
-            span:before
-            {
-                transform: rotate(-135deg);
-            }
-        }
-    }
-}
-
-:global
-{
-    .swiper-slide
-    {
-        width: unset;
     }
 }

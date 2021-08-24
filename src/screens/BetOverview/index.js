@@ -13,7 +13,7 @@ import PopupTheme                 from '../../components/Popup/PopupTheme';
 import { PopupActions }           from '../../store/actions/popup';
 import BaseContainerWithNavbar    from '../../components/BaseContainerWithNavbar';
 import HighlightType              from '../../components/Highlight/HighlightType';
-import LiveEventCarouselContainer from '../../components/LiveEventCarouselContainer';
+import EventsCarouselContainer from '../../components/EventsCarouselContainer';
 import State                      from '../../helper/State';
 import { formatToFixed }          from '../../helper/FormatNumbers';
 
@@ -180,7 +180,7 @@ const BetOverview = ({ openBets, transactions, setSelectedBet, showPopup }) => {
             <div className={styles.contentContainer}>
                 {renderContent()}
             </div>
-            <LiveEventCarouselContainer withoutPadding={true} />
+            <EventsCarouselContainer />
         </BaseContainerWithNavbar>
     );
 };

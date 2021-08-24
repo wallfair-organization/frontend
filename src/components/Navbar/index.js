@@ -7,7 +7,7 @@ import { getProfilePictureUrl } from '../../helper/ProfilePicture';
 import Routes from '../../constants/Routes';
 import Icon from '../Icon';
 import IconType from '../Icon/IconType';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MainMenu from '../MainMenu';
 import Leaderboard from '../Leaderboard';
 import Notifications from '../Notifications';
@@ -20,6 +20,7 @@ import { useHistory } from 'react-router';
 import Wallet from '../Wallet';
 import { NavLink } from 'react-router-dom';
 import { matchPath } from 'react-router-dom';
+import { LeaderboardActions }   from '../../store/actions/leaderboard';
 
 const Navbar = ({
     user,
@@ -28,11 +29,19 @@ const Navbar = ({
     transactions,
     authState,
     location,
+    handleLeaderboardDrawer,
+    leaderboardOpen,
     skipRoutes = [],
 }) => {
     const [openDrawer, setOpenDrawer] = useState('');
     const [missingWinnerAmount, setMisingWinnerAmount] = useState(null);
     const history = useHistory();
+
+    useEffect(() => {
+        if (leaderboardOpen) {
+            setOpenDrawer(drawers.leaderboard);
+        }
+    }, [leaderboardOpen]);
 
     if (skipRoutes.some(route => matchPath(location.pathname, route))) {
         return null;
@@ -60,6 +69,10 @@ const Navbar = ({
         }
         const isDrawerOpen = openDrawer === drawerName;
         setOpenDrawer(isDrawerOpen ? '' : drawerName);
+
+        if (drawerName === drawers.leaderboard && isDrawerOpen) {
+            handleLeaderboardDrawer(false);
+        }
     };
 
     const isOpen = drawerName => openDrawer === drawerName;
@@ -233,7 +246,7 @@ const Navbar = ({
                 className={classNames(
                     style.leaderboard,
                     style.drawer,
-                    !isOpen(drawers.leaderboard) && style.drawerHidden
+                    !isOpen(drawers.leaderboard || leaderboardOpen) && style.drawerHidden
                 )}
             >
                 <Icon
@@ -329,13 +342,12 @@ const Navbar = ({
                     <img src={LogoDemo} width={200} alt={'Wallfair'} />,
                     true
                 )}
-                {isLoggedIn() && (
-                    <div className={style.linkWrapper}>
-                        {renderNavbarLink(`/live-events`, 'Live Events')}
-                        {renderNavbarLink(`/events`, 'Events')}
-                        {renderNavbarLink(Routes.rosiGame, 'Rosi Game')}
-                    </div>
-                )}
+
+                <div className={style.linkWrapper}>
+                    {renderNavbarLink(`/live-events`, 'Live Events')}
+                    {renderNavbarLink(`/events`, 'Events')}
+                    {renderNavbarLink(Routes.rosiGame, 'Rosi Game')}
+                </div>
             </div>
 
             {!isLoggedIn() && renderJoinButton()}
@@ -359,6 +371,7 @@ const mapStateToProps = state => {
         transactions: state.transaction.transactions,
         user: state.authentication,
         location: state.router.location,
+        leaderboardOpen: state.leaderboard.leaderboard.openDrawer,
     };
 };
 
@@ -366,6 +379,9 @@ const mapDispatchToProps = dispatch => {
     return {
         setUnread: notification => {
             dispatch(NotificationActions.setUnread({ notification }));
+        },
+        handleLeaderboardDrawer: (open) => {
+            dispatch(LeaderboardActions.handleDrawer({open}))
         },
     };
 };

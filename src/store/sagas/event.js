@@ -80,8 +80,45 @@ const fetchFilteredEvents = function* ({ payload }) {
     }
 };
 
+const fetchHomeEvents = function* (action) {
+    const defaultParams = yield select((state) => state.event.defaultParams);
+    const params = {
+        ...defaultParams,
+        type: action.eventType,
+        page: action.page,
+        count: action.count,
+    }
+
+    const response = yield call(Api.listEventsFiltered, params);
+
+    if (response) {
+        yield put(EventActions.fetchHomeEventsSuccess({
+            eventType: params.type,
+            events: response.data,
+            page: params.page,
+            count: params.count
+        }));
+    } else {
+        yield put(EventActions.fetchHomeEventsFail());
+    }
+}
+
+const fetchTags = function* (action) {
+    const response = yield call(Api.getTags);
+
+    if (response) {
+        yield put(EventActions.fetchTagsSuccess({
+            tags: response.data.data,
+        }));
+    } else {
+        yield put(EventActions.fetchTagsFail());
+    }
+}
+
 export default {
     fetchAll,
     fetchAllSucceeded,
     fetchFilteredEvents,
+    fetchHomeEvents,
+    fetchTags,
 };

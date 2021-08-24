@@ -15,26 +15,49 @@
     align-items: center;
 
     &.active {
-        border: 2px solid $colorRedDark;
+        border: 2px solid $colorMint;
     }
 }
 
 .boxIcon {
-    border-radius: 50%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2px;
     border: 1px solid transparent;
-
-    &.active {
-        border: 2px solid $colorRedDark;
-    }
+    position: relative;
 }
 
 .image {
     width: 80px;
     height: 106px;
+    opacity: 0.5;
+
+    &.active {
+        opacity: initial;
+    }
 }
 .imageIcon {
+    opacity: 0.5;
+
+    &.active {
+        opacity: initial;
+    }
+}
+.label {
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: white;
+    opacity: 0.5;
+    margin-top: 10px;
+
+    &.active {
+        opacity: initial;
+    }
 }

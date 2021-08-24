@@ -34,12 +34,22 @@ function CategoryListItem({ categoryItem }) {
                         <img
                             src={categoryItem.image}
                             alt={`category ${categoryItem.value}`}
-                            className={
-                                categoryItem.type === 'image'
-                                    ? styles.image
-                                    : styles.imageIcon
-                            }
+                            className={classNames({
+                                [styles.image]: categoryItem.type === 'image',
+                                [styles.imageIcon]:
+                                    categoryItem.type === 'icon',
+                                [styles.active]: categoryItem.isActive,
+                            })}
                         />
+                        {categoryItem.type === 'icon' && (
+                            <label
+                                className={classNames(styles.label, {
+                                    [styles.active]: categoryItem.isActive,
+                                })}
+                            >
+                                {categoryItem.value}
+                            </label>
+                        )}
                     </div>
                 </Link>
             </section>

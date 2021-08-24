@@ -1,4 +1,4 @@
-@import "../../../styles/all";
+@import '../../../styles/all';
 
 .title {
     font-size: 30px;
@@ -17,7 +17,7 @@
     width: 80%;
     margin: 32px auto 0;
 
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-lg) {
         display: flex;
         align-items: flex-end;
     }
@@ -29,9 +29,18 @@
 .search {
     margin-top: 20px;
 
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-lg) {
         width: 220px;
         margin-left: auto;
+        padding-left: 10px;
+    }
+}
+.sort {
+    margin-top: 20px;
+
+    @media (min-width: $screen-lg) {
+        width: 240px;
+        margin-left: 10px;
         padding-left: 10px;
     }
 }
@@ -47,5 +56,9 @@
 
     > * {
         margin-bottom: 10px;
+    }
+
+    > a {
+        text-decoration: none;
     }
 }

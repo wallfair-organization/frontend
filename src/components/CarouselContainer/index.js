@@ -4,60 +4,68 @@ import classNames              from 'classnames';
 import styles                  from './styles.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState }            from 'react';
+import IconType from '../Icon/IconType';
+import IconTheme from '../Icon/IconTheme';
+import Icon from '../Icon';
+import { Link, NavLink } from 'react-router-dom';
 
-const CarouselContainer = ({ title, children, withoutPadding = false }) => {
-    // @TODO: Any reason we use state here, even though the values are not mutated?
-    const [prevArrowVisible] = useState(false);
-    const [nextArrowVisible] = useState(true);
-
-    const getMappedChildren = () => {
-        return React.Children.map(children, (child, index) => (
-            <SwiperSlide key={index}>{child}</SwiperSlide>
-        ));
-    };
+const CarouselContainer = ({
+    children,
+    title,
+    titleLink,
+    titleLinkTo,
+    prevArrowInactive,
+    nextArrowInactive,
+    onNext,
+    onPrevious }) => {
 
     return (
         <div
             className={classNames(
                 styles.carouselContainer,
-                withoutPadding ? styles.carouselContainerWithoutPadding : null,
             )}
         >
             <div className={styles.titleContainer}>
-                <span className={styles.title}>
+                <div className={styles.title}>
                     {title}
-                </span>
+                </div>
 
                 <div className={styles.scrollButtons}>
-                    <button
-                        className={classNames(
-                            styles.arrowPrev,
-                            prevArrowVisible ? styles.active : null,
-                        )}
-                    >
-                        <span>
-                        </span>
-                    </button>
-                    <button
-                        className={classNames(
-                            styles.arrowNext,
-                            nextArrowVisible ? styles.active : null,
-                        )}
-                    >
-                        <span>
-                        </span>
-                    </button>
+                    <Link to={titleLinkTo} className={styles.titleLink}>
+                        {titleLink}
+                    </Link>
+                    <div className={styles.buttons}>
+                        <button
+                            className={classNames(
+                                styles.arrowPrev,
+                                prevArrowInactive ? styles.inactive : null,
+                            )}
+                            onClick={onPrevious}
+                            disabled={prevArrowInactive}
+                        >
+                            <Icon
+                                iconType={IconType.arrowLeft}
+                                iconTheme={IconTheme.white}
+                            />
+                        </button>
+                        <button
+                            className={classNames(
+                                styles.arrowNext,
+                                nextArrowInactive ? styles.inactive : null,
+                            )}
+                            onClick={onNext}
+                            disabled={nextArrowInactive}
+                        >
+                            <Icon
+                                iconType={IconType.arrowSmallRight}
+                                iconTheme={IconTheme.white}
+                            />
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className={styles.carousel}>
-                <Swiper
-                    slidesPerView={'auto'}
-                    pagination={{
-                        'clickable': false,
-                    }}
-                >
-                    {getMappedChildren()}
-                </Swiper>
+                {children}
             </div>
         </div>
     );

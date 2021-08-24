@@ -3,7 +3,14 @@
 .sliderContainer {
   position: relative;
   width: 100%;
+  margin-bottom: 100px;
+
+  @media screen and (min-width: $screen-lg) {
+    width: 1200px;
+    margin: 0 auto;
+  }
 }
+
 .slide {
   height: 70%;
   width: 100%;
@@ -17,8 +24,8 @@
   z-index: 0;
   opacity: 0;
 
-  @media screen and (min-width: $screen-sm) {
-    max-width: 80%;    
+  @media screen and (min-width: $screen-md) {
+    max-width: 950px;
   }
 }
 .slideCurrent {
@@ -71,7 +78,7 @@
 }
 
 .previousSlideButton {
-  left: 8px;
+  left: 8px;  
 }
 
 @media screen and (min-width: $screen-xs) {
@@ -82,7 +89,7 @@
     left: 24px;
   }
 }
-@media screen and (min-width: $screen-sm) {
+@media screen and (min-width: $screen-md) {
   .nextSlideButton,
   .previousSlideButton {
     height: 60px;
@@ -93,6 +100,15 @@
   }
   .previousSlideButton {
     left: 50px;
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  .nextSlideButton {
+    right: 0;
+  }
+  .previousSlideButton {
+    left: 0;
   }
 }
 

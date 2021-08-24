@@ -16,7 +16,8 @@ const initialState = {
         usersWithCurrent: [],
         total: 0,
         page: 0,
-        perPage: 0
+        perPage: 0,
+        openDrawer: false,
     },
 };
 
@@ -75,6 +76,7 @@ const fetchAllSucceeded = (action, state) => {
     return {
         ...state,
         leaderboard: {
+            ...state.leaderboard,
             ...action.leaderboard,
             users,
             usersWithCurrent,
@@ -82,10 +84,21 @@ const fetchAllSucceeded = (action, state) => {
     };
 };
 
+const handleDrawer = (action, state) => {
+    return {
+        ...state,
+        leaderboard: {
+            ...state.leaderboard,
+            openDrawer: action.open
+        }
+    }
+}
+
 export default function (state = initialState, action) {
     switch (action.type) {
         // @formatter:off
         case LeaderboardTypes.FETCH_ALL_SUCCEEDED: return fetchAllSucceeded(action, state);
+        case LeaderboardTypes.HANDLE_DRAWER:         return handleDrawer(action, state);
         default:                                   return state;
         // @formatter:on
     }

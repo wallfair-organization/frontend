@@ -64,6 +64,7 @@ const root = function* () {
         takeLatest([EventTypes.FETCH_ALL],                               EventSagas.fetchAll),
         takeLatest([EventTypes.FETCH_ALL_SUCCEEDED],                     EventSagas.fetchAllSucceeded),
         takeLatest([EventTypes.FETCH_FILTERED],                          EventSagas.fetchFilteredEvents),
+        takeEvery([EventTypes.FETCH_HOME_EVENTS],                        EventSagas.fetchHomeEvents),
         takeLatest([BetTypes.PLACE],                                     BetSagas.place),
         takeLatest([BetTypes.CREATE],                                    BetSagas.create),
         takeLatest([BetTypes.SET_COMMITMENT],                            BetSagas.setCommitment),
@@ -89,6 +90,7 @@ const root = function* () {
         takeLatest([REHYDRATE],                                          AuthenticationSagas.firstSignUpPopup),
         takeLatest([REHYDRATE],                                          ChatSagas.rehydrate),
         takeLatest([LeaderboardTypes.FETCH_ALL],                         LeaderboardSagas.fetchAll),
+        takeLatest([EventTypes.FETCH_TAGS],                              EventSagas.fetchTags),
         takeLatest([REHYDRATE],                                          rehydrationDone),
         // @formatter:on
     ]);

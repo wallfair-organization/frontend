@@ -1,0 +1,72 @@
+@import '../../styles/all';
+
+.selectContainer {
+    position: relative;
+    width: 100%;
+}
+
+.selectField {
+    border: $border;
+    border-radius: 4px;
+    background-color: $colorDarkSlateGray;
+    height: 44px;
+    color: white;
+    padding: 13px 46px 13px 20px;
+    width: 100%;
+    @include ellipsis;
+
+    &.open {
+        border-bottom: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.selectOptions {
+    width: 100%;
+}
+
+.selectOverflowContainer {
+    position: absolute;
+    overflow-y: auto;
+    max-height: 300px;
+    width: 100%;
+    border: $border;
+    border-radius: $radius;
+    z-index: 500;
+    background-color: $colorDarkSlateGray;
+
+    &.open {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+.selectItem {
+    width: 100%;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $colorDarkSlateGray;
+    padding: 13px 20px;
+
+    &:not(:first-child) {
+        border-top: $border;
+    }
+}
+
+.placeholder {
+    color: $colorWhite30;
+}
+
+.arrowIcon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(1.9);
+    right: 20px;
+
+    path {
+        fill: white;
+    }
+}

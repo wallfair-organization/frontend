@@ -9,6 +9,12 @@ export const EventTypes = {
     FETCH_FILTERED_FAIL: 'Event/FETCH_FILTERED_FAIL',
     SET_DEFAULT_PARAMS_VALUES: 'Event/SET_DEFAULT_PARAMS_VALUES',
     RESET_DEFAULT_PARAMS_VALUES: 'Event/RESET_DEFAULT_PARAMS_VALUES',
+    FETCH_HOME_EVENTS: 'Event/FETCH_HOME_EVENTS',
+    FETCH_HOME_EVENTS_SUCCESS: 'Event/FETCH_HOME_EVENTS_SUCCESS',
+    FETCH_HOME_EVENTS_FAIL: 'Event/FETCH_HOME_EVENTS_FAIL',
+    FETCH_TAGS: 'Event/FETCH_TAGS',
+    FETCH_TAGS_SUCCESS: 'Event/FETCH_TAGS_SUCCESS',
+    FETCH_TAGS_FAIL: 'Event/FETCH_TAGS_FAIL',
 };
 
 const fetchAll = makeActionCreator(EventTypes.FETCH_ALL);
@@ -44,6 +50,31 @@ const resetDefaultParamsValues = payload => ({
     payload,
 });
 
+const fetchHomeEvents = makeActionCreator(EventTypes.FETCH_HOME_EVENTS, {
+    eventType: null,
+    page: null,
+    count: null,
+});
+
+const fetchHomeEventsSuccess = makeActionCreator(EventTypes.FETCH_HOME_EVENTS_SUCCESS, {
+    eventType: null,
+    page: null,
+    count: null,
+    events: [],
+});
+
+const fetchHomeEventsFail = makeActionCreator(EventTypes.FETCH_HOME_EVENTS_FAIL);
+
+const fetchTags = makeActionCreator(EventTypes.FETCH_TAGS, {
+    params: {},
+});
+
+const fetchTagsSuccess = makeActionCreator(EventTypes.FETCH_TAGS_SUCCESS, {
+    tags: [],
+});
+
+const fetchTagsFail = makeActionCreator(EventTypes.FETCH_TAGS_FAIL);
+
 export const EventActions = {
     fetchAll,
     fetchAllSucceeded,
@@ -53,4 +84,10 @@ export const EventActions = {
     fetchFilteredEventsFail,
     setDefaultParamsValues,
     resetDefaultParamsValues,
+    fetchHomeEvents,
+    fetchHomeEventsSuccess,
+    fetchHomeEventsFail,
+    fetchTags,
+    fetchTagsSuccess,
+    fetchTagsFail,
 };

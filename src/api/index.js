@@ -227,6 +227,13 @@ const getChatMessagesByEventId = (eventId) => {
     });
 };
 
+const getTags = () => {
+        return Api.get(ApiUrls.API_TAGS_LIST,
+    ).catch((error) => {
+        console.log('[API Error] called: getTags', error);
+    });
+};
+
 export {
     Api,
     createBet,
@@ -249,4 +256,5 @@ export {
     verifySms,
     verifyEmail,
     resendEmailVerification,
+    getTags,
 };

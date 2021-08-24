@@ -4,6 +4,7 @@ export const LeaderboardTypes = {
     FETCH_ALL:           'Leaderboard/FETCH_ALL',
     FETCH_ALL_FAILED:    'Leaderboard/FETCH_ALL_FAILED',
     FETCH_ALL_SUCCEEDED: 'Leaderboard/FETCH_ALL_SUCCEEDED',
+    HANDLE_DRAWER:       'Leaderboard/HANDLE_DRAWER',
 };
 
 const fetchAll = makeActionCreator(
@@ -28,8 +29,16 @@ const fetchAllFailed = makeActionCreator(
     LeaderboardTypes.FETCH_ALL_FAILED,
 );
 
+const handleDrawer = makeActionCreator(
+    LeaderboardTypes.HANDLE_DRAWER,
+    {
+        open: true
+    }
+);
+
 export const LeaderboardActions = {
     fetchAll,
     fetchAllSucceeded,
     fetchAllFailed,
+    handleDrawer,
 };

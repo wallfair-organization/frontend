@@ -1,0 +1,29 @@
+@import '../../styles/all';
+
+.circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+
+    svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .circleBackground,
+    .circleProgress {
+    fill: none;
+    }
+
+    .circleBackground {
+    stroke: transparent;
+    }
+
+    .circleProgress {
+    stroke: $colorWhite;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    }
+}

@@ -4,13 +4,14 @@ import _                        from 'lodash';
 import LeaderboardItem          from '../LeaderboardItem';
 import { connect }              from 'react-redux';
 import { useState, useEffect }  from 'react';
+import { LOGGED_IN } from 'constants/AuthState';
 
 const Leaderboard = ({
                         users = [], 
                         usersWithCurrent = [], 
                         user, fetchLeaderboard, 
                         fetch = false, 
-                        setMissingAmount,
+                        setMissingAmount = () => {},
                         small = false,
                     }) => {
 
@@ -22,7 +23,7 @@ const Leaderboard = ({
 
     useEffect(() => {
         if (fetch && !fetched) {
-            fetchLeaderboard(0, LIMIT, true, SKIP_FOR_CURRENT, small ? 1 : LIMIT_FOR_CURRENT);
+            fetchLeaderboard(0, LIMIT, user.authState === LOGGED_IN, SKIP_FOR_CURRENT, small ? 1 : LIMIT_FOR_CURRENT);
             setMissingAmount(getMissingWinnerAmount());
             setFetched(true);
         }
