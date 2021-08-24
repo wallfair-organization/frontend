@@ -68,6 +68,7 @@ export const BACKEND_SOCKET_URL                   = Api.getBackendSocketUrl();
 export const API_AUTHENTICATION_REQUEST_SMS_URL   = 'api/user/login';
 export const API_AUTHENTICATION_SAVE_ADD_INFO_URL = 'api/user/saveAdditionalInformation';
 export const API_AUTHENTICATION_VERIFY_SMS_URL    = 'api/user/verifyLogin';
+export const API_BIND_WALLET_URL                  = 'api/user/bindWalletAddress';
 export const API_AUTHENTICATION_VERIFY_EMAIL      = 'api/user/confirm-email/?userId=:userId&code=:code';
 export const API_AUTHENTICATION_RESEND_EMAIL_VERIFICATION = 'api/user/resend-confirm';
 export const API_BET_CREATE                       = 'api/event/bet/create';

@@ -24,7 +24,7 @@ import ReferralLinkCopyInputBox from '../../components/ReferralLinkCopyInputBox'
 import { LOGGED_IN } from 'constants/AuthState';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 
-const Wallet = ({ balance, authState, referralCount, showPopup, transactionCount }) => {
+const Wallet = ({ balance, authState, referralCount, showPopup, transactionCount, walletAddress }) => {
     const history                           = useHistory();
     const [paymentAction, setPaymentAction] = useState(PaymentAction.deposit);
 
@@ -171,6 +171,7 @@ const Wallet = ({ balance, authState, referralCount, showPopup, transactionCount
         <BaseContainerWithNavbar withPaddingTop={true}>
             <ScreenWithHeader
                 title={'My Wallet'}
+                subtitle={walletAddress}
                 returnRoute={Routes.home}
             >
                 <div className={styles.walletContainer}>
@@ -199,6 +200,7 @@ const mapStateToProps = (state) => {
     return {
         balance:   state.authentication.balance,
         authState: state.authentication.authState,
+        walletAddress: state.authentication.walletAddress,
         referralCount,
         transactionCount,
     };

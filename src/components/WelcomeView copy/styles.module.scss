@@ -1,0 +1,115 @@
+@import '../../styles/all';
+
+.welcomeContainer
+{
+    display:          flex;
+    flex-direction:   column;
+    justify-content:  space-between;
+    align-items:      center;
+    position:         relative;
+    height:           100%;
+    width:            100%;
+    padding:          45px 0;
+    background-color: $colorWhite;
+    color:            $colorPrimaryDark;
+    font-family:      $fontBold;
+    overflow:         visible;
+
+    .welcomeHeadline
+    {
+        font-size: 16px;
+    }
+
+    .welcomeTextContainer
+    {
+        display:        flex;
+        flex-direction: column;
+
+        .welcomeTextHeadline
+        {
+            font-size:     50px;
+            margin-bottom: 10px;
+            position:      relative;
+            text-align:    center;
+            z-index:       1;
+
+            @media(min-width: $screen-sm)
+            {
+                font-size: 66px;
+            }
+
+            .welcomeTextHeadlineUnderline
+            {
+                position:      absolute;
+                bottom:        10px;
+                left:          -2.5%;
+                width:         105%;
+                border-bottom: 9px solid $colorYellowLight;
+                z-index:       -1;
+
+                @media (min-width: $screen-sm)
+                {
+                    left:  5%;
+                    width: 110%;
+                }
+            }
+        }
+
+        .welcomeTextText,
+        .welcomeTextTextBelow
+        {
+            font-size: 20px;
+
+            @media(min-width: $screen-sm)
+            {
+                font-size: 24px;
+            }
+        }
+
+        .welcomeTextTextBelow {
+            margin-top: 50px;
+        }
+    }
+
+    .welcomeConfettiLeft,
+    .welcomeConfettiRight
+    {
+        position: fixed;
+
+        &.welcomeConfettiLeft
+        {
+            left:   -10%;
+            bottom: 20%;
+
+            @media (min-width: $screen-sm)
+            {
+                left:   5%;
+                bottom: 30%;
+            }
+
+            @media (min-width: $screen-lg)
+            {
+                left:   12%;
+                bottom: 28%;
+            }
+        }
+
+        &.welcomeConfettiRight
+        {
+            right: -10%;
+            top:   8%;
+
+            @media (min-width: $screen-sm)
+            {
+                right: 5%;
+                top:   18%;
+            }
+
+            @media (min-width: $screen-lg)
+            {
+                right: 13%;
+                top:   25%;
+            }
+        }
+    }
+}

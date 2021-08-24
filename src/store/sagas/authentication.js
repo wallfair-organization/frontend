@@ -183,6 +183,9 @@ const registrationSucceeded = function* (action) {
     yield put(PopupActions.show({
         popupType: PopupTheme.welcome,
     }));
+    yield put(PopupActions.show({
+        popupType: PopupTheme.connectWallet,
+    }));
 };
 
 const authenticationSucceeded = function* (action) {
@@ -195,6 +198,9 @@ const authenticationSucceeded = function* (action) {
         yield put(AuthenticationActions.fetchReferrals());
         yield put(WebsocketsActions.init());
         yield put(push(afterLoginRoute));
+        yield put(PopupActions.show({
+            popupType: PopupTheme.connectWallet,
+        }));
     }
 };
 

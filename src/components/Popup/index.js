@@ -18,6 +18,7 @@ import SignUpPopup      from '../SignUpPopup';
 import TradeDetailView  from '../TradeDetailView';
 import TradeViewPopup   from '../TradeViewPopup';
 import EventDetailView  from '../EventDetailView';
+import WalletConnectView from '../WalletConnectView';
 
 const Popup = ({ type, visible, options, events, hidePopup }) => {
     useEffect(() => {
@@ -78,6 +79,11 @@ const Popup = ({ type, visible, options, events, hidePopup }) => {
             case PopupTheme.tradeDetails:
                 return (
                     <TradeDetailView tradeId={betId} />
+                );
+
+            case PopupTheme.connectWallet:
+                return (
+                    <WalletConnectView closed={!visible}/>
                 );
 
             case PopupTheme.welcome:

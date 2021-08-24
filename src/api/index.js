@@ -23,6 +23,15 @@ const setToken = (token) => {
     Api.defaults.headers.common['Authorization'] = authentication;
 };
 
+const bindWalletAddress = (address) => {
+    return Api.post(
+        ApiUrls.API_BIND_WALLET_URL,
+        {
+            "walletAddress": address
+        }
+    )
+}
+
 const requestSms = (phone, ref) => {
     return Api.post(
         ApiUrls.API_AUTHENTICATION_REQUEST_SMS_URL,
@@ -236,6 +245,7 @@ export {
     requestSms,
     saveAdditionalInfo,
     setToken,
+    bindWalletAddress,
     verifySms,
     verifyEmail,
     resendEmailVerification,

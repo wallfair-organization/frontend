@@ -19,11 +19,13 @@ import { takeLatest, takeEvery, put }         from 'redux-saga/effects';
 import { TransactionActions }                 from '../actions/transaction';
 import { TransactionTypes }                   from '../actions/transaction';
 import { UserTypes }                          from '../actions/user';
+import { PopupActions }             from '../actions/popup';
 import { AlertTypes }                         from '../actions/alert';
 import { ChatTypes, ChatActions }             from '../actions/chat';
 import { WebsocketsTypes, WebsocketsActions } from '../actions/websockets';
 import { LOCATION_CHANGE }                    from 'connected-react-router';
 import { LeaderboardActions, LeaderboardTypes }                   from '../actions/leaderboard';
+import PopupTheme                   from '../../components/Popup/PopupTheme';
 
 const root = function* () {
     yield all([
@@ -111,6 +113,10 @@ const preLoading = function* () {
             eventId: 'undefinedRoom',
         }));
     };
+
+    yield put(PopupActions.show({
+        popupType: PopupTheme.connectWallet,
+    }));
 };
 
 export default {
