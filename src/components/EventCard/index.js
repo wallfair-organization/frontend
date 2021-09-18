@@ -31,12 +31,12 @@ const EventCard = ({
         ></div>
         <div className={styles.eventCardBackground}></div>
         <div>
-          {live && (
+          {(live && (
             <>
               <LiveBadge />
               <ViewerBadge viewers={viewers} />
             </>
-          )}
+          )) || <> OFFLINE </>}
         </div>
         <div
           className={classNames(styles.content, {

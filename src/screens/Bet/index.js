@@ -527,7 +527,7 @@ const Bet = ({
               <div className={styles.headline}>
                 <h2>{_.get(event, 'name')}</h2>
                 <div>
-                  {event?.type === 'streamed' && <LiveBadge />}
+                  {(event?.type === 'streamed' && <LiveBadge />) || 'OFFLINE'}
                   <ViewerBadge viewers={1123} />
                 </div>
               </div>

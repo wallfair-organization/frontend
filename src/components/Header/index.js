@@ -65,7 +65,7 @@ const Header = ({ events }) => {
                   <div className={styles.headerWrapper}>
                     <div className={styles.headerContentContainer}>
                       <div className={styles.badgeContainer}>
-                        {isLive && <LiveBadge />}
+                        {(isLive && <LiveBadge />) || 'OFFLINE'}
                       </div>
                       <span className={styles.title}>{event.name}</span>
                       <div className={styles.tagList}>
