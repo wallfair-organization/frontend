@@ -9,6 +9,7 @@ import styles from './styles.module.scss';
 import TwitchEmbedVideo from '../TwitchEmbedVideo';
 import CoverFlowCarousel from '../CoverFlowCarousel';
 import TimeLeftCounter from '../TimeLeftCounter';
+import OfflineBadge from 'components/OfflineBadge';
 
 const Header = ({ events }) => {
   let [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -65,7 +66,7 @@ const Header = ({ events }) => {
                   <div className={styles.headerWrapper}>
                     <div className={styles.headerContentContainer}>
                       <div className={styles.badgeContainer}>
-                        {isLive && <LiveBadge />}
+                        {isLive ? <LiveBadge /> : <OfflineBadge />}
                       </div>
                       <span className={styles.title}>{event.name}</span>
                       <div className={styles.tagList}>
