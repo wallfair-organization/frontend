@@ -41,6 +41,8 @@ import { selectTransactions } from 'store/selectors/transaction';
 import { TransactionActions } from 'store/actions/transaction';
 import { ChatActions } from 'store/actions/chat';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
+import OfflineBadge from 'components/OfflineBadge';
+import { EVENT_STATES } from 'constants/EventStates';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -512,6 +514,9 @@ const Bet = ({
     return null;
   }
 
+  const hasOnlineState = event?.state === EVENT_STATES.ONLINE;
+  const hasOfflineState = event?.state === EVENT_STATES.OFFLINE;
+
   return (
     <BaseContainerWithNavbar withPaddingTop={true} withoutPaddingBottom={true}>
       <div className={styles.bet}>
@@ -527,7 +532,8 @@ const Bet = ({
               <div className={styles.headline}>
                 <h2>{_.get(event, 'name')}</h2>
                 <div>
-                  {event?.type === 'streamed' && <LiveBadge />}
+                  {hasOnlineState && <LiveBadge />}
+                  {hasOfflineState && <OfflineBadge />}
                   <ViewerBadge viewers={1123} />
                 </div>
               </div>

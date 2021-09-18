@@ -114,7 +114,7 @@ function EventsContent({ eventType, categories, setCategories }) {
               title={item.name}
               organizer={''}
               viewers={12345}
-              live={item.state === 'online'}
+              state={item.state}
               tags={mappedTags(item._id)}
               image={item.previewImageUrl}
               eventEnd={item.date}
