@@ -1,7 +1,7 @@
 @import '../../styles/all';
 
-.liveBadge {
-  background-color: $colorRed;
+.OfflineBadge {
+  background-color: $colorBlack;
   font-family: $fontLight;
   text-transform: uppercase;
   padding: 0.25rem 0.5rem;
@@ -13,12 +13,4 @@
   margin-right: 0.5rem;
   height: 25px;
   user-select: none;
-
-  span {
-    width: 8px;
-    height: 8px;
-    background-color: $colorWhite;
-    border-radius: 50%;
-    margin-right: 0.25rem;
-  }
 }
