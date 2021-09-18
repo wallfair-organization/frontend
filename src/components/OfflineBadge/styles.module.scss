@@ -1,0 +1,16 @@
+@import "../../styles/all";
+
+.offlineBadge {
+    background-color: $colorGrayLight2;
+    font-family:      $fontLight;
+    text-transform:   uppercase;
+    padding:          0.25rem 0.5rem;
+    font-size:        12px;
+    border-radius:    4px;
+    display:          inline-flex;
+    justify-content:  center;
+    align-items:      center;
+    margin-right:     0.5rem;
+    height:           25px;
+    user-select:      none;   
+}
