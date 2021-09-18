@@ -21,6 +21,7 @@ const EventCard = ({
 }) => {
   const isOnlineState = state === EVENT_STATES.ONLINE;
   const isOfflineState = state === EVENT_STATES.OFFLINE;
+  const isUndefined = state === undefined;
 
   const getEventCardStyle = () => {
     return {
@@ -44,6 +45,7 @@ const EventCard = ({
             </>
           )}
           {isOfflineState && <OfflineBadge />}
+          {isUndefined && <OfflineBadge />}
         </div>
         <div
           className={classNames(styles.content, {
