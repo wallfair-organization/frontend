@@ -6,27 +6,28 @@ const TSlider = withStyles({
   root: {
     color: '#6751EC',
     height: 6,
+    opacity: '0.6',
   },
   thumb: {
-    height: 33,
-    width: 33,
-    backgroundColor: '#fff',
-    border: '8px solid currentColor',
+    height: 30,
+    width: 30,
     marginTop: -14,
     marginLeft: -12,
+    backgroundColor: '#fff',
+    border: '3px solid currentColor',
     '&:focus, &:hover, &$active': {
       boxShadow: 'inherit',
     },
   },
   active: {},
   valueLabel: {
-    left: 'calc(-50%)',
+    left: 'calc(-10%)',
     top: -32,
     '& *': {
       background: 'transparent',
       color: '#000',
       fontFamily: 'PlusJakarta-Regular',
-      fontSize: 16,
+      fontSize: 12,
       fontStyle: 'normal',
       fontWeight: 700,
       letterSpacing: 0,
@@ -44,8 +45,12 @@ const TSlider = withStyles({
     opacity: 1,
   },
   mark: {
-    width: 0,
-    height: 0,
+    width: 10,
+    height: 10,
+    borderRadius: '50%',
+    color: '#6751EC !important',
+    marginTop: -2,
+    marginLeft: -4,
   },
   markLabel: {
     top: -5,
@@ -55,7 +60,7 @@ const TSlider = withStyles({
     fontWeight: 400,
     letterSpacing: 0,
     textAlign: 'left',
-    marginLeft: -1,
+    // marginLeft: -1,
   },
 })(Slider);
 
@@ -66,12 +71,24 @@ const TokenSlider = ({ value, setValue, maxValue, ...props }) => {
 
   const marks = [
     {
-      value: 1,
-      label: 1,
+      value: maxValue * 0.0,
+      label: '0%',
     },
     {
-      value: maxValue,
-      label: maxValue,
+      value: maxValue * 0.25,
+      label: '25%',
+    },
+    {
+      value: maxValue * 0.5,
+      label: '50%',
+    },
+    {
+      value: maxValue * 0.75,
+      label: '75%',
+    },
+    {
+      value: maxValue * 1.0,
+      label: '100%',
     },
   ];
 
@@ -86,6 +103,7 @@ const TokenSlider = ({ value, setValue, maxValue, ...props }) => {
         setValue(v);
       }}
       valueLabelDisplay="on"
+      valueLabelFormat={val => `${((val * 100) / maxValue).toFixed(2)}%`}
       className={styles.tokenSlider}
       marks={marks}
     />
