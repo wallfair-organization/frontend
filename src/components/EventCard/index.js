@@ -5,6 +5,7 @@ import ViewerBadge from '../ViewerBadge';
 import Tags from '../Tags';
 import TimeLeftCounter from '../TimeLeftCounter';
 import classNames from 'classnames';
+import OfflineBadge from 'components/OfflineBadge';
 
 const EventCard = ({
   onClick,
@@ -31,11 +32,13 @@ const EventCard = ({
         ></div>
         <div className={styles.eventCardBackground}></div>
         <div>
-          {live && (
+          {live ? (
             <>
               <LiveBadge />
               <ViewerBadge viewers={viewers} />
             </>
+          ) : (
+            <OfflineBadge />
           )}
         </div>
         <div
