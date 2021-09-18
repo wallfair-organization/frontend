@@ -64,28 +64,33 @@ const TokenSlider = ({ value, setValue, maxValue, ...props }) => {
     maxValue = 2800;
   }
 
+  value = (value / maxValue) * 100;
+
   const marks = [
-    {
-      value: 1,
-      label: 1,
-    },
-    {
-      value: maxValue,
-      label: maxValue,
-    },
+    { value: 0, label: '0%' },
+    { value: 25, label: '25%' },
+    { value: 50, label: '50%' },
+    { value: 75, label: '75%' },
+    { value: 100, label: '100%' },
   ];
+
+  function valueLabelFormat(value) {
+    return parseInt(value) + '%';
+  }
 
   return (
     <TSlider
       valueLabelDisplay="auto"
       aria-label="pretto slider"
-      min={1}
-      max={maxValue}
+      min={0}
+      max={100}
       value={value}
       onChange={(event, v) => {
-        setValue(v);
+        const newValue = (maxValue * v) / 100;
+        setValue(newValue);
       }}
       valueLabelDisplay="on"
+      valueLabelFormat={valueLabelFormat}
       className={styles.tokenSlider}
       marks={marks}
     />
