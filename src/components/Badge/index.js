@@ -9,7 +9,7 @@ const Badge = ({ isLive = true }) => {
         [styles.offline]: !isLive,
       })}
     >
-      <span></span>
+      {isLive && <span></span>}
       {isLive ? 'Live' : 'Offline'}
     </span>
   );
