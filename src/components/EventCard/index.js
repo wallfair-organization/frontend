@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import LiveBadge from '../LiveBadge';
+import Badge from '../Badge';
 import ViewerBadge from '../ViewerBadge';
 import Tags from '../Tags';
 import TimeLeftCounter from '../TimeLeftCounter';
@@ -33,10 +33,11 @@ const EventCard = ({
         <div>
           {live && (
             <>
-              <LiveBadge />
+              <Badge />
               <ViewerBadge viewers={viewers} />
             </>
           )}
+          {!live && <Badge isLive={false} />}
         </div>
         <div
           className={classNames(styles.content, {

@@ -2,7 +2,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import _ from 'lodash';
 import Icon from '../../components/Icon';
 import Link from '../../components/Link';
-import LiveBadge from 'components/LiveBadge';
+import LiveBadge from 'components/Badge';
 import Routes from '../../constants/Routes';
 import styles from './styles.module.scss';
 import TimeLeftCounter from 'components/TimeLeftCounter';
@@ -41,6 +41,7 @@ import { selectTransactions } from 'store/selectors/transaction';
 import { TransactionActions } from 'store/actions/transaction';
 import { ChatActions } from 'store/actions/chat';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
+import { Badge } from '@material-ui/core';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -527,7 +528,7 @@ const Bet = ({
               <div className={styles.headline}>
                 <h2>{_.get(event, 'name')}</h2>
                 <div>
-                  {event?.type === 'streamed' && <LiveBadge />}
+                  {event?.type === 'streamed' && <Badge />}
                   <ViewerBadge viewers={1123} />
                 </div>
               </div>

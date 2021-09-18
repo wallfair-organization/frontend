@@ -4,7 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 import _ from 'lodash';
 import classNames from 'classnames';
 import moment from 'moment';
-import LiveBadge from '../LiveBadge';
+import Badge from '../Badge';
 import styles from './styles.module.scss';
 import TwitchEmbedVideo from '../TwitchEmbedVideo';
 import CoverFlowCarousel from '../CoverFlowCarousel';
@@ -65,7 +65,7 @@ const Header = ({ events }) => {
                   <div className={styles.headerWrapper}>
                     <div className={styles.headerContentContainer}>
                       <div className={styles.badgeContainer}>
-                        {isLive && <LiveBadge />}
+                        {isLive && <Badge />}
                       </div>
                       <span className={styles.title}>{event.name}</span>
                       <div className={styles.tagList}>
