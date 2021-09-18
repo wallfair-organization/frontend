@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './styles.module.scss';
+import { EVENT_STATES } from 'constants/EventStates';
 import LiveBadge from '../LiveBadge';
 import ViewerBadge from '../ViewerBadge';
+import OfflineBadge from '../OfflineBadge';
 import Tags from '../Tags';
 import TimeLeftCounter from '../TimeLeftCounter';
 import classNames from 'classnames';
@@ -11,17 +13,21 @@ const EventCard = ({
   title,
   organizer,
   image,
-  live,
+  state,
   viewers,
   tags,
   eventEnd,
   eventCardClass,
 }) => {
+  const isOnlineState = state === EVENT_STATES.ONLINE;
+  const isOfflineState = state === EVENT_STATES.OFFLINE;
+
   const getEventCardStyle = () => {
     return {
       backgroundImage: 'url("' + image + '")',
     };
   };
+
   return (
     <div className={styles.eventCardContainer} onClick={onClick}>
       <div className={classNames(styles.eventCard, eventCardClass)}>

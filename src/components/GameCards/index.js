@@ -20,32 +20,36 @@ const GameCards = ({ games, category }) => {
       <div className={styles.games}>
         {games.map((game, index) => {
           return (
-            <Link
-              to={game.linkTo}
-              className={classNames(
-                styles.gameLink,
-                !game.active ? styles.gameLinkInactive : null
-              )}
-            >
-              <div
-                key={index}
+            <div className={styles.wrapper}>
+              <Link
+                to={game.linkTo}
                 className={classNames(
-                  styles.gameItem,
-                  game.active ? null : styles.inactive,
-                  getGameItemSizeClass()
+                  styles.gameLink,
+                  !game.active ? styles.gameLinkInactive : null
                 )}
               >
-                <img src={game.background} />
-                <div className={styles.gameInfo}>
-                  <div className={styles.subtitle}>{game.subtitle}</div>
-                  <div className={styles.title}>{game.title}</div>
-                  <div className={styles.description}>{game.description}</div>
+                <div
+                  key={index}
+                  className={classNames(
+                    styles.gameItem,
+                    game.active ? null : styles.inactive,
+                    getGameItemSizeClass()
+                  )}
+                >
+                  <img src={game.background} />
+                  <div className={styles.gameInfo}>
+                    <div className={styles.subtitle}>{game.subtitle}</div>
+                    <div className={styles.title}>{game.title}</div>
+                    <div className={styles.description}>{game.description}</div>
+                  </div>
+                  {!game.active && (
+                    <div className={styles.inactivePlaceholder}>
+                      Comming Soon
+                    </div>
+                  )}
                 </div>
-                {!game.active && (
-                  <div className={styles.inactivePlaceholder}>Comming Soon</div>
-                )}
-              </div>
-            </Link>
+              </Link>
+            </div>
           );
         })}
       </div>

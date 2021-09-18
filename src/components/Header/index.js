@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 import _ from 'lodash';
 import classNames from 'classnames';
 import moment from 'moment';
+import { EVENT_STATES } from 'constants/EventStates';
 import LiveBadge from '../LiveBadge';
 import styles from './styles.module.scss';
 import TwitchEmbedVideo from '../TwitchEmbedVideo';
@@ -16,7 +17,9 @@ const Header = ({ events }) => {
   const location = useLocation();
 
   useEffect(() => {
-    setCurrentEvents(events.filter(event => event.state === 'online'));
+    setCurrentEvents(
+      events.filter(event => event.state === EVENT_STATES.ONLINE)
+    );
   }, [events]);
 
   const renderContent = (event, eventIndex, index) => {

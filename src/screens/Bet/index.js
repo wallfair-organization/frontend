@@ -41,6 +41,8 @@ import { selectTransactions } from 'store/selectors/transaction';
 import { TransactionActions } from 'store/actions/transaction';
 import { ChatActions } from 'store/actions/chat';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
+import OfflineBadge from 'components/OfflineBadge';
+import { EVENT_STATES } from 'constants/EventStates';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -511,6 +513,9 @@ const Bet = ({
   if (!event) {
     return null;
   }
+
+  const hasOnlineState = event?.state === EVENT_STATES.ONLINE;
+  const hasOfflineState = event?.state === EVENT_STATES.OFFLINE;
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true} withoutPaddingBottom={true}>
