@@ -44,11 +44,13 @@ const TSlider = withStyles({
     opacity: 1,
   },
   mark: {
-    width: 0,
-    height: 0,
+    width: 6,
+    height: 6,
+    backgroundColor: '#fff',
+    borderRadius: '50%',
   },
   markLabel: {
-    top: -5,
+    top: -15,
     fontFamily: 'PlusJakarta-Regular',
     fontSize: 11,
     fontStyle: 'normal',
@@ -66,28 +68,45 @@ const TokenSlider = ({ value, setValue, maxValue, ...props }) => {
 
   const marks = [
     {
-      value: 1,
-      label: 1,
+      value: 0,
+      label: '0%',
+    },
+    {
+      value: 0.25 * maxValue,
+      label: '25%',
+    },
+    {
+      value: 0.5 * maxValue,
+      label: '50%',
+    },
+    {
+      value: 0.75 * maxValue,
+      label: '75%',
     },
     {
       value: maxValue,
-      label: maxValue,
+      label: '100%',
     },
   ];
 
+  const valuetext = value => {
+    return `${value}%`;
+  };
+
   return (
     <TSlider
-      valueLabelDisplay="auto"
-      aria-label="pretto slider"
+      valueLabelDisplay="off"
+      aria-label="Restricted values"
       min={1}
       max={maxValue}
       value={value}
+      getAriaValueText={valuetext}
       onChange={(event, v) => {
         setValue(v);
       }}
-      valueLabelDisplay="on"
       className={styles.tokenSlider}
       marks={marks}
+      step={null}
     />
   );
 };
