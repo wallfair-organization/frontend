@@ -301,6 +301,12 @@ const createEventFromYoutubeUrl = data => {
     .catch(error => ({ error: error.message }));
 };
 
+const getCoverStream = () => {
+  return Api.get(ApiUrls.API_EVENT_GET_COVER_STREAM)
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
 export {
   Api,
   createBet,
@@ -336,4 +342,5 @@ export {
   updateUserPreferences,
   createEventFromTwitchUrl,
   createEventFromYoutubeUrl,
+  getCoverStream,
 };
