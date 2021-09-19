@@ -36,6 +36,7 @@ const TwitchEmbedVideo = ({
 
   return (
     <ReactTwitchEmbedVideo
+      controls={true}
       {...props}
       targetId={getId()}
       targetClass={classNames(styles.twitchStream, className)}
@@ -48,7 +49,6 @@ const TwitchEmbedVideo = ({
       muted={muted}
       allowfullscreen={true}
       layout={'video'}
-      controls={true}
       parent={embeddingDomains}
     />
   );
