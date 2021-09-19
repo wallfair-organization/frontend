@@ -118,6 +118,7 @@ function EventsContent({ eventType, categories, setCategories }) {
               tags={mappedTags(item._id)}
               image={item.previewImageUrl}
               eventEnd={item.date}
+              streamUrl={item.streamUrl}
             />
           </Link>
         ))}

@@ -18,6 +18,7 @@ const EventCard = ({
   tags,
   eventEnd,
   eventCardClass,
+  streamUrl,
 }) => {
   const isOnlineState = state === EVENT_STATES.ONLINE;
   const isOfflineState = state === EVENT_STATES.OFFLINE;
