@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.scss';
 import { EVENT_STATES } from 'constants/EventStates';
 import LiveBadge from '../LiveBadge';
@@ -7,6 +7,7 @@ import OfflineBadge from '../OfflineBadge';
 import Tags from '../Tags';
 import TimeLeftCounter from '../TimeLeftCounter';
 import classNames from 'classnames';
+import TwitchEmbedVideo from 'components/TwitchEmbedVideo';
 
 const EventCard = ({
   onClick,
@@ -29,13 +30,31 @@ const EventCard = ({
     };
   };
 
+  const imgContainer = (
+    <div
+      className={styles.eventCardBackgroundBlur}
+      style={getEventCardStyle()}
+    ></div>
+  );
+
+  const videoPlayer = (
+    <div className={styles.eventCardBackground}>
+      <TwitchEmbedVideo video={streamUrl} controls={false} />
+    </div>
+  );
+
+  const [showVideo, setShowVideo] = useState(false);
+
   return (
-    <div className={styles.eventCardContainer} onClick={onClick}>
+    <div
+      className={styles.eventCardContainer}
+      onClick={onClick}
+      onMouseEnter={() => setShowVideo(true)}
+      onMouseLeave={() => setShowVideo(false)}
+    >
       <div className={classNames(styles.eventCard, eventCardClass)}>
-        <div
-          className={styles.eventCardBackgroundBlur}
-          style={getEventCardStyle()}
-        ></div>
+        {!showVideo && imgContainer}
+        {showVideo && videoPlayer}
         <div className={styles.eventCardBackground}></div>
         <div>
           {isOnlineState && (
