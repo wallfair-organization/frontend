@@ -48,4 +48,3 @@ export const API_CHAT_MESSAGES =
   'api/chat/chat-messages/:roomId?skip=:skip&limit=:limit';
 export const API_EVENT_CREATE_FROM_TWITCH = 'api/event/extract/twitch';
 export const API_EVENT_CREATE_FROM_YOUTUBE = 'api/event/create-from-youtube';
-export const API_EVENT_GET_COVER_STREAM = 'api/event/cover/streamed';

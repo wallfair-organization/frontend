@@ -68,7 +68,12 @@ function EventsContent({ eventType, categories, setCategories }) {
 
   return (
     <>
+      <section className={styles.title}>Popular Categories</section>
       <section className={styles.header}>
+        <CategoryList
+          categories={categories}
+          handleSelect={handleSelectCategory}
+        />
         <div className={styles.search}>
           <Search
             value={searchInput}
@@ -84,13 +89,6 @@ function EventsContent({ eventType, categories, setCategories }) {
             handleSelect={handleSelectSortItem}
           />
         </div>
-      </section>
-      <section className={styles.title}>Popular Categories</section>
-      <section className={styles.header}>
-        <CategoryList
-          categories={categories}
-          handleSelect={handleSelectCategory}
-        />
       </section>
       <section className={styles.title}>
         {eventType === 'streamed' ? 'Current Live Streams' : 'Events'}
