@@ -22,6 +22,9 @@
   text-align: left;
   line-height: 12px;
   margin-top: 18px;
+  &.warning{
+    color: $colorRed;
+  }
 }
 .titlelabel {
   display: block;
@@ -202,6 +205,9 @@
 
     -moz-appearance: textfield;
   }
+  &.warning{
+    border: 2px solid $colorRed;
+  }
 
   .eventTokenLabel {
     color: $colorGrayLight1;
@@ -213,4 +219,20 @@
     letter-spacing: 0px;
     text-align: left;
   }
+}
+
+.error{
+  padding-top: 10px;
+  font-size: 14px;
+  color: $colorRed;
+  .why{
+    text-decoration: underline;
+    cursor: default;
+  }
+}
+
+.tooltip {
+  font-family: $fontBold;
+  background-color: $colorPrimary45 !important;
+  text-align: left !important;
 }

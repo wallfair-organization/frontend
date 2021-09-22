@@ -6,11 +6,13 @@ import _ from 'lodash';
 import Twitch from './Twitch';
 import Trovo from './Trovo';
 import Youtube from './Youtube';
+import Dacast from './Dacast';
 
 const VideoComponents = {
   twitch: Twitch,
   youtube: Youtube,
   trovo: Trovo,
+  dacast: Dacast,
   unknown: null,
 };
 
@@ -24,6 +26,8 @@ const checkStreamType = url => {
     return 'twitch';
   } else if (host.indexOf('trovo') > -1) {
     return 'trovo';
+  } else if (host.indexOf('dacast') > -1) {
+    return 'dacast';
   } else {
     return 'unknown';
   }
@@ -53,6 +57,7 @@ const UniversalVideoEmbed = props => {
   return (
     <div className={classNames(styles.universalStream, className)}>
       <SelectedComponent
+        {...props}
         width={'100%'}
         height={'100%'}
         video={video}
@@ -63,7 +68,6 @@ const UniversalVideoEmbed = props => {
         embeddingDomains={embeddingDomains}
         autoplay={autoPlay}
         muted={muted}
-        {...props}
       />
     </div>
   );

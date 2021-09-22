@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
+import ReactTooltip from 'react-tooltip';
 import * as Api from 'api/crash-game';
 import { RosiGameActions } from 'store/actions/rosi-game';
 import { AlertActions } from 'store/actions/alert';
@@ -15,7 +16,7 @@ import Routes from 'constants/Routes';
 import Input from '../Input';
 import useCurrentUser from 'hooks/useCurrentUser';
 import TokenSlider from 'components/TokenSlider';
-import { round } from 'lodash/math';
+import { round, ceil } from 'lodash/math';
 import _ from 'lodash';
 
 const PlaceBet = () => {
@@ -28,6 +29,8 @@ const PlaceBet = () => {
   const userPlacedABet = useSelector(selectUserBet);
   const [amount, setAmount] = useState(sliderMinAmount);
   const [crashFactor, setCrashFactor] = useState(1);
+  const [showCashoutWarning, setShowCashoutWarning] = useState(false);
+  const [crashFactorDirty, setCrashFactorDirty] = useState(false);
   const userUnableToBet =
     isGameRunning || userPlacedABet || amount < 1 || crashFactor < 1;
 
@@ -37,13 +40,30 @@ const PlaceBet = () => {
     // debouncedSetCommitment(number, currency);
   };
   const onCrashFactorChange = event => {
+    setCrashFactorDirty(true);
     let value = _.get(event, 'target.value', 0);
     const regex = new RegExp('^0+(?!$)', 'g');
-    const result = round(_.toNumber(value.replaceAll(regex, '')), 2);
+    const v = value.replaceAll(regex, '');
+
+    const [f, s] = v.split('.');
+    let result = round(v, 2);
+    //check so we don't round up values such as 1.05
+    //TODO: look for a better way to achieve this
+    if (f && s && s === '0') {
+      result = v;
+    }
     event.target.value = result;
-    setCrashFactor(result);
+    setCrashFactor(round(v, 2));
+    if (result > 0 && result < 1) {
+      setShowCashoutWarning(true);
+    } else {
+      setShowCashoutWarning(false);
+    }
     // debouncedSetCommitment(number, currency);
   };
+  useEffect(() => {
+    ReactTooltip.rebuild();
+  }, [showCashoutWarning]);
 
   const placeABet = () => {
     if (userUnableToBet) return;
@@ -91,12 +111,24 @@ const PlaceBet = () => {
         </div>
       </div>
       <div className={styles.inputContainer}>
-        <label className={styles.label}>Auto Cashout at</label>
-        <div className={classNames(styles.cashedOutInputContainer)}>
+        <label
+          className={classNames(
+            styles.label,
+            showCashoutWarning ? styles.warning : null
+          )}
+        >
+          Auto Cashout at
+        </label>
+        <div
+          className={classNames(
+            styles.cashedOutInputContainer,
+            showCashoutWarning ? styles.warning : null
+          )}
+        >
           <Input
             className={styles.input}
             type={'number'}
-            value={crashFactor}
+            value={!crashFactorDirty ? '1.00' : crashFactor}
             onChange={onCrashFactorChange}
             step={0.01}
             min="1"
@@ -106,6 +138,28 @@ const PlaceBet = () => {
             <span>X</span>
           </span>
         </div>
+        {showCashoutWarning ? (
+          <div className={styles.error}>
+            <span>Betting less than 1 is not recommended. </span>
+            <span
+              data-for="rt"
+              className={styles.why}
+              data-tip="The multiplying factor defines your final reward.<br/>
+             A multiplier of 2x means twice the reward, when the game ends.<br/>
+              If the game ends before your multiplier,<br/> your amount invested is lost.<br/>"
+            >
+              Understand why.
+            </span>
+          </div>
+        ) : null}
+        <ReactTooltip
+          id={'rt'}
+          place="top"
+          effect="solid"
+          offset={{ bottom: 10 }}
+          multiline
+          className={styles.tooltip}
+        />
       </div>
       <span
         role="button"
