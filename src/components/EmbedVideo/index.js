@@ -41,6 +41,7 @@ const UniversalVideoEmbed = props => {
     channel,
     autoPlay = true,
     muted = false,
+    controls,
   } = props;
 
   const streamType = checkStreamType(video);
@@ -61,10 +62,7 @@ const UniversalVideoEmbed = props => {
         width={'100%'}
         height={'100%'}
         video={video}
-        theme={'dark'}
-        allowfullscreen={true}
-        layout={'video'}
-        controls={true}
+        controls={controls}
         embeddingDomains={embeddingDomains}
         autoplay={autoPlay}
         muted={muted}
