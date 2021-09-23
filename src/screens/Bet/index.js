@@ -46,6 +46,7 @@ import OfflineBadge from 'components/OfflineBadge';
 import { EVENT_STATES } from 'constants/EventStates';
 import IconType from 'components/Icon/IconType';
 import IconTheme from 'components/Icon/IconTheme';
+import EventTypes from 'constants/EventTypes';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -102,11 +103,11 @@ const Bet = ({
 
   const selectSingleBet = bets => {
     if (relatedBets.length || bets.length) {
-      const singleBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
-      if (singleBet?.state !== 'active') return;
+      const loneBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
+      if (loneBet?.status !== 'active') return;
 
-      const betId = _.get(singleBet, '_id');
-      const betSlug = _.get(singleBet, 'slug');
+      const betId = _.get(loneBet, '_id');
+      const betSlug = _.get(loneBet, 'slug');
       selectBet(betId, betSlug);
       setSingleBet(true);
     }
@@ -562,19 +563,21 @@ const Bet = ({
                 />
                 Edit Event
               </span>
-              <span
-                className={styles.newBetLink}
-                onClick={() => showPopup(PopupTheme.newBet, { event })}
-              >
-                <Icon
-                  className={styles.icon}
-                  iconType={IconType.addBet}
-                  iconTheme={IconTheme.white}
-                  height={24}
-                  width={24}
-                />
-                New Bet
-              </span>
+              {event.type === EventTypes.streamed && (
+                <span
+                  className={styles.newBetLink}
+                  onClick={() => showPopup(PopupTheme.newBet, { event })}
+                >
+                  <Icon
+                    className={styles.icon}
+                    iconType={IconType.addBet}
+                    iconTheme={IconTheme.white}
+                    height={24}
+                    width={24}
+                  />
+                  New Bet
+                </span>
+              )}
             </div>
           </AdminOnly>
         </div>

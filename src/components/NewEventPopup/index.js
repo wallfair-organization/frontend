@@ -25,9 +25,8 @@ const NewLiveEvents = ({ eventType }) => {
   return (
     <div className={styles.layout}>
       <h2>Event Settings</h2>
-      <br />
       {selectedMenu === '' && (
-        <>
+        <div className={styles.menuOptions}>
           <Button className={styles.addOutcomeButton} onClick={openTwitchMenu}>
             Import From Twitch
           </Button>
@@ -39,7 +38,7 @@ const NewLiveEvents = ({ eventType }) => {
           <Button className={styles.addOutcomeButton} onClick={openManualMenu}>
             Input Manually
           </Button>
-        </>
+        </div>
       )}
       {selectedMenu === 'twitch' && <ImportFromTwitch />}
       {selectedMenu === 'youtube' && <ImportFromYoutube />}

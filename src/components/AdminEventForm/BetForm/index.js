@@ -62,7 +62,7 @@ const BetForm = ({ setBetData, styles }) => {
   return (
     <div className={styles.betForm}>
       <h3>Bet Data</h3>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Name</InputLabel>
         <Input
           type="text"
@@ -70,7 +70,7 @@ const BetForm = ({ setBetData, styles }) => {
           onChange={updateValue('marketQuestion')}
         />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Options</InputLabel>
         <Tags
           tags={outcomes}
@@ -79,7 +79,7 @@ const BetForm = ({ setBetData, styles }) => {
           removeTag={removeTag}
         />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Evidence Description</InputLabel>
         <Input
           type="text"
@@ -87,7 +87,7 @@ const BetForm = ({ setBetData, styles }) => {
           onChange={updateValue('evidenceDescription')}
         />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>End Date</InputLabel>
         <DateTimePicker
           value={endDate}

@@ -8,8 +8,7 @@ const EditEventPopup = () => {
   return (
     <div className={styles.layout}>
       <h2>Event Settings</h2>
-      <br />
-      <AdminEventForm event={event} />
+      <AdminEventForm event={event} eventType={event.type} />
     </div>
   );
 };

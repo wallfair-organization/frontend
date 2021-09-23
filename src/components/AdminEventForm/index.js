@@ -100,7 +100,7 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
 
   const renderStreamInput = () => (
     <>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Stream URL</InputLabel>
         <Input type="text" value={streamUrl} onChange={setStreamUrl} />
       </FormGroup>
@@ -109,16 +109,16 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
 
   return (
     <>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Event Name</InputLabel>
         <Input type="text" value={name} onChange={onNameChange} />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>SEO-Optimized URL Piece</InputLabel>
         <Input type="text" value={slug} onChange={setSlug} />
       </FormGroup>
       {isStreamedEventType && renderStreamInput()}
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>
           {isStreamedEventType ? 'Offline Picture URL' : 'Event Poster URL'}
         </InputLabel>
@@ -128,24 +128,26 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
           onChange={setPreviewImageUrl}
         />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Category</InputLabel>
         <Select
           value={category}
           handleSelect={setCategory}
           options={categoriesOptions}
+          className={styles.select}
         />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Tags</InputLabel>
         <Tags
           tags={tags}
           onTagChange={handleTagChange}
           addTag={addTag}
           removeTag={removeTag}
+          max={4}
         />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Date</InputLabel>
         <DateTimePicker
           value={date}
@@ -153,17 +155,19 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
           ampm={false}
         />
       </FormGroup>
-      {!isStreamedEventType && (
+      {!isStreamedEventType && !event && (
         <BetForm setBetData={setBetData} styles={styles} />
       )}
-      <span
-        role="button"
-        tabIndex="0"
-        className={styles.button}
-        onClick={handleSave}
-      >
-        Save
-      </span>
+      <div className={styles.buttonContainer}>
+        <span
+          role="button"
+          tabIndex="0"
+          className={styles.button}
+          onClick={handleSave}
+        >
+          Save
+        </span>
+      </div>
     </>
   );
 };

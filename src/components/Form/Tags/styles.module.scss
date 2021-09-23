@@ -13,25 +13,18 @@
 
 .tags {
   overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  grid-gap: 10px;
 }
 
 .tag {
   position: relative;
-  width: 175px;
-  float: left;
-  margin-bottom: 10px;
-}
-
-.tag:nth-child(odd) {
-  margin-right: 5px;
-}
-
-.tag:nth-child(even) {
-  margin-left: 5px;
+  flex: 160px 0 1;
 }
 
 .newTag {
-  height: 52px;
+  height: 38px;
   width: 100%;
   display: inline-flex;
   align-items: center;
@@ -47,7 +40,8 @@
 .deleteTag {
   display: inline-block;
   position: absolute;
-  top: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
 
   &:hover {
