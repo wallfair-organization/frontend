@@ -14,13 +14,15 @@ import styles from './styles.module.scss';
 import { connect } from 'react-redux';
 import { setUniqueSlug } from '../../helper/Slug';
 import { PopupActions } from '../../store/actions/popup';
+import eventTypes from 'constants/EventTypes';
+import BetForm from './BetForm';
 
 const categoriesOptions = LIVE_EVENTS_CATEGORIES.map(c => ({
   label: c.value,
   value: c.value,
 }));
 
-const AdminEventForm = ({ event = null, eventSlugs, hidePopup }) => {
+const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
   const [name, setName] = useState(event?.name || '');
   const [slug, setSlug] = useState(event?.slug || '');
   const [streamUrl, setStreamUrl] = useState(event?.streamUrl || '');
@@ -34,6 +36,9 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup }) => {
     event?.tags || [{ _id: Date.now().toString(), name: '' }]
   );
   const [date, setDate] = useState(event?.date || new Moment());
+  const [betData, setBetData] = useState({});
+
+  const isStreamedEventType = eventType === eventTypes.streamed;
 
   const onNameChange = newName => {
     const slugs =
@@ -52,12 +57,13 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup }) => {
     const payload = {
       name,
       slug,
-      streamUrl,
       previewImageUrl,
+      streamUrl: isStreamedEventType ? streamUrl : 'dummy',
       category,
       tags: tags.map(t => ({ name: t.name })).filter(t => t.name !== ''),
       date,
-      type: event ? event.type : 'streamed',
+      type: event ? event.type : eventType,
+      ...(!isStreamedEventType && { bet: betData }),
     };
 
     if (event) {
@@ -92,6 +98,15 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup }) => {
     setTags(prevTags => prevTags.filter(tag => tag._id !== id));
   };
 
+  const renderStreamInput = () => (
+    <>
+      <FormGroup>
+        <InputLabel>Stream URL</InputLabel>
+        <Input type="text" value={streamUrl} onChange={setStreamUrl} />
+      </FormGroup>
+    </>
+  );
+
   return (
     <>
       <FormGroup>
@@ -102,12 +117,11 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup }) => {
         <InputLabel>SEO-Optimized URL Piece</InputLabel>
         <Input type="text" value={slug} onChange={setSlug} />
       </FormGroup>
+      {isStreamedEventType && renderStreamInput()}
       <FormGroup>
-        <InputLabel>Stream URL</InputLabel>
-        <Input type="text" value={streamUrl} onChange={setStreamUrl} />
-      </FormGroup>
-      <FormGroup>
-        <InputLabel>Offline Picture URL</InputLabel>
+        <InputLabel>
+          {isStreamedEventType ? 'Offline Picture URL' : 'Event Poster URL'}
+        </InputLabel>
         <Input
           type="text"
           value={previewImageUrl}
@@ -139,6 +153,9 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup }) => {
           ampm={false}
         />
       </FormGroup>
+      {!isStreamedEventType && (
+        <BetForm setBetData={setBetData} styles={styles} />
+      )}
       <span
         role="button"
         tabIndex="0"

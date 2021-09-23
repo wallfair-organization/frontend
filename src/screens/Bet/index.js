@@ -538,11 +538,12 @@ const Bet = ({
               <div className={styles.arrowBack}></div>
               <div className={styles.headline}>
                 <h2>{_.get(event, 'name')}</h2>
-                <div>
-                  {hasOnlineState && <LiveBadge />}
-                  {hasOfflineState && <OfflineBadge />}
-                  <ViewerBadge viewers={1123} />
-                </div>
+                {(hasOnlineState || hasOfflineState) && (
+                  <div className={styles.streamStateBadge}>
+                    {hasOnlineState && <LiveBadge />}
+                    {hasOfflineState && <OfflineBadge />}
+                  </div>
+                )}
               </div>
             </Link>
           </div>

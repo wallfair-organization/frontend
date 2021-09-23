@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'components/Button';
 import ImportFromTwitch from 'components/ImportFromTwitch';
 import ImportFromYoutube from 'components/ImportFromYoutube';
 import AdminEventForm from 'components/AdminEventForm';
+import eventTypes from 'constants/EventTypes';
 import styles from './styles.module.scss';
 
-const NewLiveEvents = () => {
+const NewLiveEvents = ({ eventType }) => {
+  useEffect(() => {
+    setSelectedMenu(eventType === eventTypes.nonStreamed ? 'manual' : '');
+  }, [eventType]);
+
   const [selectedMenu, setSelectedMenu] = useState('');
   const openTwitchMenu = () => {
     setSelectedMenu('twitch');
@@ -38,7 +43,7 @@ const NewLiveEvents = () => {
       )}
       {selectedMenu === 'twitch' && <ImportFromTwitch />}
       {selectedMenu === 'youtube' && <ImportFromYoutube />}
-      {selectedMenu === 'manual' && <AdminEventForm />}
+      {selectedMenu === 'manual' && <AdminEventForm eventType={eventType} />}
     </div>
   );
 };
