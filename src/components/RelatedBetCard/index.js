@@ -170,7 +170,7 @@ const RelatedBetCard = ({ onClick, bet, showPopup, events }) => {
               />
             </AuthedOnly>
           )}
-          {bet?.status === BetState.active && (
+          {[BetState.active, BetState.closed].includes(bet?.status) && (
             <AdminOnly>
               <ButtonSmall
                 text="Resolve"
@@ -179,12 +179,15 @@ const RelatedBetCard = ({ onClick, bet, showPopup, events }) => {
               />
             </AdminOnly>
           )}
-          {[BetState.active, BetState.resolved].includes(bet?.status) && (
+          {[BetState.active, BetState.resolved, BetState.closed].includes(
+            bet?.status
+          ) && (
             <ButtonSmall
               text={
                 {
                   [BetState.active]: betLinkLabel('Bet'),
                   [BetState.resolved]: betLinkLabel('View'),
+                  [BetState.closed]: betLinkLabel('View'),
                 }[bet.status]
               }
               iconType={IconType.arrowButtonRight}

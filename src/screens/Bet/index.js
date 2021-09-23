@@ -44,6 +44,8 @@ import ContentFooter from 'components/ContentFooter';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
 import OfflineBadge from 'components/OfflineBadge';
 import { EVENT_STATES } from 'constants/EventStates';
+import IconType from 'components/Icon/IconType';
+import IconTheme from 'components/Icon/IconTheme';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -544,6 +546,36 @@ const Bet = ({
               </div>
             </Link>
           </div>
+          <AdminOnly>
+            <div className={styles.eventAdminActionsContainer}>
+              <span
+                className={styles.editEventLink}
+                onClick={() => showPopup(PopupTheme.editEvent, event)}
+              >
+                <Icon
+                  className={styles.icon}
+                  iconType={IconType.edit}
+                  iconTheme={IconTheme.white}
+                  height={20}
+                  width={20}
+                />
+                Edit Event
+              </span>
+              <span
+                className={styles.newBetLink}
+                onClick={() => showPopup(PopupTheme.newBet, { event })}
+              >
+                <Icon
+                  className={styles.icon}
+                  iconType={IconType.addBet}
+                  iconTheme={IconTheme.white}
+                  height={24}
+                  width={24}
+                />
+                New Bet
+              </span>
+            </div>
+          </AdminOnly>
         </div>
         <div className={styles.row}>
           <div className={styles.columnLeft}>
@@ -607,20 +639,6 @@ const Bet = ({
           </div>
           <div className={styles.columnRight}>{renderBetSidebarContent()}</div>
         </div>
-        <AdminOnly>
-          <span
-            className={styles.editEventLink}
-            onClick={() => showPopup(PopupTheme.editEvent, event)}
-          >
-            Edit Event
-          </span>
-          <span
-            className={styles.newBetLink}
-            onClick={() => showPopup(PopupTheme.newBet, { event })}
-          >
-            New Bet
-          </span>
-        </AdminOnly>
         <ContentFooter className={styles.betFooter} />
       </div>
     </BaseContainerWithNavbar>
