@@ -35,7 +35,6 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 
     &.isPopup {
       margin-bottom: 70px;
@@ -181,6 +180,12 @@
     width: 100%;
     padding: $padding;
 
+    .pickOutcomeContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
     .label {
       color: $colorPrimaryDark;
       font-family: $fontRegular;
@@ -190,7 +195,6 @@
       line-height: 18px;
       letter-spacing: 0px;
       text-align: left;
-      width: 100%;
       margin-bottom: 4px;
       display: block;
     }
@@ -303,6 +307,7 @@
       background-color: transparent;
       margin-bottom: 12px;
       cursor: pointer;
+      width: 300px;
 
       &.sellButton {
         margin-left: 25%;
@@ -311,6 +316,7 @@
 
         @media (min-width: $screen-sm) {
           font-size: 24px;
+          width: 355px;
         }
       }
     }
