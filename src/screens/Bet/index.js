@@ -22,7 +22,6 @@ import classNames from 'classnames';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import EventTradesContainer from '../../components/EventTradesContainer';
 import EventTradeViewsHelper from '../../helper/EventTradeViewsHelper';
-import State from '../../helper/State';
 import { LOGGED_IN } from 'constants/AuthState';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import PopupTheme from '../../components/Popup/PopupTheme';
@@ -45,7 +44,7 @@ import IconType from 'components/Icon/IconType';
 import IconTheme from 'components/Icon/IconTheme';
 import EventTypes from 'constants/EventTypes';
 import Share from '../../components/Share';
-import { formatToFixed } from '../../helper/FormatNumbers';
+import useTrades from '../../hooks/useTrades';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -90,6 +89,7 @@ const Bet = ({
   useNewsFeed(event);
 
   const { tabOptions, handleSwitchTab, selectedTab } = useTabOptions(event);
+  const { activeBets } = useTrades(event?._id);
 
   const status = {
     active: 1,
@@ -224,48 +224,6 @@ const Bet = ({
     };
   };
 
-  const getTrade = betId => {
-    const event = State.getEventByTrade(betId, events);
-    const bet = State.getTradeByEvent(betId, event);
-
-    return {
-      betId,
-      eventId: event?._id,
-      imageUrl: event?.previewImageUrl,
-      marketQuestion: bet?.marketQuestion,
-      status: bet?.status,
-      outcomes: bet?.outcomes,
-      eventSlug: event?.slug,
-      betSlug: bet?.slug,
-    };
-  };
-
-  const getMyEventTrades = () => {
-    return _.map(openBets, openBet => {
-      const trade = getTrade(openBet.betId);
-      if (trade.eventId !== event?._id) return;
-      const outcomeValue = _.get(trade, ['outcomes', openBet.outcome, 'name']);
-      const outcomeAmount = formatToFixed(_.get(openBet, 'outcomeAmount', 0));
-      const investmentAmount = formatToFixed(
-        _.get(openBet, 'investmentAmount', 0)
-      );
-      const sellAmount = formatToFixed(_.get(openBet, 'sellAmount', 0));
-      const currentBuyAmount = formatToFixed(
-        _.get(openBet, 'currentBuyAmount', 0)
-      );
-
-      return {
-        ...trade,
-        outcomeValue,
-        outcomeAmount,
-        investmentAmount,
-        sellAmount,
-        currentBuyAmount,
-        date: openBet.lastDate,
-      };
-    }).filter(Boolean);
-  };
-
   const renderNoTrades = () => {
     return <div className={styles.relatedBetsNone}>No trades placed.</div>;
   };
@@ -281,12 +239,15 @@ const Bet = ({
   };
 
   const renderMyTradesList = () => {
-    const myEventTrades = getMyEventTrades();
-    if (!isLoggedIn() || myEventTrades.length < 1) {
+    if (!isLoggedIn() || activeBets.length < 1) {
       return renderNoTrades();
     }
 
-    return renderMyBetCard(myEventTrades);
+    return (
+      <div className={styles.myTrades}>
+        <MyTradesList bets={activeBets} withStatus={true} allowCashout={true} />
+      </div>
+    );
   };
 
   const renderRelatedBetCard = (bet, index, popup) => {
@@ -297,22 +258,6 @@ const Bet = ({
           bet={bet}
           onClick={onBetClick(bet, popup)}
         />
-      );
-    }
-
-    return <div />;
-  };
-
-  const renderMyBetCard = (transaction, index, popup) => {
-    if (transaction) {
-      return (
-        <div className={styles.myTrades}>
-          <MyTradesList
-            bets={transaction}
-            withStatus={true}
-            allowCashout={true}
-          />
-        </div>
       );
     }
 
@@ -360,7 +305,7 @@ const Bet = ({
       EventTradeViewsHelper.getView('Event Trades'),
       EventTradeViewsHelper.getView(
         'My Trades',
-        isLoggedIn() ? getMyEventTrades().length : 0,
+        isLoggedIn() ? activeBets.length : 0,
         true
       ),
     ];
@@ -407,9 +352,7 @@ const Bet = ({
       );
     }
 
-    const myEventTrades = getMyEventTrades();
-
-    if (!isLoggedIn() || myEventTrades.length < 1) {
+    if (!isLoggedIn() || activeBets.length < 1) {
       return renderNoTrades();
     }
 
@@ -418,7 +361,7 @@ const Bet = ({
         <Carousel
           className={classNames(
             styles.relatedBetsCarousel,
-            myEventTrades.length > 2 ? '' : styles.oneCarouselPage
+            activeBets.length > 2 ? '' : styles.oneCarouselPage
           )}
           dynamicHeight={false}
           emulateTouch={true}

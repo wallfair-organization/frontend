@@ -117,7 +117,10 @@ const Authentication = ({
 
   const renderInputBoxes = () => {
     return (
-      <div className={styles.authenticationInputBoxContainer}>
+      <form
+        className={styles.authenticationInputBoxContainer}
+        onSubmit={onConfirm}
+      >
         {errorState && (
           <div
             ref={ref => (genericRef = ref)}
@@ -206,7 +209,7 @@ const Authentication = ({
         >
           <span>{action}</span>
         </Button>
-      </div>
+      </form>
     );
   };
 
