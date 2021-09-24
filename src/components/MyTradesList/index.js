@@ -2,7 +2,6 @@ import styles from './styles.module.scss';
 import _ from 'lodash';
 import StateBadge from '../StateBadge';
 import classNames from 'classnames';
-import { formatToFixed } from '../../helper/FormatNumbers';
 import { calculateGain } from '../../helper/Calculation';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -29,7 +28,7 @@ const MyTradesList = ({
 
       return (
         <div key={index} className={styles.betItem}>
-          <img src={item.imageUrl} className={styles.eventImg} />
+          <img src={item.imageUrl} className={styles.eventImg} alt="" />
           <div className={styles.betInfo}>
             <div className={styles.titleContainer}>
               <Link
@@ -69,22 +68,24 @@ const MyTradesList = ({
               <div className={styles.invested}>
                 Invested: {item.investmentAmount}
               </div>
-              {allowCashout && !isFinalizedTrade(item.status) && (
-                <button
-                  className={styles.betCashoutButton}
-                  onClick={() =>
-                    showPulloutBetPopup(
-                      item.betId,
-                      item.outcomes.find(
-                        ({ name }) => name === item.outcomeValue
-                      ).index,
-                      +formatToFixed(item.investmentAmount)
-                    )
-                  }
-                >
-                  Cashout
-                </button>
-              )}
+              {allowCashout &&
+                item.sellAmount &&
+                !isFinalizedTrade(item.status) && (
+                  <button
+                    className={styles.betCashoutButton}
+                    onClick={() =>
+                      showPulloutBetPopup(
+                        item.betId,
+                        item.outcomes.find(
+                          ({ name }) => name === item.outcomeValue
+                        ).index,
+                        item.sellAmount
+                      )
+                    }
+                  >
+                    Cashout
+                  </button>
+                )}
             </div>
           </div>
         </div>

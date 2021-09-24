@@ -1,22 +1,32 @@
 @import '../../styles/all';
 
 .layout {
-  width: 600px;
   height: auto;
   margin: 0 auto;
-  margin-top: 50px;
   background-color: $colorWhite;
   border-radius: 10px;
-  padding: 20px 120px;
-  margin-bottom: 100px;
+  padding: 20px 50px;
+  display: flex;
+  flex-flow: wrap;
+  grid-gap: 10px;
+  max-width: 800px;
 
   h2 {
     text-align: center;
-    margin: 10px 0px;
+    margin: 30px 0px;
+    flex-basis: 100%;
   }
 
   .label {
     font-weight: bold;
     margin-bottom: 12px;
   }
+}
+
+.menuOptions {
+  margin-top: 10vh;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }

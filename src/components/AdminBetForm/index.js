@@ -47,7 +47,7 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
         );
       });
     }
-  }, [visible, betTemplates, event]);
+  }, [visible, event]);
 
   const handleSave = () => {
     const payload = {

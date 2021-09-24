@@ -150,7 +150,7 @@ const fetchOpenBetsSucceeded = function* (action) {
     openBets.map(_.property('investmentAmount')).map(Number).filter(_.isFinite)
   );
   const totalOpenTradesAmount = _.sum(
-    openBets.map(_.property('outcomeAmount')).map(Number).filter(_.isFinite)
+    openBets.map(_.property('sellAmount')).map(Number).filter(_.isFinite)
   );
 
   yield put(

@@ -139,7 +139,7 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
           <LotteryGamePopup hidePopup={hidePopup} rewardId={options.rewardId} />
         );
       case PopupTheme.newEvent:
-        return <NewEventPopup />;
+        return <NewEventPopup eventType={options.eventType} />;
       case PopupTheme.editEvent:
         return <EditEventPopup />;
       case PopupTheme.newBet:

@@ -204,7 +204,7 @@ const Authentication = ({
           disabled={loading}
           disabledWithOverlay={true}
         >
-          {action}
+          <span>{action}</span>
         </Button>
       </div>
     );

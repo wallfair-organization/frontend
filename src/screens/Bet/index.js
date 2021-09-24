@@ -44,6 +44,9 @@ import ContentFooter from 'components/ContentFooter';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
 import OfflineBadge from 'components/OfflineBadge';
 import { EVENT_STATES } from 'constants/EventStates';
+import IconType from 'components/Icon/IconType';
+import IconTheme from 'components/Icon/IconTheme';
+import EventTypes from 'constants/EventTypes';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -100,53 +103,53 @@ const Bet = ({
 
   const selectSingleBet = bets => {
     if (relatedBets.length || bets.length) {
-      const singleBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
-      if (singleBet?.state !== 'active') return;
+      const loneBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
+      if (loneBet?.status !== 'active') return;
 
-      const betId = _.get(singleBet, '_id');
-      const betSlug = _.get(singleBet, 'slug');
+      const betId = _.get(loneBet, '_id');
+      const betSlug = _.get(loneBet, 'slug');
       selectBet(betId, betSlug);
       setSingleBet(true);
     }
   };
 
   useEffect(() => {
-    ref.current = true;
-
-    setSingleBet(false);
-    setBetViewIsOpen(false);
-
     const currentEvent = _.find(events, {
       slug: eventSlug,
     });
+    if (currentEvent) {
+      ref.current = true;
 
-    const eventBets = [..._.get(currentEvent, 'bets', [])].sort(
-      (a, b) => status[a.status] - status[b.status]
-    );
+      setSingleBet(false);
+      setBetViewIsOpen(false);
 
-    setEvent(currentEvent);
-    setRelatedBets(eventBets);
+      const eventBets = [..._.get(currentEvent, 'bets', [])].sort(
+        (a, b) => status[a.status] - status[b.status]
+      );
 
-    const currentBet = _.find(eventBets, {
-      slug: betSlug,
-    });
-    const currentBetId = _.get(currentBet, '_id');
-    setBetId(currentBetId);
+      setEvent(currentEvent);
+      setRelatedBets(eventBets);
 
-    if (betSlug) {
-      selectBet(currentBetId, betSlug);
+      const currentBet = _.find(eventBets, {
+        slug: betSlug,
+      });
+      const currentBetId = _.get(currentBet, '_id');
+      setBetId(currentBetId);
+
+      if (betSlug) {
+        selectBet(currentBetId, betSlug);
+      }
+
+      if (!isMobile && eventBets.length === 1 && !singleBet) {
+        selectSingleBet(eventBets);
+      }
+
+      fetchChatMessages(currentEvent._id);
+      fetchOpenBets();
+      fetchTransactions();
     }
-
-    if (!isMobile && eventBets.length === 1 && !singleBet) {
-      selectSingleBet(eventBets);
-    }
-
-    fetchChatMessages(currentEvent._id);
-    fetchOpenBets();
-    fetchTransactions();
-
     return () => (ref.current = false);
-  }, [eventSlug, betSlug]);
+  }, [eventSlug, betSlug, events]);
 
   useEffect(() => {
     if (ref.current && !isMobile && relatedBets.length === 1) {
@@ -536,14 +539,47 @@ const Bet = ({
               <div className={styles.arrowBack}></div>
               <div className={styles.headline}>
                 <h2>{_.get(event, 'name')}</h2>
-                <div>
-                  {hasOnlineState && <LiveBadge />}
-                  {hasOfflineState && <OfflineBadge />}
-                  <ViewerBadge viewers={1123} />
-                </div>
+                {(hasOnlineState || hasOfflineState) && (
+                  <div className={styles.streamStateBadge}>
+                    {hasOnlineState && <LiveBadge />}
+                    {hasOfflineState && <OfflineBadge />}
+                  </div>
+                )}
               </div>
             </Link>
           </div>
+          <AdminOnly>
+            <div className={styles.eventAdminActionsContainer}>
+              <span
+                className={styles.editEventLink}
+                onClick={() => showPopup(PopupTheme.editEvent, event)}
+              >
+                <Icon
+                  className={styles.icon}
+                  iconType={IconType.edit}
+                  iconTheme={IconTheme.white}
+                  height={20}
+                  width={20}
+                />
+                Edit Event
+              </span>
+              {event.type === EventTypes.streamed && (
+                <span
+                  className={styles.newBetLink}
+                  onClick={() => showPopup(PopupTheme.newBet, { event })}
+                >
+                  <Icon
+                    className={styles.icon}
+                    iconType={IconType.addBet}
+                    iconTheme={IconTheme.white}
+                    height={24}
+                    width={24}
+                  />
+                  New Bet
+                </span>
+              )}
+            </div>
+          </AdminOnly>
         </div>
         <div className={styles.row}>
           <div className={styles.columnLeft}>
@@ -607,20 +643,6 @@ const Bet = ({
           </div>
           <div className={styles.columnRight}>{renderBetSidebarContent()}</div>
         </div>
-        <AdminOnly>
-          <span
-            className={styles.editEventLink}
-            onClick={() => showPopup(PopupTheme.editEvent, event)}
-          >
-            Edit Event
-          </span>
-          <span
-            className={styles.newBetLink}
-            onClick={() => showPopup(PopupTheme.newBet, { event })}
-          >
-            New Bet
-          </span>
-        </AdminOnly>
         <ContentFooter className={styles.betFooter} />
       </div>
     </BaseContainerWithNavbar>

@@ -138,78 +138,76 @@ const notificationTypes = {
 export function* init() {
   const token = yield select(state => state.authentication.token);
 
-  if (token) {
-    try {
-      const socket = yield call(createSocket, token);
-      const socketChannel = yield call(createSocketChannel, socket);
+  try {
+    const socket = yield call(createSocket, token);
+    const socketChannel = yield call(createSocketChannel, socket);
 
-      yield put(WebsocketsActions.initSucceeded());
+    yield put(WebsocketsActions.initSucceeded());
 
-      while (true) {
-        try {
-          const payload = yield take(socketChannel);
-          const type = _.get(payload, 'type');
+    while (true) {
+      try {
+        const payload = yield take(socketChannel);
+        const type = _.get(payload, 'type');
 
-          switch (type) {
-            case 'connect':
-              yield put(WebsocketsActions.connected());
-              break;
-            case ChatMessageType.casinoStart:
-              yield put(
-                RosiGameActions.setHasStarted({
-                  timeStarted: payload.timeStarted,
-                })
-              );
-              yield put(RosiGameActions.resetCashedOut());
-              break;
-            case ChatMessageType.casinoEnd:
-              yield put(
-                RosiGameActions.addLastCrash({
-                  crashFactor: payload.crashFactor,
-                })
-              );
-              break;
-            case ChatMessageType.casinoTrade:
-              yield put(RosiGameActions.addInGameBet(payload));
-              break;
-            case ChatMessageType.casinoReward:
-              console.log(payload);
-              break;
-            case ChatMessageType.pulloutBet:
-            case ChatMessageType.createBet:
-            case ChatMessageType.placeBet:
-            case ChatMessageType.event:
-            case ChatMessageType.game:
-            case ChatMessageType.user:
-              yield put(
-                ChatActions.addMessage({
-                  roomId: payload.roomId,
-                  message: payload,
-                })
-              );
-              break;
-            case 'notification':
-            case notificationTypes.EVENT_CANCEL:
-            case notificationTypes.EVENT_RESOLVE:
-            case notificationTypes.EVENT_START:
-              yield put(
-                NotificationActions.addNotification({
-                  eventId: payload.eventId,
-                  notification: payload,
-                })
-              );
-              break;
-          }
-        } catch (err) {
-          console.error('socket error:', err);
-          // socketChannel is still open in catch block
-          // if we want end the socketChannel, we need close it explicitly
-          // socketChannel.close()
+        switch (type) {
+          case 'connect':
+            yield put(WebsocketsActions.connected());
+            break;
+          case ChatMessageType.casinoStart:
+            yield put(
+              RosiGameActions.setHasStarted({
+                timeStarted: payload.timeStarted,
+              })
+            );
+            yield put(RosiGameActions.resetCashedOut());
+            break;
+          case ChatMessageType.casinoEnd:
+            yield put(
+              RosiGameActions.addLastCrash({
+                crashFactor: payload.crashFactor,
+              })
+            );
+            break;
+          case ChatMessageType.casinoTrade:
+            yield put(RosiGameActions.addInGameBet(payload));
+            break;
+          case ChatMessageType.casinoReward:
+            console.log(payload);
+            break;
+          case ChatMessageType.pulloutBet:
+          case ChatMessageType.createBet:
+          case ChatMessageType.placeBet:
+          case ChatMessageType.event:
+          case ChatMessageType.game:
+          case ChatMessageType.user:
+            yield put(
+              ChatActions.addMessage({
+                roomId: payload.roomId,
+                message: payload,
+              })
+            );
+            break;
+          case 'notification':
+          case notificationTypes.EVENT_CANCEL:
+          case notificationTypes.EVENT_RESOLVE:
+          case notificationTypes.EVENT_START:
+            yield put(
+              NotificationActions.addNotification({
+                eventId: payload.eventId,
+                notification: payload,
+              })
+            );
+            break;
         }
+      } catch (err) {
+        console.error('socket error:', err);
+        // socketChannel is still open in catch block
+        // if we want end the socketChannel, we need close it explicitly
+        // socketChannel.close()
       }
-    } catch (error) {
-      yield put(WebsocketsActions.initFailed({ error }));
     }
+  } catch (error) {
+    yield put(WebsocketsActions.initFailed({ error }));
   }
 }
 
@@ -222,7 +220,7 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
   } else {
     const userId = yield select(state => state.authentication.userId);
     const room = yield select(state => state.websockets.room);
-    const pathname = action.payload.location.pathname;
+    const pathname = yield select(state => state.router.location.pathname);
     const pathSlugs = pathname.slice(1).split('/');
     // event page
 
@@ -312,8 +310,9 @@ export function* leaveRoom(action) {
 export function* sendChatMessage(action) {
   const init = yield select(state => state.websockets.init);
   const connected = yield select(state => state.websockets.connected);
+  const token = yield select(state => state.authentication.token);
 
-  if (init && websocket && connected) {
+  if (init && websocket && connected && token) {
     websocket.emit('chatMessage', action.messageObject);
   }
 }

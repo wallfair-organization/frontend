@@ -18,16 +18,17 @@
     "chartjs-adapter-moment": "^1.0.0",
     "classnames": "^2.3.1",
     "connected-react-router": "^6.9.1",
-    "express": "^4.17.1",
     "immutability-helper": "^3.1.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "nanoid": "^3.1.25",
     "pixi.js": "^6.1.2",
     "react": "^17.0.2",
+    "express": "^4.17.1",
     "react-canvas-confetti": "^1.2.1",
     "react-dom": "^17.0.2",
     "react-dropdown": "^1.9.2",
+    "react-gtm-module": "^2.0.11",
     "react-minimal-pie-chart": "^8.2.0",
     "react-phone-input-2": "^2.13.8",
     "react-player": "^2.9.0",
@@ -61,21 +62,14 @@
     "production": "yarn build && node server/index.js"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
+    "extends": ["react-app", "react-app/jest"],
     "rules": {
       "import/no-anonymous-default-export": "off",
       "default-case": "off"
     }
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

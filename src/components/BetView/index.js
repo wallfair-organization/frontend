@@ -42,6 +42,7 @@ import StateBadge from 'components/StateBadge';
 import AuthedOnly from 'components/AuthedOnly';
 import ButtonSmall from 'components/ButtonSmall';
 import ButtonSmallTheme from 'components/ButtonSmall/ButtonSmallTheme';
+import InfoBox from 'components/InfoBox';
 
 const BetView = ({
   betId,
@@ -423,7 +424,26 @@ const BetView = ({
               hasSellView() ? styles.sellButtonContainer : null
             )}
           >
-            <label className={styles.label}>Pick outcome</label>
+            <div className={styles.pickOutcomeContainer}>
+              <label className={styles.label}>Pick outcome</label>
+              <InfoBox>
+                <p>How to place a bet?</p>
+                <p>
+                  - First select the amount (in WFAIR) you want to put into this
+                  bet by tapping on the desired percentage of your portfolio or
+                  by typing in the amount you want to trade with.
+                </p>
+                <p>
+                  - After that pick your outcome by tapping on the outcome you
+                  think will come true. The potential gains in WFAIR and percent
+                  will automatically adjust according to your placed bet amount.
+                </p>
+                <p>
+                  - To finalize your bet click on the Trade! Button and enjoy
+                  the thrill
+                </p>
+              </InfoBox>
+            </div>
             <div className={styles.choiceContainer}>
               {renderChoiceSelectors(enabled)}
             </div>

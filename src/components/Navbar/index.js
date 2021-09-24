@@ -361,7 +361,7 @@ const Navbar = ({
           {renderNavbarLink(`/live-events`, 'Live Events')}
           {renderNavbarLink(`/events`, 'Events')}
           {renderNavbarLink(`/games`, 'Games')}
-          {isLoggedIn() && renderNavbarLink(`/rewards`, 'Earn')}
+          {/* {isLoggedIn() && renderNavbarLink(`/rewards`, 'Earn')} */}
         </div>
       </div>
 

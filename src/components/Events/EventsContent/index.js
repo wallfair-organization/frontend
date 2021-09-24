@@ -17,6 +17,9 @@ import PopupTheme from 'components/Popup/PopupTheme';
 import EventJumbotron from 'components/EventJumbotron';
 import { getCoverStream } from 'api';
 import classNames from 'classnames';
+import Icon from 'components/Icon';
+import IconType from 'components/Icon/IconType';
+import IconTheme from 'components/Icon/IconTheme';
 
 function EventsContent({ eventType, categories, setCategories }) {
   const dispatch = useDispatch();
@@ -56,7 +59,11 @@ function EventsContent({ eventType, categories, setCategories }) {
     [setCategories]
   );
 
-  const events = useSelector(state => state.event.filteredEvents);
+  const events = _.orderBy(
+    useSelector(state => state.event.filteredEvents),
+    ['date'],
+    ['desc']
+  );
 
   const mappedTags = id =>
     events.find(event => event._id === id)?.tags.map(tag => tag.name) || [];
@@ -114,6 +121,30 @@ function EventsContent({ eventType, categories, setCategories }) {
         </div>
       </section>
       <section className={styles.main}>
+        <AdminOnly>
+          <div
+            className={styles.newEventLink}
+            onClick={() => {
+              dispatch(
+                PopupActions.show({
+                  popupType: PopupTheme.newEvent,
+                  options: {
+                    eventType,
+                  },
+                })
+              );
+            }}
+          >
+            <Icon
+              className={styles.newEventIcon}
+              iconType={IconType.addYellow}
+              iconTheme={IconTheme.white}
+              height={25}
+              width={25}
+            />
+            <span>New Event</span>
+          </div>
+        </AdminOnly>
         {events.map(item => (
           <Link
             to={{
@@ -135,23 +166,6 @@ function EventsContent({ eventType, categories, setCategories }) {
             />
           </Link>
         ))}
-      </section>
-      <section className={styles.main}>
-        <AdminOnly>
-          <div
-            className={styles.newEventLink}
-            onClick={() => {
-              dispatch(
-                PopupActions.show({
-                  popupType: PopupTheme.newEvent,
-                  options: {},
-                })
-              );
-            }}
-          >
-            New Event
-          </div>
-        </AdminOnly>
       </section>
       <ContentFooter />
     </>

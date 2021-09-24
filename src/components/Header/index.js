@@ -18,7 +18,13 @@ const Header = ({ events }) => {
 
   useEffect(() => {
     setCurrentEvents(
-      events.filter(event => event.state === EVENT_STATES.ONLINE)
+      _.orderBy(
+        events.filter(
+          event => event.state === EVENT_STATES.ONLINE && event.bets.length > 0
+        ),
+        ['date'],
+        ['desc']
+      ).slice(0, 5)
     );
   }, [events]);
 
@@ -41,10 +47,10 @@ const Header = ({ events }) => {
 
   return (
     <div>
-      <div className={styles.header}>
-        <CoverFlowCarousel onSlideChange={setCurrentSlideIndex}>
-          {currentEvents &&
-            currentEvents.map((event, eventIndex) => {
+      {currentEvents.length > 0 && (
+        <div className={styles.header}>
+          <CoverFlowCarousel onSlideChange={setCurrentSlideIndex}>
+            {currentEvents.map((event, eventIndex) => {
               const startDate = moment(_.get(event, 'date'));
               const endDate = moment(_.get(event, 'endDate'));
               const currentDate = moment();
@@ -104,8 +110,9 @@ const Header = ({ events }) => {
                 </Link>
               );
             })}
-        </CoverFlowCarousel>
-      </div>
+          </CoverFlowCarousel>
+        </div>
+      )}
     </div>
   );
 };

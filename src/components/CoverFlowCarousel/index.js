@@ -50,6 +50,17 @@ const CoverFlowCarousel = ({
   const getPreviousIndex = index => (index === 0 ? numOfPages - 1 : index - 1);
   const getNextIndex = index => (index === numOfPages - 1 ? 0 : index + 1);
 
+  if (children.length === 1) {
+    // no sliding if only one slide provided
+    return (
+      <div className={styles.sliderContainer}>
+        <div className={classNames(styles.slide, styles.slideCurrent)}>
+          {children[0]}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.sliderContainer}>
       {children.map((el, index) => (

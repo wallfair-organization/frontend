@@ -41,12 +41,18 @@ const MyTrades = ({ close: closeDrawer }) => {
       const investmentAmount = formatToFixed(
         _.get(openBet, 'investmentAmount', 0)
       );
+      const sellAmount = formatToFixed(_.get(openBet, 'sellAmount', 0));
+      const currentBuyAmount = formatToFixed(
+        _.get(openBet, 'currentBuyAmount', 0)
+      );
 
       return {
         ...trade,
         outcomeValue,
         outcomeAmount,
         investmentAmount,
+        sellAmount,
+        currentBuyAmount,
         date: openBet.lastDate,
       };
     });
