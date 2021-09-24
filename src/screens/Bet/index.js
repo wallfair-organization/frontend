@@ -114,42 +114,46 @@ const Bet = ({
   };
 
   useEffect(() => {
-    const currentEvent = _.find(events, {
+    const sluggedEvent = _.find(events, {
       slug: eventSlug,
     });
-    if (currentEvent) {
-      ref.current = true;
-
-      setSingleBet(false);
-      setBetViewIsOpen(false);
-
-      const eventBets = [..._.get(currentEvent, 'bets', [])].sort(
-        (a, b) => status[a.status] - status[b.status]
-      );
-
-      setEvent(currentEvent);
-      setRelatedBets(eventBets);
-
-      const currentBet = _.find(eventBets, {
-        slug: betSlug,
-      });
-      const currentBetId = _.get(currentBet, '_id');
-      setBetId(currentBetId);
-
-      if (betSlug) {
-        selectBet(currentBetId, betSlug);
-      }
-
-      if (!isMobile && eventBets.length === 1 && !singleBet) {
-        selectSingleBet(eventBets);
-      }
-
-      fetchChatMessages(currentEvent._id);
-      fetchOpenBets();
-      fetchTransactions();
+    if (!_.isEqual(sluggedEvent, event)) {
+      setEvent(sluggedEvent);
     }
+  }, [events, eventSlug]);
+
+  useEffect(() => {
+    ref.current = true;
+    if (!event) return;
+
+    setSingleBet(false);
+    setBetViewIsOpen(false);
+
+    const eventBets = [..._.get(event, 'bets', [])].sort(
+      (a, b) => status[a.status] - status[b.status]
+    );
+
+    setRelatedBets(eventBets);
+
+    const currentBet = _.find(eventBets, {
+      slug: betSlug,
+    });
+    const currentBetId = _.get(currentBet, '_id');
+    setBetId(currentBetId);
+
+    if (betSlug) {
+      selectBet(currentBetId, betSlug);
+    }
+
+    if (!isMobile && eventBets.length === 1 && !singleBet) {
+      selectSingleBet(eventBets);
+    }
+
+    fetchChatMessages(event._id);
+    fetchOpenBets();
+    fetchTransactions();
     return () => (ref.current = false);
-  }, [eventSlug, betSlug, events]);
+  }, [eventSlug, betSlug, event]);
 
   useEffect(() => {
     if (ref.current && !isMobile && relatedBets.length === 1) {
