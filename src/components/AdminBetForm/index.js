@@ -117,6 +117,7 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
               placeholder={'Bet templates'}
               setValue={setSelectedTemplateId}
               value={selectedTemplateId}
+              className={styles.select}
             />
             <Button
               className={styles.applyButton}
@@ -129,24 +130,25 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
           </div>
         </FormGroup>
       )}
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Name</InputLabel>
         <Input type="text" value={marketQuestion} onChange={onNameChange} />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>SEO-Optimized URL Piece</InputLabel>
         <Input type="text" value={slug} onChange={setSlug} />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Options</InputLabel>
         <Tags
           tags={outcomes}
           onTagChange={handleTagChange}
           addTag={addTag}
           removeTag={removeTag}
+          max={4}
         />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Evidence Description</InputLabel>
         <Input
           type="text"
@@ -154,7 +156,7 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
           onChange={setEvidenceDescription}
         />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>End Date</InputLabel>
         <DateTimePicker
           value={endDate}
@@ -162,14 +164,16 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
           ampm={false}
         />
       </FormGroup>
-      <span
-        role="button"
-        tabIndex="0"
-        className={styles.button}
-        onClick={handleSave}
-      >
-        Save
-      </span>
+      <div className={styles.buttonContainer}>
+        <span
+          role="button"
+          tabIndex="0"
+          className={styles.button}
+          onClick={handleSave}
+        >
+          Save
+        </span>
+      </div>
     </>
   );
 };
