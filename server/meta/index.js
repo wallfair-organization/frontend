@@ -55,26 +55,27 @@ module.exports = {
       // quering api to get data
       const response = await axios.get(`${apiPath}${listPaths[listCounter]}`);
       if (response && response.data) {
-        let dataKeys = Object.keys(response.data);
+        const dataKeys = Object.keys(response.data);
         dataKeys.forEach(key => {
-          let singleEvent = response.data[key];
-          let { slug, name, previewImageUrl, bets, tags } = singleEvent;
-          let keywordsToUse = _.map(tags, 'name');
-          let eventSlug = '/trade/' + slug;
+          const singleEvent = response.data[key];
+          const { slug, name, previewImageUrl, bets, tags } = singleEvent;
+
+          const eventTags = _.map(tags, 'name') || [];
+          const keywordsToUse = eventTags.length
+            ? eventTags.join(', ')
+            : meta['/'].keywords;
+
+          const eventSlug = '/trade/' + slug;
           meta[eventSlug] = {
             title: name,
             description: name,
-            image: previewImageUrl ? previewImageUrl : meta['/'].image,
-            keywords:
-              keywordsToUse && keywordsToUse.length
-                ? keywordsToUse.join(', ')
-                : meta['/'].keywords,
+            image: previewImageUrl || meta['/'].image,
+            keywords: keywordsToUse,
           };
           // Getting data from bets
           if (bets) {
-            keywordsToUse.unshift('bets');
             bets.forEach(singleBet => {
-              let {
+              const {
                 marketQuestion,
                 description,
                 evidenceDescription,
@@ -83,11 +84,8 @@ module.exports = {
               meta[`${eventSlug}/${betSlug}`] = {
                 title: marketQuestion,
                 description: description ? description : evidenceDescription,
-                image: previewImageUrl ? previewImageUrl : meta['/'].image,
-                keywords:
-                  keywordsToUse && keywordsToUse.length
-                    ? keywordsToUse.join(', ')
-                    : meta['/'].keywords,
+                image: previewImageUrl || meta['/'].image,
+                keywords: `bets, ${keywordsToUse}`,
               };
             });
           }
