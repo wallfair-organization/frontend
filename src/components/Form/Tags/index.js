@@ -2,7 +2,9 @@ import { ReactComponent as AddTagIcon } from './add-icon.svg';
 import Input from '../Input';
 import styles from './styles.module.scss';
 
-const Tags = ({ tags, onTagChange, addTag, removeTag, max = null }) => {
+const Tags = ({ tags = [], onTagChange, addTag, removeTag, max = 0 }) => {
+  const isAddTagVisible = isNaN(max) || max <= 0 || tags.length < max;
+
   return (
     <div className={styles.tags}>
       {tags.map((tag, index) => (
@@ -18,7 +20,7 @@ const Tags = ({ tags, onTagChange, addTag, removeTag, max = null }) => {
           </span>
         </div>
       ))}
-      {(max === null || max > tags?.length) && (
+      {isAddTagVisible && (
         <div className={styles.tag}>
           <div className={styles.newTag} onClick={addTag}>
             <AddTagIcon />
