@@ -2,37 +2,41 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const { meta } = require('./meta/tags');
+const { appendRoutes } = require('./meta');
+const { replaceMeta } = require('./utils/replaceMetaUtil');
 
+// set main PORT
 const PORT = process.env.PORT || 3000;
+// set API path
+const apiPath =
+  process.env.REACT_APP_BACKEND_URL ||
+  'https://staging-zeaec.ondigitalocean.app/';
+
+// set apiEndpoints which you want to get data from and make them dynamic
+const listPaths = ['api/event/list'];
 
 const indexPath = path.resolve(__dirname, '..', 'build', 'index.html');
-const routes = Object.keys(meta);
-routes.forEach(route => {
-  app.get(route, (req, res) => {
-    const indexFile = fs.readFileSync(indexPath, 'utf8');
-    let data = route in meta ? meta[route] : meta['/'];
-    const toHydrate = indexFile
-      .replace(/__title__/g, data.title)
-      .replace(/__description__/g, data.description)
-      .replace(/__image__/g, data.image);
-    res.send(toHydrate);
+
+appendRoutes(apiPath, listPaths).then(meta => {
+  const routes = Object.keys(meta);
+  routes.forEach(route => {
+    app.get(route, (req, res) => {
+      const indexFile = fs.readFileSync(indexPath, 'utf8');
+      let data = route in meta ? meta[route] : meta['/'];
+      res.send(replaceMeta(indexFile, data));
+    });
   });
+
+  app.use(
+    express.static(path.resolve(__dirname, '..', 'build'), { maxAge: '30d' })
+  );
+
+  // in case of missing routes
+  app.get('*', (req, res) => {
+    const indexFile = fs.readFileSync(indexPath, 'utf8');
+    let data = meta['/'];
+    res.send(replaceMeta(indexFile, data));
+  });
+
+  app.listen(PORT, console.log(`Server running on port ${PORT}`));
 });
-
-// in case of missing routes
-app.get('*', (req, res) => {
-  const indexFile = fs.readFileSync(indexPath, 'utf8');
-  let data = meta['/'];
-  const toHydrate = indexFile
-    .replace(/__title__/g, data.title)
-    .replace(/__description__/g, data.description)
-    .replace(/__image__/g, data.image);
-  res.send(toHydrate);
-});
-
-app.use(
-  express.static(path.resolve(__dirname, '..', 'build'), { maxAge: '30d' })
-);
-
-app.listen(PORT, console.log(`Server running on port ${PORT}`));
