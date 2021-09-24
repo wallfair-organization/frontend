@@ -84,7 +84,9 @@ const MyTradesList = ({
                 >
                   {gain.value}
                 </span>
-                {item.outcomeAmount}
+                {item.tradeStatus === 'sold'
+                  ? item.soldAmount
+                  : item.outcomeAmount}
               </div>
               <div className={styles.small}>
                 Invested: {item.investmentAmount}

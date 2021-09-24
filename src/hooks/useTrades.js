@@ -53,17 +53,18 @@ const getTransactions = (trades, events) => {
     const outcomeValue = _.get(trade, ['outcomes', t.outcomeIndex, 'name']);
     const outcomeAmount = formatToFixed(_.get(t, 'outcomeAmount', 0));
     const investmentAmount = formatToFixed(_.get(t, 'investmentAmount', 0));
+    const soldAmount = formatToFixed(_.get(t, 'soldAmount', 0));
 
     return {
       ...trade,
       outcomeValue,
       outcomeAmount,
       investmentAmount,
+      soldAmount,
       date: t.lastDate,
       finalOutcome: t.bet?.finalOutcome,
       outcome: t.outcomeIndex,
       tradeStatus: t.status,
-      soldAmount: t.soldAmount,
     };
   });
 };
