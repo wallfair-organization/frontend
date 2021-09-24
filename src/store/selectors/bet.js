@@ -45,7 +45,7 @@ export const selectTradeHistory = state => {
     return {
       ...trade,
       investmentAmount: convert(trade.investmentAmount, selectCurrency(state)),
-      outcomeTokens: convert(trade.outcomeTokens, selectCurrency(state)),
+      outcomeAmount: convert(trade.outcomeAmount, selectCurrency(state)),
       soldAmount: convert(trade.soldAmount, selectCurrency(state)),
     };
   });
