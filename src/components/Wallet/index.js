@@ -7,14 +7,13 @@ import { useEffect, useState } from 'react';
 import TwoColumnTable from 'components/TwoColumnTable';
 import moment from 'moment';
 import WalletBalance from '../WalletBalance';
-import { TransactionActions } from 'store/actions/transaction';
 import useTransactions from 'hooks/useTransactions';
 import { selectUser } from 'store/selectors/authentication';
 import { formatToFixed } from 'helper/FormatNumbers';
 import { BetActions } from 'store/actions/bet';
 import MyTrades from 'components/MyTrades';
 
-const Wallet = ({ show, close, fetchOpenBets, fetchTransactions }) => {
+const Wallet = ({ show, close, fetchOpenBets, fetchTradeHistory }) => {
   const menus = {
     wallet: 'wallet',
     transactionHistory: 'transactionHistory',
@@ -36,7 +35,7 @@ const Wallet = ({ show, close, fetchOpenBets, fetchTransactions }) => {
   useEffect(() => {
     if (show) {
       fetchOpenBets();
-      fetchTransactions();
+      fetchTradeHistory();
     } else {
       setOpenMenu(menus.wallet);
     }
@@ -164,8 +163,8 @@ const mapDispatchToProps = dispatch => {
     fetchOpenBets: () => {
       dispatch(BetActions.fetchOpenBets());
     },
-    fetchTransactions: () => {
-      dispatch(TransactionActions.fetchAll());
+    fetchTradeHistory: () => {
+      dispatch(BetActions.fetchTradeHistory());
     },
   };
 };

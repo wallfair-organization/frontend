@@ -8,6 +8,9 @@ const initialState = {
   sellOutcomes: {},
   openBets: [],
   wfairValue: 0.2,
+  tradeHistory: {
+    trades: [],
+  },
 };
 
 const setActionIsInProgress = (action, state) => {
@@ -55,6 +58,16 @@ const fetchOpenBetsSucceeded = (action, state) => {
   });
 };
 
+const fetchTradeHistorySuccess = (action, state) => {
+  return update(state, {
+    tradeHistory: {
+      trades: {
+        $set: action.trades,
+      },
+    },
+  });
+};
+
 export default function (state = initialState, action) {
   switch (action.type) {
     // @formatter:off
@@ -64,6 +77,8 @@ export default function (state = initialState, action) {
       return setSellOutcomes(action, state);
     case BetTypes.FETCH_OPEN_BETS_SUCCEEDED:
       return fetchOpenBetsSucceeded(action, state);
+    case BetTypes.FETCH_TRADE_HISTORY_SUCCESS:
+      return fetchTradeHistorySuccess(action, state);
     case BetTypes.PLACE:
     case BetTypes.PULL_OUT_BET:
     case BetTypes.PLACE_SUCCEEDED:

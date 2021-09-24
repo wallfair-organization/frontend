@@ -187,6 +187,12 @@ const getOpenBets = () => {
   });
 };
 
+const getTradeHistory = () => {
+  return Api.get(ApiUrls.API_USER_TRADE_HISTORY).catch(error => {
+    console.log('[API Error] called: getTradeHistory', error);
+  });
+};
+
 const getTransactions = () => {
   return Api.get(ApiUrls.API_USER_HISTORY).catch(error => {
     console.log('[API Error] called: getTransactions', error);
@@ -351,6 +357,7 @@ export {
   createBet,
   fetchReferrals,
   getOpenBets,
+  getTradeHistory,
   getOutcomes,
   getSellOutcomes,
   getTransactions,

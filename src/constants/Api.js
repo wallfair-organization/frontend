@@ -39,6 +39,7 @@ export const API_USER_PREFERENCES = 'api/user/:id/preferences';
 export const API_LEADERBOARD = 'api/user/getLeaderboard/:skip/:limit';
 export const API_USER_HISTORY = 'api/user/history';
 export const API_USER_OPEN_BETS = 'api/user/open-bets';
+export const API_USER_TRADE_HISTORY = 'api/user/trade-history';
 export const API_USER_REFERRAL_LIST = 'api/user/refList';
 export const API_TAGS_LIST = 'api/event/tags';
 export const API_CURRENT = 'api/current';

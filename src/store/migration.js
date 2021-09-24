@@ -1,4 +1,4 @@
-export const MIGRATION_VERSION = 6;
+export const MIGRATION_VERSION = 7;
 
 export const migrations = {
   0: state => {
@@ -28,8 +28,8 @@ export const migrations = {
         filteredEvents: [],
         tags: [],
         homeEvents: {
-          ['streamed']: [],
-          ['non-streamed']: [],
+          streamed: [],
+          'non-streamed': [],
         },
         defaultParams: {
           type: 'all',
@@ -125,6 +125,17 @@ export const migrations = {
         ...state.chat,
         messagesByEvent: undefined,
         messagesByRoom: {},
+      },
+    };
+  },
+  7: state => {
+    return {
+      ...state,
+      bet: {
+        ...state.bet,
+        tradeHistory: {
+          trades: [],
+        },
       },
     };
   },

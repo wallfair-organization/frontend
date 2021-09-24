@@ -7,15 +7,14 @@ import { useSelector } from 'react-redux';
 import State from '../../helper/State';
 import { formatToFixed } from '../../helper/FormatNumbers';
 import MyTradesList from '../MyTradesList';
-import { selectOpenBets } from 'store/selectors/bet';
-import { selectTransactions } from 'store/selectors/transaction';
+import { selectOpenBets, selectTradeHistory } from 'store/selectors/bet';
 
 const MyTrades = ({ close: closeDrawer }) => {
   const [switchIndex, setSwitchIndex] = useState(0);
 
   const events = useSelector(state => state.event.events);
   const openBets = useSelector(selectOpenBets);
-  const transactions = useSelector(selectTransactions);
+  const trades = useSelector(selectTradeHistory);
 
   const getTrade = betId => {
     const event = State.getEventByTrade(betId, events);
@@ -54,31 +53,29 @@ const MyTrades = ({ close: closeDrawer }) => {
         sellAmount,
         currentBuyAmount,
         date: openBet.lastDate,
+        outcome: openBet.outcome,
+        tradeStatus: openBet.status,
       };
     });
   };
 
   const getTransactions = () => {
-    return _.map(transactions, transaction => {
-      const trade = getTrade(transaction.bet);
-      const outcomeValue = _.get(trade, [
-        'outcomes',
-        transaction.outcome,
-        'name',
-      ]);
-      const outcomeAmount = formatToFixed(
-        _.get(transaction, 'outcomeTokensBought', 0)
-      );
-      const investmentAmount = formatToFixed(
-        _.get(transaction, 'investmentAmount', 0)
-      );
+    return _.map(trades, t => {
+      const trade = getTrade(t.betId);
+      const outcomeValue = _.get(trade, ['outcomes', t.outcomeIndex, 'name']);
+      const outcomeAmount = formatToFixed(_.get(t, 'outcomeAmount', 0));
+      const investmentAmount = formatToFixed(_.get(t, 'investmentAmount', 0));
 
       return {
         ...trade,
         outcomeValue,
         outcomeAmount,
         investmentAmount,
-        date: transaction.trx_timestamp,
+        date: t.lastDate,
+        finalOutcome: t.bet?.finalOutcome,
+        outcome: t.outcomeIndex,
+        tradeStatus: t.status,
+        soldAmount: t.soldAmount,
       };
     });
   };
@@ -106,9 +103,10 @@ const MyTrades = ({ close: closeDrawer }) => {
   };
 
   const renderOpenBets = () => {
+    const openBets = getOpenBets();
     return (
       <MyTradesList
-        bets={getOpenBets()}
+        bets={openBets}
         withStatus={true}
         closeDrawer={closeDrawer}
         allowCashout={true}
@@ -117,7 +115,8 @@ const MyTrades = ({ close: closeDrawer }) => {
   };
 
   const renderBetHistory = () => {
-    return <MyTradesList bets={getTransactions()} closeDrawer={closeDrawer} />;
+    const transactions = getTransactions();
+    return <MyTradesList bets={transactions} closeDrawer={closeDrawer} />;
   };
 
   return (
