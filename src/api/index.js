@@ -2,7 +2,6 @@ import * as ApiUrls from '../constants/Api';
 import _ from 'lodash';
 import axios from 'axios';
 import ContentTypes from '../constants/ContentTypes';
-import { API_TRADE_GET_BY_ID } from '../constants/Api';
 
 const createInstance = (host, apiPath) => {
   return axios.create({
@@ -188,6 +187,12 @@ const getOpenBets = () => {
   });
 };
 
+const getTradeHistory = () => {
+  return Api.get(ApiUrls.API_USER_TRADE_HISTORY).catch(error => {
+    console.log('[API Error] called: getTradeHistory', error);
+  });
+};
+
 const getTransactions = () => {
   return Api.get(ApiUrls.API_USER_HISTORY).catch(error => {
     console.log('[API Error] called: getTransactions', error);
@@ -322,11 +327,49 @@ const getTradeById = id => {
   );
 };
 
+const signUp = payload => {
+  return Api.post(ApiUrls.API_AUTH_SIGNUP, payload)
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
+const login = payload => {
+  return Api.post(ApiUrls.API_AUTH_LOGIN, payload)
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
+const forgotPassword = payload => {
+  return Api.post(ApiUrls.API_AUTH_FORGOT_PASSWORD, payload)
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
+const resetPassword = payload => {
+  return Api.post(ApiUrls.API_AUTH_RESET_PASSWORD, payload)
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
+const shortenerTinyUrl = url => {
+  return Api.get(ApiUrls.TINYURL_SHORTENER, {
+    params: {
+      url,
+    },
+    paramsSerializer: function (params) {
+      return `url=${params.url}`;
+    },
+  })
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
 export {
   Api,
   createBet,
   fetchReferrals,
   getOpenBets,
+  getTradeHistory,
   getOutcomes,
   getSellOutcomes,
   getTransactions,
@@ -360,4 +403,9 @@ export {
   getCoverStream,
   getTradeById,
   resolveBet,
+  login,
+  signUp,
+  forgotPassword,
+  resetPassword,
+  shortenerTinyUrl,
 };

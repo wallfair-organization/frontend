@@ -28,11 +28,11 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
       if (eventId && betId && tradeId) {
         const event = State.getEventByTrade(betId, events);
         const bet = State.getTradeByEvent(betId, event);
-        const trade = State.getTrade(tradeId, events);
-
         const tradeResponse = await getTradeById(tradeId).catch(err => {
           console.error("Can't get trade by id:", err);
         });
+
+        const trade = _.get(tradeResponse, 'data', null);
 
         const options = {
           eventId: eventId,
@@ -40,10 +40,14 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
           tradeId: tradeId,
           data: {
             bet: bet,
-            trade: _.get(tradeResponse, 'data', null),
+            trade: trade,
           },
+          hideShare: true,
         };
-        showPopup('betApprove', options);
+
+        if (betId && tradeId && eventId) {
+          showPopup('betApprove', options);
+        }
       }
     }
   };
@@ -59,13 +63,21 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
     return (
       <div className={styles.mainHeadline}>
         <h1>
-          Decentralized Events
+          The first Casino
           <br />
-          Anywhere, Anytime
+          with no Bullshit
         </h1>
         <div className={styles.slogan}>
-          Be<span>.</span>The<span>.</span>House<span>.</span>
+          No revenues<span>.</span> No middle men<span>.</span> No boring bets
+          <span>.</span>
         </div>
+        <ul>
+          <li>Risk free: Sign up and get 1.000 EUR play money tokens</li>
+          <li>
+            Big wins: Win up to 20.000 EUR weekly (Next payout: October 9th)
+          </li>
+          <li>Coming soon: Create own bets, collect NFT, in-game betting</li>
+        </ul>
       </div>
     );
   };
@@ -110,7 +122,6 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
         <div className={styles.categories}>
           <div className={styles.headline}>Discover Categories</div>
           <CategoryList categories={EVENT_CATEGORIES} />
-          {renderTags()}
         </div>
         <div className={styles.leaderboard}>
           <div className={styles.headline}>

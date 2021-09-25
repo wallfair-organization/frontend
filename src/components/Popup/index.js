@@ -28,22 +28,31 @@ import NewEventPopup from '../NewEventPopup';
 import EditEventPopup from '../EditEventPopup';
 import NewBetPopup from '../NewBetPopup';
 import EditBetPopup from '../EditBetPopup';
+import AuthenticationPopup from '../AuthenticationPopup';
 import ViewImagePopup from 'components/ViewImagePopup';
 import ResolveBetPopup from 'components/ResolveBetPopup';
 import { useOutsideClick } from 'hooks/useOutsideClick';
+import AuthenticationType from 'components/Authentication/AuthenticationType';
 
 const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
   const small = _.get(options, 'small', false);
 
   useEffect(() => {
-    document.body.style.overflow = visible ? 'hidden' : null;
+    document.body.style.overflow = visible ? 'hidden' : 'auto';
 
     return () => {
-      document.body.style.overflow = null;
+      document.body.style.overflow = 'auto';
     };
   }, [visible]);
 
   const popupElement = useOutsideClick(() => {
+    if (
+      PopupTheme.newEvent ||
+      PopupTheme.editEvent ||
+      PopupTheme.newBet ||
+      PopupTheme.editBet
+    )
+      return;
     hidePopup();
   });
 
@@ -130,7 +139,7 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
           <LotteryGamePopup hidePopup={hidePopup} rewardId={options.rewardId} />
         );
       case PopupTheme.newEvent:
-        return <NewEventPopup />;
+        return <NewEventPopup eventType={options.eventType} />;
       case PopupTheme.editEvent:
         return <EditEventPopup />;
       case PopupTheme.newBet:
@@ -143,77 +152,66 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
         return (
           <ResolveBetPopup betId={options.tradeId} eventId={options.eventId} />
         );
+      case PopupTheme.auth:
+        return (
+          <AuthenticationPopup
+            authenticationType={
+              options.authenticationType || AuthenticationType.register
+            }
+          />
+        );
     }
 
     return null;
   };
 
-  if (type === PopupTheme.tradeView) {
-    return (
-      <div
-        ref={popupElement}
-        className={classNames(
-          styles.popupFullScreenContainer,
-          visible ? null : styles.hidden
-        )}
-      >
+  return (
+    <>
+      <div className={classNames(styles.modal, visible ? null : styles.hidden)}>
         <div
+          ref={popupElement}
           className={classNames(
-            styles.popupContainer,
-            styles.tradeViewContainer
+            styles.modalDialog,
+            type === PopupTheme.signUpNotificationFirst ||
+              type === PopupTheme.signUpNotificationSecond
+              ? styles.signUpPopupContainer
+              : null,
+            type === PopupTheme.loginRegister
+              ? styles.joinPopupContainer
+              : null,
+            type === PopupTheme.welcome ? styles.welcomeContainer : null,
+            type === PopupTheme.betApprove ? styles.betApproveContainer : null,
+            type === PopupTheme.verifyEmail
+              ? styles.verifyEmailPopupContainer
+              : null,
+            small ? styles.small : null
           )}
         >
-          <Icon
-            width={30}
-            height={30}
-            className={styles.closeButton}
-            iconType={IconType.arrowLeft}
-            iconTheme={IconTheme.primary}
-            onClick={hidePopup}
-          />
-          <div className={styles.popupContentContainer}>{renderPopup()}</div>
+          <div className={styles.modalContent}>
+            <div className={styles.closeButtonContainer}>
+              {type !== PopupTheme.signUpNotificationSecond && (
+                <Icon
+                  width={30}
+                  height={30}
+                  className={styles.closeButton}
+                  iconType={IconType.deleteInput}
+                  iconTheme={IconTheme.primary}
+                  onClick={hidePopup}
+                />
+              )}
+            </div>
+
+            {renderPopup()}
+          </div>
         </div>
       </div>
-    );
-  }
-
-  return (
-    <div
-      className={classNames(
-        styles.popupFullScreenContainer,
-        visible ? null : styles.hidden
-      )}
-    >
       <div
-        ref={popupElement}
         className={classNames(
-          styles.popupContainer,
-          type === PopupTheme.signUpNotificationFirst ||
-            type === PopupTheme.signUpNotificationSecond
-            ? styles.signUpPopupContainer
-            : null,
-          type === PopupTheme.loginRegister ? styles.joinPopupContainer : null,
-          type === PopupTheme.welcome ? styles.welcomeContainer : null,
-          type === PopupTheme.betApprove ? styles.betApproveContainer : null,
-          type === PopupTheme.verifyEmail
-            ? styles.verifyEmailPopupContainer
-            : null,
-          small ? styles.small : null
+          styles.modalBackdrop,
+          visible ? null : styles.hidden
         )}
-      >
-        {type !== PopupTheme.signUpNotificationSecond && (
-          <Icon
-            width={30}
-            height={30}
-            className={styles.closeButton}
-            iconType={IconType.deleteInput}
-            iconTheme={IconTheme.primary}
-            onClick={hidePopup}
-          />
-        )}
-        <div className={styles.popupContentContainer}>{renderPopup()}</div>
-      </div>
-    </div>
+      ></div>
+    </>
   );
 };
 

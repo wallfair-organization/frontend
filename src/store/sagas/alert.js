@@ -42,7 +42,8 @@ const getSuccessMessage = action => {
       return 'The trade was successfully created!';
 
     case BetTypes.PLACE_SUCCEEDED:
-      return 'The position was placed successfully!';
+      // return 'The position was placed successfully!';
+      return null;
 
     case BetTypes.PULL_OUT_BET_SUCCEEDED:
       return 'The position was sold successfully!';
@@ -64,11 +65,13 @@ const handleFail = function* (action) {
 const handleSuccess = function* (action) {
   const message = getSuccessMessage(action);
 
-  yield put(
-    AlertActions.showSuccess({
-      message,
-    })
-  );
+  if (message) {
+    yield put(
+      AlertActions.showSuccess({
+        message,
+      })
+    );
+  }
 };
 
 const handleShown = function* (action) {

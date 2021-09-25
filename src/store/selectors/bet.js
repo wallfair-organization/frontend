@@ -1,5 +1,4 @@
 import { calculateGain } from 'helper/Calculation';
-import { formatToFixed } from 'helper/FormatNumbers';
 import _ from 'lodash';
 import { convert } from '../../helper/Currency';
 import { selectCurrency } from './authentication';
@@ -27,6 +26,8 @@ export const selectOpenBets = state => {
       ...bet,
       investmentAmount: convert(bet.investmentAmount, selectCurrency(state)),
       outcomeAmount: convert(bet.outcomeAmount, selectCurrency(state)),
+      currentBuyAmount: convert(bet.currentBuyAmount, selectCurrency(state)),
+      sellAmount: convert(bet.sellAmount, selectCurrency(state)),
     };
   });
 };
@@ -37,4 +38,15 @@ export const selectOutcomes = state => {
 
 export const selectSellOutcomes = state => {
   return mapOutcomes(state.bet.sellOutcomes, state);
+};
+
+export const selectTradeHistory = state => {
+  return _.map(state.bet.tradeHistory.trades, trade => {
+    return {
+      ...trade,
+      investmentAmount: convert(trade.investmentAmount, selectCurrency(state)),
+      outcomeAmount: convert(trade.outcomeAmount, selectCurrency(state)),
+      soldAmount: convert(trade.soldAmount, selectCurrency(state)),
+    };
+  });
 };

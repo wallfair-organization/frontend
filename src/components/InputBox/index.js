@@ -16,6 +16,7 @@ import _ from 'lodash';
 import { useRef } from 'react';
 
 const InputBox = ({
+  onClick,
   type = 'text',
   placeholder,
   invitationText,
@@ -110,13 +111,17 @@ const InputBox = ({
     );
   };
 
-  const copyToClipboard = () => {
+  const copyToClipboard = e => {
     navigator.clipboard.writeText(value);
 
     const currentInputRef = inputRef.current;
 
     if (currentInputRef) {
       currentInputRef.select();
+    }
+
+    if (typeof onClick === 'function') {
+      onClick(e, value);
     }
   };
 

@@ -15,6 +15,7 @@ import { ReactComponent as HighlightSettingsSupport } from '../../data/backgroun
 import { ReactComponent as HighlightPlaceBet } from '../../data/backgrounds/highlight-place-bet.svg';
 import { ReactComponent as HighlightDeposit } from '../../data/backgrounds/highlight-deposit.svg';
 import { ReactComponent as HighlightModalButton } from '../../data/backgrounds/highlight-modal-button.svg';
+import { ReactComponent as HighlightAuthButton } from '../../data/backgrounds/highlight-auth.svg';
 import HighlightTheme from './HighlightTheme';
 
 const Highlight = ({
@@ -49,6 +50,7 @@ const Highlight = ({
       [HighlightType.highlightPlaceBet]: <HighlightPlaceBet />,
       [HighlightType.highlightDeposit]: <HighlightDeposit />,
       [HighlightType.highlightModalButton]: <HighlightModalButton />,
+      [HighlightType.highlightAuthButton]: <HighlightAuthButton />,
     });
   };
 

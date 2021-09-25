@@ -2,7 +2,6 @@ import styles from './styles.module.scss';
 import _ from 'lodash';
 import StateBadge from '../StateBadge';
 import classNames from 'classnames';
-import { formatToFixed } from '../../helper/FormatNumbers';
 import { calculateGain } from '../../helper/Calculation';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -21,15 +20,36 @@ const MyTradesList = ({
   const betsSorted = _.orderBy(bets, ['date'], ['desc']);
 
   const isFinalizedTrade = status =>
-    [BetState.closed, BetState.canceled].includes(status);
+    [BetState.closed, BetState.canceled, BetState.resolved].includes(status);
+
+  const getGain = item => {
+    let gain = { value: '', negative: false };
+
+    if (
+      isFinalizedTrade(item.status) &&
+      parseInt(item.finalOutcome) !== item.outcome
+    ) {
+      gain = {
+        value: '-100%',
+        negative: true,
+      };
+    } else {
+      gain = calculateGain(
+        item.investmentAmount,
+        item.tradeStatus === 'sold' ? item.soldAmount : item.outcomeAmount
+      );
+    }
+
+    return gain;
+  };
 
   const renderBets = () => {
     return _.map(betsSorted, (item, index) => {
-      const gain = calculateGain(item.investmentAmount, item.outcomeAmount);
+      const gain = getGain(item);
 
       return (
         <div key={index} className={styles.betItem}>
-          <img src={item.imageUrl} className={styles.eventImg} />
+          <img src={item.imageUrl} className={styles.eventImg} alt="" />
           <div className={styles.betInfo}>
             <div className={styles.titleContainer}>
               <Link
@@ -64,27 +84,36 @@ const MyTradesList = ({
                 >
                   {gain.value}
                 </span>
-                {item.outcomeAmount}
+                {item.tradeStatus === 'sold'
+                  ? item.soldAmount
+                  : item.outcomeAmount}
               </div>
-              <div className={styles.invested}>
+              <div className={styles.small}>
                 Invested: {item.investmentAmount}
               </div>
-              {allowCashout && !isFinalizedTrade(item.status) && (
-                <button
-                  className={styles.betCashoutButton}
-                  onClick={() =>
-                    showPulloutBetPopup(
-                      item.betId,
-                      item.outcomes.find(
-                        ({ name }) => name === item.outcomeValue
-                      ).index,
-                      +formatToFixed(item.investmentAmount)
-                    )
-                  }
-                >
-                  Cashout
-                </button>
-              )}
+              {allowCashout &&
+                item.sellAmount &&
+                !isFinalizedTrade(item.status) && (
+                  <>
+                    <div className={styles.small}>
+                      Sell amount: {item.sellAmount}
+                    </div>
+                    <button
+                      className={styles.betCashoutButton}
+                      onClick={() =>
+                        showPulloutBetPopup(
+                          item.betId,
+                          item.outcomes.find(
+                            ({ name }) => name === item.outcomeValue
+                          ).index,
+                          item.sellAmount
+                        )
+                      }
+                    >
+                      Cashout
+                    </button>
+                  </>
+                )}
             </div>
           </div>
         </div>

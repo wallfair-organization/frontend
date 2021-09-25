@@ -3,7 +3,7 @@ import _ from 'lodash';
 import AuthState from '../../constants/AuthState';
 import PopupTheme from '../../components/Popup/PopupTheme';
 import { BetActions } from '../actions/bet';
-import { all, call, put, select } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 import { EventActions } from '../actions/event';
 import { PopupActions } from '../actions/popup';
 import { AuthenticationActions } from '../actions/authentication';
@@ -150,7 +150,7 @@ const fetchOpenBetsSucceeded = function* (action) {
     openBets.map(_.property('investmentAmount')).map(Number).filter(_.isFinite)
   );
   const totalOpenTradesAmount = _.sum(
-    openBets.map(_.property('outcomeAmount')).map(Number).filter(_.isFinite)
+    openBets.map(_.property('sellAmount')).map(Number).filter(_.isFinite)
   );
 
   yield put(
@@ -178,6 +178,18 @@ const pullOut = function* (action) {
   }
 };
 
+const fetchTradeHistory = function* () {
+  const response = yield call(Api.getTradeHistory);
+
+  if (response) {
+    yield put(
+      BetActions.fetchTradeHistorySuccess({
+        trades: response.data.trades,
+      })
+    );
+  }
+};
+
 export default {
   create,
   fetchOpenBets,
@@ -186,4 +198,5 @@ export default {
   fetchSellOutcomes,
   place,
   pullOut,
+  fetchTradeHistory,
 };

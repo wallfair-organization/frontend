@@ -1,19 +1,19 @@
 @import '../../styles/all';
 
 .approveBetContainer {
-    display:          flex;
-    flex-direction:   column;
-    align-items:      center;
-    height:           100%;
-    width:            100%;
-    padding-top:      60px;
-    background-color: $colorWhite;
-    color:            $colorPrimaryDark;
-    border-radius:    10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding-top: 60px;
+  background-color: $colorWhite;
+  color: $colorPrimaryDark;
+  border-radius: 10px;
 
   .ShareButtonContainer {
-    padding-top:   10px;
-    padding-bottom:   50px;
+    padding-top: 10px;
+    padding-bottom: 50px;
 
     .shareButton {
       display: flex;
@@ -32,8 +32,8 @@
     }
 
     @media (max-width: $screen-sm) {
-      padding-top:   20px;
-      padding-bottom:   30px;
+      padding-top: 20px;
+      padding-bottom: 30px;
     }
   }
 
@@ -81,51 +81,53 @@
     }
   }
 
-    .approveBetHeadline {
-        display:        flex;
-        flex-direction: column;
-        align-items:    center;
-        font-size:      20px;
-        text-align:     center;
-        font-family:    $fontBold;
+  .approveBetHeadline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+    font-family: $fontBold;
 
-        .logo {
-            height: 60px;
-            margin-bottom: 10px;
-        }
+    .logo {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .betPostedHeadline {
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    font-family: $fontBold;
+    margin-top: 20px;
+  }
+
+  .betButtonContainer {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: auto;
+    margin-top: 16px;
+
+    @media (min-width: $screen-sm) {
+      margin-bottom: 20px;
+      font-size: 23px;
     }
 
-    .betPostedHeadline {
-        font-size: 30px;
-        line-height: 36px;
-        text-align: center;
-        font-family: $fontBold;
-        margin-top: 20px;
-    }
+    .betButton {
+      background-color: transparent;
+      width: 355px;
+      margin: 0 auto;
 
-    .betButtonContainer {
-        width:         100%;
-        font-size:     16px;
-        margin-bottom: auto;
-        margin-top: 16px;
+      &.sellButton {
+        margin-left: 25%;
+        margin-bottom: 20px;
+        font-size: 16px;
 
         @media (min-width: $screen-sm) {
-            margin-bottom: 20px;
-            font-size:     23px;
+          font-size: 24px;
         }
-
-        .betButton {
-            background-color: transparent;
-
-            &.sellButton {
-                margin-left:   25%;
-                margin-bottom: 20px;
-                font-size:     16px;
-
-                @media (min-width: $screen-sm) {
-                    font-size: 24px;
-                }
-            }
-        }
+      }
     }
+  }
 }

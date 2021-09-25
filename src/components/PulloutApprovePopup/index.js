@@ -1,11 +1,8 @@
-import _ from 'lodash';
 import styles from './styles.module.scss';
 import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../store/actions/popup';
 import Button from '../Button';
 import { BetActions } from 'store/actions/bet';
-import { TOKEN_NAME } from 'constants/Token';
-import { formatToFixed } from 'helper/FormatNumbers';
 import LikeIcon from '../../data/icons/like-icon.svg';
 import HighlightType from 'components/Highlight/HighlightType';
 import { selectUser } from 'store/selectors/authentication';
@@ -35,7 +32,7 @@ const PulloutApprovePopup = ({
       <p className={styles.pulloutText}>
         Are you sure you want to cash out&nbsp;
         <strong>
-          {formatToFixed(amount)} {currency}
+          {amount} {currency}
         </strong>
         ?
       </p>

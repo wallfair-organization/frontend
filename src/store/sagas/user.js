@@ -61,6 +61,7 @@ const fetchSucceeded = function* (action) {
     const rank = user.rank;
     const amountWon = user.amountWon;
     const toNextRank = user.toNextRank;
+    const email = user.email;
 
     yield put(
       AuthenticationActions.updateData({
@@ -72,6 +73,7 @@ const fetchSucceeded = function* (action) {
         rank,
         amountWon,
         toNextRank,
+        email,
       })
     );
   }

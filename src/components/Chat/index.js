@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import ChatMessageType from '../ChatMessageWrapper/ChatMessageType';
 import ChatMessageWrapper from '../ChatMessageWrapper';
 import classNames from 'classnames';
 import Icon from '../Icon';
@@ -46,7 +45,7 @@ const Chat = ({
     ) {
       messageListScrollToBottom();
     }
-  }, [messages, prevMessages]);
+  }, [messages, prevMessages, isMount]);
 
   const onMessageSend = () => {
     if (message) {

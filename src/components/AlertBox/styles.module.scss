@@ -1,123 +1,104 @@
 @import '../../styles/all';
 
-.alertBoxContainer
-{
-    display:         flex;
-    justify-content: center;
-    align-items:     center;
-    position:        fixed;
-    flex-direction:  column;
-    width:           100%;
-    left:            0;
-    top:             0;
-    z-index:         $zIndexAlertContainer;
-    padding:         25px 10px 10px;
-    pointer-events:  none;
+.alertBoxContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: $zIndexAlertContainer;
+  padding: 25px 10px 10px;
+  pointer-events: none;
 
-    @media (min-width: $screen-sm)
-    {
-        align-items: flex-end;
-        padding:     25px;
+  @media (min-width: $screen-sm) {
+    align-items: flex-end;
+    padding: 25px;
+  }
+
+  .alertContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    max-width: calc(100% - 20px);
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    background: $colorYellow;
+    transform: scale(0);
+    color: $colorPrimary;
+    opacity: 0;
+    pointer-events: all;
+    overflow: hidden;
+    animation: scale-in 0.3s ease-out forwards,
+      expand 0.35s 0.25s ease-out forwards;
+
+    @media (min-width: $screen-sm) {
+      max-width: calc(100% - 50px);
     }
 
-    .alertContainer
-    {
-        display:         flex;
-        align-items:     center;
-        justify-content: start;
-        position:        relative;
-        max-width:       calc(100% - 20px);
-        width:           300px;
-        height:          auto;
-        margin-bottom:   20px;
-        background:      $colorYellow;
-        transform:       scale(0);
-        color:           $colorPrimary;
-        opacity:         0;
-        pointer-events:  all;
-        overflow:        hidden;
-        animation:       scale-in .3s ease-out forwards,
-                         expand .35s .25s ease-out forwards;
+    .alertIcon,
+    .closeIcon {
+      width: 24px;
+      height: 24px;
+      margin: 15px;
 
-        @media (min-width: $screen-sm)
-        {
-            max-width: calc(100% - 50px);
+      * {
+        stroke: $colorPrimary;
+      }
+
+      &.alertIcon {
+        margin-right: 0;
+
+        * {
+          stroke: none;
         }
+      }
 
-        .alertIcon,
-        .closeIcon
-        {
-            width:  24px;
-            height: 24px;
-            margin: 15px;
-
-            *
-            {
-                stroke: $colorPrimary;
-            }
-
-            &.alertIcon
-            {
-                margin-right: 0;
-
-                *
-                {
-                    stroke: none;
-                }
-            }
-
-            &.closeIcon
-            {
-                cursor: pointer;
-            }
-        }
-
-        .alertMessage
-        {
-            flex:        1;
-            font-family: $fontBold;
-            padding:     8px 12px;
-            font-size:   14px;
-            animation:   fade-in .65s ease-in forwards;
-        }
+      &.closeIcon {
+        cursor: pointer;
+      }
     }
+
+    .alertMessage {
+      flex: 1;
+      font-family: $fontBold;
+      padding: 8px 12px;
+      font-size: 14px;
+      animation: fade-in 0.65s ease-in forwards;
+    }
+  }
 }
 
-@keyframes scale-in
-{
-    100%
-    {
-        transform: scale(1);
-        opacity:   1;
-    }
+@keyframes scale-in {
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-@keyframes expand
-{
-    50%
-    {
-        border-radius: 6px;
-    }
+@keyframes expand {
+  50% {
+    border-radius: 6px;
+  }
 
-    100%
-    {
-        width:         400px;
-        border-radius: 4px;
-        box-shadow:    0 1px 3px 0 rgba(0, 0, 0, .2),
-                       0 1px 1px 0 rgba(0, 0, 0, .14),
-                       0 3px 3px -1px rgba(0, 0, 0, .1);
-    }
+  100% {
+    width: 400px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 3px 3px -1px rgba(0, 0, 0, 0.1);
+  }
 }
 
-@keyframes fade-in
-{
-    0%
-    {
-        opacity: 0;
-    }
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
 
-    100%
-    {
-        opacity: .8;
-    }
+  100% {
+    opacity: 0.8;
+  }
 }

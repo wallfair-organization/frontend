@@ -15,6 +15,11 @@ import IconTheme from '../Icon/IconTheme';
 import { calculateGain } from 'helper/Calculation';
 import { selectUser } from 'store/selectors/authentication';
 import { convert } from '../../helper/Currency';
+import ReactTooltip from 'react-tooltip';
+
+import Share from '../../components/Share';
+
+import routes from '../../constants/Routes';
 
 const canvasStyles = {
   position: 'fixed',
@@ -32,8 +37,14 @@ const BetApproveView = ({ visible, hidePopup, options, events }) => {
   const trade = _.get(options, 'data.trade');
   const bet = _.get(options, 'data.bet');
 
-  const amountPlaced = convert(_.get(trade, 'investmentAmount', 0), currency);
-  const potentialOutcome = convert(_.get(trade, 'outcomeTokens', 0), currency);
+  const amountPlaced = convert(
+    _.get(trade, 'investmentAmount', 0),
+    currency
+  ).toFixed(2);
+  const potentialOutcome = convert(
+    _.get(trade, 'outcomeTokens', 0),
+    currency
+  ).toFixed(2);
   const potentialPercent = calculateGain(amountPlaced, potentialOutcome);
   const potentialPercentGain = _.get(potentialPercent, 'value');
   const potentialPercentType = _.get(potentialPercent, 'negative', false);
@@ -44,7 +55,16 @@ const BetApproveView = ({ visible, hidePopup, options, events }) => {
   //for later - share button logic
   const tradeId = _.get(trade, '_id');
   const eventId = _.get(bet, 'event');
-  const betId = _.get(trade, 'betId');
+  const betId = _.get(trade, 'betId._id');
+
+  const buildDirectLink = routes.betApproveDirect
+    .replace(':eventId', eventId)
+    .replace(':tradeId', tradeId)
+    .replace(':betId', betId);
+
+  const urlOrigin = window.location.origin;
+
+  const directUrlObj = new URL(urlOrigin + buildDirectLink);
 
   const makeShot = (particleRatio, opts) => {
     animationInstance &&
@@ -143,14 +163,15 @@ const BetApproveView = ({ visible, hidePopup, options, events }) => {
         </Button>
       </div>
 
-      <div className={styles.ShareButtonContainer}>
-        <div className={styles.shareButton} onClick={hidePopup}>
-          <div className={styles.shareIcon}>
-            <Icon iconType={IconType.shareLink} iconTheme={IconTheme.primary} />
-          </div>{' '}
-          Share
+      {options.hideShare ? null : (
+        <div className={styles.ShareButtonContainer}>
+          <Share
+            popupPosition={'top'}
+            directUrl={directUrlObj.toString()}
+            skipCalculatePos={true}
+          />
         </div>
-      </div>
+      )}
 
       <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
     </div>

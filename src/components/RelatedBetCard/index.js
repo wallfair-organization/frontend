@@ -16,9 +16,14 @@ import ButtonSmallTheme from 'components/ButtonSmall/ButtonSmallTheme';
 import BetState from '../../constants/BetState';
 import { BET_STATUS_DESCRIPTIONS } from '../../helper/BetStatusDesc';
 import AdminOnly from 'components/AdminOnly';
+import AuthedOnly from 'components/AuthedOnly';
 
-const RelatedBetCard = ({ onClick, bet, showPopup }) => {
+const RelatedBetCard = ({ onClick, bet, showPopup, events }) => {
   const [menuOpened, setMenuOpened] = useState(false);
+
+  const event = _.find(events, {
+    _id: _.get(bet, 'event'),
+  });
 
   const renderFooter = () => {
     const status = _.get(bet, 'status');
@@ -44,6 +49,27 @@ const RelatedBetCard = ({ onClick, bet, showPopup }) => {
     );
   };
 
+  const renderOutcome = () => {
+    const status = _.get(bet, 'status');
+    if (status !== BetState.resolved) {
+      return null;
+    }
+
+    const { outcomes, finalOutcome } = bet;
+    const outcome = outcomes?.find(({ index }) => index === +finalOutcome);
+
+    if (!outcome) {
+      return null;
+    }
+
+    return (
+      <div className={styles.resolutionOutcome}>
+        <span className={styles.outcomeLabel}>Outcome:</span>
+        <span className={styles.outcomeValue}>{outcome.name}</span>
+      </div>
+    );
+  };
+
   const openInfoPopup = (popupType, e) => {
     e.stopPropagation();
     const options = {
@@ -52,17 +78,6 @@ const RelatedBetCard = ({ onClick, bet, showPopup }) => {
     };
 
     showPopup(popupType, options);
-  };
-
-  const renderMenuInfoIcon = () => {
-    return (
-      <Icon
-        className={styles.menuInfoIcon}
-        iconType={IconType.info}
-        iconTheme={null}
-        width={16}
-      />
-    );
   };
 
   const openMenu = e => {
@@ -84,68 +99,78 @@ const RelatedBetCard = ({ onClick, bet, showPopup }) => {
     showPopup(PopupTheme.reportEvent, { small: true });
   };
 
+  const betLinkLabel = label => (
+    <span className={styles.betLinkButtonLabel}>{label}</span>
+  );
+
   return (
     <div className={styles.relatedBetCard}>
       <div className={styles.relatedBetCardContainer}>
         <div className={styles.relatedBetCardHeader}>
-          <span className={styles.title}>{bet.marketQuestion}</span>
+          <span className={styles.title} onClick={onClick}>
+            {bet.marketQuestion}
+          </span>
 
           <div className={styles.menuMain}>
-            <ButtonSmall
-              text="Evaluate"
-              iconType={IconType.thumbUp}
-              iconLeft={true}
-              butonTheme={ButtonSmallTheme.grey}
-              onClick={openEvaluate}
-            />
-            <div>
-              <Icon
-                iconType={IconType.menu}
-                iconTheme={null}
-                onClick={e => openMenu(e)}
-                className={styles.menuBoxIcon}
+            <AuthedOnly>
+              <ButtonSmall
+                text="Evaluate"
+                iconType={IconType.thumbUp}
+                iconLeft={true}
+                butonTheme={ButtonSmallTheme.grey}
+                onClick={openEvaluate}
               />
-              <div
-                className={classNames(
-                  styles.menuBox,
-                  menuOpened ? styles.menuBoxOpened : null
-                )}
-              >
+            </AuthedOnly>
+
+            <AdminOnly>
+              <div>
+                <Icon
+                  iconType={IconType.menu}
+                  iconTheme={null}
+                  onClick={e => openMenu(e)}
+                  className={styles.menuBoxIcon}
+                />
                 <div
-                  className={styles.menuItem}
-                  onClick={e => openInfoPopup(PopupTheme.eventDetails, e)}
+                  className={classNames(
+                    styles.menuBox,
+                    menuOpened ? styles.menuBoxOpened : null
+                  )}
                 >
-                  {renderMenuInfoIcon()}
-                  <span>
-                    See <strong>Event</strong> Details
-                  </span>
-                </div>
-                <div
-                  className={styles.menuItem}
-                  onClick={e => openInfoPopup(PopupTheme.tradeDetails, e)}
-                >
-                  {renderMenuInfoIcon()}
-                  <span>
-                    See <strong>Trade</strong> Details
-                  </span>
+                  <div
+                    className={styles.menuItem}
+                    onClick={() =>
+                      showPopup(PopupTheme.editBet, { event, bet })
+                    }
+                  >
+                    <Icon
+                      className={styles.menuInfoIcon}
+                      iconType={IconType.edit}
+                      iconTheme={null}
+                      width={16}
+                    />
+                    <span>Edit bet</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </AdminOnly>
           </div>
         </div>
+        {renderOutcome()}
         <div className={styles.stateBadgeContainer}>
           <StateBadge
             className={styles.stateBadge}
             state={_.get(bet, 'status')}
           />
           {bet?.status === BetState.resolved && (
-            <ButtonSmall
-              text="Report"
-              butonTheme={ButtonSmallTheme.red}
-              onClick={openReport}
-            />
+            <AuthedOnly>
+              <ButtonSmall
+                text="Dispute"
+                butonTheme={ButtonSmallTheme.red}
+                onClick={openReport}
+              />
+            </AuthedOnly>
           )}
-          {bet?.status === BetState.active && (
+          {[BetState.active, BetState.closed].includes(bet?.status) && (
             <AdminOnly>
               <ButtonSmall
                 text="Resolve"
@@ -154,9 +179,17 @@ const RelatedBetCard = ({ onClick, bet, showPopup }) => {
               />
             </AdminOnly>
           )}
-          {bet?.status === BetState.active && (
+          {[BetState.active, BetState.resolved, BetState.closed].includes(
+            bet?.status
+          ) && (
             <ButtonSmall
-              text="Bet"
+              text={
+                {
+                  [BetState.active]: betLinkLabel('Bet'),
+                  [BetState.resolved]: betLinkLabel('View'),
+                  [BetState.closed]: betLinkLabel('View'),
+                }[bet.status]
+              }
               iconType={IconType.arrowButtonRight}
               butonTheme={ButtonSmallTheme.dark}
               onClick={onClick}
@@ -179,6 +212,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     user: user,
+    events: state.event.events,
   };
 };
 

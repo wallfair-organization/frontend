@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 import Icon from '../Icon';
@@ -40,6 +40,13 @@ const MainMenu = ({
   const [profilePic, setProfilePic] = useState(user.profilePicture);
 
   const profilePictureRefName = useRef(null);
+
+  useEffect(() => {
+    setProfilePic(user.profilePicture);
+    setUsername(user.username);
+    setName(user.name);
+    setEmail(user.email);
+  }, [user]);
 
   const clickUploadProfilePicture = () => {
     profilePictureRefName.current?.click();

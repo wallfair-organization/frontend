@@ -4,16 +4,9 @@ import { formatToFixed } from 'helper/FormatNumbers';
 import { PieChart } from 'react-minimal-pie-chart';
 import { GeneralActions } from 'store/actions/general';
 import _ from 'lodash';
-import IconType from 'components/Icon/IconType';
-import Icon from '../Icon';
 import { selectUser } from 'store/selectors/authentication';
 
-const WalletBalance = ({
-  handleMyTradesVisible,
-  handleEmailNotificationsVisible,
-  handlePreferencesVisible,
-  setOpenDrawer,
-}) => {
+const WalletBalance = () => {
   const { balance, totalInvestmentAmount, totalOpenTradesAmount, currency } =
     useSelector(selectUser);
 
@@ -22,24 +15,10 @@ const WalletBalance = ({
   const investedFundsPercentage =
     (100 * totalInvestmentAmount) / overallFundsTotal;
 
-  const goToMyTrades = () => {
-    setOpenDrawer('profile');
-    handleEmailNotificationsVisible(false);
-    handlePreferencesVisible(false);
-    handleMyTradesVisible(true);
-  };
-
   return (
     <div className={styles.walletBalance}>
       <div className={styles.walletBalanceHeading}>
         <p className={styles.walletBalanceTitle}>total balance</p>
-        <div className={styles.goToMyTrades} onClick={goToMyTrades}>
-          <p className={styles.goToMyTradesText}>Go to my Trades</p>
-          <Icon
-            className={styles.goToMyTradesIcon}
-            iconType={IconType.arrowTopRight}
-          />
-        </div>
       </div>
       <div className={styles.walletBalanceContent}>
         <div className={styles.walletBalanceItem}>

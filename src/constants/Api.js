@@ -39,6 +39,7 @@ export const API_USER_PREFERENCES = 'api/user/:id/preferences';
 export const API_LEADERBOARD = 'api/user/getLeaderboard/:skip/:limit';
 export const API_USER_HISTORY = 'api/user/history';
 export const API_USER_OPEN_BETS = 'api/user/open-bets';
+export const API_USER_TRADE_HISTORY = 'api/user/trade-history';
 export const API_USER_REFERRAL_LIST = 'api/user/refList';
 export const API_TAGS_LIST = 'api/event/tags';
 export const API_CURRENT = 'api/current';
@@ -49,7 +50,11 @@ export const API_EVENT_CREATE_FROM_TWITCH = 'api/event/extract/twitch';
 export const API_EVENT_CREATE_FROM_YOUTUBE = 'api/event/create-from-youtube';
 export const API_EVENT_GET_COVER_STREAM = 'api/event/cover/streamed';
 export const API_BET_RESOLVE = 'api/event/bet/:id/resolve';
-
-//TRADE
 export const API_TRADE_CREATE = 'api/trade';
 export const API_TRADE_GET_BY_ID = 'api/event/trade/:id';
+export const API_AUTH_LOGIN = 'api/auth/login';
+export const API_AUTH_SIGNUP = 'api/auth/sign-up';
+export const API_AUTH_FORGOT_PASSWORD = 'api/auth/forgot-password';
+export const API_AUTH_RESET_PASSWORD = 'api/auth/reset-password';
+//3rd parties
+export const TINYURL_SHORTENER = 'https://tinyurl.com/api-create.php';

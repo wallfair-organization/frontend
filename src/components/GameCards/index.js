@@ -44,7 +44,7 @@ const GameCards = ({ games, category }) => {
                   </div>
                   {!game.active && (
                     <div className={styles.inactivePlaceholder}>
-                      Comming Soon
+                      Coming Soon
                     </div>
                   )}
                 </div>

@@ -5,14 +5,10 @@ import Button from '../Button';
 import ChoiceSelector from '../ChoiceSelector';
 import classNames from 'classnames';
 import { useRouteMatch } from 'react-router-dom';
-import HighlightTheme from '../Highlight/HighlightTheme';
 import HighlightType from '../../components/Highlight/HighlightType';
 import moment from 'moment';
 import { useCallback } from 'react';
 import styles from './styles.module.scss';
-// import SwitchableContainer from '../SwitchableContainer';
-// import SwitchableHelper from '../../helper/SwitchableHelper';
-import TimeLeftCounter from '../../components/TimeLeftCounter';
 import TimeCounter from '../../components/TimeCounter';
 import TokenNumberInput from '../TokenNumberInput';
 import { BetActions } from '../../store/actions/bet';
@@ -25,13 +21,10 @@ import Icon from '../Icon';
 import LoadingAnimation from '../../data/animations/sending-transaction.gif';
 import IconType from '../Icon/IconType';
 import IconTheme from '../Icon/IconTheme';
-// import StateBadge from '../StateBadge';
 import SummaryRowContainer from '../SummaryRowContainer';
-import BetSummaryHelper from '../../helper/BetSummary';
+import TextHelper from '../../helper/Text';
 import BetState from '../../constants/BetState';
-import BetShareContainer from '../BetShareContainer';
-import ShareType from '../BetShareContainer/ShareType';
-import { PopupActions } from '../../store/actions/popup';
+import { PopupActions, PopupTypes } from '../../store/actions/popup';
 import PopupTheme from '../Popup/PopupTheme';
 import ErrorHint from '../ErrorHint';
 import { formatToFixed } from '../../helper/FormatNumbers';
@@ -41,6 +34,13 @@ import ReactTooltip from 'react-tooltip';
 import { selectOutcomes, selectSellOutcomes } from 'store/selectors/bet';
 import { selectUser } from 'store/selectors/authentication';
 import { convert } from 'helper/Currency';
+import DateText from 'helper/DateText';
+import AdminOnly from 'components/AdminOnly';
+import StateBadge from 'components/StateBadge';
+import AuthedOnly from 'components/AuthedOnly';
+import ButtonSmall from 'components/ButtonSmall';
+import ButtonSmallTheme from 'components/ButtonSmall/ButtonSmallTheme';
+import InfoBox from 'components/InfoBox';
 
 const BetView = ({
   betId,
@@ -142,15 +142,6 @@ const BetView = ({
     return valid;
   };
 
-  // async function loadAfterMount() {
-  //   await SleepHelper.sleep(100);
-
-  //   setCommitment(defaultBetValue, betId);
-  //   openBets.map(openBet => {
-  //     fetchSellOutcomes(openBet.outcomeAmount, openBet.betId);
-  //   });
-  // }
-
   useEffect(() => {
     return () => {
       resetOutcomes();
@@ -191,15 +182,6 @@ const BetView = ({
     }
   }, [actionIsInProgress]);
 
-  // useEffect(() => {
-  //   if (JSON.stringify(openBets) != JSON.stringify(openBetsRef)) {
-  //     openBets.map(openBet => {
-  //       fetchSellOutcomes(openBet.outcomeAmount, openBet.betId);
-  //     });
-  //   }
-  //   setOpenBetsRef(openBets);
-  // }, [openBets]);
-
   const hasSellView = () => {
     return (currentTradeView === 1 || forceSellView) && _.size(openBets);
   };
@@ -223,12 +205,8 @@ const BetView = ({
   };
 
   const showJoinPopup = () => {
-    showPopup(PopupTheme.loginRegister, { redirectUrl: match.url });
+    showPopup(PopupTheme.auth, { small: true });
   };
-
-  // const sellBet = () => {
-  //   pullOutBet(betId, choice, getOpenBetsValue(choice));
-  // };
 
   const onChoiceSelect = (id, enabled) => {
     return () => {
@@ -281,37 +259,6 @@ const BetView = ({
     return !hasSellView() || getOpenBetsValue(index) > 0;
   };
 
-  // const switchableChange = index => {
-  //   setChoice(null);
-  //   setCurrentTradeView(index);
-  // };
-
-  // const renderSwitchableView = () => {
-  //   // @TODO: this is not very readable, couldn't we use a "standard" tab interface, would be good for a11y as well
-  //   // like e.g. react-aria tablist
-  //   // @see: https://react-spectrum.adobe.com/react-aria/useTabList.html
-  //   if (_.size(openBets) && !disableSwitcher) {
-  //     const switchableViews = [
-  //       SwitchableHelper.getSwitchableView('Buy'),
-  //       SwitchableHelper.getSwitchableView('Sell'),
-  //     ];
-
-  //     return (
-  //       <div className={styles.switchableContainer}>
-  //         <SwitchableContainer
-  //           switchableViews={switchableViews}
-  //           currentIndex={currentTradeView}
-  //           setCurrentIndex={switchableChange}
-  //           underlineInactive={true}
-  //           handleChartDirectionFilter={handleChartDirectionFilter}
-  //         />
-  //       </div>
-  //     );
-  //   }
-
-  //   return null;
-  // };
-
   const renderChoiceSelector = (
     index,
     name,
@@ -361,48 +308,29 @@ const BetView = ({
     );
   };
 
-  // const renderSellInformation = () => {
-  //   const openBet = getOpenBet(choice);
-
-  //   if (openBet) {
-  //     const investmentAmount = _.get(openBet, 'investmentAmount');
-  //     const summaryRows = [
-  //       BetSummaryHelper.getKeyValue(
-  //         'Your Investment',
-  //         investmentAmount + ' ' + TOKEN_NAME
-  //       ),
-  //       BetSummaryHelper.getDivider(),
-  //     ];
-
-  //     return (
-  //       <div className={styles.summaryRowContainer}>
-  //         <SummaryRowContainer summaryRows={summaryRows} />
-  //       </div>
-  //     );
-  //   }
-  // };
-
   const renderTradeDesc = () => {
     if (!bet.evidenceDescription) {
       return null;
     }
-    const shortLength = 200;
-    const isDescShort = bet.evidenceDescription.length <= shortLength;
+    const shortLength = 100;
+    const desc = TextHelper.linkifyIntextURLS(bet.evidenceDescription);
+    const plainDesc = TextHelper.linkifyIntextURLS(
+      bet.evidenceDescription,
+      true
+    );
+    const isDescShort = plainDesc.length <= shortLength;
     return (
       <>
         <p
           className={classNames(
             styles.tradeDesc,
+            !isDescShort && !showAllEvidence && styles.hidden,
             isDescShort && styles.tradeShortDesc
           )}
         >
-          {showAllEvidence || isDescShort
-            ? bet.evidenceDescription
-            : bet.evidenceDescription
-            ? bet.evidenceDescription.substring(0, shortLength) + '...'
-            : ''}
+          {desc}
         </p>
-        {!isDescShort && (
+        {!!desc && !isDescShort && (
           <button
             className={styles.seeMore}
             onClick={() => setShowAllEvidence(!showAllEvidence)}
@@ -467,23 +395,6 @@ const BetView = ({
         </>
       );
     }
-    // if (isSell && !finalOutcome && validInput) {
-    //   const outcome = _.floor(getOutcome(choice), 2).toFixed(2);
-
-    //   return (
-    //     <>
-    //       {renderSellInformation()}
-    //       <Button
-    //         className={classNames(styles.betButton, styles.sellButton)}
-    //         highlightType={HighlightType.highlightHomeCtaBet}
-    //         onClick={sellBet}
-    //         disabledWithOverlay={false}
-    //       >
-    //         Cashout {formatToFixed(outcome)} {TOKEN_NAME}
-    //       </Button>
-    //     </>
-    //   );
-    // }
   };
 
   const renderChoiceSelectors = (resolved = false, forceSelect) => {
@@ -511,7 +422,26 @@ const BetView = ({
               hasSellView() ? styles.sellButtonContainer : null
             )}
           >
-            <label className={styles.label}>Pick outcome</label>
+            <div className={styles.pickOutcomeContainer}>
+              <label className={styles.label}>Pick outcome</label>
+              <InfoBox>
+                <p>How to place a bet?</p>
+                <p>
+                  - First select the amount (in WFAIR) you want to put into this
+                  bet by tapping on the desired percentage of your portfolio or
+                  by typing in the amount you want to trade with.
+                </p>
+                <p>
+                  - After that pick your outcome by tapping on the outcome you
+                  think will come true. The potential gains in WFAIR and percent
+                  will automatically adjust according to your placed bet amount.
+                </p>
+                <p>
+                  - To finalize your bet click on the Trade! Button and enjoy
+                  the thrill
+                </p>
+              </InfoBox>
+            </div>
             <div className={styles.choiceContainer}>
               {renderChoiceSelectors(enabled)}
             </div>
@@ -566,27 +496,6 @@ const BetView = ({
   };
 
   const renderMenu = () => {
-    const renderMenuInfoIcon = () => {
-      return (
-        <Icon
-          className={styles.menuInfoIcon}
-          iconType={IconType.info}
-          iconTheme={null}
-          width={16}
-        />
-      );
-    };
-    const openInfoPopup = popupType => {
-      return () => {
-        const options = {
-          tradeId: betId,
-          eventId: _.get(event, '_id'),
-        };
-
-        showPopup(popupType, options);
-      };
-    };
-
     return (
       <div className={styles.menu}>
         <Icon
@@ -603,58 +512,39 @@ const BetView = ({
         >
           <div
             className={styles.menuItem}
-            onClick={openInfoPopup(PopupTheme.eventDetails)}
-          >
-            {renderMenuInfoIcon()}
-            <span>
-              See <strong>Event</strong> Details
-            </span>
-          </div>
-          <div
-            className={styles.menuItem}
-            onClick={openInfoPopup(PopupTheme.tradeDetails)}
-          >
-            {renderMenuInfoIcon()}
-            <span>
-              See <strong>Trade</strong> Details
-            </span>
-          </div>
-          <div
-            className={styles.menuItem}
             onClick={() => showPopup(PopupTheme.editBet, { event, bet })}
           >
-            {renderMenuInfoIcon()}
+            <Icon
+              className={styles.menuInfoIcon}
+              iconType={IconType.edit}
+              iconTheme={null}
+              width={16}
+            />
             <span>Edit Bet</span>
           </div>
-          <div
-            className={styles.menuItem}
-            onClick={() =>
-              showPopup(PopupTheme.resolveBet, {
-                eventId: event._id,
-                tradeId: bet._id,
-              })
-            }
-          >
-            {renderMenuInfoIcon()}
-            <span>Resolve Bet</span>
-          </div>
+          {bet?.status === BetState.active && (
+            <div
+              className={styles.menuItem}
+              onClick={() =>
+                showPopup(PopupTheme.resolveBet, {
+                  eventId: event._id,
+                  tradeId: bet._id,
+                })
+              }
+            >
+              <Icon
+                className={styles.menuInfoIcon}
+                iconType={IconType.hourglass}
+                iconTheme={null}
+                width={16}
+              />
+              <span>Resolve Bet</span>
+            </div>
+          )}
         </div>
       </div>
     );
   };
-
-  // const renderCurrentBalance = () => {
-  //   return (
-  //     <div className={classNames(styles.currentBalanceContainer)}>
-  //       <Icon
-  //         className={styles.currentBalanceIcon}
-  //         iconTheme={IconTheme.primaryLightTransparent}
-  //         iconType={IconType.wallet2}
-  //       />
-  //       {formatToFixed(balance)}
-  //     </div>
-  //   );
-  // };
 
   const renderStateConditionalContent = () => {
     if (
@@ -669,72 +559,48 @@ const BetView = ({
         </>
       );
     } else if (state === BetState.resolved) {
-      const overallTrades = 0;
-      const tokensTraded = 0;
-      const tokensWon = 0;
-      const hasWon = tokensWon > 0;
       const finalOutcome = _.get(bet, [
         'outcomes',
         _.get(bet, 'finalOutcome'),
         'name',
       ]);
-      // console.debug(bet);
-      const summaryRows = [
-        BetSummaryHelper.getDivider(),
-        BetSummaryHelper.getKeyValue('Overall trades', overallTrades),
-        BetSummaryHelper.getKeyValue(
-          TOKEN_NAME + ' tokens traded',
-          tokensTraded + ' ' + TOKEN_NAME
-        ),
-        BetSummaryHelper.getKeyValue('Outcome', finalOutcome),
-        BetSummaryHelper.getDivider(),
-        BetSummaryHelper.getKeyValue(
-          TOKEN_NAME + ' tokens won',
-          tokensWon + ' ' + TOKEN_NAME,
-          false,
-          false,
-          true,
-          null,
-          false,
-          hasWon ? HighlightType.highlightMenuAddEventOrBet : null
-        ),
-      ];
+      const evidence = _.get(bet, 'evidenceActual');
+
+      const data = (label, value, opts = {}) => (
+        <div className={styles.resolutionData}>
+          <h3>{label}</h3>
+          <p
+            className={classNames({
+              [styles.smallText]: opts.smallText,
+            })}
+          >
+            {value}
+          </p>
+        </div>
+      );
 
       return (
-        <>
+        <div className={styles.resolvedBetLayout}>
+          <div className={styles.stateBadgeContainer}>
+            <StateBadge state={state} />
+          </div>
           <div className={styles.summaryRowContainer}>
-            <SummaryRowContainer summaryRows={summaryRows} />
-            <div
-              className={styles.walletLink}
-              onClick={() => setOpenDrawer('wallet')}
-            >
-              Go to my Wallet
-              <Icon
-                className={styles.walletLinkIcon}
-                iconType={IconType.arrowTopRight}
-                iconTheme={IconTheme.primary}
+            {data('Bet resolved at', DateText.formatDate(endDate))}
+            {data('Outcome', finalOutcome)}
+            {data('Evidence', evidence, { smallText: true })}
+          </div>
+          <AuthedOnly>
+            <div className={styles.disputeButtonContainer}>
+              <ButtonSmall
+                text="Dispute"
+                butonTheme={ButtonSmallTheme.red}
+                onClick={() =>
+                  showPopup(PopupTheme.reportEvent, { small: true })
+                }
               />
             </div>
-            {hasWon && (
-              <>
-                <span className={styles.confettiLeft}>
-                  <Icon iconType={IconType.confettiLeft} iconTheme={null} />
-                </span>
-                <span className={styles.confettiRight}>
-                  <Icon iconType={IconType.confettiRight} iconTheme={null} />
-                </span>
-              </>
-            )}
-          </div>
-          <BetShareContainer
-            shareIconTypes={[
-              ShareType.twitter,
-              ShareType.whatsapp,
-              ShareType.facebook,
-            ]}
-            url={window.location.href}
-          />
-        </>
+          </AuthedOnly>
+        </div>
       );
     }
   };
@@ -761,15 +627,17 @@ const BetView = ({
           )}
         >
           {renderLoadingAnimation()}
-          {!isTradeViewPopup && renderMenuContainerWithCurrentBalance()}
+          <AdminOnly>
+            {!isTradeViewPopup && renderMenuContainerWithCurrentBalance()}
+          </AdminOnly>
           <div className={styles.betMarketQuestion}>{bet.marketQuestion}</div>
-          {showEventEnd && (
+          {showEventEnd && state !== BetState.resolved && (
             <>
               <span className={styles.timerLabel}>Event ends in:</span>
               <div
                 className={classNames(
                   styles.timeLeftCounterContainer,
-                  isTradeViewPopup ? styles.fixedTimer : null
+                  isTradeViewPopup && styles.fixedTimer
                 )}
               >
                 <TimeCounter endDate={endDate} />

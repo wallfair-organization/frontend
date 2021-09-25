@@ -1,376 +1,390 @@
-@import "../../styles/all";
+@import '../../styles/all';
 
-.navbar
-{
-    position:        absolute;
-    top:             0;
-    left:            0;
-    width:           100%;
-    height:          60px;
-    display:         flex;
-    flex-direction:  row;
-    justify-content: space-between;
-    align-items:     center;
-    padding:         50px 24px;
-    z-index:         $zIndexNavbar;
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 24px;
+  z-index: $zIndexNavbar;
 
-    img
-    {
-        margin-right: 2rem;
+  img {
+    margin-right: 2rem;
+  }
+
+  .drawerWrapper {
+    display: contents;
+  }
+
+  .navbarItems {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+
+    .signUpButton {
+      width: 11rem;
+      height: 55px;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-left: 0;
+      background-image: url('../../data/images/signup-background-one.svg');
+      background-position: center;
+      @media (min-width: $screen-xs-max) {
+        margin-left: 20px;
+      }
     }
 
-    .drawerWrapper {
-      display:contents;
+    svg {
+      stroke-width: 0;
     }
 
-    .navbarItems
-    {
-        display:     flex;
-        align-items: center;
-
-        .signUpButton {
-            background-color: $colorWhite;
-            width: 11rem;
-            height: 55px;
-            border-radius: 4px;
-            font-size: 16px;
-            margin-left: 0;
-            background-image: url('../../data/images/signup-background-one.svg');
-            background-position: center;
-            @media (min-width: $screen-xs-max)
-            {
-                margin-left: 20px;
-            }
-        }
-
-        svg {
-            stroke-width: 0;
-        }
-
-        &.hideOnMobile
-        {
-            @media (max-width: $screen-md)
-            {
-                display: none;
-            }
-        }
-
-        &:not(.hideOnMobile)
-        {
-            @media (max-width: $screen-xs-max)
-            {
-                width:           100%;
-                justify-content: flex-end;
-            }
-        }
-
-        a
-        {
-            color:           $colorWhite;
-            opacity:         0.5;
-            text-decoration: none;
-            margin:          0 15px;
-            font-family:     $fontLight;
-            white-space:     nowrap;
-            letter-spacing:  0.4px;
-            font-size:       16px;
-
-            &:hover {
-                opacity:     1;
-            }
-        }
-
-        .ranking
-        {
-            z-index:         5;
-
-            &.pillButton
-            {
-                @media (max-width: $screen-xs)
-                {
-                    display: none;
-                }
-            }
-        }
-
-        .balanceOverview
-        {
-            border:           none;
-            opacity:          1;
-            z-index:          5;
-        }
-
-        .pillButton {
-            color:            $colorWhite;
-            display:          flex;
-            align-items:      center;
-            white-space:      nowrap;
-            padding:          8px 15px;
-            background-color: rgba(172, 196, 255, 0.1);
-            font-size:        12px;
-            border-radius:    22px;
-            font-family:      $fontRegular;
-            cursor:           pointer;
-            margin-right:     10px;
-            height:           35px;
-
-            img, svg {
-                margin-right: 10px;
-                max-width: 18px;
-                max-height: 21px;
-            }
-
-            @media screen and (min-width: $screen-sm) {
-                margin-right:  16px;
-            }
-
-            &Active {
-                background-color: transparent;
-                border:           2px solid rgba(172, 196, 255, 0.42);
-                padding:          8px 13px;
-            }
-        }
-
-        .notificationOverview
-        {
-            position: relative;
-            color: white;
-            z-index: 5;
-            padding: 0 1rem;
-            cursor:  pointer;
-
-            .notificationIcon
-            {
-                position: absolute;
-                top: -10px;
-                left: 0;
-            }
-
-            .notificationNew
-            {
-                position: absolute;
-                top: -12px;
-                right: -5px;
-                width: 21px;
-                height: 17px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: $colorRedLight;
-                border-radius: 8.4px;
-
-                .notificationNewText
-                {
-                    font-size: 10px;
-                    line-height: 13px;
-                    color: #FFFFFF;
-                }
-            }
-        }
-
-        .profileContainer {
-            display:     flex;
-            margin-left: 15px;
-            cursor:      pointer;
-            z-index:     5;
-
-            &.menuOpened {
-                .downCaret {
-                    transform: rotate(90deg);
-                }
-            }
-
-            .profile {
-                flex:                auto;
-                margin:              0;
-                height:              35px;
-                width:               35px;
-                border-radius:       50%;
-                background-color:    $colorGrayLight;
-                background-size:     cover;
-                background-position: center center;
-            }
-            .downCaret {
-                margin:  0 0 0 10px;
-                width:   auto;
-                transition: transform 0.5s ease-in-out;
-            }
-            svg path {
-                fill:    $colorWhite;
-                stroke:  $colorWhite;
-            }
-
-            @media screen and (min-width: $screen-sm) {
-                margin-right:  20px;
-            }
-        }
-
-        .active
-        {
-            opacity:     1;
-            font-family: $fontBold;
-            position:    relative;
-
-            &:after {
-                content: '';
-                position: absolute;
-                background-color: #e2ff54;
-                bottom: -5px;
-                left: 50%;
-                width: 80%;
-                max-width: 65px;
-                height: 2px;
-                transform: translateX(-50%);
-                transition: opacity 0.2s ease-in-out;
-            }
-        }
-
-        .logoLink {
-            opacity: 1;
-            margin: 0;
-
-            & > img {
-                margin: 0;
-            }
-
-            &:after {
-                display: none;
-            }
-        }
-
-        .linkWrapper {
-            display: flex;
-            margin-left: 2rem;
-        }
-
-        .homeIcon {
-            width: 20px;
-            height: 20px;
-
-            & > svg {
-                max-height: 20px;
-            }
-        }
+    &.hideOnMobile {
+      @media (max-width: $screen-md) {
+        display: none;
+      }
     }
 
-    .leaderboard
-    {
-        background-color: rgba(14, 9, 39, 0.86);
+    &:not(.hideOnMobile) {
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+    .signUpButton {
+      background-color: $colorWhite;
+      width: 11rem;
+      height: 55px;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-left: 0;
+      background-image: url('../../data/images/signup-background-one.svg');
+      background-position: center;
+
+      @media (max-width: $screen-sm) {
+        width: 8rem;
+        height: 40px;
+        font-size: 14px;
+      }
+    }
+
+    .loginButton {
+      background-color: transparent;
+      color: $colorWhite;
+      width: 11rem;
+      height: 55px;
+      font-size: 16px;
+      border: 1px solid $colorWhite;
+      font-family: $fontRegular;
+      margin-right: 20px;
+
+      @media (max-width: $screen-sm) {
+        width: 8rem;
+        height: 40px;
+        font-size: 14px;
+      }
+    }
+
+    a {
+      color: $colorWhite;
+      opacity: 0.5;
+      text-decoration: none;
+      margin: 0 15px;
+      font-family: $fontLight;
+      white-space: nowrap;
+      letter-spacing: 0.4px;
+      font-size: 16px;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .ranking {
+      z-index: 5;
+
+      &.pillButton {
+        @media (max-width: $screen-xs) {
+          display: none;
+        }
+      }
+    }
+
+    .balanceOverview {
+      border: none;
+      opacity: 1;
+      z-index: 5;
+    }
+
+    .pillButton {
+      color: $colorWhite;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      padding: 8px 15px;
+      background-color: rgba(172, 196, 255, 0.1);
+      font-size: 12px;
+      border-radius: 22px;
+      font-family: $fontRegular;
+      cursor: pointer;
+      margin-right: 10px;
+      height: 35px;
+
+      img,
+      svg {
+        margin-right: 10px;
+        max-width: 18px;
+        max-height: 21px;
+      }
+
+      @media screen and (min-width: $screen-sm) {
+        margin-right: 16px;
+      }
+
+      &Active {
+        background-color: transparent;
+        border: 2px solid rgba(172, 196, 255, 0.42);
+        padding: 8px 13px;
+      }
+    }
+
+    .notificationOverview {
+      position: relative;
+      color: white;
+      z-index: 5;
+      padding: 0 1rem;
+      cursor: pointer;
+
+      .notificationIcon {
+        position: absolute;
+        top: -10px;
+        left: 0;
+      }
+
+      .notificationNew {
+        position: absolute;
+        top: -12px;
+        right: -5px;
+        width: 21px;
+        height: 17px;
         display: flex;
-        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        background: $colorRedLight;
+        border-radius: 8.4px;
 
-        .closeLeaderboard
-        {
-            @extend .floatingCloseButton;
-
-            @media screen and (min-width: $screen-sm) {
-                display: none;
-            }
+        .notificationNewText {
+          font-size: 10px;
+          line-height: 13px;
+          color: #ffffff;
         }
-
-        .leaderboardHeadingWrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .leaderboardHeading
-        {
-            padding:        90px 30px 40px 30px;
-            font-size:      20px;
-            line-height:    1.2;
-            letter-spacing: 0.75px;
-            color:          #ffffff;
-            width: 100%;
-
-            @media screen and (min-width: $screen-xs) {
-                font-size:  24px;
-            }
-        }
-
-        .leaderboardHeadingRank {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            color: $colorWhite;
-            padding: 90px 30px 40px 0;
-            min-width: 90px;
-        }
-
-        .leaderboardHeadingRankText {
-            font-size: 11px;
-            text-transform: uppercase;
-            opacity: 0.45;
-            padding-bottom: 10px;
-        }
-
-        .leaderboardHeadingRankValue {
-            font-size: 24px;
-        }
-
-        .leaderboardInfo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 90px;
-            width: 100%;
-            margin-bottom: 30px;
-        }
-
-        .leaderboardInfoItem {
-            background-color: #24203d;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-            padding: 20px;
-            border-radius: 5px;
-            color: $colorWhite;
-
-            &:first-child {
-                margin: 0 5px 0 30px;
-            }
-
-            &:last-child {
-                margin: 0 30px 0 5px;
-            }
-        }
-
-        .leaderboardInfoItemText {
-            font-size: 11px;
-            text-transform: uppercase;
-            opacity: 0.45;
-        }
-
-        .leaderboardInfoItemNumber {
-            font-size: 24px;
-        }
-
-        .leaderboardInfoItemToken {
-            font-size: 10px;
-            vertical-align: super;
-        }
+      }
     }
 
-    .logoMobile {
+    .profileContainer {
+      display: flex;
+      margin-left: 15px;
+      cursor: pointer;
+      z-index: 5;
+
+      &.menuOpened {
+        .downCaret {
+          transform: rotate(90deg);
+        }
+      }
+
+      .profile {
+        flex: auto;
+        margin: 0;
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        background-color: $colorGrayLight;
+        background-size: cover;
+        background-position: center center;
+      }
+      .downCaret {
+        margin: 0 0 0 10px;
         width: auto;
-        max-width: 80px;
+        transition: transform 0.5s ease-in-out;
+      }
+      svg path {
+        fill: $colorWhite;
+        stroke: $colorWhite;
+      }
 
-        & > svg,  & > svg > *{
-            width: 100%;
-            height: 100%;
-            overflow: visible;
-        }
+      @media screen and (min-width: $screen-sm) {
+        margin-right: 20px;
+      }
     }
 
-    .logoMobileWrapper {
-        @media (min-width: $screen-md)
-        {
-            display: none;
-        }
+    .active {
+      opacity: 1;
+      font-family: $fontBold;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        background-color: #e2ff54;
+        bottom: -5px;
+        left: 50%;
+        width: 80%;
+        max-width: 65px;
+        height: 2px;
+        transform: translateX(-50%);
+        transition: opacity 0.2s ease-in-out;
+      }
     }
+
+    .logoLink {
+      opacity: 1;
+      margin: 0;
+
+      & > img {
+        margin: 0;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+
+    .linkWrapper {
+      display: flex;
+      margin-left: 2rem;
+    }
+
+    .homeIcon {
+      width: 20px;
+      height: 20px;
+
+      & > svg {
+        max-height: 20px;
+      }
+    }
+  }
+
+  .leaderboard {
+    background-color: rgba(14, 9, 39, 0.86);
+    display: flex;
+    flex-flow: column nowrap;
+    z-index: 5;
+
+    .closeLeaderboard {
+      @extend .floatingCloseButton;
+
+      @media screen and (min-width: $screen-sm) {
+        display: none;
+      }
+    }
+
+    .leaderboardHeadingWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .leaderboardHeading {
+      padding: 90px 30px 40px 30px;
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: 0.75px;
+      color: #ffffff;
+      width: 100%;
+
+      @media screen and (min-width: $screen-xs) {
+        font-size: 24px;
+      }
+    }
+
+    .leaderboardHeadingRank {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      color: $colorWhite;
+      padding: 90px 30px 40px 0;
+      min-width: 90px;
+    }
+
+    .leaderboardHeadingRankText {
+      font-size: 11px;
+      text-transform: uppercase;
+      opacity: 0.45;
+      padding-bottom: 10px;
+    }
+
+    .leaderboardHeadingRankValue {
+      font-size: 24px;
+    }
+
+    .leaderboardInfo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 90px;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .leaderboardInfoItem {
+      background-color: #24203d;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      padding: 20px;
+      border-radius: 5px;
+      color: $colorWhite;
+
+      &:first-child {
+        margin: 0 5px 0 30px;
+      }
+
+      &:last-child {
+        margin: 0 30px 0 5px;
+      }
+    }
+
+    .leaderboardInfoItemText {
+      font-size: 11px;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
+
+    .leaderboardInfoItemNumber {
+      font-size: 24px;
+    }
+
+    .leaderboardInfoItemToken {
+      font-size: 10px;
+      vertical-align: super;
+    }
+  }
+
+  .logoMobile {
+    width: auto;
+    max-width: 80px;
+
+    & > svg,
+    & > svg > * {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+  }
+
+  .logoMobileWrapper {
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+  }
 }
 
 .navbarSticky {
-    position: fixed;
+  position: fixed;
 }

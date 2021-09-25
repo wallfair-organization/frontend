@@ -1,4 +1,5 @@
 export default {
+  auth: 'auth',
   betApprove: 'betApprove',
   betView: 'betView',
   eventDetails: 'eventDetails',

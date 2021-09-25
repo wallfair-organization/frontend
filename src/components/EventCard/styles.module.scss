@@ -1,100 +1,100 @@
-@import "../../styles/all";
+@import '../../styles/all';
 
 .eventCardContainer {
-    padding-right: 20px;
+  padding-right: 20px;
+
+  @media (max-width: $screen-xs) {
+    padding: 0;
+  }
+
+  .eventCard {
+    width: 300px;
+    border-radius: 6px;
+    font-family: $fontLight;
+    color: $colorWhite;
+    min-height: 200px;
+    padding: 1rem;
+    display: flex;
+    position: relative;
+    z-index: 0;
+    justify-content: space-between;
+    flex-direction: column;
+    user-select: none;
+    cursor: pointer;
+    overflow: hidden;
 
     @media (max-width: $screen-xs) {
-        padding: 0;
+      width: 100%;
+      margin: 0 0 15px;
+      padding: 10px;
+    }
+    .eventVideoBackground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .eventCardVideoBackground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+    .eventCardBackground,
+    .eventCardBackgroundBlur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-color: $colorPrimary66;
+
+      &.eventCardBackgroundBlur {
+        filter: blur(2px);
+        -webkit-filter: blur(2px);
+      }
     }
 
-    .eventCard {
-        width: 300px;
-        border-radius: 6px;
-        font-family: $fontLight;
-        color: $colorWhite;
-        min-height: 200px;
-        padding: 1rem;
-        display: flex;
-        position: relative;
-        z-index: 0;
-        justify-content: space-between;
-        flex-direction: column;
-        user-select: none;
-        cursor: pointer;
-        overflow: hidden;
-
-        @media (max-width: $screen-xs) {
-            width: 100%;
-            margin: 0 0 15px;
-            padding: 10px;
-        }
-        .eventVideoBackground {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .eventCardVideoBackground {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 10;
-        }
-        .eventCardBackground,
-        .eventCardBackgroundBlur {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            background-color: $colorPrimary66;
-
-            &.eventCardBackgroundBlur {
-                filter: blur(2px);
-                -webkit-filter: blur(2px);
-            }
-        }
-
-        .title {
-            font-family: $fontBold;
-        }
+    .title {
+      font-family: $fontBold;
     }
+  }
 }
 .content {
-    &.timerActive {
-        position: relative;
-        bottom: 30px;
-    }
+  &.timerActive {
+    position: relative;
+    bottom: 30px;
+  }
 }
 
 .timer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 30px;
-    background-color: rgba(172, 196, 255, 0.12);
-    z-index: -1;
-    padding-right: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background-color: rgba(172, 196, 255, 0.12);
+  z-index: -1;
+  padding-right: 10px;
 
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .timerTitle {
-    font-size: 0.8rem;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: white;
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
 }

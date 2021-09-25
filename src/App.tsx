@@ -13,6 +13,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { history } from './store';
 import { Provider } from 'react-redux';
 import { Route, Redirect, Switch } from 'react-router-dom';
+import PrivateRoute from 'components/PrivateRoute';
 import Navbar from 'components/Navbar';
 import NavbarFooter from 'components/NavbarFooter';
 import NavbarFooterAction from 'components/NavbarFooterAction';
@@ -23,8 +24,12 @@ import RosiGame from './screens/RosiGame';
 import { PersistGate } from 'redux-persist/integration/react';
 import Games from './screens/Games';
 import Rewards from './screens/Rewards';
+import ResetPassword from './screens/ResetPassword';
+import initTagManager from './config/gtm';
 
 const { store, persistor } = configStore();
+
+initTagManager();
 
 const App = () => {
   return (
@@ -54,7 +59,8 @@ const App = () => {
             <Route exact path={Routes.rosiGame} component={RosiGame} />
             <Route path={Routes.verify} component={EmailVerification} />
             <Route path={Routes.games} component={Games} />
-            <Route path={Routes.rewards} component={Rewards} />
+            <Route path={Routes.resetPassword} component={ResetPassword} />
+            {/* <PrivateRoute path={Routes.rewards} component={Rewards} /> */}
             <Redirect to={Routes.home} />
           </Switch>
           <NavbarFooter skipRoutes={[Routes.bet, Routes.verify]}>

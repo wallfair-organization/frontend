@@ -26,7 +26,7 @@ const BetActionChatMessage = ({
 
   const { currency } = useSelector(selectUser);
 
-  const userName = _.get(user, 'name');
+  const userName = _.get(user, 'username');
   const tokenAmount = formatToFixed(convert(amount, currency));
   const betOutcome = _.get(bet, ['outcomes', outcome]);
   const outcomeValue = _.get(betOutcome, 'name');

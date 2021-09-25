@@ -8,7 +8,6 @@ const NewBetPopup = () => {
   return (
     <div className={styles.layout}>
       <h2>Bet Settings</h2>
-      <br />
       <AdminBetForm event={event} />
     </div>
   );

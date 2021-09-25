@@ -212,6 +212,9 @@ const updateData = (action, state) => {
     username: {
       $set: action.username,
     },
+    email: {
+      $set: action.email,
+    },
     admin: {
       $set: action.admin,
     },
@@ -233,14 +236,6 @@ const updateData = (action, state) => {
 const logout = (action, state) => {
   return update(state, {
     $set: initialState,
-  });
-};
-
-const resetLoading = (action, state) => {
-  return update(state, {
-    loading: {
-      $set: false,
-    },
   });
 };
 
@@ -312,6 +307,73 @@ const downgradeAuthState = (action, state) => {
   });
 };
 
+const loginSuccess = (action, state) => {
+  return update(state, {
+    loading: {
+      $set: false,
+    },
+    userId: {
+      $set: action.userId,
+    },
+    token: {
+      $set: action.session,
+    },
+    authState: {
+      $set: AuthState.LOGGED_IN,
+    },
+    existing: {
+      $set: null,
+    },
+    error: {
+      $set: null,
+    },
+  });
+};
+
+const loginFail = (action, state) => {
+  return update(state, {
+    loading: {
+      $set: false,
+    },
+    error: {
+      $set: action?.message,
+    },
+  });
+};
+
+const signUpFail = (action, state) => {
+  return update(state, {
+    loading: {
+      $set: false,
+    },
+    error: {
+      $set: action?.message,
+    },
+  });
+};
+
+const forgotPasswordFail = (action, state) => {
+  return update(state, {
+    loading: {
+      $set: false,
+    },
+    error: {
+      $set: action?.message,
+    },
+  });
+};
+
+const resetPasswordFail = (action, state) => {
+  return update(state, {
+    loading: {
+      $set: false,
+    },
+    error: {
+      $set: action?.message,
+    },
+  });
+};
+
 // update user data reducers
 const initiateUpdateUserData = ({ payload }, state) => {
   return {
@@ -374,6 +436,8 @@ export default function (state = initialState, action) {
       return saveAdditionalInfoSucceeded(action, state);
     case AuthenticationTypes.REQUEST_SMS:
     case AuthenticationTypes.VERIFY_SMS:
+    case AuthenticationTypes.SIGN_UP:
+    case AuthenticationTypes.LOGIN:
       return setLoading(action, state);
     case AuthenticationTypes.SAVE_ADDITIONAL_INFO_FAILED:
       return saveAdditionalInfoFailed(action, state);
@@ -395,6 +459,16 @@ export default function (state = initialState, action) {
       return updateUserDataFailed(action, state);
     case AuthenticationTypes.UPDATE_INVESTMENT_DATA:
       return updateInvestmentData(action, state);
+    case AuthenticationTypes.LOGIN_SUCCESS:
+      return loginSuccess(action, state);
+    case AuthenticationTypes.LOGIN_FAIL:
+      return loginFail(action, state);
+    case AuthenticationTypes.SIGN_UP_FAIL:
+      return signUpFail(action, state);
+    case AuthenticationTypes.FORGOT_PASSWORD_FAIL:
+      return forgotPasswordFail(action, state);
+    case AuthenticationTypes.RESET_PASSWORD_FAIL:
+      return resetPasswordFail(action, state);
     default:
       return cleanErrors(action, state);
     // @formatter:on

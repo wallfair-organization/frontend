@@ -7,6 +7,7 @@ export const selectCurrency = ({ authentication }) => {
 };
 
 export const selectUserId = state => state.authentication.userId;
+export const selectUserLoggedIn = state => state.authentication.userId;
 
 export const selectUser = state => {
   const user = state.authentication;
@@ -14,6 +15,7 @@ export const selectUser = state => {
 
   return {
     ...user,
+    isLoggedIn: state.authentication.authState === 'LOGGED_IN',
     balance: convert(state.authentication.balance, currency),
     amountWon: convert(state.authentication.amountWon, currency),
     toNextRank: convert(state.authentication.toNextRank, currency),

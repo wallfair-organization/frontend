@@ -1,7 +1,10 @@
 @import '../../styles/all';
 
+.buttonContainer {
+  flex-basis: 100%;
+}
 .button {
-  margin: 30px auto;
+  margin: auto;
   width: 15em;
   height: 72px;
   border-radius: 4px;
@@ -24,5 +27,41 @@
 
   &:hover {
     cursor: not-allowed;
+  }
+}
+
+.betForm {
+  display: flex;
+  flex-flow: wrap;
+  grid-gap: 10px;
+  h3 {
+    flex-basis: 100%;
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center;
+  }
+}
+
+.inputContainer {
+  flex: calc(50% - 5px) 0 1;
+  width: auto;
+  input,
+  .select > div:first-child {
+    border-radius: 5px;
+    padding: 10px;
+    height: 38px;
+    font-size: 14px;
+    color: $colorPrimaryDark;
+  }
+  .select > div {
+    svg {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  & > div:nth-child(2) {
+    input {
+      height: auto;
+    }
   }
 }

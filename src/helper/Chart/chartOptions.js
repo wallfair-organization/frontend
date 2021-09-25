@@ -47,6 +47,7 @@ export const chartOptions = (type, data) => {
           },
         },
         y: {
+          max: 1,
           beginAtZero: true,
         },
       },

@@ -22,6 +22,17 @@ class DateText {
 
     return differenceInDays + 'd';
   }
+
+  static formatDate(input) {
+    const date = new Date(input);
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1;
+    const year = date.getFullYear();
+    const hour = date.getUTCHours();
+    const minutes = date.getMinutes();
+
+    return `${day}/${month}/${year} @ ${hour}:${minutes}`;
+  }
 }
 
 export default DateText;

@@ -1,6 +1,7 @@
 import { withStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import styles from './styles.module.scss';
+import _ from 'lodash';
 
 const TSlider = withStyles({
   root: {
@@ -64,7 +65,14 @@ const TSlider = withStyles({
   },
 })(Slider);
 
-const TokenSlider = ({ value, setValue, maxValue, ...props }) => {
+const TokenSlider = ({
+  value,
+  setValue,
+  maxValue,
+  minValue,
+  decimalPlaces,
+  ...props
+}) => {
   if (maxValue < 1) {
     maxValue = 2800;
   }
@@ -100,7 +108,13 @@ const TokenSlider = ({ value, setValue, maxValue, ...props }) => {
       max={maxValue}
       value={value}
       onChange={(event, v) => {
-        console.log(v);
+        if (minValue && v < _.toNumber(minValue)) {
+          v = minValue;
+        }
+
+        if (decimalPlaces || (decimalPlaces === 0 && !v.length)) {
+          v = _.floor(v, decimalPlaces);
+        }
         setValue(v);
       }}
       valueLabelFormat={`${

@@ -6,7 +6,7 @@ import { useRef, useEffect, useState } from 'react';
 
 const ChatMessage = ({ user, message, dateString }) => {
   const profilePicture = getProfilePictureUrl(_.get(user, 'profilePicture'));
-  const userName = _.get(user, 'name', 'Unknown');
+  const userName = _.get(user, 'username', 'Unknown');
   const [isVisible, setVisible] = useState(false);
 
   const domRef = useRef(null);

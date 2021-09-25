@@ -55,8 +55,19 @@ const root = function* () {
       [
         AuthenticationTypes.VERIFY_SMS_SUCCEEDED,
         AuthenticationTypes.SAVE_ADDITIONAL_INFO_SUCCEEDED,
+        AuthenticationTypes.LOGIN_SUCCESS,
       ],
       AuthenticationSagas.authenticationSucceeded
+    ),
+    takeLatest([AuthenticationTypes.SIGN_UP], AuthenticationSagas.signUp),
+    takeLatest([AuthenticationTypes.LOGIN], AuthenticationSagas.login),
+    takeLatest(
+      [AuthenticationTypes.FORGOT_PASSWORD],
+      AuthenticationSagas.forgotPassword
+    ),
+    takeLatest(
+      [AuthenticationTypes.RESET_PASSWORD],
+      AuthenticationSagas.resetPassword
     ),
     takeEvery(
       [
@@ -89,6 +100,7 @@ const root = function* () {
     takeEvery([BetTypes.FETCH_OUTCOMES], BetSagas.fetchOutcomes),
     takeEvery([BetTypes.FETCH_SELL_OUTCOMES], BetSagas.fetchSellOutcomes),
     takeLatest([BetTypes.FETCH_OPEN_BETS], BetSagas.fetchOpenBets),
+    takeLatest([BetTypes.FETCH_TRADE_HISTORY], BetSagas.fetchTradeHistory),
     takeLatest(
       [BetTypes.FETCH_OPEN_BETS_SUCCEEDED],
       BetSagas.fetchOpenBetsSucceeded

@@ -11,6 +11,7 @@ import { UserActions } from '../actions/user';
 import { PopupActions } from '../actions/popup';
 import { WebsocketsActions } from '../actions/websockets';
 import PopupTheme from '../../components/Popup/PopupTheme';
+import { AlertActions } from 'store/actions/alert';
 
 const afterLoginRoute = Routes.home;
 
@@ -214,14 +215,22 @@ const registrationSucceeded = function* (action) {
 const authenticationSucceeded = function* (action) {
   const authState = yield select(state => state.authentication.authState);
   const userId = yield select(state => state.authentication.userId);
-  const redirectUrl = yield select(state => state.popup.options.redirectUrl);
 
   if (authState === AuthState.LOGGED_IN) {
     yield put(UserActions.fetch({ userId, forceFetch: true }));
     yield put(EventActions.fetchAll());
     yield put(AuthenticationActions.fetchReferrals());
     yield put(WebsocketsActions.init());
-    yield put(push(redirectUrl || afterLoginRoute));
+    if (action.showWelcome) {
+      yield put(
+        PopupActions.show({
+          popupType: PopupTheme.welcome,
+        })
+      );
+    } else {
+      yield put(PopupActions.hide());
+    }
+    yield put(AlertActions.showSuccess({ message: 'Successfully logged in' }));
   }
 };
 
@@ -284,7 +293,11 @@ const refreshImportantData = function* () {
 const firstSignUpPopup = function* (options) {
   yield delay((options && options.duration ? options.duration : 1) * 60 * 1000);
   const authState = yield select(state => state.authentication.authState);
-  if (authState === AuthState.LOGGED_OUT) {
+  const popupVisible = yield select(state => state.popup.visible);
+  const popupType = yield select(state => state.popup.popupType);
+  const skip = popupVisible && popupType === PopupTheme.auth;
+
+  if (authState === AuthState.LOGGED_OUT && !skip) {
     yield put(
       PopupActions.show({
         popupType: options.last
@@ -319,6 +332,109 @@ const updateUserData = function* ({ payload }) {
   }
 };
 
+const signUp = function* (action) {
+  const payload = {
+    email: action.email,
+    password: action.password,
+    passwordConfirm: action.passwordConfirm,
+  };
+
+  const { response, error } = yield call(Api.signUp, payload);
+
+  if (response) {
+    yield put(
+      AuthenticationActions.login({
+        email: action.email,
+        password: action.password,
+        showWelcome: true,
+      })
+    );
+  } else {
+    yield put(
+      AuthenticationActions.signUpFail({
+        message: error.message,
+      })
+    );
+  }
+};
+
+const login = function* (action) {
+  const payload = {
+    userIdentifier: action.email,
+    password: action.password,
+  };
+
+  const { response, error } = yield call(Api.login, payload);
+
+  if (response) {
+    const data = response.data;
+
+    Api.setToken(data.session);
+    crashGameApi.setToken(data.session);
+
+    yield put(
+      AuthenticationActions.loginSuccess({
+        userId: data.userId,
+        session: data.session,
+        showWelcome: action.showWelcome,
+      })
+    );
+  } else {
+    yield put(
+      AuthenticationActions.loginFail({
+        message: error.message,
+      })
+    );
+  }
+};
+
+const forgotPassword = function* (action) {
+  const payload = { email: action.email };
+
+  const { response, error } = yield call(Api.forgotPassword, payload);
+
+  if (response) {
+    yield put(PopupActions.hide());
+    yield put(
+      AlertActions.showSuccess({
+        message: `Email sent to ${payload.email}`,
+      })
+    );
+  } else {
+    yield put(
+      AuthenticationActions.forgotPasswordFail({
+        message: error.message,
+      })
+    );
+  }
+};
+
+const resetPassword = function* (action) {
+  const payload = {
+    email: action.email,
+    password: action.password,
+    passwordConfirmation: action.passwordConfirmation,
+    passwordResetToken: action.token,
+  };
+
+  const { response, error } = yield call(Api.resetPassword, payload);
+
+  if (response) {
+    yield put(push(Routes.home));
+    yield put(
+      AlertActions.showSuccess({
+        message: 'Password changed successfully',
+      })
+    );
+  } else {
+    yield put(
+      AuthenticationActions.resetPasswordFail({
+        message: error.message,
+      })
+    );
+  }
+};
+
 export default {
   authenticationSucceeded,
   fetchReferrals,
@@ -333,4 +449,8 @@ export default {
   verifyEmail,
   firstSignUpPopup,
   updateUserData,
+  signUp,
+  login,
+  forgotPassword,
+  resetPassword,
 };

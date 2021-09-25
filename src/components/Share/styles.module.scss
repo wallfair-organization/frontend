@@ -1,0 +1,170 @@
+@import '../../styles/all';
+
+.sharePopupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 390px;
+
+  @media (max-width: $screen-sm) {
+    width: 100%;
+  }
+
+  .shareButtons {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: -5px;
+
+    .shareIcon {
+      background-color: transparent;
+      border-radius: 50%;
+      height: 65px;
+      width: 65px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid $colorPrimary05;
+      cursor: pointer;
+      overflow: hidden;
+      margin: 0;
+      transition: border-color .2s ease-in;
+      margin-right: 2px;
+      margin-left: 2px;
+
+      @media (max-width: $screen-sm) {
+        height: 50px;
+        width: 50px;
+        margin: 4px;
+      }
+
+      &:hover {
+        border-color: $colorGray;
+      }
+
+      > button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        > svg {
+          width: 55px;
+          height: 55px;
+
+          > circle {
+            fill: none;
+          }
+
+          > path {
+            fill: $colorGray;
+          }
+        }
+      }
+    }
+  }
+
+  .headline {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .shareText {
+    font-size: 16px;
+    margin: 6px 0 10px;
+    color: $colorWhite;
+  }
+
+  .separator {
+    height: 2px;
+    background: radial-gradient(circle, $colorGray 0%, transparent 90%);
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .inputContainer, .inputContainerCopied {
+    width: 100%;
+
+    & > div {
+      margin-bottom: 5px;
+    }
+
+    input {
+      font-family: $fontLight;
+      font-size: 16px;
+
+
+      @media (max-width: $screen-sm) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .inputContainerCopied {
+    input {
+      color:$colorGreenDarker !important;
+    }
+  }
+}
+
+.ShareButtonContainer {
+  display: inline-block;
+
+  .sharePopover {
+    background-color: #201D38;
+    color: white;
+    position: absolute;
+    left: 90px;
+    top: -20px;
+    border-radius: 15px;
+    transition: opacity .10s ease-in;
+    border: 1px solid $colorGray;
+
+    &.popup-position-top {
+      bottom: 32px;
+      top: auto;
+      left: -155px;
+      right: auto;
+      z-index: 50;
+    }
+
+    @media (max-width: $screen-sm) {
+      left: 10px;
+      right: 10px;
+
+      &.popup-position-top {
+        left: -110px;
+      }
+    }
+  }
+
+  .shareButton {
+    display: flex;
+    color: $colorWhite;
+    background-color: #201D38;
+    border: 1px solid $colorDarkSlateGray;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    position: relative;
+  }
+
+  .shareIcon {
+    width: 18px;
+    line-height: 1;
+    margin-right: 6px;
+    color: $colorYellowLight;
+  }
+}
+
+.shareTrigger {
+  position: relative;
+  z-index: 10;
+}

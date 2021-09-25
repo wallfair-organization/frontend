@@ -7,7 +7,7 @@ import moment from 'moment';
 import { EVENT_STATES } from 'constants/EventStates';
 import LiveBadge from '../LiveBadge';
 import styles from './styles.module.scss';
-import TwitchEmbedVideo from '../TwitchEmbedVideo';
+import EmbedVideo from '../EmbedVideo';
 import CoverFlowCarousel from '../CoverFlowCarousel';
 import TimeLeftCounter from '../TimeLeftCounter';
 
@@ -18,7 +18,13 @@ const Header = ({ events }) => {
 
   useEffect(() => {
     setCurrentEvents(
-      events.filter(event => event.state === EVENT_STATES.ONLINE)
+      _.orderBy(
+        events.filter(
+          event => event.state === EVENT_STATES.ONLINE && event.bets.length > 0
+        ),
+        ['date'],
+        ['desc']
+      ).slice(0, 5)
     );
   }, [events]);
 
@@ -29,7 +35,7 @@ const Header = ({ events }) => {
       );
     } else {
       return (
-        <TwitchEmbedVideo
+        <EmbedVideo
           targetId={event._id}
           className={styles.twitchStream}
           video={event.streamUrl}
@@ -41,10 +47,10 @@ const Header = ({ events }) => {
 
   return (
     <div>
-      <div className={styles.header}>
-        <CoverFlowCarousel onSlideChange={setCurrentSlideIndex}>
-          {currentEvents &&
-            currentEvents.map((event, eventIndex) => {
+      {currentEvents.length > 0 && (
+        <div className={styles.header}>
+          <CoverFlowCarousel onSlideChange={setCurrentSlideIndex}>
+            {currentEvents.map((event, eventIndex) => {
               const startDate = moment(_.get(event, 'date'));
               const endDate = moment(_.get(event, 'endDate'));
               const currentDate = moment();
@@ -72,11 +78,14 @@ const Header = ({ events }) => {
                       </div>
                       <span className={styles.title}>{event.name}</span>
                       <div className={styles.tagList}>
-                        {event.tags.map(({ name }, tagIndex) => (
+                        {!!event.category && (
+                          <span className={styles.tag}>{event.category}</span>
+                        )}
+                        {/* {event.tags.map(({ name }, tagIndex) => (
                           <span key={tagIndex} className={styles.tag}>
                             #{name.toLowerCase()}
                           </span>
-                        ))}
+                        ))} */}
                       </div>
                       <div>
                         <div className={styles.goToEvent}>
@@ -86,7 +95,7 @@ const Header = ({ events }) => {
                       </div>
                     </div>
                   </div>
-                  <div
+                  {/* <div
                     className={classNames(
                       styles.timeLeftCounterContainer,
                       currentSlideIndex === eventIndex &&
@@ -97,12 +106,13 @@ const Header = ({ events }) => {
                       Event ends in:
                     </span>
                     <TimeLeftCounter endDate={endDate} />
-                  </div>
+                  </div> */}
                 </Link>
               );
             })}
-        </CoverFlowCarousel>
-      </div>
+          </CoverFlowCarousel>
+        </div>
+      )}
     </div>
   );
 };

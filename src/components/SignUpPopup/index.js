@@ -28,7 +28,7 @@ const SignUpPopup = ({ closed, user, hidePopup, showPopup, authState }) => {
 
   const goToJoinPage = () => {
     if (authState !== LOGGED_IN) {
-      showPopup(PopupTheme.loginRegister, {});
+      showPopup(PopupTheme.auth, { small: true });
     }
   };
 

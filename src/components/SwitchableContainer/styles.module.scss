@@ -37,6 +37,10 @@
         user-select:         none;
         margin-right:        30px;
 
+        &:last-child {
+            margin: 0;
+        }
+
         &.underlineInactive
         {
             &:not(.selected)

@@ -17,6 +17,8 @@ export const BetTypes = {
   PULL_OUT_BET_SUCCEEDED: 'Bet/PULL_OUT_BET_SUCCEEDED',
   SET_OUTCOMES: 'Bet/SET_OUTCOMES',
   SET_SELL_OUTCOMES: 'Bet/SET_SELL_OUTCOMES',
+  FETCH_TRADE_HISTORY: 'Bet/FETCH_TRADE_HISTORY',
+  FETCH_TRADE_HISTORY_SUCCESS: 'Bet/FETCH_TRADE_HISTORY_SUCCESS',
 };
 
 const create = makeActionCreator(BetTypes.CREATE, {
@@ -87,6 +89,15 @@ const pullOutBetSucceeded = makeActionCreator(BetTypes.PULL_OUT_BET_SUCCEEDED);
 
 const pullOutBetFailed = makeActionCreator(BetTypes.PULL_OUT_BET_FAILED);
 
+const fetchTradeHistory = makeActionCreator(BetTypes.FETCH_TRADE_HISTORY);
+
+const fetchTradeHistorySuccess = makeActionCreator(
+  BetTypes.FETCH_TRADE_HISTORY_SUCCESS,
+  {
+    trades: [],
+  }
+);
+
 export const BetActions = {
   create,
   createFailed,
@@ -104,4 +115,6 @@ export const BetActions = {
   pullOutBetSucceeded,
   setOutcomes,
   setSellOutcomes,
+  fetchTradeHistory,
+  fetchTradeHistorySuccess,
 };

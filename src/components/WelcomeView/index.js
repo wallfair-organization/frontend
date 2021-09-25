@@ -24,7 +24,7 @@ const WelcomeView = ({ closed, user, hidePopup }) => {
     return (
       <div className={styles.welcomeTextContainer}>
         <span className={styles.welcomeTextHeadline}>
-          1.000 {TOKEN_NAME}
+          5.000 {TOKEN_NAME}
           <span className={styles.welcomeTextHeadlineUnderline}></span>
         </span>
         <span className={styles.welcomeTextText}>

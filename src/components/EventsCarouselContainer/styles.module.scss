@@ -31,12 +31,6 @@
 
 .eventLink {
 
-    &:last-child {
-        div {
-            padding: 0;
-        }
-    }
-
     @media (max-width: $screen-xs) {
         padding-right: 10px;
     }

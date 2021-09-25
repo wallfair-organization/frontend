@@ -5,7 +5,7 @@ import moment from 'moment';
 import LiveBadge from '../LiveBadge';
 import styles from './styles.module.scss';
 import TimeLeftCounter from '../TimeLeftCounter';
-import TwitchEmbedVideo from '../TwitchEmbedVideo';
+import EmbedVideo from '../EmbedVideo';
 
 const EventJumbotron = ({ event }) => {
   const location = useLocation();
@@ -33,10 +33,11 @@ const EventJumbotron = ({ event }) => {
         >
           <div className={styles.headerOverlay}></div>
           {isLive && (
-            <TwitchEmbedVideo
+            <EmbedVideo
               targetId={event._id}
               video={event.streamUrl}
               muted={true}
+              controls={false}
             />
           )}
           {!isLive && (
@@ -63,7 +64,7 @@ const EventJumbotron = ({ event }) => {
               </div>
             </div>
           </div>
-          <div
+          {/* <div
             className={classNames(
               styles.timeLeftCounterContainer,
               styles.showTimeLeftCounter
@@ -71,7 +72,7 @@ const EventJumbotron = ({ event }) => {
           >
             <span className={styles.timeLeftCaption}>Event ends in:</span>
             <TimeLeftCounter endDate={endDate} />
-          </div>
+          </div> */}
         </Link>
       </div>
     </div>

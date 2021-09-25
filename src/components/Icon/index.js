@@ -32,7 +32,9 @@ import { ReactComponent as IconCopy } from '../../data/icons/copy.svg';
 import { ReactComponent as IconCross } from '../../data/icons/cross.svg';
 import { ReactComponent as IconDeleteInput } from '../../data/icons/delete-input.svg';
 import { ReactComponent as IconDeposit } from '../../data/icons/deposit.svg';
+import { ReactComponent as IconEdit } from '../../data/icons/edit.svg';
 import { ReactComponent as IconHome } from '../../data/icons/home.svg';
+import { ReactComponent as IconHourglass } from '../../data/icons/hourglass.svg';
 import { ReactComponent as IconInfo } from '../../data/icons/info.svg';
 import { ReactComponent as IconInfoReverse } from '../../data/icons/info-reverse.svg';
 import { ReactComponent as IconLogoSmall } from '../../data/icons/logo-small.svg';
@@ -129,6 +131,8 @@ const Icon = ({
       [IconType.withdrawal]: <IconWithdrawal />,
       [IconType.newsIcon]: <NewsIcon />,
       [IconType.shareLink]: <ShareIcon />,
+      [IconType.edit]: <IconEdit />,
+      [IconType.hourglass]: <IconHourglass />,
     });
   };
 

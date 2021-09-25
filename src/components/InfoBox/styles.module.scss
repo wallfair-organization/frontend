@@ -1,0 +1,66 @@
+@import '../../styles/all';
+
+.infoBoxContainer {
+  @media (min-width: $screen-md) {
+    position: relative;
+  }
+
+  .infoIcon {
+    width: 18px;
+    height: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+
+    * {
+      stroke: $colorPrimary;
+    }
+  }
+
+  .infoBoxContentContainer {
+    position: absolute;
+    background: rgba(14, 9, 39, 0.8);
+    border-radius: 5px;
+    color: $colorWhite;
+    width: 500px;
+    z-index: 10;
+
+    @media (max-width: $screen-md) {
+      left: 5vw;
+      top: 0;
+      width: 90vw;
+    }
+
+    @media (min-width: $screen-md) {
+      &.bottomRight {
+        top: 25px;
+        left: 10px;
+      }
+
+      &.bottomLeft {
+        top: 25px;
+        right: 10px;
+      }
+
+      &.topRight {
+        bottom: 25px;
+        left: 10px;
+      }
+
+      &.topLeft {
+        bottom: 25px;
+        right: 10px;
+      }
+    }
+
+    .infoBoxContent {
+      padding: 20px;
+
+      & p {
+        font-family: $fontRegular;
+        line-height: 20px;
+        font-size: 15px;
+        text-align: left;
+      }
+    }
+  }
+}

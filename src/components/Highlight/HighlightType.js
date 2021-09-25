@@ -12,4 +12,5 @@ export default {
   highlightPlaceBet: 'highlightPlaceBet',
   highlightDeposit: 'highlightDeposit',
   highlightModalButton: 'highlightModalButton',
+  highlightAuthButton: 'highlightAuthButton',
 };

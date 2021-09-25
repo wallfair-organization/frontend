@@ -83,6 +83,8 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
             image={event.previewImageUrl}
             eventEnd={event.date}
             eventCardClass={styles.eventCardHome}
+            streamUrl={event.streamUrl}
+            state={event.state}
           />
         </Link>
       );

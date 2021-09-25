@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import update from 'immutability-helper';
 import { ChatTypes } from '../actions/chat';
+import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
 
 const initialState = {
   messagesByRoom: {},
@@ -14,40 +15,35 @@ const sortChatMessages = chatMessages =>
     return aDate < bDate ? -1 : aDate === bDate ? 0 : 1;
   });
 
-const addMessages = (state, roomId, messages) => {
-  const currentMessages = _.get(state, ['messagesByRoom', roomId], []);
-  const sortedChatMessages = sortChatMessages(
-    _.uniqWith(
-      _.concat(currentMessages, messages)
-        .map(m => _.omit(m, ['_id', '__v']))
-        .map(m => {
-          m.date = new Date(m.date);
-
-          m.date.setMilliseconds(0);
-
-          return m;
-        }),
-      _.isEqual
-    )
-  );
+const addMessage = (action, state) => {
+  const current = _.get(state, ['messagesByRoom', action.roomId], []);
 
   return update(state, {
     messagesByRoom: {
-      [roomId]: {
-        $set: sortedChatMessages,
+      [action.roomId]: {
+        $set: sortChatMessages([...current, ...[action.message]]),
       },
     },
   });
 };
 
-const addMessage = (action, state) => {
-  const { message, roomId } = action;
-
-  return addMessages(state, roomId, [message]);
-};
-
 const fetchByRoomSuccess = (action, state) => {
-  return addMessages(state, action.roomId, action.messages);
+  const currentMessages = _.get(state, ['messagesByRoom', action.roomId], []);
+  const notificationMessages = currentMessages.filter(m =>
+    [
+      ChatMessageType.createBet,
+      ChatMessageType.placeBet,
+      ChatMessageType.pulloutBet,
+    ].includes(m.type)
+  );
+
+  return update(state, {
+    messagesByRoom: {
+      [action.roomId]: {
+        $set: sortChatMessages([...notificationMessages, ...action.messages]),
+      },
+    },
+  });
 };
 
 export default function (state = initialState, action) {

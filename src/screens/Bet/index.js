@@ -5,17 +5,15 @@ import Link from '../../components/Link';
 import LiveBadge from 'components/LiveBadge';
 import Routes from '../../constants/Routes';
 import styles from './styles.module.scss';
-import TimeLeftCounter from 'components/TimeLeftCounter';
-import ViewerBadge from 'components/ViewerBadge';
 import { Carousel } from 'react-responsive-carousel';
 import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../store/actions/popup';
 import { useParams } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
-import TwitchEmbedVideo from '../../components/TwitchEmbedVideo';
+import EmbedVideo from '../../components/EmbedVideo';
 import BetView from '../../components/BetView';
 import RelatedBetCard from '../../components/RelatedBetCard';
-import MyBetCard from '../../components/MyBetCard';
+import MyTradesList from '../../components/MyTradesList';
 import { useHistory } from 'react-router-dom';
 import Chat from '../../components/Chat';
 import News from '../../components/News';
@@ -24,7 +22,6 @@ import classNames from 'classnames';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import EventTradesContainer from '../../components/EventTradesContainer';
 import EventTradeViewsHelper from '../../helper/EventTradeViewsHelper';
-import State from '../../helper/State';
 import { LOGGED_IN } from 'constants/AuthState';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import PopupTheme from '../../components/Popup/PopupTheme';
@@ -37,13 +34,17 @@ import { useNewsFeed } from './hooks/useNewsFeed';
 import { useTabOptions } from './hooks/useTabOptions';
 import AdminOnly from 'components/AdminOnly';
 import { selectOpenBets } from 'store/selectors/bet';
-import { selectTransactions } from 'store/selectors/transaction';
 import { TransactionActions } from 'store/actions/transaction';
 import { ChatActions } from 'store/actions/chat';
 import ContentFooter from 'components/ContentFooter';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
 import OfflineBadge from 'components/OfflineBadge';
 import { EVENT_STATES } from 'constants/EventStates';
+import IconType from 'components/Icon/IconType';
+import IconTheme from 'components/Icon/IconTheme';
+import EventTypes from 'constants/EventTypes';
+import Share from '../../components/Share';
+import useTrades from '../../hooks/useTrades';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -76,7 +77,6 @@ const Bet = ({
   const history = useHistory();
 
   const openBets = useSelector(selectOpenBets);
-  const transactions = useSelector(selectTransactions);
 
   const currentFromLocation = useBetPreviousLocation();
   const {
@@ -89,6 +89,7 @@ const Bet = ({
   useNewsFeed(event);
 
   const { tabOptions, handleSwitchTab, selectedTab } = useTabOptions(event);
+  const { activeBets } = useTrades(event?._id);
 
   const status = {
     active: 1,
@@ -100,31 +101,36 @@ const Bet = ({
 
   const selectSingleBet = bets => {
     if (relatedBets.length || bets.length) {
-      const singleBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
-      if (singleBet?.state !== 'active') return;
+      const loneBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
+      if (loneBet?.status !== 'active') return;
 
-      const betId = _.get(singleBet, '_id');
-      const betSlug = _.get(singleBet, 'slug');
+      const betId = _.get(loneBet, '_id');
+      const betSlug = _.get(loneBet, 'slug');
       selectBet(betId, betSlug);
       setSingleBet(true);
     }
   };
 
   useEffect(() => {
+    const sluggedEvent = _.find(events, {
+      slug: eventSlug,
+    });
+    if (!_.isEqual(sluggedEvent, event)) {
+      setEvent(sluggedEvent);
+    }
+  }, [events, eventSlug]);
+
+  useEffect(() => {
     ref.current = true;
+    if (!event) return;
 
     setSingleBet(false);
     setBetViewIsOpen(false);
 
-    const currentEvent = _.find(events, {
-      slug: eventSlug,
-    });
-
-    const eventBets = [..._.get(currentEvent, 'bets', [])].sort(
+    const eventBets = [..._.get(event, 'bets', [])].sort(
       (a, b) => status[a.status] - status[b.status]
     );
 
-    setEvent(currentEvent);
     setRelatedBets(eventBets);
 
     const currentBet = _.find(eventBets, {
@@ -141,12 +147,11 @@ const Bet = ({
       selectSingleBet(eventBets);
     }
 
-    fetchChatMessages(currentEvent._id);
+    fetchChatMessages(event._id);
     fetchOpenBets();
     fetchTransactions();
-
     return () => (ref.current = false);
-  }, [eventSlug, betSlug]);
+  }, [eventSlug, betSlug, event]);
 
   useEffect(() => {
     if (ref.current && !isMobile && relatedBets.length === 1) {
@@ -216,35 +221,7 @@ const Bet = ({
 
       selectBet(betId, betSlug);
       setBetId(betId);
-
-      if (popup) {
-        setBetViewIsOpen(false);
-        showPopup(PopupTheme.tradeView, {
-          betId,
-          eventId,
-          openBets: _.filter(openBets, { betId }),
-        });
-      }
     };
-  };
-
-  const getMyEventTrades = () => {
-    return _.map([...transactions], transaction => {
-      const betId = _.get(transaction, 'bet');
-      const bet = State.getTradeByEvent(betId, event);
-      const openBet = _.find(openBets, { betId });
-
-      if (bet) {
-        return {
-          ...transaction,
-          event,
-          bet,
-          openBet,
-        };
-      }
-    })
-      .filter(Boolean)
-      .sort((a, b) => status[a.bet.status] - status[b.bet.status]);
   };
 
   const renderNoTrades = () => {
@@ -261,14 +238,16 @@ const Bet = ({
     });
   };
 
-  const renderMyTradesList = (popup = false) => {
-    const myEventTrades = getMyEventTrades();
-    if (!isLoggedIn() || myEventTrades.length < 1) {
+  const renderMyTradesList = () => {
+    if (!isLoggedIn() || activeBets.length < 1) {
       return renderNoTrades();
     }
-    return _.map(myEventTrades, (transaction, index) => {
-      return renderMyBetCard(transaction, index, popup);
-    });
+
+    return (
+      <div className={styles.myTrades}>
+        <MyTradesList bets={activeBets} withStatus={true} allowCashout={true} />
+      </div>
+    );
   };
 
   const renderRelatedBetCard = (bet, index, popup) => {
@@ -283,47 +262,6 @@ const Bet = ({
     }
 
     return <div />;
-  };
-
-  const renderMyBetCard = (transaction, index, popup) => {
-    if (transaction) {
-      return (
-        <MyBetCard
-          key={index}
-          transaction={transaction}
-          onClick={onBetClick(transaction.bet, popup)}
-        />
-      );
-    }
-
-    return <div />;
-  };
-
-  const renderMyBetSliders = myEventTrades => {
-    const size = getRelatedBetSliderPages(myEventTrades, 2);
-
-    return _.map(_.range(0, size), (sliderPage, index) =>
-      renderMyBetSlider(sliderPage, index, myEventTrades)
-    );
-  };
-
-  const renderMyBetSlider = (pageIndex, index, myEventTrades) => {
-    const indexes = [];
-    const listLength = myEventTrades.length > 2 ? 2 : myEventTrades.length;
-
-    for (let i = 0; i < listLength; i++) {
-      indexes.push(pageIndex * 2 + i);
-    }
-
-    return (
-      <div
-        key={index}
-        className={classNames(styles.carouselSlide, styles.relatedBetSlide)}
-      >
-        {renderMyBetCard(_.get(myEventTrades, '[' + indexes[0] + ']'))}
-        {renderMyBetCard(_.get(myEventTrades, '[' + indexes[1] + ']'))}
-      </div>
-    );
   };
 
   const renderRelatedBetSliders = () => {
@@ -367,7 +305,7 @@ const Bet = ({
       EventTradeViewsHelper.getView('Event Trades'),
       EventTradeViewsHelper.getView(
         'My Trades',
-        isLoggedIn() ? getMyEventTrades().length : 0,
+        isLoggedIn() ? activeBets.length : 0,
         true
       ),
     ];
@@ -414,9 +352,7 @@ const Bet = ({
       );
     }
 
-    const myEventTrades = getMyEventTrades();
-
-    if (!isLoggedIn() || myEventTrades.length < 1) {
+    if (!isLoggedIn() || activeBets.length < 1) {
       return renderNoTrades();
     }
 
@@ -425,7 +361,7 @@ const Bet = ({
         <Carousel
           className={classNames(
             styles.relatedBetsCarousel,
-            myEventTrades.length > 2 ? '' : styles.oneCarouselPage
+            activeBets.length > 2 ? '' : styles.oneCarouselPage
           )}
           dynamicHeight={false}
           emulateTouch={true}
@@ -435,7 +371,7 @@ const Bet = ({
           showStatus={false}
           interval={1e11}
         >
-          {renderMyBetSliders(myEventTrades)}
+          {renderMyTradesList()}
         </Carousel>
       </div>
     );
@@ -472,7 +408,7 @@ const Bet = ({
           <div>{renderRelatedBetList(true)}</div>
         </SwiperSlide>
         <SwiperSlide className={styles.carouselSlide}>
-          <div>{renderMyTradesList(true)}</div>
+          <div>{renderMyTradesList()}</div>
         </SwiperSlide>
       </Swiper>
     );
@@ -536,14 +472,50 @@ const Bet = ({
               <div className={styles.arrowBack}></div>
               <div className={styles.headline}>
                 <h2>{_.get(event, 'name')}</h2>
-                <div>
-                  {hasOnlineState && <LiveBadge />}
-                  {hasOfflineState && <OfflineBadge />}
-                  <ViewerBadge viewers={1123} />
-                </div>
+                {(hasOnlineState || hasOfflineState) && (
+                  <div className={styles.streamStateBadge}>
+                    {hasOnlineState && <LiveBadge />}
+                    {hasOfflineState && <OfflineBadge />}
+                  </div>
+                )}
               </div>
             </Link>
+            <div className={styles.shareButton}>
+              <Share />
+            </div>
           </div>
+          <AdminOnly>
+            <div className={styles.eventAdminActionsContainer}>
+              <span
+                className={styles.editEventLink}
+                onClick={() => showPopup(PopupTheme.editEvent, event)}
+              >
+                <Icon
+                  className={styles.icon}
+                  iconType={IconType.edit}
+                  iconTheme={IconTheme.white}
+                  height={20}
+                  width={20}
+                />
+                Edit Event
+              </span>
+              {event.type === EventTypes.streamed && (
+                <span
+                  className={styles.newBetLink}
+                  onClick={() => showPopup(PopupTheme.newBet, { event })}
+                >
+                  <Icon
+                    className={styles.icon}
+                    iconType={IconType.addBet}
+                    iconTheme={IconTheme.white}
+                    height={24}
+                    width={24}
+                  />
+                  New Bet
+                </span>
+              )}
+            </div>
+          </AdminOnly>
         </div>
         <div className={styles.row}>
           <div className={styles.columnLeft}>
@@ -570,16 +542,20 @@ const Bet = ({
                   )}
                 </div>
               ) : (
-                <TwitchEmbedVideo video={event.streamUrl} />
+                <EmbedVideo
+                  video={event.streamUrl}
+                  autoPlay={true}
+                  controls={true}
+                />
               )}
-              {event.type === 'streamed' && (
+              {/* {event.type === 'streamed' && (
                 <div className={styles.timeLeft}>
                   <span>Estimated end:</span>
                   <TimeLeftCounter
                     endDate={new Date(_.get(event, 'endDate'))}
                   />
                 </div>
-              )}
+              )} */}
             </div>
             <TabOptions options={tabOptions} className={styles.tabOptions}>
               {option => (
@@ -603,20 +579,6 @@ const Bet = ({
           </div>
           <div className={styles.columnRight}>{renderBetSidebarContent()}</div>
         </div>
-        <AdminOnly>
-          <span
-            className={styles.editEventLink}
-            onClick={() => showPopup(PopupTheme.editEvent, event)}
-          >
-            Edit Event
-          </span>
-          <span
-            className={styles.newBetLink}
-            onClick={() => showPopup(PopupTheme.newBet, { event })}
-          >
-            New Bet
-          </span>
-        </AdminOnly>
         <ContentFooter className={styles.betFooter} />
       </div>
     </BaseContainerWithNavbar>
