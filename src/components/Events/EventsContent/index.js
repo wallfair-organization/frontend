@@ -68,6 +68,28 @@ function EventsContent({ eventType, categories, setCategories }) {
   const mappedTags = id =>
     events.find(event => event._id === id)?.tags.map(tag => tag.name) || [];
 
+  //Improvement: API endpoints to list and filter bets?
+  const allEvents = useSelector(state => state.event.events);
+  const allBets = allEvents.reduce((acc, current) => {
+    const bets = current.bets.map(bet => ({
+      ...bet,
+      eventSlug: current.slug,
+      previewImageUrl: current.previewImageUrl,
+      tags: mappedTags(current._id),
+    }));
+    const concat = [...acc, ...bets];
+    return concat;
+  }, []);
+
+  const betIdsFromCurrentEvents = events.reduce((acc, current) => {
+    const concat = [...acc, ...current.bets];
+    return concat;
+  }, []);
+
+  const filteredBets = allBets.filter(bet => {
+    return betIdsFromCurrentEvents.includes(bet._id) && bet.published;
+  });
+
   useEffect(() => {
     handleSelectCategory(category);
 
@@ -145,27 +167,52 @@ function EventsContent({ eventType, categories, setCategories }) {
             <span>New Event</span>
           </div>
         </AdminOnly>
-        {events.map(item => (
-          <Link
-            to={{
-              pathname: `/trade/${item.slug}`,
-              state: { fromLocation: location },
-            }}
-            key={item._id}
-          >
-            <EventCard
+
+        {eventType === 'streamed' &&
+          events.map(item => (
+            <Link
+              to={{
+                pathname: `/trade/${item.slug}`,
+                state: { fromLocation: location },
+              }}
               key={item._id}
-              title={item.name}
-              organizer={''}
-              viewers={12345}
-              state={item.state}
-              tags={mappedTags(item._id)}
-              image={item.previewImageUrl}
-              eventEnd={item.date}
-              streamUrl={item.streamUrl}
-            />
-          </Link>
-        ))}
+            >
+              <EventCard
+                key={item._id}
+                title={item.name}
+                organizer={''}
+                viewers={12345}
+                state={item.state}
+                tags={mappedTags(item._id)}
+                image={item.previewImageUrl}
+                eventEnd={item.date}
+                streamUrl={item.streamUrl}
+              />
+            </Link>
+          ))}
+
+        {eventType === 'non-streamed' &&
+          filteredBets.map(item => (
+            <Link
+              to={{
+                pathname: `/trade/${item.eventSlug}/${item.slug}`,
+                state: { fromLocation: location },
+              }}
+              key={item._id}
+            >
+              <EventCard
+                key={item._id}
+                title={item.marketQuestion}
+                organizer={''}
+                viewers={12345}
+                state={item.status}
+                tags={item.tags}
+                image={item.previewImageUrl}
+                eventEnd={item.endDate}
+                // streamUrl={item.streamUrl}
+              />
+            </Link>
+          ))}
       </section>
       <ContentFooter />
     </>
