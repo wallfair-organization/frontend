@@ -42,7 +42,6 @@ appendRoutes(apiPath, listPaths).then(meta => {
 
   // in case of missing routes
   app.get('*', (req, res) => {
-    console.log(req && req.path);
     const indexFile = fs.readFileSync(indexPath, 'utf8');
     let data = meta['/'];
     res.send(replaceMeta(indexFile, data));
