@@ -4,7 +4,6 @@ import SelectionHelper from '../../helper/SelectionHelper';
 import ChoiceSelectorTheme from './ChoiceSelectorTheme';
 import _ from 'lodash';
 import { formatToFixed } from '../../helper/FormatNumbers';
-import { calculateGain } from 'helper/Calculation';
 
 const ChoiceSelector = ({
   name,
@@ -36,7 +35,6 @@ const ChoiceSelector = ({
           <div className={styles.choiceWinAmountUnitContainer}>
             <div className={styles.choiceWinAmountUnit}>{currency}</div>
             <div className={styles.choiceWinAmountCash}>
-              {gain.negative ? 'Loss' : 'Gain'}
               <span
                 className={classNames(
                   styles.percentage,

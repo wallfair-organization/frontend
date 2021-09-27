@@ -162,9 +162,11 @@ export function* init() {
             yield put(RosiGameActions.resetCashedOut());
             break;
           case ChatMessageType.casinoEnd:
+            const userId = yield select(state => state.authentication.userId);
             yield put(
               RosiGameActions.addLastCrash({
                 crashFactor: payload.crashFactor,
+                userId,
               })
             );
             break;
@@ -172,7 +174,7 @@ export function* init() {
             yield put(RosiGameActions.addInGameBet(payload));
             break;
           case ChatMessageType.casinoReward:
-            console.log(payload);
+            yield put(RosiGameActions.addReward(payload));
             break;
           case ChatMessageType.pulloutBet:
           case ChatMessageType.createBet:

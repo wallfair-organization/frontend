@@ -9,6 +9,8 @@ export const RosiGameTypes = {
   ADD_CASHED_OUT: 'RosiGame/ADD_CASHED_OUT',
   RESET_CASHED_OUT: 'RosiGame/RESET_CASHED_OUT',
   TICK: 'RosiGame/TICK',
+  CASH_OUT: 'RosiGame/CASH_OUT',
+  ADD_REWARD: 'RosiGame/ADD_REWARD',
 };
 
 const initializeState = payload => ({
@@ -53,6 +55,15 @@ const tick = () => ({
   type: RosiGameTypes.TICK,
 });
 
+const cashOut = () => ({
+  type: RosiGameTypes.CASH_OUT,
+});
+
+const addReward = payload => ({
+  type: RosiGameTypes.ADD_REWARD,
+  payload,
+});
+
 export const RosiGameActions = {
   initializeState,
   setHasStarted,
@@ -63,4 +74,6 @@ export const RosiGameActions = {
   addCashedOut,
   resetCashedOut,
   tick,
+  cashOut,
+  addReward,
 };

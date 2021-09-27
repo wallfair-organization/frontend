@@ -72,7 +72,7 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
           <span>.</span>
         </div>
         <ul>
-          <li>Risk free: Sign up and get 1.000 EUR play money tokens</li>
+          <li>Risk free: Sign up and get 5.000 WFAIR play money tokens</li>
           <li>
             Big wins: Win up to 20.000 EUR weekly (Next payout: October 9th)
           </li>

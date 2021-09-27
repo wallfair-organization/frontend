@@ -98,7 +98,7 @@ const Share = props => {
             }}
             style={_.extend(
               {
-                opacity: showPopover ? 1 : 0,
+                display: showPopover ? 'block' : 'none',
               },
               matchMedia && !skipCalculatePos
                 ? {

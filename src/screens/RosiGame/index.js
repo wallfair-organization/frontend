@@ -40,7 +40,7 @@ const RosiGame = () => {
 
   //Bets state update interval
   useEffect(() => {
-    const interval = setInterval(() => dispatch(RosiGameActions.tick()), 500);
+    const interval = setInterval(() => dispatch(RosiGameActions.tick()), 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -74,7 +74,7 @@ const RosiGame = () => {
                   <GameBets label="In Game Bets" bets={inGameBets} />
                 </Grid>
                 <Grid item md={4}>
-                  <GameBets label="Cashed Out" bets={cashedOut} />
+                  <GameBets label="Cashed Out" bets={cashedOut} cashedOut />
                 </Grid>
               </>
             )}

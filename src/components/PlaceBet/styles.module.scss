@@ -118,7 +118,10 @@
   left: -50%;
   right: -50%;
   margin: 0px auto;
-  margin-top: 10px;
+  margin-top: 50px;
+  @media screen and (max-width: $screen-xs) {
+    margin-top: 10px;
+  }
   width: 15em;
   height: 72px;
   border-radius: 4px;

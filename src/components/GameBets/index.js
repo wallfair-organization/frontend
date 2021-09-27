@@ -2,13 +2,13 @@ import { nanoid } from 'nanoid';
 import { TOKEN_NAME } from '../../constants/Token';
 import styles from './styles.module.scss';
 
-const formatAmount = amount => amount.toFixed(2);
+const formatAmount = amount => amount.toFixed(0);
 
 const calculateTotal = bets => {
   return bets.reduce((total, bet) => total + bet.amount, 0);
 };
 
-const GameBets = ({ label, bets }) => {
+const GameBets = ({ label, bets, cashedOut }) => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>{label}</div>
@@ -23,7 +23,9 @@ const GameBets = ({ label, bets }) => {
           <div key={nanoid()} className={styles.bet}>
             <div className={styles.user}>{bet.username}</div>
             <div>
-              <span className={styles.crashFactor}>{bet.crashFactor}</span>
+              {cashedOut ? (
+                <span className={styles.crashFactor}>{bet.crashFactor}</span>
+              ) : null}
               <span className={styles.amount}>
                 {formatAmount(bet.amount)} {TOKEN_NAME}
               </span>

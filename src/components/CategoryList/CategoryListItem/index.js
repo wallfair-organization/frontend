@@ -28,6 +28,7 @@ function CategoryListItem({ categoryItem }) {
             })}
             role="button"
             tabIndex="0"
+            title={categoryItem.value}
           >
             <img
               src={categoryItem.image}

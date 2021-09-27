@@ -18,12 +18,12 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
   const COUNT = 4;
   const carouselProps = {
     streamed: {
-      title: 'Streams',
+      title: 'Live Events',
       titleLink: 'Discover more',
       titleLinkTo: '/live-events',
     },
     'non-streamed': {
-      title: 'Predict the Future',
+      title: 'Events',
       titleLink: 'Discover more',
       titleLinkTo: '/events',
     },
