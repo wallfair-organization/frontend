@@ -12,7 +12,7 @@ class Text {
     const interpolator = plainText
       ? u => new URL(u).host
       : u => (
-          <a href={u} target="_blank">
+          <a href={u} target="_blank" rel="noreferrer">
             {new URL(u).host}
           </a>
         );

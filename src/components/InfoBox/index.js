@@ -12,7 +12,11 @@ const POSITIONS = {
   bottomRight: 'bottomRight',
 };
 
-const InfoBox = ({ children, position = POSITIONS.topLeft }) => {
+const InfoBox = ({
+  children,
+  position = POSITIONS.topLeft,
+  iconType = IconType.info,
+}) => {
   const [showContent, setShowContent] = useState(false);
 
   const element = useOutsideClick(() => {
@@ -23,7 +27,7 @@ const InfoBox = ({ children, position = POSITIONS.topLeft }) => {
     return (
       <Icon
         className={styles.infoIcon}
-        iconType={IconType.info}
+        iconType={iconType}
         onClick={onHandleClick}
       />
     );
