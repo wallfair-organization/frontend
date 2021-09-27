@@ -1,10 +1,8 @@
 import styles from './styles.module.scss';
-import classNames from 'classnames';
-import { matchPath } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Icon from '../Icon';
 
-const News = ({}) => {
+const News = () => {
   const news = useSelector(state => state.event.newsData?.articles) || [];
   return (
     <div className={styles.newsTicker}>
@@ -18,8 +16,8 @@ const News = ({}) => {
             target="_blank"
             rel="noreferrer"
           >
-            <Icon iconType={'activities'} iconTheme={'white'} /> Read more on{' '}
-            {source && source.name}
+            <Icon iconType={'activities'} iconTheme={'white'} />
+            {source?.name ? `Read more on ${source.name}` : 'Read more'}
           </a>
         </div>
       ))}
