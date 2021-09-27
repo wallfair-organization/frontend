@@ -1,56 +1,65 @@
-@import "../../styles/all";
+@import '../../styles/all';
 
-.stateBadge
-{
-    border-radius:    4px;
-    font-family:      $fontLight;
-    font-size:        12px;
-    font-weight:      bold;
-    width:            auto;
-    white-space:      nowrap;
-    background-color: $colorRedLighter30;
-    padding:          10px 15px;
-    display:          inline-flex;
-    justify-content:  center;
-    align-items:      center;
-    height:           30px;
-    user-select:      none;
-    color:            $colorRed;
+.stateBadge {
+  border-radius: 4px;
+  font-family: $fontBold;
+  font-size: 12px;
+  width: auto;
+  white-space: nowrap;
+  background-color: $colorRedLighter30;
+  padding: 10px 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  user-select: none;
+  color: $colorRed;
 
-    span
-    {
-        width:            7px;
-        height:           7px;
-        background-color: $colorRed;
-        border-radius:    50%;
-        margin-right:     10px;
+  span {
+    width: 7px;
+    height: 7px;
+    background-color: $colorRed;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  &.resolved {
+    color: $colorOrangeLight;
+    background-color: $colorOrangeLight20;
+
+    span {
+      background-color: $colorOrangeLight;
     }
+  }
 
-    &.resolved,
-    &.active
-    {
-        color:            $colorGreen;
-        background-color: $colorGreen30;
+  &.active {
+    color: $colorGreen;
+    background-color: $colorGreenLigherShade;
 
-        span
-        {
-            background-color: $colorGreen;
-        }
+    span {
+      background-color: $colorGreen;
     }
+  }
 
-    &.closed
-    {
-        color:            $colorPurpleDark;
-        background-color: $colorPurpleLight;
+  &.closed {
+    color: $colorPurpleDark;
+    background-color: $colorPurpleLighterShade;
 
-        span
-        {
-            background-color: $colorPurpleDark;
-        }
+    span {
+      background-color: $colorPurpleDark;
     }
+  }
 
-    &.withoutBackground
-    {
-        background-color: transparent !important;
+  &.upcoming {
+    color: $colorSkyBlue;
+    background-color: $colorSkyBlueLighterShade;
+
+    span {
+      background-color: $colorSkyBlue;
     }
+  }
+
+  &.withoutBackground {
+    background-color: transparent !important;
+  }
 }
