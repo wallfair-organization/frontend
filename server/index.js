@@ -27,12 +27,22 @@ appendRoutes(apiPath, listPaths).then(meta => {
     });
   });
 
+  // in case of new events
+  app.get('/trade/:eventSlug?/:betSlug?', (req, res) => {
+    appendRoutes(apiPath, listPaths).then(updatedMeta => {
+      const indexFile = fs.readFileSync(indexPath, 'utf8');
+      let data = updatedMeta[req.path] ? updatedMeta[req.path] : meta['/'];
+      res.send(replaceMeta(indexFile, data));
+    });
+  });
+
   app.use(
     express.static(path.resolve(__dirname, '..', 'build'), { maxAge: '30d' })
   );
 
   // in case of missing routes
   app.get('*', (req, res) => {
+    console.log(req && req.path);
     const indexFile = fs.readFileSync(indexPath, 'utf8');
     let data = meta['/'];
     res.send(replaceMeta(indexFile, data));
