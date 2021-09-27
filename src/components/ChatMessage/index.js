@@ -4,7 +4,7 @@ import { getProfilePictureUrl } from '../../helper/ProfilePicture';
 import classNames from 'classnames';
 import { useRef, useEffect, useState } from 'react';
 
-const ChatMessage = ({ user, message, dateString }) => {
+const ChatMessage = ({ user, message, dateString, className }) => {
   const profilePicture = getProfilePictureUrl(_.get(user, 'profilePicture'));
   const userName = _.get(user, 'username', 'Unknown');
   const [isVisible, setVisible] = useState(false);
@@ -31,6 +31,7 @@ const ChatMessage = ({ user, message, dateString }) => {
     <div
       className={classNames(
         styles.chatMessage,
+        className,
         isVisible ? styles.isVisible : null
       )}
       ref={domRef}

@@ -12,6 +12,9 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
   const [marketQuestion, setMarketQuestion] = useState(
     bet?.marketQuestion || ''
   );
+
+  const [description, setDescription] = useState(bet?.description || '');
+
   const [slug, setSlug] = useState(bet?.slug || '');
   const [betTemplates, setBetTemplates] = useState([]);
   const [outcomes, setOutcomes] = useState(
@@ -20,6 +23,11 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
   const [evidenceDescription, setEvidenceDescription] = useState(
     bet?.evidenceDescription || ''
   );
+
+  const [evidenceSource, setEvidenceSource] = useState(
+    bet?.evidenceSource || ''
+  );
+
   const [endDate, setEndDate] = useState(bet?.endDate || null);
   const [selectedTemplateId, setSelectedTemplateId] = useState(null);
 
@@ -53,8 +61,10 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
     const payload = {
       event: event._id,
       marketQuestion,
+      description,
       slug,
       evidenceDescription,
+      evidenceSource,
       outcomes: outcomes
         .map(t => ({ name: t.name }))
         .filter(t => t.name !== ''),
@@ -139,6 +149,10 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
         <Input type="text" value={slug} onChange={setSlug} />
       </FormGroup>
       <FormGroup className={styles.inputContainer}>
+        <InputLabel>Description</InputLabel>
+        <Input type="text" value={description} onChange={setDescription} />
+      </FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Options</InputLabel>
         <Tags
           tags={outcomes}
@@ -154,6 +168,14 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
           type="text"
           value={evidenceDescription}
           onChange={setEvidenceDescription}
+        />
+      </FormGroup>
+      <FormGroup className={styles.inputContainer}>
+        <InputLabel>Evidence Source</InputLabel>
+        <Input
+          type="text"
+          value={evidenceSource}
+          onChange={setEvidenceSource}
         />
       </FormGroup>
       <FormGroup className={styles.inputContainer}>

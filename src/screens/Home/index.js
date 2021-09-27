@@ -18,6 +18,7 @@ import { PopupActions } from '../../store/actions/popup';
 import State from '../../helper/State';
 import { select } from 'redux-saga/effects';
 import { getTradeById } from '../../api';
+import ActivitiesTracker from '../../components/ActivitiesTracker';
 
 const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
   const isMount = useIsMount();
@@ -109,8 +110,9 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
     return (
       <div className={styles.bottomWrapper}>
         <div className={styles.categories}>
-          <div className={styles.headline}>Discover Categories</div>
-          <CategoryList categories={EVENT_CATEGORIES} />
+          <div className={styles.headline}>Activities</div>
+          <ActivitiesTracker />
+          {/*<CategoryList categories={EVENT_CATEGORIES} />*/}
         </div>
         <div className={styles.leaderboard}>
           <div className={styles.headline}>

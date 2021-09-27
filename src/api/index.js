@@ -2,6 +2,7 @@ import * as ApiUrls from '../constants/Api';
 import _ from 'lodash';
 import axios from 'axios';
 import ContentTypes from '../constants/ContentTypes';
+import { API_GET_NOTIFICATION_EVENTS } from '../constants/Api';
 
 const createInstance = (host, apiPath) => {
   return axios.create({
@@ -327,6 +328,12 @@ const getTradeById = id => {
   );
 };
 
+const getNotificationEvents = () => {
+  return Api.get(ApiUrls.API_GET_NOTIFICATION_EVENTS).catch(error => {
+    console.log('[API Error] called: getNotificationEvents', error);
+  });
+};
+
 const signUp = payload => {
   return Api.post(ApiUrls.API_AUTH_SIGNUP, payload)
     .then(response => ({ response }))
@@ -408,4 +415,5 @@ export {
   forgotPassword,
   resetPassword,
   shortenerTinyUrl,
+  getNotificationEvents,
 };

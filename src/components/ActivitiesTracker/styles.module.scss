@@ -1,0 +1,274 @@
+@import '../../styles/all';
+
+.activitiesTrackerContainer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+  height: 470px;
+  position: relative;
+  // margin-top:     -20vh;
+
+  .chatMessage {
+    position: relative;
+    color: $colorWhite;
+    padding: 1rem 1.5rem;
+    padding-right: 40px;
+    border-radius: 10px;
+    background-color: $colorWhite10;
+    display: inline-flex;
+    margin-top: 0.5rem;
+    font-size: 14px;
+    text-align: left;
+    hyphens: auto;
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+
+    &.isVisible {
+      opacity: 0.3;
+
+      & ~ .isVisible {
+        opacity: 1;
+      }
+    }
+
+    img {
+      width: 30px !important;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid $colorWhite !important;
+      margin-right: 0.5rem;
+    }
+
+    span {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      :first-child {
+        font-size: 12px;
+        font-family: $fontBold;
+      }
+
+      :last-child {
+        font-size: 12px;
+        text-align: right;
+        color: $colorGray;
+        width: 60px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .dateString {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .messageItem {
+    opacity: 1;
+    font-size: 15px;
+    align-items: center;
+    //width: 100%;
+  }
+
+  .categoryList {
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    > :not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  .box {
+    width: 60px;
+    height: 80px;
+    overflow: hidden;
+    border: $border;
+    border-radius: $radius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+      border: 2px solid $colorMint;
+    }
+  }
+
+  .boxIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100px;
+    padding: 2px;
+    border: 1px solid transparent;
+    position: relative;
+    word-break: break-word;
+
+    &:hover, &.categorySelected {
+      cursor: pointer;
+
+      .imageIcon {
+        opacity: initial;
+      }
+
+      .label {
+        opacity: initial;
+      }
+    }
+
+  }
+
+  .swiperElement {
+    padding: 15px 0;
+  }
+
+
+  .label {
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: white;
+    opacity: 0.5;
+    margin-top: 10px;
+    transition: opacity .2s ease-in;
+
+    &.active {
+      opacity: initial;
+    }
+  }
+
+  .imageIcon {
+    opacity: 0.5;
+    transition: opacity .2s ease-in;
+
+    &.active {
+      opacity: initial;
+    }
+  }
+
+
+  @media (max-width: $screen-md) {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .messageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+    overflow-y: scroll;
+    margin-bottom: 0;
+    position: relative;
+    //height: 260px;
+    //margin-top: 125px;
+    height: 500px;
+    margin-top: 0;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      background: transparent;
+    }
+
+    > :first-child {
+      margin-top: auto;
+    }
+  }
+
+  .messageInput {
+    background-color: $colorWhite;
+    color: $colorPrimaryDark;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem 1rem 3rem;
+    border-radius: 10px;
+
+    @media (max-width: $screen-sm) {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 1001;
+      width: 100vw;
+      height: 90px;
+      background-color: $colorWhite;
+      padding: 15px 15px 30px;
+      border-radius: 0;
+      color: $colorPrimary;
+      overflow: hidden;
+    }
+
+    &Hidden {
+      display: none;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    input {
+      border: none;
+      width: 100%;
+      display: inline-block;
+      font-size: 16px;
+
+      @media (max-width: $screen-sm) {
+        background-color: $colorGrayLight5;
+        min-height: 45px;
+        padding-left: 10px;
+        border-radius: 5px;
+        font-size: 12px;
+      }
+    }
+
+    button {
+      display: inline-block;
+      opacity: 0.5;
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      position: relative;
+
+      @media (max-width: $screen-sm) {
+        opacity: 1;
+        width: 10%;
+        height: 100%;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        background: url('../../data/backgrounds/highlight-settings-support.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        left: -10px;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        z-index: -1;
+      }
+
+      & span > svg {
+        @media (max-width: $screen-sm) {
+          stroke: $colorBlack;
+        }
+      }
+    }
+  }
+}

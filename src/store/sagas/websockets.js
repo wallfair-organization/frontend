@@ -11,6 +11,7 @@ import { createMatchSelector } from 'connected-react-router';
 import Routes from '../../constants/Routes';
 import { matchPath } from 'react-router';
 import { ROSI_GAME_EVENT_ID } from 'constants/RosiGame';
+import { EventActions } from '../actions/event';
 
 function createSocketChannel(socket) {
   return eventChannel(emit => {
