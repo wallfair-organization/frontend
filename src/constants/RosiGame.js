@@ -1,4 +1,3 @@
-export const ROSI_GAME_INTERVAL = 5;
 export const ROSI_GAME_MAX_DURATION_SEC = 15;
 export const ROSI_GAME_EVENT_ID = '614381d74f78686665a5bb76';
 export const ROSI_GAME_AFTER_CRASH_DELAY = 2000;

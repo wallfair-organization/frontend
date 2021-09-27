@@ -24,12 +24,13 @@ class DateText {
   }
 
   static formatDate(input) {
+    const pad = s => String(s).padStart(2, '0');
     const date = new Date(input);
-    const day = date.getUTCDate();
-    const month = date.getUTCMonth() + 1;
+    const day = pad(date.getUTCDate());
+    const month = pad(date.getUTCMonth() + 1);
     const year = date.getFullYear();
-    const hour = date.getUTCHours();
-    const minutes = date.getMinutes();
+    const hour = pad(date.getUTCHours());
+    const minutes = pad(date.getMinutes());
 
     return `${day}/${month}/${year} @ ${hour}:${minutes}`;
   }

@@ -165,6 +165,7 @@ export function* init() {
             const userId = yield select(state => state.authentication.userId);
             yield put(
               RosiGameActions.addLastCrash({
+                nextGameAt: payload.nextGameAt,
                 crashFactor: payload.crashFactor,
                 userId,
               })
@@ -225,7 +226,6 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
     const pathname = yield select(state => state.router.location.pathname);
     const currentAction = action.payload.location.pathname.slice(1).split('/');
     const pathSlugs = pathname.slice(1).split('/');
-    // event page
 
     if (currentAction[0] === 'trade' || pathSlugs[0] === 'trade') {
       const eventSlug = pathSlugs[1];
@@ -250,7 +250,8 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
           })
         );
       }
-    } else if (pathSlugs[1] === 'rosi-game') {
+    }
+    if (currentAction[1] === 'rosi-game' || pathSlugs[1] === 'rosi-game') {
       if (room) {
         yield put(
           WebsocketsActions.leaveRoom({

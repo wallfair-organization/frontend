@@ -1,53 +1,34 @@
 import { useEffect, useState } from 'react';
 
+// Crash factor = (elapsed time) * TIME_TO_FACTOR_RATIO
+const TIME_TO_FACTOR_RATIO = 0.5; // 1s = 0.5x
+const START_FACTOR = 1;
+
 const Timer = ({ pause, startTimeMs }) => {
   const startTime = new Date(startTimeMs);
-  const [seconds, setSeconds] = useState(startTime.getSeconds());
-  const [ms, setMs] = useState(startTime.getMilliseconds());
+  const [elapsed, setElapsed] = useState(startTime.getTime());
+  const elapsedSeconds = (elapsed * TIME_TO_FACTOR_RATIO) / 1000 + START_FACTOR;
+  const wholePart = Math.trunc(elapsedSeconds);
+  // round up decimal part to the previous multiple of 5. So it would count 40, 45, 50, 55 ...
+  const decimalPart = Math.floor(
+    (elapsedSeconds - Math.floor(elapsedSeconds)) * 100
+  );
 
   useEffect(() => {
-    let timeoutHandle;
+    const interval = setInterval(() => {
+      if (pause) {
+        return;
+      }
 
-    if (pause) {
-      clearTimeout(timeoutHandle);
-      return;
-    }
+      setElapsed(e => e + 10);
+    }, 10);
 
-    if (seconds < 60) {
-      timeoutHandle = setTimeout(() => {
-        if (pause) return;
-        setSeconds(prevSeconds => prevSeconds + 1);
-      }, 1000);
-    } else {
-      setSeconds(0);
-    }
-
-    return () => clearTimeout(timeoutHandle);
-  }, [seconds, pause]);
-
-  useEffect(() => {
-    let timeoutHandle;
-
-    if (pause) {
-      clearTimeout(timeoutHandle);
-      return;
-    }
-
-    if (ms < 100) {
-      timeoutHandle = setTimeout(() => {
-        if (pause) return;
-        setMs(prevMs => prevMs + 10);
-      }, 100);
-    } else {
-      setMs(0);
-    }
-
-    return () => clearTimeout(timeoutHandle);
-  }, [ms, pause]);
+    return () => clearInterval(interval);
+  }, [pause]);
 
   return (
     <span>
-      {seconds}.{ms === 0 ? '00' : ms}
+      {wholePart}.{decimalPart < 10 ? `0${decimalPart}` : decimalPart}
     </span>
   );
 };

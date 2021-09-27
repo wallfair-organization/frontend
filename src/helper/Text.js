@@ -1,6 +1,10 @@
 class Text {
   static linkifyIntextURLS(text, plainText = false) {
-    const urls = text
+    if (!text) {
+      return '';
+    }
+
+    let urls = text
       .split(' ')
       .filter(
         snip => snip.startsWith('http://') || snip.startsWith('https://')
@@ -12,7 +16,7 @@ class Text {
     const interpolator = plainText
       ? u => new URL(u).host
       : u => (
-          <a href={u} target="_blank">
+          <a href={u} target="_blank" rel="noreferrer">
             {new URL(u).host}
           </a>
         );

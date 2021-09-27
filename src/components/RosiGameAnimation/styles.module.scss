@@ -17,6 +17,8 @@
   .timer {
     $timerShadowColor: #859acf; 
 
+    display: inline-block;
+    width: 3ch;
     position: absolute;
     font-size: 110px;
     font-weight: bold;
@@ -24,8 +26,6 @@
     color: $colorWhite;
 
     @media (max-width: $screen-xs-max) {
-      --timer-font-size: 36px;
-
       top: 16px;
       left: 20px;
       font-size: 36px;

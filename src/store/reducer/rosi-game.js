@@ -10,6 +10,7 @@ const initialState = {
   timeStarted: null,
   isCashedOut: false,
   placedBetInQueue: false,
+  nextGameAt: null,
 };
 
 const initializeState = (action, state) => {
@@ -24,6 +25,8 @@ const setHasStarted = (action, state) => {
     ...state,
     hasStarted: true,
     timeStarted: action.payload.timeStarted,
+    placedBetInQueue: false,
+    betQueue: [],
   };
 };
 
@@ -37,6 +40,7 @@ const setUserBet = (action, state) => {
   return {
     ...state,
     userBet: action.payload,
+    placedBetInQueue: false,
   };
 };
 
@@ -44,6 +48,7 @@ const addLastCrash = (action, state) => {
   return {
     ...state,
     hasStarted: false,
+    nextGameAt: action.payload.nextGameAt,
     userBet: state.betQueue.find(bet => bet.userId === action.payload.userId),
     lastCrashes: [action.payload.crashFactor, ...state.lastCrashes],
     // cashedOut: [

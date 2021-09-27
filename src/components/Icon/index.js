@@ -54,6 +54,7 @@ import { ReactComponent as IconSwitcher } from '../../data/icons/switcher.svg';
 import { ReactComponent as IconThreeDotMenu } from '../../data/icons/three-dot-menu.svg';
 import { ReactComponent as IconThumbUp } from '../../data/icons/thumb-up.svg';
 import { ReactComponent as IconTime } from '../../data/icons/time.svg';
+import { ReactComponent as IconQuestion } from '../../data/icons/question.svg';
 import { ReactComponent as IconTwitch } from '../../data/icons/twitch.svg';
 import { ReactComponent as IconWallet } from '../../data/icons/wallet.svg';
 import { ReactComponent as IconWallet2 } from '../../data/icons/wallet-2.svg';
@@ -122,6 +123,7 @@ const Icon = ({
       [IconType.threeDotMenu]: <IconThreeDotMenu />,
       [IconType.thumbUp]: <IconThumbUp />,
       [IconType.time]: <IconTime />,
+      [IconType.question]: <IconQuestion />,
       [IconType.twitch]: <IconTwitch />,
       [IconType.wallet]: <IconWallet />,
       [IconType.wallet2]: <IconWallet2 />,

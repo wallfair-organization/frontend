@@ -52,6 +52,7 @@ export default {
   thumbUp: 'thumbUp',
   time: 'time',
   twitch: 'twitch',
+  question: 'question',
   wallet2: 'wallet2',
   wallet: 'wallet',
   withdrawal: 'withdrawal',

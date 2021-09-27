@@ -7,18 +7,23 @@ import Twitch from './Twitch';
 import Trovo from './Trovo';
 import Youtube from './Youtube';
 import Dacast from './Dacast';
+//try to guess not-supported stream and use some generic way to play the video
+import Unknown from './Unknown';
+import VideoPlayer from './VideoPlayer';
 
 const VideoComponents = {
   twitch: Twitch,
   youtube: Youtube,
   trovo: Trovo,
   dacast: Dacast,
-  unknown: null,
+  unknown: Unknown,
+  video_player: VideoPlayer,
 };
 
 const checkStreamType = url => {
   const urlObj = new URL(url);
   const host = _.get(urlObj, 'host');
+  const pathname = _.get(urlObj, 'pathname');
 
   if (host.indexOf('youtube') > -1) {
     return 'youtube';
@@ -28,6 +33,8 @@ const checkStreamType = url => {
     return 'trovo';
   } else if (host.indexOf('dacast') > -1) {
     return 'dacast';
+  } else if (pathname.indexOf('m3u8') > -1) {
+    return 'video_player';
   } else {
     return 'unknown';
   }

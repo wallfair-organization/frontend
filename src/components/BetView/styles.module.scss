@@ -158,6 +158,16 @@
     line-height: 24px;
     letter-spacing: 0px;
     padding: 0 16%;
+    margin-bottom: 20px;
+    position: relative;
+
+    .info {
+      font-size: 14px;
+      font-family: $fontRegular;
+      text-align: left;
+      position: absolute;
+      padding-top: 3px;
+    }
   }
 
   .description {
@@ -272,12 +282,17 @@
       overflow: hidden;
       display: -webkit-box;
       -webkit-box-orient: vertical;
+
       a {
         text-decoration: underline;
         color: $colorPurple;
       }
       &.hidden {
         -webkit-line-clamp: 3;
+      }
+
+      .evidenceDescription {
+        padding-top: 10px;
       }
     }
     .tradeShortDesc {
@@ -368,7 +383,6 @@
 }
 
 .timerLabel {
-  margin-top: 20px;
   color: $colorBlack60;
   font-family: $fontRegular;
   font-size: 16px;
@@ -411,7 +425,7 @@
 }
 
 .stateBadgeContainer {
-  padding: 20px 0;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
 }
@@ -420,4 +434,10 @@
   display: flex;
   justify-content: center;
   padding-top: 20px;
+}
+
+.nonStreamedQuestion {
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
 }

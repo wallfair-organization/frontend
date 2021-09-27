@@ -1,15 +1,13 @@
 import cn from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  ROSI_GAME_INTERVAL,
-  ROSI_GAME_AFTER_CRASH_DELAY,
-} from 'constants/RosiGame';
+import { ROSI_GAME_AFTER_CRASH_DELAY } from 'constants/RosiGame';
 import {
   selectHasStarted,
   selectTimeStarted,
   selectLastCrash,
   selectCashedOut,
+  selectNextGameAt,
 } from 'store/selectors/rosi-game';
 import Timer from './Timer';
 import Counter from './Counter';
@@ -21,8 +19,12 @@ const RosiGameAnimation = () => {
   const lastCrashValue = useSelector(selectLastCrash);
   const gameStarted = useSelector(selectHasStarted);
   const cashedOut = useSelector(selectCashedOut);
+  const nextGameAtTimeStamp = useSelector(selectNextGameAt);
   const gameStartedTimeStamp = useSelector(selectTimeStarted);
   const gameStartedTime = new Date(gameStartedTimeStamp).getTime();
+  const secondsUntilNextGame = nextGameAtTimeStamp
+    ? Math.round((new Date(nextGameAtTimeStamp).getTime() - Date.now()) / 1000)
+    : 1;
 
   const [cashedOutCount, setCashedOutCount] = useState(0);
   const [isPreparingRound, setIsPreparingRound] = useState(!gameStarted);
@@ -56,8 +58,7 @@ const RosiGameAnimation = () => {
       return;
     }
 
-    const elapsedAfterGameStart = Date.now() - gameStartedTime;
-    if (!gameStarted && elapsedAfterGameStart > 100) {
+    if (!gameStarted) {
       RosiGameAnimationController.end();
 
       // leave some time for player to see crash value
@@ -93,7 +94,7 @@ const RosiGameAnimation = () => {
           <div>
             <h2 className={styles.title}>Preparing Round</h2>
             <div className={styles.description}>
-              Starting in <Counter number={ROSI_GAME_INTERVAL} />
+              Starting in <Counter number={secondsUntilNextGame} />
             </div>
           </div>
         </div>

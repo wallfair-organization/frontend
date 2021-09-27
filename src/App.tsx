@@ -26,6 +26,7 @@ import Games from './screens/Games';
 import Rewards from './screens/Rewards';
 import ResetPassword from './screens/ResetPassword';
 import initTagManager from './config/gtm';
+import AudioContent from "./components/AudioContent";
 
 const { store, persistor } = configStore();
 
@@ -39,6 +40,7 @@ const App = () => {
           <Navbar skipRoutes={[]} />
           <AlertBox />
           <Popup />
+          <AudioContent/>
           <Switch>
             <Route exact path={Routes.logout} component={Logout} />
             <Route

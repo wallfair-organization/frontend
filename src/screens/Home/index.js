@@ -62,22 +62,11 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
   const renderHeadline = () => {
     return (
       <div className={styles.mainHeadline}>
-        <h1>
-          The first Casino
-          <br />
-          with no Bullshit
-        </h1>
+        <h1>Betting Reimagined</h1>
         <div className={styles.slogan}>
-          No revenues<span>.</span> No middle men<span>.</span> No boring bets
+          No revenues<span>.</span> No Bookies<span>.</span> No Boring Bets
           <span>.</span>
         </div>
-        <ul>
-          <li>Risk free: Sign up and get 5.000 WFAIR play money tokens</li>
-          <li>
-            Big wins: Win up to 20.000 EUR weekly (Next payout: October 9th)
-          </li>
-          <li>Coming soon: Create own bets, collect NFT, in-game betting</li>
-        </ul>
       </div>
     );
   };

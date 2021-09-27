@@ -41,6 +41,7 @@ import AuthedOnly from 'components/AuthedOnly';
 import ButtonSmall from 'components/ButtonSmall';
 import ButtonSmallTheme from 'components/ButtonSmall/ButtonSmallTheme';
 import InfoBox from 'components/InfoBox';
+import EventTypes from 'constants/EventTypes';
 
 const BetView = ({
   betId,
@@ -309,16 +310,26 @@ const BetView = ({
   };
 
   const renderTradeDesc = () => {
-    if (!bet.evidenceDescription) {
-      return null;
-    }
+    const evidenceSource = bet.evidenceSource;
+
     const shortLength = 100;
-    const desc = TextHelper.linkifyIntextURLS(bet.evidenceDescription);
-    const plainDesc = TextHelper.linkifyIntextURLS(
+    const evidenceDescription = TextHelper.linkifyIntextURLS(
+      bet.evidenceDescription
+    );
+    const plainEvidenceDescription = TextHelper.linkifyIntextURLS(
       bet.evidenceDescription,
       true
     );
-    const isDescShort = plainDesc.length <= shortLength;
+    const desc = evidenceSource
+      ? TextHelper.linkifyIntextURLS(bet.evidenceSource)
+      : evidenceDescription;
+    const plainDesc = evidenceSource
+      ? TextHelper.linkifyIntextURLS(bet.evidenceSource, true)
+      : plainEvidenceDescription;
+
+    const isDescShort =
+      plainDesc.length + plainEvidenceDescription.length <= shortLength;
+
     return (
       <>
         <p
@@ -329,8 +340,13 @@ const BetView = ({
           )}
         >
           {desc}
+          {evidenceSource && evidenceDescription && showAllEvidence && (
+            <p className={styles.evidenceDescription}>{evidenceDescription}</p>
+          )}
         </p>
-        {!!desc && !isDescShort && (
+
+        {((desc && !isDescShort) ||
+          (evidenceSource && plainEvidenceDescription)) && (
           <button
             className={styles.seeMore}
             onClick={() => setShowAllEvidence(!showAllEvidence)}
@@ -424,7 +440,7 @@ const BetView = ({
           >
             <div className={styles.pickOutcomeContainer}>
               <label className={styles.label}>Pick outcome</label>
-              <InfoBox>
+              <InfoBox iconType={IconType.question}>
                 <p>How to place a bet?</p>
                 <p>
                   - First select the amount (in WFAIR) you want to put into this
@@ -630,7 +646,18 @@ const BetView = ({
           <AdminOnly>
             {!isTradeViewPopup && renderMenuContainerWithCurrentBalance()}
           </AdminOnly>
-          <div className={styles.betMarketQuestion}>{bet.marketQuestion}</div>
+          <div className={classNames(
+              styles.betMarketQuestion,
+              _.get(event, 'type') === EventTypes.nonStreamed &&
+                styles.nonStreamedQuestion
+            )}>
+            <span>{bet.marketQuestion}</span>
+            {bet.description && (
+              <span className={styles.info}>
+                <InfoBox>{bet.description}</InfoBox>
+              </span>
+            )}
+          </div>
           {showEventEnd && state !== BetState.resolved && (
             <>
               <span className={styles.timerLabel}>Event ends in:</span>

@@ -68,7 +68,7 @@
 
   div.slogan {
     padding: 12px 0;
-    font-size: 24px;
+    font-size: 25px;
     font-family: $fontMedium;
 
     span {
@@ -77,7 +77,7 @@
     }
 
     @media (max-width: $screen-md) {
-      font-size: 20px;
+      font-size: 24px;
       padding: 12px 15px;
     }
   }

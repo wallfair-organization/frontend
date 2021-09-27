@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { EventActions } from '../../../store/actions/event';
 
 export function useNewsFeed(event) {
@@ -8,14 +7,18 @@ export function useNewsFeed(event) {
 
   const tags = event?.tags.map(tag => tag.name) || [];
   const uniqueKeywords = Array.from(new Set([event?.category, ...tags]));
-  const queries = uniqueKeywords.join('+');
 
-  // api docs: https://newsapi.org/docs/endpoints/everything
+  // adding "" (inverted commas) per tag to search for the phrase
+  // added OR to get more results
+  const queries = uniqueKeywords.length
+    ? `"${uniqueKeywords.join('" OR "')}"`
+    : [];
+
+  // API docs: https://gnews.io/docs/v4#top-headlines-endpoint
   const params = {
-    keywords: queries,
-    limit: 8,
-    sort: 'popularity',
-    languages: 'en',
+    q: queries,
+    max: 8,
+    lang: 'en',
   };
 
   useEffect(() => {

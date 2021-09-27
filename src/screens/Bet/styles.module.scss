@@ -435,12 +435,8 @@
 }
 
 .shareButton {
-  margin-left: 10px;
-}
-
-@media (max-width: $screen-md) {
-  .shareButton {
-    margin-bottom: 1rem;
+  margin-left: auto;
+  @media screen and (min-width: $screen-md) {
+    margin-left: 20px;
   }
 }
-

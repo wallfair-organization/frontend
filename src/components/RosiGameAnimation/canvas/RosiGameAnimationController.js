@@ -84,7 +84,7 @@ class RosiAnimationController {
   }
 
   doCashedOutAnimation(data) {
-    const point = this.coinAndTrajectory.getCoinExplosionPosition();
+    const point = this.coinAndTrajectory.getCoinCrashPosition();
     this.cashedOut.animate(point.x, point.y, data.amount, data.crashFactor);
   }
 }

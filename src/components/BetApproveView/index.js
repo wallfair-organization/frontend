@@ -20,6 +20,7 @@ import ReactTooltip from 'react-tooltip';
 import Share from '../../components/Share';
 
 import routes from '../../constants/Routes';
+import { playWinSound } from '../../helper/Audio';
 
 const canvasStyles = {
   position: 'fixed',
@@ -114,6 +115,7 @@ const BetApproveView = ({ visible, hidePopup, options, events }) => {
   useEffect(() => {
     if (visible) {
       startAnimation();
+      playWinSound();
     }
   }, [visible]);
 

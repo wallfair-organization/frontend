@@ -20,6 +20,8 @@ import {
   isCashedOut,
   selectDisplayBetButton,
 } from '../../store/selectors/rosi-game';
+import ReactCanvasConfetti from 'react-canvas-confetti';
+import { playWinSound } from '../../helper/Audio';
 
 const PlaceBet = () => {
   const dispatch = useDispatch();
@@ -36,10 +38,10 @@ const PlaceBet = () => {
   const [crashFactor, setCrashFactor] = useState(999);
   const [showCashoutWarning, setShowCashoutWarning] = useState(false);
   const [crashFactorDirty, setCrashFactorDirty] = useState(false);
+  const [animate, setAnimate] = useState(false);
   const userUnableToBet = amount < 1;
 
   const onTokenNumberChange = number => {
-    console.log(number);
     setAmount(number);
     // debouncedSetCommitment(number, currency);
   };
@@ -68,10 +70,12 @@ const PlaceBet = () => {
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showCashoutWarning]);
+  useEffect(() => {
+    setAnimate(false);
+  }, [isGameRunning]);
 
   const placeABet = () => {
     if (userUnableToBet) return;
-
     const payload = {
       amount,
       crashFactor: Math.round(Math.abs(parseFloat(crashFactor)) * 100) / 100,
@@ -90,6 +94,7 @@ const PlaceBet = () => {
     dispatch(RosiGameActions.cashOut());
     Api.cashOut()
       .then(response => {
+        setAnimate(true);
         AlertActions.showSuccess(JSON.stringify(response));
       })
       .catch(error => {
@@ -120,10 +125,7 @@ const PlaceBet = () => {
           {user.isLoggedIn ? 'Place Bet' : 'Join To Start Betting'}
         </span>
       );
-    } else if (
-      (userPlacedABet && !isGameRunning) ||
-      (betInQueue && userCashedOut)
-    ) {
+    } else if ((userPlacedABet && !isGameRunning) || isBetInQueue) {
       return (
         <span
           role="button"
@@ -150,9 +152,26 @@ const PlaceBet = () => {
       );
     }
   };
+  const canvasStyles = {
+    position: 'fixed',
+    pointerEvents: 'none',
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
+    zIndex: 999,
+  };
 
   return (
     <div className={classNames(styles.container)}>
+      <ReactCanvasConfetti
+        style={canvasStyles}
+        fire={animate}
+        particleCount={300}
+        spread={360}
+        origin={{ x: 0.4, y: 0.45 }}
+        onFire={() => playWinSound()}
+      />
       <div className={styles.inputContainer}>
         <div>
           <h2 className={styles.placebidTitle}>Place Bet</h2>

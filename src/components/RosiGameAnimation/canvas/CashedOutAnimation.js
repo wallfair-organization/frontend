@@ -101,8 +101,8 @@ class Animation {
       this.amountText.y + this.amountText.height * plusOrMinus;
 
     // move whole cointainer to the crash point
-    this.container.x = x - this.coin.width / 2;
-    this.container.y = y - this.coin.height / 2;
+    this.container.x = x;
+    this.container.y = y;
   }
 
   setTextValues(amount, crashFactor) {
