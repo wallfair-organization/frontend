@@ -41,6 +41,7 @@ import AuthedOnly from 'components/AuthedOnly';
 import ButtonSmall from 'components/ButtonSmall';
 import ButtonSmallTheme from 'components/ButtonSmall/ButtonSmallTheme';
 import InfoBox from 'components/InfoBox';
+import EventTypes from 'constants/EventTypes';
 
 const BetView = ({
   betId,
@@ -630,7 +631,15 @@ const BetView = ({
           <AdminOnly>
             {!isTradeViewPopup && renderMenuContainerWithCurrentBalance()}
           </AdminOnly>
-          <div className={styles.betMarketQuestion}>{bet.marketQuestion}</div>
+          <div
+            className={classNames(
+              styles.betMarketQuestion,
+              _.get(event, 'type') === EventTypes.nonStreamed &&
+                styles.nonStreamedQuestion
+            )}
+          >
+            {bet.marketQuestion}
+          </div>
           {showEventEnd && state !== BetState.resolved && (
             <>
               <span className={styles.timerLabel}>Event ends in:</span>

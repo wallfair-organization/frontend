@@ -45,6 +45,7 @@ import IconTheme from 'components/Icon/IconTheme';
 import EventTypes from 'constants/EventTypes';
 import Share from '../../components/Share';
 import useTrades from '../../hooks/useTrades';
+import BetState from 'constants/BetState';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -65,7 +66,7 @@ const Bet = ({
 
   const [betId, setBetId] = useState(null);
   const [swiper, setSwiper] = useState(null);
-  const [betAction, setBetAction] = useState(0);
+  const [betAction, setBetAction] = useState(2);
   const [betViewIsOpen, setBetViewIsOpen] = useState(false);
   const [singleBet, setSingleBet] = useState(false);
   const [event, setEvent] = useState(null);
@@ -88,6 +89,8 @@ const Bet = ({
 
   useNewsFeed(event);
 
+  const isNonStreamed = _.get(event, 'type') === EventTypes.nonStreamed;
+
   const { tabOptions, handleSwitchTab, selectedTab } = useTabOptions(event);
   const { activeBets } = useTrades(event?._id);
 
@@ -100,10 +103,8 @@ const Bet = ({
   window.onresize = () => ref.current && setIsMobile(window.innerWidth < 992);
 
   const selectSingleBet = bets => {
-    if (relatedBets.length || bets.length) {
+    if (relatedBets?.length || bets?.length) {
       const loneBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
-      if (loneBet?.status !== 'active') return;
-
       const betId = _.get(loneBet, '_id');
       const betSlug = _.get(loneBet, 'slug');
       selectBet(betId, betSlug);
@@ -136,7 +137,9 @@ const Bet = ({
     const currentBet = _.find(eventBets, {
       slug: betSlug,
     });
-    const currentBetId = _.get(currentBet, '_id');
+    const currentBetId = isNonStreamed
+      ? _.get(event, 'bets[0]._id')
+      : _.get(currentBet, '_id');
     setBetId(currentBetId);
 
     if (betSlug) {
@@ -154,15 +157,20 @@ const Bet = ({
   }, [eventSlug, betSlug, event]);
 
   useEffect(() => {
-    if (ref.current && !isMobile && relatedBets.length === 1) {
+    if (!event) return;
+    if (
+      ref.current &&
+      !isMobile &&
+      (relatedBets.length === 1 || isNonStreamed)
+    ) {
+      setBetAction(BET_ACTIONS.EventTrades);
       selectSingleBet();
     }
     if (isMobile) {
-      setBetAction(BET_ACTIONS.Chat);
-    } else {
+      onBetClose()();
       setBetAction(BET_ACTIONS.EventTrades);
     }
-  }, [isMobile, relatedBets]);
+  }, [isMobile, relatedBets, event]);
 
   useEffect(() => {
     if (swiper && !swiper.destroyed) {
@@ -230,6 +238,12 @@ const Bet = ({
 
   const getRelatedBetSliderPages = (bets, size) => {
     return _.ceil(_.size(bets) / size);
+  };
+
+  const renderTitle = () => {
+    const key = isNonStreamed ? 'bets[0].marketQuestion' : 'name';
+    const title = _.get(event, key);
+    return <h2>{title}</h2>;
   };
 
   const renderRelatedBetList = (popup = false) => {
@@ -405,7 +419,20 @@ const Bet = ({
           )}
         </SwiperSlide>
         <SwiperSlide className={styles.carouselSlide}>
-          <div>{renderRelatedBetList(true)}</div>
+          {!isNonStreamed ? (
+            <div>{renderRelatedBetList(true)}</div>
+          ) : (
+            <BetView
+              betId={betId}
+              eventId={event._id}
+              openBets={_.filter(openBets, {
+                betId: betId,
+              })}
+              closed={false}
+              showEventEnd={true}
+              handleChartDirectionFilter={handleChartDirectionFilter}
+            />
+          )}
         </SwiperSlide>
         <SwiperSlide className={styles.carouselSlide}>
           <div>{renderMyTradesList()}</div>
@@ -418,7 +445,7 @@ const Bet = ({
     if (betViewIsOpen) {
       return (
         <div>
-          {(isMobile || relatedBets.length > 1) && (
+          {event.type === EventTypes.streamed && relatedBets.length > 1 && (
             <div className={styles.betViewClose} onClick={onBetClose()}>
               <Icon
                 iconType={'arrowLeft'}
@@ -471,7 +498,7 @@ const Bet = ({
             >
               <div className={styles.arrowBack}></div>
               <div className={styles.headline}>
-                <h2>{_.get(event, 'name')}</h2>
+                {renderTitle()}
                 {(hasOnlineState || hasOfflineState) && (
                   <div className={styles.streamStateBadge}>
                     {hasOnlineState && <LiveBadge />}
@@ -480,9 +507,9 @@ const Bet = ({
                 )}
               </div>
             </Link>
-            <div className={styles.shareButton}>
-              <Share />
-            </div>
+          </div>
+          <div className={styles.shareButton}>
+            <Share />
           </div>
           <AdminOnly>
             <div className={styles.eventAdminActionsContainer}>
@@ -528,18 +555,12 @@ const Bet = ({
             >
               {event.type === 'non-streamed' ? (
                 <div className={styles.chart}>
-                  {betViewIsOpen ? (
-                    <Chart
-                      height={400}
-                      data={chartData}
-                      filterActive={filterActive}
-                      handleChartPeriodFilter={handleChartPeriodFilter}
-                    />
-                  ) : (
-                    <Placeholder style={{ height: '400px' }}>
-                      <img src={event.previewImageUrl} alt="pic" />
-                    </Placeholder>
-                  )}
+                  <Chart
+                    height={400}
+                    data={chartData}
+                    filterActive={filterActive}
+                    handleChartPeriodFilter={handleChartPeriodFilter}
+                  />
                 </div>
               ) : (
                 <EmbedVideo
