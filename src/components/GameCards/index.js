@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import classNames from 'classnames';
 import Link from 'components/Link';
+import InfoBox from 'components/InfoBox';
 
 const GameCards = ({ games, category }) => {
   const getGameItemSizeClass = () => {
@@ -21,6 +22,14 @@ const GameCards = ({ games, category }) => {
         {games.map((game, index) => {
           return (
             <div className={styles.wrapper}>
+              {game?.infoIcon && (
+                <InfoBox
+                  iconType={game.infoIcon.iconType}
+                  iconClass={`infoIconGame`}
+                >
+                  {game.infoIcon.content}
+                </InfoBox>
+              )}
               <Link
                 to={game.linkTo}
                 className={classNames(

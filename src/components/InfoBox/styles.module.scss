@@ -16,6 +16,17 @@
     }
   }
 
+  .infoIconGame {
+    width: 18px;
+    height: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+
+    * {
+      stroke: $colorPrimary;
+    }
+  }
+
   .infoBoxContentContainer {
     position: absolute;
     background: rgba(14, 9, 39, 0.8);

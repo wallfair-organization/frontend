@@ -1,3 +1,4 @@
+import IconType from '../components/Icon/IconType';
 import RosiImg from '../data/backgrounds/games/rosi-games-banner.png';
 import First from '../data/backgrounds/games/game1-bg.png';
 import Second from '../data/backgrounds/games/game2-bg.png';
@@ -17,6 +18,14 @@ export const CASINO_GAMES = [
     description: '',
     active: true,
     linkTo: Routes.rosiGame,
+    infoIcon: {
+      iconType: IconType.info,
+      content: (
+        <p>
+          <strong>What is Rosi Game?</strong>
+        </p>
+      ),
+    },
   },
   {
     background: First,
