@@ -74,6 +74,16 @@ const ActivitiesTracker = ({
         date = _.get(activityMessage, 'data.trade.updatedAt');
       }
 
+      //try to get bet updatedAt date
+      if (!date) {
+        date = _.get(activityMessage, 'data.bet.updatedAt');
+      }
+
+      //try to get event updatedAt date
+      if (!date) {
+        date = _.get(activityMessage, 'data.event.updatedAt');
+      }
+
       return (
         <ActivityMessage key={index} activity={activityMessage} date={date} />
       );
