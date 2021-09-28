@@ -125,9 +125,13 @@ const ActivityMessage = ({ activity, date, users, events }) => {
   const renderMessageContent = () => {
     const type = _.get(activity, 'type');
     const userId = _.get(activity, 'userId');
-    const user = State.getUser(userId, users);
-    const profilePicture = getProfilePictureUrl(_.get(user, 'profilePicture'));
-    const userName = _.get(user, 'username', 'Unknown');
+    let user = State.getUser(userId, users);
+    // const profilePicture = getProfilePictureUrl(_.get(user, 'profilePicture'));
+    // const userName = _.get(user, 'username', _.get(activity, 'data.user.username'));
+
+    if (!user) {
+      user = _.get(activity, 'data.user');
+    }
 
     return (
       <div className={classNames(styles.chatMessage, styles.messageItem)}>
