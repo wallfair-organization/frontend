@@ -105,14 +105,16 @@ const ActivityMessage = ({ activity, date, users, events }) => {
                 <b>{data.bet.marketQuestion}</b>
               </a>
             }{' '}
-            with {data.bet.outcomes[data.trade.outcomeIndex].name}.
+            with <b>{data.bet.outcomes[data.trade.outcomeIndex].name}</b>.
           </div>
         );
       case 'Notification/EVENT_BET_CASHED_OUT':
-        return `${user.username} has cashed out from ${_.get(
-          data,
-          'bet.marketQuestion'
-        )}.`;
+        return (
+          <div>
+            <b>{user.username}</b> has cashed out from{' '}
+            <b>{_.get(data, 'bet.marketQuestion')}</b>.
+          </div>
+        );
       case 'Notification/EVENT_BET_RESOLVED':
         return (
           <div>
