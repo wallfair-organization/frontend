@@ -22,6 +22,8 @@ import {
 } from '../../store/selectors/rosi-game';
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import { playWinSound } from '../../helper/Audio';
+import InfoBox from 'components/InfoBox';
+import IconType from '../Icon/IconType';
 
 const PlaceBet = () => {
   const dispatch = useDispatch();
@@ -173,8 +175,38 @@ const PlaceBet = () => {
         onFire={() => playWinSound()}
       />
       <div className={styles.inputContainer}>
-        <div>
+        <div className={styles.placeBetContainer}>
           <h2 className={styles.placebidTitle}>Place Bet</h2>
+          <InfoBox iconType={IconType.info} position={`bottomLeft`}>
+            <p>
+              <strong>How to place a bet at Rosi Game?</strong>
+            </p>
+            <p>&nbsp;</p>
+            <p>
+              At the top of the betting box, you see „Bet Amount“ that you can
+              change as you wish.
+            </p>
+            <p>
+              After you click the yellow button „Place Bet“ you will join the
+              game.
+            </p>
+            <p>
+              After you join the game you need to click the „Cash out“ button
+              before the coin explodes.
+            </p>
+            <p>
+              Please note that when you place a bet in a running game, your bet
+              will wait for the next game start.
+            </p>
+            <p>
+              You can place a bet for the next game or you can do this when the
+              round is preparing.
+            </p>
+            <p>
+              At the top of the page, you can see green numbers which show the
+              previous crash numbers.
+            </p>
+          </InfoBox>
         </div>
         <div className={styles.sliderContainer}>
           <label className={styles.label}>Bet Amount</label>
