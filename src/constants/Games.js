@@ -21,9 +21,27 @@ export const CASINO_GAMES = [
     infoIcon: {
       iconType: IconType.info,
       content: (
-        <p>
-          <strong>What is Rosi Game?</strong>
-        </p>
+        <div>
+          <p>
+            <strong>What is Rosi Game?</strong>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            The Rosi Game is a crash game which promises pure fun and
+            excitement, every fall counts!
+          </p>
+          <p>
+            When you start playing it you enter a bet amount. The crash coin
+            will go up till it crashes at some random time.
+          </p>
+          <p>
+            In Rosi Game, the longer the coin flies, the higher the chance that
+            it will crash. If you cash out before the coin explodes, your bet
+            will be multiplied by the current number the graph has by the time
+            you cash out. If you do not cash out before the graph crashes, you
+            will lose your bet.
+          </p>
+        </div>
       ),
     },
   },

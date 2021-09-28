@@ -25,6 +25,7 @@ const GameCards = ({ games, category }) => {
               {game?.infoIcon && (
                 <InfoBox
                   iconType={game.infoIcon.iconType}
+                  position={`bottomLeft`}
                   iconClass={`infoIconGame`}
                 >
                   {game.infoIcon.content}

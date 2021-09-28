@@ -17,13 +17,20 @@
   }
 
   .infoIconGame {
-    width: 18px;
-    height: 18px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 24px;
+    height: 24px;
     margin: 0 10px;
     cursor: pointer;
+    background: $colorWhite;
+    border-radius: 100%;
+    display: inline-block;
 
     * {
       stroke: $colorPrimary;
+      fill: $colorBlack;
     }
   }
 
