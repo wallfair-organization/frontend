@@ -74,18 +74,16 @@ const ActivityMessage = ({ activity, date, users, events }) => {
       case 'Notification/EVENT_NEW_BET':
         return (
           <div>
-            New bet has created $
-            {
-              <a
-                target={'_blank'}
-                href={`${window.location.origin}/trade/${_.get(
-                  event,
-                  'slug'
-                )}/${_.get(event, 'bets[0].slug')}`}
-              >
-                {_.get(event, 'bets[0].marketQuestion')}
-              </a>
-            }
+            New bet has created
+            <a
+              target={'_blank'}
+              href={`${window.location.origin}/trade/${_.get(
+                event,
+                'slug'
+              )}/${_.get(event, 'bets[0].slug')}`}
+            >
+              {_.get(event, 'bets[0].marketQuestion')}
+            </a>
             .
           </div>
         ); //EDITED
@@ -109,7 +107,10 @@ const ActivityMessage = ({ activity, date, users, events }) => {
           </div>
         );
       case 'Notification/EVENT_BET_CASHED_OUT':
-        return `${user.username} has cashed out from ${data}.`;
+        return `${user.username} has cashed out from ${_.get(
+          data,
+          'bet.marketQuestion'
+        )}.`;
       case 'Notification/EVENT_BET_RESOLVED':
         return (
           <div>
