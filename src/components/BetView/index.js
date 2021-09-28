@@ -309,7 +309,7 @@ const BetView = ({
     );
   };
 
-  const renderTradeDesc = () => {
+  const renderTradeDesc = (withTitle = true) => {
     const evidenceSource = bet.evidenceSource;
 
     const shortLength = 200;
@@ -334,7 +334,7 @@ const BetView = ({
 
     return (
       <>
-        {evidenceSource && (
+        {evidenceSource && withTitle && (
           <h4 className={styles.tradeDescTitle}>Evidence Source</h4>
         )}
         <p
@@ -400,7 +400,7 @@ const BetView = ({
               disabledWithOverlay={false}
             >
               <span className={'buttonText'}>
-                {userLoggedIn ? 'Trade!' : 'Join Now And Start Trading'}
+                {userLoggedIn ? 'Place bet' : 'Join Now And Start Trading'}
               </span>
             </Button>
           </span>
@@ -446,33 +446,20 @@ const BetView = ({
             <div className={styles.pickOutcomeContainer}>
               <label className={styles.label}>Pick outcome</label>
               <InfoBox iconType={IconType.question}>
+                <p>How to place a bet?</p>
                 <p>
-                  <strong>How to place a bet at Rosi Game?</strong>
-                </p>
-                <p>&nbsp;</p>
-                <p>
-                  - At the top of the betting box, you see „Bet Amount“ that you
-                  can change as you wish.
+                  - First select the amount (in WFAIR) you want to put into this
+                  bet by tapping on the desired percentage of your portfolio or
+                  by typing in the amount you want to trade with.
                 </p>
                 <p>
-                  - After you click the yellow button „Place Bet“ you will join
-                  the game.
+                  - After that pick your outcome by tapping on the outcome you
+                  think will come true. The potential gains in WFAIR and percent
+                  will automatically adjust according to your placed bet amount.
                 </p>
                 <p>
-                  - After you join the game you need to click the „Cash out“
-                  button before the coin explodes.
-                </p>
-                <p>
-                  - Please note that when you place a bet in a running game,
-                  your bet will wait for the next game start.
-                </p>
-                <p>
-                  - You can place a bet for the next game or you can do this
-                  when the round is preparing.
-                </p>
-                <p>
-                  - At the top of the page, you can see green numbers which show
-                  the previous crash numbers.
+                  - To finalize your bet click on the Place bet Button and enjoy
+                  the thrill
                 </p>
               </InfoBox>
             </div>
@@ -581,18 +568,15 @@ const BetView = ({
   };
 
   const renderStateConditionalContent = () => {
-    if (
-      state === BetState.active ||
-      state === BetState.canceled ||
-      state === BetState.closed
-    ) {
+    if (state === BetState.active || state === BetState.canceled) {
       return (
         <>
           {renderPlaceBetContentContainer()}
           <div className={styles.betButtonContainer}>{renderTradeButton()}</div>
         </>
       );
-    } else if (state === BetState.resolved) {
+    } else if (state === BetState.resolved || state === BetState.closed) {
+      const isClosed = state === BetState.closed;
       const finalOutcome = _.get(bet, [
         'outcomes',
         _.get(bet, 'finalOutcome'),
@@ -619,21 +603,32 @@ const BetView = ({
             <StateBadge state={state} />
           </div>
           <div className={styles.summaryRowContainer}>
-            {data('Bet resolved at', DateText.formatDate(endDate))}
-            {data('Outcome', finalOutcome)}
-            {data('Evidence', evidence, { smallText: true })}
+            {data(
+              `Bet ${isClosed ? 'closed' : 'resolved'} at`,
+              DateText.formatDate(endDate)
+            )}
+            {data(
+              'Outcome',
+              isClosed
+                ? 'This bet is awaiting resolution, see details below'
+                : finalOutcome
+            )}
+            {data('Evidence', renderTradeDesc(false))}
+            {!isClosed && data('Final Evidence', evidence, { smallText: true })}
           </div>
-          <AuthedOnly>
-            <div className={styles.disputeButtonContainer}>
-              <ButtonSmall
-                text="Dispute"
-                butonTheme={ButtonSmallTheme.red}
-                onClick={() =>
-                  showPopup(PopupTheme.reportEvent, { small: true })
-                }
-              />
-            </div>
-          </AuthedOnly>
+          {!isClosed && (
+            <AuthedOnly>
+              <div className={styles.disputeButtonContainer}>
+                <ButtonSmall
+                  text="Dispute"
+                  butonTheme={ButtonSmallTheme.red}
+                  onClick={() =>
+                    showPopup(PopupTheme.reportEvent, { small: true })
+                  }
+                />
+              </div>
+            </AuthedOnly>
+          )}
         </div>
       );
     }
@@ -678,19 +673,20 @@ const BetView = ({
               </span>
             )}
           </div>
-          {showEventEnd && state !== BetState.resolved && (
-            <>
-              <span className={styles.timerLabel}>Event ends in:</span>
-              <div
-                className={classNames(
-                  styles.timeLeftCounterContainer,
-                  isTradeViewPopup && styles.fixedTimer
-                )}
-              >
-                <TimeCounter endDate={endDate} />
-              </div>
-            </>
-          )}
+          {showEventEnd &&
+            ![BetState.resolved, BetState.closed].includes(state) && (
+              <>
+                <span className={styles.timerLabel}>Event ends in:</span>
+                <div
+                  className={classNames(
+                    styles.timeLeftCounterContainer,
+                    isTradeViewPopup && styles.fixedTimer
+                  )}
+                >
+                  <TimeCounter endDate={endDate} />
+                </div>
+              </>
+            )}
           {renderStateConditionalContent()}
         </div>
       </div>

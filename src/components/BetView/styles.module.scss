@@ -266,64 +266,6 @@
       font-size: 23px;
     }
 
-    .tradeDescTitle {
-      font-size: 16px;
-      font-family: $fontBold;
-      margin-bottom: 5px;
-    }
-
-    .tradeDesc {
-      font-family: $fontRegular;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 17px;
-      color: $colorGrayLight1;
-      text-align: center;
-      letter-spacing: 0.3px;
-      padding: 0 7%;
-      margin-bottom: 16px;
-      width: 100%;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-
-      a {
-        text-decoration: underline;
-        color: $colorPurple;
-      }
-      &.hidden {
-        -webkit-line-clamp: 3;
-      }
-
-      .evidenceDescription {
-        padding-top: 10px;
-      }
-    }
-    .tradeShortDesc {
-      margin-bottom: 16px;
-    }
-
-    .seeMore {
-      font-family: $fontBold;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 12px;
-      border: none;
-      background: none;
-      text-align: center;
-      text-transform: capitalize;
-      color: $colorPurpleDark;
-      cursor: pointer;
-      margin: 10px 0;
-      letter-spacing: 1px;
-
-      &:hover {
-        color: $colorPurple;
-      }
-    }
-
     .betButton {
       background-color: transparent;
       margin-bottom: 12px;
@@ -340,6 +282,64 @@
           width: 355px;
         }
       }
+    }
+  }
+
+  .tradeDescTitle {
+    font-size: 16px;
+    font-family: $fontBold;
+    margin-bottom: 5px;
+  }
+
+  .tradeDesc {
+    font-family: $fontRegular;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 17px;
+    color: $colorGrayLight1;
+    text-align: center;
+    letter-spacing: 0.3px;
+    padding: 0 7%;
+    margin-bottom: 16px;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    a {
+      text-decoration: underline;
+      color: $colorPurple;
+    }
+    &.hidden {
+      -webkit-line-clamp: 3;
+    }
+
+    .evidenceDescription {
+      padding-top: 10px;
+    }
+  }
+  .tradeShortDesc {
+    margin-bottom: 16px;
+  }
+
+  .seeMore {
+    font-family: $fontBold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    border: none;
+    background: none;
+    text-align: center;
+    text-transform: capitalize;
+    color: $colorPurpleDark;
+    cursor: pointer;
+    margin: 10px 0;
+    letter-spacing: 1px;
+
+    &:hover {
+      color: $colorPurple;
     }
   }
 
