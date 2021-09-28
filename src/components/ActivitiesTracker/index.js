@@ -11,41 +11,25 @@ import 'swiper/components/pagination/pagination.min.css';
 
 import SwiperCore, { Pagination, Navigation } from 'swiper';
 
-import ChatMessageWrapper from '../ChatMessageWrapper';
 import classNames from 'classnames';
-import Icon from '../Icon';
-import IconTheme from '../Icon/IconTheme';
-import IconType from '../../components/Icon/IconType';
-import Input from '../Input';
 import styles from './styles.module.scss';
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
-import { WebsocketsActions } from '../../store/actions/websockets';
-import { usePrevPropValue } from '../../hooks/usePrevPropValue';
 import { useIsMount } from '../hoc/useIsMount';
-import { LOGGED_IN } from 'constants/AuthState';
 import ActivityMessage from './ActivityMessage';
-import CategoryListItem from '../CategoryList/CategoryListItem';
 import { getNotificationEvents } from '../../api';
 
 import { ACTIVITIES_TO_TRACK } from '../../constants/Activities';
 import { NotificationActions } from '../../store/actions/notification';
-import { EventActions } from '../../store/actions/event';
 
 SwiperCore.use([Navigation, Pagination]);
 
 const ActivitiesTracker = ({
   className,
-  inputClassName,
   messagesClassName,
-  user,
-  roomId,
   activities,
-  chatMessageType,
-  sendChatMessage,
-  hideInput = false,
   addInitialActivities,
 }) => {
   const messageListRef = useRef();
@@ -54,9 +38,6 @@ const ActivitiesTracker = ({
     ACTIVITIES_TO_TRACK[0].value
   );
 
-  // const [activities, setActivities] = useState();
-
-  // const [notifications, setInitialNotifications] = useState();
   const isMount = useIsMount();
 
   useEffect(() => {
@@ -69,10 +50,6 @@ const ActivitiesTracker = ({
         await addInitialActivities(initialActivities).catch(err => {
           console.error('[addInitialActivities] err', err);
         });
-        //
-        // console.log("initialActivities", initialActivities);
-
-        // setInitialActivities(_.get(initialActivities, 'data', []));
       })().catch(err => {
         console.error('initialNotification error', err);
       });

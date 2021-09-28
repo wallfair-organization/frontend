@@ -41,9 +41,15 @@ const addActivity = (action, state) => {
     type: eventName,
   };
 
+  const newActivities = [...state.activities, activityObj];
+
+  if (newActivities.length > 20) {
+    newActivities.shift();
+  }
+
   return {
     ...state,
-    activities: [...state.activities, activityObj],
+    activities: newActivities,
   };
 };
 

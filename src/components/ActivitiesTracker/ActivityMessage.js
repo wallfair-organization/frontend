@@ -2,17 +2,11 @@ import _ from 'lodash';
 import { useCallback, useEffect } from 'react';
 import { useState } from 'react';
 import DateText from '../../helper/DateText';
-import ChatMessage from '../ChatMessage';
-import BetActionChatMessage from '../BetActionChatMessage';
-import ChatMessageType from '../ChatMessageWrapper/ChatMessageType';
 import styles from './styles.module.scss';
 import State from '../../helper/State';
-import { WebsocketsActions } from '../../store/actions/websockets';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
-import { BetActions } from '../../store/actions/bet';
-import { NotificationActions } from '../../store/actions/notification';
 
 const ActivityMessage = ({ activity, date, users, events }) => {
   const [dateString, setDateString] = useState('');
@@ -96,7 +90,6 @@ const ActivityMessage = ({ activity, date, users, events }) => {
           </div>
         ); //EDITED
       case 'Notification/EVENT_BET_PLACED':
-        console.log('user', user);
         return (
           <div>
             <b>{_.get(user, 'username', 'Unknown user')}</b> has bet{' '}
