@@ -66,7 +66,7 @@ const Bet = ({
 
   const [betId, setBetId] = useState(null);
   const [swiper, setSwiper] = useState(null);
-  const [betAction, setBetAction] = useState(2);
+  const [betAction, setBetAction] = useState(0);
   const [betViewIsOpen, setBetViewIsOpen] = useState(false);
   const [singleBet, setSingleBet] = useState(false);
   const [event, setEvent] = useState(null);
@@ -167,7 +167,7 @@ const Bet = ({
       setBetAction(BET_ACTIONS.EventTrades);
       selectSingleBet();
     }
-    if (isMobile && (isNonStreamed || relatedBets.legnth === 1)) {
+    if (isMobile && (isNonStreamed || relatedBets.length === 1)) {
       onBetClose()();
       setBetAction(BET_ACTIONS.EventTrades);
     }

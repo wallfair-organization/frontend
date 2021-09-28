@@ -543,7 +543,7 @@ const BetView = ({
             />
             <span>Edit Bet</span>
           </div>
-          {bet?.status === BetState.active && (
+          {[BetState.active, BetState.closed].includes(bet?.status) && (
             <div
               className={styles.menuItem}
               onClick={() =>
@@ -656,9 +656,7 @@ const BetView = ({
           )}
         >
           {renderLoadingAnimation()}
-          <AdminOnly>
-            {!isTradeViewPopup && renderMenuContainerWithCurrentBalance()}
-          </AdminOnly>
+          <AdminOnly>{renderMenuContainerWithCurrentBalance()}</AdminOnly>
           <div
             className={classNames(
               styles.betMarketQuestion,

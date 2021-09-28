@@ -66,7 +66,7 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
       evidenceDescription,
       evidenceSource,
       outcomes: outcomes
-        .map(t => ({ name: t.name }))
+        .map((t, index) => ({ name: t.name, index }))
         .filter(t => t.name !== ''),
       endDate,
       date: bet?.date || new Date(),
