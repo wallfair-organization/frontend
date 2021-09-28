@@ -76,12 +76,12 @@ const ActivitiesTracker = ({
 
       //try to get bet updatedAt date
       if (!date) {
-        date = _.get(activityMessage, 'data.bet.updatedAt');
+        date = _.get(activityMessage, 'data.bet.date');
       }
 
       //try to get event updatedAt date
       if (!date) {
-        date = _.get(activityMessage, 'data.event.updatedAt');
+        date = _.get(activityMessage, 'data.event.date');
       }
 
       return (

@@ -74,16 +74,18 @@ const ActivityMessage = ({ activity, date, users, events }) => {
       case 'Notification/EVENT_NEW_BET':
         return (
           <div>
-            New bet has created
-            <a
-              target={'_blank'}
-              href={`${window.location.origin}/trade/${_.get(
-                event,
-                'slug'
-              )}/${_.get(event, 'bets[0].slug')}`}
-            >
-              {_.get(event, 'bets[0].marketQuestion')}
-            </a>
+            New bet has created{' '}
+            <b>
+              <a
+                target={'_blank'}
+                href={`${window.location.origin}/trade/${_.get(
+                  event,
+                  'slug'
+                )}/${_.get(event, 'bets[0].slug')}`}
+              >
+                {_.get(event, 'bets[0].marketQuestion')}
+              </a>
+            </b>
             .
           </div>
         ); //EDITED
