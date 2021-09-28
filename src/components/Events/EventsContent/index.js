@@ -26,7 +26,8 @@ function EventsContent({ eventType, categories, setCategories }) {
   const [searchInput, setSearchInput] = useState('');
   const [coverStream, setCoverStream] = useState('');
 
-  const { location, category } = useRouteHandling(eventType);
+  const { location, category: encodedCategory } = useRouteHandling(eventType);
+  const category = decodeURIComponent(encodedCategory);
 
   const { fetchFilteredEvents, resetDefaultParamsValues } =
     useMappedActions(eventType);

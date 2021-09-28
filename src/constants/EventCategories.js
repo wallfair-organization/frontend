@@ -1,10 +1,11 @@
 import SportsImageIcon from '../data/icons/events-sports-icon.svg';
 import CryptoImageIcon from '../data/icons/events-other-icon.svg';
-import PoliticsImageIcon from '../data/icons/events-politics-icon.svg';
-import CelebritiesImageIcon from '../data/icons/events-celebrities-icon.svg';
+import ControllerImageIcon from '../data/icons/controller.svg';
+import NewsImageIcon from '../data/icons/news.svg';
+import VegasImageIcon from '../data/icons/vegas.svg';
+import JokerImageIcon from '../data/icons/joker.svg';
+import TradingImageIcon from '../data/icons/trading.svg';
 import AllImageIcon from '../data/icons/events-all-icon.svg';
-import CoDImage from '../data/images/Call of Duty_ Warzone-144x192.jpeg';
-import FifaImage from '../data/images/FIFA 21-144x192.jpeg';
 import LoLImage from '../data/images/League of Legends-144x192.jpeg';
 import MinecraftImage from '../data/images/Minecraft-144x192.jpeg';
 import AllImage from '../data/images/wallfair-all-category.png';
@@ -16,30 +17,51 @@ import CSImage from '../data/images/Counter-Strike_ Global Offensive-144x192.jpe
 export const EVENT_CATEGORIES = [
   {
     value: 'all',
+    label: 'All',
     image: AllImageIcon,
     isActive: true,
     type: 'icon',
   },
   {
-    value: 'sports',
+    value: 'Gaming / E-Sports',
+    label: 'Gaming',
+    image: ControllerImageIcon,
+    isActive: false,
+    type: 'icon',
+  },
+  {
+    value: 'Vegas',
+    image: VegasImageIcon,
+    isActive: false,
+    type: 'icon',
+  },
+  {
+    value: 'Sports',
     image: SportsImageIcon,
     isActive: false,
     type: 'icon',
   },
   {
-    value: 'celebrities',
-    image: CelebritiesImageIcon,
+    value: 'News',
+    image: NewsImageIcon,
     isActive: false,
     type: 'icon',
   },
   {
-    value: 'politics',
-    image: PoliticsImageIcon,
+    value: 'Sick Society',
+    image: JokerImageIcon,
     isActive: false,
     type: 'icon',
   },
   {
-    value: 'crypto',
+    value: 'Trading',
+    image: TradingImageIcon,
+    isActive: false,
+    type: 'icon',
+  },
+  {
+    value: 'Wallfair Bets',
+    label: 'Wallfair',
     image: CryptoImageIcon,
     isActive: false,
     type: 'icon',
@@ -54,38 +76,8 @@ export const LIVE_EVENTS_CATEGORIES = [
     type: 'image',
   },
   {
-    value: 'Crypto/Trades',
+    value: 'Gaming / E-Sports',
     image: LoLImage,
-    isActive: false,
-    type: 'image',
-  },
-  {
-    value: 'Wallfair Bets',
-    image: FortniteImage,
-    isActive: false,
-    type: 'image',
-  },
-  {
-    value: 'Sports',
-    image: CSImage,
-    isActive: false,
-    type: 'image',
-  },
-  {
-    value: 'Esports',
-    image: GTAImage,
-    isActive: false,
-    type: 'image',
-  },
-  {
-    value: 'Politics',
-    image: MinecraftImage,
-    isActive: false,
-    type: 'image',
-  },
-  {
-    value: 'Nonsense',
-    image: ApexLegendsImage,
     isActive: false,
     type: 'image',
   },
@@ -96,19 +88,31 @@ export const LIVE_EVENTS_CATEGORIES = [
     type: 'image',
   },
   {
-    value: 'Wallfair Team',
-    image: ApexLegendsImage,
+    value: 'Sports',
+    image: CSImage,
     isActive: false,
     type: 'image',
   },
   {
-    value: 'Wallfair Starz',
-    image: ApexLegendsImage,
+    value: 'News',
+    image: FortniteImage,
     isActive: false,
     type: 'image',
   },
   {
-    value: 'Reality TV',
+    value: 'Sick Society',
+    image: GTAImage,
+    isActive: false,
+    type: 'image',
+  },
+  {
+    value: 'Trading',
+    image: MinecraftImage,
+    isActive: false,
+    type: 'image',
+  },
+  {
+    value: 'Wallfair Bets',
     image: ApexLegendsImage,
     isActive: false,
     type: 'image',

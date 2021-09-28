@@ -16,7 +16,7 @@ function CategoryListItem({ categoryItem }) {
           to={Routes.getRouteWithParameters(
             categoryItem.type === 'image' ? Routes.liveEvents : Routes.events,
             {
-              category: categoryItem.value,
+              category: encodeURIComponent(categoryItem.value),
             }
           )}
         >
@@ -45,7 +45,7 @@ function CategoryListItem({ categoryItem }) {
                   [styles.active]: categoryItem.isActive,
                 })}
               >
-                {categoryItem.value}
+                {categoryItem.label ?? categoryItem.value}
               </label>
             )}
           </div>
