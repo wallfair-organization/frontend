@@ -31,9 +31,8 @@ import CategoryListItem from '../CategoryList/CategoryListItem';
 import { getNotificationEvents } from '../../api';
 
 import { ACTIVITIES_TO_TRACK } from '../../constants/Activities';
-
-import testData from './testData';
-import { getTradeById } from '../../api';
+import { NotificationActions } from '../../store/actions/notification';
+import { EventActions } from '../../store/actions/event';
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -43,9 +42,11 @@ const ActivitiesTracker = ({
   messagesClassName,
   user,
   roomId,
+  activities,
   chatMessageType,
   sendChatMessage,
   hideInput = false,
+  addInitialActivities,
 }) => {
   const messageListRef = useRef();
 
@@ -53,26 +54,34 @@ const ActivitiesTracker = ({
     ACTIVITIES_TO_TRACK[0].value
   );
 
-  const [activities, setActivities] = useState(testData);
+  // const [activities, setActivities] = useState();
 
-  const [notifications, setInitialNotifications] = useState();
+  // const [notifications, setInitialNotifications] = useState();
   const isMount = useIsMount();
 
   useEffect(() => {
     if (isMount) {
       (async () => {
-        const initialNotifications = await getNotificationEvents().catch(
-          err => {
-            console.error("Can't get trade by id:", err);
-          }
-        );
+        const initialActivities = await getNotificationEvents().catch(err => {
+          console.error("Can't get trade by id:", err);
+        });
 
-        setInitialNotifications(_.get(initialNotifications, 'data', []));
+        await addInitialActivities(initialActivities).catch(err => {
+          console.error('[addInitialActivities] err', err);
+        });
+        //
+        // console.log("initialActivities", initialActivities);
+
+        // setInitialActivities(_.get(initialActivities, 'data', []));
       })().catch(err => {
         console.error('initialNotification error', err);
       });
     }
   }, [isMount]);
+
+  useEffect(() => {
+    messageListScrollToBottom();
+  }, [activities.length]);
 
   const renderActivities = () => {
     // console.log("notifications", notifications);
@@ -80,8 +89,14 @@ const ActivitiesTracker = ({
     //   return item.type.indexOf(selectedCategory) > -1;
     // });
 
-    return _.map(notifications, (activityMessage, index) => {
-      const date = _.get(activityMessage, 'updatedAt');
+    return _.map(activities, (activityMessage, index) => {
+      let date = _.get(activityMessage, 'updatedAt');
+
+      //try to get trade updatedAt date
+      if (!date) {
+        date = _.get(activityMessage, 'data.trade.updatedAt');
+      }
+
       return (
         <ActivityMessage key={index} activity={activityMessage} date={date} />
       );
@@ -160,6 +175,7 @@ const ActivitiesTracker = ({
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    activities: state.notification.activities,
     user: state.authentication,
     connected: state.websockets.connected,
   };
@@ -167,8 +183,17 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendChatMessage: messageObject => {
-      dispatch(WebsocketsActions.sendChatMessage({ messageObject }));
+    addActivity: (type, activity) => {
+      dispatch(NotificationActions.addActivity({ type, activity }));
+    },
+    addInitialActivities: data => {
+      const responseData = _.get(data, 'data', []);
+
+      dispatch(
+        NotificationActions.addInitialActivities({
+          data: responseData,
+        })
+      );
     },
   };
 };

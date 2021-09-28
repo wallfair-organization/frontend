@@ -20,7 +20,6 @@ const VideoPlayer = props => {
     sources: [
       {
         src: embedUrl.toString(),
-        // type: 'video/mp4'
       },
     ],
   };
@@ -52,18 +51,16 @@ const VideoPlayer = props => {
         onReady && onReady(player);
       }));
     } else {
-      const player = playerRef.current;
-      player.play();
+      // const player = playerRef.current;
+      // player.play();
       // player.src(options.sources);
     }
   }, [options]);
 
-  // console.log('playerRef.current', playerRef.current);
-
   return (
     <div className={classNames(styles.videoPlayerContainer)}>
       <video
-        autoplay={autoPlay}
+        autoPlay={autoPlay}
         ref={videoRef}
         className={classNames(
           'video-js',

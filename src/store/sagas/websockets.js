@@ -101,6 +101,16 @@ function createSocketChannel(socket) {
       emit(message);
     };
 
+    const onAnyListener = (eventName, data) => {
+      const message = {
+        type: eventName,
+        data,
+      };
+      emit(message);
+    };
+
+    socket.onAny(onAnyListener);
+
     // setup the subscription
     socket.on('connect', connectHandler);
     socket.on('chatMessage', chatMessageHandler);
@@ -124,6 +134,7 @@ function createSocketChannel(socket) {
       socket.off('CASINO_END', casinoEndHandler);
       socket.off('CASINO_TRADE', casinoTradeHandler);
       socket.off('CASINO_REWARD', casinoRewardHandler);
+      socket.offAny(onAnyListener);
     };
 
     return unsubscribe;
@@ -199,6 +210,22 @@ export function* init() {
               NotificationActions.addNotification({
                 eventId: payload.eventId,
                 notification: payload,
+              })
+            );
+            break;
+          case 'Notification/EVENT_USER_REWARD':
+          case 'Notification/EVENT_ONLINE':
+          case 'Notification/EVENT_OFFLINE':
+          case 'Notification/EVENT_NEW':
+          case 'Notification/EVENT_NEW_BET':
+          case 'Notification/EVENT_BET_PLACED':
+          case 'Notification/EVENT_BET_CASHED_OUT':
+          case 'Notification/EVENT_BET_RESOLVED':
+          case 'Notification/EVENT_BET_CANCELED':
+            yield put(
+              NotificationActions.addActivity({
+                activity: payload.data,
+                eventName: payload.type,
               })
             );
             break;

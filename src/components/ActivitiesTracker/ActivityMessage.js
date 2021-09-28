@@ -11,6 +11,8 @@ import { WebsocketsActions } from '../../store/actions/websockets';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
+import { BetActions } from '../../store/actions/bet';
+import { NotificationActions } from '../../store/actions/notification';
 
 const ActivityMessage = ({ activity, date, users, events }) => {
   const [dateString, setDateString] = useState('');
@@ -61,14 +63,10 @@ const ActivityMessage = ({ activity, date, users, events }) => {
     }
 
     switch (activity.type) {
-      case 'Notification/EVENT_START':
-        return `Event [NAME] `;
-      case 'Notification/EVENT_RESOLVE':
-        return `Event resolved [EVENT DATA] `;
-      case 'Notification/EVENT_CANCEL':
-        return `Event cancelled [EVENT DATA] `;
-      case 'Notification/EVENT_NEW_REWARD':
-        return `New reward [EVENT DATA] `;
+      case 'Notification/EVENT_BET_CANCELED':
+        return `Event ${data.event.name} cancelled.`;
+      case 'Notification/EVENT_USER_REWARD':
+        return `New user reward.`;
       case 'Notification/EVENT_ONLINE':
         return `Stream ${data.event.name} has become online.`; //EDITED
       case 'Notification/EVENT_OFFLINE':
@@ -98,6 +96,7 @@ const ActivityMessage = ({ activity, date, users, events }) => {
           </div>
         ); //EDITED
       case 'Notification/EVENT_BET_PLACED':
+        console.log('user', user);
         return (
           <div>
             <b>{_.get(user, 'username', 'Unknown user')}</b> has bet{' '}
@@ -119,9 +118,13 @@ const ActivityMessage = ({ activity, date, users, events }) => {
       case 'Notification/EVENT_BET_CASHED_OUT':
         return `${user.username} has cashed out from ${data}.`;
       case 'Notification/EVENT_BET_RESOLVED':
-        return `Event has been resolved [EVENT DATA] `;
+        return (
+          <div>
+            Event has been resolved <b>{getEventUrl(data)}</b>.
+          </div>
+        );
       default:
-        return '';
+        return null;
     }
   };
 
@@ -140,12 +143,6 @@ const ActivityMessage = ({ activity, date, users, events }) => {
           {prepareMessageByType(activity, user)}
         </div>
       </div>
-      // <ChatMessage
-      //   className={styles.messageItem}
-      //   // user={user}
-      //   message={prepareMessageByType(activity, user)}
-      //   dateString={dateString}
-      // />
     );
 
     return null;
