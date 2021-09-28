@@ -10,8 +10,9 @@ const WalletBalance = () => {
   const { balance, totalInvestmentAmount, totalOpenTradesAmount, currency } =
     useSelector(selectUser);
 
-  const overallFundsTotal = balance + totalInvestmentAmount;
-  const liquidFundsPercentage = (100 * balance) / overallFundsTotal;
+  const formattedBalance = _.toNumber(balance);
+  const overallFundsTotal = formattedBalance + totalInvestmentAmount;
+  const liquidFundsPercentage = (100 * formattedBalance) / overallFundsTotal;
   const investedFundsPercentage =
     (100 * totalInvestmentAmount) / overallFundsTotal;
 
@@ -56,7 +57,7 @@ const WalletBalance = () => {
               </div>
               <div className={styles.availableWfairsAmount}>
                 <p className={styles.availableWfairsTotal}>
-                  {formatToFixed(balance)}
+                  {formatToFixed(formattedBalance)}
                 </p>
                 <p className={styles.availableWfairsTitle}>{currency}</p>
               </div>

@@ -27,11 +27,17 @@ const MyTradesList = ({
 
     if (
       isFinalizedTrade(item.status) &&
+      item.finalOutcome &&
       parseInt(item.finalOutcome) !== item.outcome
     ) {
       gain = {
         value: '-100%',
         negative: true,
+      };
+    } else if (item.status === BetState.canceled) {
+      gain = {
+        value: 'Refund',
+        negative: false,
       };
     } else {
       gain = calculateGain(
@@ -79,14 +85,18 @@ const MyTradesList = ({
                 <span
                   className={classNames(
                     styles.percentage,
+                    item.status === BetState.canceled
+                      ? styles.zeroPadding
+                      : null,
                     gain.negative ? styles.negative : null
                   )}
                 >
                   {gain.value}
                 </span>
-                {item.tradeStatus === 'sold'
-                  ? item.soldAmount
-                  : item.outcomeAmount}
+                {item.status !== BetState.canceled &&
+                  (item.tradeStatus === 'sold'
+                    ? item.soldAmount
+                    : item.outcomeAmount)}
               </div>
               <div className={styles.small}>
                 Invested: {item.investmentAmount}

@@ -1,5 +1,8 @@
 @import '../../styles/all';
 
+.buttonContainer {
+  flex-basis: 100%;
+}
 .button {
   margin: 30px auto;
   width: 15em;
@@ -17,4 +20,9 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.inputContainer {
+  flex: calc(50% - 5px) 0 1;
+  width: auto;
 }

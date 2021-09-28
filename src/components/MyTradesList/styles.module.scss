@@ -87,6 +87,10 @@
               &.negative {
                   color: $colorRed;
               }
+
+              &.zeroPadding {
+                padding: 0;
+              }
           }
       }
 

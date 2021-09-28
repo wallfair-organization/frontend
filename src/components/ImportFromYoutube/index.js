@@ -25,11 +25,11 @@ const ImportFromYoutube = () => {
 
   return (
     <>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>YouTube Video ID</InputLabel>
         <Input type="text" value={url} onChange={setUrl} />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className={styles.inputContainer}>
         <InputLabel>Category</InputLabel>
         <Select
           value={category}
@@ -37,14 +37,16 @@ const ImportFromYoutube = () => {
           options={categoriesOptions}
         />
       </FormGroup>
-      <span
-        role="button"
-        tabIndex="0"
-        className={styles.button}
-        onClick={handleSave}
-      >
-        Save
-      </span>
+      <div className={styles.buttonContainer}>
+        <span
+          role="button"
+          tabIndex="0"
+          className={styles.button}
+          onClick={handleSave}
+        >
+          Save
+        </span>
+      </div>
     </>
   );
 };
