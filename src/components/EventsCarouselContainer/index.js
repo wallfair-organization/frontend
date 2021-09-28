@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { connect } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import _ from 'lodash';
@@ -7,6 +8,7 @@ import EventCard from '../EventCard';
 import { EventActions } from '../../store/actions/event';
 import { useIsMount } from 'components/hoc/useIsMount';
 import styles from './styles.module.scss';
+import BetCard from 'components/BetCard';
 
 const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
   const location = useLocation();
@@ -14,6 +16,8 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
   const [currentEvents, setCurrentEvents] = useState([]);
   const [allLoaded, setAllLoaded] = useState(false);
   const isMount = useIsMount();
+
+  const allEvents = useSelector(state => state.event.events);
 
   const COUNT = 4;
   const carouselProps = {
@@ -91,6 +95,61 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
     });
   };
 
+  const renderBetCards = () => {
+    //Improvement: use API endpoint /event/bets/... to list and filter bets
+
+    const allBets = allEvents.reduce((acc, current) => {
+      const bets = current.bets.map(bet => ({
+        ...bet,
+        eventSlug: current.slug,
+        previewImageUrl: current.previewImageUrl,
+        tags: _.map(current.tags, tag => tag.name),
+      }));
+      const concat = [...acc, ...bets];
+      return concat;
+    }, []);
+
+    const betIdsFromCurrentEvents = currentEvents.reduce((acc, current) => {
+      const concat = [...acc, ...current.bets];
+      return concat;
+    }, []);
+
+    const filteredBets = allBets.filter(bet => {
+      return betIdsFromCurrentEvents.includes(bet._id) && bet.published;
+    });
+
+    return _.map(filteredBets, bet => {
+      const betId = _.get(bet, '_id');
+      const eventSlug = _.get(bet, 'eventSlug');
+      const betSlug = _.get(bet, 'slug');
+      // const mappedTags = _.map(bet.tags, tag => tag.name);
+      const marketQuestion = _.get(bet, 'marketQuestion');
+      const outcomes = _.get(bet, 'outcomes');
+
+      return (
+        <Link
+          key={betId}
+          to={{
+            pathname: `/trade/${eventSlug}/${betSlug}`,
+            state: { fromLocation: location },
+          }}
+          className={styles.eventLink}
+        >
+          <BetCard
+            key={betId}
+            betId={betId}
+            title={marketQuestion}
+            organizer={''}
+            image={bet.previewImageUrl}
+            eventEnd={bet.endDate}
+            outcomes={outcomes}
+            eventCardClass={styles.eventCardHome}
+          />
+        </Link>
+      );
+    });
+  };
+
   return (
     <CarouselContainer
       key={eventType}
@@ -102,7 +161,7 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
       onNext={nextPage}
       onPrevious={previousPage}
     >
-      {renderLiveEvents()}
+      {eventType === 'streamed' ? renderLiveEvents() : renderBetCards()}
     </CarouselContainer>
   );
 };

@@ -13,6 +13,18 @@ import Timer from './Timer';
 import Counter from './Counter';
 import styles from './styles.module.scss';
 import RosiGameAnimationController from './canvas/RosiGameAnimationController';
+import { CircularProgress } from '@material-ui/core';
+
+const PreparingRound = ({ secondsUntilNextGame }) => (
+  <div className={styles.preparingRound}>
+    <div>
+      <h2 className={styles.title}>Preparing Round</h2>
+      <div className={styles.description}>
+        Starting in <Counter number={secondsUntilNextGame} />
+      </div>
+    </div>
+  </div>
+);
 
 const RosiGameAnimation = () => {
   const canvasRef = useRef(null);
@@ -23,18 +35,23 @@ const RosiGameAnimation = () => {
   const gameStartedTimeStamp = useSelector(selectTimeStarted);
   const gameStartedTime = new Date(gameStartedTimeStamp).getTime();
   const secondsUntilNextGame = nextGameAtTimeStamp
-    ? Math.round((new Date(nextGameAtTimeStamp).getTime() - Date.now()) / 1000)
+    ? Math.max(
+        Math.round(
+          (new Date(nextGameAtTimeStamp).getTime() - Date.now()) / 1000
+        ),
+        0
+      )
     : 1;
 
   const [cashedOutCount, setCashedOutCount] = useState(0);
   const [isPreparingRound, setIsPreparingRound] = useState(!gameStarted);
-  const [animationReady, setAnimationReady] = useState(false);
+  const [isAnimationReady, setAnimationReady] = useState(false);
 
   // If user lands on the page while game is in progress, then should start counting from current crash
   // factor, which is time elapsed since game started. This value is reset once first game ends and is not
   // used after that.
   const [timerStartTime, setTimerStartTime] = useState(
-    gameStarted ? Date.now() - gameStartedTime : 0
+    gameStarted ? Date.now() - gameStartedTime : 1
   );
 
   useEffect(() => {
@@ -47,7 +64,7 @@ const RosiGameAnimation = () => {
   }, []);
 
   useEffect(() => {
-    if (!animationReady) {
+    if (!isAnimationReady) {
       return;
     }
 
@@ -58,7 +75,7 @@ const RosiGameAnimation = () => {
       return;
     }
 
-    if (!gameStarted) {
+    if (!gameStarted && !isPreparingRound) {
       RosiGameAnimationController.end();
 
       // leave some time for player to see crash value
@@ -67,10 +84,10 @@ const RosiGameAnimation = () => {
         setTimerStartTime(0);
       }, ROSI_GAME_AFTER_CRASH_DELAY);
     }
-  }, [gameStarted, animationReady]); // eslint-disable-line
+  }, [gameStarted, isAnimationReady]); // eslint-disable-line
 
   useEffect(() => {
-    if (!animationReady || !gameStarted) {
+    if (!isAnimationReady || !gameStarted) {
       return;
     }
 
@@ -80,7 +97,26 @@ const RosiGameAnimation = () => {
         cashedOut[cashedOut.length - 1]
       );
     }
-  }, [animationReady, gameStarted, cashedOut]);
+  }, [isAnimationReady, gameStarted, cashedOut]); // eslint-disable-line
+
+  function render() {
+    if (isPreparingRound) {
+      return <PreparingRound secondsUntilNextGame={secondsUntilNextGame} />;
+    }
+
+    return (
+      <div
+        className={cn(styles.timer, { [styles.flashAnimation]: !gameStarted })}
+      >
+        {gameStarted ? (
+          <Timer pause={!gameStarted} startTimeMs={timerStartTime} />
+        ) : (
+          <span>{lastCrashValue.toFixed(2)}</span>
+        )}
+        <span>x</span>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.animation}>
@@ -89,28 +125,10 @@ const RosiGameAnimation = () => {
         id="rosi-game-animation"
         ref={canvasRef}
       />
-      {isPreparingRound ? (
-        <div className={styles.preparingRound}>
-          <div>
-            <h2 className={styles.title}>Preparing Round</h2>
-            <div className={styles.description}>
-              Starting in <Counter number={secondsUntilNextGame} />
-            </div>
-          </div>
-        </div>
+      {isAnimationReady ? (
+        render()
       ) : (
-        <div
-          className={cn(styles.timer, {
-            [styles.flashAnimation]: !gameStarted,
-          })}
-        >
-          {gameStarted ? (
-            <Timer pause={!gameStarted} startTimeMs={timerStartTime} />
-          ) : (
-            <span>{lastCrashValue.toFixed(2)}</span>
-          )}
-          x
-        </div>
+        <CircularProgress style={{ position: 'absolute', margin: '0 auto' }} />
       )}
     </div>
   );

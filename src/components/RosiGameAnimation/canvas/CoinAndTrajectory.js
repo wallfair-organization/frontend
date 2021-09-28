@@ -25,6 +25,8 @@ export class CoinAnimation {
     this.elonAfterExplosionAnimationHandle = null;
 
     this.setCoinDefaultPosition();
+
+    this.container.visible = false;
   }
 
   setCoinDefaultPosition() {
@@ -50,6 +52,7 @@ export class CoinAnimation {
   }
 
   startCoinFlyingAnimation() {
+    this.container.visible = true;
     this.resetAllAnimations();
     this.setCoinDefaultPosition();
 

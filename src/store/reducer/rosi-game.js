@@ -14,8 +14,12 @@ const initialState = {
 };
 
 const initializeState = (action, state) => {
+  const hasStarted = action.payload.state === 'STARTED';
   return {
     ...state,
+    hasStarted,
+    nextGameAt: hasStarted ? null : action.payload.nextGameAt,
+    timeStarted: action.payload.timeStarted,
     lastCrashes: action.payload.lastCrashes,
   };
 };

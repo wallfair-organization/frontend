@@ -312,7 +312,7 @@ const BetView = ({
   const renderTradeDesc = () => {
     const evidenceSource = bet.evidenceSource;
 
-    const shortLength = 100;
+    const shortLength = 200;
     const evidenceDescription = TextHelper.linkifyIntextURLS(
       bet.evidenceDescription
     );
@@ -328,10 +328,15 @@ const BetView = ({
       : plainEvidenceDescription;
 
     const isDescShort =
-      plainDesc.length + plainEvidenceDescription.length <= shortLength;
+      plainDesc.length +
+        (evidenceSource ? plainEvidenceDescription.length : 0) <=
+      shortLength;
 
     return (
       <>
+        {evidenceSource && (
+          <h4 className={styles.tradeDescTitle}>Evidence Source</h4>
+        )}
         <p
           className={classNames(
             styles.tradeDesc,
@@ -351,7 +356,7 @@ const BetView = ({
             className={styles.seeMore}
             onClick={() => setShowAllEvidence(!showAllEvidence)}
           >
-            {showAllEvidence ? 'SHOW LESS' : 'SEE MORE'}
+            {showAllEvidence ? 'HIDE' : 'LEARN MORE'}
           </button>
         )}
       </>
@@ -646,11 +651,13 @@ const BetView = ({
           <AdminOnly>
             {!isTradeViewPopup && renderMenuContainerWithCurrentBalance()}
           </AdminOnly>
-          <div className={classNames(
+          <div
+            className={classNames(
               styles.betMarketQuestion,
               _.get(event, 'type') === EventTypes.nonStreamed &&
                 styles.nonStreamedQuestion
-            )}>
+            )}
+          >
             <span>{bet.marketQuestion}</span>
             {bet.description && (
               <span className={styles.info}>

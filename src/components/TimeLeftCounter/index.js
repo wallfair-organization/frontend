@@ -7,7 +7,7 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-const TimeLeftCounter = ({ endDate }) => {
+const TimeLeftCounter = ({ endDate, viewSeconds = false }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(endDate));
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const TimeLeftCounter = ({ endDate }) => {
       {renderTimeLeft('d', _.get(timeLeft, 'days'), false)}
       {renderTimeLeft('hrs', _.get(timeLeft, 'hours'))}
       {renderTimeLeft('min', _.get(timeLeft, 'minutes'))}
-      {/* {renderTimeLeft('sec', _.get(timeLeft, 'seconds'))} */}
+      {viewSeconds && renderTimeLeft('sec', _.get(timeLeft, 'seconds'))}
     </div>
   );
 };

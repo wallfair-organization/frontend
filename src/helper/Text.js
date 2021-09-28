@@ -28,7 +28,7 @@ class Text {
       currentUninterpolated = after;
     }
 
-    if (currentUninterpolated.length > 0) {
+    if (currentUninterpolated && currentUninterpolated.length > 0) {
       textMembers.push(currentUninterpolated);
     }
 

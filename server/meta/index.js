@@ -5,46 +5,51 @@ const _ = require('lodash');
 let meta = {
   '/': {
     title: 'Wallfair.',
-    description: 'The first Casino with no Bullshit',
+    description: 'Betting Reimagined',
     image: 'https://main.wallfair.io/logo192.png',
-    keywords: 'wallfair, casino',
+    keywords: 'wallfair, casino, betting, esports, crypto',
   },
   '/live-events/all': {
     title: 'Wallfair Live Events',
-    description: 'The first Casino with no Bullshit',
+    description: 'High Energy, Live events',
     image: 'https://main.wallfair.io/logo192.png',
-    keywords: 'wallfair, casino, live, events',
+    keywords: 'wallfair, casino, live, events, betting, esports, gaming',
   },
   '/live-events': {
     title: 'Wallfair Live Events',
-    description: 'The first Casino with no Bullshit',
+    description: 'Fast Paced Live-Events',
     image: 'https://main.wallfair.io/logo192.png',
-    keywords: 'wallfair, casino, live, events',
+    keywords:
+      'wallfair, casino, live, events, esports, crypto, gaming, sports, betting',
   },
   '/events/all': {
     title: 'Wallfair Events',
-    description: 'The first Casino with no Bullshit',
+    description: 'Intense, high-paced and hilarious events for everyone',
     image: 'https://main.wallfair.io/logo192.png',
-    keywords: 'wallfair, casino, events',
+    keywords:
+      'wallfair, casino, events, politics, news, sports, esports, gaming, crypto',
   },
   '/events': {
     title: 'Wallfair Events',
-    description: 'The first Casino with no Bullshit',
+    description: 'Will Harris take the 2024 US Election?',
     image: 'https://main.wallfair.io/logo192.png',
-    keywords: 'wallfair, casino, events',
+    keywords:
+      'Wallfair, Casino, Events, Harris, Biden, Trump, Crypto, Esports, Sports, Gaming',
   },
   '/games': {
     title: 'Wallfair Games',
-    description: 'The first Casino with no Bullshit',
+    description: 'Earn more with Wallfair games, all day, everyday',
     image: 'https://main.wallfair.io/logo192.png',
-    keywords: 'wallfair, casino, games',
+    keywords:
+      'wallfair, casino, games betting, vegas, gambling, odds, roulette, crypto-casino',
   },
   '/games/rosi-game': {
     title: 'Wallfair Rosi Game',
-    description: 'The first Casino with no Bullshit',
+    description: 'To the Moon with Rosi, big wins, tiny rocket',
     image:
       'https://main.wallfair.io/static/media/rosi-games-banner.18d1e81c.png',
-    keywords: 'wallfair, casino, games, rosi',
+    keywords:
+      'Wallfair, Casino, Games, Rosi, Moon, Rocket, Crypto, Casino, Betting',
   },
 };
 

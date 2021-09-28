@@ -6,7 +6,7 @@ const Counter = ({ number }) => {
   useEffect(() => {
     if (seconds > 0) {
       setTimeout(() => {
-        setSeconds(prevSeconds => prevSeconds - 1);
+        setSeconds(prevSeconds => Math.max(prevSeconds - 1, 0));
       }, 1000);
     }
   }, [seconds]);

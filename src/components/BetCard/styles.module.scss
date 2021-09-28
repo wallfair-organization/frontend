@@ -1,0 +1,146 @@
+@import '../../styles/all';
+
+.betCardContainer {
+  padding-right: 20px;
+
+  @media (max-width: $screen-xs) {
+    padding: 0;
+  }
+
+  .betCard {
+    width: 300px;
+    border-radius: 6px;
+    font-family: $fontLight;
+    color: $colorWhite;
+    min-height: 200px;
+    padding: 1rem;
+    display: flex;
+    position: relative;
+    z-index: 0;
+    justify-content: space-between;
+    flex-direction: column;
+    user-select: none;
+    cursor: pointer;
+    overflow: hidden;
+
+    @media (max-width: $screen-xs) {
+      width: 100%;
+      margin: 0 0 15px;
+      padding: 10px;
+    }
+    .eventVideoBackground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .betCardVideoBackground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+    .betCardBackground,
+    .betCardBackgroundBlur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-color: $colorPrimary66;
+
+      &.betCardBackgroundBlur {
+        filter: blur(2px);
+        -webkit-filter: blur(2px);
+      }
+    }
+
+    .title {
+      font-family: $fontBold;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      width: fit-content;
+      border-radius: 10px;
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .outcomesContainer {
+      font-size: 11px;
+      width: 100%;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 5px;
+
+      .outcome {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        .amount {
+          background-color: rgba(0, 0, 0, 0.3);
+          padding: 10px;
+          width: fit-content;
+          border-radius: 50px;
+        }
+
+        .outcomeName {
+          text-shadow: 1px 1px 10px #333333, 1px 1px 10px #333333;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: object-fit;
+          max-width: 80px;
+        }
+
+        &:nth-child(even) {
+          display: flex;
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+}
+.content {
+  &.timerActive {
+    position: relative;
+    bottom: 30px;
+  }
+}
+
+.timer {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.timerTitle {
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+}

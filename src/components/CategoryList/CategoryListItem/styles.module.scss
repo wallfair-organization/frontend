@@ -1,63 +1,64 @@
 @import '../../../styles/all';
 
 .categoryListItem {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
 .box {
-    width: 80px;
-    height: 106px;
-    overflow: hidden;
-    border: $border;
-    border-radius: $radius;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 80px;
+  height: 106px;
+  overflow: hidden;
+  border: $border;
+  border-radius: $radius;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &.active {
-        border: 2px solid $colorMint;
-    }
+  &.active {
+    border: 2px solid $colorMint;
+  }
 }
 
 .boxIcon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2px;
-    border: 1px solid transparent;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  border: 1px solid transparent;
+  position: relative;
 }
 
 .image {
-    width: 80px;
-    height: 106px;
-    opacity: 0.5;
+  width: 80px;
+  height: 106px;
+  opacity: 0.5;
 
-    &.active {
-        opacity: initial;
-    }
+  &.active {
+    opacity: initial;
+  }
 }
 .imageIcon {
-    opacity: 0.5;
+  opacity: 0.5;
 
-    &.active {
-        opacity: initial;
-    }
+  &.active {
+    opacity: initial;
+  }
 }
 .label {
-    font-size: 12px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-align: center;
-    color: white;
-    opacity: 0.5;
-    margin-top: 10px;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  opacity: 0.5;
+  margin-top: 10px;
+  white-space: nowrap;
 
-    &.active {
-        opacity: initial;
-    }
+  &.active {
+    opacity: initial;
+  }
 }
