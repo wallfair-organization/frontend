@@ -161,6 +161,7 @@ const Authentication = ({
             placeholder="john.doe@gmail.com"
             value={email}
             setValue={setInputEmail}
+            onConfirm={onConfirm}
           />
         </FormGroup>
 
@@ -180,6 +181,7 @@ const Authentication = ({
               placeholder="***********"
               value={password}
               setValue={setPassword}
+              onConfirm={onConfirm}
             />
           </FormGroup>
         )}
@@ -201,6 +203,7 @@ const Authentication = ({
               placeholder="***********"
               value={passwordConfirmation}
               setValue={setPasswordConfirmation}
+              onConfirm={onConfirm}
             />
           </FormGroup>
         )}
