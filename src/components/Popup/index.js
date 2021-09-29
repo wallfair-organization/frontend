@@ -46,9 +46,9 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
       }
     };
 
-    window.addEventListener('keydown', close);
+    visible && window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
-  }, [hidePopup]);
+  }, [hidePopup, visible]);
 
   useEffect(() => {
     document.body.style.overflow = visible ? 'hidden' : 'auto';
