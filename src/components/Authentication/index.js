@@ -62,7 +62,9 @@ const Authentication = ({
   }, [errorState, fooRef]);
 
   const emailIsValid = () => {
-    return email && email.length >= 6;
+    const re =
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return email && email.length >= 6 && re.test(email);
   };
 
   const passwordIsValid = () => {
@@ -85,7 +87,7 @@ const Authentication = ({
       fooRef = pwConfirmRef;
     }
     if (!passwordIsValid() && !forgotPassword) {
-      error = 'Password is not valid';
+      error = 'Your password needs to be 8 characters long';
       fooRef = pwRef;
     }
     if (!emailIsValid()) {
@@ -95,6 +97,7 @@ const Authentication = ({
 
     setError(error);
     if (error) {
+      console.log(error);
       ReactTooltip.show(fooRef);
     }
 

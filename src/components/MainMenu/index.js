@@ -263,7 +263,7 @@ const MainMenu = ({
             <div className={styles.profileContent}>
               <div className={styles.profileInputGroup}>
                 <label className={styles.profileInputLabel}>
-                  My Name is...
+                  My full name is...
                 </label>
                 <input
                   className={styles.profileInput}
@@ -273,7 +273,7 @@ const MainMenu = ({
               </div>
               <div className={styles.profileInputGroup}>
                 <label className={styles.profileInputLabel}>
-                  But you can call me...
+                  My username is...
                 </label>
                 <input
                   className={styles.profileInput}
