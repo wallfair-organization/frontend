@@ -159,12 +159,13 @@ const MainMenu = ({
           />
           Email Notification
         </h2>
-
-        <EmailNotifications
-          close={close}
-          updateNotificationSettings={updateNotificationSettings}
-          settings={user.notificationSettings}
-        />
+        <div className={styles.emailNotificationContent}>
+          <EmailNotifications
+            close={close}
+            updateNotificationSettings={updateNotificationSettings}
+            settings={user.notificationSettings}
+          />
+        </div>
       </div>
     );
   };
@@ -207,8 +208,9 @@ const MainMenu = ({
           />
           Referrals
         </h2>
-
-        <Referrals close={close} />
+        <div className={styles.referralsContent}>
+          <Referrals close={close} />
+        </div>
       </div>
     );
   };

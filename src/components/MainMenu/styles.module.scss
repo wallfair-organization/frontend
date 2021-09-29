@@ -3,216 +3,227 @@
 $largeMobileHeight: 700px;
 
 .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  padding: 90px 24px 0;
+  width: 500px;
+  height: 100vh;
+  top: 0;
+  background-color: rgba(14, 9, 39, 0.86);
+  right: -100%;
+  transition: right 0.5s ease-in-out;
+
+  .mainContent {
+    overflow-y: auto;
+    padding-bottom: 30px;
+    padding-left: 30px;
+  }
+
+  &.menuOpened {
+    right: 0;
+    padding: 90px 24px 0;
+    background-color: rgba(14, 9, 39, 0.86);
+    backdrop-filter: blur(6px);
+    overflow: hidden;
+  }
+
+  .latestTradesContainer {
+    width: 95%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: fixed;
-    padding: 90px 24px 0;
-    width: 500px;
-    height: 100vh;
-    top: 0;
-    background-color: rgba(14, 9, 39, 0.86);
-    right: -100%;
-    transition: right 0.5s ease-in-out;
 
-    .mainContent {
-        overflow-y: auto;
-        padding-bottom: 30px;
-        padding-left: 30px;
+    .latestTradesHeadline {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .HeadlineLeft {
+        font-size: 12px;
+        letter-spacing: 1.212px;
+        text-transform: uppercase;
+        color: #ffffff;
+        mix-blend-mode: normal;
+        opacity: 0.4;
+      }
+
+      .HeadlineRight {
+        font-size: 12px;
+        color: #ffffff;
+        border-bottom: 1px solid #ffffff;
+        cursor: pointer;
+        transition: transform 0.5s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .buttonContainer {
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+
+    .logoutButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 55px;
+      min-height: 55px;
+      background-color: white;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.5s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .profileHeading {
+    display: flex;
+    margin: 0 0 50px;
+    color: $colorWhite;
+    font-size: 24px;
+    padding-left: 30px;
+    width: 95%;
+  }
+
+  .editProfileContent {
+    padding-bottom: 50px;
+    overflow-y: auto;
+
+    .profileSubmit {
+      width: 100%;
+      height: 55px;
+      border-radius: 4px;
+      line-height: 25px;
+      font-size: 16px;
+      margin-top: 50px;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
-    &.menuOpened {
-        right: 0;
-        padding: 90px 24px 0;
-        background-color: rgba(14, 9, 39, 0.86);
-        backdrop-filter: blur(6px);
-        overflow: hidden;
-    }
+    .profilePictureWrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
 
-    .latestTradesContainer {
-        width: 95%;
+      .profilePicture {
         display: flex;
         flex-direction: column;
 
-        .latestTradesHeadline {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
+        .profilePictureUpload {
+          margin-bottom: 20px;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          border: 3px dashed rgba(172, 196, 255, 0.1);
+          cursor: pointer;
+          display: flex;
 
-            .HeadlineLeft {
-                font-size: 12px;
-                letter-spacing: 1.212px;
-                text-transform: uppercase;
-                color: #ffffff;
-                mix-blend-mode: normal;
-                opacity: 0.4;
+          .iconContainer {
+            width: 35px;
+            height: 35px;
+            margin: auto;
+
+            > .uploadIcon {
+              fill: white;
             }
-
-            .HeadlineRight {
-                font-size: 12px;
-                color: #ffffff;
-                border-bottom: 1px solid #ffffff;
-                cursor: pointer;
-                transition: transform 0.5s;
-
-                &:hover {
-                    transform: scale(1.1);
-                }
-            }
-        }
-    }
-
-    .buttonContainer {
-        width: 95%;
-        display: flex;
-        justify-content: flex-end;
-
-        .logoutButton {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-width: 55px;
-            min-height: 55px;
-            background-color: white;
+          }
+          > .profileImage {
+            object-fit: cover;
+            object-position: center;
             border-radius: 50%;
-            cursor: pointer;
-            transition: transform 0.5s;
-
-            &:hover {
-                transform: scale(1.1);
-            }
+            width: 100%;
+            height: 100%;
+            margin: 0;
+          }
         }
+        .profilePictureUploadLabel {
+          font-size: 12px;
+          opacity: 0.4;
+          text-align: center;
+          color: $colorWhite;
+        }
+      }
     }
+    .profileContent {
+      padding: 25px;
 
-    .profileHeading {
-        display: flex;
-        margin: 0 0 50px;
+      .profileInputGroup {
         color: $colorWhite;
-        font-size: 24px;
-        padding-left: 30px;
-        width: 95%;
+
+        .profileInputLabel {
+          display: block;
+          height: 12px;
+          opacity: 0.3;
+          line-height: 12px;
+          font-size: 12px;
+          margin: 14px 0;
+        }
+
+        .profileInput {
+          border-radius: 4px;
+          width: 100%;
+          height: 60px;
+          background-color: rgba(172, 196, 255, 0.1);
+          margin-bottom: 24px;
+          line-height: 24px;
+          font-size: 16px;
+          font-family: $fontRegular;
+          border: none;
+          color: $colorWhite;
+          text-indent: 20px;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
     }
+  }
 
-    .editProfileContent {
-        overflow-y: auto;
+  .emailNotificationContent {
+    padding-bottom: 150px;
+    overflow-y: auto;
+  }
 
-        .profileSubmit {
-            width: 100%;
-            height: 55px;
-            border-radius: 4px;
-            line-height: 25px;
-            font-size: 16px;
-            margin-top: 50px;
-            border: none;
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
-
-        .profilePictureWrapper {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-
-            .profilePicture {
-                display: flex;
-                flex-direction: column;
-
-                .profilePictureUpload {
-                    margin-bottom: 20px;
-                    width: 100px;
-                    height: 100px;
-                    border-radius: 50%;
-                    border: 3px dashed rgba(172, 196, 255, 0.1);
-                    cursor: pointer;
-                    display: flex;
-
-                    .iconContainer {
-                        width: 35px;
-                        height: 35px;
-                        margin: auto;
-
-                        > .uploadIcon {
-                            fill: white;
-                        }
-                    }
-                    > .profileImage {
-                        object-fit: cover;
-                        object-position: center;
-                        border-radius: 50%;
-                        width: 100%;
-                        height: 100%;
-                        margin: 0;
-                    }
-                }
-                .profilePictureUploadLabel {
-                    font-size: 12px;
-                    opacity: 0.4;
-                    text-align: center;
-                    color: $colorWhite;
-                }
-            }
-        }
-        .profileContent {
-            padding: 25px;
-
-            .profileInputGroup {
-                color: $colorWhite;
-
-                .profileInputLabel {
-                    display: block;
-                    height: 12px;
-                    opacity: 0.3;
-                    line-height: 12px;
-                    font-size: 12px;
-                    margin: 14px 0;
-                }
-
-                .profileInput {
-                    border-radius: 4px;
-                    width: 100%;
-                    height: 60px;
-                    background-color: rgba(172, 196, 255, 0.1);
-                    margin-bottom: 24px;
-                    line-height: 24px;
-                    font-size: 16px;
-                    font-family: $fontRegular;
-                    border: none;
-                    color: $colorWhite;
-                    text-indent: 20px;
-
-                    &:focus {
-                        outline: none;
-                    }
-                }
-            }
-        }
-    }
+  .referralsContent {
+    overflow-y: auto;
+    height: 100%;
+  }
 }
 
 .panel {
-    transition: 0.5s ease-in-out;
-    transition-property: transform, opacity;
-    position: absolute;
-    width: 100%;
-    opacity: 1;
-    height: calc(100vh - 90px);
-    display: flex;
-    flex-flow: column;
-    overflow-y: auto;
+  transition: 0.5s ease-in-out;
+  transition-property: transform, opacity;
+  position: absolute;
+  width: 100%;
+  opacity: 1;
+  height: calc(100vh - 90px);
+  display: flex;
+  flex-flow: column;
+  overflow-y: auto;
 
-    @supports (-webkit-touch-callout: none) {
-        height: calc(100vh - 150px);
-    }
+  @supports (-webkit-touch-callout: none) {
+    height: calc(100vh - 150px);
+  }
 }
 .firstPanel {
-    &.panelHidden {
-        transform: translateX(-110%);
-    }
+  &.panelHidden {
+    transform: translateX(-110%);
+  }
 }
 .panelHidden {
-    opacity: 0;
-    transform: translateX(110%);
+  opacity: 0;
+  transform: translateX(110%);
 }
