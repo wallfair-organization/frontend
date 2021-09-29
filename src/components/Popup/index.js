@@ -38,6 +38,18 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
   const small = _.get(options, 'small', false);
 
   useEffect(() => {
+    const close = e => {
+      if (e.key === 'Escape') {
+        hidePopup();
+      }
+    };
+    // Currently only for AUTH popup
+    type === PopupTheme.auth && window.addEventListener('keydown', close);
+    return () =>
+      type === PopupTheme.auth && window.removeEventListener('keydown', close);
+  }, [type, hidePopup]);
+
+  useEffect(() => {
     document.body.style.overflow = visible ? 'hidden' : 'auto';
 
     return () => {
