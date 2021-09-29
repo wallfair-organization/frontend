@@ -39,15 +39,16 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
 
   useEffect(() => {
     const close = e => {
-      if (e.key === 'Escape') {
+      // Keycode is deprecated: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
+      // Adding still for older browsers
+      if (e?.keyCode === 27 || e?.key === 'Escape') {
         hidePopup();
       }
     };
-    // Currently only for AUTH popup
-    type === PopupTheme.auth && window.addEventListener('keydown', close);
-    return () =>
-      type === PopupTheme.auth && window.removeEventListener('keydown', close);
-  }, [type, hidePopup]);
+
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [hidePopup]);
 
   useEffect(() => {
     document.body.style.overflow = visible ? 'hidden' : 'auto';
