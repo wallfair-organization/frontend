@@ -43,7 +43,7 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
   useEffect(() => {
     if (events[eventType].length != 0) {
       setCurrentEvents(events[eventType]);
-      setAllLoaded(events[eventType].length < COUNT);
+      setAllLoaded(events[eventType].length <= COUNT);
     } else if (page != 1) {
       setAllLoaded(true);
       setPage(page - 1);
