@@ -576,6 +576,7 @@ const BetView = ({
       );
     } else if (state === BetState.resolved || state === BetState.closed) {
       const isClosed = state === BetState.closed;
+      const outcomeNames = _.map(bet.outcomes, 'name') || [];
       const finalOutcome = _.get(bet, [
         'outcomes',
         _.get(bet, 'finalOutcome'),
@@ -606,6 +607,15 @@ const BetView = ({
               `Bet ${isClosed ? 'closed' : 'resolved'} at`,
               DateText.formatDate(endDate)
             )}
+            {isClosed &&
+              data(
+                'Outcomes',
+                <ul>
+                  {outcomeNames.map(outcome => (
+                    <li>{outcome}</li>
+                  ))}
+                </ul>
+              )}
             {data(
               'Outcome',
               isClosed
