@@ -122,18 +122,23 @@ const Wallet = ({ show, close, fetchOpenBets, fetchTradeHistory }) => {
                 trx_timestamp,
                 outcomeTokensBought,
                 investmentAmount,
+                type,
               }) => {
                 const tokenAmount =
                   direction === 'PAYOUT'
                     ? outcomeTokensBought
                     : investmentAmount;
                 return [
-                  <>
-                    <span className={styles.primaryData}>{event?.name}</span>
-                    <span className={styles.secondaryData}>
-                      {bet?.marketQuestion}
-                    </span>
-                  </>,
+                  type === 'BET' ? (
+                    <>
+                      <span className={styles.primaryData}>{event?.name}</span>
+                      <span className={styles.secondaryData}>
+                        {bet?.marketQuestion}
+                      </span>
+                    </>
+                  ) : (
+                    <span className={styles.primaryData}>Casino Game</span>
+                  ),
                   <>
                     <span className={styles[direction.toLowerCase()]}>
                       {formatToFixed(tokenAmount)}
