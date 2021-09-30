@@ -160,7 +160,9 @@ const Authentication = ({
             className={styles.inputBox}
             placeholder="john.doe@gmail.com"
             value={email}
-            setValue={setInputEmail}
+            setValue={e => {
+              setInputEmail(e);
+            }}
             onConfirm={onConfirm}
           />
         </FormGroup>
