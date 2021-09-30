@@ -161,7 +161,7 @@ const Authentication = ({
             placeholder="john.doe@gmail.com"
             value={email}
             setValue={e => {
-              setInputEmail(e);
+              setInputEmail(e.trim().toLowerCase());
             }}
             onConfirm={onConfirm}
           />
