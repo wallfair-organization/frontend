@@ -16,9 +16,16 @@ export const useChatIntersection = (parentRef, setVisible) => {
 
   useEffect(() => {
     const { current } = elementRef;
-    const intObserver = new IntersectionObserver(_ => {
-      setVisible(isInView(parentRef, elementRef, true));
-    });
+    const intObserver = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(
+          !entry.isIntersecting ? false : isInView(parentRef, elementRef)
+        );
+      },
+      {
+        threshold: 0.65,
+      }
+    );
 
     if (current) intObserver.observe(current);
 
