@@ -5,6 +5,7 @@ export const GeneralTypes = {
   SET_EMAIL_NOTIFICATIONS_VISIBLE: 'General/EMAIL_NOTIFICATIONS_VISIBLE',
   SET_PREFERENCES_VISIBLE: 'General/SET_PREFERENCES_VISIBLE',
   SET_REFERRALS_VISIBLE: 'General/SET_REFFERRALS_VISIBLE',
+  SET_DISCLAIMER_VISIBLE: 'General/SET_DISCLAIMER_VISIBLE',
 };
 
 const setDrawer = payload => ({
@@ -37,6 +38,11 @@ const setReferralsVisible = visible => ({
   visible,
 });
 
+const setDisclaimerHidden = visible => ({
+  type: GeneralTypes.SET_DISCLAIMER_VISIBLE,
+  visible,
+});
+
 export const GeneralActions = {
   setDrawer,
   setEditProfileVisible,
@@ -44,4 +50,5 @@ export const GeneralActions = {
   setEmailNotificationsVisible,
   setPreferencesVisible,
   setReferralsVisible,
+  setDisclaimerHidden,
 };

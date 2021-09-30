@@ -1,11 +1,13 @@
+import { connect } from 'react-redux';
 import styles from './styles.module.scss';
 import LogoDemo from '../../data/images/logo-demo.svg';
 import GitHubLogo from '../../data/icons/github.svg';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Disclaimer from 'components/Disclaimer';
+import { GeneralActions } from 'store/actions/general';
 
-const ContentFooter = ({ className = '' }) => {
+const ContentFooter = ({ className = '', disclaimerHidden }) => {
   return (
     <div className={styles.container}>
       <div className={classNames(styles.footer, className)}>
@@ -45,9 +47,15 @@ const ContentFooter = ({ className = '' }) => {
           </div>
         </div>
       </div>
-      <Disclaimer />
+      {!disclaimerHidden && <Disclaimer />}
     </div>
   );
 };
 
-export default ContentFooter;
+const mapStateToProps = state => {
+  return {
+    disclaimerHidden: state.general.disclaimerHidden,
+  };
+};
+
+export default connect(mapStateToProps)(ContentFooter);
