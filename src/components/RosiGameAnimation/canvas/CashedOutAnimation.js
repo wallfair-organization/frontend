@@ -154,10 +154,12 @@ class CashedOutAnimation {
       this.currentTextOrientation =
         this.currentTextOrientation === 'bottom' ? 'top' : 'bottom';
     } else {
-      const isEnoughSpaceInTheBottom =
-        anim.y + anim.height < this.app.renderer.height;
-      this.currentTextOrientation = isEnoughSpaceInTheBottom ? 'bottom' : 'top';
+      this.currentTextOrientation = 'bottom';
     }
+
+    const isEnoughSpaceInTheBottom =
+      anim.y + anim.height < this.app.renderer.height;
+    this.currentTextOrientation = isEnoughSpaceInTheBottom ? 'bottom' : 'top';
 
     anim.positionElements(x, y, this.currentTextOrientation);
     anim.scaleInAnimation();

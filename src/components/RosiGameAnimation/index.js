@@ -93,9 +93,7 @@ const RosiGameAnimation = () => {
 
     if (cashedOut && cashedOut.length > cashedOutCount) {
       setCashedOutCount(cashedOutCount + 1);
-      RosiGameAnimationController.doCashedOutAnimation(
-        cashedOut[cashedOut.length - 1]
-      );
+      RosiGameAnimationController.doCashedOutAnimation(cashedOut[0]);
     }
   }, [isAnimationReady, gameStarted, cashedOut]); // eslint-disable-line
 
