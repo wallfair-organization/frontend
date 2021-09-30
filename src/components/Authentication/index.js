@@ -62,9 +62,7 @@ const Authentication = ({
   }, [errorState, fooRef]);
 
   const emailIsValid = () => {
-    const re =
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return email && email.length >= 6 && re.test(email);
+    return email && email.length >= 6;
   };
 
   const passwordIsValid = () => {
@@ -97,7 +95,6 @@ const Authentication = ({
 
     setError(error);
     if (error) {
-      console.log(error);
       ReactTooltip.show(fooRef);
     }
 
