@@ -93,7 +93,10 @@ const fetchHomeEventsSuccess = (action, state) => {
     ...state,
     homeEvents: {
       ...state.homeEvents,
-      [action.eventType]: action.events,
+      [action.eventType]: {
+        ...state.homeEvents[action.eventType],
+        [action.state]: action.events,
+      },
     },
   };
 };

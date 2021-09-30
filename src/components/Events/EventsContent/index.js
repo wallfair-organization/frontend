@@ -21,6 +21,7 @@ import Icon from 'components/Icon';
 import IconType from 'components/Icon/IconType';
 import IconTheme from 'components/Icon/IconTheme';
 import BetCard from '../../BetCard';
+import EventsCarouselContainer from 'components/EventsCarouselContainer';
 
 function EventsContent({ eventType, categories, setCategories, showPopup }) {
   const dispatch = useDispatch();
@@ -99,10 +100,10 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
   useEffect(() => {
     handleSelectCategory(category);
 
-    fetchFilteredEvents({
-      category: category,
-      sortBy: selectedSortItem,
-    });
+    // fetchFilteredEvents({
+    //   category: category,
+    //   sortBy: selectedSortItem,
+    // });
   }, [category, selectedSortItem, fetchFilteredEvents, handleSelectCategory]);
 
   useEffect(() => {
@@ -152,7 +153,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
             handleSelect={handleSelectCategory}
           />
         </div>
-        <div className={styles.search}>
+        {/* <div className={styles.search}>
           <Search
             value={searchInput}
             handleChange={value => setSearchInput(value)}
@@ -166,7 +167,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
             options={sortOptions}
             handleSelect={handleSelectSortItem}
           />
-        </div>
+        </div> */}
       </section>
       <section className={styles.main}>
         <AdminOnly>
@@ -194,28 +195,31 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
           </div>
         </AdminOnly>
 
-        {eventType === 'streamed' &&
-          events.map(item => (
-            <Link
-              to={{
-                pathname: `/trade/${item.slug}`,
-                state: { fromLocation: location },
-              }}
-              key={item._id}
-            >
-              <EventCard
-                key={item._id}
-                title={item.name}
-                organizer={''}
-                viewers={12345}
-                state={item.state}
-                tags={mappedTags(item._id)}
-                image={item.previewImageUrl}
-                eventEnd={item.date}
-                streamUrl={item.streamUrl}
-              />
-            </Link>
-          ))}
+        {eventType === 'streamed' && (
+          <>
+            <EventsCarouselContainer
+              eventType="streamed"
+              category={category}
+              state="online"
+              title="Current Live Streams"
+              titleLink={false}
+            />
+            <EventsCarouselContainer
+              eventType="streamed"
+              category={category}
+              state="coming_soon"
+              title="Upcoming Events"
+              titleLink={false}
+            />
+            <EventsCarouselContainer
+              eventType="streamed"
+              category={category}
+              state="offline"
+              title="Past events"
+              titleLink={false}
+            />
+          </>
+        )}
 
         {eventType === 'non-streamed' &&
           filteredBets.map(item => (

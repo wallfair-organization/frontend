@@ -90,6 +90,7 @@ const listEvents = () => {
 const listEventsFiltered = ({
   type,
   category,
+  state,
   count,
   page,
   sortBy,
@@ -98,6 +99,7 @@ const listEventsFiltered = ({
   return Api.get(
     ApiUrls.API_EVENT_LIST_FILTERED.replace(':type', type)
       .replace(':category', category)
+      .replace(':state', state)
       .replace(':count', count)
       .replace(':page', page)
       .replace(':sortBy', sortBy)

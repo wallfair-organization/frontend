@@ -10,7 +10,15 @@ import { useIsMount } from 'components/hoc/useIsMount';
 import styles from './styles.module.scss';
 import BetCard from 'components/BetCard';
 
-const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
+const EventsCarouselContainer = ({
+  events,
+  eventType,
+  state = 'all',
+  category = 'all',
+  title,
+  titleLink,
+  fetchEvents,
+}) => {
   const location = useLocation();
   const [page, setPage] = useState(1);
   const [currentEvents, setCurrentEvents] = useState([]);
@@ -35,30 +43,30 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
 
   useEffect(() => {
     if (isMount) {
-      fetchEvents(eventType, page, COUNT);
-      setCurrentEvents(events[eventType]);
+      fetchEvents(eventType, state, category, page, COUNT);
+      setCurrentEvents(events[eventType][state]);
     }
   }, []);
 
   useEffect(() => {
-    if (events[eventType].length != 0) {
-      setCurrentEvents(events[eventType]);
-      setAllLoaded(events[eventType].length <= COUNT);
-    } else if (page != 1) {
+    if (events[eventType][state].length !== 0) {
+      setCurrentEvents(events[eventType][state]);
+      setAllLoaded(events[eventType][state]?.length <= COUNT);
+    } else if (page !== 1) {
       setAllLoaded(true);
       setPage(page - 1);
     }
-  }, [events, eventType]);
+  }, [events, eventType, page]);
 
   const nextPage = () => {
     const next = page + 1;
-    fetchEvents(eventType, next, COUNT);
+    fetchEvents(eventType, state, category, next, COUNT);
     setPage(next);
   };
 
   const previousPage = () => {
     const previous = page - 1;
-    fetchEvents(eventType, previous, COUNT);
+    fetchEvents(eventType, state, category, previous, COUNT);
     setPage(previous);
   };
 
@@ -109,7 +117,7 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
       return concat;
     }, []);
 
-    const betIdsFromCurrentEvents = currentEvents.reduce((acc, current) => {
+    const betIdsFromCurrentEvents = currentEvents?.reduce((acc, current) => {
       const concat = [...acc, ...current.bets];
       return concat;
     }, []);
@@ -153,8 +161,8 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
   return (
     <CarouselContainer
       key={eventType}
-      title={carouselProps[eventType].title}
-      titleLink={carouselProps[eventType].titleLink}
+      title={title ?? carouselProps[eventType].title}
+      titleLink={titleLink ?? carouselProps[eventType].titleLink}
       titleLinkTo={carouselProps[eventType].titleLinkTo}
       prevArrowInactive={page === 1}
       nextArrowInactive={allLoaded}
@@ -174,10 +182,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchEvents: (eventType, page, count) => {
+    fetchEvents: (eventType, state, category, page, count) => {
       dispatch(
         EventActions.fetchHomeEvents({
           eventType,
+          state,
+          category,
           page,
           count,
         })

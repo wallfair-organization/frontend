@@ -25,9 +25,12 @@ const CarouselContainer = ({
         <div className={styles.title}>{title}</div>
 
         <div className={styles.scrollButtons}>
-          <Link to={titleLinkTo} className={styles.titleLink}>
-            {titleLink}
-          </Link>
+          {titleLink && (
+            <Link to={titleLinkTo} className={styles.titleLink}>
+              {titleLink}
+            </Link>
+          )}
+
           <div className={styles.buttons}>
             <button
               className={classNames(

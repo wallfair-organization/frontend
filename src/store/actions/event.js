@@ -59,6 +59,8 @@ const resetDefaultParamsValues = payload => ({
 
 const fetchHomeEvents = makeActionCreator(EventTypes.FETCH_HOME_EVENTS, {
   eventType: null,
+  state: null,
+  category: null,
   page: null,
   count: null,
 });
@@ -69,6 +71,8 @@ const fetchHomeEventsSuccess = makeActionCreator(
     eventType: null,
     page: null,
     count: null,
+    state: null,
+    category: null,
     events: [],
   }
 );
