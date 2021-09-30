@@ -1,14 +1,9 @@
+import { ROSI_GAME_INTERVALS } from 'constants/RosiGame';
 import { useEffect, useState } from 'react';
 
-// [fromFactor, toFactor, timeMs]
-const intervals = [
-  [1.0, 2.49, 4000],
-  [2.5, 4.99, 3000],
-  [5.0, 7.49, 2000],
-  [7.5, 10, 1000],
-];
+const k = () => {};
 
-const Timer = ({ startTimeMs }) => {
+const Timer = ({ startTimeMs, onNextIteration = k }) => {
   const [count, setCount] = useState(0);
   const [[iteration, cachedLastTime, cachedLastDelay], setIteration] = useState(
     [0, 0, 0]
@@ -41,7 +36,7 @@ const Timer = ({ startTimeMs }) => {
   // }, [iteration]);
 
   useEffect(() => {
-    const [countFrom, countTo, duration] = intervals[iteration];
+    const [countFrom, countTo, duration] = ROSI_GAME_INTERVALS[iteration];
     const totalFrames = Math.round(duration / frameDuration);
 
     let frame = 0;
@@ -63,7 +58,8 @@ const Timer = ({ startTimeMs }) => {
 
       if (frame === totalFrames) {
         clearTimeout(timeoutId);
-        if (iteration < intervals.length - 1) {
+        if (iteration < ROSI_GAME_INTERVALS.length - 1) {
+          onNextIteration(iteration + 1);
           setIteration(([i]) => [i + 1, lastTime, lastDelay]);
         }
       }

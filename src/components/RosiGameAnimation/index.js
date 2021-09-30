@@ -107,7 +107,12 @@ const RosiGameAnimation = () => {
         className={cn(styles.timer, { [styles.flashAnimation]: !gameStarted })}
       >
         {gameStarted ? (
-          <Timer pause={!gameStarted} startTimeMs={gameStartedTime} />
+          <Timer
+            onNextIteration={
+              RosiGameAnimationController.coinAndTrajectory.onNextTimerIteration
+            }
+            startTimeMs={gameStartedTime}
+          />
         ) : (
           <span>{lastCrashValue.toFixed(2)}</span>
         )}

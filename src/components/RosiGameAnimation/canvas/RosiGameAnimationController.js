@@ -51,9 +51,14 @@ class RosiAnimationController {
     loadAssets(this.app.loader).then(() => {
       if (done) {
         this.drawElements();
+        this.app.ticker.add(dt => this.update(dt));
         done();
       }
     });
+  }
+
+  update(dt) {
+    this.coinAndTrajectory.update(dt);
   }
 
   drawElements() {
