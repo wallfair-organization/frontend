@@ -5,7 +5,17 @@ import styles from './styles.module.scss';
 import classNames from 'classnames';
 
 const VideoPlayer = props => {
-  const { channel, video, autoPlay, className, title, muted, controls } = props;
+  const {
+    channel,
+    video,
+    autoPlay,
+    className,
+    title,
+    muted,
+    controls,
+    loop,
+    playsInline,
+  } = props;
   const embedUrl = new URL(video);
 
   const videoRef = React.useRef(null);
@@ -17,6 +27,8 @@ const VideoPlayer = props => {
     muted: muted || true,
     responsive: true,
     fluid: true,
+    loop: loop || false,
+    playsInline: playsInline || true,
     sources: [
       {
         src: embedUrl.toString(),
@@ -69,6 +81,7 @@ const VideoPlayer = props => {
           className
         )}
         controls
+        playsInline={options.playsInline}
       ></video>
     </div>
   );

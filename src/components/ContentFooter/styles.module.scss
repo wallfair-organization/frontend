@@ -92,3 +92,34 @@
     }
   }
 }
+
+.iconsContainer {
+  padding-top: 50px;
+  width: 100%;
+  display: flex;
+  color: #fff;
+  opacity: 0.6;
+  margin: 0 auto;
+  justify-content: space-between;
+  max-width: 600px;
+
+  @media (max-width: $screen-sm) {
+    max-width: 300px;
+  }
+
+  .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    span {
+      font-size: 11px;
+      text-align: center;
+    }
+  }
+}

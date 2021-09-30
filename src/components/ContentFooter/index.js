@@ -2,6 +2,11 @@ import { connect } from 'react-redux';
 import styles from './styles.module.scss';
 import LogoDemo from '../../data/images/logo-demo.svg';
 import GitHubLogo from '../../data/icons/github.svg';
+import FairTradeIcon from '../../data/icons/fair-trade.svg';
+import BlockchainIcon from '../../data/icons/blockchain.svg';
+import NoMiddleMan from '../../data/icons/no-middle-man.svg';
+import OpenSourceIcon from '../../data/icons/open-source.svg';
+
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Disclaimer from 'components/Disclaimer';
@@ -45,6 +50,24 @@ const ContentFooter = ({ className = '', disclaimerHidden }) => {
               <img src={GitHubLogo} width={25} alt={'Github Logo'} />
             </a>
           </div>
+        </div>
+      </div>
+      <div className={styles.iconsContainer}>
+        <div className={styles.icon}>
+          <img src={FairTradeIcon} alt="Fair trade icon" />
+          <span>100% fair</span>
+        </div>
+        <div className={styles.icon}>
+          <img src={OpenSourceIcon} alt="Open source icon" />
+          <span>Open source</span>
+        </div>
+        <div className={styles.icon}>
+          <img src={BlockchainIcon} alt="Blockchain icon" />
+          <span>Blockchain</span>
+        </div>
+        <div className={styles.icon}>
+          <img src={NoMiddleMan} alt="No middle man icon" />
+          <span>No middle man</span>
         </div>
       </div>
       {!disclaimerHidden && <Disclaimer />}
