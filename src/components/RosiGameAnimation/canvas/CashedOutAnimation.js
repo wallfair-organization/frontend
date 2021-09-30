@@ -106,7 +106,7 @@ class Animation {
   }
 
   setTextValues(amount, crashFactor) {
-    this.amountText.text = `${amount}`;
+    this.amountText.text = `${amount}W`;
     this.crashFactorText.text = `${crashFactor}x`;
   }
 
