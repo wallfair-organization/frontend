@@ -26,7 +26,7 @@ class Animation {
   }
 
   createAmountText() {
-    const amountText = new PIXI.Text('$0.00', {
+    const amountText = new PIXI.Text('0', {
       fontFamily: AMOUN_FONT_FAMILY,
       fontSize: FONT_SIZE,
       fill: AMOUNT_TEXT_FILL_COLOR,
@@ -106,7 +106,7 @@ class Animation {
   }
 
   setTextValues(amount, crashFactor) {
-    this.amountText.text = `$${amount}`;
+    this.amountText.text = `${amount}`;
     this.crashFactorText.text = `${crashFactor}x`;
   }
 
@@ -150,11 +150,13 @@ class CashedOutAnimation {
 
     const isSmallDistanceBetweenCrashes =
       x - this.previousCrashPositionX <= anim.amountText.width;
-    if (isSmallDistanceBetweenCrashes) {
+    if (this.previousCrashPositionX && isSmallDistanceBetweenCrashes) {
       this.currentTextOrientation =
         this.currentTextOrientation === 'bottom' ? 'top' : 'bottom';
     } else {
-      this.currentTextOrientation = 'bottom';
+      const isEnoughSpaceInTheBottom =
+        anim.y + anim.height < this.app.renderer.height;
+      this.currentTextOrientation = isEnoughSpaceInTheBottom ? 'bottom' : 'top';
     }
 
     anim.positionElements(x, y, this.currentTextOrientation);
