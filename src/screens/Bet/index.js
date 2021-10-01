@@ -36,6 +36,7 @@ import AdminOnly from 'components/AdminOnly';
 import { selectOpenBets } from 'store/selectors/bet';
 import { TransactionActions } from 'store/actions/transaction';
 import { ChatActions } from 'store/actions/chat';
+import { GeneralActions } from 'store/actions/general';
 import ContentFooter from 'components/ContentFooter';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
 import OfflineBadge from 'components/OfflineBadge';
@@ -63,6 +64,7 @@ const Bet = ({
   fetchOpenBets,
   fetchTransactions,
   fetchChatMessages,
+  handleDislaimerHidden,
 }) => {
   const { eventSlug, betSlug } = useParams();
 
@@ -411,7 +413,10 @@ const Bet = ({
           clickable: false,
         }}
         autoHeight={true}
-        onSlideChange={swiper => onBetActionSwitch(swiper.activeIndex)}
+        onSlideChange={swiper => {
+          handleDislaimerHidden(!swiper.activeIndex);
+          onBetActionSwitch(swiper.activeIndex);
+        }}
         onSwiper={onSwiper}
       >
         <SwiperSlide className={styles.carouselSlide}>
@@ -753,6 +758,9 @@ const mapDispatchToProps = dispatch => {
     },
     fetchChatMessages: eventId => {
       dispatch(ChatActions.fetchByRoom({ roomId: eventId }));
+    },
+    handleDislaimerHidden: bool => {
+      dispatch(GeneralActions.setDisclaimerHidden(bool));
     },
   };
 };

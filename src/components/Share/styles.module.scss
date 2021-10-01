@@ -32,7 +32,7 @@
       cursor: pointer;
       overflow: hidden;
       margin: 0;
-      transition: border-color .2s ease-in;
+      transition: border-color 0.2s ease-in;
       margin-right: 2px;
       margin-left: 2px;
 
@@ -87,7 +87,8 @@
     margin: 20px 0;
   }
 
-  .inputContainer, .inputContainerCopied {
+  .inputContainer,
+  .inputContainerCopied {
     width: 100%;
 
     & > div {
@@ -98,7 +99,6 @@
       font-family: $fontLight;
       font-size: 16px;
 
-
       @media (max-width: $screen-sm) {
         font-size: 14px;
       }
@@ -107,7 +107,7 @@
 
   .inputContainerCopied {
     input {
-      color:$colorGreenDarker !important;
+      color: $colorGreenDarker !important;
     }
   }
 }
@@ -120,13 +120,13 @@
   }
 
   .sharePopover {
-    background-color: #201D38;
+    background-color: #201d38;
     color: white;
     position: absolute;
-    left: 90px;
-    top: -20px;
+    right: 0px;
+    top: 40px;
     border-radius: 15px;
-    transition: opacity .10s ease-in;
+    transition: opacity 0.1s ease-in;
     border: 1px solid $colorGray;
 
     &.popup-position-top {
@@ -150,7 +150,7 @@
   .shareButton {
     display: flex;
     color: $colorWhite;
-    background-color: #201D38;
+    background-color: #201d38;
     border: 1px solid $colorDarkSlateGray;
     text-align: center;
     padding: 4px 8px;
