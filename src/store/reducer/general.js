@@ -7,6 +7,7 @@ const initialState = {
   emailNotificationsVisible: false,
   preferencesVisible: false,
   referralsVisible: false,
+  disclaimerHidden: false,
 };
 
 const setDrawer = (state, { payload }) => {
