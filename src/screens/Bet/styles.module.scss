@@ -440,3 +440,92 @@
     margin-left: 20px;
   }
 }
+
+.descriptionContainer {
+  margin-bottom: 10px;
+
+  .tradeDescTitle {
+    font-size: 16px;
+    font-family: $fontBold;
+    margin-bottom: 5px;
+  }
+
+  .tradeDesc {
+    font-family: $fontRegular;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: $colorGrayLight1;
+    text-align: left;
+    letter-spacing: 0.3px;
+    padding: 0;
+    margin-bottom: 16px;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    a {
+      text-decoration: underline;
+      color: $colorPurple;
+    }
+    &.hidden {
+      -webkit-line-clamp: 3;
+    }
+
+    .evidenceDescription {
+      padding-top: 10px;
+    }
+  }
+  .tradeShortDesc {
+    margin-bottom: 16px;
+  }
+
+  .evidenceSource {
+    margin-top: 5px;
+  }
+
+  .betDescription {
+    @media screen and (max-width: $screen-md) {
+      display: none;
+    }
+  }
+}
+
+.timeLeftCounterContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 25px 10px;
+  color: $colorWhite;
+  font-size: 12px;
+}
+
+.timerLabel {
+  color: $colorWhite;
+  font-family: $fontRegular;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.timerParts {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.timerOnlyDesktop {
+  @media screen and (max-width: $screen-md) {
+    display: none;
+  }
+}
+
+.timerOnlyMobile {
+  @media screen and (min-width: $screen-md) {
+    display: none ;
+  }
+}

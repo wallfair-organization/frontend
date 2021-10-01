@@ -2,13 +2,18 @@ import React from 'react';
 import { useState } from 'react';
 import { calculateTimeLeft } from '../../helper/Time';
 import { useEffect } from 'react';
-import styles from './styles.module.scss';
+import componentStyles from './styles.module.scss';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-const TimeLeftCounter = ({ endDate }) => {
+const TimeLeftCounter = ({ endDate, externalStyles }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(endDate));
+
+  const styles = {
+    ...componentStyles,
+    ...externalStyles,
+  };
 
   useEffect(() => {
     const timerId = setTimeout(() => {

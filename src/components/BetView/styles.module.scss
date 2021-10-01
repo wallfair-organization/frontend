@@ -114,6 +114,10 @@
     margin-bottom: 20px;
     position: relative;
 
+    @media screen and (max-width: $screen-md) {
+      display: none;
+    }
+
     .info {
       font-size: 14px;
       font-family: $fontRegular;
@@ -328,16 +332,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  padding: 10px 25px;
-  color: $colorBlack;
+  padding: 0 25px 10px;
+  color: $colorWhite;
   font-size: 12px;
 
-  background: $colorWhite;
-  border: 1px solid $colorWhite17;
-  box-sizing: border-box;
-  border-radius: 10px;
+  //background: $colorWhite;
+  //border: 1px solid $colorWhite17;
+  //box-sizing: border-box;
+  //border-radius: 10px;
 
   &.fixedTimer {
     position: fixed;
@@ -347,9 +351,16 @@
 }
 
 .timerLabel {
-  color: $colorBlack60;
+  color: $colorWhite;
   font-family: $fontRegular;
-  font-size: 16px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.timerParts {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .tooltip {

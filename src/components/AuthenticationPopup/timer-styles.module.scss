@@ -1,0 +1,28 @@
+@import '../../styles/all.scss';
+
+.timePartContainer {
+  .timePartValue,
+  .timePartName {
+    color: $colorPrimary;
+  }
+  .timePartValue {
+    padding: 2px;
+    text-align: center;
+    min-width: 35px;
+    background-color: $colorYellow;
+    border-radius: 10px;
+    font-size: 34px;
+    // width: auto;
+    font-family: $fontBold;
+  }
+  .timePartName {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+}
+.timerColon {
+  color: $colorPrimary;
+  font-size: 34px;
+  margin: 0 7px;
+  text-align: center;
+}

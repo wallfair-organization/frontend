@@ -7,13 +7,18 @@ export function useTabOptions(event) {
   const [tabOptions, setTabOptions] = useState([
     { name: 'chat', isActive: true },
     { name: 'news', isActive: false },
+    { name: 'evidence', isActive: false },
   ]);
 
   useEffect(() => {
     if (event && event.type === 'streamed') {
-      const updatedTabOptions = tabOptions.filter(
-        item => event.type === 'streamed' && item.name !== 'news'
-      );
+      const updatedTabOptions = tabOptions.filter(item => {
+        return (
+          event.type === 'streamed' &&
+          item.name !== 'news' &&
+          item.name !== 'evidence'
+        );
+      });
       setTabOptions(updatedTabOptions);
     }
   }, [event]);

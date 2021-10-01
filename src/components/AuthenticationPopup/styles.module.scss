@@ -1,5 +1,127 @@
 @import '../../styles/all';
 
 .registration {
-  padding: 50px 0;
+  padding: 50px 20px;
+  display: flex;
+  max-width: 600px;
+  @media screen and (min-width: $screen-sm) {
+    padding: 50px;
+  }
+
+  &.registrationWithPromo {
+    max-width: 800px;
+    flex-flow: column;
+    @media screen and (min-width: $screen-md) {
+      flex-flow: row;
+    }
+    .form {
+      h2 {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .promoMessage {
+    flex-basis: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+
+    @media screen and (min-width: $screen-md) {
+      padding-right: 30px;
+      margin-right: 30px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 80%;
+        border-right: 1px solid $colorGrayLight4;
+      }
+    }
+
+    .timeContainer {
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+      @media screen and (min-width: $screen-md) {
+        margin-bottom: 20px;
+      }
+    }
+
+    p {
+      margin: 15px 0;
+      line-height: 1.75;
+      position: relative;
+      z-index: 2;
+      strong {
+        font-family: $fontBold;
+        border-bottom: 3px solid $colorYellow;
+      }
+      @media screen and (min-width: $screen-md) {
+        margin: 30px 0;
+      }
+    }
+    .prizeAmount {
+      font-size: 35px;
+      font-family: $fontBold;
+      text-align: center;
+      position: relative;
+      align-self: center;
+      margin-bottom: 40px;
+      z-index: 2;
+      &::after {
+        content: '';
+        position: absolute;
+        width: calc(100% + 50px);
+        bottom: -15px;
+        left: -25px;
+        right: 0;
+        height: 10px;
+        background-color: $colorYellow;
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      @media screen and (min-width: $screen-md) {
+        font-size: 42px;
+      }
+    }
+    .confettiRight,
+    .confettiLeft {
+      position: absolute;
+      z-index: 1;
+    }
+    .confettiLeft {
+      left: -60px;
+      top: 10px;
+    }
+    .confettiRight {
+      right: -64px;
+      bottom: -70px;
+      height: 220px;
+    }
+    @media screen and (min-width: $screen-md) {
+      .confettiRight,
+      .confettiLeft {
+        transform: scale(1.1);
+      }
+      .confettiLeft {
+        left: -60px;
+        top: 10px;
+      }
+      .confettiRight {
+        right: -20px;
+        bottom: -70px;
+        height: 220px;
+      }
+    }
+  }
+  .form {
+    flex-basis: 50%;
+    flex-grow: 1;
+  }
 }

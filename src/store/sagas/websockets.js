@@ -294,7 +294,7 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
         return;
       }
     }
-    if (currentAction[1] === 'rosi-game' || pathSlugs[1] === 'rosi-game') {
+    if (currentAction[1] === 'elon-game' || pathSlugs[1] === 'elon-game') {
       if (room) {
         yield put(
           WebsocketsActions.leaveRoom({

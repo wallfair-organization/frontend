@@ -179,7 +179,7 @@ const PlaceBet = () => {
           <h2 className={styles.placebidTitle}>Place Bet</h2>
           <InfoBox iconType={IconType.info} position={`bottomLeft`}>
             <p>
-              <strong>How to place a bet at Rosi Game?</strong>
+              <strong>How to place a bet at Elon Game?</strong>
             </p>
             <p>&nbsp;</p>
             <p>

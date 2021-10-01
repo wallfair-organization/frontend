@@ -207,7 +207,10 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
             type === PopupTheme.verifyEmail
               ? styles.verifyEmailPopupContainer
               : null,
-            small ? styles.small : null
+            small ? styles.small : null,
+            type === PopupTheme.auth &&
+              options?.authenticationType === 'register' &&
+              styles.registrationPopupContainer
           )}
         >
           <div className={styles.modalContent}>

@@ -13,7 +13,7 @@ import Routes from './Routes';
 export const CASINO_GAMES = [
   {
     background: RosiImg,
-    title: 'Rosi Games',
+    title: 'Elon Game',
     subtitle: '',
     description: '',
     active: true,
@@ -23,11 +23,11 @@ export const CASINO_GAMES = [
       content: (
         <div>
           <p>
-            <strong>What is Rosi Game?</strong>
+            <strong>What is Elon Game?</strong>
           </p>
           <p>&nbsp;</p>
           <p>
-            The Rosi Game is a crash game which promises pure fun and
+            The Elon Game is a crash game which promises pure fun and
             excitement, every fall counts!
           </p>
           <p>
@@ -35,7 +35,7 @@ export const CASINO_GAMES = [
             will go up till it crashes at some random time.
           </p>
           <p>
-            In Rosi Game, the longer the coin flies, the higher the chance that
+            In Elon Game, the longer the coin flies, the higher the chance that
             it will crash. If you cash out before the coin explodes, your bet
             will be multiplied by the current number the graph has by the time
             you cash out. If you do not cash out before the graph crashes, you

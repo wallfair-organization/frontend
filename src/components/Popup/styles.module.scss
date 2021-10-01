@@ -47,6 +47,12 @@
       height: auto;
     }
 
+    &.registrationPopupContainer {
+      width: auto;
+      max-width: max-content;
+      overflow: visible;
+    }
+
     @media (max-width: 768px) {
       min-height: calc(100vh - 20px);
 

@@ -88,8 +88,7 @@ const ExplanationViewPopup = ({ closed, hidePopup }) => {
         </h3>
 
         <span className={styles.explanationText}>
-          {/* //TODO: CHECK NAME OF GAMES SECTION (Elonfair?) */}
-          <p>Elonfair is super fun and easy to use.</p>
+          <p>Elon Game is super fun and easy to use.</p>
 
           <p>
             Elon tanks his rocket with {TOKEN_NAME} tokens that users place

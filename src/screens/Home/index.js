@@ -101,7 +101,7 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
           <div className={styles.title}>
             Play the
             <br />
-            Rosi Game
+            Elon Game
           </div>
         </div>
       </Link>
