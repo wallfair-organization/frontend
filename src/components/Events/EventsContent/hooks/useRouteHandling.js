@@ -12,7 +12,7 @@ export function useRouteHandling(eventType) {
   const routeMatch = useRouteMatch();
   const history = useHistory();
 
-  if (!routeMatch.params.category) {
+  if (!routeMatch.params.category && history.action.toLowerCase() === 'push') {
     history.push(
       Routes.getRouteWithParameters(
         eventType === 'streamed' ? Routes.liveEvents : Routes.events,

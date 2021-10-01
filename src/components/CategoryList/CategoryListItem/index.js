@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import { connect, useSelector } from 'react-redux';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Routes from '../../../constants/Routes';
 import styles from './styles.module.scss';
-import Search from '../../Search';
-import EventCard from '../../EventCard';
-import { EventActions } from '../../../store/actions/event';
+import EventTypes from 'constants/EventTypes';
 
-function CategoryListItem({ categoryItem }) {
+function CategoryListItem({ categoryItem, eventType }) {
   return (
     <>
       <section className={styles.categoryListItem}>
         <Link
           to={Routes.getRouteWithParameters(
-            categoryItem.type === 'image' ? Routes.liveEvents : Routes.events,
+            {
+              [EventTypes.streamed]: Routes.liveEvents,
+              [EventTypes.nonStreamed]: Routes.events,
+            }[eventType] || Routes.home,
             {
               category: encodeURIComponent(categoryItem.value),
             }

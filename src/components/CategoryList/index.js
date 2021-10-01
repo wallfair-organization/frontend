@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { connect, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router';
+import React from 'react';
 import styles from './styles.module.scss';
 import CategoryListItem from './CategoryListItem';
 
-function CategoryList({ categories }) {
+function CategoryList({ categories, eventType }) {
   return (
     <>
       <section className={styles.categoryList}>
         {categories.map((item, index) => (
-          <CategoryListItem key={index} categoryItem={item} />
+          <CategoryListItem
+            key={index}
+            categoryItem={item}
+            eventType={eventType}
+          />
         ))}
       </section>
     </>

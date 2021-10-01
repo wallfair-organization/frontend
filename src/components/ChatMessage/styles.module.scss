@@ -1,55 +1,52 @@
 @import '../../styles/all';
 
-.chatMessage
-{
-    color: $colorWhite;
-    padding:          1rem 1.5rem;
-    border-radius:    10px;
-    background-color: $colorWhite10;
-    display:          inline-flex;
-    margin-top:       0.5rem;
-    font-size:        14px;
-    text-align:       left;
-    hyphens:          auto;
-    opacity:          0.3;
-    transition: opacity 300ms ease-out, transform 300ms ease-out;
+.chatMessage {
+  color: $colorWhite;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  background-color: $colorWhite10;
+  display: inline-flex;
+  display: -ms-inline-flexbox;
+  display: -webkit-box;
+  margin-top: 0.5rem;
+  font-size: 14px;
+  text-align: left;
+  hyphens: auto;
+  opacity: 0.3;
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
 
-    &.isVisible {
-        opacity: 0.3;
+  &.newMessage {
+    animation: messageDrop 500ms ease;
+  }
 
-        & ~ .isVisible {
-            opacity: 1;
-        }
+  &.isVisible {
+    opacity: 1;
+  }
+
+  img {
+    width: 30px !important;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid $colorWhite !important;
+    margin-right: 0.5rem;
+  }
+
+  span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    :first-child {
+      font-size: 12px;
+      font-family: $fontBold;
     }
 
-    img
-    {
-        width:         30px !important;
-        height:        30px;
-        border-radius: 50%;
-        border:        1px solid $colorWhite !important;
-        margin-right:  0.5rem;
+    :last-child {
+      font-size: 12px;
+      text-align: right;
+      color: $colorGray;
+      width: 60px;
+      margin-left: 10px;
     }
-
-    span
-    {
-        display:         flex;
-        justify-content: space-between;
-        align-items:     center;
-
-        :first-child
-        {
-            font-size:   12px;
-            font-family: $fontBold;
-        }
-
-        :last-child
-        {
-            font-size:   12px;
-            text-align:  right;
-            color:       $colorGray;
-            width:       60px;
-            margin-left: 10px;
-        }
-    }
+  }
 }

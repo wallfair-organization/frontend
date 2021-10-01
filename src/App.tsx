@@ -14,6 +14,7 @@ import { history } from './store';
 import { Provider } from 'react-redux';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import PrivateRoute from 'components/PrivateRoute';
+import GuestRoute from 'components/GuestRoute';
 import Navbar from 'components/Navbar';
 import NavbarFooter from 'components/NavbarFooter';
 import NavbarFooterAction from 'components/NavbarFooterAction';
@@ -25,8 +26,10 @@ import { PersistGate } from 'redux-persist/integration/react';
 import Games from './screens/Games';
 import Rewards from './screens/Rewards';
 import ResetPassword from './screens/ResetPassword';
+import LandingPage from 'screens/LandingPage';
 import initTagManager from './config/gtm';
 import AudioContent from "./components/AudioContent";
+import ScrollToTop from 'utils/ScrollToTop';
 
 const { store, persistor } = configStore();
 
@@ -37,10 +40,11 @@ const App = () => {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <ConnectedRouter history={history}>
+          <ScrollToTop />
           <Navbar skipRoutes={[]} />
           <AlertBox />
           <Popup />
-          <AudioContent/>
+          <AudioContent />
           <Switch>
             <Route exact path={Routes.logout} component={Logout} />
             <Route

@@ -2,6 +2,8 @@ import { calcLabels, calcDatasets } from './chartHelpers';
 import legendPadding from './plugins/legendHeightPlugin';
 
 export const chartOptions = (type, data) => {
+  let matchMediaMobile = window.matchMedia(`(max-width: ${768}px)`).matches;
+
   return {
     type,
     plugins: [legendPadding],
@@ -17,9 +19,11 @@ export const chartOptions = (type, data) => {
         legend: {
           display: true,
           align: 'start',
+          position: matchMediaMobile ? 'bottom' : 'top',
           labels: {
             usePointStyle: true,
             pointStyle: 'circle',
+            paddingTop: 50,
           },
         },
         tooltip: {

@@ -17,10 +17,9 @@ import BetState from '../../constants/BetState';
 import { BET_STATUS_DESCRIPTIONS } from '../../helper/BetStatusDesc';
 import AdminOnly from 'components/AdminOnly';
 import AuthedOnly from 'components/AuthedOnly';
+import BetActionsMenu from 'components/BetActionsMenu';
 
 const RelatedBetCard = ({ onClick, bet, showPopup, events }) => {
-  const [menuOpened, setMenuOpened] = useState(false);
-
   const event = _.find(events, {
     _id: _.get(bet, 'event'),
   });
@@ -80,11 +79,6 @@ const RelatedBetCard = ({ onClick, bet, showPopup, events }) => {
     showPopup(popupType, options);
   };
 
-  const openMenu = e => {
-    e.stopPropagation();
-    setMenuOpened(!menuOpened);
-  };
-
   const openEvaluate = event => {
     event.stopPropagation();
     showPopup(PopupTheme.evaluateEvent, {
@@ -123,35 +117,7 @@ const RelatedBetCard = ({ onClick, bet, showPopup, events }) => {
             </AuthedOnly>
 
             <AdminOnly>
-              <div>
-                <Icon
-                  iconType={IconType.menu}
-                  iconTheme={null}
-                  onClick={e => openMenu(e)}
-                  className={styles.menuBoxIcon}
-                />
-                <div
-                  className={classNames(
-                    styles.menuBox,
-                    menuOpened ? styles.menuBoxOpened : null
-                  )}
-                >
-                  <div
-                    className={styles.menuItem}
-                    onClick={() =>
-                      showPopup(PopupTheme.editBet, { event, bet })
-                    }
-                  >
-                    <Icon
-                      className={styles.menuInfoIcon}
-                      iconType={IconType.edit}
-                      iconTheme={null}
-                      width={16}
-                    />
-                    <span>Edit bet</span>
-                  </div>
-                </div>
-              </div>
+              <BetActionsMenu event={event} bet={bet} />
             </AdminOnly>
           </div>
         </div>
@@ -169,15 +135,6 @@ const RelatedBetCard = ({ onClick, bet, showPopup, events }) => {
                 onClick={openReport}
               />
             </AuthedOnly>
-          )}
-          {[BetState.active, BetState.closed].includes(bet?.status) && (
-            <AdminOnly>
-              <ButtonSmall
-                text="Resolve"
-                butonTheme={ButtonSmallTheme.dark}
-                onClick={e => openInfoPopup(PopupTheme.resolveBet, e)}
-              />
-            </AdminOnly>
           )}
           {[BetState.active, BetState.resolved, BetState.closed].includes(
             bet?.status

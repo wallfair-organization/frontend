@@ -1,4 +1,4 @@
-export const MIGRATION_VERSION = 7;
+export const MIGRATION_VERSION = 8;
 
 export const migrations = {
   0: state => {
@@ -135,6 +135,19 @@ export const migrations = {
         ...state.bet,
         tradeHistory: {
           trades: [],
+        },
+      },
+    };
+  },
+  8: state => {
+    return {
+      ...state,
+      event: {
+        ...state.event,
+        chartParams: {
+          rangeType: 'hour',
+          rangeValue: '24',
+          direction: 'BUY',
         },
       },
     };

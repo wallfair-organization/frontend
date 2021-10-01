@@ -27,7 +27,7 @@
     }
 
     @media (max-width: $screen-sm) {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
 
     &::-webkit-scrollbar {
@@ -51,13 +51,13 @@
 
     @media (max-width: $screen-sm) {
       position: fixed;
-      bottom: 0;
+      bottom: 40px;
       left: 0;
       z-index: 1001;
       width: 100vw;
-      height: 90px;
+      height: 70px;
       background-color: $colorWhite;
-      padding: 15px 15px 30px;
+      padding: 0px 15px;
       border-radius: 0;
       color: $colorPrimary;
       overflow: hidden;

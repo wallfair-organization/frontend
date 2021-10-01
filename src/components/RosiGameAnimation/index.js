@@ -47,18 +47,14 @@ const RosiGameAnimation = () => {
   const [isPreparingRound, setIsPreparingRound] = useState(!gameStarted);
   const [isAnimationReady, setAnimationReady] = useState(false);
 
-  // If user lands on the page while game is in progress, then should start counting from current crash
-  // factor, which is time elapsed since game started. This value is reset once first game ends and is not
-  // used after that.
-  const [timerStartTime, setTimerStartTime] = useState(
-    gameStarted ? Date.now() - gameStartedTime : 1
-  );
-
   useEffect(() => {
     if (canvasRef.current) {
       RosiGameAnimationController.init(canvasRef.current);
       RosiGameAnimationController.load(() => {
         setAnimationReady(true);
+        if (isPreparingRound) {
+          RosiGameAnimationController.preparingRound.show();
+        }
       });
     }
   }, []);
@@ -80,8 +76,8 @@ const RosiGameAnimation = () => {
 
       // leave some time for player to see crash value
       setTimeout(() => {
+        RosiGameAnimationController.preparingRound.show();
         setIsPreparingRound(true);
-        setTimerStartTime(0);
       }, ROSI_GAME_AFTER_CRASH_DELAY);
     }
   }, [gameStarted, isAnimationReady]); // eslint-disable-line
@@ -93,9 +89,7 @@ const RosiGameAnimation = () => {
 
     if (cashedOut && cashedOut.length > cashedOutCount) {
       setCashedOutCount(cashedOutCount + 1);
-      RosiGameAnimationController.doCashedOutAnimation(
-        cashedOut[cashedOut.length - 1]
-      );
+      RosiGameAnimationController.doCashedOutAnimation(cashedOut[0]);
     }
   }, [isAnimationReady, gameStarted, cashedOut]); // eslint-disable-line
 
@@ -109,7 +103,7 @@ const RosiGameAnimation = () => {
         className={cn(styles.timer, { [styles.flashAnimation]: !gameStarted })}
       >
         {gameStarted ? (
-          <Timer pause={!gameStarted} startTimeMs={timerStartTime} />
+          <Timer pause={!gameStarted} startTimeMs={gameStartedTime} />
         ) : (
           <span>{lastCrashValue.toFixed(2)}</span>
         )}

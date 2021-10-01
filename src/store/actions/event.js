@@ -18,6 +18,7 @@ export const EventTypes = {
   FETCH_HISTORY_CHART_DATA: 'Event/FETCH_HISTORY_CHART_DATA',
   FETCH_HISTORY_CHART_DATA_SUCCESS: 'Event/FETCH_HISTORY_CHART_DATA_SUCCESS',
   FETCH_HISTORY_CHART_FAIL: 'Event/FETCH_HISTORY_CHART_FAIL',
+  UPDATE_CHART_PARAMS: 'Event/UPDATE_CHART_PARAMS',
   FETCH_NEWS_DATA: 'Event/FETCH_NEWS_DATA',
   FETCH_NEWS_DATA_SUCCESS: 'Event/FETCH_NEWS_DATA_SUCCESS',
   FETCH_NEWS_DATA_FAIL: 'Event/FETCH_NEWS_DATA_FAIL',
@@ -58,6 +59,10 @@ const resetDefaultParamsValues = payload => ({
 
 const fetchHomeEvents = makeActionCreator(EventTypes.FETCH_HOME_EVENTS, {
   eventType: null,
+  state: null,
+  category: null,
+  deactivated: false,
+  upcoming: false,
   page: null,
   count: null,
 });
@@ -68,6 +73,8 @@ const fetchHomeEventsSuccess = makeActionCreator(
     eventType: null,
     page: null,
     count: null,
+    state: null,
+    category: null,
     events: [],
   }
 );
@@ -98,8 +105,15 @@ const fetchChartDataSuccess = payload => ({
   type: EventTypes.FETCH_HISTORY_CHART_DATA_SUCCESS,
   payload,
 });
+
 const fetchChartDataFail = () => ({
   type: EventTypes.FETCH_HISTORY_CHART_FAIL,
+});
+
+const updateChartParams = (betId, params = {}) => ({
+  type: EventTypes.UPDATE_CHART_PARAMS,
+  betId,
+  params,
 });
 
 // NEWS DATA
@@ -138,4 +152,5 @@ export const EventActions = {
   initiateFetchNewsData,
   fetchNewsDataSuccess,
   fetchNewsDataFail,
+  updateChartParams,
 };

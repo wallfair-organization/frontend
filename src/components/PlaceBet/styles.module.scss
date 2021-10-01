@@ -22,7 +22,7 @@
   text-align: left;
   line-height: 12px;
   margin-top: 18px;
-  &.warning{
+  &.warning {
     color: $colorRed;
   }
 }
@@ -93,6 +93,18 @@
 
 .inputContainer {
   position: relative;
+  .placeBetContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .placebidTitle {
+      padding: 0;
+    }
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
 }
 
 .actions {
@@ -208,7 +220,7 @@
 
     -moz-appearance: textfield;
   }
-  &.warning{
+  &.warning {
     border: 2px solid $colorRed;
   }
 
@@ -224,11 +236,11 @@
   }
 }
 
-.error{
+.error {
   padding-top: 10px;
   font-size: 14px;
   color: $colorRed;
-  .why{
+  .why {
     text-decoration: underline;
     cursor: default;
   }

@@ -159,12 +159,13 @@ const MainMenu = ({
           />
           Email Notification
         </h2>
-
-        <EmailNotifications
-          close={close}
-          updateNotificationSettings={updateNotificationSettings}
-          settings={user.notificationSettings}
-        />
+        <div className={styles.emailNotificationContent}>
+          <EmailNotifications
+            close={close}
+            updateNotificationSettings={updateNotificationSettings}
+            settings={user.notificationSettings}
+          />
+        </div>
       </div>
     );
   };
@@ -207,8 +208,9 @@ const MainMenu = ({
           />
           Referrals
         </h2>
-
-        <Referrals close={close} />
+        <div className={styles.referralsContent}>
+          <Referrals close={close} />
+        </div>
       </div>
     );
   };
@@ -263,7 +265,7 @@ const MainMenu = ({
             <div className={styles.profileContent}>
               <div className={styles.profileInputGroup}>
                 <label className={styles.profileInputLabel}>
-                  My Name is...
+                  My full name is...
                 </label>
                 <input
                   className={styles.profileInput}
@@ -273,7 +275,7 @@ const MainMenu = ({
               </div>
               <div className={styles.profileInputGroup}>
                 <label className={styles.profileInputLabel}>
-                  But you can call me...
+                  My username is...
                 </label>
                 <input
                   className={styles.profileInput}

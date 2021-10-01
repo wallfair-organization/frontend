@@ -48,7 +48,7 @@ const RosiGame = () => {
     <BaseContainerWithNavbar withPaddingTop={true}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <BackLink to="/games" text="Rosi Game">
+          <BackLink to="/games" text="Elon Game">
             <Share />
           </BackLink>
           <Grid container spacing={1}>

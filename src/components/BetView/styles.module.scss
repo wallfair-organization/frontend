@@ -77,6 +77,7 @@
     align-items: center;
     top: 20px;
     right: 20px;
+    z-index: 1;
 
     &.popupMenuContainer {
       top: 35px;
@@ -90,54 +91,6 @@
 
       .currentBalanceIcon {
         margin-right: 11px;
-      }
-    }
-
-    .menu {
-      position: relative;
-      margin-left: 20px;
-      cursor: pointer;
-
-      .menuIcon {
-        opacity: 30%;
-      }
-
-      .menuBox {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 25px;
-        width: 200px;
-        z-index: $zIndexBetMenu;
-        right: 0;
-        padding: 0 17px 0 19px;
-        border-radius: 10px;
-        background-color: $colorWhite;
-        box-shadow: 0 1px 8px 0 $colorBlack10;
-
-        &.menuBoxOpened {
-          display: flex;
-        }
-
-        .menuItem {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          width: 100%;
-          padding: 12px 0;
-
-          .menuInfoIcon {
-            margin-right: 12px;
-          }
-
-          strong {
-            font-family: $fontBold;
-          }
-
-          &:not(:last-child) {
-            border-bottom: solid 0.5px $colorPrimary10;
-          }
-        }
       }
     }
   }
@@ -160,6 +113,10 @@
     padding: 0 16%;
     margin-bottom: 20px;
     position: relative;
+
+    @media screen and (max-width: $screen-md) {
+      display: none;
+    }
 
     .info {
       font-size: 14px;
@@ -194,6 +151,10 @@
       display: flex;
       flex-direction: row;
       align-items: flex-start;
+    }
+
+    .labelWrapper {
+      display: flex;
     }
 
     .label {
@@ -233,6 +194,7 @@
 
     .canceledErrorText {
       width: 100%;
+      margin-bottom: 10px;
     }
   }
 
@@ -266,64 +228,6 @@
       font-size: 23px;
     }
 
-    .tradeDescTitle {
-      font-size: 16px;
-      font-family: $fontBold;
-      margin-bottom: 5px;
-    }
-
-    .tradeDesc {
-      font-family: $fontRegular;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 17px;
-      color: $colorGrayLight1;
-      text-align: center;
-      letter-spacing: 0.3px;
-      padding: 0 7%;
-      margin-bottom: 16px;
-      width: 100%;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-
-      a {
-        text-decoration: underline;
-        color: $colorPurple;
-      }
-      &.hidden {
-        -webkit-line-clamp: 3;
-      }
-
-      .evidenceDescription {
-        padding-top: 10px;
-      }
-    }
-    .tradeShortDesc {
-      margin-bottom: 16px;
-    }
-
-    .seeMore {
-      font-family: $fontBold;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 12px;
-      border: none;
-      background: none;
-      text-align: center;
-      text-transform: capitalize;
-      color: $colorPurpleDark;
-      cursor: pointer;
-      margin: 10px 0;
-      letter-spacing: 1px;
-
-      &:hover {
-        color: $colorPurple;
-      }
-    }
-
     .betButton {
       background-color: transparent;
       margin-bottom: 12px;
@@ -340,6 +244,64 @@
           width: 355px;
         }
       }
+    }
+  }
+
+  .tradeDescTitle {
+    font-size: 16px;
+    font-family: $fontBold;
+    margin-bottom: 5px;
+  }
+
+  .tradeDesc {
+    font-family: $fontRegular;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 17px;
+    color: $colorGrayLight1;
+    text-align: center;
+    letter-spacing: 0.3px;
+    padding: 0 7%;
+    margin-bottom: 16px;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    a {
+      text-decoration: underline;
+      color: $colorPurple;
+    }
+    &.hidden {
+      -webkit-line-clamp: 3;
+    }
+
+    .evidenceDescription {
+      padding-top: 10px;
+    }
+  }
+  .tradeShortDesc {
+    margin-bottom: 16px;
+  }
+
+  .seeMore {
+    font-family: $fontBold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    border: none;
+    background: none;
+    text-align: center;
+    text-transform: capitalize;
+    color: $colorPurpleDark;
+    cursor: pointer;
+    margin: 10px 0;
+    letter-spacing: 1px;
+
+    &:hover {
+      color: $colorPurple;
     }
   }
 
@@ -370,16 +332,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  padding: 10px 25px;
-  color: $colorBlack;
+  padding: 0 25px 10px;
+  color: $colorWhite;
   font-size: 12px;
 
-  background: $colorWhite;
-  border: 1px solid $colorWhite17;
-  box-sizing: border-box;
-  border-radius: 10px;
+  //background: $colorWhite;
+  //border: 1px solid $colorWhite17;
+  //box-sizing: border-box;
+  //border-radius: 10px;
 
   &.fixedTimer {
     position: fixed;
@@ -389,9 +351,16 @@
 }
 
 .timerLabel {
-  color: $colorBlack60;
+  color: $colorWhite;
   font-family: $fontRegular;
-  font-size: 16px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.timerParts {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .tooltip {

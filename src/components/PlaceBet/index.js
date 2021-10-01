@@ -22,12 +22,14 @@ import {
 } from '../../store/selectors/rosi-game';
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import { playWinSound } from '../../helper/Audio';
+import InfoBox from 'components/InfoBox';
+import IconType from '../Icon/IconType';
 
 const PlaceBet = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const userBalance = parseInt(user?.balance || 0, 10);
-  const sliderMinAmount = userBalance > 50 ? 50 : 0;
+  const sliderMinAmount = userBalance > 50 || !user.isLoggedIn ? 50 : 0;
   // const sliderMaxAmount = Math.min(500, userBalance);
   const isGameRunning = useSelector(selectHasStarted);
   const userPlacedABet = useSelector(selectUserBet);
@@ -39,7 +41,17 @@ const PlaceBet = () => {
   const [showCashoutWarning, setShowCashoutWarning] = useState(false);
   const [crashFactorDirty, setCrashFactorDirty] = useState(false);
   const [animate, setAnimate] = useState(false);
-  const userUnableToBet = amount < 1;
+  const [canBet, setCanBet] = useState(true);
+  const userUnableToBet = amount < 1 || !canBet;
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setCanBet(true);
+    }, 300);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [canBet]);
 
   const onTokenNumberChange = number => {
     setAmount(number);
@@ -90,7 +102,20 @@ const PlaceBet = () => {
       });
   };
 
+  const placeGuestBet = () => {
+    if (userUnableToBet) return;
+    const payload = {
+      amount,
+      crashFactor: Math.round(Math.abs(parseFloat(crashFactor)) * 100) / 100,
+      username: 'Guest',
+      userId: 'Guest',
+    };
+    dispatch(RosiGameActions.setUserBet(payload));
+    dispatch(RosiGameActions.addInGameBet(payload));
+  };
+
   const cashOut = () => {
+    setCanBet(false);
     dispatch(RosiGameActions.cashOut());
     Api.cashOut()
       .then(response => {
@@ -100,6 +125,12 @@ const PlaceBet = () => {
       .catch(error => {
         dispatch(AlertActions.showError(error.message));
       });
+  };
+
+  const cashOutGuest = () => {
+    setCanBet(false);
+    dispatch(RosiGameActions.cashOutGuest());
+    setAnimate(true);
   };
 
   const showLoginPopup = () => {
@@ -120,9 +151,9 @@ const PlaceBet = () => {
           className={classNames(styles.button, {
             [styles.buttonDisabled]: userUnableToBet || isBetInQueue,
           })}
-          onClick={user.isLoggedIn ? placeABet : showLoginPopup}
+          onClick={user.isLoggedIn ? placeABet : placeGuestBet}
         >
-          {user.isLoggedIn ? 'Place Bet' : 'Join To Start Betting'}
+          {user.isLoggedIn ? 'Place Bet' : 'Place Bet'}
         </span>
       );
     } else if ((userPlacedABet && !isGameRunning) || isBetInQueue) {
@@ -133,7 +164,7 @@ const PlaceBet = () => {
           className={classNames(styles.button, styles.buttonDisabled)}
           onClick={user.isLoggedIn ? () => {} : showLoginPopup}
         >
-          {user.isLoggedIn ? 'Waiting...' : 'Join To Start Betting'}
+          {user.isLoggedIn ? 'Bet Placed' : 'Bet Placed'}
         </span>
       );
     } else {
@@ -145,9 +176,9 @@ const PlaceBet = () => {
             [styles.buttonDisabled]:
               (!userPlacedABet && isGameRunning) || !isGameRunning,
           })}
-          onClick={cashOut}
+          onClick={user.isLoggedIn ? cashOut : cashOutGuest}
         >
-          Cash Out
+          {user.isLoggedIn ? 'Cash Out' : 'Cash Out'}
         </span>
       );
     }
@@ -173,8 +204,38 @@ const PlaceBet = () => {
         onFire={() => playWinSound()}
       />
       <div className={styles.inputContainer}>
-        <div>
+        <div className={styles.placeBetContainer}>
           <h2 className={styles.placebidTitle}>Place Bet</h2>
+          <InfoBox iconType={IconType.info} position={`bottomLeft`}>
+            <p>
+              <strong>How to place a bet at Elon Game?</strong>
+            </p>
+            <p>&nbsp;</p>
+            <p>
+              At the top of the betting box, you see „Bet Amount“ that you can
+              change as you wish.
+            </p>
+            <p>
+              After you click the yellow button „Place Bet“ you will join the
+              game.
+            </p>
+            <p>
+              After you join the game you need to click the „Cash out“ button
+              before the coin explodes.
+            </p>
+            <p>
+              Please note that when you place a bet in a running game, your bet
+              will wait for the next game start.
+            </p>
+            <p>
+              You can place a bet for the next game or you can do this when the
+              round is preparing.
+            </p>
+            <p>
+              At the top of the page, you can see green numbers which show the
+              previous crash numbers.
+            </p>
+          </InfoBox>
         </div>
         <div className={styles.sliderContainer}>
           <label className={styles.label}>Bet Amount</label>
@@ -187,7 +248,6 @@ const PlaceBet = () => {
             maxValue={formatToFixed(
               user.balance > 10000 ? 10000 : user.balance
             )}
-            disabled={!user.isLoggedIn}
           />
         </div>
       </div>

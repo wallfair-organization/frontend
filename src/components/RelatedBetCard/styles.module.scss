@@ -6,12 +6,9 @@
   font-family: $fontLight;
   color: $colorWhite;
   display: flex;
-  position: relative;
   justify-content: space-between;
   flex-direction: column;
   user-select: none;
-  overflow: hidden;
-  z-index: 1;
   margin-bottom: 1.5rem;
   color: #120e27;
 
@@ -34,48 +31,6 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-
-        .menuBox {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 50px;
-          width: 200px;
-          z-index: $zIndexBetMenu;
-          right: 15px;
-          padding: 0 17px 0 19px;
-          border-radius: 10px;
-          background-color: $colorWhite;
-          box-shadow: 0 1px 8px 0 $colorBlack10;
-
-          &.menuBoxOpened {
-            display: flex;
-          }
-
-          .menuItem {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 100%;
-            padding: 12px 0;
-
-            .menuInfoIcon {
-              margin-right: 12px;
-            }
-
-            strong {
-              font-family: $fontBold;
-            }
-
-            &:not(:last-child) {
-              border-bottom: solid 0.5px $colorPrimary10;
-            }
-          }
-        }
-
-        .menuBoxIcon {
-          margin-left: 10px;
-        }
       }
     }
 

@@ -14,6 +14,7 @@ export function useChartData(betId) {
   });
 
   const chartData = useSelector(state => state.event.chartData);
+  const chartParams = useSelector(state => state.event.chartParams);
 
   const filterMap = {
     '24H': {
@@ -36,9 +37,7 @@ export function useChartData(betId) {
     currentParams.current.rangeType = filterMap[filterName].rangeType;
     currentParams.current.rangeValue = filterMap[filterName].rangeValue;
     dispatch(
-      EventActions.initiateFetchChartData(betId, {
-        ...currentParams.current,
-      })
+      EventActions.updateChartParams(betId, { ...currentParams.current })
     );
   };
 
@@ -46,14 +45,22 @@ export function useChartData(betId) {
     currentParams.current.direction = directionIndex === 0 ? 'BUY' : 'SELL';
 
     dispatch(
-      EventActions.initiateFetchChartData(betId, {
-        ...currentParams.current,
-      })
+      EventActions.updateChartParams(betId, { ...currentParams.current })
     );
   };
 
   useEffect(() => {
     if (betId) {
+      if (chartParams) {
+        currentParams.current = {
+          ...currentParams.current,
+          ...chartParams,
+        };
+        const active = Object.keys(filterMap).find(
+          key => filterMap[key].rangeValue === chartParams.rangeValue
+        );
+        if (active) setFilterActive(active);
+      }
       dispatch(
         EventActions.initiateFetchChartData(betId, currentParams.current)
       );

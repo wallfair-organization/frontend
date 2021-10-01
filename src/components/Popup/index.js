@@ -23,6 +23,7 @@ import ReportEventPopup from '../ReportEventPopup';
 import JoinPopup from '../JoinPopup';
 import VerifyEmailPopup from '../VerifyEmailPopup';
 import PulloutApprovePopup from '../PulloutApprovePopup';
+import BetActionPopup from '../BetActionPopup';
 import LotteryGamePopup from '../LotteryGamePopup';
 import NewEventPopup from '../NewEventPopup';
 import EditEventPopup from '../EditEventPopup';
@@ -33,9 +34,23 @@ import ViewImagePopup from 'components/ViewImagePopup';
 import ResolveBetPopup from 'components/ResolveBetPopup';
 import { useOutsideClick } from 'hooks/useOutsideClick';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
+import ExplanationViewPopup from 'components/ExplanationViewPopup';
 
 const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
   const small = _.get(options, 'small', false);
+
+  useEffect(() => {
+    const close = e => {
+      // Keycode is deprecated: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
+      // Adding still for older browsers
+      if (e?.keyCode === 27 || e?.key === 'Escape') {
+        hidePopup();
+      }
+    };
+
+    visible && window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [hidePopup, visible]);
 
   useEffect(() => {
     document.body.style.overflow = visible ? 'hidden' : 'auto';
@@ -154,6 +169,10 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
         return (
           <ResolveBetPopup betId={options.tradeId} eventId={options.eventId} />
         );
+      case PopupTheme.cancelBet:
+        return <BetActionPopup bet={options?.bet} actionType={'cancel'} />;
+      case PopupTheme.deleteBet:
+        return <BetActionPopup bet={options?.bet} actionType={'delete'} />;
       case PopupTheme.auth:
         return (
           <AuthenticationPopup
@@ -162,6 +181,8 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
             }
           />
         );
+      case PopupTheme.explanation:
+        return <ExplanationViewPopup type={options.type} closed={!visible} />;
     }
 
     return null;
@@ -186,7 +207,10 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
             type === PopupTheme.verifyEmail
               ? styles.verifyEmailPopupContainer
               : null,
-            small ? styles.small : null
+            small ? styles.small : null,
+            type === PopupTheme.auth &&
+              options?.authenticationType === 'register' &&
+              styles.registrationPopupContainer
           )}
         >
           <div className={styles.modalContent}>

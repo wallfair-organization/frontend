@@ -1,3 +1,4 @@
+import IconType from '../components/Icon/IconType';
 import RosiImg from '../data/backgrounds/games/rosi-games-banner.png';
 import First from '../data/backgrounds/games/game1-bg.png';
 import Second from '../data/backgrounds/games/game2-bg.png';
@@ -12,17 +13,43 @@ import Routes from './Routes';
 export const CASINO_GAMES = [
   {
     background: RosiImg,
-    title: 'Rosi Games',
+    title: 'Elon Game',
     subtitle: '',
     description: '',
     active: true,
     linkTo: Routes.rosiGame,
+    infoIcon: {
+      iconType: IconType.info,
+      content: (
+        <div>
+          <p>
+            <strong>What is Elon Game?</strong>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            The Elon Game is a crash game which promises pure fun and
+            excitement, every fall counts!
+          </p>
+          <p>
+            When you start playing it you enter a bet amount. The crash coin
+            will go up till it crashes at some random time.
+          </p>
+          <p>
+            In Elon Game, the longer the coin flies, the higher the chance that
+            it will crash. If you cash out before the coin explodes, your bet
+            will be multiplied by the current number the graph has by the time
+            you cash out. If you do not cash out before the graph crashes, you
+            will lose your bet.
+          </p>
+        </div>
+      ),
+    },
   },
   {
     background: First,
-    title: 'Name Games',
-    subtitle: 'lorem ipsum',
-    description: 'Tempor diam eu malesuada adipiscing velit, sit lorem libero.',
+    title: 'Satoshi the Kid',
+    subtitle: '',
+    description: '',
     active: false,
     linkTo: '',
   },
@@ -31,25 +58,33 @@ export const CASINO_GAMES = [
 export const SLOTS_GAMES = [
   {
     background: Second,
-    title: 'Name Games',
-    subtitle: 'lorem ipsum',
-    description: 'Tempor diam eu malesuada adipiscing velit, sit lorem libero.',
+    title: 'Dice',
+    subtitle: '',
+    description: '',
     active: false,
     linkTo: '',
   },
   {
     background: Third,
-    title: 'Name Games',
-    subtitle: 'lorem ipsum',
-    description: 'Tempor diam eu malesuada adipiscing velit, sit lorem libero.',
+    title: 'Mines',
+    subtitle: '',
+    description: '',
     active: false,
     linkTo: '',
   },
   {
     background: Fourth,
-    title: 'Name Games',
-    subtitle: 'lorem ipsum',
-    description: 'Tempor diam eu malesuada adipiscing velit, sit lorem libero.',
+    title: 'Hi Lo',
+    subtitle: '',
+    description: '',
+    active: false,
+    linkTo: '',
+  },
+  {
+    background: Fourth,
+    title: 'Coin Flip',
+    subtitle: '',
+    description: '',
     active: false,
     linkTo: '',
   },
@@ -58,33 +93,33 @@ export const SLOTS_GAMES = [
 export const SPORTS_BETTING_GAMES = [
   {
     background: Fifth,
-    title: 'Name Games',
-    subtitle: 'lorem ipsum',
-    description: 'Tempor diam eu malesuada adipiscing velit, sit lorem libero.',
+    title: 'Esports',
+    subtitle: '',
+    description: '',
     active: false,
     linkTo: '',
   },
   {
     background: Sixth,
-    title: 'Name Games',
-    subtitle: 'lorem ipsum',
-    description: 'Tempor diam eu malesuada adipiscing velit, sit lorem libero.',
+    title: 'Baseball',
+    subtitle: '',
+    description: '',
     active: false,
     linkTo: '',
   },
   {
     background: Seventh,
-    title: 'Name Games',
-    subtitle: 'lorem ipsum',
-    description: 'Tempor diam eu malesuada adipiscing velit, sit lorem libero.',
+    title: 'Football',
+    subtitle: '',
+    description: '',
     active: false,
     linkTo: '',
   },
   {
     background: Eight,
-    title: 'Name Games',
-    subtitle: 'lorem ipsum',
-    description: 'Tempor diam eu malesuada adipiscing velit, sit lorem libero.',
+    title: 'Tennis',
+    subtitle: '',
+    description: '',
     active: false,
     linkTo: '',
   },

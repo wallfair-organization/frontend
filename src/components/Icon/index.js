@@ -61,6 +61,7 @@ import { ReactComponent as IconWallet2 } from '../../data/icons/wallet-2.svg';
 import { ReactComponent as IconWithdrawal } from '../../data/icons/withdrawal.svg';
 import { ReactComponent as NewsIcon } from '../../data/icons/news-icon.svg';
 import { ReactComponent as ShareIcon } from '../../data/icons/share-solid-fa.svg';
+import { ReactComponent as IconTrash } from '../../data/icons/trash.svg';
 
 const Icon = ({
   className,
@@ -135,6 +136,7 @@ const Icon = ({
       [IconType.shareLink]: <ShareIcon />,
       [IconType.edit]: <IconEdit />,
       [IconType.hourglass]: <IconHourglass />,
+      [IconType.trash]: <IconTrash />,
     });
   };
 

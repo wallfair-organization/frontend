@@ -2,6 +2,7 @@ import { NotificationTypes } from '../actions/notification';
 import _ from 'lodash';
 const initialState = {
   notifications: [],
+  activities: [],
 };
 
 const sortNotifications = notifications =>
@@ -32,6 +33,42 @@ const addNotification = (action, state) => {
   };
 };
 
+const addActivity = (action, state) => {
+  const { activity, eventName } = action;
+
+  const activityObj = {
+    data: activity,
+    type: eventName,
+  };
+
+  const newActivities = [...state.activities, activityObj];
+
+  if (newActivities.length > 20) {
+    newActivities.shift();
+  }
+
+  return {
+    ...state,
+    activities: newActivities,
+  };
+};
+
+const addInitialActivities = (action, state) => {
+  const { data } = action;
+
+  return {
+    ...state,
+    //@todo update backend default sort order, to achieve this sorting
+    activities: _.map(Array.from(data).reverse(), (item, index) => {
+      return {
+        data: _.get(item, 'data'),
+        type: _.get(item, 'type'),
+        updatedAt: _.get(item, 'updatedAt'),
+      };
+    }),
+  };
+};
+
 const setUnread = (action, state) => {
   const { notification } = action;
 
@@ -48,6 +85,10 @@ const setUnread = (action, state) => {
 export default function (state = initialState, action) {
   switch (action.type) {
     // @formatter:off
+    case NotificationTypes.ADD_ACTIVITY:
+      return addActivity(action, state);
+    case NotificationTypes.ADD_INITIAL_ACTIVITIES:
+      return addInitialActivities(action, state);
     case NotificationTypes.ADD_NOTIFICATION:
       return addNotification(action, state);
     case NotificationTypes.SET_UNREAD:

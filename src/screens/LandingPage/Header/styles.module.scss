@@ -1,0 +1,25 @@
+@import '../../../styles/all';
+
+.header {
+  text-align: center;
+  margin: 100px auto;
+}
+
+.subHeading {
+  color: $colorWhite;
+  opacity: 0.6;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.mainHeading {
+  color: $colorWhite;
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.video {
+  max-width: 792px;
+  height: auto;
+  margin: 0 auto;
+}

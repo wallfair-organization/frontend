@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import TimeLeftCounter from '../TimeLeftCounter';
 import classNames from 'classnames';
 import { getOutcomes } from 'api';
+import moment from 'moment';
 
 const BetCard = ({
   betId,
@@ -13,6 +14,8 @@ const BetCard = ({
   eventCardClass,
   outcomes,
 }) => {
+  const happensWithin24h = moment(eventEnd).diff(moment(), 'h') <= 24;
+
   const getEventCardStyle = () => {
     return {
       backgroundImage: 'url("' + image + '")',
@@ -24,7 +27,7 @@ const BetCard = ({
   ]);
 
   const roundOutcome = value => {
-    return Math.ceil((1 / value) * 100) / 100;
+    return Math.min(100, Math.floor((1 / value) * 100)) + '%';
   };
 
   useEffect(() => {
@@ -61,7 +64,12 @@ const BetCard = ({
             <div className={styles.outcomesContainer}>
               {outcomeValues.map(outcome => (
                 <div className={styles.outcome}>
-                  <span className={styles.amount}>{outcome.amount}</span>
+                  <span
+                    className={styles.amount}
+                    title="Likelihood of happening"
+                  >
+                    {outcome.amount}
+                  </span>
                   <span className={styles.outcomeName} title={outcome.name}>
                     {outcome.name}
                   </span>
@@ -69,7 +77,7 @@ const BetCard = ({
               ))}
             </div>
           </div>
-          {eventEnd && (
+          {eventEnd && happensWithin24h && (
             <div className={styles.timer}>
               <span className={styles.timerTitle}>Event ends in:</span>
               <span>

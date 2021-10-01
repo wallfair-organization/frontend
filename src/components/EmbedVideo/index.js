@@ -11,6 +11,15 @@ import Dacast from './Dacast';
 import Unknown from './Unknown';
 import VideoPlayer from './VideoPlayer';
 
+const stringIsAValidUrl = s => {
+  try {
+    new URL(s);
+    return true;
+  } catch (err) {
+    return false;
+  }
+};
+
 const VideoComponents = {
   twitch: Twitch,
   youtube: Youtube,
@@ -50,6 +59,15 @@ const UniversalVideoEmbed = props => {
     muted = false,
     controls,
   } = props;
+
+  if (!stringIsAValidUrl(video)) {
+    return (
+      <div>
+        <b>Url is not valid</b>: {video}. <br />
+        Protocol is missing?
+      </div>
+    );
+  }
 
   const streamType = checkStreamType(video);
   const embeddingDomains = [

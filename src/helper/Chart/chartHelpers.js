@@ -35,6 +35,7 @@ export const calcDatasets = data => {
       backgroundColor: colorSchema.main[index],
       borderColor: colorSchema.main[index],
       borderWidth: 2,
+      pointRadius: 0,
     };
   });
 };

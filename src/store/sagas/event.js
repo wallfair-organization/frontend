@@ -84,6 +84,9 @@ const fetchHomeEvents = function* (action) {
     type: action.eventType,
     page: action.page,
     count: action.count,
+    category: action.category || 'all',
+    upcoming: action.upcoming,
+    deactivated: action.deactivated,
   };
 
   const response = yield call(Api.listEventsFiltered, params);
@@ -92,6 +95,7 @@ const fetchHomeEvents = function* (action) {
     yield put(
       EventActions.fetchHomeEventsSuccess({
         eventType: params.type,
+        state: action.state,
         events: response.data,
         page: params.page,
         count: params.count,
@@ -124,7 +128,7 @@ const fetchHistoryChartData = function* ({ betId, params }) {
     Api.setToken(token);
 
     const { data } = yield call(() =>
-      Api.getEventHistoryChartData(betId, params)
+      Api.getEventHistoryChartData(betId ?? params.betId, params)
     );
 
     yield put(EventActions.fetchChartDataSuccess(data));

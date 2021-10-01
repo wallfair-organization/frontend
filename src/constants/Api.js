@@ -31,7 +31,7 @@ export const API_EVENT_CREATE = 'api/event/create';
 export const API_EVENT_EDIT = 'api/event/:id';
 export const API_EVENT_LIST = 'api/event/list';
 export const API_EVENT_LIST_FILTERED =
-  'api/event/list/:type/:category/:count/:page/:sortBy/:searchQuery';
+  'api/event/list/:type/:category/:count/:page/:sortBy/:upcoming/:deactivated/:searchQuery';
 export const API_EVENT_CHAT_MESSAGES = 'api/event/chat-messages/:id';
 export const API_EVENT_EVALUATE_SEND = 'api/event/evaluate';
 export const API_USER = 'api/user/:id';
@@ -50,6 +50,8 @@ export const API_EVENT_CREATE_FROM_TWITCH = 'api/event/extract/twitch';
 export const API_EVENT_CREATE_FROM_YOUTUBE = 'api/event/create-from-youtube';
 export const API_EVENT_GET_COVER_STREAM = 'api/event/cover/streamed';
 export const API_BET_RESOLVE = 'api/event/bet/:id/resolve';
+export const API_BET_CANCEL = 'api/event/bet/:id/cancel';
+export const API_BET_DELETE = 'api/event/bet/:id/delete';
 export const API_TRADE_CREATE = 'api/trade';
 export const API_CASH_OUT = 'api/cashout';
 export const API_TRADE_GET_BY_ID = 'api/event/trade/:id';

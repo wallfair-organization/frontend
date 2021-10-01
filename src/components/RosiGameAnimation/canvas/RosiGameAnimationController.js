@@ -5,6 +5,7 @@ import TWEEN from '@tweenjs/tween.js';
 import CoinExplosion from './CoinExplosion';
 import { isMobileRosiGame } from './utils';
 import CashedOutAnimation from './CashedOutAnimation';
+import PreparingRound from './PreparingRound';
 
 // hide PIXI welcome messege in console
 PIXI.utils.skipHello();
@@ -23,7 +24,8 @@ function loadAssets(loader) {
     .add('redPlanet', constructPath('redPlanet.png'))
     .add('purplePlanet', constructPath('purplePlanet.png'))
     .add('star1', constructPath('star1.png'))
-    .add('star2', constructPath('star2.png'));
+    .add('star2', constructPath('star2.png'))
+    .add('preparing-round-anim', constructPath('preparing-round-anim.json'));
 
   loader.load();
 
@@ -69,9 +71,13 @@ class RosiAnimationController {
 
     this.cashedOut = new CashedOutAnimation(this.app);
     this.app.stage.addChild(this.cashedOut.container);
+
+    this.preparingRound = new PreparingRound(this.app);
+    this.app.stage.addChild(this.preparingRound.container);
   }
 
   start() {
+    this.preparingRound.hide();
     this.coinAndTrajectory.startCoinFlyingAnimation();
     this.cashedOut.reset();
   }

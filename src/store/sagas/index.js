@@ -135,7 +135,7 @@ const root = function* () {
       AuthenticationSagas.updateUserData
     ),
     takeLatest(
-      [EventTypes.FETCH_HISTORY_CHART_DATA],
+      [EventTypes.FETCH_HISTORY_CHART_DATA, EventTypes.UPDATE_CHART_PARAMS],
       EventSagas.fetchHistoryChartData
     ),
     takeLatest([EventTypes.FETCH_NEWS_DATA], EventSagas.fetchNewsData),

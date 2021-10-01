@@ -1,0 +1,23 @@
+@import '../../../styles/all';
+
+.container {
+  background-color: $colorWhite;
+  padding: 50px 20%;
+  margin-top: 100px;
+  text-align: center;
+
+  .heading {
+    font-size: 40px;
+  }
+
+  .subHeading {
+    size: 16px;
+    opacity: 0.6;
+    padding: 20px 0px;
+  }
+
+  .button {
+    width: 200px;
+    margin: 0 auto;
+  }
+}

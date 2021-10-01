@@ -16,6 +16,8 @@ const InfoBox = ({
   children,
   position = POSITIONS.topLeft,
   iconType = IconType.info,
+  iconClassName = ``,
+  autoWidth = false,
 }) => {
   const [showContent, setShowContent] = useState(false);
 
@@ -26,7 +28,7 @@ const InfoBox = ({
   const renderInfoIcon = () => {
     return (
       <Icon
-        className={styles.infoIcon}
+        className={classNames(styles.infoIcon, styles[iconClassName])}
         iconType={iconType}
         onClick={onHandleClick}
       />
@@ -47,6 +49,7 @@ const InfoBox = ({
         <div
           className={classNames(
             styles.infoBoxContentContainer,
+            autoWidth ? styles.autoWidth : null,
             styles[position]
           )}
         >

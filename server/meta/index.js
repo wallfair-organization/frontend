@@ -43,13 +43,13 @@ let meta = {
     keywords:
       'wallfair, casino, games betting, vegas, gambling, odds, roulette, crypto-casino',
   },
-  '/games/rosi-game': {
-    title: 'Wallfair Rosi Game',
-    description: 'To the Moon with Rosi, big wins, tiny rocket',
+  '/games/elon-game': {
+    title: 'Wallfair Elon Game',
+    description: 'To the Moon with Elon, big wins, tiny rocket',
     image:
       'https://main.wallfair.io/static/media/rosi-games-banner.18d1e81c.png',
     keywords:
-      'Wallfair, Casino, Games, Rosi, Moon, Rocket, Crypto, Casino, Betting',
+      'Wallfair, Casino, Games, Elon, Moon, Rocket, Crypto, Casino, Betting',
   },
 };
 

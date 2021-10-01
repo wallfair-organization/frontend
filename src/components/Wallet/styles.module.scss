@@ -61,7 +61,9 @@
             content: '- ';
         }
     }
-    .payout {
+    .payout,
+    .refund,
+    .sell {
         color: #acffce;
         letter-spacing: 0.35px;
         &::before {

@@ -51,6 +51,7 @@ export default {
   threeDotMenu: 'threeDotMenu',
   thumbUp: 'thumbUp',
   time: 'time',
+  trash: 'trash',
   twitch: 'twitch',
   question: 'question',
   wallet2: 'wallet2',

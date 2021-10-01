@@ -20,7 +20,7 @@
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 30px;
     outline: 0;
   }
@@ -37,14 +37,34 @@
     justify-content: center;
     overflow: auto;
 
+    &.welcomeContainer {
+      overflow: visible;
+    }
+
     //here specific popup sizes per type, if needed
     &.small {
       max-width: 500px;
       height: auto;
     }
 
-    @media(max-width: 768px) {
+    &.registrationPopupContainer {
+      width: auto;
+      max-width: max-content;
+      overflow: visible;
+    }
+
+    @media (max-width: 768px) {
       min-height: calc(100vh - 20px);
+
+      &.welcomeContainer {
+        min-height: calc(100vh - 100px);
+      }
+    }
+  }
+
+  &.explanationContainer {
+    @media (max-width: 768px) {
+      min-height: 100vh;
     }
   }
 
@@ -60,7 +80,6 @@
     .closeButton {
       z-index: $zIndexPopup + 1;
       cursor: pointer;
-
     }
   }
 }

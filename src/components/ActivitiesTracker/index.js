@@ -11,41 +11,26 @@ import 'swiper/components/pagination/pagination.min.css';
 
 import SwiperCore, { Pagination, Navigation } from 'swiper';
 
-import ChatMessageWrapper from '../ChatMessageWrapper';
 import classNames from 'classnames';
-import Icon from '../Icon';
-import IconTheme from '../Icon/IconTheme';
-import IconType from '../../components/Icon/IconType';
-import Input from '../Input';
 import styles from './styles.module.scss';
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
-import { WebsocketsActions } from '../../store/actions/websockets';
-import { usePrevPropValue } from '../../hooks/usePrevPropValue';
 import { useIsMount } from '../hoc/useIsMount';
-import { LOGGED_IN } from 'constants/AuthState';
 import ActivityMessage from './ActivityMessage';
-import CategoryListItem from '../CategoryList/CategoryListItem';
 import { getNotificationEvents } from '../../api';
 
 import { ACTIVITIES_TO_TRACK } from '../../constants/Activities';
-
-import testData from './testData';
-import { getTradeById } from '../../api';
+import { NotificationActions } from '../../store/actions/notification';
 
 SwiperCore.use([Navigation, Pagination]);
 
 const ActivitiesTracker = ({
   className,
-  inputClassName,
   messagesClassName,
-  user,
-  roomId,
-  chatMessageType,
-  sendChatMessage,
-  hideInput = false,
+  activities,
+  addInitialActivities,
 }) => {
   const messageListRef = useRef();
 
@@ -53,26 +38,25 @@ const ActivitiesTracker = ({
     ACTIVITIES_TO_TRACK[0].value
   );
 
-  const [activities, setActivities] = useState(testData);
-
-  const [notifications, setInitialNotifications] = useState();
   const isMount = useIsMount();
 
   useEffect(() => {
     if (isMount) {
       (async () => {
-        const initialNotifications = await getNotificationEvents().catch(
-          err => {
-            console.error("Can't get trade by id:", err);
-          }
-        );
+        const initialActivities = await getNotificationEvents().catch(err => {
+          console.error("Can't get trade by id:", err);
+        });
 
-        setInitialNotifications(_.get(initialNotifications, 'data', []));
+        addInitialActivities(initialActivities);
       })().catch(err => {
         console.error('initialNotification error', err);
       });
     }
   }, [isMount]);
+
+  useEffect(() => {
+    messageListScrollToBottom();
+  }, [activities.length]);
 
   const renderActivities = () => {
     // console.log("notifications", notifications);
@@ -80,8 +64,24 @@ const ActivitiesTracker = ({
     //   return item.type.indexOf(selectedCategory) > -1;
     // });
 
-    return _.map(notifications, (activityMessage, index) => {
-      const date = _.get(activityMessage, 'updatedAt');
+    return _.map(activities, (activityMessage, index) => {
+      let date = _.get(activityMessage, 'updatedAt');
+
+      //try to get trade updatedAt date
+      if (!date) {
+        date = _.get(activityMessage, 'data.trade.updatedAt');
+      }
+
+      //try to get bet updatedAt date
+      if (!date) {
+        date = _.get(activityMessage, 'data.bet.date');
+      }
+
+      //try to get event updatedAt date
+      if (!date) {
+        date = _.get(activityMessage, 'data.event.date');
+      }
+
       return (
         <ActivityMessage key={index} activity={activityMessage} date={date} />
       );
@@ -160,6 +160,7 @@ const ActivitiesTracker = ({
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    activities: state.notification.activities,
     user: state.authentication,
     connected: state.websockets.connected,
   };
@@ -167,8 +168,17 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendChatMessage: messageObject => {
-      dispatch(WebsocketsActions.sendChatMessage({ messageObject }));
+    addActivity: (type, activity) => {
+      dispatch(NotificationActions.addActivity({ type, activity }));
+    },
+    addInitialActivities: data => {
+      const responseData = _.get(data, 'data', []);
+
+      dispatch(
+        NotificationActions.addInitialActivities({
+          data: responseData,
+        })
+      );
     },
   };
 };

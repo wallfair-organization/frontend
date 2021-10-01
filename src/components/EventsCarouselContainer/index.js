@@ -10,12 +10,22 @@ import { useIsMount } from 'components/hoc/useIsMount';
 import styles from './styles.module.scss';
 import BetCard from 'components/BetCard';
 
-const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
+const EventsCarouselContainer = ({
+  events,
+  eventType,
+  state = 'all',
+  category = 'all',
+  deactivated = false,
+  upcoming = false,
+  title,
+  titleLink,
+  noEventsMessage = 'No events',
+  fetchEvents,
+}) => {
   const location = useLocation();
   const [page, setPage] = useState(1);
   const [currentEvents, setCurrentEvents] = useState([]);
   const [allLoaded, setAllLoaded] = useState(false);
-  const isMount = useIsMount();
 
   const allEvents = useSelector(state => state.event.events);
 
@@ -33,32 +43,49 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
     },
   };
 
-  useEffect(() => {
-    if (isMount) {
-      fetchEvents(eventType, page, COUNT);
-      setCurrentEvents(events[eventType]);
-    }
-  }, []);
+  let params = {
+    eventType,
+    state,
+    category,
+    deactivated,
+    upcoming,
+    page,
+    count: COUNT,
+  };
+
+  const getEvents = params => {
+    fetchEvents(params);
+    setCurrentEvents(events[eventType][state]);
+    setAllLoaded(events[eventType][state]?.length <= COUNT);
+  };
 
   useEffect(() => {
-    if (events[eventType].length != 0) {
-      setCurrentEvents(events[eventType]);
-      setAllLoaded(events[eventType].length < COUNT);
-    } else if (page != 1) {
+    getEvents(params);
+  }, [category]);
+
+  useEffect(() => {
+    const stateEvents = events[eventType][state];
+    setCurrentEvents(stateEvents);
+
+    if (stateEvents?.length !== 0) {
+      setAllLoaded(stateEvents?.length < COUNT);
+    } else if (page !== 1) {
       setAllLoaded(true);
       setPage(page - 1);
     }
-  }, [events, eventType]);
+  }, [events, eventType, page, state]);
 
   const nextPage = () => {
     const next = page + 1;
-    fetchEvents(eventType, next, COUNT);
+    const query = { ...params, page: next };
+    fetchEvents(query);
     setPage(next);
   };
 
   const previousPage = () => {
     const previous = page - 1;
-    fetchEvents(eventType, previous, COUNT);
+    const query = { ...params, page: previous };
+    fetchEvents(query);
     setPage(previous);
   };
 
@@ -109,14 +136,16 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
       return concat;
     }, []);
 
-    const betIdsFromCurrentEvents = currentEvents.reduce((acc, current) => {
+    const betIdsFromCurrentEvents = currentEvents?.reduce((acc, current) => {
       const concat = [...acc, ...current.bets];
       return concat;
     }, []);
 
-    const filteredBets = allBets.filter(bet => {
-      return betIdsFromCurrentEvents.includes(bet._id) && bet.published;
-    });
+    const filteredBets = betIdsFromCurrentEvents
+      ? allBets.filter(bet => {
+          return betIdsFromCurrentEvents.includes(bet._id) && bet.published;
+        })
+      : [];
 
     return _.map(filteredBets, bet => {
       const betId = _.get(bet, '_id');
@@ -153,15 +182,20 @@ const EventsCarouselContainer = ({ events, eventType, fetchEvents }) => {
   return (
     <CarouselContainer
       key={eventType}
-      title={carouselProps[eventType].title}
-      titleLink={carouselProps[eventType].titleLink}
+      title={title ?? carouselProps[eventType].title}
+      titleLink={titleLink ?? carouselProps[eventType].titleLink}
       titleLinkTo={carouselProps[eventType].titleLinkTo}
       prevArrowInactive={page === 1}
       nextArrowInactive={allLoaded}
       onNext={nextPage}
       onPrevious={previousPage}
     >
-      {eventType === 'streamed' ? renderLiveEvents() : renderBetCards()}
+      {eventType === 'streamed' && currentEvents?.length > 0
+        ? renderLiveEvents()
+        : renderBetCards()}
+      {currentEvents?.length === 0 && (
+        <div className={styles.noEventsBox}>{noEventsMessage}</div>
+      )}
     </CarouselContainer>
   );
 };
@@ -174,14 +208,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchEvents: (eventType, page, count) => {
-      dispatch(
-        EventActions.fetchHomeEvents({
-          eventType,
-          page,
-          count,
-        })
-      );
+    fetchEvents: params => {
+      dispatch(EventActions.fetchHomeEvents(params));
     },
   };
 };

@@ -49,13 +49,10 @@ const ResolveBetPopup = ({ events, betId, eventId, hidePopup, visible }) => {
       evidenceActual: evidenceActual,
       evidenceDescription: evidenceDescription,
       outcomeIndex: +outcome,
-    })
-      .then(() => {
-        hidePopup();
-      })
-      .finally(() => {
-        setIsResolving(false);
-      });
+    }).then(() => {
+      setIsResolving(false);
+      hidePopup();
+    });
   };
 
   return (

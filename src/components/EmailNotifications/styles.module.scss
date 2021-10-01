@@ -1,97 +1,98 @@
-@import "../../styles/all";
+@import '../../styles/all';
 
 .emailNotificationContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  color: $colorWhite;
+  height: calc(100% + 250px);
+
+  @media (max-width: $screen-xs) {
+    height: calc(100% + 350px);
+  }
+
+  .title {
+    word-spacing: 4px;
+    letter-spacing: 0.6px;
+  }
+
+  .optionContainer {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 0 30px;
-    color: $colorWhite;
-    height: 100%;
+    margin-top: 24px;
 
-    .title {
-        word-spacing: 4px;
-        letter-spacing: 0.6px;
-    }
+    .option {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+      width: 100%;
+      background-color: rgba(172, 196, 255, 0.1);
+      box-shadow: 0px 2px 4px rgba(158, 158, 158, 0.16);
+      border-radius: 8px;
+      margin: 12px 0;
+      cursor: pointer;
+      .box {
+        width: 30px;
+        height: 30px;
+        margin: 0 16px;
+        border-radius: 15px;
+        background: $colorBlue;
+      }
+      .optionIcon {
+        width: 24px;
+        height: 24px;
+        margin: 0 16px;
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.2);
+        svg {
+          fill: #3570ff;
+          stroke: none;
+        }
+      }
 
-    .optionContainer {
+      &.selected {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .optionText {
         flex: 1;
-        display: flex;
-        flex-direction: column;
-        margin-top: 24px;
+      }
+    }
+  }
 
-        .option {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-            width: 100%;
-            background-color: rgba(172, 196, 255, 0.1);
-            box-shadow: 0px 2px 4px rgba(158, 158, 158, 0.16);
-            border-radius: 8px;
-            margin: 12px 0;
-            cursor: pointer;
-            .box{
-              width: 30px;
-              height: 30px;
-              margin: 0 16px;
-              border-radius: 15px;
-              background: $colorBlue;
-            }
-            .optionIcon {
-                width: 24px;
-                height: 24px;
-                margin: 0 16px;
-                border-radius: 12px;
-                background-color: rgba(255, 255, 255, 0.2);
-                svg{
-                  fill: #3570FF;
-                  stroke: none;
-                }
-            }
+  .btnContainer {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    margin: 30px 0;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 
-            &.selected {
-                background-color: rgba(255, 255, 255, 0.2);
-            }
-
-            &:hover {
-                background-color: rgba(255, 255, 255, 0.2);
-            }
-
-
-
-            .optionText {
-                flex: 1;
-
-            }
-        }
+    img {
+      width: calc(100% - 60px);
+      height: 60px;
+      position: absolute;
+      top: 0;
+      left: 30px;
+      z-index: 0;
     }
 
-    .btnContainer {
-        width: 100%;
-        height: 60px;
-        position: relative;
-        margin-bottom: 30px;
-        padding: 0 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-
-        img {
-            width: calc(100% - 60px);
-            height: 60px;
-            position: absolute;
-            top: 0;
-            left: 30px;
-            z-index: 0;
-        }
-
-        span {
-            color: black;
-            font-size: 18px;
-            font-family: $fontBold;
-            z-index: 1;
-        }
+    span {
+      padding-top: 15px;
+      color: black;
+      font-size: 20px;
+      font-family: $fontBold;
+      z-index: 1;
     }
+  }
 }
-

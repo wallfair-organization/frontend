@@ -1,27 +1,34 @@
 @import '../../styles/all';
 
-.betActionChatMessage
-{
-    padding:          10px 15px;
-    border-radius:    6px;
-    background-color: rgba(255, 255, 255, 0.2);
-    display:          flex;
-    flex-direction:   row;
-    justify-content:  space-between;
-    align-items:      center;
-    font-size:        14px;
-    text-align:       left;
-    margin-top:       0.5rem;
-    cursor:           pointer;
+.betActionChatMessage {
+  padding: 10px 15px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  text-align: left;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
 
-    strong
-    {
-        font-family: $fontBold;
-    }
+  &.newMessage {
+    animation: messageDrop 500ms ease;
+  }
 
-    > :last-child
-    {
-        width:       60px;
-        margin-left: 10px;
-    }
+  &.isVisible {
+    opacity: 1;
+  }
+
+  strong {
+    font-family: $fontBold;
+  }
+
+  > :last-child {
+    width: 60px;
+    margin-left: 10px;
+  }
 }

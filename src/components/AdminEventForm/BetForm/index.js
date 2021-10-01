@@ -83,6 +83,7 @@ const BetForm = ({ setBetData, styles }) => {
           onTagChange={handleTagChange}
           addTag={addTag}
           removeTag={removeTag}
+          max={4}
         />
       </FormGroup>
       <FormGroup className={styles.inputContainer}>

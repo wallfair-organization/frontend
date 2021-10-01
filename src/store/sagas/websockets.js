@@ -12,6 +12,7 @@ import Routes from '../../constants/Routes';
 import { matchPath } from 'react-router';
 import { ROSI_GAME_EVENT_ID } from 'constants/RosiGame';
 import { EventActions } from '../actions/event';
+import trackedActivities from '../../components/ActivitiesTracker/trackedActivities';
 
 function createSocketChannel(socket) {
   return eventChannel(emit => {
@@ -101,6 +102,15 @@ function createSocketChannel(socket) {
       emit(message);
     };
 
+    const onAnyListener = (eventName, data) => {
+      const message = {
+        type: 'any',
+        eventName,
+        data,
+      };
+      emit(message);
+    };
+
     // setup the subscription
     socket.on('connect', connectHandler);
     socket.on('chatMessage', chatMessageHandler);
@@ -113,6 +123,7 @@ function createSocketChannel(socket) {
     socket.on('CASINO_END', casinoEndHandler);
     socket.on('CASINO_TRADE', casinoTradeHandler);
     socket.on('CASINO_REWARD', casinoRewardHandler);
+    socket.onAny(onAnyListener);
 
     const unsubscribe = () => {
       socket.off('chatMessage', chatMessageHandler);
@@ -124,6 +135,7 @@ function createSocketChannel(socket) {
       socket.off('CASINO_END', casinoEndHandler);
       socket.off('CASINO_TRADE', casinoTradeHandler);
       socket.off('CASINO_REWARD', casinoRewardHandler);
+      socket.offAny(onAnyListener);
     };
 
     return unsubscribe;
@@ -180,10 +192,28 @@ export function* init() {
             break;
           case ChatMessageType.pulloutBet:
           case ChatMessageType.createBet:
-          case ChatMessageType.placeBet:
           case ChatMessageType.event:
           case ChatMessageType.game:
           case ChatMessageType.user:
+            yield put(
+              ChatActions.addMessage({
+                roomId: payload.roomId,
+                message: payload,
+              })
+            );
+            break;
+          case ChatMessageType.placeBet:
+            const events = yield select(state => state.event.events);
+            const event = events.find(e => e._id === payload.roomId);
+
+            if (event?.type === 'non-streamed') {
+              const chartParams = yield select(
+                state => state.event.chartParams
+              );
+              yield put(
+                EventActions.initiateFetchChartData(payload.betId, chartParams)
+              );
+            }
             yield put(
               ChatActions.addMessage({
                 roomId: payload.roomId,
@@ -201,6 +231,16 @@ export function* init() {
                 notification: payload,
               })
             );
+            break;
+          case 'any':
+            if (trackedActivities.indexOf(payload.eventName) > -1) {
+              yield put(
+                NotificationActions.addActivity({
+                  activity: payload.data,
+                  eventName: payload.eventName,
+                })
+              );
+            }
             break;
         }
       } catch (err) {
@@ -250,9 +290,11 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
             roomId: event._id,
           })
         );
+
+        return;
       }
     }
-    if (currentAction[1] === 'rosi-game' || pathSlugs[1] === 'rosi-game') {
+    if (currentAction[1] === 'elon-game' || pathSlugs[1] === 'elon-game') {
       if (room) {
         yield put(
           WebsocketsActions.leaveRoom({
@@ -268,6 +310,8 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
           roomId: ROSI_GAME_EVENT_ID,
         })
       );
+
+      return;
     } else {
       if (room) {
         yield put(
