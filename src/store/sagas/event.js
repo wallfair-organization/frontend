@@ -84,7 +84,6 @@ const fetchHomeEvents = function* (action) {
     type: action.eventType,
     page: action.page,
     count: action.count,
-    state: action.state || 'all',
     category: action.category || 'all',
     upcoming: action.upcoming,
     deactivated: action.deactivated,
