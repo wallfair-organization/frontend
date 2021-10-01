@@ -32,6 +32,9 @@
       stroke: $colorPrimary;
       fill: $colorBlack;
     }
+    @media (max-width: $screen-md) {
+      top: 30px;
+    }
   }
 
   .infoBoxContentContainer {

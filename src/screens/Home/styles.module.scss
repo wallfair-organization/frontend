@@ -111,7 +111,15 @@
   .title {
     font-family: $fontBold;
     font-size: 30px;
-    color: $colorWhite;
+    color: $colorBlack;
+    background-image: url('../../data/backgrounds/games/games-highlight.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 350px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media (max-width: $screen-md) {
       font-size: 22px;

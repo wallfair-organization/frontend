@@ -55,7 +55,8 @@ const EventsCarouselContainer = ({
 
   const getEvents = params => {
     fetchEvents(params);
-    setCurrentEvents(events[eventType][state]);
+    console.log(events[eventType]);
+    setCurrentEvents(events[eventType]);
     setAllLoaded(events[eventType][state]?.length <= COUNT);
   };
 
@@ -90,6 +91,7 @@ const EventsCarouselContainer = ({
   };
 
   const renderLiveEvents = () => {
+    console.log(currentEvents);
     return _.map(currentEvents, event => {
       const eventId = _.get(event, '_id');
       const eventSlug = _.get(event, 'slug');
@@ -178,7 +180,7 @@ const EventsCarouselContainer = ({
       );
     });
   };
-
+  console.log('currentEvents', currentEvents);
   return (
     <CarouselContainer
       key={eventType}

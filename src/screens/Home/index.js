@@ -98,11 +98,7 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
     return (
       <Link to={Routes.rosiGame}>
         <div className={styles.banner}>
-          <div className={styles.title}>
-            Play the
-            <br />
-            Elon Game
-          </div>
+          <div className={styles.title}>Play the Elon Game</div>
         </div>
       </Link>
     );
