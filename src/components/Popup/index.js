@@ -210,7 +210,11 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
             small ? styles.small : null,
             type === PopupTheme.auth &&
               options?.authenticationType === 'register' &&
-              styles.registrationPopupContainer
+              styles.registrationPopupContainer,
+            [
+              PopupTheme.signUpNotificationFirst,
+              PopupTheme.signUpNotificationSecond,
+            ].includes(type) && styles.signUpNotificationPopupContainer
           )}
         >
           <div className={styles.modalContent}>

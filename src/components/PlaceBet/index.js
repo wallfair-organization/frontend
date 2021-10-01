@@ -24,6 +24,7 @@ import ReactCanvasConfetti from 'react-canvas-confetti';
 import { playWinSound } from '../../helper/Audio';
 import InfoBox from 'components/InfoBox';
 import IconType from '../Icon/IconType';
+import AuthenticationType from 'components/Authentication/AuthenticationType';
 
 const PlaceBet = () => {
   const dispatch = useDispatch();
@@ -137,7 +138,10 @@ const PlaceBet = () => {
     dispatch(
       PopupActions.show({
         popupType: PopupTheme.auth,
-        options: { small: true },
+        options: {
+          small: true,
+          authenticationType: AuthenticationType.register,
+        },
       })
     );
   };

@@ -37,6 +37,7 @@
     justify-content: center;
     overflow: auto;
 
+    &.signUpNotificationPopupContainer,
     &.welcomeContainer {
       overflow: visible;
     }
