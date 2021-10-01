@@ -8,8 +8,8 @@ import { ReactComponent as ConfettiLeft } from '../../data/icons/confetti-left.s
 import { ReactComponent as ConfettiRight } from '../../data/icons/confetti-right.svg';
 
 const AuthenticationPopup = ({ authenticationType }) => {
-  const promoDeadline = '2021-10-12T08:00:00';
-  const isPromoWindow = true;
+  const promoDeadline = process.env.REACT_APP_SIGNUP_PROMO_DEADLINE_DATETIME;
+  const isPromoWindow = !!promoDeadline && new Date() < new Date(promoDeadline);
 
   const renderPromoMessage = () => (
     <div className={styles.promoMessage}>
@@ -18,7 +18,7 @@ const AuthenticationPopup = ({ authenticationType }) => {
       </div>
       <p>
         Sign up <strong>now</strong> for a chance to be one of the 500 early
-        access testers to earn
+        access testers and earn
       </p>
       <span className={styles.prizeAmount}>5.000 {TOKEN_NAME}</span>
       <ConfettiLeft className={styles.confettiLeft} />
