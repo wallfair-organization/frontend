@@ -105,7 +105,7 @@
   }
 
   @media (max-width: $screen-xs) {
-    padding: 40px;
+    padding: 30px;
   }
 
   .title {
@@ -126,12 +126,18 @@
     }
 
     @media (max-width: $screen-sm) {
-      font-size: 36px;
+      font-size: 30px;
       margin-top: 100%;
+      margin-right: auto;
+      margin-left: auto;
     }
 
     @media (max-width: $screen-xs) {
-      font-size: 30px;
+      font-size: 20px;
+      width: 230px;
+      height: 66px;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 }
