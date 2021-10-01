@@ -80,11 +80,7 @@ const GameCards = ({ games, category, showHowtoLink, showPopup }) => {
                     <div className={styles.title}>{game.title}</div>
                     <div className={styles.description}>{game.description}</div>
                   </div>
-                  {game?.active ? (
-                    <div className={styles.inactivePlaceholder}>
-                      Play the {game.title}
-                    </div>
-                  ) : (
+                  {!game.active && (
                     <div className={styles.inactivePlaceholder}>
                       Coming Soon
                     </div>
