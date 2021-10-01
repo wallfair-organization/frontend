@@ -90,19 +90,21 @@ const listEvents = () => {
 const listEventsFiltered = ({
   type,
   category,
-  state,
   count,
   page,
   sortBy,
+  upcoming,
+  deactivated,
   searchQuery,
 }) => {
   return Api.get(
     ApiUrls.API_EVENT_LIST_FILTERED.replace(':type', type)
       .replace(':category', category)
-      .replace(':state', state)
       .replace(':count', count)
       .replace(':page', page)
       .replace(':sortBy', sortBy)
+      .replace(':upcoming', upcoming)
+      .replace(':deactivated', deactivated)
       .replace(':searchQuery', searchQuery)
   ).catch(error => {
     console.log('[API Error] called: listEventsFIltered', error);

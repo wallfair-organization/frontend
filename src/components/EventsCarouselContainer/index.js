@@ -15,8 +15,11 @@ const EventsCarouselContainer = ({
   eventType,
   state = 'all',
   category = 'all',
+  deactivated = false,
+  upcoming = false,
   title,
   titleLink,
+  noEventsMessage = 'No events',
   fetchEvents,
 }) => {
   const location = useLocation();
@@ -41,32 +44,49 @@ const EventsCarouselContainer = ({
     },
   };
 
-  useEffect(() => {
-    if (isMount) {
-      fetchEvents(eventType, state, category, page, COUNT);
-      setCurrentEvents(events[eventType][state]);
-    }
-  }, []);
+  let params = {
+    eventType,
+    state,
+    category,
+    deactivated,
+    upcoming,
+    page,
+    count: COUNT,
+  };
+
+  const getEvents = params => {
+    fetchEvents(params);
+    setCurrentEvents(events[eventType][state]);
+    setAllLoaded(events[eventType][state]?.length <= COUNT);
+  };
 
   useEffect(() => {
-    if (events[eventType][state].length !== 0) {
-      setCurrentEvents(events[eventType][state]);
-      setAllLoaded(events[eventType][state]?.length <= COUNT);
+    getEvents(params);
+  }, [category]);
+
+  useEffect(() => {
+    const stateEvents = events[eventType][state];
+    setCurrentEvents(stateEvents);
+
+    if (stateEvents?.length !== 0) {
+      setAllLoaded(stateEvents?.length < COUNT);
     } else if (page !== 1) {
       setAllLoaded(true);
       setPage(page - 1);
     }
-  }, [events, eventType, page]);
+  }, [events, eventType, page, state]);
 
   const nextPage = () => {
     const next = page + 1;
-    fetchEvents(eventType, state, category, next, COUNT);
+    const query = { ...params, page: next };
+    fetchEvents(query);
     setPage(next);
   };
 
   const previousPage = () => {
     const previous = page - 1;
-    fetchEvents(eventType, state, category, previous, COUNT);
+    const query = { ...params, page: previous };
+    fetchEvents(query);
     setPage(previous);
   };
 
@@ -169,7 +189,12 @@ const EventsCarouselContainer = ({
       onNext={nextPage}
       onPrevious={previousPage}
     >
-      {eventType === 'streamed' ? renderLiveEvents() : renderBetCards()}
+      {eventType === 'streamed' && currentEvents?.length > 0
+        ? renderLiveEvents()
+        : renderBetCards()}
+      {currentEvents?.length === 0 && (
+        <div className={styles.noEventsBox}>{noEventsMessage}</div>
+      )}
     </CarouselContainer>
   );
 };
@@ -182,16 +207,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchEvents: (eventType, state, category, page, count) => {
-      dispatch(
-        EventActions.fetchHomeEvents({
-          eventType,
-          state,
-          category,
-          page,
-          count,
-        })
-      );
+    fetchEvents: params => {
+      dispatch(EventActions.fetchHomeEvents(params));
     },
   };
 };

@@ -196,13 +196,14 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
         </AdminOnly>
 
         {eventType === 'streamed' && (
-          <>
+          <div className={styles.streamedContainer}>
             <EventsCarouselContainer
               eventType="streamed"
               category={category}
               state="online"
               title="Current Live Streams"
               titleLink={false}
+              noEventsMessage="No live events right now. Please check back soon."
             />
             <EventsCarouselContainer
               eventType="streamed"
@@ -210,6 +211,8 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
               state="coming_soon"
               title="Upcoming Events"
               titleLink={false}
+              upcoming={true}
+              noEventsMessage="No upcoming events on this category. Please check back soon."
             />
             <EventsCarouselContainer
               eventType="streamed"
@@ -217,8 +220,10 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
               state="offline"
               title="Past events"
               titleLink={false}
+              deactivated={true}
+              noEventsMessage="No past events in this category yet. Please check back soon."
             />
-          </>
+          </div>
         )}
 
         {eventType === 'non-streamed' &&

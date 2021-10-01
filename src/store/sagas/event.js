@@ -86,6 +86,8 @@ const fetchHomeEvents = function* (action) {
     count: action.count,
     state: action.state || 'all',
     category: action.category || 'all',
+    upcoming: action.upcoming,
+    deactivated: action.deactivated,
   };
 
   const response = yield call(Api.listEventsFiltered, params);

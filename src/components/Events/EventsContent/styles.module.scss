@@ -126,6 +126,11 @@
   }
 }
 
+.streamedContainer {
+  max-width: 1300px;
+  width: 100%;
+}
+
 .newEventLink {
   display: flex;
   flex-flow: column nowrap;

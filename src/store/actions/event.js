@@ -61,6 +61,8 @@ const fetchHomeEvents = makeActionCreator(EventTypes.FETCH_HOME_EVENTS, {
   eventType: null,
   state: null,
   category: null,
+  deactivated: false,
+  upcoming: false,
   page: null,
   count: null,
 });
