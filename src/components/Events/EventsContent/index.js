@@ -3,12 +3,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch, connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
-import Search from '../../Search';
-import Select from '../../Select';
-import EventCard from '../../EventCard';
 import CategoryList from '../../CategoryList';
 import { useMappedActions } from './hooks/useMappedActions';
-import { useSortFilter } from './hooks/useSortFilter';
 import { useRouteHandling } from './hooks/useRouteHandling';
 import ContentFooter from 'components/ContentFooter';
 import AdminOnly from 'components/AdminOnly';
@@ -25,23 +21,12 @@ import EventsCarouselContainer from 'components/EventsCarouselContainer';
 
 function EventsContent({ eventType, categories, setCategories, showPopup }) {
   const dispatch = useDispatch();
-  const [searchInput, setSearchInput] = useState('');
   const [coverStream, setCoverStream] = useState('');
 
   const { location, category: encodedCategory } = useRouteHandling(eventType);
   const category = decodeURIComponent(encodedCategory);
 
-  const { fetchFilteredEvents, resetDefaultParamsValues } =
-    useMappedActions(eventType);
-
-  const { handleSelectSortItem, selectedSortItem, sortOptions } =
-    useSortFilter();
-
-  const handleSearchSubmit = val => {
-    fetchFilteredEvents({
-      searchQuery: searchInput,
-    });
-  };
+  const { resetDefaultParamsValues } = useMappedActions(eventType);
 
   const handleSelectCategory = useCallback(
     value => {
@@ -99,12 +84,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
 
   useEffect(() => {
     handleSelectCategory(category);
-
-    // fetchFilteredEvents({
-    //   category: category,
-    //   sortBy: selectedSortItem,
-    // });
-  }, [category, selectedSortItem, fetchFilteredEvents, handleSelectCategory]);
+  }, [category, handleSelectCategory]);
 
   useEffect(() => {
     getCoverStream().then(({ response }) => {
@@ -153,21 +133,6 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
             handleSelect={handleSelectCategory}
           />
         </div>
-        {/* <div className={styles.search}>
-          <Search
-            value={searchInput}
-            handleChange={value => setSearchInput(value)}
-            handleConfirm={handleSearchSubmit}
-          />
-        </div>
-        <div className={styles.sort}>
-          <Select
-            value={selectedSortItem}
-            placeholder="Sort by"
-            options={sortOptions}
-            handleSelect={handleSelectSortItem}
-          />
-        </div> */}
       </section>
       <section className={styles.main}>
         <AdminOnly>
