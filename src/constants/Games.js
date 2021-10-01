@@ -47,7 +47,7 @@ export const CASINO_GAMES = [
   },
   {
     background: First,
-    title: 'Name Games',
+    title: 'Satoshi the Kid',
     subtitle: '',
     description: '',
     active: false,
