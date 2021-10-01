@@ -66,10 +66,8 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
     return (
       <div className={styles.mainHeadline}>
         <h1>Betting Reimagined</h1>
-        <div className={styles.slogan}>
-          No revenues<span>.</span> No Bookies<span>.</span> No Boring Bets
-          <span>.</span>
-        </div>
+
+        <div className={styles.slogan}>Clear, Social &amp; Fair</div>
       </div>
     );
   };

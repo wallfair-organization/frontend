@@ -26,7 +26,8 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
   const { location, category: encodedCategory } = useRouteHandling(eventType);
   const category = decodeURIComponent(encodedCategory);
 
-  const { resetDefaultParamsValues } = useMappedActions(eventType);
+  const { fetchFilteredEvents, resetDefaultParamsValues } =
+    useMappedActions(eventType);
 
   const handleSelectCategory = useCallback(
     value => {
@@ -84,7 +85,12 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
 
   useEffect(() => {
     handleSelectCategory(category);
-  }, [category, handleSelectCategory]);
+
+    fetchFilteredEvents({
+      category: category,
+      sortBy: 'name',
+    });
+  }, [category, fetchFilteredEvents, handleSelectCategory]);
 
   useEffect(() => {
     getCoverStream().then(({ response }) => {

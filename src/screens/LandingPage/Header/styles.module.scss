@@ -14,8 +14,45 @@
 
 .mainHeading {
   color: $colorWhite;
-  font-size: 50px;
-  margin-bottom: 50px;
+  font-family: $fontBold;
+  font-size: 46px;
+  font-weight: bold;
+  line-height: 1.13;
+  letter-spacing: 1px;
+
+  @media (max-width: $screen-md) {
+    font-size: 38px;
+  }
+}
+
+div.slogan {
+  color: $colorWhite;
+  padding: 12px 0;
+  font-size: 25px;
+  font-family: $fontMedium;
+  margin-bottom: 30px;
+
+  span {
+    font-family: $fontBold;
+    color: $colorYellowLight;
+  }
+
+  @media (max-width: $screen-md) {
+    font-size: 24px;
+    padding: 12px 15px;
+  }
+}
+
+div.howdoesitwork {
+  color: $colorWhite;
+  padding: 12px 0;
+  font-size: 36px;
+  font-family: $fontMedium;
+  margin: 60px 0;
+
+  @media (max-width: $screen-md) {
+    margin: 40px 0;
+  }
 }
 
 .video {

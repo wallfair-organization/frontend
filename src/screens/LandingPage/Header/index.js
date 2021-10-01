@@ -5,7 +5,9 @@ const LandingPage = () => {
   return (
     <div className={styles.header}>
       <h6 className={styles.subHeading}>Join the ride.</h6>
-      <h1 className={styles.mainHeading}>How it works for Normies</h1>
+      <h1 className={styles.mainHeading}>Betting Reimagined</h1>
+      <div className={styles.slogan}>Clear, Social &amp; Fair</div>
+
       <div className={styles.video}>
         <VideoPlayer
           video="https://files.wallfair.io/wallfair.mp4"
@@ -13,6 +15,8 @@ const LandingPage = () => {
           loop={true}
         />
       </div>
+
+      <div className={styles.howdoesitwork}>So how does it all work?</div>
     </div>
   );
 };
