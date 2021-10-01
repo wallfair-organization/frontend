@@ -418,6 +418,7 @@ const Bet = ({
           onBetActionSwitch(swiper.activeIndex);
         }}
         onSwiper={onSwiper}
+        noSwipingClass={`MuiSlider-root`}
       >
         <SwiperSlide className={styles.carouselSlide}>
           <div ref={mobileChatRef}>
