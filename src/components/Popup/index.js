@@ -35,12 +35,14 @@ import ResolveBetPopup from 'components/ResolveBetPopup';
 import { useOutsideClick } from 'hooks/useOutsideClick';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
 import ExplanationViewPopup from 'components/ExplanationViewPopup';
+import DisclaimerPopupView from 'components/DisclaimerPopupView';
 
 const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
   const small = _.get(options, 'small', false);
 
   useEffect(() => {
     const close = e => {
+      if (type === PopupTheme.disclaimer) return;
       // Keycode is deprecated: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
       // Adding still for older browsers
       if (e?.keyCode === 27 || e?.key === 'Escape') {
@@ -183,6 +185,8 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
         );
       case PopupTheme.explanation:
         return <ExplanationViewPopup type={options.type} closed={!visible} />;
+      case PopupTheme.disclaimer:
+        return <DisclaimerPopupView />;
     }
 
     return null;
@@ -190,11 +194,18 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
 
   return (
     <>
-      <div className={classNames(styles.modal, visible ? null : styles.hidden)}>
+      <div
+        className={classNames(
+          styles.modal,
+          visible ? null : styles.hidden,
+          type === PopupTheme.disclaimer ? styles.disclaimerContainer : null
+        )}
+      >
         <div
           ref={popupElement}
           className={classNames(
             styles.modalDialog,
+            type === PopupTheme.disclaimer ? styles.disclaimerContainer : null,
             type === PopupTheme.signUpNotificationFirst ||
               type === PopupTheme.signUpNotificationSecond
               ? styles.signUpPopupContainer
@@ -219,16 +230,17 @@ const Popup = ({ type, visible, options = {}, events, hidePopup }) => {
         >
           <div className={styles.modalContent}>
             <div className={styles.closeButtonContainer}>
-              {type !== PopupTheme.signUpNotificationSecond && (
-                <Icon
-                  width={30}
-                  height={30}
-                  className={styles.closeButton}
-                  iconType={IconType.deleteInput}
-                  iconTheme={IconTheme.primary}
-                  onClick={hidePopup}
-                />
-              )}
+              {type !== PopupTheme.signUpNotificationSecond &&
+                type !== PopupTheme.disclaimer && (
+                  <Icon
+                    width={30}
+                    height={30}
+                    className={styles.closeButton}
+                    iconType={IconType.deleteInput}
+                    iconTheme={IconTheme.primary}
+                    onClick={hidePopup}
+                  />
+                )}
             </div>
 
             {renderPopup()}

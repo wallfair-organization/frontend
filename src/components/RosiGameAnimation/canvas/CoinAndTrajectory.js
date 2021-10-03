@@ -66,7 +66,7 @@ export class CoinAnimation {
     const vy = distanceY / length;
     const defaultSpeed = length / (ROSI_GAME_MAX_DURATION_SEC * 100);
     // start with higher speed for the boost effect
-    let speed = defaultSpeed * 10;
+    let speed = defaultSpeed * 150;
 
     let x = 0;
     let y = this.elonAndCoin.y + this.coin.height / 2;
@@ -92,7 +92,7 @@ export class CoinAnimation {
       this.trajectory.lineTo(x, y);
 
       if (speed > defaultSpeed) {
-        speed -= (defaultSpeed / 8) * dt; // 8 is a magic number...
+        speed -= defaultSpeed * 2.5 * dt; // 8 is a magic number...
       } else {
         speed = defaultSpeed;
       }
@@ -139,5 +139,12 @@ export class CoinAnimation {
     this.coin.alpha = 1;
     this.elonAndCoin.rotation = 0;
     this.trajectory.clear();
+  }
+
+  getCurrentVelocty() {
+    return {
+      x: this.elonAndCoin.vx,
+      y: this.elonAndCoin.vy,
+    };
   }
 }

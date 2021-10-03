@@ -12,32 +12,38 @@ const ExplanationViewPopup = ({ closed, hidePopup }) => {
     return (
       <div className={styles.explanationTextContainer}>
         <h3 className={styles.explanationTextHeadline}>
-          How to earn with Live Events
+          How to participate in Live Events?
           <span className={styles.explanationTextHeadlineUnderline}></span>
         </h3>
 
         <span className={styles.explanationText}>
           <p>
-            Live Events are a new kind of entertainment: You can watch live
-            sports, funny and serious events and bet on the outcome of the
-            stream.
+            Wallfair's Live Events bring an added layer of entertainment to all
+            live streams out there. While watching any live stream on Wallfair,
+            you can now bet on various exciting events while enjoying the
+            stream!
           </p>
 
           <p>
-            You simply choose an event, enter how much you want to trade and
-            select between 2-4 outcomes and see how much return you make. You
-            can place a bet in seconds from any where.That simple it is.
+            To participate, simply choose an event that has an active live
+            stream, enter an amount of WFAIR you'd like to wager and finally
+            choose your desired outcome(s)!
           </p>
 
           <p>
-            Btw, you can “sell” your positions at any time, When the propability
-            of your choice has gone up, you can sell any time before the event
-            ends at a profit.
+            In case the probability of your chosen outcome has deviated from
+            your target, you can sell your position at any time before the event
+            ends.
           </p>
 
           <p>
-            Also, you can share, chat, see event details, trading history and
-            your open positions.
+            Wallfair allows you to place a bet anywhere and anytime, while
+            granting you the flexibility to trade your positions in the event!
+          </p>
+
+          <p>
+            In addition, you can chat with the community, share your events, and
+            see details about the events and trades!
           </p>
         </span>
       </div>

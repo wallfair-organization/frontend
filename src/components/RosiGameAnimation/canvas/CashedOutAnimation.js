@@ -12,6 +12,8 @@ const COIN_DEFAULT_SCALE = isMobileRosiGame ? 0.5 : 0.3;
 class Animation {
   constructor(app) {
     this.app = app;
+    this.vx = 0;
+    this.vy = 0;
     this.container = new PIXI.Container();
 
     const [coin, coinTween] = this.createCoin();
@@ -122,6 +124,24 @@ class Animation {
     this.coin.scale.set(COIN_DEFAULT_SCALE);
     this.container.visible = false;
   }
+
+  setVelocity(vx, vy) {
+    this.vx = vx;
+    this.vy = vy;
+  }
+
+  update(dt, speed) {
+    this.container.x -= this.vx * speed * dt;
+    this.container.y -= this.vy * speed * dt;
+  }
+
+  getWidth() {
+    return this.container.width;
+  }
+
+  getX() {
+    return this.container.x;
+  }
 }
 
 class CashedOutAnimation {
@@ -130,11 +150,15 @@ class CashedOutAnimation {
     this.container = new PIXI.Container();
     this.currentAnims = [];
     this.cachedAnims = [];
-    this.previousCrashPositionX = null;
     this.currentTextOrientation = 'bottom';
   }
 
-  animate(x, y, amount, crashFactor) {
+  animate(x, y, amount, crashFactor, velocity) {
+    const previousAnimX =
+      this.currentAnims.length > 0
+        ? this.currentAnims[this.currentAnims.length - 1].getX()
+        : 0;
+
     let anim;
 
     if (this.cachedAnims.length > 0) {
@@ -144,36 +168,36 @@ class CashedOutAnimation {
       this.container.addChild(anim.container);
     }
 
+    anim.setVelocity(velocity.x, velocity.y);
     this.currentAnims.push(anim);
 
     anim.setTextValues(amount, crashFactor);
 
-    const isSmallDistanceBetweenCrashes =
-      x - this.previousCrashPositionX <= anim.amountText.width;
-    if (this.previousCrashPositionX && isSmallDistanceBetweenCrashes) {
+    const isSmallDistanceBetweenCrashes = x - previousAnimX <= anim.getWidth();
+    if (isSmallDistanceBetweenCrashes) {
       this.currentTextOrientation =
         this.currentTextOrientation === 'bottom' ? 'top' : 'bottom';
     } else {
       this.currentTextOrientation = 'bottom';
     }
 
-    const isEnoughSpaceInTheBottom =
-      anim.y + anim.height < this.app.renderer.height;
-    this.currentTextOrientation = isEnoughSpaceInTheBottom ? 'bottom' : 'top';
-
     anim.positionElements(x, y, this.currentTextOrientation);
     anim.scaleInAnimation();
-    this.previousCrashPositionX = x;
   }
 
   reset() {
     this.cachedAnims = this.currentAnims.slice();
     this.currentAnims = [];
-    this.previousCrashPositionX = 0;
     this.currentTextOrientation = 'bottom';
 
     for (const anim of this.cachedAnims) {
       anim.reset();
+    }
+  }
+
+  update(dt, speed) {
+    for (const anim of this.currentAnims) {
+      anim.update(dt, speed);
     }
   }
 }

@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import { TOKEN_NAME } from '../../constants/Token';
 import styles from './styles.module.scss';
+import classNames from 'classnames';
 
 const formatAmount = amount => amount.toFixed(0);
 
@@ -26,7 +27,12 @@ const GameBets = ({ label, bets, cashedOut }) => {
               {cashedOut ? (
                 <span className={styles.crashFactor}>{bet.crashFactor}</span>
               ) : null}
-              <span className={styles.amount}>
+              <span
+                className={classNames([
+                  styles.amount,
+                  cashedOut ? styles.positive : '',
+                ])}
+              >
                 {formatAmount(bet.amount)} {TOKEN_NAME}
               </span>
             </div>

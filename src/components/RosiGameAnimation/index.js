@@ -67,7 +67,7 @@ const RosiGameAnimation = () => {
     if (gameStarted) {
       setCashedOutCount(0);
       setIsPreparingRound(false);
-      RosiGameAnimationController.start();
+      RosiGameAnimationController.start(gameStartedTime);
       return;
     }
 

@@ -1,4 +1,8 @@
-export const ROSI_GAME_MAX_DURATION_SEC = 65;
+export const ROSI_GAME_MAX_DURATION_SEC = 75;
 export const ROSI_GAME_EVENT_ID = '614381d74f78686665a5bb76';
 export const ROSI_GAME_AFTER_CRASH_DELAY = 2000;
 export const ROSI_GAME_MOBILE_BREAKPOINT = 480; // in pixels
+
+export const ROSI_GAME_PLAYGROUND_ROCKET = 0;
+export const ROSI_GAME_PLAYGROUND_CAR = 1;
+export const ROSI_GAME_PLAYGROUND_RUNNING = 2;

@@ -11,7 +11,8 @@ const WalletBalance = () => {
     useSelector(selectUser);
 
   const formattedBalance = _.toNumber(balance);
-  const overallFundsTotal = formattedBalance + totalInvestmentAmount;
+  // const overallFundsTotal = formattedBalance + totalInvestmentAmount;
+  const overallFundsTotal = formattedBalance + totalOpenTradesAmount;
   const liquidFundsPercentage = (100 * formattedBalance) / overallFundsTotal;
   const investedFundsPercentage =
     (100 * totalInvestmentAmount) / overallFundsTotal;
@@ -28,14 +29,14 @@ const WalletBalance = () => {
               <PieChart
                 data={[
                   {
-                    title: 'InvestedFunds',
+                    title: 'Lock in trades',
                     value: investedFundsPercentage,
-                    color: '#69ffa5',
+                    color: '#3570ff',
                   },
                   {
-                    title: 'LiquidFunds',
+                    title: 'Available for trading',
                     value: liquidFundsPercentage,
-                    color: '#3570ff',
+                    color: '#efff54',
                   },
                 ]}
                 lineWidth={14}
@@ -53,7 +54,7 @@ const WalletBalance = () => {
             <div className={styles.availableWfairs}>
               <div className={styles.availableWfairsHeadline}>
                 <div className={styles.availableWfairsDot} />
-                Available amount
+                Available for trading
               </div>
               <div className={styles.availableWfairsAmount}>
                 <p className={styles.availableWfairsTotal}>
@@ -67,7 +68,7 @@ const WalletBalance = () => {
             <div className={styles.liquidFunds}>
               <div className={styles.liquidFundsHeadline}>
                 <div className={styles.liquidFundsDot} />
-                Open positions
+                Locked in trades
               </div>
               <div className={styles.liquidFundsAmount}>
                 <p className={styles.liquidFundsTotal}>

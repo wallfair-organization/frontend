@@ -85,12 +85,12 @@
     .gameItem {
       height: 100%;
 
-      &.inactive {
-        img,
-        .gameInfo {
-          filter: opacity(0.4);
-        }
-      }
+      // &.inactive {
+      //   img,
+      //   .gameInfo {
+      //     filter: opacity(0.4);
+      //   }
+      // }
 
       &.gameItemLg {
         .gameInfo {
@@ -188,6 +188,7 @@
         .description {
           font-size: 16px;
           opacity: 0.7;
+          min-height: 60px;
         }
       }
 

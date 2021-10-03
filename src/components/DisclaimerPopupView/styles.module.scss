@@ -1,0 +1,122 @@
+@import '../../styles/all';
+
+.disclaimerPopupContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 45px 20px;
+  background-color: $colorWhite;
+  color: $colorPrimaryDark;
+  overflow: visible;
+  border-radius: 10px;
+
+  @media (max-width: $screen-sm) {
+    padding: 35px 10px;
+  }
+
+  .ctaButton {
+    overflow: hidden;
+    font-size: 16px;
+    border-radius: 10px;
+    margin: 20px 0 0;
+    width: 100%;
+    max-width: 200px;
+
+    @media (max-width: $screen-sm) {
+      height: 50px;
+      margin: 10px 0 0;
+    }
+
+    span > svg {
+      width: 100%;
+    }
+  }
+
+  .disabledCTA {
+    background: $colorGrayLight5 !important;
+  }
+
+  .disclaimerPopupTextContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+
+    .disclaimerPopupTextHeadline {
+      font-family: $fontBold;
+      color: $colorPrimary;
+      font-size: 25px;
+      margin-bottom: 20px;
+      position: relative;
+      text-align: center;
+      z-index: 1;
+
+      @media (max-width: $screen-xs) {
+        font-size: 20px;
+        margin-bottom: 10px;
+        .highlight {
+          top: 15px;
+        }
+      }
+    }
+
+    .disclaimerPopupText {
+      font-size: 13px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-align: justify;
+      z-index: 1;
+
+      p {
+        margin-bottom: 10px;
+        -webkit-text-size-adjust: 100%;
+
+        @media (max-width: $screen-xs) {
+          padding: 0;
+          margin-top: 0;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+
+  .disclaimerPopupScrollableContainer {
+    width: 100%;
+    height: fit-content;
+    border: 1px solid $colorPrimaryDark;
+    border-radius: 10px;
+    position: relative;
+    padding: 10px 0 10px 10px;
+
+    .disclaimerPopupScrollableText {
+      font-family: $fontBold;
+      width: 100%;
+      height: 108px;
+      overflow-y: scroll;
+      font-size: 11px;
+      padding: 0 20px 0 0;
+      text-align: justify;
+
+      p {
+        margin-bottom: 10px;
+
+        @media (max-width: $screen-xs) {
+          font-size: 13px;
+          padding: 0;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .authenticationLegalAuthorizationAgreementCheckBox {
+    font-family: $fontBold;
+    font-size: 13px;
+    margin: 20px 30px 10px 30px;
+    -webkit-text-size-adjust: 100%;
+  }
+}

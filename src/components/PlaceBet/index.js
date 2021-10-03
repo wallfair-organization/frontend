@@ -19,12 +19,14 @@ import {
   betInQueue,
   isCashedOut,
   selectDisplayBetButton,
+  selectTimeStarted,
 } from '../../store/selectors/rosi-game';
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import { playWinSound } from '../../helper/Audio';
 import InfoBox from 'components/InfoBox';
 import IconType from '../Icon/IconType';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
+import Timer from '../RosiGameAnimation/Timer';
 
 const PlaceBet = () => {
   const dispatch = useDispatch();
@@ -33,6 +35,8 @@ const PlaceBet = () => {
   const sliderMinAmount = userBalance > 50 || !user.isLoggedIn ? 50 : 0;
   // const sliderMaxAmount = Math.min(500, userBalance);
   const isGameRunning = useSelector(selectHasStarted);
+  const gameStartedTimeStamp = useSelector(selectTimeStarted);
+  const gameStartedTime = new Date(gameStartedTimeStamp).getTime();
   const userPlacedABet = useSelector(selectUserBet);
   const displayBetButton = useSelector(selectDisplayBetButton);
   const isBetInQueue = useSelector(betInQueue);
@@ -255,6 +259,17 @@ const PlaceBet = () => {
           />
         </div>
       </div>
+      {userPlacedABet && isGameRunning ? (
+        <div className={styles.profit}>
+          <Timer
+            showIncome
+            pause={!isGameRunning}
+            startTimeMs={gameStartedTime}
+          />
+        </div>
+      ) : (
+        <div className={styles.profit}>&nbsp;</div>
+      )}
       {renderButton()}
     </div>
   );

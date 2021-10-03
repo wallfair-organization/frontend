@@ -178,7 +178,7 @@ const Navbar = ({
         onClick={() => toggleOpenDrawer(drawers.wallet)}
       >
         <Icon iconType={'wallet'} />
-        {formatToFixed(balance)} {currency}
+        {formatToFixed(balance, 0)} {currency}
       </div>
     );
 

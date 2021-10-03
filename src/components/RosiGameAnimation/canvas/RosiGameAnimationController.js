@@ -3,7 +3,7 @@ import RosiAnimationBackground from './Background';
 import { CoinAnimation } from './CoinAndTrajectory';
 import TWEEN from '@tweenjs/tween.js';
 import CoinExplosion from './CoinExplosion';
-import { isMobileRosiGame } from './utils';
+import { calcCrashFactorFromElapsedTime, isMobileRosiGame } from './utils';
 import CashedOutAnimation from './CashedOutAnimation';
 import PreparingRound from './PreparingRound';
 
@@ -25,7 +25,15 @@ function loadAssets(loader) {
     .add('purplePlanet', constructPath('purplePlanet.png'))
     .add('star1', constructPath('star1.png'))
     .add('star2', constructPath('star2.png'))
-    .add('preparing-round-anim', constructPath('preparing-round-anim.json'));
+    .add('preparing-round-anim', constructPath('preparing-round-anim.json'))
+    .add(
+      'preparing-round-anim-car',
+      constructPath('preparing-round-anim-car.json')
+    )
+    .add(
+      'preparing-round-anim-running',
+      constructPath('preparing-round-anim-running.json')
+    );
 
   loader.load();
 
@@ -44,23 +52,32 @@ class RosiAnimationController {
       antialias: true,
     });
 
-    this.app.ticker.add(() => {
-      TWEEN.update(this.app.ticker.lastTime);
-    });
+    this.gameStartTime = 0;
   }
 
   load(done) {
     loadAssets(this.app.loader).then(() => {
       if (done) {
         this.drawElements();
+        this.app.ticker.add(dt => this.update(dt));
         done();
       }
     });
   }
 
+  update(dt) {
+    const calcSpeed = (factor, maxFactor) =>
+      Math.min(Math.pow(factor, factor / 2) / 10, maxFactor);
+    const elapsed = Date.now() - this.gameStartTime;
+    const crashFactor = Number(calcCrashFactorFromElapsedTime(elapsed)) || 1.0;
+
+    TWEEN.update(this.app.ticker.lastTime);
+    this.cashedOut.update(dt, calcSpeed(crashFactor, 4));
+    this.background.update(dt, calcSpeed(crashFactor, 6));
+  }
+
   drawElements() {
     this.background = new RosiAnimationBackground(this.app);
-    this.background.startAnimation();
     this.app.stage.addChild(this.background.container);
 
     this.coinExplosion = new CoinExplosion(this.app);
@@ -76,10 +93,11 @@ class RosiAnimationController {
     this.app.stage.addChild(this.preparingRound.container);
   }
 
-  start() {
+  start(gameStartTime) {
     this.preparingRound.hide();
     this.coinAndTrajectory.startCoinFlyingAnimation();
     this.cashedOut.reset();
+    this.gameStartTime = gameStartTime;
   }
 
   end() {
@@ -91,7 +109,14 @@ class RosiAnimationController {
 
   doCashedOutAnimation(data) {
     const point = this.coinAndTrajectory.getCoinCrashPosition();
-    this.cashedOut.animate(point.x, point.y, data.amount, data.crashFactor);
+    const elonVelocity = this.coinAndTrajectory.getCurrentVelocty();
+    this.cashedOut.animate(
+      point.x,
+      point.y,
+      data.amount,
+      data.crashFactor,
+      elonVelocity
+    );
   }
 }
 

@@ -1,26 +1,7 @@
 import Image from './image.png';
-import Button from 'components/Button';
-import { useDispatch } from 'react-redux';
-import { PopupActions } from 'store/actions/popup';
-import PopupTheme from 'components/Popup/PopupTheme';
 import styles from './styles.module.scss';
-import AuthenticationType from 'components/Authentication/AuthenticationType';
 
 const SectionThree = ({ classes }) => {
-  const dispatch = useDispatch();
-
-  const showLoginPopup = () => {
-    dispatch(
-      PopupActions.show({
-        popupType: PopupTheme.auth,
-        options: {
-          small: true,
-          authenticationType: AuthenticationType.register,
-        },
-      })
-    );
-  };
-
   return (
     <section className={classes.section}>
       <div className={classes.sectionNumber}>03</div>
@@ -30,18 +11,22 @@ const SectionThree = ({ classes }) => {
           <br /> signing up?
         </h2>
         <p className={classes.textParagraph}>
-          With the Wallfair Alpha weekly and monthly Leaderboard you can win up
-          to 20.000€ which will be provided in $WFAIR Tokens as soon as our
-          platform goes live on Mainnet. Bet as much as possible (remember,
-          without losing money) and climb to the top of our weekly and monthly
-          Leaderboards, and of course, all with no revenues, no middle men and
-          most importantly; no more boring bets. Sign up and start earning now.
+          When you sign up to Wallfair Alpha, not only do you receive 5000
+          Play-WFAIR Tokens to use on our platform but the more you play, the
+          more chances to win there are, we have hidden more ways to earn more
+          Play-WFAIR tokens which means a higher chance of climbing to the top
+          of our weekly and monthly community leaderboards. But I know what you
+          are thinking “How can I win that real money, how can I get those
+          $WFAIR tokens?” It’s easy, at the end of each week and month, we will
+          reward our highest performing players with up to 20k in $WFAIR that
+          can of course be used when we go live on Mainnet. Each week and each
+          month the leaderboards reset back down to zero and you can start
+          winning all over again.
         </p>
         <br />
-        <br />
-        <Button className={styles.button} onClick={showLoginPopup}>
-          Sign Up and start earning now
-        </Button>
+        <p className={classes.textParagraph}>
+          And of course, the more you play, the more you earn.
+        </p>
       </div>
       <div className={styles.imageContainer}>
         <img src={Image} width={328} alt="section-one" />

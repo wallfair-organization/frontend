@@ -1,6 +1,10 @@
 import * as PIXI from 'pixi.js';
-import TWEEN from '@tweenjs/tween.js';
-import { isMobileRosiGame, calcPercent, getRandomInRange } from './utils';
+import {
+  isMobileRosiGame,
+  calcPercent,
+  getRandomInRange,
+  calcCrashFactorFromElapsedTime,
+} from './utils';
 
 class RosiAnimationBackground {
   constructor(app) {
@@ -17,6 +21,7 @@ class RosiAnimationBackground {
 
     this.redPlanet = null;
     this.purplePlanet = null;
+    this.planets = [];
     this.createPlanets();
   }
 
@@ -57,6 +62,8 @@ class RosiAnimationBackground {
     this.purplePlanet.y =
       this.app.renderer.height / 2 - this.purplePlanet.height / 2;
     this.container.addChild(this.purplePlanet);
+
+    this.planets = [this.redPlanet, this.purplePlanet];
   }
 
   drawCircle() {
@@ -78,27 +85,14 @@ class RosiAnimationBackground {
     this.circle.endFill();
   }
 
-  startAnimation() {
+  update(dt, speed) {
     for (const star of this.stars) {
-      this.animateSingleStar(star);
+      star.x -= speed;
+
+      if (star.x < -star.width) {
+        star.x = this.app.renderer.width * dt;
+      }
     }
-  }
-
-  animateSingleStar(star) {
-    const coords = { x: star.x };
-    const speed = getRandomInRange(0.1, 0.4) / 20;
-
-    new TWEEN.Tween(coords)
-      .to({ x: -star.width }, star.x / speed)
-      .easing(TWEEN.Easing.Linear.None)
-      .onUpdate(() => {
-        star.x = coords.x;
-      })
-      .onComplete(() => {
-        star.x = this.app.renderer.width;
-        this.animateSingleStar(star);
-      })
-      .start();
   }
 }
 

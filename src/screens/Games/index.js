@@ -18,7 +18,6 @@ const Games = () => {
           showHowtoLink={true}
         />
         <GameCards games={SLOTS_GAMES} category="House Games" />
-        <GameCards games={SPORTS_BETTING_GAMES} category="Sports" />
         <ContentFooter />
       </div>
     </BaseContainerWithNavbar>

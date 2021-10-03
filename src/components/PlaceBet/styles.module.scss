@@ -40,6 +40,28 @@
   position: relative;
   bottom: -10px;
 }
+.profit {
+  position: relative;
+  bottom: -30px;
+  @media screen and (max-width: $screen-sm) {
+    bottom: -5px;
+  }
+  font-size: 18pt;
+  color: $colorGreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace $fontMedium;
+  .positive{
+    color: $colorGreen;
+  }
+  .zero{
+    color: $colorBlack;
+  }
+  .negative{
+    color: $colorRed;
+  }
+}
 .inputBoxContainer {
   display: flex;
   width: 100%;

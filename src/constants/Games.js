@@ -47,9 +47,9 @@ export const CASINO_GAMES = [
   },
   {
     background: First,
-    title: 'Satoshi the Kid',
+    title: 'Midas Trader',
     subtitle: '',
-    description: '',
+    description: 'Market 1X2 – you know where the prices are going? Prove it!',
     active: false,
     linkTo: '',
   },
@@ -58,33 +58,36 @@ export const CASINO_GAMES = [
 export const SLOTS_GAMES = [
   {
     background: Second,
-    title: 'Dice',
+    title: 'Treasure Island',
     subtitle: '',
-    description: '',
+    description: 'Market top and flop jackpot tournament',
     active: false,
     linkTo: '',
   },
   {
     background: Third,
-    title: 'Mines',
+    title: 'Market Runner',
     subtitle: '',
-    description: '',
+    description:
+      'Jump and run on each price tick, are you heading north, south or staying put?',
     active: false,
     linkTo: '',
   },
   {
     background: Fourth,
-    title: 'Hi Lo',
+    title: 'Financial Poker',
     subtitle: '',
-    description: '',
+    description:
+      'Bring your poker face and portfolio management skills to live financial poker',
     active: false,
     linkTo: '',
   },
   {
-    background: Fourth,
-    title: 'Coin Flip',
+    background: Fifth,
+    title: 'Candle Stick',
     subtitle: '',
-    description: '',
+    description:
+      'Game and learn candlestick trading strategy in this jackpot tournament',
     active: false,
     linkTo: '',
   },

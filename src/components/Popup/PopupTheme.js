@@ -26,4 +26,5 @@ export default {
   explanation: 'explanation',
   cancelBet: 'cancelBet',
   deleteBet: 'deleteBet',
+  disclaimer: 'disclaimer',
 };

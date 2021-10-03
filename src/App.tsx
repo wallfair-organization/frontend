@@ -30,6 +30,7 @@ import LandingPage from 'screens/LandingPage';
 import initTagManager from './config/gtm';
 import AudioContent from "./components/AudioContent";
 import ScrollToTop from 'utils/ScrollToTop';
+import DisclaimerPopupContainer from 'components/DisclaimerPopupContainer';
 
 const { store, persistor } = configStore();
 
@@ -45,6 +46,7 @@ const App = () => {
           <AlertBox />
           <Popup />
           <AudioContent />
+          <DisclaimerPopupContainer />
           <Switch>
             <Route exact path={Routes.logout} component={Logout} />
             <Route

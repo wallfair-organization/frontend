@@ -2,13 +2,14 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import _ from 'lodash';
 import Icon from '../../components/Icon';
 import Link from '../../components/Link';
+import BackLink from '../../components/BackLink';
 import LiveBadge from 'components/LiveBadge';
 import Routes from '../../constants/Routes';
 import styles from './styles.module.scss';
 import { Carousel } from 'react-responsive-carousel';
 import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../store/actions/popup';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import EmbedVideo from '../../components/EmbedVideo';
 import BetView from '../../components/BetView';
@@ -49,6 +50,7 @@ import useTrades from '../../hooks/useTrades';
 import BetState from 'constants/BetState';
 import TextHelper from '../../helper/Text';
 import TimeCounter from '../../components/TimeCounter';
+import { useIsMount } from '../../components/hoc/useIsMount';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -67,6 +69,7 @@ const Bet = ({
   handleDislaimerHidden,
 }) => {
   const { eventSlug, betSlug } = useParams();
+  const isMounted = useIsMount();
 
   const [betId, setBetId] = useState(null);
   const [swiper, setSwiper] = useState(null);
@@ -76,6 +79,7 @@ const Bet = ({
   const [event, setEvent] = useState(null);
   const [relatedBets, setRelatedBets] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
+  const [isReady, setIsReady] = useState(false);
 
   const mobileChatRef = useRef(null);
   const ref = useRef(null);
@@ -188,6 +192,16 @@ const Bet = ({
       swiper.slideTo(betAction);
     }
   }, [betAction]);
+
+  useEffect(() => {
+    if (event) {
+      setIsReady(true);
+    } else {
+      if (isMounted) {
+        setIsReady(true);
+      }
+    }
+  }, [event, isMounted]);
 
   const onBetClose = () => {
     return () => {
@@ -418,6 +432,7 @@ const Bet = ({
           onBetActionSwitch(swiper.activeIndex);
         }}
         onSwiper={onSwiper}
+        noSwipingClass={`MuiSlider-root`}
       >
         <SwiperSlide className={styles.carouselSlide}>
           <div ref={mobileChatRef}>
@@ -537,10 +552,6 @@ const Bet = ({
     );
   };
 
-  if (!event) {
-    return null;
-  }
-
   const hasOnlineState = event?.state === EVENT_STATES.ONLINE;
   const hasOfflineState = event?.state === EVENT_STATES.OFFLINE;
 
@@ -593,92 +604,98 @@ const Bet = ({
     );
   };
 
+  if (!isReady) {
+    return null;
+  }
+
   return (
     <BaseContainerWithNavbar withPaddingTop={true} withoutPaddingBottom={true}>
       <div className={styles.bet}>
         <div className={styles.upperLeftOval}></div>
         <div className={styles.centeredBottomOval}></div>
-        <div className={styles.headlineContainer}>
-          <div>
-            <Link
-              to={currentFromLocation?.pathname || '/'}
-              className={styles.linkBack}
-            >
-              <div className={styles.arrowBack}></div>
-              <div className={styles.headline}>
-                {renderTitle()}
-                {(hasOnlineState || hasOfflineState) && (
-                  <div className={styles.streamStateBadge}>
-                    {hasOnlineState && <LiveBadge />}
-                    {hasOfflineState && <OfflineBadge />}
-                  </div>
-                )}
-              </div>
-            </Link>
-          </div>
-          <div className={styles.shareButton}>
-            <Share />
-          </div>
-          <AdminOnly>
-            <div className={styles.eventAdminActionsContainer}>
-              <span
-                className={styles.editEventLink}
-                onClick={() => showPopup(PopupTheme.editEvent, event)}
-              >
-                <Icon
-                  className={styles.icon}
-                  iconType={IconType.edit}
-                  iconTheme={IconTheme.white}
-                  height={20}
-                  width={20}
-                />
-                Edit Event
-              </span>
-              {event.type === EventTypes.streamed && (
-                <span
-                  className={styles.newBetLink}
-                  onClick={() => showPopup(PopupTheme.newBet, { event })}
+        {event ? (
+          <>
+            <div className={styles.headlineContainer}>
+              <div>
+                <Link
+                  to={currentFromLocation?.pathname || '/'}
+                  className={styles.linkBack}
                 >
-                  <Icon
-                    className={styles.icon}
-                    iconType={IconType.addBet}
-                    iconTheme={IconTheme.white}
-                    height={24}
-                    width={24}
-                  />
-                  New Bet
-                </span>
-              )}
-            </div>
-          </AdminOnly>
-        </div>
-        <div className={styles.row}>
-          <div className={styles.columnLeft}>
-            <div
-              className={
-                event.type === 'streamed'
-                  ? styles.streamContainer
-                  : styles.nonStreamContainer
-              }
-            >
-              {event.type === 'non-streamed' ? (
-                <div className={styles.chart}>
-                  {bet && renderTradeDesc()}
-                  <Chart
-                    height={matchMediaMobile ? 300 : 400}
-                    data={chartData}
-                    filterActive={filterActive}
-                    handleChartPeriodFilter={handleChartPeriodFilter}
-                  />
+                  <div className={styles.arrowBack}></div>
+                  <div className={styles.headline}>
+                    {renderTitle()}
+                    {(hasOnlineState || hasOfflineState) && (
+                      <div className={styles.streamStateBadge}>
+                        {hasOnlineState && <LiveBadge />}
+                        {hasOfflineState && <OfflineBadge />}
+                      </div>
+                    )}
+                  </div>
+                </Link>
+              </div>
+              <div className={styles.shareButton}>
+                <Share />
+              </div>
+              <AdminOnly>
+                <div className={styles.eventAdminActionsContainer}>
+                  <span
+                    className={styles.editEventLink}
+                    onClick={() => showPopup(PopupTheme.editEvent, event)}
+                  >
+                    <Icon
+                      className={styles.icon}
+                      iconType={IconType.edit}
+                      iconTheme={IconTheme.white}
+                      height={20}
+                      width={20}
+                    />
+                    Edit Event
+                  </span>
+                  {event.type === EventTypes.streamed && (
+                    <span
+                      className={styles.newBetLink}
+                      onClick={() => showPopup(PopupTheme.newBet, { event })}
+                    >
+                      <Icon
+                        className={styles.icon}
+                        iconType={IconType.addBet}
+                        iconTheme={IconTheme.white}
+                        height={24}
+                        width={24}
+                      />
+                      New Bet
+                    </span>
+                  )}
                 </div>
-              ) : (
-                <EmbedVideo
-                  video={event.streamUrl}
-                  autoPlay={true}
-                  controls={true}
-                />
-              )}
-              {/* {event.type === 'streamed' && (
+              </AdminOnly>
+            </div>
+            <div className={styles.row}>
+              <div className={styles.columnLeft}>
+                <div
+                  className={
+                    event.type === 'streamed'
+                      ? styles.streamContainer
+                      : styles.nonStreamContainer
+                  }
+                >
+                  {event.type === 'non-streamed' ? (
+                    <div className={styles.chart}>
+                      {bet && renderTradeDesc()}
+                      <Chart
+                        height={matchMediaMobile ? 300 : 400}
+                        data={chartData}
+                        filterActive={filterActive}
+                        handleChartPeriodFilter={handleChartPeriodFilter}
+                      />
+                    </div>
+                  ) : (
+                    <EmbedVideo
+                      video={event.streamUrl}
+                      autoPlay={true}
+                      controls={true}
+                    />
+                  )}
+                  {/* {event.type === 'streamed' && (
                 <div className={styles.timeLeft}>
                   <span>Estimated end:</span>
                   <TimeLeftCounter
@@ -686,48 +703,61 @@ const Bet = ({
                   />
                 </div>
               )} */}
-            </div>
-            <TabOptions options={tabOptions} className={styles.tabOptions}>
-              {option => (
-                <div
-                  className={styles.tabStyle}
-                  onClick={() => handleSwitchTab(option)}
-                >
-                  {option.name}
                 </div>
-              )}
-            </TabOptions>
-            {selectedTab === 'chat' ? (
-              <Chat
-                className={styles.desktopChat}
-                roomId={event._id}
-                chatMessageType={ChatMessageType.event}
-              />
-            ) : (
-              <News />
-            )}
+                <TabOptions options={tabOptions} className={styles.tabOptions}>
+                  {option => (
+                    <div
+                      className={styles.tabStyle}
+                      onClick={() => handleSwitchTab(option)}
+                    >
+                      {option.name}
+                    </div>
+                  )}
+                </TabOptions>
+                {selectedTab === 'chat' ? (
+                  <Chat
+                    className={styles.desktopChat}
+                    roomId={event._id}
+                    chatMessageType={ChatMessageType.event}
+                  />
+                ) : (
+                  <News />
+                )}
 
-            {selectedTab === 'evidence' && (
-              <div>
-                <div className={styles.evidenceSource}>
-                  <b>Evidence source: </b>{' '}
-                  <span
-                    dangerouslySetInnerHTML={{ __html: bet.evidenceSource }}
-                  ></span>
-                </div>
-                <br />
-                <div className={styles.evidenceDescription}>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: bet.evidenceDescription,
-                    }}
-                  ></div>
-                </div>
+                {selectedTab === 'evidence' && (
+                  <div>
+                    <div className={styles.evidenceSource}>
+                      <b>Evidence source: </b>{' '}
+                      <span
+                        dangerouslySetInnerHTML={{ __html: bet.evidenceSource }}
+                      ></span>
+                    </div>
+                    <br />
+                    <div className={styles.evidenceDescription}>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: bet.evidenceDescription,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
+              <div className={styles.columnRight}>
+                {renderBetSidebarContent()}
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className={styles.eventNotExist}>
+            <BackLink to="/" text="Home"></BackLink>
+            <div>Event does not exist.</div>
+
+            <div className={styles.eventNotExistLabel}>
+              {window.location.href}
+            </div>
           </div>
-          <div className={styles.columnRight}>{renderBetSidebarContent()}</div>
-        </div>
+        )}
         <ContentFooter className={styles.betFooter} />
       </div>
     </BaseContainerWithNavbar>

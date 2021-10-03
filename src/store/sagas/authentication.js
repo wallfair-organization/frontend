@@ -295,7 +295,9 @@ const firstSignUpPopup = function* (options) {
   const authState = yield select(state => state.authentication.authState);
   const popupVisible = yield select(state => state.popup.visible);
   const popupType = yield select(state => state.popup.popupType);
-  const skip = popupVisible && popupType === PopupTheme.auth;
+  const skip =
+    popupVisible &&
+    (popupType === PopupTheme.auth || popupType === PopupTheme.disclaimer);
 
   if (authState === AuthState.LOGGED_OUT && !skip) {
     yield put(

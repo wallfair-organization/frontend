@@ -12,207 +12,195 @@
   overflow: hidden;
 
   .walletBalanceSum {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: flex-end;
-      flex: 1 1;
-      padding-left: 10px;
-      flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+  }
 
-      @media (max-width: $screen-sm) {
-          flex-direction: column;
-          flex: 0;
-          justify-content: space-evenly;
-          align-items: flex-end;
-      }
-
-      .walletBalanceItem {
-          &:last-child {
-              padding-left: 20px;
-          }
-      }
+  .walletBalanceItem {
+    display: flex;
   }
 
   .walletBalanceHeading {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-bottom: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-      @media (max-width: $screen-sm) {
-        margin-bottom: 15px;
+    @media (max-width: $screen-sm) {
+      margin-bottom: 15px;
+    }
+
+    .walletBalanceTitle {
+      text-transform: uppercase;
+      opacity: 0.4;
+      font-size: 10px;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+
+    .goToMyTrades {
+      line-height: 20px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      border-bottom: 1px solid $colorWhite;
+      transition: transform 0.5s;
+
+      .goToMyTradesIcon {
+        width: 15px;
+        padding: 0;
+        margin: 0;
       }
 
-      .walletBalanceTitle {
-          text-transform: uppercase;
-          opacity: 0.4;
+      .goToMyTradesText {
+        font-size: 12px;
+        line-height: 14px;
+        color: #ffffff;
+      }
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .walletBalanceContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+
+    .walletBalanceItem {
+      .overallFunds {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .overallFundsAmount {
+          width: 130px;
+          height: 130px;
+          display: flex;
+          position: relative;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+
+          @media (max-width: $screen-sm) {
+            margin-top: 20px;
+          }
+
+          .overallFundsTotal {
+            position: absolute;
+            font-weight: 500;
+            font-size: 20px;
+            color: #ffffff;
+            top: 45px;
+          }
+
+          .overallFundsTitle {
+            position: absolute;
+            top: 75px;
+            font-size: 12px;
+            color: #ffffff;
+          }
+        }
+      }
+
+      .availableWfairs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .availableWfairsHeadline {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          margin-bottom: 5px;
+          font-weight: bold;
           font-size: 10px;
           letter-spacing: 1px;
-          font-weight: bold;
-      }
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 0.4);
+          mix-blend-mode: normal;
 
-      .goToMyTrades {
-          line-height: 20px;
-          font-size: 12px;
+          .availableWfairsDot {
+            min-width: 6px;
+            min-height: 6px;
+            margin-right: 6px;
+            background-color: #efff54;
+            border-radius: 50%;
+          }
+        }
+
+        .availableWfairsAmount {
           display: flex;
-          justify-content: space-between;
+          align-items: flex-start;
+          margin-left: 12px;
+          justify-content: flex-end;
+
+          .availableWfairsTotal {
+            font-size: 20px;
+            line-height: 20px;
+            color: #ffffff;
+            margin-right: 8px;
+          }
+
+          .availableWfairsTitle {
+            font-size: 10px;
+            color: #ffffff;
+          }
+        }
+      }
+
+      .liquidFunds {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .liquidFundsHeadline {
+          display: flex;
           align-items: center;
-          cursor: pointer;
-          border-bottom: 1px solid $colorWhite;
-          transition: transform 0.5s;
+          justify-content: flex-end;
+          margin-bottom: 5px;
+          font-weight: bold;
+          font-size: 10px;
+          line-height: 22px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 0.4);
+          mix-blend-mode: normal;
 
-          .goToMyTradesIcon {
-              width: 15px;
-              padding: 0;
-              margin: 0;
+          .liquidFundsDot {
+            min-width: 6px;
+            min-height: 6px;
+            margin-right: 6px;
+            background-color: #3570ff;
+            border-radius: 50%;
+          }
+        }
+
+        .liquidFundsAmount {
+          display: flex;
+          align-items: flex-start;
+          margin-left: 12px;
+
+          .liquidFundsTotal {
+            font-size: 20px;
+            line-height: 20px;
+            color: #ffffff;
+            margin-right: 8px;
           }
 
-          .goToMyTradesText {
-              font-size: 12px;
-              line-height: 14px;
-              color: #ffffff;
+          .liquidFundsTitle {
+            font-size: 10px;
+            color: #ffffff;
           }
-          &:hover {
-              transform: scale(1.1);
-          }
+        }
       }
-  }
-  
-  .walletBalanceContent {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      height: 100%;
-
-      .walletBalanceItem {
-          .overallFunds {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              width: 100%;
-
-              .overallFundsAmount {
-                  width: 120px;
-                  height: 120px;
-                  display: flex;
-                  position: relative;
-                  flex-direction: column;
-                  justify-content: center;
-                  align-items: center;
-                  border-radius: 50%;
-
-                  @media (max-width: $screen-sm) {
-                      margin-top: 20px;
-                  }
-
-                  .overallFundsTotal {
-                      position: absolute;
-                      font-weight: 500;
-                      font-size: 20px;
-                      color: #ffffff;
-                  }
-
-                  .overallFundsTitle {
-                      position: absolute;
-                      top: 80px;
-                      font-size: 12px;
-                      color: #ffffff;
-                  }
-              }
-          }
-
-          .availableWfairs {
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-
-              .availableWfairsHeadline {
-                  display: flex;
-                  align-items: center;
-                  justify-content: flex-end;
-                  margin-bottom: 12px;
-                  font-weight: bold;
-                  font-size: 10px;
-                  line-height: 22px;
-                  letter-spacing: 1px;
-                  text-transform: uppercase;
-                  color: rgba(255, 255, 255, 0.4);
-                  mix-blend-mode: normal;
-
-                  .availableWfairsDot {
-                      min-width: 6px;
-                      min-height: 6px;
-                      margin-right: 6px;
-                      background-color: #3570ff;
-                      border-radius: 50%;
-                  }
-              }
-
-              .availableWfairsAmount {
-                  display: flex;
-                  align-items: flex-start;
-                  margin-left: 12px;
-
-                  .availableWfairsTotal {
-                      font-size: 20px;
-                      line-height: 20px;
-                      color: #ffffff;
-                      margin-right: 8px;
-                  }
-
-                  .availableWfairsTitle {
-                      font-size: 10px;
-                      color: #ffffff;
-                  }
-              }
-          }
-
-          .liquidFunds {
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-
-              .liquidFundsHeadline {
-                  display: flex;
-                  align-items: center;
-                  justify-content: flex-end;
-                  margin-bottom: 12px;
-                  font-weight: bold;
-                  font-size: 10px;
-                  line-height: 22px;
-                  letter-spacing: 1px;
-                  text-transform: uppercase;
-                  color: rgba(255, 255, 255, 0.4);
-                  mix-blend-mode: normal;
-
-                  .liquidFundsDot {
-                      min-width: 6px;
-                      min-height: 6px;
-                      margin-right: 6px;
-                      background-color: #efff54;
-                      border-radius: 50%;
-                  }
-              }
-
-              .liquidFundsAmount {
-                  display: flex;
-                  align-items: flex-start;
-                  margin-left: 12px;
-
-                  .liquidFundsTotal {
-                      font-size: 20px;
-                      line-height: 20px;
-                      color: #ffffff;
-                      margin-right: 8px;
-                  }
-
-                  .liquidFundsTitle {
-                      font-size: 10px;
-                      color: #ffffff;
-                  }
-              }
-          }
-      }
+    }
   }
 }

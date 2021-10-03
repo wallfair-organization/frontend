@@ -46,8 +46,7 @@ let meta = {
   '/games/elon-game': {
     title: 'Wallfair Elon Game',
     description: 'To the Moon with Elon, big wins, tiny rocket',
-    image:
-      'https://main.wallfair.io/static/media/rosi-games-banner.18d1e81c.png',
+    image: 'https://main.wallfair.io/rosi-games-banner.png',
     keywords:
       'Wallfair, Casino, Games, Elon, Moon, Rocket, Crypto, Casino, Betting',
   },

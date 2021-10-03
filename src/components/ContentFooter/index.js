@@ -48,6 +48,7 @@ const ContentFooter = ({ className = '', disclaimerHidden }) => {
               rel="noreferrer"
             >
               <img src={GitHubLogo} width={25} alt={'Github Logo'} />
+              Source Code
             </a>
           </div>
         </div>

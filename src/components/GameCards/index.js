@@ -76,7 +76,9 @@ const GameCards = ({ games, category, showHowtoLink, showPopup }) => {
                 >
                   <img src={game.background} />
                   <div className={styles.gameInfo}>
-                    <div className={styles.subtitle}>{game.subtitle}</div>
+                    {game.subtitle && (
+                      <div className={styles.subtitle}>{game.subtitle}</div>
+                    )}
                     <div className={styles.title}>{game.title}</div>
                     <div className={styles.description}>{game.description}</div>
                   </div>

@@ -8,7 +8,7 @@
   font-size: 11px;
   color: $colorWhite;
   width: calc(100% - 40px);
-  padding: 20px;
+  padding: 10px;
   margin: 0 auto;
   margin-top: 40px;
 
@@ -20,6 +20,12 @@
     opacity: 0.6;
     line-height: 17px;
     text-align: justify;
+
+    & .readmore {
+      text-decoration: underline;
+      cursor: pointer;
+      text-align: center;
+    }
 
     & p:first-child {
       font-weight: bold;
