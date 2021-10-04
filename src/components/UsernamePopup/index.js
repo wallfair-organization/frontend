@@ -60,7 +60,7 @@ const UsernamePopup = ({
           highlightType={HighlightType.highlightModalButton2Disabled}
           className={styles.button}
         >
-          Skip
+          <span>Skip</span>
         </Button>
         <Button
           onClick={onConfirm}
@@ -74,7 +74,7 @@ const UsernamePopup = ({
           disabled={loading}
           disabledWithOverlay={false}
         >
-          Submit
+          <span>Submit</span>
         </Button>
       </div>
       <ConfettiLeft className={styles.confettiLeft} />
