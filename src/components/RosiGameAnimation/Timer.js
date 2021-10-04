@@ -42,7 +42,11 @@ const Timer = ({ startTimeMs, showIncome = false }) => {
     return null;
   }
 
-  return showIncome ? renderProfit() : <span>{factor}</span>;
+  return showIncome ? (
+    renderProfit()
+  ) : (
+    <span>{factor <= 0 ? 1.0 : factor}</span>
+  );
 };
 
 export default Timer;

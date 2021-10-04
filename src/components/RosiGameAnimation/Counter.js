@@ -6,8 +6,8 @@ const Counter = ({ number }) => {
   useEffect(() => {
     if (seconds > 0) {
       setTimeout(() => {
-        setSeconds(prevSeconds => Math.max(prevSeconds - 1, 0));
-      }, 1000);
+        setSeconds(prevSeconds => Math.max(prevSeconds - 0.01, 0).toFixed(2));
+      }, 10);
     }
   }, [seconds]);
 
@@ -18,7 +18,7 @@ const Counter = ({ number }) => {
     []
   );
 
-  return <span>{seconds < 10 ? `${0}${seconds}` : seconds}</span>;
+  return <span>{seconds < 10 ? `${seconds}` : seconds}</span>;
 };
 
 export default Counter;

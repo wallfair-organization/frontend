@@ -26,7 +26,7 @@ const LandingPage = () => {
         <SectionTwo classes={classes} />
         <SectionThree classes={classes} />
         <SectionFour classes={classes} />
-        <SectionFive classes={classes} />
+        {/* <SectionFive classes={classes} /> */}
       </div>
       <SignUp />
     </BaseContainerWithNavbar>

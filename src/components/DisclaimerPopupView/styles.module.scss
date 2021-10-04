@@ -98,16 +98,14 @@
       height: 108px;
       overflow-y: scroll;
       font-size: 11px;
-      padding: 0 20px 0 0;
+      padding: 0 20px 0 15px;
       text-align: justify;
 
-      p {
+      ol li {
         margin-bottom: 10px;
 
-        @media (max-width: $screen-xs) {
-          font-size: 13px;
-          padding: 0;
-          margin-bottom: 0;
+        a {
+          text-decoration: underline;
         }
       }
     }

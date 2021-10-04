@@ -10,7 +10,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../store/actions/popup';
 import { Redirect, useParams } from 'react-router-dom';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import EmbedVideo from '../../components/EmbedVideo';
 import BetView from '../../components/BetView';
 import RelatedBetCard from '../../components/RelatedBetCard';
@@ -51,6 +51,7 @@ import BetState from 'constants/BetState';
 import TextHelper from '../../helper/Text';
 import TimeCounter from '../../components/TimeCounter';
 import { useIsMount } from '../../components/hoc/useIsMount';
+import { ReactComponent as LineChartIcon } from '../../data/icons/line-chart.svg';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -80,10 +81,15 @@ const Bet = ({
   const [relatedBets, setRelatedBets] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const [isReady, setIsReady] = useState(false);
+  const [showChart, setShowChart] = useState(false);
 
   const mobileChatRef = useRef(null);
   const ref = useRef(null);
   const history = useHistory();
+
+  const onShowHideChart = useCallback(event => {
+    setShowChart(current => !current);
+  }, []);
 
   const openBets = useSelector(selectOpenBets);
 
@@ -594,7 +600,12 @@ const Bet = ({
                 <div className={styles.timerLabel}>Event ends in:</div>
 
                 <div className={styles.timerParts}>
-                  <TimeCounter endDate={bet.endDate} />
+                  <TimeCounter
+                    endDate={bet.endDate}
+                    externalStyles={{
+                      timePartContainer: styles.timePartContainer,
+                    }}
+                  />
                 </div>
               </div>
             </>
@@ -681,12 +692,29 @@ const Bet = ({
                   {event.type === 'non-streamed' ? (
                     <div className={styles.chart}>
                       {bet && renderTradeDesc()}
-                      <Chart
-                        height={matchMediaMobile ? 300 : 400}
-                        data={chartData}
-                        filterActive={filterActive}
-                        handleChartPeriodFilter={handleChartPeriodFilter}
-                      />
+                      {matchMediaMobile && (
+                        <div
+                          className={styles.diagramButton}
+                          onClick={onShowHideChart}
+                        >
+                          {' '}
+                          <LineChartIcon />
+                          <span>
+                            {showChart
+                              ? 'Hide probabilities'
+                              : 'Show probabilities'}
+                          </span>
+                        </div>
+                      )}
+                      {((matchMediaMobile && showChart) ||
+                        !matchMediaMobile) && (
+                        <Chart
+                          height={matchMediaMobile ? 300 : 400}
+                          data={chartData}
+                          filterActive={filterActive}
+                          handleChartPeriodFilter={handleChartPeriodFilter}
+                        />
+                      )}
                     </div>
                   ) : (
                     <EmbedVideo

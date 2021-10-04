@@ -33,6 +33,7 @@
   overflow: auto;
 
   .bet {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,6 +43,20 @@
     letter-spacing: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding: 12px 20px;
+  }
+  .bet.flash{
+    animation-name: flash;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+  }
+
+  @keyframes flash {
+    from {
+      background: white;
+    }
+    to {
+      background: transparent;
+    }
   }
 
   .user {

@@ -44,7 +44,7 @@
   position: relative;
   bottom: -30px;
   @media screen and (max-width: $screen-sm) {
-    bottom: -5px;
+    bottom: -10px;
   }
   font-size: 18pt;
   color: $colorGreen;
@@ -215,7 +215,7 @@
   border: 1.2px solid rgba(14, 9, 39, 0.3);
   background: none;
   justify-content: center;
-
+  margin-bottom: 30px;
   @media (min-width: $screen-lg) {
     padding: 1rem 4rem;
   }

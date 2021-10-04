@@ -9,8 +9,8 @@ import OpenSourceIcon from '../../data/icons/open-source.svg';
 
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import Disclaimer from 'components/Disclaimer';
-import { GeneralActions } from 'store/actions/general';
+// import Disclaimer from 'components/Disclaimer';
+// import { GeneralActions } from 'store/actions/general';
 
 const ContentFooter = ({ className = '', disclaimerHidden }) => {
   return (
@@ -53,7 +53,7 @@ const ContentFooter = ({ className = '', disclaimerHidden }) => {
           </div>
         </div>
       </div>
-      <div className={styles.iconsContainer}>
+      <div className={classNames(styles.iconsContainer, className)}>
         <div className={styles.icon}>
           <img src={FairTradeIcon} alt="Fair trade icon" />
           <span>100% fair</span>
@@ -71,7 +71,7 @@ const ContentFooter = ({ className = '', disclaimerHidden }) => {
           <span>No middle man</span>
         </div>
       </div>
-      {!disclaimerHidden && <Disclaimer />}
+      {/* {!disclaimerHidden && <Disclaimer />} */}
     </div>
   );
 };

@@ -36,7 +36,7 @@ const WalletBalance = () => {
                   {
                     title: 'Available for trading',
                     value: liquidFundsPercentage,
-                    color: '#efff54',
+                    color: '#69ffa5',
                   },
                 ]}
                 lineWidth={14}

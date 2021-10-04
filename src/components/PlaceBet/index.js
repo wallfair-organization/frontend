@@ -84,6 +84,13 @@ const PlaceBet = () => {
     }
     // debouncedSetCommitment(number, currency);
   };
+
+  const onGuestAmountChange = event => {
+    let value = _.get(event, 'target.value', 0);
+    const amount = round(value, 0);
+    setAmount(amount <= 10000 ? amount : 10000);
+  };
+
   useEffect(() => {
     ReactTooltip.rebuild();
   }, [showCashoutWarning]);
@@ -161,7 +168,7 @@ const PlaceBet = () => {
           })}
           onClick={user.isLoggedIn ? placeABet : placeGuestBet}
         >
-          {user.isLoggedIn ? 'Place Bet' : 'Place Bet'}
+          {user.isLoggedIn ? 'Place Bet' : 'Play Demo'}
         </span>
       );
     } else if ((userPlacedABet && !isGameRunning) || isBetInQueue) {
@@ -247,16 +254,33 @@ const PlaceBet = () => {
         </div>
         <div className={styles.sliderContainer}>
           <label className={styles.label}>Bet Amount</label>
-          <TokenNumberInput
-            value={amount}
-            currency={user?.currency}
-            setValue={onTokenNumberChange}
-            minValue={1}
-            decimalPlaces={0}
-            maxValue={formatToFixed(
-              user.balance > 10000 ? 10000 : user.balance
-            )}
-          />
+          {user?.isLoggedIn ? (
+            <TokenNumberInput
+              value={amount}
+              currency={user?.currency}
+              setValue={onTokenNumberChange}
+              minValue={1}
+              decimalPlaces={0}
+              maxValue={formatToFixed(
+                user.balance > 10000 ? 10000 : user.balance
+              )}
+            />
+          ) : (
+            <div className={classNames(styles.cashedOutInputContainer)}>
+              <Input
+                className={styles.input}
+                type={'number'}
+                value={amount}
+                onChange={onGuestAmountChange}
+                step={0.01}
+                min="1"
+                max={'10000'}
+              />
+              <span className={styles.eventTokenLabel}>
+                <span>WFAIR</span>
+              </span>
+            </div>
+          )}
         </div>
       </div>
       {userPlacedABet && isGameRunning ? (

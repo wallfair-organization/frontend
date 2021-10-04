@@ -7,19 +7,42 @@ const SectionOne = ({ classes }) => {
       <div className={classes.textContainer}>
         <h1 className={classes.sectionHeading}>What is Wallfair Alpha?</h1>
         <p className={classes.textParagraph}>
-          Wallfair is a betting platform, why are we different to other betting
-          platforms and what makes using Wallfair, easier and more entertaining
-          than using other bookmaking platforms?
+          Wallfair Alpha is a trial version of Wallfair gambling platform
+          allowing the users to learn how to set up bets, win money and become a
+          community leader without risking financial losses. We are built on
+          Blockchain Technology, Polygon chain to be precise. That means low or
+          non-existent fees, transparent decentralized betting, getting rid of
+          greedy bookmakers as well as odds that are determined by the players
+          and not the house. Betting on Wallfair is as simple as searching for
+          your favorite event or creating a bet of your own jumping right into
+          the action by simply clicking the “place bet” button.
         </p>
         <br />
         <p className={classes.textParagraph}>
-          With Wallfair Alpha you have the opportunity to play on our platform,
-          have all the advantages of entertainment, betting and winning money
-          without actually losing any. We give our players more ways to win and
-          more ways to bet on things they love. No longer is this about regular
-          sports betting, or predicting who will score the next goal against
-          Manchester United. Wallfair is about opening up an entire world of
-          betting options for our players. Sign up now.
+          Our platform is built on an easy to use and super secure WFAIR token.
+          We realize that the blockchain world and the token operations might
+          seem challenging at first if you have never taken a deep dive into
+          those topics before, therefore we decided to create a secure
+          environment where the players can learn, make mistakes and try out new
+          things finding their favorite method of betting and winning. Wallfair
+          is about opening up an entire world of betting options for the players
+          while sitting back and watching your $WFAIR token amount grow.
+        </p>
+        <br />
+        <p className={classes.textParagraph}>
+          Think of it as your own in-game currency, think of it as coins in your
+          wallet or even a casino chip. The $WFAIR token is our very own
+          in-house crypto and the best part is, it’s easy crypto.
+        </p>
+        <p className={classes.textParagraph}>
+          You buy the tokens from our top up store, or one of our exchange
+          partners and that's it, you’re ready to go. Not only that, but we have
+          hidden more ways to earn more tokens everywhere throughout our
+          platform, either through rewards or hidden items and collectables.
+          Users will get new $WFAIR tokens every week as well as from referring
+          friends, family and completing feedback tasks to help the Wallfair
+          team improve the user journey for our players. The more you play, the
+          more you earn - sign up now.
         </p>
       </div>
       <img
