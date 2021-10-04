@@ -11,6 +11,8 @@ export function useMappedActions(eventType) {
         EventActions.initiateFetchFilteredEvents({
           ...params,
           type: eventType,
+          upcoming: false,
+          deactivated: false,
         })
       ),
     [dispatch, eventType]
