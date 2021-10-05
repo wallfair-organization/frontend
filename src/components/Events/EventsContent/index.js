@@ -116,9 +116,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
         </section>
       )}
       <section className={styles.title}>
-        <span>
-          {eventType === 'streamed' ? 'Current Live Streams' : 'Events'}
-        </span>
+        <span>{eventType === 'streamed' ? 'Live Events' : 'Events'}</span>
         <Icon
           className={styles.questionIcon}
           iconType={IconType.question}

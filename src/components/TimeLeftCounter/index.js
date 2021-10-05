@@ -40,7 +40,9 @@ const TimeLeftCounter = ({ endDate, viewSeconds = false }) => {
       {renderTimeLeft('d', _.get(timeLeft, 'days'), false)}
       {renderTimeLeft('hrs', _.get(timeLeft, 'hours'))}
       {renderTimeLeft('min', _.get(timeLeft, 'minutes'))}
-      {viewSeconds && renderTimeLeft('sec', _.get(timeLeft, 'seconds'))}
+      {(viewSeconds ||
+        (_.get(timeLeft, 'minutes') === 0 && _.get(timeLeft, 'hours') === 0)) &&
+        renderTimeLeft('sec', _.get(timeLeft, 'seconds'))}
     </div>
   );
 };

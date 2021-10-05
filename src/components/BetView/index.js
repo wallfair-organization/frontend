@@ -509,14 +509,9 @@ const BetView = ({
           isPopup ? styles.popupMenuContainer : null
         )}
       >
-        {/* {renderCurrentBalance()} */}
-        {renderMenu()}
+        <BetActionsMenu event={event} bet={bet} />
       </div>
     );
-  };
-
-  const renderMenu = () => {
-    return <BetActionsMenu event={event} bet={bet} />;
   };
 
   const renderStateConditionalContent = () => {
