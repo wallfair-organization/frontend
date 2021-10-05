@@ -9,13 +9,12 @@ import styles from './styles.module.scss';
 import { Carousel } from 'react-responsive-carousel';
 import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../store/actions/popup';
-import { Redirect, useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import EmbedVideo from '../../components/EmbedVideo';
 import BetView from '../../components/BetView';
 import RelatedBetCard from '../../components/RelatedBetCard';
 import MyTradesList from '../../components/MyTradesList';
-import { useHistory } from 'react-router-dom';
 import Chat from '../../components/Chat';
 import News from '../../components/News';
 import TabOptions from '../../components/TabOptions';
@@ -30,7 +29,6 @@ import { BetActions } from 'store/actions/bet';
 import { useBetPreviousLocation } from './hooks/useBetPreviousLocation';
 import Chart from '../../components/Chart';
 import { useChartData } from './hooks/useChartData';
-import Placeholder from '../../components/Placeholder';
 import { useNewsFeed } from './hooks/useNewsFeed';
 import { useTabOptions } from './hooks/useTabOptions';
 import AdminOnly from 'components/AdminOnly';
@@ -48,7 +46,6 @@ import EventTypes from 'constants/EventTypes';
 import Share from '../../components/Share';
 import useTrades from '../../hooks/useTrades';
 import BetState from 'constants/BetState';
-import TextHelper from '../../helper/Text';
 import TimeCounter from '../../components/TimeCounter';
 import { useIsMount } from '../../components/hoc/useIsMount';
 import { ReactComponent as LineChartIcon } from '../../data/icons/line-chart.svg';
@@ -120,16 +117,6 @@ const Bet = ({
 
   window.onresize = () => ref.current && setIsMobile(window.innerWidth < 992);
 
-  const selectSingleBet = bets => {
-    if (relatedBets?.length || bets?.length) {
-      const loneBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
-      const betId = _.get(loneBet, '_id');
-      const betSlug = _.get(loneBet, 'slug');
-      selectBet(betId, betSlug);
-      setSingleBet(true);
-    }
-  };
-
   useEffect(() => {
     const sluggedEvent = _.find(events, {
       slug: eventSlug,
@@ -165,7 +152,13 @@ const Bet = ({
       selectBet(currentBetId, betSlug);
     }
 
-    if (!isMobile && eventBets.length === 1 && !singleBet) {
+    if (
+      !isMobile &&
+      eventBets.length === 1 &&
+      !singleBet &&
+      !betSlug &&
+      !betViewIsOpen
+    ) {
       selectSingleBet(eventBets);
     }
 
@@ -180,6 +173,9 @@ const Bet = ({
     if (
       ref.current &&
       !isMobile &&
+      !betSlug &&
+      !singleBet &&
+      !betViewIsOpen &&
       (relatedBets.length === 1 || isNonStreamed)
     ) {
       selectSingleBet();
@@ -188,7 +184,7 @@ const Bet = ({
       setBetAction(BET_ACTIONS.EventTrades);
     }
     if (isMobile && (isNonStreamed || relatedBets.length === 1)) {
-      onBetClose()();
+      onBetClose();
       setBetAction(BET_ACTIONS.EventTrades);
     }
   }, [isMobile, relatedBets, event]);
@@ -213,7 +209,7 @@ const Bet = ({
     return () => {
       const eventSlug = _.get(event, 'slug', null);
 
-      history.push(
+      history.replace(
         Routes.getRouteWithParameters(Routes.bet, {
           eventSlug,
           betSlug: '',
@@ -241,8 +237,20 @@ const Bet = ({
     return authState === LOGGED_IN;
   };
 
+  const selectSingleBet = bets => {
+    if (singleBet) return;
+
+    if (relatedBets?.length || bets?.length) {
+      const loneBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
+      const betId = _.get(loneBet, '_id');
+      const betSlug = _.get(loneBet, 'slug');
+      selectBet(betId, betSlug);
+      setSingleBet(true);
+    }
+  };
+
   const selectBet = (betId, betSlug) => {
-    history.push(
+    history.replace(
       Routes.getRouteWithParameters(Routes.bet, {
         eventSlug,
         betSlug,
@@ -255,7 +263,6 @@ const Bet = ({
   const onBetClick = (bet, popup) => {
     return () => {
       const betId = _.get(bet, '_id');
-      const eventId = _.get(event, '_id');
       const betSlug = _.get(bet, 'slug');
 
       selectBet(betId, betSlug);
@@ -425,7 +432,6 @@ const Bet = ({
   };
 
   const renderMobileContent = () => {
-    let matchMediaMobile = window.matchMedia(`(max-width: ${768}px)`).matches;
     return (
       <Swiper
         slidesPerView={1}
