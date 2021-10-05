@@ -89,13 +89,13 @@ export const ACTIVITIES_TO_TRACK = [
   {
     value: 'CASINO_PLACE_BET',
     category: 'Casino Bet Placed',
-    image: AllImageIcon,
+    image: AllIcon,
     isActive: true,
   },
   {
     value: 'CASINO_CASHOUT',
     category: 'Casino Bet Cashed-Out',
-    image: AllImageIcon,
+    image: AllIcon,
     isActive: true,
   },
 ];
