@@ -39,8 +39,6 @@
   }
 
   &.disabled {
-    filter: gray;
-    -webkit-filter: grayscale(1);
     filter: grayscale(1);
   }
 }
@@ -52,8 +50,6 @@
   }
 
   &.disabled {
-    filter: gray;
-    -webkit-filter: grayscale(1);
     filter: grayscale(1);
   }
 }
