@@ -8,6 +8,7 @@ import EventCard from '../EventCard';
 import { EventActions } from '../../store/actions/event';
 import styles from './styles.module.scss';
 import BetCard from 'components/BetCard';
+import BetState from 'constants/BetState';
 
 const EventsCarouselContainer = ({
   events,
@@ -142,7 +143,11 @@ const EventsCarouselContainer = ({
 
     const filteredBets = betIdsFromCurrentEvents
       ? allBets.filter(bet => {
-          return betIdsFromCurrentEvents.includes(bet._id) && bet.published;
+          return (
+            betIdsFromCurrentEvents.includes(bet._id) &&
+            bet.published &&
+            [BetState.active, BetState.upcoming].includes(bet.status)
+          );
         })
       : [];
 
