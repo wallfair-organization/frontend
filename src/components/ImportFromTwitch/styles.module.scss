@@ -18,3 +18,8 @@
     cursor: pointer;
   }
 }
+
+.inputContainer {
+  flex: calc(50% - 5px) 0 1;
+  width: auto;
+}

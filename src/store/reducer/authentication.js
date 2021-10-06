@@ -231,6 +231,12 @@ const updateData = (action, state) => {
     toNextRank: {
       $set: action.toNextRank,
     },
+    preferences: {
+      $set: action.preferences,
+    },
+    aboutMe: {
+      $set: action.aboutMe,
+    },
   });
 };
 

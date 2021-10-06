@@ -3,7 +3,7 @@ import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import EventsContent from 'components/Events/EventsContent';
 import { EVENT_CATEGORIES } from 'constants/EventCategories';
 
-const LiveEvents = ({ history }) => {
+const LiveEvents = () => {
   const [categories, setCategories] = useState(EVENT_CATEGORIES);
 
   return (

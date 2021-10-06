@@ -37,12 +37,24 @@
   &.active {
     opacity: initial;
   }
+
+  &.disabled {
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+  }
 }
 .imageIcon {
   opacity: 0.5;
 
   &.active {
     opacity: initial;
+  }
+
+  &.disabled {
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
   }
 }
 .label {
@@ -61,4 +73,9 @@
   &.active {
     opacity: initial;
   }
+}
+
+.linkDisabled {
+  pointer-events: none;
+  cursor: not-allowed;
 }

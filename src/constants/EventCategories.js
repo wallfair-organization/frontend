@@ -21,6 +21,7 @@ export const EVENT_CATEGORIES = [
     image: AllImageIcon,
     isActive: true,
     type: 'icon',
+    disabled: false,
   },
   {
     value: 'Gaming / E-Sports',
@@ -28,36 +29,42 @@ export const EVENT_CATEGORIES = [
     image: ControllerImageIcon,
     isActive: false,
     type: 'icon',
+    disabled: false,
   },
   {
     value: 'Vegas',
     image: VegasImageIcon,
     isActive: false,
     type: 'icon',
+    disabled: false,
   },
   {
     value: 'Sports',
     image: SportsImageIcon,
     isActive: false,
     type: 'icon',
+    disabled: false,
   },
   {
     value: 'News',
     image: NewsImageIcon,
     isActive: false,
     type: 'icon',
+    disabled: false,
   },
   {
     value: 'Sick Society',
     image: JokerImageIcon,
     isActive: false,
     type: 'icon',
+    disabled: false,
   },
   {
     value: 'Trading',
     image: TradingImageIcon,
     isActive: false,
     type: 'icon',
+    disabled: false,
   },
   {
     value: 'Wallfair Bets',
@@ -65,6 +72,7 @@ export const EVENT_CATEGORIES = [
     image: CryptoImageIcon,
     isActive: false,
     type: 'icon',
+    disabled: false,
   },
 ];
 

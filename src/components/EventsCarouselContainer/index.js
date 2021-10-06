@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { connect } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
@@ -6,7 +6,6 @@ import _ from 'lodash';
 import CarouselContainer from '../CarouselContainer';
 import EventCard from '../EventCard';
 import { EventActions } from '../../store/actions/event';
-import { useIsMount } from 'components/hoc/useIsMount';
 import styles from './styles.module.scss';
 import BetCard from 'components/BetCard';
 

@@ -59,6 +59,21 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
 
   //Improvement: API endpoints to list and filter bets?
   const allEvents = useSelector(state => state.event.events);
+  const mappedCategories = _.map(categories, c => {
+    return {
+      ...c,
+      disabled:
+        c.value !== 'all' &&
+        !allEvents.some(e => {
+          let match = e.type === eventType && e.category === c.value;
+          if (eventType === 'non-streamed') {
+            match =
+              match && e.bets?.some(b => b.published && b.status === 'active');
+          }
+          return match;
+        }),
+    };
+  });
   const allBets = allEvents.reduce((acc, current) => {
     const bets = current.bets.map(bet => ({
       ...bet,
@@ -88,7 +103,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
     handleSelectCategory(category);
 
     fetchFilteredEvents({
-      category: category,
+      category: encodedCategory,
       sortBy: 'name',
     });
   }, [category, fetchFilteredEvents, handleSelectCategory]);
@@ -134,7 +149,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
         <div className={styles.categories}>
           <CategoryList
             eventType={eventType}
-            categories={categories}
+            categories={mappedCategories}
             handleSelect={handleSelectCategory}
           />
         </div>
@@ -170,7 +185,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
           <div className={styles.streamedContainer}>
             <EventsCarouselContainer
               eventType="streamed"
-              category={category}
+              category={encodedCategory}
               state="online"
               title="Current Live Streams"
               titleLink={false}
@@ -178,7 +193,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
             />
             <EventsCarouselContainer
               eventType="streamed"
-              category={category}
+              category={encodedCategory}
               state="coming_soon"
               title="Upcoming Events"
               titleLink={false}
@@ -187,7 +202,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
             />
             <EventsCarouselContainer
               eventType="streamed"
-              category={category}
+              category={encodedCategory}
               state="offline"
               title="Past events"
               titleLink={false}
