@@ -539,7 +539,7 @@ const Bet = ({
                   <div className={styles.timerLabel}>Event ends in:</div>
 
                   <div className={styles.timerParts}>
-                    <TimeCounter endDate={bet.endDate} />
+                    <TimeCounter endDate={bet?.endDate} />
                   </div>
                 </div>
               </>
