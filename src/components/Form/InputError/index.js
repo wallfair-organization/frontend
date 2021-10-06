@@ -3,15 +3,16 @@ import styles from './styles.module.scss';
 const ERROR_MESSAGES = {
   invalidUrl: 'Invalid URL.',
   required: 'Value required.',
-  minLength: '{1} {2} at least.',
-  hasEmptyMembers: 'All {1} require a value.',
+  minLength: 'Must be have at least {0} {1}.',
+  hasEmptyMembers: 'All {0} require a value.',
+  dateBeforeLimit: 'Date should be after {0}',
 };
 
 const InputError = ({ errors, placeholderValues }) => {
   const getErrorMessage = errorName => {
     const messageValues = placeholderValues?.[errorName] || [];
     return messageValues.reduce(
-      (msg, value, i) => msg.split(`{${i + 1}}`).join(value),
+      (msg, value, i) => msg.split(`{${i}}`).join(value),
       ERROR_MESSAGES[errorName] || 'Input Error'
     );
   };

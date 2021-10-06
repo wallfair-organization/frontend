@@ -59,18 +59,13 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
   );
   const [tags, setTags, tagsErrors] = useValidatedState(
     event?.tags || [{ _id: Date.now().toString(), name: '' }],
-    [
-      Validators.minLength(1),
-      value =>
-        value.some(({ name }) => name === '')
-          ? { hasEmptyMembers: true }
-          : null,
-    ]
+    [Validators.minLength(1), Validators.requiredTags]
   );
   const [date, setDate, dateErrors] = useValidatedState(
     event?.date || new Moment()
   );
-  const [betData, setBetData] = useValidatedState({});
+  const [betData, setBetData] = useState({});
+  const [isBetFormValid, setIsBetFormValid] = useState(isStreamedEventType);
 
   const isFormValid =
     [
@@ -83,7 +78,7 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
       dateErrors,
     ]
       .map(isValid)
-      .filter(valid => !valid).length === 0;
+      .filter(valid => !valid).length === 0 && isBetFormValid;
 
   const onNameChange = newName => {
     const slugs =
@@ -144,14 +139,15 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
     setTags(prevTags => prevTags.filter(tag => tag._id !== id));
   };
 
+  const fgClasses = err =>
+    classNames(
+      styles.inputContainer,
+      !isValid(err) && styles.inputContainerError
+    );
+
   const renderStreamInput = () => (
     <>
-      <FormGroup
-        className={classNames(
-          styles.inputContainer,
-          !isValid(streamUrlErrors) && styles.inputContainerError
-        )}
-      >
+      <FormGroup className={fgClasses(streamUrlErrors)}>
         <InputLabel>Stream URL</InputLabel>
         <Input type="text" value={streamUrl} onChange={setStreamUrl} />
         <InputError errors={streamUrlErrors} />
@@ -161,35 +157,23 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
 
   return (
     <>
-      <FormGroup
-        className={classNames(
-          styles.inputContainer,
-          !isValid(nameErrors) && styles.inputContainerError
-        )}
-      >
+      <FormGroup className={fgClasses(nameErrors)}>
         <InputLabel>Event Name</InputLabel>
         <Input type="text" value={name} onChange={onNameChange} />
         <InputError errors={nameErrors} />
       </FormGroup>
-      <FormGroup
-        className={classNames(
-          styles.inputContainer,
-          !isValid(slugErrors) && styles.inputContainerError
-        )}
-      >
+
+      <FormGroup className={fgClasses(slugErrors)}>
         <InputLabel>SEO-Optimized URL Piece</InputLabel>
         <Input type="text" value={slug} onChange={setSlug} />
         <InputError errors={slugErrors} />
       </FormGroup>
+
       {isStreamedEventType && renderStreamInput()}
-      <FormGroup
-        className={classNames(
-          styles.inputContainer,
-          !isValid(previewImageUrlErrors) && styles.inputContainerError
-        )}
-      >
+
+      <FormGroup className={fgClasses(previewImageUrlErrors)}>
         <InputLabel>
-          {isStreamedEventType ? 'Offline Picture URL' : 'Event Poster URL'}
+          {isStreamedEventType ? 'Offline Picture URL' : 'Event Image URL'}
         </InputLabel>
         <Input
           type="text"
@@ -198,12 +182,8 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
         />
         <InputError errors={previewImageUrlErrors} />
       </FormGroup>
-      <FormGroup
-        className={classNames(
-          styles.inputContainer,
-          !isValid(categoryErrors) && styles.inputContainerError
-        )}
-      >
+
+      <FormGroup className={fgClasses(categoryErrors)}>
         <InputLabel>Category</InputLabel>
         <Select
           value={category}
@@ -213,12 +193,8 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
         />
         <InputError errors={categoryErrors} />
       </FormGroup>
-      <FormGroup
-        className={classNames(
-          styles.inputContainer,
-          !isValid(tagsErrors) && styles.inputContainerError
-        )}
-      >
+
+      <FormGroup className={fgClasses(tagsErrors)}>
         <InputLabel>Tags</InputLabel>
         <Tags
           tags={tags}
@@ -230,17 +206,13 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
         <InputError
           errors={tagsErrors}
           placeholderValues={{
-            minLength: ['1', 'Tag'],
-            hasEmptyMembers: ['Tags'],
+            minLength: ['1', 'tag'],
+            hasEmptyMembers: ['tags'],
           }}
         />
       </FormGroup>
-      <FormGroup
-        className={classNames(
-          styles.inputContainer,
-          !isValid(dateErrors) && styles.inputContainerError
-        )}
-      >
+
+      <FormGroup className={fgClasses(dateErrors)}>
         <InputLabel>Date</InputLabel>
         <DateTimePicker
           value={date}
@@ -249,9 +221,16 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
         />
         <InputError errors={dateErrors} />
       </FormGroup>
+
       {!isStreamedEventType && !event && (
-        <BetForm setBetData={setBetData} styles={styles} />
+        <BetForm
+          setBetData={setBetData}
+          styles={styles}
+          fgClasses={fgClasses}
+          setValidity={setIsBetFormValid}
+        />
       )}
+
       <div className={styles.buttonContainer}>
         <Button
           className={styles.button}

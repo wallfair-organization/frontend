@@ -1,7 +1,9 @@
+import moment from 'moment';
 import { useState, Dispatch, useEffect } from 'react';
 
 export const Validators = {
-  required: val => (!!val && val.length > 0 ? null : { required: true }),
+  required: val =>
+    !!val && val !== null && val !== '' ? null : { required: true },
   minLength: length => val =>
     val?.length >= length ? null : { minLength: true },
   isUrl: val =>
@@ -11,6 +13,14 @@ export const Validators = {
     val.includes('.')
       ? null
       : { invalidUrl: true },
+  requiredTags: val =>
+    val.some(({ name }) => name === '') ? { hasEmptyMembers: true } : null,
+  dateAfter: date => value => {
+    console.log(date, value);
+    return !!value && moment(value).isBefore(date)
+      ? { dateBeforeLimit: true }
+      : null;
+  },
 };
 
 export const isValid = errors => Object.keys(errors).length === 0;
