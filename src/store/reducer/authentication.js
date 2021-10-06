@@ -11,6 +11,7 @@ const initialState = {
   phone: '',
   country: '49',
   email: '',
+  aboutMe: '',
   emailVerificationState: null,
   token: null,
   balance: 0,

@@ -187,6 +187,10 @@ $largeMobileHeight: 700px;
           &:focus {
             outline: none;
           }
+
+          &.textarea {
+            text-indent: 0;
+          }
         }
       }
     }

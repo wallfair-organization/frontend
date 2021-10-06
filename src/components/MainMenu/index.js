@@ -15,6 +15,7 @@ import { GeneralActions } from 'store/actions/general';
 import EmailNotifications from 'components/EmailNotifications';
 import Preferences from 'components/Preferences';
 import Referrals from 'components/Referrals';
+import Textarea from 'components/Textarea';
 
 const MainMenu = ({
   opened,
@@ -38,6 +39,7 @@ const MainMenu = ({
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [profilePic, setProfilePic] = useState(user.profilePicture);
+  const [aboutMe, setAboutMe] = useState(user.aboutMe);
 
   const profilePictureRefName = useRef(null);
 
@@ -97,7 +99,7 @@ const MainMenu = ({
 
   const handleSubmit = e => {
     e.preventDefault();
-    updateUser(name, username, email, profilePic);
+    updateUser(name, username, email, profilePic, aboutMe);
     setEditVisible(false);
   };
 
@@ -284,6 +286,15 @@ const MainMenu = ({
                 />
               </div>
               <div className={styles.profileInputGroup}>
+                <label className={styles.profileInputLabel}>About me</label>
+                <Textarea
+                  className={classNames(styles.profileInput, styles.textarea)}
+                  value={aboutMe}
+                  onChange={e => setAboutMe(e.target.value)}
+                  placeholder="Tell us something about yourself..."
+                />
+              </div>
+              <div className={styles.profileInputGroup}>
                 <label className={styles.profileInputLabel}>E-Mail</label>
                 <input
                   className={styles.profileInput}
@@ -352,10 +363,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateUser: (name, username, email, profilePicture) => {
+    updateUser: (name, username, email, profilePicture, aboutMe) => {
       dispatch(
         AuthenticationActions.initiateUpdateUserData({
-          user: { name, username, email, profilePicture },
+          user: { name, username, email, profilePicture, aboutMe },
         })
       );
     },
