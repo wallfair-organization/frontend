@@ -5,6 +5,7 @@ import ElonInSpace from '../../data/backgrounds/elon/elon-in-space.png';
 import { ELON_GAME_STEPS } from 'constants/ElonGame';
 import Routes from 'constants/Routes';
 import { Link } from 'react-router-dom';
+import YellowButton from 'components/YellowButton';
 
 const ElonGame = props => {
   return (
@@ -17,7 +18,7 @@ const ElonGame = props => {
               <img src={ElonInSpace} alt="elon" />
             </div>
             <div className={styles.buttonWrapper}>
-              <button className={styles.button}>Play now</button>
+              <YellowButton>Play now</YellowButton>
             </div>
           </div>
 

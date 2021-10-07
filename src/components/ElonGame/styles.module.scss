@@ -46,27 +46,8 @@
         position: absolute;
         bottom: 20px;
         width: 100%;
-
-        .button {
-          margin: 0 auto;
-          width: 168px;
-          height: 49px;
-          border-radius: 4px;
-          font-size: 16px;
-          font-weight: bold;
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          background-image: url('../../data/backgrounds/games/games-highlight.png');
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-color: transparent;
-          border: none;
-
-          &:hover {
-            cursor: pointer;
-          }
-        }
+        display: flex;
+        justify-content: center;
       }
 
       .imgWrapper {

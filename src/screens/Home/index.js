@@ -17,6 +17,7 @@ import { getTradeById } from '../../api';
 import ActivitiesTracker from '../../components/ActivitiesTracker';
 import LandingPage from 'screens/LandingPage';
 import classNames from 'classnames';
+import YellowButton from 'components/YellowButton';
 
 const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
   const isMount = useIsMount();
@@ -114,6 +115,9 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
             Play the
             <br />
             Elon Game
+          </div>
+          <div className={styles.buttonWrapper}>
+            <YellowButton>Play now</YellowButton>
           </div>
         </div>
       </Link>
