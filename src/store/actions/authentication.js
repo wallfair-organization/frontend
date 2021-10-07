@@ -111,6 +111,7 @@ const updateData = makeActionCreator(AuthenticationTypes.UPDATE_DATA, {
   balance: null,
   profilePicture: null,
   username: null,
+  name: null,
   admin: false,
   totalWin: null,
   rank: null,

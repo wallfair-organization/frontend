@@ -213,6 +213,9 @@ const updateData = (action, state) => {
     username: {
       $set: action.username,
     },
+    name: {
+      $set: action.name,
+    },
     email: {
       $set: action.email,
     },

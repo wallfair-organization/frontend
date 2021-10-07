@@ -45,11 +45,13 @@ const MainMenu = ({
   const profilePictureRefName = useRef(null);
 
   useEffect(() => {
+    if (editVisible) return;
     setProfilePic(user.profilePicture);
     setUsername(user.username);
     setName(user.name);
     setEmail(user.email);
-  }, [user]);
+    setAboutMe(user.aboutMe);
+  }, [user, editVisible]);
 
   const clickUploadProfilePicture = () => {
     profilePictureRefName.current?.click();

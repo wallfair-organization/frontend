@@ -56,6 +56,7 @@ const fetchSucceeded = function* (action) {
     const profilePicture = user.profilePicture;
     const balance = user.balance;
     const username = user.username;
+    const name = user.name;
     const admin = user.admin;
     const totalWin = user.totalWin;
     const rank = user.rank;
@@ -70,6 +71,7 @@ const fetchSucceeded = function* (action) {
         profilePicture,
         balance,
         username,
+        name,
         admin,
         totalWin,
         rank,
