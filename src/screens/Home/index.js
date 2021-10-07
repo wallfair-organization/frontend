@@ -116,9 +116,7 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
             <br />
             Elon Game
           </div>
-          <div className={styles.buttonWrapper}>
-            <YellowButton>Play now</YellowButton>
-          </div>
+          <YellowButton className={styles.button}>Play now</YellowButton>
         </div>
       </Link>
     );
