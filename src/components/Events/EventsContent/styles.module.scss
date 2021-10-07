@@ -55,6 +55,7 @@
     align-items: center;
   }
 }
+
 .header {
   color: white;
   width: 80%;
@@ -84,6 +85,7 @@
     padding-left: 10px;
   }
 }
+
 .sort {
   margin-top: 20px;
 
@@ -126,7 +128,7 @@
   }
 }
 
-.notStreamed{
+.notStreamed {
   @media (max-width: $screen-sm) {
     margin: 0;
     padding: 0 0;
@@ -140,36 +142,36 @@
   margin: 32px 0 0 0;
   column-count: 3;
   column-gap: 60px;
-@media (max-width: $screen-sm) {
-  margin:0 auto;
-  padding: 11px 0px 0px 0px;
-  column-count: 1;
-}
+  @media (max-width: $screen-sm) {
+    margin: 0 auto;
+    padding: 11px 0px 0px 0px;
+    column-count: 1;
+  }
 
   @media (max-width: $screen-md) {
-    margin:0 auto;
+    margin: 0 auto;
     padding: 11px 0px 0px 0px;
     column-count: 2;
     column-gap: 20px;
   }
 
-@media (max-width: $screen-xs) {
-  flex-direction: column;
-  flex-wrap: nowrap;
-  column-count: 1;
-}
-
-> * {
-  margin-bottom: 10px;
-  display: block;
-  break-inside: avoid-column;
-}
-
-> a {
-  text-decoration: none;
   @media (max-width: $screen-xs) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    column-count: 1;
   }
-}
+
+  > * {
+    margin-bottom: 10px;
+    display: block;
+    break-inside: avoid-column;
+  }
+
+  > a {
+    text-decoration: none;
+    @media (max-width: $screen-xs) {
+    }
+  }
 }
 
 .streamedContainer {
@@ -197,6 +199,7 @@
     transition: opacity 0.2s ease-in-out;
     opacity: 0.5;
   }
+
   &:hover span {
     opacity: 0.8;
   }
@@ -216,6 +219,7 @@
     // special handling for add-yellow icon
     path {
       display: none;
+
       &:first-child {
         display: block;
       }
@@ -228,5 +232,36 @@
 
   @media (min-width: $screen-lg) {
     display: block;
+  }
+}
+
+.suggestAnEventTriggerContainer {
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.suggestAnEventTrigger {
+  display: block;
+  all: unset;
+  font-family: Helvetica, Arial, sans-serif;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #F2FF53;
+  color: #000000;
+  font-size: 16px;
+  border-radius: 25px;
+  padding: 0 20px;
+  font-weight: bold;
+  height: 40px;
+  cursor: pointer;
+  text-align: center;
+  margin: 2px 0;
+  text-decoration: none;
+
+  @media (max-width: $screen-sm) {
+    margin: 0 20px;
   }
 }
