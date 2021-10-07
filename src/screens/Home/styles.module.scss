@@ -57,6 +57,7 @@
       opacity: 0.6;
       margin-left: 10px;
     }
+
     & li:before {
       content: '';
       position: absolute;
@@ -85,6 +86,10 @@
       padding: 12px 15px 0;
     }
   }
+
+  .socialIcons {
+    padding-bottom: 0px;
+  }
 }
 
 .banner {
@@ -95,6 +100,12 @@
   padding: 50px 30px 20px 30px;
   background-repeat: no-repeat;
   background-size: contain;
+
+  @media (max-width: $screen-lg) {
+    padding: 20px;
+    min-height: unset;
+    height: 200px;
+  }
 
   @media (max-width: $screen-md) {
     padding: 20px;
@@ -131,11 +142,16 @@
       font-size: 30px;
     }
   }
+
+  .button {
+    margin-top: 10px;
+  }
 }
 
 .blogBanner {
   margin-top: 32px;
   background-image: url('../../data/backgrounds/blogs/blog-banner-lg.png');
+
   @media (max-width: $screen-sm) {
     background-image: url('../../data/backgrounds/blogs/blog-banner-mobile.png');
     padding: 5px 80px;

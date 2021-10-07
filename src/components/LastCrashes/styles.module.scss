@@ -26,7 +26,7 @@
     position: relative;
     @media screen and (max-width: $screen-sm) {
       width: 50%;
-      overflow-x: hidden;
+      overflow-x: scroll;
     }
   }
   .overlay {

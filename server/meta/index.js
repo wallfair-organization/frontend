@@ -98,4 +98,25 @@ module.exports = {
     }
     return meta;
   },
+  // Append routes
+  appendRoutesForUser: async (apiPath, userId) => {
+    const response = await axios.get(apiPath);
+    if (response && response.data) {
+      let data = response.data;
+      const userName = data['username'] || 'wallfair';
+      const aboutMe =
+        data['aboutMe'] ||
+        'This user has not provided an about info yet. How boring!';
+      const photoUrl =
+        data['profilePicture'] || 'https://main.wallfair.io/logo192.png';
+      const userTag = '/user/' + userId;
+      meta[userTag] = {
+        title: userName,
+        description: aboutMe,
+        image: photoUrl,
+        keywords: 'wallfair, casino, users, profile, social, gaming, crypto',
+      };
+    }
+    return meta;
+  },
 };

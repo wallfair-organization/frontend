@@ -24,6 +24,8 @@ import classNames from 'classnames';
 import HighlightType from 'components/Highlight/HighlightType';
 
 const AdminBetForm = ({ event, bet = null, visible }) => {
+  const isEdit = !!bet;
+
   const [marketQuestion, setMarketQuestion, marketQuestionErrors] =
     useValidatedState(bet?.marketQuestion, [Validators.required]);
   const [description, setDescription, descriptionErrors] = useValidatedState(
@@ -108,14 +110,16 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
   };
 
   const addTag = () => {
-    setOutcomes(prevOutcomes => [
-      ...prevOutcomes,
-      { _id: Date.now().toString(), name: '' },
-    ]);
+    !isEdit &&
+      setOutcomes(prevOutcomes => [
+        ...prevOutcomes,
+        { _id: Date.now().toString(), name: '' },
+      ]);
   };
 
   const removeTag = id => {
-    setOutcomes(prevOutcomes => prevOutcomes.filter(tag => tag._id !== id));
+    !isEdit &&
+      setOutcomes(prevOutcomes => prevOutcomes.filter(tag => tag._id !== id));
   };
 
   const applyTemplate = () => {
@@ -204,6 +208,8 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
           addTag={addTag}
           removeTag={removeTag}
           max={4}
+          preventAdd={isEdit}
+          preventRemove={isEdit}
         />
         <InputError
           errors={outcomesErrors}

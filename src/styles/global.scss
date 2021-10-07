@@ -58,3 +58,34 @@ div {
 
 $radius: 4px;
 $border: 1px solid $colorWhite30;
+
+.support-trigger {
+  all: unset;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #E2FF54;
+  color: black;
+  font-size: 16px;
+  border-radius: 25px;
+  padding: 0 20px;
+  font-weight: bold;
+  height: 40px;
+  cursor: pointer;
+
+  @media (max-width: $screen-md) {
+    bottom: 120px;
+    transform: rotateZ(-90deg);
+    transform-origin: center;
+    right: -49px;
+    border-radius: 25px 25px 0 0;
+    font-size: 15px;
+    padding: 0 10px;
+  }
+}

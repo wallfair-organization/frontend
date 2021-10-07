@@ -9,59 +9,79 @@ import OpenSourceIcon from '../../data/icons/open-source.svg';
 
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-// import Disclaimer from 'components/Disclaimer';
-// import { GeneralActions } from 'store/actions/general';
+import SocialIcons from 'components/SocialIcons';
+import { LeaderboardActions } from 'store/actions/leaderboard';
+import { useCallback } from 'react';
+import { GeneralActions } from 'store/actions/general';
+import Routes from 'constants/Routes';
 
-const ContentFooter = ({ className = '', disclaimerHidden }) => {
+const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
+  const openLeaderboard = useCallback(event => {
+    window.scrollTo(0, 0);
+    setOpenDrawer('leaderboard');
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={classNames(styles.footer, className)}>
         <img src={LogoDemo} width={150} alt={'Wallfair'} />
+
         <div className={styles.links}>
-          {/* <span>Copyright 2021 Wallfair</span> */}
-          <a
-            href="https://wallfair.gitbook.io/wallfair/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Documentation
-          </a>
-          <Link to={'/privacy-policy'}>Imprint</Link>
-          <Link to={'/terms-and-conditions'}>{'Terms & Conditions'}</Link>
-          <a
-            href="https://github.com/wallfair-organization"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={GitHubLogo} width={20} alt={'Github Logo'} />
-            Source Code
-          </a>
+          <div className={styles.column}>
+            <div className={styles.firstRow}>
+              <a
+                href="https://wallfair.gitbook.io/wallfair/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Documentation
+              </a>
+
+              <Link to={Routes.blog}>Blog</Link>
+
+              <button onClick={openLeaderboard} href="#">
+                Leaderboard
+              </button>
+
+              <a
+                href="https://wallfair.io/career"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Career
+              </a>
+            </div>
+
+            <div className={styles.firstRow}>
+              <a
+                href="https://trustpad.io/pool/wallfair"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Buy WFAIR real tokens
+              </a>
+
+              <a
+                href="https://github.com/wallfair-organization"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={GitHubLogo} width={18} alt={'Github Logo'} />
+                Source Code
+              </a>
+            </div>
+
+            <div className={styles.secondRow}>
+              <Link to={'/privacy-policy'}>Imprint</Link>
+
+              <Link to={'/terms-and-conditions'}>{'Terms & Conditions'}</Link>
+            </div>
+          </div>
         </div>
 
-        <div className={styles.linksMobile}>
-          <div className={styles.firstRow}>
-            <Link to={'/privacy-policy'}>Imprint</Link>
-            <Link to={'/terms-and-conditions'}>{'Terms & Conditions'}</Link>
-          </div>
-          <div className={styles.secondRow}>
-            <a
-              href="https://wallfair.gitbook.io/wallfair/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Documentation
-            </a>
-            <a
-              href="https://github.com/wallfair-organization"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={GitHubLogo} width={25} alt={'Github Logo'} />
-              Source Code
-            </a>
-          </div>
-        </div>
+        <SocialIcons className={styles.socialIcons} />
       </div>
+
       <div className={classNames(styles.iconsContainer, className)}>
         <div className={styles.icon}>
           <img src={FairTradeIcon} alt="Fair trade icon" />
@@ -80,7 +100,6 @@ const ContentFooter = ({ className = '', disclaimerHidden }) => {
           <span>No middle man</span>
         </div>
       </div>
-      {/* {!disclaimerHidden && <Disclaimer />} */}
     </div>
   );
 };
@@ -88,7 +107,19 @@ const ContentFooter = ({ className = '', disclaimerHidden }) => {
 const mapStateToProps = state => {
   return {
     disclaimerHidden: state.general.disclaimerHidden,
+    leaderboardOpen: state.leaderboard.leaderboard.openDrawer,
   };
 };
 
-export default connect(mapStateToProps)(ContentFooter);
+const mapDispatchToProps = dispatch => {
+  return {
+    handleLeaderboardDrawer: open => {
+      dispatch(LeaderboardActions.handleDrawer({ open }));
+    },
+    setOpenDrawer: drawerName => {
+      dispatch(GeneralActions.setDrawer(drawerName));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContentFooter);

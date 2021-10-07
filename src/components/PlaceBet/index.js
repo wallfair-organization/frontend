@@ -166,6 +166,7 @@ const PlaceBet = ({ connected }) => {
           className={classNames(styles.button, {
             [styles.buttonDisabled]:
               !connected || userUnableToBet || isBetInQueue,
+            [styles.notConnected]: !connected,
           })}
           onClick={user.isLoggedIn ? placeABet : placeGuestBet}
         >
@@ -174,14 +175,16 @@ const PlaceBet = ({ connected }) => {
       );
     } else if ((userPlacedABet && !isGameRunning) || isBetInQueue) {
       return (
-        <span
-          role="button"
-          tabIndex="0"
-          className={classNames(styles.button, styles.buttonDisabled)}
-          onClick={user.isLoggedIn ? () => {} : showLoginPopup}
-        >
-          {user.isLoggedIn ? 'Bet Placed' : 'Bet Placed'}
-        </span>
+        <>
+          <span
+            role="button"
+            tabIndex="0"
+            className={classNames(styles.button, styles.buttonDisabled)}
+            onClick={user.isLoggedIn ? () => {} : showLoginPopup}
+          >
+            {user.isLoggedIn ? 'Bet Placed' : 'Bet Placed'}
+          </span>
+        </>
       );
     } else {
       return (
@@ -193,6 +196,7 @@ const PlaceBet = ({ connected }) => {
               !connected ||
               (!userPlacedABet && isGameRunning) ||
               !isGameRunning,
+            [styles.notConnected]: !connected,
           })}
           onClick={user.isLoggedIn ? cashOut : cashOutGuest}
         >
@@ -201,6 +205,49 @@ const PlaceBet = ({ connected }) => {
       );
     }
   };
+
+  const renderMessage = () => {
+    if ((userPlacedABet && !isGameRunning) || isBetInQueue) {
+      return (
+        <div
+          className={classNames([
+            styles.betInfo,
+            !user.isLoggedIn ? styles.guestInfo : [],
+          ])}
+        >
+          Waiting for the next round to start
+        </div>
+      );
+    }
+    if (!user.isLoggedIn) {
+      return (
+        <div className={classNames([styles.betInfo, styles.guestInfo])}>
+          This is a simulated version. Signin to start playing.
+        </div>
+      );
+    }
+  };
+
+  const renderProfit = () => {
+    if (userPlacedABet && isGameRunning) {
+      return (
+        <div className={styles.profit}>
+          <Timer
+            showIncome
+            pause={!isGameRunning}
+            startTimeMs={gameStartedTime}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div className={styles.profitPlaceholder}>
+          <span>+0 WFAIR</span>
+        </div>
+      );
+    }
+  };
+
   const canvasStyles = {
     position: 'fixed',
     pointerEvents: 'none',
@@ -286,18 +333,9 @@ const PlaceBet = ({ connected }) => {
           )}
         </div>
       </div>
-      {userPlacedABet && isGameRunning ? (
-        <div className={styles.profit}>
-          <Timer
-            showIncome
-            pause={!isGameRunning}
-            startTimeMs={gameStartedTime}
-          />
-        </div>
-      ) : (
-        <div className={styles.profit}>&nbsp;</div>
-      )}
+      {renderProfit()}
       {renderButton()}
+      {renderMessage()}
     </div>
   );
 };

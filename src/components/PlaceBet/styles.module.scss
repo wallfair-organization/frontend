@@ -5,7 +5,7 @@
   background: #fff;
   border: 1px solid rgba(255, 255, 255, 0.17);
   border-radius: 10px;
-  padding: 20px;
+  padding: 25px 20px 20px 20px;
   min-height: 100%;
 
   @media screen and (max-width: $screen-xs) {
@@ -56,6 +56,12 @@
   justify-content: center;
   align-items: center;
   font-family: monospace $fontMedium;
+  .empty {
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+    color: $colorWhite !important;
+  }
   .positive {
     color: $colorGreen;
   }
@@ -65,7 +71,27 @@
   .negative {
     color: $colorRed;
   }
+
+
 }
+
+.profitPlaceholder {
+  position: relative;
+  bottom: -30px;
+  @media screen and (max-width: $screen-sm) {
+    bottom: -10px;
+  }
+  font-size: 18pt;
+  color: $colorWhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace $fontMedium;
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
 .inputBoxContainer {
   display: flex;
   width: 100%;
@@ -156,7 +182,7 @@
   left: -50%;
   right: -50%;
   margin: 0px auto;
-  margin-top: 50px;
+  margin-top: 40px;
   outline: 0;
   @media screen and (max-width: $screen-xs) {
     margin-top: 10px;
@@ -182,7 +208,13 @@
   opacity: 0.5;
 
   &:hover {
-    cursor: not-allowed;
+    cursor: wait;
+  }
+}
+
+.buttonDisabled.notConnected{
+  @media screen and (max-width: $screen-xs) {
+    opacity: 1;
   }
 }
 
@@ -277,4 +309,20 @@
   font-family: $fontBold;
   background-color: $colorPrimary45 !important;
   text-align: left !important;
+}
+
+.betInfo{
+  font-size: 14px;
+  color: $colorGray;
+  margin: 0 auto;
+  padding-top: 0;
+  width: max-content;
+}
+
+.betInfo.guestInfo{
+  padding-top: 30px;
+  @media screen and (max-width: $screen-xs) {
+    font-size: 12px;
+    padding-top: 5px;
+  }
 }

@@ -70,7 +70,7 @@ const UserProfile = () => {
           <div className={styles.headerBody}>
             <div className={styles.avatarBox}>
               <img
-                class={styles.profileImage}
+                className={styles.profileImage}
                 src={getProfilePictureUrl(profilePic)}
               />
             </div>

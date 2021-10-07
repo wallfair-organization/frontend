@@ -87,7 +87,7 @@ class RosiAnimationBackground {
 
   update(dt, speed) {
     for (const star of this.stars) {
-      star.x -= speed;
+      star.x -= speed * dt;
 
       if (star.x < -star.width) {
         star.x = this.app.renderer.width * dt;

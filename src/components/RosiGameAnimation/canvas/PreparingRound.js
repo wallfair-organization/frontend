@@ -29,7 +29,7 @@ class PreparingRound {
     if (this.animationIndex === ROSI_GAME_PLAYGROUND_CAR) {
       spritesheet =
         this.app.loader.resources['preparing-round-anim-car'].spritesheet;
-    } else if (this.animationIndex == ROSI_GAME_PLAYGROUND_RUNNING) {
+    } else if (this.animationIndex === ROSI_GAME_PLAYGROUND_RUNNING) {
       spritesheet =
         this.app.loader.resources['preparing-round-anim-running'].spritesheet;
     } else {
@@ -48,11 +48,6 @@ class PreparingRound {
       this.container.removeChild(this.rocketAnim);
     }
     this.rocketAnim = this.createRocketAnim();
-    console.log(
-      'animation index=',
-      this.animationIndex,
-      ROSI_GAME_PLAYGROUND_ROCKET
-    );
     if (this.animationIndex === ROSI_GAME_PLAYGROUND_ROCKET) {
       this.rocketAnim.anchor.set(0.5);
 

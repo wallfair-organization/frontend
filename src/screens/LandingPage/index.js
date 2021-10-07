@@ -8,6 +8,7 @@ import SectionFive from './SectionFive';
 import SectionPolygon from './SectionPolygon';
 import SignUp from './SignUp';
 import styles from './styles.module.scss';
+import ContentFooter from 'components/ContentFooter';
 
 const classes = {
   section: styles.section,
@@ -31,6 +32,7 @@ const LandingPage = () => {
         <SectionFive classes={classes} />
       </div>
       <SignUp />
+      <ContentFooter />
     </BaseContainerWithNavbar>
   );
 };

@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const { appendRoutes } = require('./meta');
+const { appendRoutes, appendRoutesForUser } = require('./meta');
 const { replaceMeta } = require('./utils/replaceMetaUtil');
 
 // set main PORT
@@ -14,6 +14,7 @@ const apiPath =
 
 // set apiEndpoints which you want to get data from and make them dynamic
 const listPaths = ['api/event/list'];
+const listPathForUser = 'api/user/';
 
 const indexPath = path.resolve(__dirname, '..', 'build', 'index.html');
 
@@ -30,6 +31,17 @@ appendRoutes(apiPath, listPaths).then(meta => {
   // in case of new events
   app.get('/trade/:eventSlug?/:betSlug?', (req, res) => {
     appendRoutes(apiPath, listPaths).then(updatedMeta => {
+      const indexFile = fs.readFileSync(indexPath, 'utf8');
+      let data = updatedMeta[req.path] ? updatedMeta[req.path] : meta['/'];
+      res.send(replaceMeta(indexFile, data));
+    });
+  });
+
+  // in case of users
+  app.get('/user/:userId?', (req, res) => {
+    let userId = req.params.userId;
+    let userApiPath = `${apiPath}${listPathForUser}${userId}/info`;
+    appendRoutesForUser(userApiPath, userId).then(updatedMeta => {
       const indexFile = fs.readFileSync(indexPath, 'utf8');
       let data = updatedMeta[req.path] ? updatedMeta[req.path] : meta['/'];
       res.send(replaceMeta(indexFile, data));

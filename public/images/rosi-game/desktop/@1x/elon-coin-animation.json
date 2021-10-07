@@ -1,0 +1,60 @@
+{"frames": {
+
+"1":
+{
+	"frame": {"x":124,"y":141,"w":88,"h":139},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":67,"y":30,"w":88,"h":139},
+	"sourceSize": {"w":236,"h":236}
+},
+"2":
+{
+	"frame": {"x":128,"y":1,"w":85,"h":138},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":62,"y":38,"w":85,"h":138},
+	"sourceSize": {"w":236,"h":236}
+},
+"3":
+{
+	"frame": {"x":90,"y":282,"w":87,"h":140},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":50,"y":46,"w":87,"h":140},
+	"sourceSize": {"w":236,"h":236}
+},
+"4":
+{
+	"frame": {"x":1,"y":272,"w":87,"h":151},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":50,"y":46,"w":87,"h":151},
+	"sourceSize": {"w":236,"h":236}
+},
+"5":
+{
+	"frame": {"x":1,"y":141,"w":121,"h":129},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":13,"y":53,"w":121,"h":129},
+	"sourceSize": {"w":236,"h":236}
+},
+"6":
+{
+	"frame": {"x":1,"y":1,"w":125,"h":138},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":59,"w":125,"h":138},
+	"sourceSize": {"w":236,"h":236}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "elon-coin-animation.png",
+	"format": "RGBA8888",
+	"size": {"w":214,"h":424},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6555dce6d5e882240a8714835e524def:707210132c210edba3f8437f7b6ef79d:d057c3ce52b298ff0ac9b14e98870d08$"
+}
+}

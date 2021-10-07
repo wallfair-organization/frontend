@@ -28,7 +28,7 @@ const Timer = ({ startTimeMs, showIncome = false }) => {
   }, []);
 
   function renderProfit() {
-    if (!bet || !bet.amount) return null;
+    if (!bet || !bet.amount) return <span className={'empty'}>+ 0 WFAIR</span>;
     const profit = (bet.amount * factor).toFixed(0);
     if (profit > 0) {
       return <span className={'positive'}>+ {profit} WFAIR</span>;
@@ -39,7 +39,7 @@ const Timer = ({ startTimeMs, showIncome = false }) => {
     if (profit < 0) {
       return <span className={'negative'}>- {profit} WFAIR</span>;
     }
-    return null;
+    return <span className={'empty'}>+ 0 WFAIR</span>;
   }
 
   return showIncome ? (
