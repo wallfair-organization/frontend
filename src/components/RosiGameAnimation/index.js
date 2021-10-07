@@ -1,6 +1,7 @@
 import cn from 'classnames';
+import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, connect } from 'react-redux';
 import { ROSI_GAME_AFTER_CRASH_DELAY } from 'constants/RosiGame';
 import {
   selectHasStarted,
@@ -15,18 +16,29 @@ import styles from './styles.module.scss';
 import RosiGameAnimationController from './canvas/RosiGameAnimationController';
 import { CircularProgress } from '@material-ui/core';
 
-const PreparingRound = ({ secondsUntilNextGame }) => (
+const PreparingRound = ({ nextGameAt }) => (
   <div className={styles.preparingRound}>
     <div>
       <h2 className={styles.title}>Preparing Round</h2>
       <div className={styles.description}>
-        Starting in <Counter number={secondsUntilNextGame} />
+        <span>
+          Starting in <Counter className={styles.counter} from={nextGameAt} />
+        </span>
       </div>
     </div>
   </div>
 );
 
-const RosiGameAnimation = () => {
+const GameOffline = () => (
+  <div className={styles.preparingRound}>
+    <div>
+      <h2 className={styles.title}>You are disconnected</h2>
+      <div className={styles.description}>Attempting to reconnect...</div>
+    </div>
+  </div>
+);
+
+const RosiGameAnimation = ({ connected }) => {
   const canvasRef = useRef(null);
   const lastCrashValue = useSelector(selectLastCrash);
   const gameStarted = useSelector(selectHasStarted);
@@ -34,14 +46,6 @@ const RosiGameAnimation = () => {
   const nextGameAtTimeStamp = useSelector(selectNextGameAt);
   const gameStartedTimeStamp = useSelector(selectTimeStarted);
   const gameStartedTime = new Date(gameStartedTimeStamp).getTime();
-  const secondsUntilNextGame = nextGameAtTimeStamp
-    ? Math.max(
-        Math.round(
-          (new Date(nextGameAtTimeStamp).getTime() - Date.now()) / 1000
-        ),
-        0
-      )
-    : 1;
 
   const [cashedOutCount, setCashedOutCount] = useState(0);
   const [isPreparingRound, setIsPreparingRound] = useState(!gameStarted);
@@ -94,8 +98,10 @@ const RosiGameAnimation = () => {
   }, [isAnimationReady, gameStarted, cashedOut]); // eslint-disable-line
 
   function render() {
+    if (!connected) return <GameOffline />;
+
     if (isPreparingRound) {
-      return <PreparingRound secondsUntilNextGame={secondsUntilNextGame} />;
+      return <PreparingRound nextGameAt={nextGameAtTimeStamp} />;
     }
 
     return (
@@ -115,7 +121,10 @@ const RosiGameAnimation = () => {
   return (
     <div className={styles.animation}>
       <canvas
-        className={styles.canvas}
+        className={classNames(
+          styles.canvas,
+          !connected ? styles.gameOffline : null
+        )}
         id="rosi-game-animation"
         ref={canvasRef}
       />
@@ -128,4 +137,10 @@ const RosiGameAnimation = () => {
   );
 };
 
-export default RosiGameAnimation;
+const mapStateToProps = state => {
+  return {
+    connected: state.websockets.connected,
+  };
+};
+
+export default connect(mapStateToProps, null)(RosiGameAnimation);

@@ -5,6 +5,31 @@ import { PopupActions } from '../../store/actions/popup';
 import { TOKEN_NAME } from '../../constants/Token';
 import { useLocation } from 'react-router';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+// swiper bundle styles
+import 'swiper/swiper-bundle.min.css';
+
+// swiper core styles
+import 'swiper/swiper.min.css';
+// modules styles
+import 'swiper/components/navigation/navigation.min.css';
+import 'swiper/components/pagination/pagination.min.css';
+
+import SwiperCore, { Pagination, Navigation } from 'swiper';
+
+import gamesStep1 from '../../data/images/explanations-popups/games_step1.png';
+import gamesStep2 from '../../data/images/explanations-popups/games_step2.png';
+import gamesStep3 from '../../data/images/explanations-popups/games_step3.png';
+
+import eventsStep1 from '../../data/images/explanations-popups/events_step1.png';
+import eventsStep2 from '../../data/images/explanations-popups/events_step2.png';
+import eventsStep3 from '../../data/images/explanations-popups/events_step3.png';
+import eventsStep4 from '../../data/images/explanations-popups/events_step4.png';
+
+import classNames from 'classnames';
+import { ACTIVITIES_TO_TRACK } from '../../constants/Activities';
+import React from 'react';
+
 const ExplanationViewPopup = ({ closed, hidePopup }) => {
   const { pathname } = useLocation();
 
@@ -51,69 +76,86 @@ const ExplanationViewPopup = ({ closed, hidePopup }) => {
   };
 
   const renderExplanationEvents = () => {
+    const renderSteps = () => {
+      return (
+        <div className={styles.stepsContainer}>
+          <div className={styles.stepItem}>
+            <img src={eventsStep1} />
+          </div>
+          <div className={styles.stepItem}>
+            <img src={eventsStep2} />
+          </div>
+          <div className={styles.stepItem}>
+            <img src={eventsStep3} />
+          </div>
+          <div className={styles.stepItem}>
+            <img src={eventsStep4} />
+          </div>
+        </div>
+      );
+    };
+
     return (
-      <div className={styles.explanationTextContainer}>
+      <div className={styles.explanationImageContainer}>
         <h3 className={styles.explanationTextHeadline}>
-          How to earn with Events
+          How does it work?
           <span className={styles.explanationTextHeadlineUnderline}></span>
         </h3>
+        <div className={styles.visualSteps}>{renderSteps()}</div>
 
-        <span className={styles.explanationText}>
-          <p>
-            Events are bets around various topics that are not live streamed but
-            can be traded in the same simplicity.
-          </p>
-
-          <p>
-            You simply choose an event, enter how much you want to trade and
-            select between 2-4 outcomes and see how much return you make. You
-            can place a bet in seconds from any where.That simple it is.
-          </p>
-
-          <p>
-            Btw, you can “sell” your positions at any time, When the propability
-            of your choice has gone up, you can sell any time before the event
-            ends at a profit.
-          </p>
-
-          <p>
-            Also, you can share, chat, see event details, trading history and
-            your open positions.
-          </p>
-        </span>
+        <div className={styles.checkMore}>
+          For more information,{' '}
+          <a
+            href={'https://wallfair.gitbook.io/wallfair/placing-a-bet'}
+            target={'_blank'}
+          >
+            check our gitbook !
+          </a>
+        </div>
       </div>
     );
   };
 
   const renderExplanationGames = () => {
+    const renderSteps = () => {
+      return (
+        <div className={styles.stepsContainer}>
+          <div className={styles.stepItem}>
+            <div className={styles.cropGames}>
+              <img src={gamesStep1} />
+            </div>
+          </div>
+          <div className={styles.stepItem}>
+            <div className={styles.cropGames}>
+              <img src={gamesStep2} />
+            </div>
+          </div>
+          <div className={styles.stepItem}>
+            <div className={styles.cropGames}>
+              <img src={gamesStep3} />
+            </div>
+          </div>
+        </div>
+      );
+    };
+
     return (
-      <div className={styles.explanationTextContainer}>
+      <div className={styles.explanationImageContainer}>
         <h3 className={styles.explanationTextHeadline}>
-          How to earn with Games
+          How does it work?
           <span className={styles.explanationTextHeadlineUnderline}></span>
         </h3>
+        <div className={styles.visualSteps}>{renderSteps()}</div>
 
-        <span className={styles.explanationText}>
-          <p>Elon Game is super fun and easy to use.</p>
-
-          <p>
-            Elon tanks his rocket with {TOKEN_NAME} tokens that users place
-            before the rocket takes off.
-          </p>
-
-          <p>
-            On the journey to Mars, the value of {TOKEN_NAME} tokens increases
-            and you can (and should) cash out your position any time on the
-            journey. But don’t wait too long, at some point the rocket crashes
-            and the {TOKEN_NAME} tokens that are still in the rocket crash with
-            it.
-          </p>
-
-          <p>
-            Elon is known for a good surprise, so you might come across NFT
-            rewards and special gifts at any future time.
-          </p>
-        </span>
+        <div className={styles.checkMore}>
+          For more information,{' '}
+          <a
+            href={'https://wallfair.gitbook.io/wallfair/placing-a-bet'}
+            target={'_blank'}
+          >
+            check our gitbook !
+          </a>
+        </div>
       </div>
     );
   };
@@ -130,11 +172,20 @@ const ExplanationViewPopup = ({ closed, hidePopup }) => {
     );
   };
 
+  const isLiveEvents = pathname.indexOf('/live-events') != -1;
+  const isEvents = pathname.indexOf('/events') != -1;
+  const isGames = pathname.indexOf('/games') != -1;
+
   return (
-    <div className={styles.explanationContainer}>
-      {pathname.indexOf('/live-events') != -1 && renderExplanationLiveEvents()}
-      {pathname.indexOf('/events') != -1 && renderExplanationEvents()}
-      {pathname.indexOf('/games') != -1 && renderExplanationGames()}
+    <div
+      className={classNames(
+        styles.explanationContainer,
+        isGames || isEvents ? styles.explanationContainerVisual : ''
+      )}
+    >
+      {isLiveEvents && renderExplanationLiveEvents()}
+      {isEvents && renderExplanationEvents()}
+      {isGames && renderExplanationGames()}
       {renderCTAButton()}
     </div>
   );

@@ -5,6 +5,7 @@ export const WebsocketsTypes = {
   INIT_SUCCEEDED: 'Websockets/INIT_SUCCEEDED',
   INIT_FAILED: 'Websockets/INIT_FAILED',
   CONNECTED: 'Websockets/CONNECTED',
+  DISCONNECTED: 'Websockets/DISCONNECTED',
   CLOSE: 'Websockets/CLOSE',
   JOIN_ROOM: 'Websockets/JOIN_ROOM',
   LEAVE_ROOM: 'Websockets/LEAVE_ROOM',
@@ -18,6 +19,7 @@ const initFailed = makeActionCreator(WebsocketsTypes.INIT_FAILED, {
 });
 const initSucceeded = makeActionCreator(WebsocketsTypes.INIT_SUCCEEDED);
 const connected = makeActionCreator(WebsocketsTypes.CONNECTED);
+const disconnected = makeActionCreator(WebsocketsTypes.DISCONNECTED);
 const close = makeActionCreator(WebsocketsTypes.CLOSE);
 const joinRoom = makeActionCreator(WebsocketsTypes.JOIN_ROOM, {
   userId: null,
@@ -38,6 +40,7 @@ export const WebsocketsActions = {
   initSucceeded,
   initFailed,
   connected,
+  disconnected,
   close,
   joinRoom,
   leaveRoom,

@@ -1,0 +1,157 @@
+@import '../../styles/all';
+
+.elonGameWrapper {
+  padding: 30px;
+
+  @media (max-width: $screen-md) {
+    padding: 0 150px 15px;
+  }
+
+  @media (max-width: $screen-sm) {
+    padding: 0 100px 15px;
+  }
+
+  @media (max-width: $screen-xs) {
+    padding: 0 15px 15px;
+  }
+
+
+  .headerTitle {
+    color: $colorWhite;
+    font-family: $fontRegular;
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 20px;
+  }
+
+  .elonGameContainer {
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    height: 304px;
+    background: #14152E;
+
+    .leftColumn {
+      width: 45%;
+      flex-basis: 45%;
+      height: 100%;
+      position: relative;
+
+      @media (max-width: $screen-md) {
+        width: 100%;
+        flex-basis: 100%;
+      }
+
+      .buttonWrapper {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+
+        .button {
+          margin: 0 auto;
+          width: 168px;
+          height: 49px;
+          border-radius: 4px;
+          font-size: 16px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          background-image: url('../../data/backgrounds/games/games-highlight.png');
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-color: transparent;
+          border: none;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .imgWrapper {
+        padding: 20px;
+        height: 100%;
+
+
+        @media (max-width: $screen-md) {
+          padding: 5px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .rightColumn {
+      background: #081737;
+      width: 55%;
+      flex-basis: 55%;
+      padding: 0px 15px 15px 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+
+      @media (max-width: $screen-md) {
+        display: none;
+      }
+
+      .eclipse {
+        clip-path: ellipse(50% 50% at 50% 50%);
+        width: 100%;
+        height: 100%;
+      }
+
+      .stepContainer {
+        display: flex;
+        z-index: 20;
+
+        .numberStep {
+          font-family: $fontMedium;
+          color: #39455F;
+          font-size: 50px;
+        }
+
+        .textContainer {
+          margin-top: 42px;
+          margin-left: -37px;
+
+          .title {
+            color: $colorYellow;
+            font-family: $fontBold;
+            font-size: 18px;
+          }
+
+          .description {
+            color: $colorWhite;
+            font-family: $fontLight;
+            font-size: 10px;
+          }
+        }
+
+        .imageContainer {
+          margin-left: 25px;
+          height: 78px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: end;
+
+          .imageText {
+            color: $colorYellow;
+            font-family: $fontLight;
+            font-size: 8px;
+            position: absolute;
+            bottom: 0;
+            right: -18px;
+          }
+        }
+      }
+    }
+  }
+}

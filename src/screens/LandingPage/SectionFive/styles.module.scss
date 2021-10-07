@@ -1,0 +1,17 @@
+@import '../../../styles/all';
+
+.sectionImage {
+  width: 40%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.button {
+  width: 350px;
+
+  @media screen and (max-width: $screen-sm) {
+    width: 100%;
+    font-size: 17px;
+  }
+}

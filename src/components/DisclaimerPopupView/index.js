@@ -18,23 +18,24 @@ const DisclaimerPopupView = ({ closed, hidePopup }) => {
     return (
       <div className={styles.disclaimerPopupTextContainer}>
         <h3 className={styles.disclaimerPopupTextHeadline}>
-          Please read the disclaimer
+          Please read and agree to the disclaimer
         </h3>
 
-        <span className={styles.disclaimerPopupText}>
-          <p>
-            Wallfair Alpha is a graphical user interface for visualizing and
-            interacting with data stored in a decentralized blockchain network.
-          </p>
-          <p>
-            The platform serves informational, entertainment and educational
-            purposes only. Please read the full disclaimer below before
-            proceeding.
-          </p>
-        </span>
+        {/* <span className={styles.disclaimerPopupText}>
+        </span> */}
 
         <div className={styles.disclaimerPopupScrollableContainer}>
           <div className={styles.disclaimerPopupScrollableText}>
+            <p>
+              Wallfair Alpha is a graphical user interface for visualizing and
+              interacting with data stored in a decentralized blockchain
+              network.
+            </p>
+            <p>
+              The platform serves informational, entertainment and educational
+              purposes only. Please read the full disclaimer below before
+              proceeding.
+            </p>
             <ol>
               <li>
                 Wallfair Ltd. is a company organized in accordance with the laws
@@ -92,7 +93,7 @@ const DisclaimerPopupView = ({ closed, hidePopup }) => {
         checked={agreedWithTerms}
         setChecked={setAgreedWithTerms}
         clickable={true}
-        text={<span>I have read and agree to the disclaimer</span>}
+        text={<span>I have read and agreed to the above conditions</span>}
       />
     );
   };

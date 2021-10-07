@@ -1,11 +1,12 @@
 @import '../../styles/all';
 
 .container {
-  background: #1F1D38;
+  background: #1f1d38;
   border: 1px solid rgba(255, 255, 255, 0.17);
   border-radius: 10px;
   margin-bottom: 8px;
   padding: 7px 20px;
+  margin-top: -10px;
 
   .title {
     display: inline-block;
@@ -25,6 +26,7 @@
     position: relative;
     @media screen and (max-width: $screen-sm) {
       width: 50%;
+      overflow-x: hidden;
     }
   }
   .overlay {
@@ -33,7 +35,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(270deg, #1f1d38 0%, rgba(9,9,121,0) 50%);
+    background: linear-gradient(270deg, #1f1d38 0%, rgba(9, 9, 121, 0) 50%);
     z-index: 2;
   }
 

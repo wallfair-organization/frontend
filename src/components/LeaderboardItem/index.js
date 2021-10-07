@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import style from './styles.module.scss';
 import medalGold from '../../data/icons/medal-gold.png';
 import medalSilver from '../../data/icons/medal-silver.png';
@@ -44,7 +45,9 @@ const LeaderboardItem = ({
             <p className={style.firstRank}>
               #{user.rank} <img src={medalGold} alt="medal" />
             </p>
-            <p className={style.firstName}>{getUsername(user.username)}</p>
+            <p className={style.firstName}>
+              <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
+            </p>
             <p className={style.firstBalance}>
               {formatToFixed(user.amountWon)}
             </p>
@@ -57,7 +60,9 @@ const LeaderboardItem = ({
             <p className={style.secondRank}>
               #{user.rank} <img src={medalSilver} alt="medal" />
             </p>
-            <p className={style.secondName}>{getUsername(user.username)}</p>
+            <p className={style.secondName}>
+              <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
+            </p>
             <p className={style.secondBalance}>
               {formatToFixed(user.amountWon)}
             </p>
@@ -70,7 +75,9 @@ const LeaderboardItem = ({
             <p className={style.thirdRank}>
               #{user.rank} <img src={medalBronze} alt="medal" />
             </p>
-            <p className={style.thirdName}>{getUsername(user.username)}</p>
+            <p className={style.thirdName}>
+              <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
+            </p>
             <p className={style.thirdBalance}>
               {formatToFixed(user.amountWon)}
             </p>
@@ -86,7 +93,9 @@ const LeaderboardItem = ({
             )}
           >
             <p className={style.entryRank}>#{user.rank}</p>
-            <p className={style.entryName}>{getUsername(user.username)}</p>
+            <p className={style.entryName}>
+              <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
+            </p>
             <p className={style.entryBalance}>
               {formatToFixed(user.amountWon)}
             </p>

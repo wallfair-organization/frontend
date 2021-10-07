@@ -18,8 +18,14 @@ const ContentFooter = ({ className = '', disclaimerHidden }) => {
       <div className={classNames(styles.footer, className)}>
         <img src={LogoDemo} width={150} alt={'Wallfair'} />
         <div className={styles.links}>
-          <span>Copyright 2021 Wallfair</span>
-          <Link to={'/'}>Documentation</Link>
+          {/* <span>Copyright 2021 Wallfair</span> */}
+          <a
+            href="https://wallfair.gitbook.io/wallfair/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Documentation
+          </a>
           <Link to={'/privacy-policy'}>Imprint</Link>
           <Link to={'/terms-and-conditions'}>{'Terms & Conditions'}</Link>
           <a
@@ -34,12 +40,15 @@ const ContentFooter = ({ className = '', disclaimerHidden }) => {
 
         <div className={styles.linksMobile}>
           <div className={styles.firstRow}>
-            <span>Copyright 2021 Wallfair</span>
             <Link to={'/privacy-policy'}>Imprint</Link>
             <Link to={'/terms-and-conditions'}>{'Terms & Conditions'}</Link>
           </div>
           <div className={styles.secondRow}>
-            <a href="https://www.gitbook.com/" target="_blank" rel="noreferrer">
+            <a
+              href="https://wallfair.gitbook.io/wallfair/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Documentation
             </a>
             <a

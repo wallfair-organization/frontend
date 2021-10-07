@@ -13,6 +13,10 @@
   padding: 50px 24px;
   z-index: $zIndexNavbar;
 
+  @media (max-width: $screen-sm) {
+    padding: 36px 24px;
+  }
+
   img {
     margin-right: 2rem;
   }

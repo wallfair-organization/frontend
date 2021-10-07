@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import '@pixi/math-extras';
 import RosiAnimationBackground from './Background';
 import { CoinAnimation } from './CoinAndTrajectory';
 import TWEEN from '@tweenjs/tween.js';
@@ -72,7 +73,7 @@ class RosiAnimationController {
     const crashFactor = Number(calcCrashFactorFromElapsedTime(elapsed)) || 1.0;
 
     TWEEN.update(this.app.ticker.lastTime);
-    this.cashedOut.update(dt, calcSpeed(crashFactor, 4));
+    this.cashedOut.update(dt);
     this.background.update(dt, calcSpeed(crashFactor, 6));
   }
 

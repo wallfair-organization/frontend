@@ -14,8 +14,16 @@
     height: 244px;
   }
 
+  .gameOffline {
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+  }
+
   .timer {
-    $timerShadowColor: #859acf; 
+    $timerShadowColor: #859acf;
 
     display: inline-block;
     width: 3ch;
@@ -32,14 +40,12 @@
     }
 
     &.flashAnimation {
-      animation:
-        color-change 0.3s ease-out forwards,
-        scale 0.4s ease-out;
+      animation: color-change 0.3s ease-out forwards, scale 0.4s ease-out;
     }
 
     @keyframes scale {
       0% {
-        transform: scale(1.0);
+        transform: scale(1);
       }
 
       50% {
@@ -47,7 +53,7 @@
       }
 
       100% {
-        transform: scale(1.0);
+        transform: scale(1);
       }
     }
 
@@ -95,5 +101,11 @@
     font-size: 16px;
     color: $colorYellow;
     text-align: center;
+  }
+
+  .counter {
+    display: inline-block;
+    width: 3ch;
+    text-align: justify;
   }
 }

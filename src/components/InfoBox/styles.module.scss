@@ -32,11 +32,15 @@
       stroke: $colorPrimary;
       fill: $colorBlack;
     }
+
+    @media (max-width: $screen-md) {
+      top: 30px;
+    }
   }
 
   .infoBoxContentContainer {
     position: absolute;
-    background: rgba(14, 9, 39, 0.8);
+    background: rgba(14, 9, 39, 0.95);
     border-radius: 5px;
     color: $colorWhite;
     width: 500px;

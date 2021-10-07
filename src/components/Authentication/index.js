@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import { AuthenticationActions } from '../../store/actions/authentication';
 import { connect } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
+import { useParams, useHistory, useLocation } from 'react-router-dom';
 import CheckBox from '../CheckBox';
 import ReactTooltip from 'react-tooltip';
 import { FormGroup, InputLabel } from '@material-ui/core';
@@ -19,6 +20,8 @@ const Authentication = ({
   initForgotPassword,
   popupVisible,
 }) => {
+  const location = useLocation();
+  let urlParams = new URLSearchParams(location.search);
   const [email, setInputEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -105,6 +108,8 @@ const Authentication = ({
     const error = validateInput();
     if (error) return;
 
+    const urlRef = urlParams.get('ref');
+
     if (forgotPassword) {
       initForgotPassword(email);
     } else {
@@ -113,6 +118,7 @@ const Authentication = ({
             email,
             password,
             passwordConfirm: passwordConfirmation,
+            ref: urlRef,
           })
         : login({
             email,

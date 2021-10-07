@@ -31,6 +31,8 @@ const ActivitiesTracker = ({
   messagesClassName,
   activities,
   addInitialActivities,
+  showCategories,
+  activitiesLimit,
 }) => {
   const messageListRef = useRef();
 
@@ -38,33 +40,64 @@ const ActivitiesTracker = ({
     ACTIVITIES_TO_TRACK[0].value
   );
 
+  const [initialLoaded, setInitialLoaded] = useState(false);
+
   const isMount = useIsMount();
 
   useEffect(() => {
     if (isMount) {
       (async () => {
-        const initialActivities = await getNotificationEvents().catch(err => {
+        const initialActivities = await getNotificationEvents({
+          limit: activitiesLimit || 10,
+          category: selectedCategory,
+        }).catch(err => {
           console.error("Can't get trade by id:", err);
         });
 
+        addInitialActivities(initialActivities);
+        setInitialLoaded(true);
+      })().catch(err => {
+        console.error('initialNotification error', err);
+      });
+    }
+  }, [isMount, selectedCategory]);
+
+  useEffect(() => {
+    if (initialLoaded) {
+      (async () => {
+        const initialActivities = await getNotificationEvents({
+          limit: activitiesLimit || 10,
+          category: selectedCategory,
+        }).catch(err => {
+          console.error("Can't get trade by id:", err);
+        });
         addInitialActivities(initialActivities);
       })().catch(err => {
         console.error('initialNotification error', err);
       });
     }
-  }, [isMount]);
+  }, [selectedCategory]);
 
   useEffect(() => {
     messageListScrollToBottom();
   }, [activities.length]);
 
   const renderActivities = () => {
+    const selectedCategoryLower = selectedCategory.toLowerCase();
+    const categoryCfg = _.find(ACTIVITIES_TO_TRACK, {
+      value: selectedCategoryLower,
+    });
+    const categoryEvents = _.get(categoryCfg, 'eventsCats', []);
     // console.log("notifications", notifications);
-    // const categoryFiltered = _.filter(notifications, item => {
-    //   return item.type.indexOf(selectedCategory) > -1;
-    // });
+    const categoryFiltered = _.filter(activities, item => {
+      if (selectedCategoryLower === 'all') {
+        return true;
+      }
 
-    return _.map(activities, (activityMessage, index) => {
+      return categoryEvents.indexOf(item.type) > -1;
+    });
+
+    return _.map(categoryFiltered, (activityMessage, index) => {
       let date = _.get(activityMessage, 'updatedAt');
 
       //try to get trade updatedAt date
@@ -82,6 +115,10 @@ const ActivitiesTracker = ({
         date = _.get(activityMessage, 'data.event.date');
       }
 
+      if (!date) {
+        date = _.get(activityMessage, 'data.updatedAt');
+      }
+
       return (
         <ActivityMessage key={index} activity={activityMessage} date={date} />
       );
@@ -95,16 +132,46 @@ const ActivitiesTracker = ({
   const renderCategories = () => {
     return (
       <div className={styles.categoryList}>
+        <div className={styles.swiperNavContainer}>
+          <div className={styles.activitiesSwiperButtonNext}></div>
+          <div className={styles.activitiesSwiperButtonPrev}></div>
+        </div>
         <Swiper
           navigation={true}
-          slidesPerView={6}
+          slidesPerView={8}
           spaceBetween={0}
           pagination={{
             clickable: true,
             type: 'progressbar',
           }}
+          navigation={{
+            nextEl: '.' + styles.activitiesSwiperButtonNext,
+            prevEl: '.' + styles.activitiesSwiperButtonPrev,
+          }}
           autoHeight={true}
-          className={classNames(styles.swiperElement)}
+          className={showCategories && classNames(styles.swiperElement)}
+          // Responsive breakpoints
+          breakpoints={{
+            320: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            // when window width is >= 320px
+            480: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            // when window width is >= 480px
+            992: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+            // when window width is >= 480px
+            1200: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+          }}
         >
           {ACTIVITIES_TO_TRACK.map((activity, index) => (
             <SwiperSlide key={`swiper-slide-${index}`}>
@@ -147,7 +214,7 @@ const ActivitiesTracker = ({
 
   return (
     <div className={classNames(styles.activitiesTrackerContainer, className)}>
-      {/*{renderCategories()}*/}
+      {showCategories && renderCategories()}
       <div
         className={classNames(messagesClassName, styles.messageContainer)}
         ref={messageListRef}

@@ -14,7 +14,10 @@ class Animation {
     this.app = app;
     this.vx = 0;
     this.vy = 0;
+    this.speed = 0;
     this.container = new PIXI.Container();
+    this.textContainer = new PIXI.Container();
+    this.container.addChild(this.textContainer);
 
     const [coin, coinTween] = this.createCoin();
     this.coin = coin;
@@ -35,7 +38,7 @@ class Animation {
     });
 
     amountText.anchor.set(0.5);
-    this.container.addChild(amountText);
+    this.textContainer.addChild(amountText);
 
     const tweenTime = 900;
     const tweenData = { scale: 0 };
@@ -63,7 +66,7 @@ class Animation {
 
     crashFactorText.anchor.set(0.5);
 
-    this.container.addChild(crashFactorText);
+    this.textContainer.addChild(crashFactorText);
 
     return crashFactorText;
   }
@@ -94,13 +97,13 @@ class Animation {
   }
 
   positionElements(x, y, textOrientation = 'bottom') {
-    // position texts relative to coin, which is at x: 0, y: 0
-    // this.amountText.x = this.coin.width / 2 - this.amountText.width / 2;
+    this.amountText.y = 0;
+    this.crashFactorText.y = this.amountText.height;
+    this.textContainer.y = this.textContainer.height;
 
-    const plusOrMinus = textOrientation === 'bottom' ? 1 : -1;
-    this.amountText.y = this.coin.height * plusOrMinus;
-    this.crashFactorText.y =
-      this.amountText.y + this.amountText.height * plusOrMinus;
+    if (textOrientation === 'top') {
+      this.textContainer.y = -this.textContainer.height - this.coin.height / 2;
+    }
 
     // move whole cointainer to the crash point
     this.container.x = x;
@@ -118,11 +121,17 @@ class Animation {
     this.coinTween.start();
     this.amountTextTween.start();
     this.container.visible = true;
+    this.textContainer.visible = true;
   }
 
   reset() {
     this.coin.scale.set(COIN_DEFAULT_SCALE);
     this.container.visible = false;
+    this.speed = 0;
+  }
+
+  setSpeed(speed) {
+    this.speed = speed;
   }
 
   setVelocity(vx, vy) {
@@ -130,9 +139,14 @@ class Animation {
     this.vy = vy;
   }
 
-  update(dt, speed) {
-    this.container.x -= this.vx * speed * dt;
-    this.container.y -= this.vy * speed * dt;
+  update(dt) {
+    this.container.x -= this.vx * this.speed * dt;
+    this.container.y -= this.vy * this.speed * dt;
+
+    const textPos = this.textContainer.getGlobalPosition();
+    if (textPos.y + this.textContainer.height > this.app.renderer.height) {
+      this.positionElements(this.container.x, this.container.y, 'top');
+    }
   }
 
   getWidth() {
@@ -141,6 +155,20 @@ class Animation {
 
   getX() {
     return this.container.x;
+  }
+
+  isTextVisible() {
+    return this.textContainer.visible;
+  }
+
+  testTextIntersects(anim) {
+    const rect1 = this.textContainer.getBounds();
+    const rect2 = anim.textContainer.getBounds();
+    return rect1.intersects(rect2);
+  }
+
+  hideText() {
+    this.textContainer.visible = false;
   }
 }
 
@@ -195,9 +223,23 @@ class CashedOutAnimation {
     }
   }
 
-  update(dt, speed) {
+  update(dt) {
+    let prevAnim;
     for (const anim of this.currentAnims) {
-      anim.update(dt, speed);
+      const animSpeed = anim.getX() / 1000;
+
+      if (
+        prevAnim &&
+        prevAnim.isTextVisible() &&
+        prevAnim.testTextIntersects(anim)
+      ) {
+        anim.hideText();
+      }
+
+      anim.setSpeed(animSpeed);
+      anim.update(dt);
+
+      prevAnim = anim;
     }
   }
 }

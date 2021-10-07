@@ -19,7 +19,6 @@
 .gamesCategory {
   display: flex;
   flex-direction: row;
-  column-gap: 10px;
   align-items: center;
   color: $colorWhite;
   font-family: $fontRegular;
@@ -47,6 +46,7 @@
     display: none;
 
     svg {
+
       g,
       path,
       circle {
@@ -62,6 +62,7 @@
 
 .games {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
 
   @media (max-width: $screen-md) {
@@ -71,8 +72,16 @@
   .wrapper {
     position: relative;
     height: 370px;
-    flex-basis: 50%;
-    padding-right: 10px;
+    flex-basis: 33%;
+    padding: 10px;
+
+    &:first-child {
+      flex-basis: 50%;
+    }
+
+    &:nth-child(2) {
+      flex-basis: 50%;
+    }
 
     @media (max-width: $screen-md) {
       padding: 20px 0;

@@ -23,6 +23,7 @@ const Chat = ({
   messages,
   sendChatMessage,
   hideInput = false,
+  connected,
 }) => {
   const messageListRef = useRef();
   const [message, setMessage] = useState('');
@@ -107,7 +108,7 @@ const Chat = ({
   return (
     <div className={classNames(styles.chatContainer, className)}>
       <div
-        className={classNames(messagesClassName, styles.messageContainer)}
+        className={classNames(styles.messageContainer, messagesClassName)}
         ref={messageListRef}
       >
         {renderMessages()}
@@ -117,7 +118,7 @@ const Chat = ({
           styles.messageInput,
           inputClassName,
           hideInput ? styles.messageInputHidden : null,
-          !isLoggedIn() ? styles.disabled : null
+          !isLoggedIn() || !connected ? styles.disabled : null
         )}
       >
         <Input

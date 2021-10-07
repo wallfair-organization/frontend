@@ -19,6 +19,7 @@ function CategoryListItem({ categoryItem, eventType }) {
               category: encodeURIComponent(categoryItem.value),
             }
           )}
+          className={categoryItem.disabled ? styles.linkDisabled : null}
         >
           <div
             className={classNames({
@@ -37,6 +38,7 @@ function CategoryListItem({ categoryItem, eventType }) {
                 [styles.image]: categoryItem.type === 'image',
                 [styles.imageIcon]: categoryItem.type === 'icon',
                 [styles.active]: categoryItem.isActive,
+                [styles.disabled]: categoryItem.disabled,
               })}
             />
             {categoryItem.type === 'icon' && (

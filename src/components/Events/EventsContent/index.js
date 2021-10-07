@@ -59,12 +59,28 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
 
   //Improvement: API endpoints to list and filter bets?
   const allEvents = useSelector(state => state.event.events);
+  const mappedCategories = _.map(categories, c => {
+    return {
+      ...c,
+      disabled:
+        c.value !== 'all' &&
+        !allEvents.some(e => {
+          let match = e.type === eventType && e.category === c.value;
+          if (eventType === 'non-streamed') {
+            match =
+              match && e.bets?.some(b => b.published && b.status === 'active');
+          }
+          return match;
+        }),
+    };
+  });
   const allBets = allEvents.reduce((acc, current) => {
     const bets = current.bets.map(bet => ({
       ...bet,
       eventSlug: current.slug,
       previewImageUrl: current.previewImageUrl,
       tags: mappedTags(current._id),
+      category: current.category,
     }));
     const concat = [...acc, ...bets];
     return concat;
@@ -87,7 +103,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
     handleSelectCategory(category);
 
     fetchFilteredEvents({
-      category: category,
+      category: encodedCategory,
       sortBy: 'name',
     });
   }, [category, fetchFilteredEvents, handleSelectCategory]);
@@ -116,9 +132,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
         </section>
       )}
       <section className={styles.title}>
-        <span>
-          {eventType === 'streamed' ? 'Current Live Streams' : 'Events'}
-        </span>
+        <span>{eventType === 'streamed' ? 'Live Events' : 'Events'}</span>
         <Icon
           className={styles.questionIcon}
           iconType={IconType.question}
@@ -135,13 +149,13 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
         <div className={styles.categories}>
           <CategoryList
             eventType={eventType}
-            categories={categories}
+            categories={mappedCategories}
             handleSelect={handleSelectCategory}
           />
         </div>
       </section>
-      <section className={styles.main}>
-        <AdminOnly>
+      <AdminOnly>
+        <section className={styles.main}>
           <div
             className={styles.newEventLink}
             onClick={() => {
@@ -164,13 +178,19 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
             />
             <span>New Event</span>
           </div>
-        </AdminOnly>
-
+        </section>
+      </AdminOnly>
+      <section
+        className={classNames([
+          styles.main,
+          eventType !== 'streamed' ? styles.notStreamed : '',
+        ])}
+      >
         {eventType === 'streamed' && (
           <div className={styles.streamedContainer}>
             <EventsCarouselContainer
               eventType="streamed"
-              category={category}
+              category={encodedCategory}
               state="online"
               title="Current Live Streams"
               titleLink={false}
@@ -178,7 +198,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
             />
             <EventsCarouselContainer
               eventType="streamed"
-              category={category}
+              category={encodedCategory}
               state="coming_soon"
               title="Upcoming Events"
               titleLink={false}
@@ -187,7 +207,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
             />
             <EventsCarouselContainer
               eventType="streamed"
-              category={category}
+              category={encodedCategory}
               state="offline"
               title="Past events"
               titleLink={false}
@@ -197,29 +217,35 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
           </div>
         )}
 
-        {eventType === 'non-streamed' &&
-          filteredBets.map(item => (
-            <Link
-              to={{
-                pathname: `/trade/${item.eventSlug}/${item.slug}`,
-                state: { fromLocation: location },
-              }}
-              key={item._id}
-            >
-              <BetCard
-                key={item._id}
-                betId={item._id}
-                title={item.marketQuestion}
-                organizer={''}
-                viewers={12345}
-                state={item.status}
-                tags={item.tags}
-                image={item.previewImageUrl}
-                eventEnd={item.endDate}
-                outcomes={item.outcomes}
-              />
-            </Link>
-          ))}
+        <div className={styles.nonStreamed}>
+          {eventType === 'non-streamed' &&
+            filteredBets
+              .filter(item => item.eventSlug && item.slug)
+              .map(item => (
+                <Link
+                  to={{
+                    pathname: `/trade/${item.eventSlug}/${item.slug}`,
+                    state: { fromLocation: location },
+                  }}
+                  key={item._id}
+                >
+                  <BetCard
+                    item={item}
+                    key={item._id}
+                    betId={item._id}
+                    title={item.marketQuestion}
+                    organizer={''}
+                    viewers={12345}
+                    state={item.status}
+                    tags={item.tags}
+                    image={item.previewImageUrl}
+                    eventEnd={item.endDate}
+                    outcomes={item.outcomes}
+                    category={item.category}
+                  />
+                </Link>
+              ))}
+        </div>
       </section>
       <ContentFooter />
     </>

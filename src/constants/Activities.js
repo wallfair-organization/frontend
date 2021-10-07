@@ -1,82 +1,37 @@
-import AllImageIcon from '../data/icons/events-all-icon.svg';
+import AllIcon from '../data/icons/events-all-icon.svg';
+import VegasIcon from '../data/icons/vegas.svg';
 
 export const ACTIVITIES_TO_TRACK = [
   {
-    value: 'EVENT_START',
-    category: 'Event Start',
-    image: AllImageIcon,
-    isActive: true,
+    value: 'all',
+    category: 'All',
+    image: AllIcon,
   },
   {
-    value: 'EVENT_BET_RESOLVED',
-    category: 'Event Resolved',
-    image: AllImageIcon,
-    isActive: true,
+    value: 'bets',
+    category: 'Bets',
+    image: VegasIcon,
+    eventsCats: [
+      'Notification/EVENT_ONLINE',
+      'Notification/EVENT_OFFLINE',
+      'Notification/EVENT_NEW',
+      'Notification/EVENT_NEW_BET',
+      'Notification/EVENT_BET_PLACED',
+      'Notification/EVENT_BET_CASHED_OUT',
+      'Notification/EVENT_BET_RESOLVED',
+      'Notification/EVENT_BET_CANCELED',
+    ],
   },
   {
-    value: 'EVENT_BET_CANCELED',
-    category: 'Event Cancelled',
-    image: AllImageIcon,
-    isActive: true,
+    value: 'users',
+    category: 'Users',
+    image: VegasIcon,
+    eventsCats: ['Notification/EVENT_USER_REWARD'],
   },
   {
-    value: 'EVENT_USER_REWARD',
-    category: 'Event Reward',
-    image: AllImageIcon,
-    isActive: true,
-  },
-  {
-    value: 'EVENT_ONLINE',
-    category: 'Event Online',
-    image: AllImageIcon,
-    isActive: true,
-  },
-  {
-    value: 'EVENT_OFFLINE',
-    category: 'Event Offline',
-    image: AllImageIcon,
-    isActive: true,
-  },
-  {
-    value: 'EVENT_NEW',
-    category: 'Event New',
-    image: AllImageIcon,
-    isActive: true,
-  },
-  {
-    value: 'EVENT_UPDATED',
-    category: 'Event Updated',
-    image: AllImageIcon,
-    isActive: true,
-  },
-  {
-    value: 'EVENT_NEW_BET',
-    category: 'Bet New',
-    image: AllImageIcon,
-    isActive: true,
-  },
-  {
-    value: 'EVENT_BET_PLACED',
-    category: 'Bet Placed',
-    image: AllImageIcon,
-    isActive: true,
-  },
-  {
-    value: 'EVENT_BET_STARTED',
-    category: 'Bet Started',
-    image: AllImageIcon,
-    isActive: true,
-  },
-  {
-    value: 'EVENT_BET_CASHED_OUT',
-    category: 'Bet Cashed-Out',
-    image: AllImageIcon,
-    isActive: true,
-  },
-  {
-    value: 'EVENT_BET_RESOLVED',
-    category: 'Bet Resolved',
-    image: AllImageIcon,
-    isActive: true,
+    value: 'elongame',
+    category: 'Elon game',
+    image: VegasIcon,
+    eventsCats: ['Casino/CASINO_PLACE_BET', 'Casino/CASINO_CASHOUT'],
   },
 ];

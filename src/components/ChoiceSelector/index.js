@@ -24,7 +24,10 @@ const ChoiceSelector = ({
         ? formatToFixed(
             roundedWinAmount,
             4 - parseInt(roundedWinAmount, 10).toString().length > 0
-              ? 4 - parseInt(roundedWinAmount, 10).toString().length
+              ? Math.min(
+                  2,
+                  4 - parseInt(roundedWinAmount, 10).toString().length
+                )
               : 0
           )
         : '-';

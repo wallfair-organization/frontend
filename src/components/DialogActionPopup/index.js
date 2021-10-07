@@ -7,15 +7,17 @@ import styles from './styles.module.scss';
 import HighlightType from 'components/Highlight/HighlightType';
 import { Input, InputLabel } from 'components/Form';
 import { useState } from 'react';
+import actions from './DialogActions';
+import { EventActions } from 'store/actions/event';
 
 const actionTypes = {
-  cancel: {
+  [actions.cancelBet]: {
     title: 'Cancel Bet',
     text: 'Are you sure you want to cancel the bet?',
     acceptLabel: 'Cancel Bet',
     declineLabel: "Don't Cancel",
-    onAccept: (bet, data, hide) =>
-      Api.cancelBet(bet._id, data).then(() => hide()),
+    onAccept: (bet, { hidePopup }, data) =>
+      Api.cancelBet(bet._id, data).then(() => hidePopup()),
     form: (_, setData, setValid) => {
       const setForm = reason => {
         setData({ reasonOfCancellation: reason });
@@ -29,16 +31,30 @@ const actionTypes = {
       );
     },
   },
-  delete: {
+  [actions.deleteBet]: {
     title: 'Delete Bet',
     text: 'Are you sure you want to delete the bet?',
     acceptLabel: 'Delete',
     declineLabel: 'Cancel',
-    onAccept: (bet, _, hide) => Api.deleteBet(bet._id).then(() => hide()),
+    onAccept: (bet, { hidePopup }) =>
+      Api.deleteBet(bet._id).then(() => hidePopup()),
+  },
+  [actions.deleteEvent]: {
+    title: 'Delete Event',
+    text: 'Are you sure you want to delete the event?',
+    acceptLabel: 'Delete',
+    declineLabel: 'Cancel',
+    onAccept: ({ _id }, { deleteEvent }) => deleteEvent(_id),
+    getBody: e => (
+      <p className={styles.text}>
+        Are you sure you want to delete the event?
+        <strong>{e?.name}</strong>
+      </p>
+    ),
   },
 };
 
-const BetActionPopup = ({ bet, actionType, hidePopup }) => {
+const DialogActionPopup = ({ data, actionType, actionDispatchers }) => {
   const { onAccept, title, text, getBody, acceptLabel, declineLabel, form } =
     actionTypes[actionType];
 
@@ -50,11 +66,11 @@ const BetActionPopup = ({ bet, actionType, hidePopup }) => {
   }
 
   const body = !!getBody ? (
-    getBody(bet, styles)
+    getBody(data)
   ) : (
     <p className={styles.text}>
       {text}
-      <strong>"{bet?.marketQuestion}"</strong>
+      <strong>"{data?.marketQuestion}"</strong>
     </p>
   );
 
@@ -70,7 +86,7 @@ const BetActionPopup = ({ bet, actionType, hidePopup }) => {
         <Button
           withoutBackground={true}
           className={styles.declineButton}
-          onClick={hidePopup}
+          onClick={actionDispatchers.hidePopup}
         >
           {declineLabel}
         </Button>
@@ -80,7 +96,7 @@ const BetActionPopup = ({ bet, actionType, hidePopup }) => {
           highlightType={HighlightType.highlightModalButton}
           withoutBackground={true}
           disabled={!isFormValid}
-          onClick={() => onAccept(bet, formData, hidePopup)}
+          onClick={() => onAccept(data, actionDispatchers, formData)}
         >
           {acceptLabel}
         </Button>
@@ -91,10 +107,15 @@ const BetActionPopup = ({ bet, actionType, hidePopup }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    hidePopup: () => {
-      dispatch(PopupActions.hide());
+    actionDispatchers: {
+      deleteEvent: eventId => {
+        dispatch(EventActions.deleteEvent(eventId));
+      },
+      hidePopup: () => {
+        dispatch(PopupActions.hide());
+      },
     },
   };
 };
 
-export default connect(null, mapDispatchToProps)(BetActionPopup);
+export default connect(null, mapDispatchToProps)(DialogActionPopup);

@@ -39,24 +39,24 @@ const SharePopup = props => {
 
   let isNativeShare = false;
 
-  if (navigator.share) {
-    isNativeShare = true;
-  }
+  // if (navigator.share) {
+  //   isNativeShare = true;
+  // }
 
-  const handleNativeShare = () => {
-    if (navigator.share) {
-      navigator
-        .share({
-          title: dynamicTitle,
-          text: dynamicText,
-          url: realUrl,
-        })
-        .then(() => console.log('Successful share'))
-        .catch(error => console.log('Error sharing', error));
-    } else {
-      console.log('Share not supported on this browser, do it the old way.');
-    }
-  };
+  // const handleNativeShare = () => {
+  //   if (navigator.share) {
+  //     navigator
+  //       .share({
+  //         title: dynamicTitle,
+  //         text: dynamicText,
+  //         url: realUrl,
+  //       })
+  //       .then(() => console.log('Successful share'))
+  //       .catch(error => console.log('Error sharing', error));
+  //   } else {
+  //     console.log('Share not supported on this browser, do it the old way.');
+  //   }
+  // };
 
   const renderShareIcon = shareIconType => {
     const iconSize = 26;
@@ -69,7 +69,7 @@ const SharePopup = props => {
             title={dynamicTitle}
             url={realUrl}
             openShareDialogOnClick={isNativeShare ? false : true}
-            beforeOnClick={handleNativeShare}
+            // beforeOnClick={handleNativeShare}
           >
             <FacebookIcon size={iconSize} round={true} />
           </FacebookShareButton>
@@ -80,7 +80,7 @@ const SharePopup = props => {
             title={dynamicTitle}
             url={realUrl}
             openShareDialogOnClick={isNativeShare ? false : true}
-            beforeOnClick={handleNativeShare}
+            // beforeOnClick={handleNativeShare}
           >
             <TwitterIcon size={iconSize} round={true} />
           </TwitterShareButton>
@@ -91,7 +91,7 @@ const SharePopup = props => {
             title={dynamicTitle}
             url={realUrl}
             openShareDialogOnClick={isNativeShare ? false : true}
-            beforeOnClick={handleNativeShare}
+            // beforeOnClick={handleNativeShare}
           >
             <TelegramIcon size={iconSize} round={true} />
           </TelegramShareButton>
@@ -102,7 +102,7 @@ const SharePopup = props => {
             title={dynamicTitle}
             url={realUrl}
             openShareDialogOnClick={isNativeShare ? false : true}
-            beforeOnClick={handleNativeShare}
+            // beforeOnClick={handleNativeShare}
           >
             <RedditIcon size={iconSize} round={true} />
           </RedditShareButton>

@@ -7,6 +7,7 @@
   align-items: center;
   position: relative;
   height: 100%;
+  min-height: 550px;
   width: 100%;
   padding: 45px 20px;
   background-color: $colorWhite;
@@ -56,8 +57,8 @@
       z-index: 1;
 
       @media (max-width: $screen-xs) {
-        font-size: 20px;
-        margin-bottom: 10px;
+        font-size: 16px;
+        margin-bottom: 15px;
         .highlight {
           top: 15px;
         }
@@ -95,26 +96,40 @@
     .disclaimerPopupScrollableText {
       font-family: $fontBold;
       width: 100%;
-      height: 108px;
+      height: 100%;
+      flex: 1 1;
+      max-height: 350px;
       overflow-y: scroll;
       font-size: 11px;
       padding: 0 20px 0 15px;
       text-align: justify;
+      -webkit-text-size-adjust: 100%;
 
-      ol li {
+      @media (max-width: $screen-xs) {
+        max-height: 300px;
+      }
+
+      ol li,
+      p {
         margin-bottom: 10px;
 
         a {
           text-decoration: underline;
         }
       }
+
+      p {
+        margin-left: -10px;
+      }
     }
   }
 
   .authenticationLegalAuthorizationAgreementCheckBox {
+    display: flex;
+    align-items: center;
     font-family: $fontBold;
-    font-size: 13px;
-    margin: 20px 30px 10px 30px;
+    font-size: 12px;
+    margin: 20px 20px 10px 20px;
     -webkit-text-size-adjust: 100%;
   }
 }

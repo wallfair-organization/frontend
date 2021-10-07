@@ -1,0 +1,221 @@
+@import '../../styles/all';
+
+.containerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;  
+  margin: 0 1rem;
+  .container{   
+    margin: 0 2rem;    
+    @media (max-width: $screen-sm) {
+      margin: 0 3rem; 
+      width: 100%;
+    }
+    .containerHeader {      
+      width: 100%;
+      height: 344px;
+      background-image: url('../../data/backgrounds/profile/background.png');
+      background-repeat: no-repeat;
+      background-position: top;
+      background-size: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      @media (max-width: $screen-sm) {
+        height: 120px;
+      }          
+    }
+    .headerBody {      
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;      
+      background-color: #21203C;
+      color: $colorWhite;
+      padding-top: 20px;      
+      padding-right: 16px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      @media (max-width: $screen-sm) {
+        justify-content: flex-start;          
+        align-items: center;       
+      }
+      .avatarBox {
+        position: absolute;
+        left: 60px;
+        top: -60px;
+        border-radius: 50%;
+        width: 110px;
+        height: 110px;
+        background-color: $colorPrimaryDark;
+        @media (max-width: $screen-sm) {          
+          top: -42px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 93.7px;
+          height: 93.7px;
+        }
+        .profileImage {
+          object-fit: cover;
+          object-position: center;
+          border-radius: 50%;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+        }        
+      }  
+      .profileTitle {
+        position: absolute;        
+        color: $colorWhite;
+        top: -54px;
+        left: 250px;       
+        @media (max-width: $screen-sm) {          
+          top: 60px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        h2 {
+          font-family: $fontBold;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 30px;
+          line-height: 39px;
+          @media (max-width: $screen-sm) {          
+            font-size: 24px;
+            line-height: 31px;
+          }
+        }
+      }
+      .aboutSection {
+        padding-left: 250px;
+        @media (max-width: $screen-sm) {          
+          padding-top: 80px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        h3 {
+          font-family: $fontRegular;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 23px;
+        }
+        p {
+          margin-top: 8px;
+          font-family: $fontRegular;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 24px;
+          opacity: 0.6;
+        }
+      }
+    }  
+    .tabLayout {
+      display: flex;      
+      align-items: flex-end;
+      color: $colorWhite;
+      font-family: $fontRegular;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 18px;
+      padding-top: 24px;
+      margin-left: 16px;
+      @media (max-width: $screen-sm) {
+        margin-left: 0px;        
+        justify-content: space-between;
+        font-size: 11px;
+        line-height: 14px;
+      }
+      .tabItem {
+        text-align: center;        
+        padding-bottom: 12px;               
+        opacity: 0.3;
+        cursor: pointer;
+      }
+      .tabItemSelected {
+        text-align: center;        
+        padding-bottom: 12px;
+        border-bottom: 2px solid #F1FF54;        
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+    .userActivities {      
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;      
+      .templateImage {
+        width: 100%;        
+        filter: blur(2px);
+      }
+      .activityWrapper {
+        width: 75%
+      }
+      .statistics {
+        width: 25%
+      }
+      .inactivePlaceholder {        
+        background-image: url('../../data/backgrounds/games/games-highlight.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        min-width: 250px;
+        min-height: 70px;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-family: $fontRegular;
+        color: $colorBlack;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.bottomWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 24px;  
+
+  .leaderboard {
+    width: 100%;
+    border-radius: 8px;
+    @media (max-width: $screen-sm) {
+      padding: 0;
+    }
+  }
+
+  .headline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $colorWhite;
+    font-family: $fontRegular;
+    font-size: 24px;
+    margin-bottom: 20px;
+
+    .leaderboardLink {
+      font-size: 14px;
+      color: $colorWhite;
+      line-height: 12px;
+      letter-spacing: 0.6px;
+      font-family: $fontLight;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+

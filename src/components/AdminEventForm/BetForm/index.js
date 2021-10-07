@@ -4,18 +4,51 @@ import {
   InputLabel,
   Input,
   Tags,
+  InputError,
 } from 'components/Form';
-import { useState } from 'react';
+import {
+  isValid,
+  useValidatedState,
+  Validators,
+} from 'components/Form/hooks/useValidatedState';
+import Moment from 'moment';
 
-const BetForm = ({ setBetData, styles }) => {
-  const [marketQuestion, setMarketQuestion] = useState('');
-  const [outcomes, setOutcomes] = useState([
-    { _id: Date.now().toString(), name: '' },
-  ]);
-  const [evidenceDescription, setEvidenceDescription] = useState('');
-  const [evidenceSource, setEvidenceSource] = useState('');
-  const [description, setDescription] = useState('');
-  const [endDate, setEndDate] = useState(null);
+const BetForm = ({ setBetData, styles, fgClasses, setValidity }) => {
+  const [marketQuestion, setMarketQuestion, marketQuestionErrors] =
+    useValidatedState('', [Validators.required]);
+  const [outcomes, setOutcomes, outcomesErrors] = useValidatedState(
+    [{ _id: Date.now().toString(), name: '' }],
+    [Validators.minLength(2), Validators.requiredTags]
+  );
+  const [
+    evidenceDescription,
+    setEvidenceDescription,
+    evidenceDescriptionErrors,
+  ] = useValidatedState('', [Validators.required]);
+  const [evidenceSource, setEvidenceSource, evidenceSourceErrors] =
+    useValidatedState('', [Validators.required]);
+  const [description, setDescription, descriptionErrors] = useValidatedState(
+    '',
+    [Validators.required]
+  );
+  const [endDate, setEndDate, endDateErrors] = useValidatedState(
+    new Moment().add(1, 'hour'),
+    [Validators.required, Validators.dateAfter(new Moment())]
+  );
+
+  const isFormValid =
+    [
+      marketQuestionErrors,
+      outcomesErrors,
+      evidenceDescriptionErrors,
+      evidenceSourceErrors,
+      descriptionErrors,
+      endDateErrors,
+    ]
+      .map(isValid)
+      .filter(valid => !valid).length === 0;
+
+  setValidity(isFormValid);
 
   const betData = {
     marketQuestion,
@@ -68,15 +101,17 @@ const BetForm = ({ setBetData, styles }) => {
   return (
     <div className={styles.betForm}>
       <h3>Bet Data</h3>
-      <FormGroup className={styles.inputContainer}>
-        <InputLabel>Name</InputLabel>
+      <FormGroup className={fgClasses(marketQuestionErrors)}>
+        <InputLabel>Market Question</InputLabel>
         <Input
           type="text"
           value={marketQuestion}
           onChange={updateValue('marketQuestion')}
         />
+        <InputError errors={marketQuestionErrors} />
       </FormGroup>
-      <FormGroup className={styles.inputContainer}>
+
+      <FormGroup className={fgClasses(outcomesErrors)}>
         <InputLabel>Options</InputLabel>
         <Tags
           tags={outcomes}
@@ -85,39 +120,57 @@ const BetForm = ({ setBetData, styles }) => {
           removeTag={removeTag}
           max={4}
         />
+        <InputError
+          errors={outcomesErrors}
+          placeholderValues={{
+            minLength: ['2', 'outcomes'],
+            hasEmptyMembers: ['outcomes'],
+          }}
+        />
       </FormGroup>
-      <FormGroup className={styles.inputContainer}>
+      <FormGroup className={fgClasses(descriptionErrors)}>
         <InputLabel>Description</InputLabel>
         <Input
           type="text"
           value={description}
           onChange={updateValue('description')}
         />
+        <InputError errors={descriptionErrors} />
       </FormGroup>
 
-      <FormGroup className={styles.inputContainer}>
+      <FormGroup className={fgClasses(endDateErrors)}>
         <InputLabel>End Date</InputLabel>
         <DateTimePicker
           value={endDate}
           onChange={updateValue('endDate')}
           ampm={false}
         />
+        <InputError
+          errors={endDateErrors}
+          placeholderValues={{
+            dateBeforeLimit: [new Moment().format('DD.MM.YYYY HH:mm')],
+          }}
+        />
       </FormGroup>
-      <FormGroup className={styles.inputContainer}>
+
+      <FormGroup className={fgClasses(evidenceDescriptionErrors)}>
         <InputLabel>Evidence Description</InputLabel>
         <Input
           type="text"
           value={evidenceDescription}
           onChange={updateValue('evidenceDescription')}
         />
+        <InputError errors={evidenceDescriptionErrors} />
       </FormGroup>
-      <FormGroup className={styles.inputContainer}>
+
+      <FormGroup className={fgClasses(evidenceSourceErrors)}>
         <InputLabel>Evidence Source</InputLabel>
         <Input
           type="text"
           value={evidenceSource}
           onChange={updateValue('evidenceSource')}
         />
+        <InputError errors={evidenceSourceErrors} />
       </FormGroup>
     </div>
   );

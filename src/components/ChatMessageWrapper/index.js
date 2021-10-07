@@ -26,6 +26,7 @@ const ChatMessageWrapper = ({ message, date, parentRef, lastMessage }) => {
   const renderMessageContent = () => {
     const type = _.get(message, 'type');
     const user = _.get(message, 'user');
+    const userId = _.get(message, 'userId');
 
     switch (type) {
       case ChatMessageType.event:
@@ -36,6 +37,7 @@ const ChatMessageWrapper = ({ message, date, parentRef, lastMessage }) => {
             lastMessage={lastMessage}
             parentRef={parentRef}
             user={user}
+            userId={userId}
             message={_.get(message, 'message')}
             dateString={dateString}
           />

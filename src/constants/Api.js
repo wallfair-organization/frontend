@@ -29,6 +29,7 @@ export const API_BET_SELL_OUTCOMES = 'api/event/bet/:id/outcomes/sell';
 export const API_BET_TEMPLATES = 'api/bet-template';
 export const API_EVENT_CREATE = 'api/event/create';
 export const API_EVENT_EDIT = 'api/event/:id';
+export const API_EVENT_DELETE = 'api/event/:id';
 export const API_EVENT_LIST = 'api/event/list';
 export const API_EVENT_LIST_FILTERED =
   'api/event/list/:type/:category/:count/:page/:sortBy/:upcoming/:deactivated/:searchQuery';
@@ -55,7 +56,8 @@ export const API_BET_DELETE = 'api/event/bet/:id/delete';
 export const API_TRADE_CREATE = 'api/trade';
 export const API_CASH_OUT = 'api/cashout';
 export const API_TRADE_GET_BY_ID = 'api/event/trade/:id';
-export const API_GET_NOTIFICATION_EVENTS = 'api/notification-events/list';
+export const API_GET_NOTIFICATION_EVENTS =
+  'api/notification-events/list?limit=:limit&cat=:category';
 export const API_AUTH_LOGIN = 'api/auth/login';
 export const API_AUTH_SIGNUP = 'api/auth/sign-up';
 export const API_AUTH_FORGOT_PASSWORD = 'api/auth/forgot-password';

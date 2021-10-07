@@ -1,0 +1,28 @@
+@import '../../styles/all';
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 2em;
+  padding-right: 2em;
+
+  @media (min-width: $screen-lg) {
+    max-width: 1270px;
+  }
+
+  .activitiesTrackerContainerFull {
+    height: auto;
+  }
+
+  .activitiesCategory {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+    color: $colorWhite;
+    font-family: $fontRegular;
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 30px;
+  }
+}

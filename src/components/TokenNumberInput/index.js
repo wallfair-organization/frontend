@@ -28,9 +28,12 @@ const TokenNumberInput = ({
       targetValue = maxValue;
     }
 
-    if (decimalPlaces || decimalPlaces === 0) {
-      targetValue = _.floor(targetValue, decimalPlaces);
-    }
+    // if (decimalPlaces || decimalPlaces === 0) {
+    // targetValue = _.floor(targetValue, decimalPlaces);
+    // }
+
+    // force no decimal
+    targetValue = _.floor(targetValue, 0);
 
     // TODO: do we want to prevent the unlikely case somebody deliberately or accidentally puts an 'e' for an exponential number?!
     event.target.value = targetValue;

@@ -79,12 +79,24 @@ const addInGameBet = (action, state) => {
   if (state.hasStarted) {
     return {
       ...state,
-      betQueue: [action.payload, ...state.betQueue],
+      betQueue: [
+        {
+          ...action.payload,
+          isFresh: true,
+        },
+        ...state.betQueue,
+      ],
     };
   }
   return {
     ...state,
-    inGameBets: [action.payload, ...state.inGameBets],
+    inGameBets: [
+      {
+        ...action.payload,
+        isFresh: true,
+      },
+      ...state.inGameBets,
+    ],
   };
 };
 
@@ -130,6 +142,7 @@ const cashedOutGuest = (action, state) => {
     username: 'Guest',
     userId: 'Guest',
     crashFactor: factor.toFixed(2),
+    isFresh: true,
   };
   return {
     ...state,
@@ -149,6 +162,7 @@ const addReward = (action, state) => {
     crashFactor: round(action.payload.crashFactor, 2),
     amount: action.payload.reward,
     username: correspondingBet?.username,
+    isFresh: true,
   };
   return {
     ...state,
@@ -156,6 +170,14 @@ const addReward = (action, state) => {
     inGameBets: state.inGameBets.filter(
       bet => bet.userId !== correspondingBet.userId
     ),
+  };
+};
+
+const onTick = (action, state) => {
+  return {
+    ...state,
+    cashedOut: state.cashedOut.map(bet => ({ ...bet, isFresh: false })),
+    inGameBets: state.inGameBets.map(bet => ({ ...bet, isFresh: false })),
   };
 };
 
@@ -183,6 +205,8 @@ export default function (state = initialState, action) {
       return cashedOutGuest(action, state);
     case RosiGameTypes.ADD_REWARD:
       return addReward(action, state);
+    case RosiGameTypes.TICK:
+      return onTick(action, state);
     default:
       return state;
   }

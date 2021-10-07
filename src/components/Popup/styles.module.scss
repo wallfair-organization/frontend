@@ -13,6 +13,7 @@
   z-index: $zIndexPopup;
 
   &.disclaimerContainer {
+    height: 100vh;
     @media (orientation: landscape) {
       overflow-y: auto;
     }
@@ -46,9 +47,11 @@
     flex-direction: column;
     justify-content: center;
     overflow: auto;
+    pointer-events: none;
 
     &.signUpNotificationPopupContainer,
-    &.welcomeContainer {
+    &.welcomeContainer,
+    &.usernamePopup {
       overflow: visible;
     }
 
@@ -58,13 +61,29 @@
       height: auto;
     }
 
+    &.disclaimerContainer {
+      max-width: 800px;
+      height: auto;
+    }
+
     &.registrationPopupContainer {
       width: auto;
       max-width: max-content;
       overflow: visible;
     }
 
-    @media (max-width: 768px) {
+    &.explanationPopupVisual {
+      max-width: max-content;
+      width: auto;
+      height: auto;
+      padding: 0 30px;
+
+      @media (max-width: $screen-sm) {
+        padding: 0 15px;
+      }
+    }
+
+    @media (max-width: $screen-sm) {
       min-height: calc(100vh - 20px);
 
       &.welcomeContainer {
@@ -78,7 +97,7 @@
   }
 
   &.explanationContainer {
-    @media (max-width: 768px) {
+    @media (max-width: $screen-sm) {
       min-height: 100vh;
     }
   }

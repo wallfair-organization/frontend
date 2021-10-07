@@ -27,7 +27,7 @@
     }
   }
 
-  .explanationTextContainer {
+  .explanationImageContainer, .explanationTextContainer {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -74,5 +74,131 @@
         }
       }
     }
+  }
+
+  .explanationTextContainer {
+    max-width: 600px;
+  }
+}
+
+.explanationContainerVisual {
+  align-items: initial;
+  border-radius: 30px;
+
+  .ctaButton {
+    margin: auto;
+  }
+
+  .checkMore {
+    margin: 10px 0;
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .swiper-pagination-progressbar, .swiper-pagination-progressbar-fill {
+    background-color: red;
+  }
+
+  .explanationTextContainer {
+
+  }
+
+  .visualSteps {
+    display: flex;
+    position: relative;
+    align-items: initial;
+
+    .stepsContainer {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 10px 0;
+      overflow: hidden;
+
+      .stepItem {
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+
+        .cropGames {
+          margin-top: -55px;
+          margin-bottom: -55px;
+        }
+      }
+
+    }
+
+    @media (max-width: $screen-md) {
+      .stepsContainer {
+        flex-wrap: wrap;
+      }
+
+      .stepItem {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: $screen-xs) {
+      .stepsContainer {
+        flex-wrap: wrap;
+      }
+
+      .stepItem {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    .swiperElement {
+      width: 96%;
+      margin: auto;
+    }
+
+    .swiperNavContainer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      .activitiesSwiperButtonNext, .activitiesSwiperButtonPrev {
+        position: absolute;
+        top: -5px;
+        bottom: 0;
+        height: 100%;
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $colorDarkSlateGray;
+        width: 5%;
+
+        &:after {
+          font-family: swiper-icons;
+          font-size: 40px;
+          letter-spacing: 0;
+          text-transform: none;
+          font-variant: initial;
+          line-height: 1;
+        }
+      }
+
+      .activitiesSwiperButtonNext {
+        right: 0px;
+        &:after {
+          content: "next";
+        }
+      }
+
+      .activitiesSwiperButtonPrev {
+        left: 0;
+        &:after {
+          content: "prev";
+        }
+      }
+    }
+
   }
 }

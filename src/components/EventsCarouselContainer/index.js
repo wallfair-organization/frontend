@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { connect } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
@@ -6,9 +6,9 @@ import _ from 'lodash';
 import CarouselContainer from '../CarouselContainer';
 import EventCard from '../EventCard';
 import { EventActions } from '../../store/actions/event';
-import { useIsMount } from 'components/hoc/useIsMount';
 import styles from './styles.module.scss';
 import BetCard from 'components/BetCard';
+import BetState from 'constants/BetState';
 
 const EventsCarouselContainer = ({
   events,
@@ -125,27 +125,49 @@ const EventsCarouselContainer = ({
   const renderBetCards = () => {
     //Improvement: use API endpoint /event/bets/... to list and filter bets
 
-    const allBets = allEvents.reduce((acc, current) => {
-      const bets = current.bets.map(bet => ({
-        ...bet,
-        eventSlug: current.slug,
-        previewImageUrl: current.previewImageUrl,
-        tags: _.map(current.tags, tag => tag.name),
-      }));
+    const allValidBets = allEvents.reduce((acc, current) => {
+      if (current.type === 'streamed') {
+        return acc;
+      }
+
+      const bets = current.bets
+        .map(bet => ({
+          ...bet,
+          eventSlug: current.slug,
+          previewImageUrl: current.previewImageUrl,
+          tags: _.map(current.tags, tag => tag.name),
+          category: current.category
+        }))
+        .filter(bet => {
+          return (
+            bet.published &&
+            [BetState.active, BetState.upcoming].includes(bet.status)
+          );
+        });
+
       const concat = [...acc, ...bets];
       return concat;
     }, []);
 
-    const betIdsFromCurrentEvents = currentEvents?.reduce((acc, current) => {
-      const concat = [...acc, ...current.bets];
-      return concat;
-    }, []);
+    // const betIdsFromCurrentEvents = currentEvents?.reduce((acc, current) => {
+    //   const concat = [...acc, ...current.bets];
+    //   return concat;
+    // }, []);
 
-    const filteredBets = betIdsFromCurrentEvents
-      ? allBets.filter(bet => {
-          return betIdsFromCurrentEvents.includes(bet._id) && bet.published;
-        })
-      : [];
+    // const filteredBets = betIdsFromCurrentEvents
+    //   ? allBets.filter(bet => {
+    //       return (
+    //         betIdsFromCurrentEvents.includes(bet._id) &&
+    //         bet.published &&
+    //         [BetState.active, BetState.upcoming].includes(bet.status)
+    //       );
+    //     })
+    //   : [];
+
+    // MUST CHANGE THAT TO READ FROM BETS ENDPOINT
+    const currentItem = (page - 1) * COUNT;
+    const lastItem = currentItem + COUNT;
+    const filteredBets = allValidBets.slice(currentItem, lastItem);
 
     return _.map(filteredBets, bet => {
       const betId = _.get(bet, '_id');
@@ -173,6 +195,7 @@ const EventsCarouselContainer = ({
             eventEnd={bet.endDate}
             outcomes={outcomes}
             eventCardClass={styles.eventCardHome}
+            category={bet?.category ? bet.category : 'all'}
           />
         </Link>
       );
@@ -189,6 +212,9 @@ const EventsCarouselContainer = ({
       nextArrowInactive={allLoaded}
       onNext={nextPage}
       onPrevious={previousPage}
+      withComingSoonBanner={
+        eventType === 'streamed' && currentEvents?.length > 0
+      }
     >
       {eventType === 'streamed' && currentEvents?.length > 0
         ? renderLiveEvents()

@@ -28,6 +28,10 @@
   margin-top: 143px;
   padding: 0 20px;
 
+  @media (max-width: $screen-sm) {
+    margin-top: 90px;
+  }
+
   h1 {
     font-family: $fontBold;
     font-size: 46px;
@@ -78,12 +82,13 @@
 
     @media (max-width: $screen-md) {
       font-size: 24px;
-      padding: 12px 15px;
+      padding: 12px 15px 0;
     }
   }
 }
 
 .banner {
+  margin-top: 50px;
   background-image: url('../../data/backgrounds/games/rosi-games-banner-lg.png');
   min-height: 232px;
   width: 100%;
@@ -124,6 +129,30 @@
 
     @media (max-width: $screen-xs) {
       font-size: 30px;
+    }
+  }
+}
+
+.blogBanner {
+  margin-top: 32px;
+  background-image: url('../../data/backgrounds/blogs/blog-banner-lg.png');
+  @media (max-width: $screen-sm) {
+    background-image: url('../../data/backgrounds/blogs/blog-banner-mobile.png');
+    padding: 5px 80px;
+  }
+}
+
+.blogSectionContainer {
+  width: 100%;
+  display: flex;
+
+  @media (max-width: $screen-sm) {
+    padding: 10px 40px;
+  }
+
+  .blogPlaceHolder {
+    @media (max-width: $screen-sm) {
+      display: none;
     }
   }
 }
@@ -197,4 +226,16 @@
       opacity: 1;
     }
   }
+}
+
+.seeAllActivities {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: $colorWhite;
+  line-height: 12px;
+  letter-spacing: 0.6px;
+  font-family: $fontLight;
+  cursor: pointer;
+  text-decoration: underline;
 }

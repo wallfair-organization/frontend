@@ -126,6 +126,52 @@
   }
 }
 
+.notStreamed{
+  @media (max-width: $screen-sm) {
+    margin: 0;
+    padding: 0 0;
+    width: 100%;
+  }
+}
+
+.nonStreamed {
+  color: white;
+  width: max-content;
+  margin: 32px 0 0 0;
+  column-count: 3;
+  column-gap: 60px;
+@media (max-width: $screen-sm) {
+  margin:0 auto;
+  padding: 11px 0px 0px 0px;
+  column-count: 1;
+}
+
+  @media (max-width: $screen-md) {
+    margin:0 auto;
+    padding: 11px 0px 0px 0px;
+    column-count: 2;
+    column-gap: 20px;
+  }
+
+@media (max-width: $screen-xs) {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  column-count: 1;
+}
+
+> * {
+  margin-bottom: 10px;
+  display: block;
+  break-inside: avoid-column;
+}
+
+> a {
+  text-decoration: none;
+  @media (max-width: $screen-xs) {
+  }
+}
+}
+
 .streamedContainer {
   max-width: 1300px;
   width: 100%;

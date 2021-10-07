@@ -1,24 +1,24 @@
 import { useEffect, useState } from 'react';
 
-const Counter = ({ number }) => {
-  const [seconds, setSeconds] = useState(number);
+const Counter = ({ from, className }) => {
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
-    if (seconds > 0) {
-      setTimeout(() => {
-        setSeconds(prevSeconds => Math.max(prevSeconds - 0.01, 0).toFixed(2));
-      }, 10);
-    }
-  }, [seconds]);
+    const fromTime = new Date(from).getTime();
 
-  useEffect(
-    () => () => {
-      setSeconds(0);
-    },
-    []
+    const interval = setInterval(() => {
+      const now = Date.now();
+      setTime((fromTime - now) / 1000);
+    }, 10);
+
+    return () => clearInterval(interval);
+  }, [from]);
+
+  return (
+    <span className={className}>
+      {time > 0 ? `${Math.max(time.toFixed(2), 0)}` : '0.00'}
+    </span>
   );
-
-  return <span>{seconds < 10 ? `${seconds}` : seconds}</span>;
 };
 
 export default Counter;

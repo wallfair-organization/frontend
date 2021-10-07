@@ -15,7 +15,7 @@ const useTabsStyles = makeStyles({
     backgroundColor: '#e2ff54',
   },
   container: {
-    marginTop: '20px'
+    marginTop: '0px'
   }
 });
 
@@ -25,6 +25,7 @@ const useTabStyles = makeStyles({
     textTransform: 'capitalize',
     opacity: 0.5,
     fontSize: '12px',
+    lineHeight: '1.2',
     '@media screen and (max-width: 768px)': {
       width: '25%',
     },
@@ -33,7 +34,7 @@ const useTabStyles = makeStyles({
     color: '#FFFFFF',
   },
   tabPanel: {
-    marginTop: '20px'
+    marginTop: '5px'
   }
 });
 
@@ -78,11 +79,14 @@ const MobileBets = ({ inGameBets, cashedOut }) => {
         <PlaceBet />
       </TabPanel>
       <TabPanel value={selectedTab} index={1} className={tabClasses.tabPanel}>
-        <Chat 
-          roomId={ROSI_GAME_EVENT_ID}
-          className={styles.chatContainer} 
-          chatMessageType={ChatMessageType.game} 
-        />
+        <div className={styles.chatWrapper}>
+          <Chat
+            roomId={ROSI_GAME_EVENT_ID}
+            className={styles.chatContainer}
+            chatMessageType={ChatMessageType.game}
+            messagesClassName={styles.chatMessageContainer}
+          />
+        </div>
       </TabPanel>
       <TabPanel value={selectedTab} index={2} className={tabClasses.tabPanel}>
         <GameBets

@@ -7,7 +7,7 @@ const Textarea = ({ value, onChange, placeholder, className }) => {
       className={classNames(styles.textarea, className)}
       value={value}
       onChange={onChange}
-      placeholder={placeholder || 'Start typing...'}
+      placeholder={placeholder}
     />
   );
 };

@@ -18,6 +18,9 @@
     text-transform: capitalize;
     cursor: pointer;
     padding: 8px 45px;
+    @media (max-width: $screen-md) {
+      padding: 8px 20px;
+    }
   }
 }
 .tabActive {

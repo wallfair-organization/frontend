@@ -1,0 +1,23 @@
+@import '../../styles/all';
+
+:root {
+  --swiper-theme-color: #E6FE00;
+}
+
+.activities-tracker-swiper{
+  .swiper-button-next {
+    right: 0;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-pagination-progressbar {
+    background-color: $colorDarkSlateGray;
+  }
+
+  .swiper-container {
+
+  }
+}

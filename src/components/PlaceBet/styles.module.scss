@@ -9,7 +9,7 @@
   min-height: 100%;
 
   @media screen and (max-width: $screen-xs) {
-    // height: 360px;
+    padding: 5px 20px;
   }
 }
 
@@ -24,6 +24,10 @@
   margin-top: 18px;
   &.warning {
     color: $colorRed;
+  }
+
+  @media (max-width: $screen-xs) {
+    margin-top: 0;
   }
 }
 .titlelabel {
@@ -52,13 +56,13 @@
   justify-content: center;
   align-items: center;
   font-family: monospace $fontMedium;
-  .positive{
+  .positive {
     color: $colorGreen;
   }
-  .zero{
+  .zero {
     color: $colorBlack;
   }
-  .negative{
+  .negative {
     color: $colorRed;
   }
 }
@@ -153,6 +157,7 @@
   right: -50%;
   margin: 0px auto;
   margin-top: 50px;
+  outline: 0;
   @media screen and (max-width: $screen-xs) {
     margin-top: 10px;
   }

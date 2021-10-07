@@ -15,6 +15,7 @@ import { GeneralActions } from 'store/actions/general';
 import EmailNotifications from 'components/EmailNotifications';
 import Preferences from 'components/Preferences';
 import Referrals from 'components/Referrals';
+import Textarea from 'components/Textarea';
 
 const MainMenu = ({
   opened,
@@ -38,6 +39,8 @@ const MainMenu = ({
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [profilePic, setProfilePic] = useState(user.profilePicture);
+  const [imageName, setImageName] = useState(null);
+  const [aboutMe, setAboutMe] = useState(user.aboutMe);
 
   const profilePictureRefName = useRef(null);
 
@@ -59,6 +62,7 @@ const MainMenu = ({
   };
 
   const onClickShowEditProfile = () => {
+    setProfilePic(user.profilePicture);
     setEditVisible(!editVisible);
   };
 
@@ -97,13 +101,15 @@ const MainMenu = ({
 
   const handleSubmit = e => {
     e.preventDefault();
-    updateUser(name, username, email, profilePic);
+    updateUser(name, username, email, imageName, aboutMe, profilePic);
     setEditVisible(false);
   };
 
   const handleProfilePictureUpload = async e => {
+    if (!e.target.files.length) return;
     const base64 = await convertToBase64(e.target.files[0]);
     setProfilePic(base64);
+    setImageName(e.target.files[0].name);
   };
 
   const convertToBase64 = file => {
@@ -284,6 +290,15 @@ const MainMenu = ({
                 />
               </div>
               <div className={styles.profileInputGroup}>
+                <label className={styles.profileInputLabel}>About me</label>
+                <Textarea
+                  className={classNames(styles.profileInput, styles.textarea)}
+                  value={aboutMe}
+                  onChange={e => setAboutMe(e.target.value)}
+                  placeholder="Tell us something about yourself..."
+                />
+              </div>
+              <div className={styles.profileInputGroup}>
                 <label className={styles.profileInputLabel}>E-Mail</label>
                 <input
                   className={styles.profileInput}
@@ -330,11 +345,11 @@ const MainMenu = ({
           />
         </div>
       </div>
-      {editProfileWrapper()}
-      {renderMyTradesDrawer()}
-      {renderReferralsDrawer()}
-      {renderEmailNotificationDrawer()}
-      {renderPreferencesDrawer()}
+      {editVisible && editProfileWrapper()}
+      {myTradesVisible && renderMyTradesDrawer()}
+      {referralsVisible && renderReferralsDrawer()}
+      {emailNotificationsVisible && renderEmailNotificationDrawer()}
+      {preferencesVisible && renderPreferencesDrawer()}
     </div>
   );
 };
@@ -352,10 +367,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateUser: (name, username, email, profilePicture) => {
+    updateUser: (name, username, email, imageName, aboutMe, profilePic) => {
       dispatch(
         AuthenticationActions.initiateUpdateUserData({
-          user: { name, username, email, profilePicture },
+          user: { name, username, email, imageName, aboutMe, profilePic },
         })
       );
     },

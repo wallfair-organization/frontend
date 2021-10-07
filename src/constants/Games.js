@@ -13,7 +13,7 @@ import Routes from './Routes';
 export const CASINO_GAMES = [
   {
     background: RosiImg,
-    title: 'Elon Game',
+    title: '',
     subtitle: '',
     description: '',
     active: true,
@@ -44,14 +44,6 @@ export const CASINO_GAMES = [
         </div>
       ),
     },
-  },
-  {
-    background: First,
-    title: 'Midas Trader',
-    subtitle: '',
-    description: 'Market 1X2 – you know where the prices are going? Prove it!',
-    active: false,
-    linkTo: '',
   },
 ];
 
@@ -88,6 +80,14 @@ export const SLOTS_GAMES = [
     subtitle: '',
     description:
       'Game and learn candlestick trading strategy in this jackpot tournament',
+    active: false,
+    linkTo: '',
+  },
+  {
+    background: First,
+    title: 'Midas Trader',
+    subtitle: '',
+    description: 'Market 1X2 – you know where the prices are going? Prove it!',
     active: false,
     linkTo: '',
   },

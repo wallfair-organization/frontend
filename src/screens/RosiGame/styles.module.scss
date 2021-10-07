@@ -2,17 +2,62 @@
 
 .container {
   display: flex;
-  padding: 40px;
+  padding: 20px;
 
   @media screen and (max-width: $screen-xs) {
     display: block;
-    padding: 20px;
+    padding: 0 20px;
   }
 }
 
 .content {
   padding-right: 20px;
   flex: 1;
+
+  .headlineWrapper {
+    display: flex;
+    align-items: center;
+
+    .howtoLink {
+      padding-bottom: 20px;
+      cursor: pointer;
+      font-size: 11px;
+      font-family: $fontRegular;
+      text-decoration: underline;
+      color: $colorYellow;
+
+      @media (max-width: $screen-xs) {
+        display: none;
+        margin: 0;
+        width: 100%;
+        padding: 0 15px 15px;
+      }
+    }
+    .shareButton {
+      padding-bottom: 15px;
+      padding-right: 10px;
+    }
+
+    .questionIcon {
+      cursor: pointer;
+      display: none;
+      margin-bottom: 20px;
+      width: 25px;
+      height: 25px;
+
+      svg {
+        g,
+        path,
+        circle {
+          fill: $colorYellow;
+        }
+      }
+
+      @media (max-width: $screen-xs) {
+        display: block;
+      }
+    }
+  }
 
   @media screen and (max-width: $screen-xs) {
     padding-right: 0px;
@@ -33,6 +78,10 @@
 
 .chatWrapper {
   height: 300px;
+
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 20px;
+  }
 }
 
 .chatContainer {
@@ -43,4 +92,10 @@
   margin: 0px;
   height: 100%;
   padding: 10px;
+
+  .chatMessageContainer {
+    @media (max-width: $screen-sm) {
+      margin-bottom: 0;
+    }
+  }
 }

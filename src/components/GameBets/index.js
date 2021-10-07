@@ -2,8 +2,6 @@ import { nanoid } from 'nanoid';
 import { TOKEN_NAME } from '../../constants/Token';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
-import { useEffect, useState } from 'react';
-import { difference, xor } from 'lodash/array';
 
 const formatAmount = amount => amount.toFixed(0);
 
@@ -11,9 +9,15 @@ const calculateTotal = bets => {
   return bets.reduce((total, bet) => total + bet.amount, 0);
 };
 
-const Bet = ({ cashedOut, bet, isNew }) => {
+const Bet = ({ cashedOut, bet }) => {
   return (
-    <div className={classNames([styles.bet, isNew ? styles.flash : ''])}>
+    <div
+      className={classNames({
+        [styles.bet]: true,
+        [styles.flash]: bet.isFresh && !cashedOut,
+        [styles.flashGreen]: bet.isFresh && cashedOut,
+      })}
+    >
       <div className={styles.user}>{bet.username}</div>
       <div>
         {cashedOut ? (
@@ -33,18 +37,6 @@ const Bet = ({ cashedOut, bet, isNew }) => {
 };
 
 const GameBets = ({ label, bets, cashedOut }) => {
-  const [newBets, setNewBets] = useState([]);
-  const [oldBets, setOldBets] = useState([]);
-  useEffect(() => {
-    setNewBets(difference(bets, oldBets));
-    const handler = setTimeout(() => {
-      setNewBets([]);
-      setOldBets(bets);
-    }, 500);
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [bets]);
   return (
     <div className={styles.container}>
       <div className={styles.title}>{label}</div>
@@ -56,12 +48,7 @@ const GameBets = ({ label, bets, cashedOut }) => {
       </div>
       <div className={styles.bets}>
         {bets.map(bet => (
-          <Bet
-            bet={bet}
-            cashedOut={cashedOut}
-            key={nanoid()}
-            isNew={newBets.includes(bet)}
-          ></Bet>
+          <Bet bet={bet} cashedOut={cashedOut} key={nanoid()} />
         ))}
       </div>
     </div>

@@ -7,13 +7,12 @@ import UserSagas from './user';
 import ChatSagas from './chat';
 import WebsocketsSagas from './websockets';
 import LeaderboardSagas from './leaderboard';
-import { all, select } from 'redux-saga/effects';
+import { all, select, takeLatest, takeEvery, put } from 'redux-saga/effects';
 import { AuthenticationTypes } from '../actions/authentication';
 import { BetTypes } from '../actions/bet';
 import { EventActions } from '../actions/event';
 import { EventTypes } from '../actions/event';
 import { REHYDRATE } from 'redux-persist';
-import { takeLatest, takeEvery, put } from 'redux-saga/effects';
 import { TransactionTypes } from '../actions/transaction';
 import { UserTypes } from '../actions/user';
 import { AlertTypes } from '../actions/alert';
@@ -73,6 +72,7 @@ const root = function* () {
       [
         AuthenticationTypes.FETCH_REFERRALS_FAILED,
         EventTypes.FETCH_ALL_FAILED,
+        EventTypes.DELETE_EVENT_FAILED,
         BetTypes.CREATE_FAILED,
         BetTypes.PLACE_FAILED,
         BetTypes.PULL_OUT_BET_FAILED,
@@ -81,6 +81,7 @@ const root = function* () {
     ),
     takeEvery(
       [
+        EventTypes.DELETE_EVENT_SUCCEEDED,
         BetTypes.CREATE_SUCCEEDED,
         BetTypes.PLACE_SUCCEEDED,
         BetTypes.PULL_OUT_BET_SUCCEEDED,
@@ -123,6 +124,7 @@ const root = function* () {
       [WebsocketsTypes.SEND_CHAT_MESSAGE],
       WebsocketsSagas.sendChatMessage
     ),
+    takeLatest([REHYDRATE], WebsocketsSagas.idleCheck),
     takeEvery([LOCATION_CHANGE], WebsocketsSagas.joinOrLeaveRoomOnRouteChange),
     takeLatest([REHYDRATE], AuthenticationSagas.restoreToken),
     takeLatest([REHYDRATE], AuthenticationSagas.refreshImportantData),
@@ -139,6 +141,7 @@ const root = function* () {
       EventSagas.fetchHistoryChartData
     ),
     takeLatest([EventTypes.FETCH_NEWS_DATA], EventSagas.fetchNewsData),
+    takeLatest([EventTypes.DELETE_EVENT], EventSagas.deleteEvent),
     // @formatter:on
   ]);
 };

@@ -4,7 +4,7 @@ import { BACKEND_SOCKET_URL } from '../constants/Api';
 export let websocket = null;
 export const createSocket = token => {
   if (!token) {
-    console.error('Not auth token given!');
+    console.debug('Not auth token given!');
   }
 
   const socket = io(BACKEND_SOCKET_URL, {

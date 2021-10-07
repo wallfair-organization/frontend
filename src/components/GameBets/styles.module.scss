@@ -46,16 +46,35 @@
   }
   .bet.flash{
     animation-name: flash;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+  }
+
+  .bet.flashGreen{
+    animation-name: flash-green;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
   }
 
   @keyframes flash {
     from {
-      background: white;
+      background: $colorYellowFlash;
+      left: -12px;
     }
     to {
       background: transparent;
+      left: 0;
+    }
+  }
+
+  @keyframes flash-green {
+    from {
+      background: $colorGreenFlash;
+      left: -12px;
+    }
+    to {
+      background: transparent;
+      left: 0;
     }
   }
 

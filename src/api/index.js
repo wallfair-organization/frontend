@@ -272,6 +272,12 @@ const editEvent = (id, payload) => {
     .catch(error => ({ error: error.response.data }));
 };
 
+const deleteEvent = id => {
+  return Api.delete(ApiUrls.API_EVENT_DELETE.replace(':id', id))
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
 const createEventBet = payload => {
   return Api.post(ApiUrls.API_EVENT_BET_CREATE, payload)
     .then(response => ({ response }))
@@ -344,8 +350,15 @@ const getTradeById = id => {
   );
 };
 
-const getNotificationEvents = () => {
-  return Api.get(ApiUrls.API_GET_NOTIFICATION_EVENTS).catch(error => {
+const getNotificationEvents = params => {
+  const limit = _.get(params, 'limit', 10);
+  const category = _.get(params, 'category', 10);
+  return Api.get(
+    ApiUrls.API_GET_NOTIFICATION_EVENTS.replace(':limit', limit).replace(
+      ':category',
+      category
+    )
+  ).catch(error => {
     console.log('[API Error] called: getNotificationEvents', error);
   });
 };
@@ -416,6 +429,7 @@ export {
   postRewardAnswer,
   createEvent,
   editEvent,
+  deleteEvent,
   createEventBet,
   editEventBet,
   getBetTemplates,

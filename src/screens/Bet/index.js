@@ -9,13 +9,12 @@ import styles from './styles.module.scss';
 import { Carousel } from 'react-responsive-carousel';
 import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../store/actions/popup';
-import { Redirect, useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import EmbedVideo from '../../components/EmbedVideo';
 import BetView from '../../components/BetView';
 import RelatedBetCard from '../../components/RelatedBetCard';
 import MyTradesList from '../../components/MyTradesList';
-import { useHistory } from 'react-router-dom';
 import Chat from '../../components/Chat';
 import News from '../../components/News';
 import TabOptions from '../../components/TabOptions';
@@ -30,7 +29,6 @@ import { BetActions } from 'store/actions/bet';
 import { useBetPreviousLocation } from './hooks/useBetPreviousLocation';
 import Chart from '../../components/Chart';
 import { useChartData } from './hooks/useChartData';
-import Placeholder from '../../components/Placeholder';
 import { useNewsFeed } from './hooks/useNewsFeed';
 import { useTabOptions } from './hooks/useTabOptions';
 import AdminOnly from 'components/AdminOnly';
@@ -48,7 +46,6 @@ import EventTypes from 'constants/EventTypes';
 import Share from '../../components/Share';
 import useTrades from '../../hooks/useTrades';
 import BetState from 'constants/BetState';
-import TextHelper from '../../helper/Text';
 import TimeCounter from '../../components/TimeCounter';
 import { useIsMount } from '../../components/hoc/useIsMount';
 import { ReactComponent as LineChartIcon } from '../../data/icons/line-chart.svg';
@@ -104,6 +101,9 @@ const Bet = ({
   useNewsFeed(event);
 
   const isNonStreamed = _.get(event, 'type') === EventTypes.nonStreamed;
+  const canDeleteEvent = _.get(event, 'bets')?.every(
+    ({ status }) => status === BetState.canceled
+  );
 
   const { tabOptions, handleSwitchTab, selectedTab } = useTabOptions(event);
   const { activeBets } = useTrades(event?._id);
@@ -119,16 +119,6 @@ const Bet = ({
   };
 
   window.onresize = () => ref.current && setIsMobile(window.innerWidth < 992);
-
-  const selectSingleBet = bets => {
-    if (relatedBets?.length || bets?.length) {
-      const loneBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
-      const betId = _.get(loneBet, '_id');
-      const betSlug = _.get(loneBet, 'slug');
-      selectBet(betId, betSlug);
-      setSingleBet(true);
-    }
-  };
 
   useEffect(() => {
     const sluggedEvent = _.find(events, {
@@ -165,7 +155,13 @@ const Bet = ({
       selectBet(currentBetId, betSlug);
     }
 
-    if (!isMobile && eventBets.length === 1 && !singleBet) {
+    if (
+      !isMobile &&
+      eventBets.length === 1 &&
+      !singleBet &&
+      !betSlug &&
+      !betViewIsOpen
+    ) {
       selectSingleBet(eventBets);
     }
 
@@ -180,6 +176,9 @@ const Bet = ({
     if (
       ref.current &&
       !isMobile &&
+      !betSlug &&
+      !singleBet &&
+      !betViewIsOpen &&
       (relatedBets.length === 1 || isNonStreamed)
     ) {
       selectSingleBet();
@@ -213,7 +212,7 @@ const Bet = ({
     return () => {
       const eventSlug = _.get(event, 'slug', null);
 
-      history.push(
+      history.replace(
         Routes.getRouteWithParameters(Routes.bet, {
           eventSlug,
           betSlug: '',
@@ -241,8 +240,20 @@ const Bet = ({
     return authState === LOGGED_IN;
   };
 
+  const selectSingleBet = bets => {
+    if (singleBet) return;
+
+    if (relatedBets?.length || bets?.length) {
+      const loneBet = _.get(relatedBets.length ? relatedBets : bets, '[0]');
+      const betId = _.get(loneBet, '_id');
+      const betSlug = _.get(loneBet, 'slug');
+      selectBet(betId, betSlug);
+      setSingleBet(true);
+    }
+  };
+
   const selectBet = (betId, betSlug) => {
-    history.push(
+    history.replace(
       Routes.getRouteWithParameters(Routes.bet, {
         eventSlug,
         betSlug,
@@ -255,7 +266,6 @@ const Bet = ({
   const onBetClick = (bet, popup) => {
     return () => {
       const betId = _.get(bet, '_id');
-      const eventId = _.get(event, '_id');
       const betSlug = _.get(bet, 'slug');
 
       selectBet(betId, betSlug);
@@ -425,7 +435,6 @@ const Bet = ({
   };
 
   const renderMobileContent = () => {
-    let matchMediaMobile = window.matchMedia(`(max-width: ${768}px)`).matches;
     return (
       <Swiper
         slidesPerView={1}
@@ -530,7 +539,7 @@ const Bet = ({
                   <div className={styles.timerLabel}>Event ends in:</div>
 
                   <div className={styles.timerParts}>
-                    <TimeCounter endDate={bet.endDate} />
+                    <TimeCounter endDate={bet?.endDate} />
                   </div>
                 </div>
               </>
@@ -662,6 +671,31 @@ const Bet = ({
                     />
                     Edit Event
                   </span>
+                  <span
+                    className={classNames(
+                      styles.deleteEventLink,
+                      !canDeleteEvent && styles.fadedLink
+                    )}
+                    onClick={() =>
+                      canDeleteEvent &&
+                      showPopup(PopupTheme.deleteEvent, { event })
+                    }
+                  >
+                    <Icon
+                      className={styles.icon}
+                      iconType={IconType.trash}
+                      iconTheme={IconTheme.white}
+                      height={20}
+                      width={20}
+                    />
+                    Delete Event
+                    {!canDeleteEvent && (
+                      <span className={styles.infoTooltip}>
+                        All bets must be cancelled or deleted in order to delete
+                        an event.
+                      </span>
+                    )}
+                  </span>
                   {event.type === EventTypes.streamed && (
                     <span
                       className={styles.newBetLink}
@@ -717,11 +751,13 @@ const Bet = ({
                       )}
                     </div>
                   ) : (
-                    <EmbedVideo
-                      video={event.streamUrl}
-                      autoPlay={true}
-                      controls={true}
-                    />
+                    <div className={styles.streamPositioner}>
+                      <EmbedVideo
+                        video={event.streamUrl}
+                        autoPlay={true}
+                        controls={true}
+                      />
+                    </div>
                   )}
                   {/* {event.type === 'streamed' && (
                 <div className={styles.timeLeft}>
@@ -742,18 +778,18 @@ const Bet = ({
                     </div>
                   )}
                 </TabOptions>
-                {selectedTab === 'chat' ? (
+                {selectedTab === 'chat' && (
                   <Chat
                     className={styles.desktopChat}
                     roomId={event._id}
                     chatMessageType={ChatMessageType.event}
                   />
-                ) : (
-                  <News />
                 )}
 
+                {selectedTab === 'news' && <News />}
+
                 {selectedTab === 'evidence' && (
-                  <div>
+                  <div className={styles.evidenceTabContainerDesktop}>
                     <div className={styles.evidenceSource}>
                       <b>Evidence source: </b>{' '}
                       <span

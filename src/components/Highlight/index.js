@@ -15,7 +15,10 @@ import { ReactComponent as HighlightSettingsSupport } from '../../data/backgroun
 import { ReactComponent as HighlightPlaceBet } from '../../data/backgrounds/highlight-place-bet.svg';
 import { ReactComponent as HighlightDeposit } from '../../data/backgrounds/highlight-deposit.svg';
 import { ReactComponent as HighlightModalButton } from '../../data/backgrounds/highlight-modal-button.svg';
+import { ReactComponent as HighlightModalButton2 } from '../../data/backgrounds/highlight-modal-button2.svg';
+import { ReactComponent as HighlightModalButton2Disabled } from '../../data/backgrounds/highlight-modal-button2-disabled.svg';
 import { ReactComponent as HighlightAuthButton } from '../../data/backgrounds/highlight-auth.svg';
+import { ReactComponent as HighlightUnderline } from '../../data/backgrounds/highlight-underline.svg';
 import HighlightTheme from './HighlightTheme';
 
 const Highlight = ({
@@ -50,7 +53,12 @@ const Highlight = ({
       [HighlightType.highlightPlaceBet]: <HighlightPlaceBet />,
       [HighlightType.highlightDeposit]: <HighlightDeposit />,
       [HighlightType.highlightModalButton]: <HighlightModalButton />,
+      [HighlightType.highlightModalButton2]: <HighlightModalButton2 />,
+      [HighlightType.highlightModalButton2Disabled]: (
+        <HighlightModalButton2Disabled />
+      ),
       [HighlightType.highlightAuthButton]: <HighlightAuthButton />,
+      [HighlightType.highlightUnderline]: <HighlightUnderline />,
     });
   };
 

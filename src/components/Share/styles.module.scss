@@ -137,6 +137,11 @@
       z-index: 50;
     }
 
+    &.popup-position-right {
+      right: auto;
+      left: 0;
+    }
+
     @media (max-width: $screen-sm) {
       left: 10px;
       right: 10px;

@@ -28,7 +28,7 @@ import IconType from '../Icon/IconType';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
 import Timer from '../RosiGameAnimation/Timer';
 
-const PlaceBet = () => {
+const PlaceBet = ({ connected }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const userBalance = parseInt(user?.balance || 0, 10);
@@ -164,7 +164,8 @@ const PlaceBet = () => {
           role="button"
           tabIndex="0"
           className={classNames(styles.button, {
-            [styles.buttonDisabled]: userUnableToBet || isBetInQueue,
+            [styles.buttonDisabled]:
+              !connected || userUnableToBet || isBetInQueue,
           })}
           onClick={user.isLoggedIn ? placeABet : placeGuestBet}
         >
@@ -189,7 +190,9 @@ const PlaceBet = () => {
           tabIndex="0"
           className={classNames(styles.button, {
             [styles.buttonDisabled]:
-              (!userPlacedABet && isGameRunning) || !isGameRunning,
+              !connected ||
+              (!userPlacedABet && isGameRunning) ||
+              !isGameRunning,
           })}
           onClick={user.isLoggedIn ? cashOut : cashOutGuest}
         >

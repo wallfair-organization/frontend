@@ -35,7 +35,7 @@ const getCurrentGameInfo = () => {
 };
 
 const cashOut = () => {
-  return Api.post(ApiUrls.API_CASH_OUT, null).catch(error => {
+  return Api.post(ApiUrls.API_CASH_OUT, {}).catch(error => {
     console.log('[API Error] called: Cash Out', error);
   });
 };

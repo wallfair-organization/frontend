@@ -18,7 +18,7 @@ import { useHasMounted } from '../hoc/useHasMounted';
 import { useState } from 'react';
 import ChoiceSelectorList from '../ChoiceSelectorList';
 import Icon from '../Icon';
-import LoadingAnimation from '../../data/animations/sending-transaction.gif';
+import LoadingAnimation from '../../data/animations/wcoin.gif';
 import IconType from '../Icon/IconType';
 import IconTheme from '../Icon/IconTheme';
 import SummaryRowContainer from '../SummaryRowContainer';
@@ -65,7 +65,11 @@ const BetView = ({
   // fetchSellOutcomes,
   resetOutcomes,
 }) => {
+  // Static balance amount to simulate for non-logged users
+  // Slider is also using 2800 as max value
+  const BALANCE_NOT_LOGGED = 2800;
   const { currency, balance } = useSelector(selectUser);
+
   const wfairBalance = formatToFixed(
     _.get(
       useSelector(state => state.authentication),
@@ -292,7 +296,10 @@ const BetView = ({
         <div className={styles.labelWrapper}>
           <label className={styles.label}>You trade:</label>
           <InfoBox autoWidth={true} iconType={IconType.question}>
-            1 WFAIR equals 0.20€
+            {/* 1 WFAIR equals 0.20€ */}
+            You need to have a suficient amount of WFAIR tokens to participate
+            in events
+            {/* How to buy WFAIR token? */}
           </InfoBox>
         </div>
         <TokenNumberInput
@@ -300,7 +307,7 @@ const BetView = ({
           setValue={onTokenNumberChange}
           currency={currency}
           errorText={commitmentErrorText}
-          maxValue={formatToFixed(balance)}
+          maxValue={formatToFixed(userLoggedIn ? balance : BALANCE_NOT_LOGGED)}
         />
       </>
     );
@@ -384,7 +391,9 @@ const BetView = ({
           {/*{renderTradeDesc()}*/}
           <span
             data-for="tool-tip"
-            data-tip={'You Need To Select An Option First'}
+            data-tip={
+              userLoggedIn ? 'You Need To Select An Option First' : null
+            }
           >
             <Button
               className={classNames(styles.betButton)}
@@ -397,7 +406,7 @@ const BetView = ({
               disabledWithOverlay={false}
             >
               <span className={'buttonText'}>
-                {userLoggedIn ? 'Place bet' : 'Join Now And Start Trading'}
+                {userLoggedIn ? 'Place Trade' : 'Join Now And Start Trading'}
               </span>
             </Button>
           </span>
@@ -507,14 +516,9 @@ const BetView = ({
           isPopup ? styles.popupMenuContainer : null
         )}
       >
-        {/* {renderCurrentBalance()} */}
-        {renderMenu()}
+        <BetActionsMenu event={event} bet={bet} />
       </div>
     );
-  };
-
-  const renderMenu = () => {
-    return <BetActionsMenu event={event} bet={bet} />;
   };
 
   const renderStateConditionalContent = () => {

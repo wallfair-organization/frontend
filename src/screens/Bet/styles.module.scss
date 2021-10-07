@@ -60,6 +60,7 @@
     flex-flow: row wrap;
     align-items: center;
     z-index: 2;
+    margin-bottom: 1rem;
 
     @media (min-width: $screen-md) {
       margin-bottom: 2rem;
@@ -177,7 +178,17 @@
         display: flex;
         flex-direction: column;
         flex: 1;
-        min-height: 70vh;
+        position: relative;
+        // harcoded 16:9 aspect ration of the container
+        padding-top: calc(9 / 16 * 100%);
+
+        .streamPositioner {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
 
         .twitchStream {
           display: flex;
@@ -414,14 +425,24 @@
   }
 }
 
+.deleteEventLink,
 .editEventLink,
 .newBetLink {
+  position: relative;
   display: flex;
   align-items: center;
   font-size: 16px;
   margin: 10px;
   color: $colorWhite;
   cursor: pointer;
+
+  &.fadedLink {
+    color: $colorWhite50;
+    .icon {
+      opacity: 0.5;
+    }
+    cursor: not-allowed;
+  }
 
   .icon {
     margin-right: 7px;
@@ -430,6 +451,25 @@
       path {
         fill: $colorWhite;
       }
+    }
+  }
+  .infoTooltip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $colorBlack;
+    border-radius: 8px;
+    padding: 10px;
+    width: max-content;
+    max-width: 250px;
+    color: $colorWhite;
+  }
+
+  &:hover {
+    .infoTooltip {
+      display: block;
     }
   }
 }
@@ -493,6 +533,10 @@
       display: none;
     }
   }
+}
+
+.evidenceTabContainerDesktop {
+  margin-top: 20px;
 }
 
 .timeLeftCounterContainer {

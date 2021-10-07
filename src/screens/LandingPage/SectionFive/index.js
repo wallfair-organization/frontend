@@ -23,7 +23,13 @@ const SectionFive = ({ classes }) => {
 
   return (
     <section className={classes.section}>
-      <div className={classes.sectionNumber}>05</div>
+      <img
+        className={classes.sectionImage}
+        src={Image}
+        width={350}
+        alt="section-one"
+      />
+      <div className={classes.sectionNumber}>06</div>
       <div className={classes.textContainer}>
         <h2 className={classes.sectionHeading}>
           How can I join?
@@ -51,23 +57,11 @@ const SectionFive = ({ classes }) => {
           button.
         </p>
         <br />
-        <p className={classes.textParagraph}>
-          More ways to win real WFAIR tokens, more ways to win exclusive,
-          valuable collectable items and more ways to engage with your favourite
-          events.
-        </p>
-        <br />
         <br />
         <Button className={styles.button} onClick={showLoginPopup}>
-          Sign Up and start earning now
+          Sign up now and start winning
         </Button>
       </div>
-      <img
-        className={classes.sectionImage}
-        src={Image}
-        width={350}
-        alt="section-one"
-      />
     </section>
   );
 };

@@ -18,8 +18,8 @@ const Referrals = ({ close: closeDrawer, referrals }) => {
         rows={referrals.map(({ username, name, date }) => {
           return [
             <>
-              <span className={styles.primaryData}>{name}</span>
-              <span className={styles.secondaryData}>{username}</span>
+              <span className={styles.primaryData}>{username}</span>
+              {/*<span className={styles.secondaryData}>{username}</span>*/}
             </>,
             <>
               <span className={styles.secondaryData}>

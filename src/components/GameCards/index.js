@@ -22,29 +22,10 @@ const GameCards = ({ games, category, showHowtoLink, showPopup }) => {
     }
   };
 
-  const handleHelpClick = useCallback(event => {
-    showPopup(PopupTheme.explanation);
-  }, []);
-
   return (
     <div className={styles.gamesContainer}>
       <div className={styles.gamesCategory}>
         <span>{category}</span>
-        {showHowtoLink && (
-          <>
-            <Icon
-              className={styles.questionIcon}
-              iconType={IconType.question}
-              iconTheme={IconTheme.white}
-              height={25}
-              width={25}
-              onClick={handleHelpClick}
-            />
-            <span onClick={handleHelpClick} className={styles.howtoLink}>
-              How does it work?
-            </span>
-          </>
-        )}
       </div>
       <div className={styles.games}>
         {games.map((game, index) => {

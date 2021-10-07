@@ -22,6 +22,9 @@ export const EventTypes = {
   FETCH_NEWS_DATA: 'Event/FETCH_NEWS_DATA',
   FETCH_NEWS_DATA_SUCCESS: 'Event/FETCH_NEWS_DATA_SUCCESS',
   FETCH_NEWS_DATA_FAIL: 'Event/FETCH_NEWS_DATA_FAIL',
+  DELETE_EVENT: 'Event/DELETE_EVENT',
+  DELETE_EVENT_SUCCEEDED: 'Event/DELETE_EVENT_SUCCESS',
+  DELETE_EVENT_FAILED: 'Event/DELETE_EVENT_FAIL',
 };
 
 const fetchAll = makeActionCreator(EventTypes.FETCH_ALL);
@@ -131,6 +134,19 @@ const fetchNewsDataFail = () => ({
   type: EventTypes.FETCH_NEWS_DATA_FAIL,
 });
 
+//EVENT DELETION
+const deleteEvent = payload => ({
+  type: EventTypes.DELETE_EVENT,
+  payload,
+});
+const deleteEventSuccess = payload => ({
+  type: EventTypes.DELETE_EVENT_SUCCEEDED,
+  payload,
+});
+const deleteEventFail = () => ({
+  type: EventTypes.DELETE_EVENT_FAILED,
+});
+
 export const EventActions = {
   fetchAll,
   fetchAllSucceeded,
@@ -153,4 +169,7 @@ export const EventActions = {
   fetchNewsDataSuccess,
   fetchNewsDataFail,
   updateChartParams,
+  deleteEvent,
+  deleteEventSuccess,
+  deleteEventFail,
 };

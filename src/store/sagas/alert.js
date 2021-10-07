@@ -23,6 +23,9 @@ const getFailMessage = action => {
     case EventTypes.FETCH_ALL_FAILED:
       return 'An error occurred fetching all events.';
 
+    case EventTypes.DELETE_EVENT_FAILED:
+      return 'An error occurred while deleting event.';
+
     case BetTypes.CREATE_FAILED:
       return 'An error occurred creating the trade. Please try again!';
 
@@ -38,6 +41,9 @@ const getFailMessage = action => {
 
 const getSuccessMessage = action => {
   switch (action.type) {
+    case EventTypes.DELETE_EVENT_SUCCEEDED:
+      return 'The event was successfully deleted!';
+
     case BetTypes.CREATE_SUCCEEDED:
       return 'The trade was successfully created!';
 

@@ -3,4 +3,5 @@ export default {
   canceled: 'canceled',
   closed: 'closed',
   resolved: 'resolved',
+  upcoming: 'upcoming',
 };

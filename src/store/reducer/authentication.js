@@ -11,6 +11,7 @@ const initialState = {
   phone: '',
   country: '49',
   email: '',
+  aboutMe: '',
   emailVerificationState: null,
   token: null,
   balance: 0,
@@ -229,6 +230,12 @@ const updateData = (action, state) => {
     },
     toNextRank: {
       $set: action.toNextRank,
+    },
+    preferences: {
+      $set: action.preferences,
+    },
+    aboutMe: {
+      $set: action.aboutMe,
     },
   });
 };
