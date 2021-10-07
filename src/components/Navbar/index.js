@@ -143,6 +143,7 @@ const Navbar = ({
         className={classNames(
           style.ranking,
           style.pillButton,
+          !isLoggedIn() ? style.hiddenMobile : null,
           isOpen(drawers.leaderboard) ? style.pillButtonActive : null
         )}
         onClick={() => toggleOpenDrawer(drawers.leaderboard)}
@@ -230,7 +231,7 @@ const Navbar = ({
         <div className={style.navbarItems}>
           {leaderboardBtn}
           {walletBtn}
-          {notificationsBtn}
+          {/* {notificationsBtn} */}
           {profileBtn}
         </div>
       );

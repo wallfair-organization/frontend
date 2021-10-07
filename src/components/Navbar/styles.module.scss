@@ -111,7 +111,7 @@
     .ranking {
       z-index: 5;
 
-      &.pillButton {
+      &.hiddenMobile {
         @media (max-width: $screen-xs) {
           display: none;
         }

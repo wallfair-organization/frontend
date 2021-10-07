@@ -21,6 +21,20 @@ import EventsCarouselContainer from 'components/EventsCarouselContainer';
 
 import { PopupButton } from '@typeform/embed-react';
 
+const SuggestAnEvent = React.memo(props => {
+  return (
+    <div className={styles.suggestAnEventTriggerContainer}>
+      <PopupButton
+        key={'XbyRBuOp'}
+        id="XbyRBuOp"
+        className={styles.suggestAnEventTrigger}
+      >
+        Suggest an event
+      </PopupButton>
+    </div>
+  );
+});
+
 function EventsContent({ eventType, categories, setCategories, showPopup }) {
   const dispatch = useDispatch();
   const [coverStream, setCoverStream] = useState('');
@@ -188,11 +202,7 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
           eventType !== 'streamed' ? styles.notStreamed : '',
         ])}
       >
-        <div className={styles.suggestAnEventTriggerContainer}>
-          <PopupButton id="XbyRBuOp" className={styles.suggestAnEventTrigger}>
-            Suggest an event
-          </PopupButton>
-        </div>
+        <SuggestAnEvent />
         {eventType === 'streamed' && (
           <div className={styles.streamedContainer}>
             <EventsCarouselContainer
