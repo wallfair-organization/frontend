@@ -15,12 +15,8 @@ export const Validators = {
       : { invalidUrl: true },
   requiredTags: val =>
     val.some(({ name }) => name === '') ? { hasEmptyMembers: true } : null,
-  dateAfter: date => value => {
-    console.log(date, value);
-    return !!value && moment(value).isBefore(date)
-      ? { dateBeforeLimit: true }
-      : null;
-  },
+  dateAfter: date => value =>
+    !!value && moment(value).isBefore(date) ? { dateBeforeLimit: true } : null,
 };
 
 export const isValid = errors => Object.keys(errors).length === 0;
@@ -37,9 +33,9 @@ const validate = (errorSetter, validators, newValue) => {
 };
 
 /**
- * @param {any} initialValue
+ * @param {T} initialValue
  * @param {[() => ({[key: string]: boolean} | null)]} validators
- * @returns { [any, Dispatch<any>, {[key: string]: boolean} ]
+ * @returns { [T, Dispatch<T>, {[key: string]: boolean} ]
  */
 export const useValidatedState = (initialValue, validators = []) => {
   const [value, setValue] = useState(initialValue || '');

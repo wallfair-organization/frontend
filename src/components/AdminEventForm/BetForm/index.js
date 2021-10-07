@@ -148,7 +148,7 @@ const BetForm = ({ setBetData, styles, fgClasses, setValidity }) => {
         <InputError
           errors={endDateErrors}
           placeholderValues={{
-            dateBeforeLimit: [new Moment().format('HH:mm')],
+            dateBeforeLimit: [new Moment().format('DD.MM.YYYY HH:mm')],
           }}
         />
       </FormGroup>

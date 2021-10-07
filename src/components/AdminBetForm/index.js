@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react';
-import { DateTimePicker, FormGroup, Input, InputLabel, Tags } from '../Form';
+import {
+  DateTimePicker,
+  FormGroup,
+  Input,
+  InputLabel,
+  Tags,
+  InputError,
+} from '../Form';
 import * as Api from 'api';
 import styles from './styles.module.scss';
 import { setUniqueSlug } from 'helper/Slug';
@@ -7,28 +14,43 @@ import PopupTheme from 'components/Popup/PopupTheme';
 import { connect } from 'react-redux';
 import Dropdown from 'components/Dropdown';
 import Button from 'components/Button';
+import {
+  useValidatedState,
+  Validators,
+  isValid,
+} from 'components/Form/hooks/useValidatedState';
+import Moment from 'moment';
+import classNames from 'classnames';
+import HighlightType from 'components/Highlight/HighlightType';
 
 const AdminBetForm = ({ event, bet = null, visible }) => {
-  const [marketQuestion, setMarketQuestion] = useState(
-    bet?.marketQuestion || ''
+  const [marketQuestion, setMarketQuestion, marketQuestionErrors] =
+    useValidatedState(bet?.marketQuestion, [Validators.required]);
+  const [description, setDescription, descriptionErrors] = useValidatedState(
+    bet?.description,
+    [Validators.required]
   );
-
-  const [description, setDescription] = useState(bet?.description || '');
-
-  const [slug, setSlug] = useState(bet?.slug || '');
-  const [betTemplates, setBetTemplates] = useState([]);
-  const [outcomes, setOutcomes] = useState(
-    bet?.outcomes || [{ id: Date.now(), name: '' }]
+  const [slug, setSlug, slugErrors] = useValidatedState(bet?.slug, [
+    Validators.required,
+  ]);
+  const [outcomes, setOutcomes, outcomesErrors] = useValidatedState(
+    bet?.outcomes || [{ id: Date.now(), name: '' }],
+    [Validators.minLength(2), Validators.requiredTags]
   );
-  const [evidenceDescription, setEvidenceDescription] = useState(
-    bet?.evidenceDescription || ''
-  );
+  const [
+    evidenceDescription,
+    setEvidenceDescription,
+    evidenceDescriptionErrors,
+  ] = useValidatedState(bet?.evidenceDescription, [Validators.required]);
 
-  const [evidenceSource, setEvidenceSource] = useState(
-    bet?.evidenceSource || ''
-  );
+  const [evidenceSource, setEvidenceSource, evidenceSourceErrors] =
+    useValidatedState(bet?.evidenceSource, [Validators.required]);
 
-  const [endDate, setEndDate] = useState(bet?.endDate || null);
+  const [endDate, setEndDate, endDateErrors] = useValidatedState(
+    bet?.endDate || new Moment().add(1, 'hour'),
+    [Validators.required, ...(!bet ? [Validators.dateAfter(new Moment())] : [])]
+  );
+  const [betTemplates, setBetTemplates] = useValidatedState([]);
   const [selectedTemplateId, setSelectedTemplateId] = useState(null);
 
   const betSlugs = (
@@ -114,6 +136,25 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
     })
   );
 
+  const isFormValid =
+    [
+      marketQuestionErrors,
+      descriptionErrors,
+      slugErrors,
+      outcomesErrors,
+      evidenceDescriptionErrors,
+      evidenceSourceErrors,
+      endDateErrors,
+    ]
+      .map(isValid)
+      .filter(valid => !valid).length === 0;
+
+  const fgClasses = err =>
+    classNames(
+      styles.inputContainer,
+      !isValid(err) && styles.inputContainerError
+    );
+
   return (
     <>
       {!bet?._id && (
@@ -140,19 +181,22 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
           </div>
         </FormGroup>
       )}
-      <FormGroup className={styles.inputContainer}>
+      <FormGroup className={fgClasses(marketQuestionErrors)}>
         <InputLabel>Name</InputLabel>
         <Input type="text" value={marketQuestion} onChange={onNameChange} />
+        <InputError errors={marketQuestionErrors} />
       </FormGroup>
-      <FormGroup className={styles.inputContainer}>
+      <FormGroup className={fgClasses(slugErrors)}>
         <InputLabel>SEO-Optimized URL Piece</InputLabel>
         <Input type="text" value={slug} onChange={setSlug} />
+        <InputError errors={slugErrors} />
       </FormGroup>
-      <FormGroup className={styles.inputContainer}>
+      <FormGroup className={fgClasses(descriptionErrors)}>
         <InputLabel>Description</InputLabel>
         <Input type="text" value={description} onChange={setDescription} />
+        <InputError errors={descriptionErrors} />
       </FormGroup>
-      <FormGroup className={styles.inputContainer}>
+      <FormGroup className={fgClasses(outcomesErrors)}>
         <InputLabel>Options</InputLabel>
         <Tags
           tags={outcomes}
@@ -161,40 +205,57 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
           removeTag={removeTag}
           max={4}
         />
+        <InputError
+          errors={outcomesErrors}
+          placeholderValues={{
+            minLength: ['2', 'outcomes'],
+            hasEmptyMembers: ['outcomes'],
+          }}
+        />
       </FormGroup>
-      <FormGroup className={styles.inputContainer}>
+      <FormGroup className={fgClasses(evidenceDescriptionErrors)}>
         <InputLabel>Evidence Description</InputLabel>
         <Input
           type="text"
           value={evidenceDescription}
           onChange={setEvidenceDescription}
         />
+        <InputError errors={evidenceDescriptionErrors} />
       </FormGroup>
-      <FormGroup className={styles.inputContainer}>
+      <FormGroup className={fgClasses(evidenceSourceErrors)}>
         <InputLabel>Evidence Source</InputLabel>
         <Input
           type="text"
           value={evidenceSource}
           onChange={setEvidenceSource}
         />
+        <InputError errors={evidenceSourceErrors} />
       </FormGroup>
-      <FormGroup className={styles.inputContainer}>
+      <FormGroup className={fgClasses(endDateErrors)}>
         <InputLabel>End Date</InputLabel>
         <DateTimePicker
           value={endDate}
           onChange={date => setEndDate(date)}
           ampm={false}
         />
+        <InputError
+          errors={endDateErrors}
+          placeholderValues={{
+            dateBeforeLimit: [new Moment().format('DD.MM.YYYY HH:mm')],
+          }}
+        />
       </FormGroup>
       <div className={styles.buttonContainer}>
-        <span
-          role="button"
-          tabIndex="0"
-          className={styles.button}
+        <Button
+          className={classNames(styles.button, !isFormValid && styles.disabled)}
+          highlightType={HighlightType.highlightModalButton2}
+          withoutBackground={true}
+          disabledWithOverlay={false}
           onClick={handleSave}
+          disabled={!isFormValid}
         >
           Save
-        </span>
+        </Button>
       </div>
     </>
   );

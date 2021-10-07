@@ -105,8 +105,7 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
       type: event ? event.type : eventType,
       ...(!isStreamedEventType && { bet: betData }),
     };
-    console.log(payload);
-    return;
+
     if (event) {
       Api.editEvent(event._id, payload)
         .then(handleSuccess)
@@ -233,7 +232,7 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
 
       <div className={styles.buttonContainer}>
         <Button
-          className={styles.button}
+          className={classNames(styles.button, !isFormValid && styles.disabled)}
           highlightType={HighlightType.highlightModalButton2}
           withoutBackground={true}
           disabledWithOverlay={false}

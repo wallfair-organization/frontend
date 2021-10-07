@@ -5,7 +5,7 @@ const ERROR_MESSAGES = {
   required: 'Value required.',
   minLength: 'Must be have at least {0} {1}.',
   hasEmptyMembers: 'All {0} require a value.',
-  dateBeforeLimit: 'Date should be after {0}',
+  dateBeforeLimit: 'Datetime should be after "{0}"',
 };
 
 const InputError = ({ errors, placeholderValues }) => {
