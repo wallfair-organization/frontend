@@ -21,13 +21,14 @@
   right: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(6px);
   background-color: rgba(14, 9, 39, 0.86);
   transition: right 0.5s ease-in-out;
   @media (min-width: $screen-sm) {
     width: 500px;
   }
 }
+
+
 
 .drawerHidden {
   right: -101%;

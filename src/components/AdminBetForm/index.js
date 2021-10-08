@@ -22,8 +22,9 @@ import {
 import Moment from 'moment';
 import classNames from 'classnames';
 import HighlightType from 'components/Highlight/HighlightType';
+import { BetActions } from 'store/actions/bet';
 
-const AdminBetForm = ({ event, bet = null, visible }) => {
+const AdminBetForm = ({ event, bet = null, visible, createBet, editBet }) => {
   const isEdit = !!bet;
 
   const [marketQuestion, setMarketQuestion, marketQuestionErrors] =
@@ -64,11 +65,6 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
     setUniqueSlug(newName, betSlugs, setSlug);
   };
 
-  const handleSuccess = async () => {
-    // there is a strange bug when I use history.push(); to navigate, layout becomes white
-    window.location.reload();
-  };
-
   useEffect(() => {
     if (visible) {
       Api.getBetTemplates().then(({ response }) => {
@@ -82,7 +78,7 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
   }, [visible, event]);
 
   const handleSave = () => {
-    const payload = {
+    const newBet = {
       event: event._id,
       marketQuestion,
       description,
@@ -97,9 +93,9 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
     };
 
     if (bet) {
-      Api.editEventBet(bet._id, payload).then(handleSuccess);
+      editBet({ betId: bet._id, bet: newBet });
     } else {
-      Api.createEventBet(payload).then(handleSuccess);
+      createBet({ bet: newBet });
     }
   };
 
@@ -267,6 +263,17 @@ const AdminBetForm = ({ event, bet = null, visible }) => {
   );
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    createBet: payload => {
+      dispatch(BetActions.create(payload));
+    },
+    editBet: payload => {
+      dispatch(BetActions.edit(payload));
+    },
+  };
+};
+
 const mapStateToProps = state => {
   return {
     visible:
@@ -275,4 +282,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(AdminBetForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminBetForm);

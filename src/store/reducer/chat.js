@@ -21,26 +21,71 @@ const addMessage = (action, state) => {
   return update(state, {
     messagesByRoom: {
       [action.roomId]: {
-        $set: sortChatMessages([...current, ...[action.message]]),
+        $set: {
+          messages: sortChatMessages([
+            ...current.messages,
+            ...[action.message],
+          ]),
+          total: current.total + 1,
+        },
       },
     },
   });
 };
 
 const fetchByRoomSuccess = (action, state) => {
-  const currentMessages = _.get(state, ['messagesByRoom', action.roomId], []);
-  const notificationMessages = currentMessages.filter(m =>
-    [
-      ChatMessageType.createBet,
-      ChatMessageType.placeBet,
-      ChatMessageType.pulloutBet,
-    ].includes(m.type)
+  const currentMessages = _.get(
+    state,
+    ['messagesByRoom', action.roomId, 'messages'],
+    []
   );
+  const notificationMessages = currentMessages
+    ? currentMessages.filter(
+        m =>
+          m &&
+          [
+            ChatMessageType.createBet,
+            ChatMessageType.placeBet,
+            ChatMessageType.pulloutBet,
+          ].includes(m.type)
+      )
+    : [];
 
   return update(state, {
     messagesByRoom: {
       [action.roomId]: {
-        $set: sortChatMessages([...notificationMessages, ...action.messages]),
+        $set: {
+          messages:
+            action.skip !== 0
+              ? sortChatMessages([...currentMessages, ...action.messages])
+              : sortChatMessages([...notificationMessages, ...action.messages]),
+          total: action.total,
+          skip: action.skip,
+          limit: action.limit,
+        },
+      },
+      loading: {
+        $set: false,
+      },
+    },
+  });
+};
+
+const showLoading = state => {
+  return update(state, {
+    messagesByRoom: {
+      loading: {
+        $set: true,
+      },
+    },
+  });
+};
+
+const hideLoading = state => {
+  return update(state, {
+    messagesByRoom: {
+      loading: {
+        $set: false,
       },
     },
   });
@@ -49,6 +94,10 @@ const fetchByRoomSuccess = (action, state) => {
 export default function (state = initialState, action) {
   switch (action.type) {
     // @formatter:off
+    case ChatTypes.FETCH_BY_ROOM:
+      return showLoading(state);
+    case ChatTypes.FETCH_BY_ROOM_FAIL:
+      return hideLoading(state);
     case ChatTypes.ADD_MESSAGE:
       return addMessage(action, state);
     case ChatTypes.FETCH_BY_ROOM_SUCCESS:

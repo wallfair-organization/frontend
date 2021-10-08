@@ -4,6 +4,9 @@ export const BetTypes = {
   CREATE: 'Bet/CREATE',
   CREATE_FAILED: 'Bet/CREATE_FAILED',
   CREATE_SUCCEEDED: 'Bet/CREATE_SUCCEEDED',
+  EDIT: 'Bet/EDIT',
+  EDIT_FAILED: 'Bet/EDIT_FAILED',
+  EDIT_SUCCEEDED: 'Bet/EDIT_SUCCEEDED',
   FETCH_OPEN_BETS: 'Bet/FETCH_OPEN_BETS',
   FETCH_OPEN_BETS_FAILED: 'Bet/FETCH_OPEN_BETS_FAILED',
   FETCH_OPEN_BETS_SUCCEEDED: 'Bet/FETCH_OPEN_BETS_SUCCEEDED',
@@ -22,12 +25,7 @@ export const BetTypes = {
 };
 
 const create = makeActionCreator(BetTypes.CREATE, {
-  eventId: null,
-  marketQuestion: null,
-  description: null,
-  outcomes: null,
-  endDate: null,
-  liquidityAmount: 1,
+  bet: null,
 });
 
 const createSucceeded = makeActionCreator(BetTypes.CREATE_SUCCEEDED, {
@@ -35,6 +33,17 @@ const createSucceeded = makeActionCreator(BetTypes.CREATE_SUCCEEDED, {
 });
 
 const createFailed = makeActionCreator(BetTypes.CREATE_FAILED);
+
+const edit = makeActionCreator(BetTypes.EDIT, {
+  betId: null,
+  bet: null,
+});
+
+const editSucceeded = makeActionCreator(BetTypes.EDIT_SUCCEEDED, {
+  bet: null,
+});
+
+const editFailed = makeActionCreator(BetTypes.EDIT_FAILED);
 
 const place = makeActionCreator(BetTypes.PLACE, {
   betId: null,
@@ -102,6 +111,9 @@ export const BetActions = {
   create,
   createFailed,
   createSucceeded,
+  edit,
+  editSucceeded,
+  editFailed,
   fetchOpenBets,
   fetchOpenBetsFailed,
   fetchOpenBetsSucceeded,

@@ -27,13 +27,21 @@ import classNames from 'classnames';
 import Button from 'components/Button';
 import HighlightTheme from 'components/Highlight/HighlightTheme';
 import HighlightType from 'components/Highlight/HighlightType';
+import { EventActions, EventTypes } from 'store/actions/event';
 
 const categoriesOptions = LIVE_EVENTS_CATEGORIES.map(c => ({
   label: c.value,
   value: c.value,
 }));
 
-const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
+const AdminEventForm = ({
+  event = null,
+  eventSlugs,
+  hidePopup,
+  eventType,
+  createEvent,
+  editEvent,
+}) => {
   const isStreamedEventType = eventType === eventTypes.streamed;
 
   const [name, setName, nameErrors] = useValidatedState(event?.name, [
@@ -90,13 +98,8 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
     setUniqueSlug(newName, slugs, setSlug);
   };
 
-  const handleSuccess = ({ response: { data } }) => {
-    //@todo there is a strange bug when I use history.push(); to navigate, layout becomes white
-    window.location.reload();
-  };
-
   const handleSave = () => {
-    const payload = {
+    const newEvent = {
       name,
       slug,
       previewImageUrl,
@@ -109,17 +112,9 @@ const AdminEventForm = ({ event = null, eventSlugs, hidePopup, eventType }) => {
     };
 
     if (event) {
-      Api.editEvent(event._id, payload)
-        .then(handleSuccess)
-        .catch(err => {
-          console.error(err);
-        });
+      editEvent({ eventId: event._id, event: newEvent });
     } else {
-      Api.createEvent(payload)
-        .then(handleSuccess)
-        .catch(err => {
-          console.error(err);
-        });
+      createEvent({ event: newEvent });
     }
   };
 
@@ -254,4 +249,15 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(AdminEventForm);
+const mapDispatchToProps = dispatch => {
+  return {
+    createEvent: payload => {
+      dispatch(EventActions.createEvent(payload));
+    },
+    editEvent: payload => {
+      dispatch(EventActions.editEvent(payload));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminEventForm);

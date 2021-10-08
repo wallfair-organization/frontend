@@ -23,14 +23,23 @@ const getFailMessage = action => {
     case EventTypes.FETCH_ALL_FAILED:
       return 'An error occurred fetching all events.';
 
+    case EventTypes.CREATE_EVENT_FAILED:
+      return 'An error occurred while creating event.';
+
+    case EventTypes.EDIT_EVENT_FAILED:
+      return 'An error occurred while updating event.';
+
     case EventTypes.DELETE_EVENT_FAILED:
       return 'An error occurred while deleting event.';
 
     case BetTypes.CREATE_FAILED:
-      return 'An error occurred creating the trade. Please try again!';
+      return 'An error occurred creating the trade. Please try again.';
+
+    case BetTypes.EDIT_FAILED:
+      return 'An error occurred updating the bet. Please try again.';
 
     case BetTypes.PLACE_FAILED:
-      return 'An error occurred placing on the position. Please try again!';
+      return 'An error occurred placing on the position. Please try again.';
 
     case BetTypes.PULL_OUT_BET_FAILED:
       return 'An error occurred selling position';
@@ -41,11 +50,20 @@ const getFailMessage = action => {
 
 const getSuccessMessage = action => {
   switch (action.type) {
+    case EventTypes.CREATE_EVENT_SUCCEEDED:
+      return 'The event was successfully created!';
+
+    case EventTypes.EDIT_EVENT_SUCCEEDED:
+      return 'The event was successfully updated!';
+
     case EventTypes.DELETE_EVENT_SUCCEEDED:
       return 'The event was successfully deleted!';
 
     case BetTypes.CREATE_SUCCEEDED:
-      return 'The trade was successfully created!';
+      return 'The bet was successfully created!';
+
+    case BetTypes.EDIT_SUCCEEDED:
+      return 'The bet was successfully updated!';
 
     case BetTypes.PLACE_SUCCEEDED:
       // return 'The position was placed successfully!';

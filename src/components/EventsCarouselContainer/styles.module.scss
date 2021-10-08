@@ -1,52 +1,49 @@
 @import '../../styles/all';
 
-.headerWithHeadlineContainer
-{
-    display:         flex;
-    flex-direction:  row;
-    align-items:     center;
-    justify-content: space-between;
-    padding:         24px 30px;
+.headerWithHeadlineContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 30px;
 
-    .backIcon
-    {
-        position: absolute;
-        width:    12px;
-        height:   12px;
-        cursor:   pointer;
-    }
+  .backIcon {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+  }
 
-    h2
-    {
-        flex:       1;
-        text-align: center;
-    }
+  h2 {
+    flex: 1;
+    text-align: center;
+  }
 }
 
 .eventCardHome {
-    @media (max-width: $screen-xs) {
-        min-width: 300px;
-    }
+  @media (max-width: $screen-xs) {
+    min-width: 300px;
+  }
 }
 
 .eventLink {
-
-    @media (max-width: $screen-xs) {
-        padding-right: 10px;
-    }
+  @media (max-width: $screen-xs) {
+    padding-right: 10px;
+  }
 }
 
 .noEventsBox {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    color: #ffffff;
-    width: 100%;
-    height: 200px;
-    margin-right: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background-color: rgba(172, 196, 255, 0.12);
-    border-radius: 6px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #ffffff;
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  margin-right: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(172, 196, 255, 0.12);
+  border-radius: 6px;
 }

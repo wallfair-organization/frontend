@@ -25,6 +25,21 @@
     display: contents;
   }
 
+  .drawerBackdropBg {
+    backdrop-filter: blur(6px);
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .drawerContent {
+    z-index: 5;
+    display: flex;
+    flex-flow: column nowrap;
+    height: inherit;
+  }
+
   .navbarItems {
     display: flex;
     align-items: center;
@@ -274,7 +289,7 @@
   }
 
   .leaderboard {
-    background-color: rgba(14, 9, 39, 0.86);
+    background-color: rgba(14, 9, 39, 1);
     display: flex;
     flex-flow: column nowrap;
     z-index: 5;
@@ -294,7 +309,7 @@
     }
 
     .leaderboardHeading {
-      padding: 90px 30px 40px 30px;
+      padding: 20px 30px;
       font-size: 20px;
       line-height: 1.2;
       letter-spacing: 0.75px;
@@ -311,7 +326,7 @@
       flex-direction: column;
       align-items: flex-end;
       color: $colorWhite;
-      padding: 90px 30px 40px 0;
+      padding: 20px 30px;
       min-width: 90px;
     }
 
@@ -332,7 +347,78 @@
       justify-content: center;
       height: 90px;
       width: 100%;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+
+      @media (max-width: $screen-sm) {
+        flex-direction: column;
+        padding: 0 15px;
+        height: auto;
+      }
+    }
+
+    .leaderboardCountdownBlock {
+      display: flex;
+      color: $colorWhite;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 15px;
+
+      @media (max-width: $screen-sm) {
+        padding: 0 15px;
+      }
+
+      .leaderboardInfoItem {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 88%;
+
+        &:last-child {
+          margin-right: 0;
+          margin-left: 0;
+        }
+
+        @media (max-width: $screen-sm) {
+          width: 100%;
+          //padding: 20px 15px;
+
+          @media (max-width: $screen-sm) {
+            flex-direction: column;
+          }
+        }
+
+      }
+
+
+      @media (max-width: $screen-sm) {
+        margin: 15px 0;
+        flex-direction: column;
+      }
+
+      .timerSide {
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+      }
+
+      .linkSide {
+        font-size: 15px;
+        text-decoration: underline;
+        color: $colorYellow;
+      }
+    }
+
+    .leaderboardTimerComponent {
+
+
+      span {
+        font-size: 16px;
+      }
+    }
+
+    .time-part-name {
+      font-size: 16px;
     }
 
     .leaderboardInfoItem {
@@ -344,6 +430,7 @@
       padding: 20px;
       border-radius: 5px;
       color: $colorWhite;
+      height: 100%;
 
       &:first-child {
         margin: 0 5px 0 30px;
@@ -351,6 +438,19 @@
 
       &:last-child {
         margin: 0 30px 0 5px;
+      }
+
+      @media (max-width: $screen-sm) {
+        margin: 0;
+        padding: 15px 20px;
+
+        &:first-child {
+          margin: 0 0 10px 0;
+        }
+
+        &:last-child {
+          margin: 0;
+        }
       }
     }
 

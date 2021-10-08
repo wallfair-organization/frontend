@@ -36,10 +36,14 @@ const fetchByRoom = function* (action) {
     yield put(
       ChatActions.fetchByRoomSuccess({
         roomId,
-        messages: response.data,
+        messages: response.data.messages,
+        total: response.data.total,
+        skip,
+        limit,
       })
     );
   } else {
+    yield put(ChatActions.fetchByRoomFail({ roomId }));
     yield put(AlertActions.showError(error));
   }
 };

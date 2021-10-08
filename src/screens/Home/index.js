@@ -19,8 +19,9 @@ import LandingPage from 'screens/LandingPage';
 import classNames from 'classnames';
 import SocialIcons from 'components/SocialIcons';
 import YellowButton from 'components/YellowButton';
+import { GeneralActions } from '../../store/actions/general';
 
-const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
+const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
   const isMount = useIsMount();
   const { eventId, betId, tradeId } = useParams();
   const userLoggedIn = useSelector(
@@ -77,7 +78,7 @@ const Home = ({ tags, openDrawer, fetchTags, showPopup, events, users }) => {
 
   const onSeeLeaderboard = () => {
     window.scrollTo(0, 0);
-    openDrawer();
+    setOpenDrawer('leaderboard');
   };
 
   const renderTags = () => {
@@ -180,8 +181,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    openDrawer: () => {
-      dispatch(LeaderboardActions.handleDrawer({ open: true }));
+    setOpenDrawer: drawerName => {
+      dispatch(GeneralActions.setDrawer(drawerName));
     },
     fetchTags: () => {
       dispatch(EventActions.fetchTags());

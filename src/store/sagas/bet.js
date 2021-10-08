@@ -3,42 +3,75 @@ import _ from 'lodash';
 import AuthState from '../../constants/AuthState';
 import PopupTheme from '../../components/Popup/PopupTheme';
 import { BetActions } from '../actions/bet';
-import { call, put, select } from 'redux-saga/effects';
+import { call, put, select, all, delay } from 'redux-saga/effects';
 import { EventActions } from '../actions/event';
 import { PopupActions } from '../actions/popup';
 import { AuthenticationActions } from '../actions/authentication';
 import { TransactionActions } from '../actions/transaction';
 import { UserActions } from '../actions/user';
+import Routes from 'constants/Routes';
+import { push } from 'connected-react-router';
 
-const create = function* (action) {
-  const eventId = action.eventId;
-  const marketQuestion = action.marketQuestion;
-  const description = action.description;
-  const outcomes = action.outcomes;
-  const endDate = action.endDate;
-  const liquidity = action.liquidityAmount;
+const create = function* ({ bet }) {
+  const response = yield call(Api.createBet, bet);
 
-  const response = yield call(
-    Api.createBet,
-    eventId,
-    marketQuestion,
-    description,
-    outcomes,
-    endDate,
-    liquidity
-  );
+  try {
+    if (!response) {
+      throw new Error('No create bet response.');
+    }
 
-  if (response) {
+    const createdBet = response.data;
+    const event = yield select(state =>
+      state.event.events.find(({ _id }) => _id === bet.event)
+    );
+
+    const route = Routes.getRouteWithParameters(Routes.bet, {
+      eventSlug: event.slug,
+      betSlug: bet.slug,
+    });
+
+    yield put(PopupActions.hide());
+    yield put(EventActions.fetchAll());
+    yield put(push(route));
+    yield delay(1 * 1000);
+    yield put(BetActions.createSucceeded({ bet: createdBet }));
+  } catch (_) {
+    yield put(BetActions.createFailed());
+  }
+};
+
+const edit = function* (action) {
+  yield put(PopupActions.hide());
+
+  const { response } = yield call(Api.editEventBet, action.betId, action.bet);
+
+  try {
+    if (!response) {
+      throw new Error('No edit bet response.');
+    }
+
     const bet = response.data;
 
-    yield put(
-      BetActions.createSucceeded({
-        bet,
-      })
+    const event = yield select(state =>
+      state.event.events.find(({ _id }) => _id === bet.event)
     );
+    const oldBet = event.bets.find(({ _id }) => _id === bet._id);
+
     yield put(EventActions.fetchAll());
-  } else {
-    yield put(BetActions.createFailed());
+
+    if (oldBet.slug !== bet.slug) {
+      const route = Routes.getRouteWithParameters(Routes.bet, {
+        eventSlug: event.slug,
+        betSlug: bet.slug,
+      });
+
+      yield put(push(route));
+    }
+
+    yield delay(1 * 1000);
+    yield put(BetActions.editSucceeded({ bet }));
+  } catch (_) {
+    yield put(BetActions.editFailed());
   }
 };
 
@@ -192,6 +225,7 @@ const fetchTradeHistory = function* () {
 
 export default {
   create,
+  edit,
   fetchOpenBets,
   fetchOpenBetsSucceeded,
   fetchOutcomes,

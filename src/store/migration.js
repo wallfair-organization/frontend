@@ -1,4 +1,4 @@
-export const MIGRATION_VERSION = 8;
+export const MIGRATION_VERSION = 9;
 
 export const migrations = {
   0: state => {
@@ -149,6 +149,14 @@ export const migrations = {
           rangeValue: '24',
           direction: 'BUY',
         },
+      },
+    };
+  },
+  9: state => {
+    return {
+      ...state,
+      chat: {
+        messagesByRoom: {},
       },
     };
   },

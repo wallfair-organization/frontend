@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react';
 import { LOGGED_IN } from 'constants/AuthState';
 import { selectLeaderboard } from 'store/selectors/leaderboard';
 import { selectUser } from 'store/selectors/authentication';
+import TimeLeftCounter from '../TimeLeftCounter';
+import Moment from 'moment';
 
 const Leaderboard = ({
   fetchLeaderboard,
@@ -25,6 +27,8 @@ const Leaderboard = ({
   const users = _.get(leaderboard, 'users', []);
   const usersWithCurrent = _.get(leaderboard, 'usersWithCurrent', []);
   const user = useSelector(selectUser);
+
+  const isLoggedIn = () => user.authState === LOGGED_IN;
 
   useEffect(() => {
     if (fetch && !fetched) {
@@ -73,30 +77,34 @@ const Leaderboard = ({
       <div className={style.leaderboardRanking}>
         {users &&
           users.map(u => {
+            const isThisUserRow = u._id === user.userId;
             return (
               <LeaderboardItem
                 user={u}
-                isCurrentUser={u._id === user.userId}
+                isCurrentUser={isThisUserRow}
                 key={u.rank}
                 showLoadButton={users[users.length - 1] === u}
                 onLoad={() => onLeaderboardLoad()}
               />
             );
           })}
-        {usersWithCurrent &&
-          usersWithCurrent.map(u => {
-            return (
-              <LeaderboardItem
-                user={u}
-                isCurrentUser={u._id === user.userId}
-                key={u.rank}
-                showLoadButton={
-                  usersWithCurrent[usersWithCurrent.length - 1] === u
-                }
-                onLoad={() => onAfterCurrentLeaderboardLoad()}
-              />
-            );
-          })}
+
+        {isLoggedIn() && usersWithCurrent
+          ? usersWithCurrent.map(u => {
+              const isThisUserRow = u._id === user.userId;
+              return (
+                <LeaderboardItem
+                  user={u}
+                  isCurrentUser={isThisUserRow}
+                  key={u.rank}
+                  showLoadButton={
+                    usersWithCurrent[usersWithCurrent.length - 1] === u
+                  }
+                  onLoad={() => onAfterCurrentLeaderboardLoad()}
+                />
+              );
+            })
+          : null}
       </div>
     </div>
   );

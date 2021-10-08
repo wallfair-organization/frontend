@@ -65,7 +65,8 @@ const Authentication = ({
   }, [errorState, fooRef]);
 
   const emailIsValid = () => {
-    return email && email.length >= 6;
+    const regExpression = /^[a-z0-9+._-]+@[a-z0-9+._-]+$/;
+    return regExpression.test(String(email).toLowerCase());
   };
 
   const passwordIsValid = () => {

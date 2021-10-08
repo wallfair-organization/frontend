@@ -37,6 +37,11 @@
     > :first-child {
       margin-top: auto;
     }
+
+    .paginationIntersection {
+      min-height: 50px;
+      width: 100px;
+    }
   }
 
   .messageInput {

@@ -17,3 +17,9 @@ export const calculateTimeLeft = date => {
 
   return timeLeft;
 };
+
+export const nextDayweek = (d, weekday, time) => {
+  d.setDate(d.getDate() + ((weekday + (7 - d.getDay())) % 7));
+  d.setUTCHours(time.hour, time.minute, time.second);
+  return d;
+};

@@ -141,22 +141,8 @@ const getLeaderboard = (skip, limit) => {
   });
 };
 
-const createBet = (
-  eventId,
-  marketQuestion,
-  description,
-  outcomes,
-  endDate,
-  liquidityAmount
-) => {
-  return Api.post(ApiUrls.API_BET_CREATE, {
-    eventId,
-    marketQuestion,
-    description,
-    outcomes,
-    endDate,
-    liquidityAmount,
-  }).catch(error => {
+const createBet = payload => {
+  return Api.post(ApiUrls.API_BET_CREATE, payload).catch(error => {
     console.log('[API Error] called: createBet', error);
   });
 };

@@ -8,7 +8,6 @@ const DisclaimerPopupContainer = ({ showPopup }) => {
   };
 
   const showTermsDisclaimerPopup = () => {
-    console.log(hasAcceptedTerms());
     if (!hasAcceptedTerms()) {
       showPopup(PopupTheme.disclaimer);
     }

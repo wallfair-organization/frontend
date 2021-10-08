@@ -22,6 +22,12 @@ export const EventTypes = {
   FETCH_NEWS_DATA: 'Event/FETCH_NEWS_DATA',
   FETCH_NEWS_DATA_SUCCESS: 'Event/FETCH_NEWS_DATA_SUCCESS',
   FETCH_NEWS_DATA_FAIL: 'Event/FETCH_NEWS_DATA_FAIL',
+  CREATE_EVENT: 'Event/CREATE_EVENT',
+  CREATE_EVENT_SUCCEEDED: 'Event/CREATE_EVENT_SUCCESS',
+  CREATE_EVENT_FAILED: 'Event/CREATE_EVENT_FAIL',
+  EDIT_EVENT: 'Event/EDIT_EVENT',
+  EDIT_EVENT_SUCCEEDED: 'Event/EDIT_EVENT_SUCCESS',
+  EDIT_EVENT_FAILED: 'Event/EDIT_EVENT_FAIL',
   DELETE_EVENT: 'Event/DELETE_EVENT',
   DELETE_EVENT_SUCCEEDED: 'Event/DELETE_EVENT_SUCCESS',
   DELETE_EVENT_FAILED: 'Event/DELETE_EVENT_FAIL',
@@ -134,18 +140,39 @@ const fetchNewsDataFail = () => ({
   type: EventTypes.FETCH_NEWS_DATA_FAIL,
 });
 
-//EVENT DELETION
-const deleteEvent = payload => ({
-  type: EventTypes.DELETE_EVENT,
-  payload,
+// EVENT CREATION
+const createEvent = makeActionCreator(EventTypes.CREATE_EVENT, {
+  event: null,
 });
-const deleteEventSuccess = payload => ({
-  type: EventTypes.DELETE_EVENT_SUCCEEDED,
-  payload,
+const createEventSuccess = makeActionCreator(
+  EventTypes.CREATE_EVENT_SUCCEEDED,
+  {
+    event: null,
+  }
+);
+const createEventFail = makeActionCreator(EventTypes.CREATE_EVENT_FAILED);
+
+// EVENT EDIT
+const editEvent = makeActionCreator(EventTypes.EDIT_EVENT, {
+  eventId: null,
+  event: null,
 });
-const deleteEventFail = () => ({
-  type: EventTypes.DELETE_EVENT_FAILED,
+const editEventSuccess = makeActionCreator(EventTypes.EDIT_EVENT_SUCCEEDED, {
+  event: null,
 });
+const editEventFail = makeActionCreator(EventTypes.EDIT_EVENT_FAILED);
+
+// EVENT DELETION
+const deleteEvent = makeActionCreator(EventTypes.DELETE_EVENT, {
+  eventId: null,
+});
+const deleteEventSuccess = makeActionCreator(
+  EventTypes.DELETE_EVENT_SUCCEEDED,
+  {
+    event: null,
+  }
+);
+const deleteEventFail = makeActionCreator(EventTypes.DELETE_EVENT_FAILED);
 
 export const EventActions = {
   fetchAll,
@@ -169,6 +196,12 @@ export const EventActions = {
   fetchNewsDataSuccess,
   fetchNewsDataFail,
   updateChartParams,
+  createEvent,
+  createEventSuccess,
+  createEventFail,
+  editEvent,
+  editEventSuccess,
+  editEventFail,
   deleteEvent,
   deleteEventSuccess,
   deleteEventFail,
