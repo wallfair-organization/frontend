@@ -113,7 +113,7 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
 
   const renderRosiBanner = () => {
     return (
-      <Link to={Routes.rosiGame}>
+      <Link data-tracking-id="home-play-elon" to={Routes.rosiGame}>
         <div className={styles.banner}>
           <div className={styles.title}>
             Play the
@@ -163,7 +163,6 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
           {renderRosiBanner()}
           <EventsCarouselContainer eventType="non-streamed" />
           <EventsCarouselContainer eventType="streamed" />
-          {renderBlogBanner()}
           {renderCategoriesAndLeaderboard()}
           <ContentFooter />
         </div>

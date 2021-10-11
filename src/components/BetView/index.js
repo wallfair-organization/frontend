@@ -77,7 +77,7 @@ const BetView = ({
       0
     )
   );
-  const defaultBetValue = 1;
+  const defaultBetValue = 50;
   const event = _.find(events, {
     _id: eventId,
   });
@@ -404,6 +404,11 @@ const BetView = ({
                 userLoggedIn && !(validInput && state === BetState.active)
               }
               disabledWithOverlay={false}
+              dataTrackingId={
+                userLoggedIn
+                  ? 'nonstreamed-event-place-trade'
+                  : 'nonstreamed-event-join-now'
+              }
             >
               <span className={'buttonText'}>
                 {userLoggedIn ? 'Place Trade' : 'Join Now And Start Trading'}

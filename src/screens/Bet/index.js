@@ -49,6 +49,7 @@ import BetState from 'constants/BetState';
 import TimeCounter from '../../components/TimeCounter';
 import { useIsMount } from '../../components/hoc/useIsMount';
 import { ReactComponent as LineChartIcon } from '../../data/icons/line-chart.svg';
+// import { trackPageView } from 'config/gtm';
 
 const BET_ACTIONS = {
   Chat: 0,
@@ -168,6 +169,16 @@ const Bet = ({
     fetchChatMessages(event._id);
     fetchOpenBets();
     fetchTransactions();
+
+    // const currentBetTitle =
+    //   isNonStreamed || event.bets.length === 1
+    //     ? _.get(event, 'bets[0].marketQuestion')
+    //     : _.get(currentBet, 'name');
+
+    // trackPageView({
+    //   pageTitle: `Bet - ${currentBetTitle}`,
+    // });
+
     return () => (ref.current = false);
   }, [eventSlug, betSlug, event]);
 

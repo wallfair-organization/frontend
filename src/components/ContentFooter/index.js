@@ -57,6 +57,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                 href="https://trustpad.io/pool/wallfair"
                 target="_blank"
                 rel="noreferrer"
+                data-tracking-id="footer-buy-wfair"
               >
                 Buy WFAIR real tokens
               </a>

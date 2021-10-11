@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import styles from './styles.module.scss';
 import ContentFooter from 'components/ContentFooter';

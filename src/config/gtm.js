@@ -1,6 +1,6 @@
 import TagManager from 'react-gtm-module';
 
-const initTagManager = () => {
+export const initTagManager = () => {
   if (!process.env.REACT_APP_GTM_ID) {
     console.log('Google Tag Manager ID not configured!');
     return;
@@ -13,4 +13,26 @@ const initTagManager = () => {
   TagManager.initialize(tagManagerArgs);
 };
 
-export default initTagManager;
+export const dataLayerPush = dataLayerProps => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackPageView = dataLayerProps => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      pageUrl: window.location.href,
+      event: 'virtualPageview',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export default TagManager;

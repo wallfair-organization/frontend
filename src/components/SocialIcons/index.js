@@ -1,4 +1,5 @@
 import React from 'react';
+import SocialFollowerBadge from '../SocialFollowerBadge';
 import styles from './styles.module.scss';
 import { ReactComponent as TelegramIcon } from '../../data/icons/telegram.svg';
 import { ReactComponent as InstagramIcon } from '../../data/icons/instagram.svg';
@@ -13,7 +14,10 @@ const SocialIcons = ({ className }) => {
         target="_blank"
         rel="noreferrer"
       >
-        <TelegramIcon />
+        <div className={styles.iconWrapper}>
+          <SocialFollowerBadge className={styles.badge} followers="70K" />
+          <TelegramIcon />
+        </div>
       </a>
 
       <a
@@ -21,7 +25,10 @@ const SocialIcons = ({ className }) => {
         target="_blank"
         rel="noreferrer"
       >
-        <InstagramIcon />
+        <div className={styles.iconWrapper}>
+          <SocialFollowerBadge className={styles.badge} followers="1,4K" />
+          <InstagramIcon />
+        </div>
       </a>
 
       <a
@@ -29,7 +36,10 @@ const SocialIcons = ({ className }) => {
         target="_blank"
         rel="noreferrer"
       >
-        <TwitterIcon />
+        <div className={styles.iconWrapper}>
+          <SocialFollowerBadge className={styles.badge} followers="46K" />
+          <TwitterIcon />
+        </div>
       </a>
     </div>
   );

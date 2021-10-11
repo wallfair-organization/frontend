@@ -109,3 +109,19 @@
     text-align: justify;
   }
 }
+
+.muteButton{
+  min-width: 40px;
+  min-height: 40px;
+  position: absolute;
+  background: url("../../data/icons/volume_up_white_24dp.svg");
+  background-size: cover;
+  z-index: 999;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+.muteButton.mute{
+  background: url("../../data/icons/volume_off_white_24dp.svg");
+  background-size: cover;
+}

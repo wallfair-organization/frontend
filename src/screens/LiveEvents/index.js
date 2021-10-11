@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import EventsContent from 'components/Events/EventsContent';
 import { EVENT_CATEGORIES } from 'constants/EventCategories';

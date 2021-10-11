@@ -12,6 +12,10 @@ export const RosiGameTypes = {
   CASH_OUT: 'RosiGame/CASH_OUT',
   ADD_REWARD: 'RosiGame/ADD_REWARD',
   CASH_OUT_GUEST: 'RosiGame/CASH_OUT_GUEST',
+  MUTE_BUTTON_CLICK: 'RosiGame/MUTE_BUTTON_CLICK',
+  PLAY_WIN_SOUND: 'RosiGame/PLAY_WIN_SOUND',
+  PLAY_FLYING_SOUND: 'RosiGame/PLAY_FLYING_SOUND',
+  STOP_FLYING_SOUND: 'RosiGame/STOP_FLYING_SOUND',
 };
 
 const initializeState = payload => ({
@@ -69,6 +73,26 @@ const addReward = payload => ({
   payload,
 });
 
+const muteButtonClick = payload => ({
+  type: RosiGameTypes.MUTE_BUTTON_CLICK,
+  payload,
+});
+
+const playWinSound = payload => ({
+  type: RosiGameTypes.PLAY_WIN_SOUND,
+  payload,
+});
+
+const playFlyingSound = payload => ({
+  type: RosiGameTypes.PLAY_FLYING_SOUND,
+  payload,
+});
+
+const stopFlyingSound = payload => ({
+  type: RosiGameTypes.STOP_FLYING_SOUND,
+  payload,
+});
+
 export const RosiGameActions = {
   initializeState,
   setHasStarted,
@@ -82,4 +106,8 @@ export const RosiGameActions = {
   cashOut,
   addReward,
   cashOutGuest,
+  muteButtonClick,
+  playWinSound,
+  playFlyingSound,
+  stopFlyingSound,
 };

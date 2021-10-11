@@ -68,7 +68,11 @@ const RosiGame = ({ showPopup, connected }) => {
               width={25}
               onClick={handleHelpClick}
             />
-            <span onClick={handleHelpClick} className={styles.howtoLink}>
+            <span
+              onClick={handleHelpClick}
+              className={styles.howtoLink}
+              data-tracking-id="elongame-how-does-it-work"
+            >
               How does it work?
             </span>
           </div>

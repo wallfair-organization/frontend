@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import classNames from 'classnames';
-import medalGold from '../../data/icons/medal-gold.png';
+import medalCoin from '../../data/icons/medal-coin.png';
 import LogoDemo from '../../data/images/logo-demo.svg';
 import style from './styles.module.scss';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
@@ -116,9 +116,10 @@ const Navbar = ({
     };
   };
 
-  const renderNavbarLink = (route, text, isLogo = false) => {
+  const renderNavbarLink = (route, text, isLogo = false, trackingId) => {
     return (
       <NavLink
+        data-tracking-id={trackingId}
         to={route}
         activeClassName={isLogo ? null : style.active}
         className={isLogo ? style.logoLink : null}
@@ -150,8 +151,9 @@ const Navbar = ({
           isOpen(drawers.leaderboard) ? style.pillButtonActive : null
         )}
         onClick={() => toggleOpenDrawer(drawers.leaderboard)}
+        data-tracking-id="menu-leaderboard"
       >
-        <img src={medalGold} alt="medal" className={style.medal} />
+        <img src={medalCoin} alt="medal" className={style.medal} />
         <p className={style.rankingText}>
           {isLoggedIn() ? `# ${user.rank}` : 'Leaderboard'}
         </p>
@@ -180,6 +182,7 @@ const Navbar = ({
           isOpen(drawers.wallet) ? style.pillButtonActive : null
         )}
         onClick={() => toggleOpenDrawer(drawers.wallet)}
+        data-tracking-id="menu-wallet-icon"
       >
         <Icon iconType={'wallet'} />
         {formatToFixed(balance, 0)} {currency}
@@ -318,6 +321,7 @@ const Navbar = ({
                     'https://wallfair.gitbook.io/wallfair/the-magical-leaderboard'
                   }
                   target={'_blank'}
+                  rel="noreferrer"
                 >
                   Learn more
                 </a>
@@ -399,10 +403,15 @@ const Navbar = ({
         )}
 
         <div className={style.linkWrapper}>
-          {renderNavbarLink(`/live-events/all`, 'Live Events')}
-          {renderNavbarLink(`/events`, 'Events')}
-          {renderNavbarLink(`/games`, 'Games')}
-          {/* {isLoggedIn() && renderNavbarLink(`/rewards`, 'Earn')} */}
+          {renderNavbarLink(
+            `/live-events/all`,
+            'Live Events',
+            null,
+            'menu-live-events'
+          )}
+          {renderNavbarLink(`/events`, 'Events', null, 'menu-events')}
+          {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
+          {/* {isLoggedIn() && renderNavbarLink(`/rewards`, 'Earn', null, 'menu-earn')} */}
         </div>
       </div>
 

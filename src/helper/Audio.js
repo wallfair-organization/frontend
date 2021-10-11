@@ -33,3 +33,27 @@ export function playFailSound() {
     console.error(e);
   }
 }
+
+export function playFlyingSound() {
+  try {
+    const el = document.getElementById('audio-flying');
+    if (el.play) {
+      el.volume = 0.5;
+      el.play();
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export function stopFlyingSound() {
+  try {
+    const el = document.getElementById('audio-flying');
+    if (el.play) {
+      el.volume = 0.5;
+      el.pause();
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}

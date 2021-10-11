@@ -119,6 +119,7 @@ const MyTradesList = ({
                           item.sellAmount
                         )
                       }
+                      data-tracking-id="wallet-cashout"
                     >
                       Cashout
                     </button>

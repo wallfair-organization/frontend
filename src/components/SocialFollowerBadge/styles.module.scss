@@ -1,0 +1,12 @@
+@import "../../styles/all";
+
+.followerBadge
+{
+    display:          inline-flex;
+    align-items:      center;
+    color:            $colorYellowLight;
+    font-size:        12px;    
+    height:           25px;
+    border-radius:    4px;
+    padding:          0.25rem 0.5rem;
+}

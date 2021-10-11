@@ -2,10 +2,14 @@ import React from 'react';
 import winSound from '../../data/audio/win.mp3';
 import explodeSound from '../../data/audio/crash.wav';
 import failSound from '../../data/audio/fail.mp3';
+import flyingSound from '../../data/audio/flying.mp3';
 
 function AudioContent() {
   return (
     <>
+      <audio id="audio-flying" preload="auto">
+        <source src={flyingSound} type="audio/wav" />
+      </audio>
       <audio id="audio-win" preload="auto">
         <source src={winSound} type="audio/mpeg" />
       </audio>

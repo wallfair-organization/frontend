@@ -1,6 +1,12 @@
 import { RosiGameTypes } from '../actions/rosi-game';
 import { round } from 'lodash';
-import { playCrashSound, playFailSound } from '../../helper/Audio';
+import {
+  playCrashSound,
+  playFailSound,
+  playWinSound,
+  playFlyingSound,
+  stopFlyingSound,
+} from '../../helper/Audio';
 const TIME_TO_FACTOR_RATIO = 0.1; // 1s = 0.1x
 const START_FACTOR = 1;
 const initialState = {
@@ -14,6 +20,7 @@ const initialState = {
   isCashedOut: false,
   placedBetInQueue: false,
   nextGameAt: null,
+  isMute: false,
 };
 
 const initializeState = (action, state) => {
@@ -53,9 +60,9 @@ const setUserBet = (action, state) => {
 
 const addLastCrash = (action, state) => {
   if (action.payload.crashFactor <= 1) {
-    playFailSound();
+    if (!state.isMute) playFailSound();
   } else {
-    playCrashSound();
+    if (!state.isMute) playCrashSound();
   }
 
   return {
@@ -188,6 +195,28 @@ const onTick = (action, state) => {
   };
 };
 
+const onMuteButtonClick = (action, state) => {
+  return {
+    ...state,
+    isMute: !state.isMute,
+  };
+};
+
+const onPlayWinSound = (action, state) => {
+  if (!state.isMute) playWinSound();
+  return state;
+};
+
+const onPlayFlyingSound = (action, state) => {
+  if (!state.isMute) playFlyingSound();
+  return state;
+};
+
+const onStopFlyingSound = (action, state) => {
+  stopFlyingSound();
+  return state;
+};
+
 export default function (state = initialState, action) {
   switch (action.type) {
     case RosiGameTypes.INITIALIZE_STATE:
@@ -214,6 +243,14 @@ export default function (state = initialState, action) {
       return addReward(action, state);
     case RosiGameTypes.TICK:
       return onTick(action, state);
+    case RosiGameTypes.MUTE_BUTTON_CLICK:
+      return onMuteButtonClick(action, state);
+    case RosiGameTypes.PLAY_WIN_SOUND:
+      return onPlayWinSound(action, state);
+    case RosiGameTypes.PLAY_FLYING_SOUND:
+      return onPlayFlyingSound(action, state);
+    case RosiGameTypes.STOP_FLYING_SOUND:
+      return onStopFlyingSound(action, state);
     default:
       return state;
   }

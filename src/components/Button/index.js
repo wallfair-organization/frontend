@@ -16,6 +16,7 @@ const Button = ({
   disabled,
   disabledWithOverlay = true,
   fixed,
+  dataTrackingId,
 }) => {
   const renderButtonDisabledOverlay = () => {
     if (disabled && disabledWithOverlay) {
@@ -53,6 +54,7 @@ const Button = ({
         })
       )}
       onClick={disabled ? null : onClick}
+      data-tracking-id={dataTrackingId}
     >
       {renderButtonDisabledOverlay()}
       {children}

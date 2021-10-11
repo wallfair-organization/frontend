@@ -1,9 +1,10 @@
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import style from './styles.module.scss';
-import medalGold from '../../data/icons/medal-gold.png';
-import medalSilver from '../../data/icons/medal-silver.png';
-import medalBronze from '../../data/icons/medal-bronze.png';
+import medalGold from '../../data/icons/medal-first.png';
+import medalSilver from '../../data/icons/medal-second.png';
+import medalBronze from '../../data/icons/medal-third.png';
+import medalCoin from '../../data/icons/medal-coin.png';
 import { formatToFixed } from 'helper/FormatNumbers';
 import classNames from 'classnames';
 import ReactTooltip from 'react-tooltip';
@@ -159,7 +160,7 @@ const LeaderboardItem = ({
               isCurrentUser && style.tableCurrentUser
             )}
           >
-            <p className={style.thirdRank}>
+            <p className={style.fourthRank}>
               #{user.rank}{' '}
               <img
                 data-for={'userRankingTooltip'}
@@ -167,7 +168,7 @@ const LeaderboardItem = ({
                   topRewards,
                   user.rank
                 )} ${TOKEN_NAME}`}
-                src={medalBronze}
+                src={medalCoin}
                 alt="medal"
               />
             </p>
@@ -191,7 +192,7 @@ const LeaderboardItem = ({
             )}
           >
             {user.rank <= 10 ? (
-              <p className={style.thirdRank}>
+              <p className={style.fourthRank}>
                 #{user.rank}{' '}
                 <img
                   data-for={'userRankingTooltip'}
@@ -199,7 +200,7 @@ const LeaderboardItem = ({
                     topRewards,
                     user.rank
                   )} ${TOKEN_NAME}`}
-                  src={medalBronze}
+                  src={medalCoin}
                   alt="medal"
                 />
               </p>

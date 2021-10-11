@@ -22,7 +22,6 @@ import {
   selectTimeStarted,
 } from '../../store/selectors/rosi-game';
 import ReactCanvasConfetti from 'react-canvas-confetti';
-import { playWinSound } from '../../helper/Audio';
 import InfoBox from 'components/InfoBox';
 import IconType from '../Icon/IconType';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
@@ -169,6 +168,9 @@ const PlaceBet = ({ connected }) => {
             [styles.notConnected]: !connected,
           })}
           onClick={user.isLoggedIn ? placeABet : placeGuestBet}
+          data-tracking-id={
+            user.isLoggedIn ? 'elongame-place-bet' : 'elongame-play-demo'
+          }
         >
           {user.isLoggedIn ? 'Place Bet' : 'Play Demo'}
         </span>
@@ -181,6 +183,9 @@ const PlaceBet = ({ connected }) => {
             tabIndex="0"
             className={classNames(styles.button, styles.buttonDisabled)}
             onClick={user.isLoggedIn ? () => {} : showLoginPopup}
+            data-tracking-id={
+              user.isLoggedIn ? null : 'elongame-showloginpopup'
+            }
           >
             {user.isLoggedIn ? 'Bet Placed' : 'Bet Placed'}
           </span>
@@ -199,6 +204,9 @@ const PlaceBet = ({ connected }) => {
             [styles.notConnected]: !connected,
           })}
           onClick={user.isLoggedIn ? cashOut : cashOutGuest}
+          data-tracking-id={
+            user.isLoggedIn ? 'elongame-cashout' : 'elongame-cashout-guest'
+          }
         >
           {user.isLoggedIn ? 'Cash Out' : 'Cash Out'}
         </span>
@@ -266,7 +274,7 @@ const PlaceBet = ({ connected }) => {
         particleCount={300}
         spread={360}
         origin={{ x: 0.4, y: 0.45 }}
-        onFire={() => playWinSound()}
+        onFire={() => dispatch(RosiGameActions.playWinSound())}
       />
       <div className={styles.inputContainer}>
         <div className={styles.placeBetContainer}>

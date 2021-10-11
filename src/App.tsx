@@ -31,20 +31,23 @@ import Rewards from './screens/Rewards';
 import ResetPassword from './screens/ResetPassword';
 import UserProfile from './screens/UserProfile';
 import LandingPage from 'screens/LandingPage';
-import initTagManager from './config/gtm';
+import { initTagManager } from './config/gtm';
 import AudioContent from './components/AudioContent';
 import ScrollToTop from 'utils/ScrollToTop';
 import DisclaimerPopupContainer from 'components/DisclaimerPopupContainer';
+import PageTracker from 'components/PageTracker';
 
 const { store, persistor } = configStore();
 
 initTagManager();
 
 const App = () => {
+
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <ConnectedRouter history={history}>
+          <PageTracker />
           <ScrollToTop />
           <Navbar skipRoutes={[]} />
           <AlertBox />
@@ -91,21 +94,25 @@ const App = () => {
               route={Routes.home}
               iconType={IconType.home}
               text="Home"
+              trackingId="mobile-menu-home"
             />
             <NavbarFooterAction
               route={`/live-events`}
               iconType={IconType.camera}
               text="Live Stream"
+              trackingId="mobile-menu-live-events"
             />
             <NavbarFooterAction
               route={`/events`}
               iconType={IconType.bet2}
               text="Events"
+              trackingId="mobile-menu-events"
             />
             <NavbarFooterAction
               route={Routes.games}
               iconType={IconType.shuttle}
               text="Games"
+              trackingId="mobile-menu-games"
             />
           </NavbarFooter>
         </ConnectedRouter>

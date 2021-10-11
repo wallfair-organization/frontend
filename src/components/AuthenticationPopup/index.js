@@ -11,7 +11,7 @@ import AuthenticationType from 'components/Authentication/AuthenticationType';
 const AuthenticationPopup = ({ authenticationType }) => {
   const promoDeadline =
     process.env.REACT_APP_SIGNUP_PROMO_DEADLINE_DATETIME ||
-    '2021-10-12T08:00:00';
+    '2021-10-21T08:00:00';
   const isPromoWindow =
     AuthenticationType.register === authenticationType &&
     !!promoDeadline &&
@@ -23,7 +23,7 @@ const AuthenticationPopup = ({ authenticationType }) => {
         <TimeCounter endDate={promoDeadline} externalStyles={timerStyles} />
       </div>
       <p>
-        Sign up <strong>now</strong> for a chance to be one of the 500 early
+        Sign up <strong>now</strong> for a chance to be one of the 5000 early
         access testers and earn
       </p>
       <span className={styles.prizeAmount}>5.000 {TOKEN_NAME}</span>

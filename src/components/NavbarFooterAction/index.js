@@ -10,6 +10,7 @@ const NavbarFooterAction = ({
   iconType,
   className = null,
   onClick = null,
+  trackingId,
 }) => {
   const renderNavbarLink = () => {
     return (
@@ -18,6 +19,7 @@ const NavbarFooterAction = ({
         to={route}
         className={classNames(style.navbarItem, className)}
         activeClassName={style.navbarItemActive}
+        data-tracking-id={trackingId}
       >
         <div className={style.navbarLink}>
           <Icon iconType={iconType} iconTheme={IconTheme.black} />
@@ -36,6 +38,7 @@ const NavbarFooterAction = ({
           className
         )}
         onClick={onClick}
+        data-tracking-id={trackingId}
       >
         <div className={style.navbarLink}>
           <Icon iconType={iconType} iconTheme={IconTheme.black} />

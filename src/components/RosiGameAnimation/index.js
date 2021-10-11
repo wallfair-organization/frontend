@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
-import { useSelector, connect } from 'react-redux';
+import { useDispatch, useSelector, connect } from 'react-redux';
 import { ROSI_GAME_AFTER_CRASH_DELAY } from 'constants/RosiGame';
 import {
   selectHasStarted,
@@ -15,6 +15,7 @@ import Counter from './Counter';
 import styles from './styles.module.scss';
 import RosiGameAnimationController from './canvas/RosiGameAnimationController';
 import { CircularProgress } from '@material-ui/core';
+import { RosiGameActions } from '../../store/actions/rosi-game';
 
 const PreparingRound = ({ nextGameAt }) => (
   <div className={styles.preparingRound}>
@@ -38,7 +39,8 @@ const GameOffline = () => (
   </div>
 );
 
-const RosiGameAnimation = ({ connected }) => {
+const RosiGameAnimation = ({ connected, muteButtonClick, isMute }) => {
+  const dispatch = useDispatch();
   const canvasRef = useRef(null);
   const lastCrashValue = useSelector(selectLastCrash);
   const gameStarted = useSelector(selectHasStarted);
@@ -72,12 +74,13 @@ const RosiGameAnimation = ({ connected }) => {
       setCashedOutCount(0);
       setIsPreparingRound(false);
       RosiGameAnimationController.start(gameStartedTime);
+      dispatch(RosiGameActions.playFlyingSound());
       return;
     }
 
     if (!gameStarted && !isPreparingRound) {
       RosiGameAnimationController.end();
-
+      dispatch(RosiGameActions.stopFlyingSound());
       // leave some time for player to see crash value
       setTimeout(() => {
         RosiGameAnimationController.preparingRound.show();
@@ -120,6 +123,13 @@ const RosiGameAnimation = ({ connected }) => {
 
   return (
     <div className={styles.animation}>
+      <div
+        className={classNames({
+          [styles.muteButton]: true,
+          [styles.mute]: isMute,
+        })}
+        onClick={muteButtonClick}
+      />
       <canvas
         className={classNames(
           styles.canvas,
@@ -140,7 +150,16 @@ const RosiGameAnimation = ({ connected }) => {
 const mapStateToProps = state => {
   return {
     connected: state.websockets.connected,
+    isMute: state.rosiGame.isMute,
   };
 };
 
-export default connect(mapStateToProps, null)(RosiGameAnimation);
+const mapDispatchToProps = dispatch => {
+  return {
+    muteButtonClick: () => {
+      dispatch(RosiGameActions.muteButtonClick());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RosiGameAnimation);

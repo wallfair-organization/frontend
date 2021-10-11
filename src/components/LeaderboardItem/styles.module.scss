@@ -34,7 +34,7 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 44px;
     letter-spacing: 0.5px;
     color: #b6b3b3;
     opacity: 1;
@@ -42,17 +42,15 @@
     @media (max-width: $screen-md) {
       margin-right: 30px;
       font-size: 14px;
-      line-height: 18px;
+      line-height: 38px;
     }
 
     img {
-      width: 20px;
-      height: 26px;
-      margin: 0;
+      height: 44px;
+      margin-left: 16px;
 
       @media (max-width: $screen-md) {
-        width: 15px;
-        height: 20px;
+        height: 38px;
       }
     }
   }
@@ -107,7 +105,7 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 44px;
     letter-spacing: 0.5px;
     color: #b6b3b3;
     opacity: 1;
@@ -115,17 +113,15 @@
     @media (max-width: $screen-md) {
       margin-right: 30px;
       font-size: 14px;
-      line-height: 18px;
+      line-height: 38px;
     }
 
     img {
-      width: 20px;
-      height: 26px;
-      margin: 0;
+      height: 44px;
+      margin-left: 14px;
 
       @media (max-width: $screen-md) {
-        width: 15px;
-        height: 20px;
+        height: 38px;
       }
     }
   }
@@ -180,7 +176,7 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 44px;
     letter-spacing: 0.5px;
     color: #b6b3b3;
     opacity: 1;
@@ -188,17 +184,15 @@
     @media (max-width: $screen-md) {
       margin-right: 30px;
       font-size: 14px;
-      line-height: 18px;
+      line-height: 38px;
     }
 
     img {
-      width: 20px;
-      height: 26px;
-      margin: 0;
-
+      height: 44px;
+      margin-left: 14px;
+      
       @media (max-width: $screen-md) {
-        width: 15px;
-        height: 20px;
+        height: 38px;
       }
     }
   }
@@ -230,6 +224,34 @@
       right: 20px;
       font-size: 16px;
       line-height: 20px;
+    }
+  }
+
+  .fourthRank {
+    position: relative;
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 52px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    color: #b6b3b3;
+    opacity: 1;
+
+    @media (max-width: $screen-md) {
+      margin-right: 30px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    img {
+      height: 20px;
+      margin-left: 26px;
+      
+      @media (max-width: $screen-md) {
+        height: 17px;
+      }
     }
   }
 }
