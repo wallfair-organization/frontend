@@ -31,7 +31,9 @@
 
 .bets {
   overflow: auto;
-
+  .bet:nth-child(even) {
+    background-color: #18152f;
+  }
   .bet {
     position: relative;
     display: flex;
@@ -42,8 +44,9 @@
     color: $colorWhite;
     letter-spacing: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 12px 20px;
+    padding: 12px 20px 12px 12px;
   }
+
   .bet.flash{
     animation-name: flash;
     animation-duration: 0.3s;
@@ -54,6 +57,13 @@
     animation-name: flash-green;
     animation-duration: 0.3s;
     animation-timing-function: ease-in-out;
+  }
+
+  .bet.endGame{
+    opacity: 0.5;
+  }
+  .bet.cashed.endGame{
+    opacity: 0.8;
   }
 
   @keyframes flash {
@@ -70,18 +80,102 @@
   @keyframes flash-green {
     from {
       background: $colorGreenFlash;
-      left: -12px;
+      left: -15px;
     }
     to {
       background: transparent;
       left: 0;
     }
   }
+  $spCol: #00ff00;
+  $spSize: 8px;
+  .sp {
+    width: 10px;
+    height: 10px;
+    clear: both;
+    margin-right: 5px;
+  }
+  /* Spinner Slices */
+  .sp.spSlices {
+    border-radius: 50%;
+    border-top: $spSize rgba($spCol,0.75) solid;
+    border-left: $spSize rgba($spCol,0.25) solid;
+    border-bottom: $spSize rgba($spCol,0.25) solid;
+    border-right: $spSize rgba($spCol,0.25) solid;
+    -webkit-animation: spSlicesWKF 1s infinite linear;
+    animation: spSlicesKF 1s infinite linear;
+  }
+  @-webkit-keyframes spSlicesWKF {
+    0% {
+      border-top: $spSize rgba($spCol,0.75) solid;
+      border-right: $spSize rgba($spCol,0.25) solid;
+      border-bottom: $spSize rgba($spCol,0.25) solid;
+      border-left: $spSize rgba($spCol,0.25) solid;
+    }
+    25% {
+      border-top: $spSize rgba($spCol,0.25) solid;
+      border-right: $spSize rgba($spCol,0.75) solid;
+      border-bottom: $spSize rgba($spCol,0.25) solid;
+      border-left: $spSize rgba($spCol,0.25) solid;
+    }
+    50% {
+      border-top: $spSize rgba($spCol,0.25) solid;
+      border-right: $spSize rgba($spCol,0.25) solid;
+      border-bottom: $spSize rgba($spCol,0.75) solid;
+      border-left: $spSize rgba($spCol,0.25) solid;
+    }
+    75% {
+      border-top: $spSize rgba($spCol,0.25) solid;
+      border-right: $spSize rgba($spCol,0.25) solid;
+      border-bottom: $spSize rgba($spCol,0.25) solid;
+      border-left: $spSize rgba($spCol,0.75) solid;
+    }
+    100% {
+      border-top: $spSize rgba($spCol,0.75) solid;
+      border-right: $spSize rgba($spCol,0.25) solid;
+      border-bottom: $spSize rgba($spCol,0.25) solid;
+      border-left: $spSize rgba($spCol,0.25) solid;
+    }
+  }
+  @keyframes spSlicesKF {
+    0% {
+      border-top: $spSize rgba($spCol,0.75) solid;
+      border-right: $spSize rgba($spCol,0.25) solid;
+      border-bottom: $spSize rgba($spCol,0.25) solid;
+      border-left: $spSize rgba($spCol,0.25) solid;
+    }
+    25% {
+      border-top: $spSize rgba($spCol,0.25) solid;
+      border-right: $spSize rgba($spCol,0.75) solid;
+      border-bottom: $spSize rgba($spCol,0.25) solid;
+      border-left: $spSize rgba($spCol,0.25) solid;
+    }
+    50% {
+      border-top: $spSize rgba($spCol,0.25) solid;
+      border-right: $spSize rgba($spCol,0.25) solid;
+      border-bottom: $spSize rgba($spCol,0.75) solid;
+      border-left: $spSize rgba($spCol,0.25) solid;
+    }
+    75% {
+      border-top: $spSize rgba($spCol,0.25) solid;
+      border-right: $spSize rgba($spCol,0.25) solid;
+      border-bottom: $spSize rgba($spCol,0.25) solid;
+      border-left: $spSize rgba($spCol,0.75) solid;
+    }
+    100% {
+      border-top: $spSize rgba($spCol,0.75) solid;
+      border-right: $spSize rgba($spCol,0.25) solid;
+      border-bottom: $spSize rgba($spCol,0.25) solid;
+      border-left: $spSize rgba($spCol,0.25) solid;
+    }
+  }
+
+
 
   .user {
     display: flex;
     align-items: center;
-
+    justify-content: space-between;
     img {
       width: 20px;
       height: 20px;
@@ -98,10 +192,29 @@
 
 .amount {
   color: $colorWhite;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .positive {
   color: $colorGreen;
   opacity: 1;
+}
+
+.negative {
+  color: $colorRed;
+  opacity: 1;
+}
+
+.coin{
+  min-width: 15px;
+  min-height: 15px;
+  width: 15px;
+  height: 15px;
+  margin-left: 1rem;
+  background: url("../../data/icons/medal-coin.png");
+  background-size: cover;
+}
+
+.rightColumn{
+  display: flex;
 }
