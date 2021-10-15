@@ -25,6 +25,7 @@ export default {
   viewImage: 'viewImage',
   resolveBet: 'resolveBet',
   explanation: 'explanation',
+  alphaPlatform: 'alphaPlatform',
   cancelBet: 'cancelBet',
   deleteBet: 'deleteBet',
   disclaimer: 'disclaimer',

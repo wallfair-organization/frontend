@@ -27,7 +27,7 @@ import IconTheme from 'components/Icon/IconTheme';
 import { PopupActions } from 'store/actions/popup';
 import ActivitiesTracker from '../../components/ActivitiesTracker';
 
-const RosiGame = ({ showPopup, connected }) => {
+const RosiGame = ({ showPopup, connected, userId }) => {
   const dispatch = useDispatch();
   const { lastCrashes, inGameBets, cashedOut, hasStarted, isEndgame } =
     useRosiData();
@@ -41,7 +41,12 @@ const RosiGame = ({ showPopup, connected }) => {
   useEffect(() => {
     Api.getCurrentGameInfo()
       .then(response => {
-        dispatch(RosiGameActions.initializeState(response.data));
+        dispatch(
+          RosiGameActions.initializeState({
+            ...response.data,
+            userId,
+          })
+        );
       })
       .catch(error => {
         dispatch(AlertActions.showError(error.message));
@@ -160,6 +165,7 @@ const RosiGame = ({ showPopup, connected }) => {
 const mapStateToProps = state => {
   return {
     connected: state.websockets.connected,
+    userId: state.authentication.userId,
   };
 };
 

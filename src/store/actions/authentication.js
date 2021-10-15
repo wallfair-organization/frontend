@@ -160,10 +160,11 @@ const verifyEmailSucceeded = makeActionCreator(
 );
 
 // update user data actions
-const initiateUpdateUserData = (payload, newUser = false) => ({
+const initiateUpdateUserData = (payload, newUser = false, initialReward) => ({
   type: AuthenticationTypes.INITIATE_UPDATE_USER_DATA,
   newUser,
   payload,
+  initialReward,
 });
 
 const updateUserDataSucceeded = payload => ({
@@ -200,6 +201,7 @@ const login = makeActionCreator(AuthenticationTypes.LOGIN, {
   email: null,
   password: null,
   showWelcome: false,
+  initialReward: 0,
 });
 
 const loginSuccess = makeActionCreator(AuthenticationTypes.LOGIN_SUCCESS, {

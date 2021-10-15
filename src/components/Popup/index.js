@@ -38,6 +38,7 @@ import AuthenticationType from 'components/Authentication/AuthenticationType';
 import ExplanationViewPopup from 'components/ExplanationViewPopup';
 import DisclaimerPopupView from 'components/DisclaimerPopupView';
 import UsernamePopup from 'components/UsernamePopup';
+import AlphaPlatformPopup from 'components/AlphaPlatformPopup';
 
 const Popup = ({ type, visible, options = {}, hidePopup }) => {
   const small = _.get(options, 'small', false);
@@ -110,8 +111,12 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <TradeDetailView tradeId={betId} />;
 
       case PopupTheme.welcome:
-        return <WelcomeView closed={!visible} />;
-
+        return (
+          <WelcomeView
+            closed={!visible}
+            initialReward={options?.initialReward}
+          />
+        );
       case PopupTheme.signUpNotificationFirst:
       case PopupTheme.signUpNotificationSecond:
         return <SignUpPopup closed={!visible} />;
@@ -204,10 +209,12 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         );
       case PopupTheme.explanation:
         return <ExplanationViewPopup type={options.type} closed={!visible} />;
+      case PopupTheme.alphaPlatform:
+        return <AlphaPlatformPopup />;
       case PopupTheme.disclaimer:
         return <DisclaimerPopupView />;
       case PopupTheme.username:
-        return <UsernamePopup />;
+        return <UsernamePopup initialReward={options.initialReward} />;
     }
 
     return null;
@@ -229,6 +236,9 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             type === PopupTheme.disclaimer ? styles.disclaimerContainer : null,
             type === PopupTheme.explanation
               ? styles.explanationPopupVisual
+              : null,
+            type === PopupTheme.alphaPlatform
+              ? styles.alphaPlatformPopupVisual
               : null,
             type === PopupTheme.signUpNotificationFirst ||
               type === PopupTheme.signUpNotificationSecond

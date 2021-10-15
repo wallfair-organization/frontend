@@ -91,6 +91,12 @@ $border: 1px solid $colorWhite30;
   }
 }
 
+.typeform-popup a.typeform-close {
+  color: white;
+  top: 15px;
+  right: 20px;
+}
+
 .swiper-events-tabs {
   .swiper-pagination-bullet {
     background: $colorGrayLight;

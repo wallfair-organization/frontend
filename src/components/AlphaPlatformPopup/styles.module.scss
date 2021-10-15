@@ -1,0 +1,151 @@
+@import '../../styles/all';
+
+.explanationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 45px 0;
+  background-color: $colorWhite;
+  color: $colorPrimaryDark;
+  overflow: visible;
+
+  .ctaButton {
+    background-color: $colorWhite;
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+    background-image: url('../../data/images/signup-background-one.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media (min-width: $screen-sm) {
+      width: 70%;
+    }
+  }
+
+  .explanationImageContainer, .explanationTextContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+
+    .explanationTextHeadline {
+      font-family: $fontBold;
+      font-size: 20px;
+      margin-bottom: 10px;
+      position: relative;
+      text-align: center;
+      z-index: 1;
+      padding-top: 25px;
+
+      @media (max-width: $screen-xs) {
+        padding-top: 35px;
+      }
+
+      .explanationTextHeadlineUnderline {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        top: 40px;
+        width: 100%;
+        border-bottom: 9px solid $colorYellowLight;
+        z-index: -1;
+      }
+    }
+
+    .explanationText {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-align: justify;
+      z-index: 1;
+      padding: 20px;
+
+      p {
+        margin-bottom: 10px;
+
+        @media (max-width: $screen-xs) {
+          font-size: 13px;
+          padding: 0;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .explanationTextContainer {
+    max-width: 600px;
+  }
+}
+
+.explanationContainerVisual {
+  align-items: initial;
+  border-radius: 30px;
+
+  .ctaButton {
+    margin: auto;
+  }
+
+  .checkMore {
+    margin: 10px 0;
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .swiper-pagination-progressbar, .swiper-pagination-progressbar-fill {
+    background-color: red;
+  }
+
+  .visualSteps {
+    display: flex;
+    position: relative;
+    align-items: initial;
+
+    .stepsContainer {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 10px 0;
+      overflow: hidden;
+
+      .stepItem {
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+
+        .cropGames {
+          margin-top: -55px;
+          margin-bottom: -55px;
+        }
+      }
+
+    }
+
+    @media (max-width: $screen-md) {
+      .stepsContainer {
+        flex-wrap: wrap;
+      }
+
+      .stepItem {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: $screen-xs) {
+      .stepsContainer {
+        flex-wrap: wrap;
+      }
+
+      .stepItem {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

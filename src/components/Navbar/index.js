@@ -135,6 +135,10 @@ const Navbar = ({
     }
   };
 
+  const showAlphaPlatformPopup = () => {
+    showPopup(PopupTheme.alphaPlatform);
+  };
+
   const isLoggedIn = () => {
     return authState === LOGGED_IN;
   };
@@ -309,16 +313,11 @@ const Navbar = ({
                   containerClass={style.leaderboardTimerComponent}
                 />
               </div>
-              <div className={style.linkSide}>
-                <a
-                  href={
-                    'https://wallfair.gitbook.io/wallfair/the-magical-leaderboard'
-                  }
-                  target={'_blank'}
-                  rel="noreferrer"
-                >
-                  Learn more
-                </a>
+              <div
+                className={style.linkSide}
+                onClick={() => showAlphaPlatformPopup()}
+              >
+                Learn more
               </div>
             </div>
           </div>

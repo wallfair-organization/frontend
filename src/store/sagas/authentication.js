@@ -226,6 +226,9 @@ const authenticationSucceeded = function* (action) {
       yield put(
         PopupActions.show({
           popupType: PopupTheme.username,
+          options: {
+            initialReward: action?.initialReward,
+          },
         })
       );
     } else {
@@ -351,6 +354,9 @@ const updateUserData = function* (action) {
         yield put(
           PopupActions.show({
             popupType: PopupTheme.welcome,
+            options: {
+              initialReward: action?.initialReward,
+            },
           })
         );
       }
@@ -372,11 +378,13 @@ const signUp = function* (action) {
   const { response, error } = yield call(Api.signUp, payload);
 
   if (response) {
+    const initialReward = response?.data?.initialReward;
     yield put(
       AuthenticationActions.login({
         email: action.email,
         password: action.password,
         newUser: true,
+        initialReward,
       })
     );
   } else {
@@ -407,6 +415,7 @@ const login = function* (action) {
         userId: data.userId,
         session: data.session,
         newUser: action.newUser,
+        initialReward: action?.initialReward,
       })
     );
   } else {

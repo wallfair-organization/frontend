@@ -9,8 +9,9 @@ import { useCallback, useState } from 'react';
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import useConfettiAnimation from '../../hooks/useConfettiAnimation';
 import PopupTheme from 'components/Popup/PopupTheme';
+import { formatToFixed } from '../../helper/FormatNumbers';
 
-const WelcomeView = ({ hidePopup, visible }) => {
+const WelcomeView = ({ hidePopup, visible, initialReward }) => {
   const [readMore, setReadMore] = useState(false);
 
   const { getAnimationInstance, canvasStyles } = useConfettiAnimation({
@@ -34,7 +35,7 @@ const WelcomeView = ({ hidePopup, visible }) => {
     return (
       <div className={styles.welcomeTextContainer}>
         <span className={styles.welcomeTextHeadline}>
-          5,000 {TOKEN_NAME}
+          {formatToFixed(initialReward, 0, true)} {TOKEN_NAME}
           <span>*</span>
           <span className={styles.welcomeTextHeadlineUnderline}></span>
         </span>

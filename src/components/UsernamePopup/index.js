@@ -19,6 +19,7 @@ const UsernamePopup = ({
   showWelcome,
   updateUser,
   user,
+  initialReward,
 }) => {
   const [username, setUsername] = useState('');
   const [errorMessage, setErrorMessage] = useState();
@@ -44,7 +45,7 @@ const UsernamePopup = ({
         profilePicture: user.profilePicture,
         username,
       };
-      updateUser(payload);
+      updateUser(payload, initialReward);
     } else {
       setErrorMessage(
         <div>
@@ -56,7 +57,7 @@ const UsernamePopup = ({
 
   const skipUsername = () => {
     hidePopup();
-    showWelcome();
+    showWelcome(initialReward);
   };
 
   return (
@@ -115,20 +116,24 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    showWelcome: () => {
+    showWelcome: initialReward => {
       dispatch(
         PopupActions.show({
           popupType: PopupTheme.welcome,
+          options: {
+            initialReward: initialReward,
+          },
         })
       );
     },
-    updateUser: payload => {
+    updateUser: (payload, initialReward) => {
       dispatch(
         AuthenticationActions.initiateUpdateUserData(
           {
             user: payload,
           },
-          true
+          true,
+          initialReward
         )
       );
     },

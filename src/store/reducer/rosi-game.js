@@ -28,12 +28,26 @@ const initialState = {
 
 const initializeState = (action, state) => {
   const hasStarted = action.payload.state === 'STARTED';
+  let { currentBets, upcomingBets, cashedOutBets, userId } = action.payload;
+
+  currentBets = currentBets.filter(ib => {
+    return !cashedOutBets.find(cb => cb.userId === ib.userId);
+  });
+
+  const userBet = currentBets.find(b => {
+    return b.userId === userId;
+  });
+
   return {
     ...state,
     hasStarted,
     nextGameAt: hasStarted ? null : action.payload.nextGameAt,
     timeStarted: action.payload.timeStarted,
     lastCrashes: action.payload.lastCrashes,
+    inGameBets: currentBets,
+    betQueue: upcomingBets,
+    cashedOut: cashedOutBets,
+    userBet,
   };
 };
 

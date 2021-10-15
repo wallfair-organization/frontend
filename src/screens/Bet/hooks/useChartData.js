@@ -32,13 +32,15 @@ export function useChartData(betId) {
   };
 
   const handleChartPeriodFilter = filterName => {
-    setFilterActive(filterName);
+    if (betId) {
+      setFilterActive(filterName);
 
-    currentParams.current.rangeType = filterMap[filterName].rangeType;
-    currentParams.current.rangeValue = filterMap[filterName].rangeValue;
-    dispatch(
-      EventActions.updateChartParams(betId, { ...currentParams.current })
-    );
+      currentParams.current.rangeType = filterMap[filterName].rangeType;
+      currentParams.current.rangeValue = filterMap[filterName].rangeValue;
+      dispatch(
+        EventActions.updateChartParams(betId, { ...currentParams.current })
+      );
+    }
   };
 
   const handleChartDirectionFilter = (directionIndex = 0) => {

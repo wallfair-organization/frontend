@@ -83,6 +83,17 @@
       }
     }
 
+    &.alphaPlatformPopupVisual {
+      max-width: max-content;
+      width: auto;
+      height: auto;
+      padding: 0 30px;
+
+      @media (max-width: $screen-sm) {
+        padding: 0 15px;
+      }
+    }
+
     @media (max-width: $screen-sm) {
       min-height: calc(100vh - 20px);
 
