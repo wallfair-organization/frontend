@@ -14,6 +14,13 @@
   z-index: $zIndexNavbarFooter;
   background-color: $colorWhite;
   border-radius: 15px 15px 0 0;
+  transition: opacity ease-in-out 0.2s;
+  opacity: 1;
+
+  &.hideVisibility {
+    opacity: 0;
+    pointer-events: none;
+  }
 
   @media (min-width: $screen-md) {
     display: none;

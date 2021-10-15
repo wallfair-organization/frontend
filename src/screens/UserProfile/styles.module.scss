@@ -4,15 +4,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;  
+  flex-direction: column;
   margin: 0 1rem;
-  .container{   
-    margin: 0 2rem;    
+  .container{
+    margin: 0 2rem;
+    max-width: 930px;
+    width: 100%;
+
     @media (max-width: $screen-sm) {
-      margin: 0 3rem; 
+      margin: 0 3rem;
       width: 100%;
     }
-    .containerHeader {      
+    .containerHeader {
       width: 100%;
       height: 344px;
       background-image: url('../../data/backgrounds/profile/background.png');
@@ -26,22 +29,22 @@
       justify-content: flex-end;
       @media (max-width: $screen-sm) {
         height: 120px;
-      }          
+      }
     }
-    .headerBody {      
+    .headerBody {
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;      
+      justify-content: space-between;
       background-color: #21203C;
       color: $colorWhite;
-      padding-top: 20px;      
+      padding-top: 20px;
       padding-right: 16px;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
       @media (max-width: $screen-sm) {
-        justify-content: flex-start;          
-        align-items: center;       
+        justify-content: flex-start;
+        align-items: center;
       }
       .avatarBox {
         position: absolute;
@@ -51,7 +54,7 @@
         width: 110px;
         height: 110px;
         background-color: $colorPrimaryDark;
-        @media (max-width: $screen-sm) {          
+        @media (max-width: $screen-sm) {
           top: -42px;
           left: 50%;
           transform: translateX(-50%);
@@ -65,14 +68,14 @@
           width: 100%;
           height: 100%;
           margin: 0;
-        }        
-      }  
+        }
+      }
       .profileTitle {
-        position: absolute;        
+        position: absolute;
         color: $colorWhite;
         top: -54px;
-        left: 250px;       
-        @media (max-width: $screen-sm) {          
+        left: 250px;
+        @media (max-width: $screen-sm) {
           top: 60px;
           left: 50%;
           transform: translateX(-50%);
@@ -83,7 +86,7 @@
           font-weight: bold;
           font-size: 30px;
           line-height: 39px;
-          @media (max-width: $screen-sm) {          
+          @media (max-width: $screen-sm) {
             font-size: 24px;
             line-height: 31px;
           }
@@ -91,7 +94,7 @@
       }
       .aboutSection {
         padding-left: 250px;
-        @media (max-width: $screen-sm) {          
+        @media (max-width: $screen-sm) {
           padding-top: 80px;
           padding-left: 20px;
           padding-right: 20px;
@@ -113,9 +116,9 @@
           opacity: 0.6;
         }
       }
-    }  
+    }
     .tabLayout {
-      display: flex;      
+      display: flex;
       align-items: flex-end;
       color: $colorWhite;
       font-family: $fontRegular;
@@ -126,32 +129,38 @@
       padding-top: 24px;
       margin-left: 16px;
       @media (max-width: $screen-sm) {
-        margin-left: 0px;        
+        margin-left: 0px;
         justify-content: space-between;
         font-size: 11px;
         line-height: 14px;
       }
       .tabItem {
-        text-align: center;        
-        padding-bottom: 12px;               
+        text-align: center;
+        padding-bottom: 12px;
         opacity: 0.3;
         cursor: pointer;
       }
       .tabItemSelected {
-        text-align: center;        
+        text-align: center;
         padding-bottom: 12px;
-        border-bottom: 2px solid #F1FF54;        
+        border-bottom: 2px solid #F1FF54;
         opacity: 1;
         cursor: pointer;
       }
     }
-    .userActivities {      
+    .userActivities {
       position: relative;
       display: flex;
       flex-direction: row;
-      margin-top: 20px;      
+      margin-top: 20px;
+      width: 100%;
+
+      .activitiesTrackerUserPage {
+        width: 100%;
+      }
+
       .templateImage {
-        width: 100%;        
+        width: 100%;
         filter: blur(2px);
       }
       .activityWrapper {
@@ -160,22 +169,17 @@
       .statistics {
         width: 25%
       }
-      .inactivePlaceholder {        
-        background-image: url('../../data/backgrounds/games/games-highlight.png');
-        background-repeat: no-repeat;
-        background-size: contain;
+      .inactivePlaceholder {
         position: absolute;
         top: 25%;
         left: 50%;
-        min-width: 250px;
-        min-height: 70px;
         transform: translate(-50%, -50%);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
-        font-family: $fontRegular;
-        color: $colorBlack;
+        font-size: 24px;
+        font-family: $fontMedium;
+        color: #F2FF53;
         font-weight: 700;
       }
     }
@@ -186,7 +190,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-top: 24px;  
+  margin-top: 24px;
 
   .leaderboard {
     width: 100%;

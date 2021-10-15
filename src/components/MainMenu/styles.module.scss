@@ -12,7 +12,7 @@ $largeMobileHeight: 700px;
   height: 100vh;
   top: 0;
   background-color: rgba(14, 9, 39, 0.86);
-  right: -100%;
+  right: -105%;
   transition: right 0.5s ease-in-out;
 
   .mainContent {
@@ -91,6 +91,20 @@ $largeMobileHeight: 700px;
     font-size: 24px;
     padding-left: 30px;
     width: 95%;
+    text-decoration: underline;
+  }
+
+  .profileErrorHandLing {
+    font-size: 14.5px;
+    height: 60px;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $colorRedLight;
+    color: $colorWhite;
+    border-radius: 10px;
   }
 
   .editProfileContent {
@@ -139,6 +153,7 @@ $largeMobileHeight: 700px;
               fill: white;
             }
           }
+
           > .profileImage {
             object-fit: cover;
             object-position: center;
@@ -148,6 +163,7 @@ $largeMobileHeight: 700px;
             margin: 0;
           }
         }
+
         .profilePictureUploadLabel {
           font-size: 12px;
           opacity: 0.4;
@@ -156,6 +172,7 @@ $largeMobileHeight: 700px;
         }
       }
     }
+
     .profileContent {
       padding: 25px;
 
@@ -222,11 +239,13 @@ $largeMobileHeight: 700px;
     height: calc(100vh - 150px);
   }
 }
+
 .firstPanel {
   &.panelHidden {
     transform: translateX(-110%);
   }
 }
+
 .panelHidden {
   opacity: 0;
   transform: translateX(110%);

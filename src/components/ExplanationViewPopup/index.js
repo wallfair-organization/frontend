@@ -173,7 +173,8 @@ const ExplanationViewPopup = ({ closed, hidePopup }) => {
   };
 
   const isLiveEvents = pathname.indexOf('/live-events') != -1;
-  const isEvents = pathname.indexOf('/events') != -1;
+  const isEvents =
+    pathname.indexOf('/events') != -1 || pathname.indexOf('/trade') != -1;
   const isGames = pathname.indexOf('/games') != -1;
 
   return (

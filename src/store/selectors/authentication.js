@@ -3,7 +3,8 @@ import { convert } from '../../helper/Currency';
 
 export const selectCurrency = ({ authentication }) => {
   const currency = authentication.preferences?.currency;
-  return currency || TOKEN_NAME;
+  //return currency || TOKEN_NAME;
+  return TOKEN_NAME;
 };
 
 export const selectUserId = state => state.authentication.userId;

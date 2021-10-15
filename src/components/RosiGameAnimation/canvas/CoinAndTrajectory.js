@@ -1,6 +1,6 @@
-import { ROSI_GAME_MAX_DURATION_SEC } from 'constants/RosiGame';
 import * as PIXI from 'pixi.js';
 import { calcPercent, isMobileRosiGame } from './utils';
+import TWEEN from '@tweenjs/tween.js';
 
 export class CoinAnimation {
   constructor(app) {
@@ -16,11 +16,22 @@ export class CoinAnimation {
     this.coin = new PIXI.Sprite(this.app.loader.resources.coin.texture);
     this.elonAndCoin.addChild(this.coin);
 
+    this.destX = calcPercent(this.app.renderer.width, 85);
+    this.destY = calcPercent(this.app.renderer.height, 28);
+    this.trajectoryDestX = this.destX;
+    this.trajectoryDestY = this.destY + this.coin.height * 0.6;
+    this.trajectoryAngle = Math.atan2(
+      this.app.renderer.height - this.trajectoryDestY,
+      this.trajectoryDestX,
+      0
+    );
+
     const spritesheet =
       this.app.loader.resources['elon-coin-animation'].spritesheet;
     this.elon = new PIXI.AnimatedSprite(Object.values(spritesheet.textures));
     this.elon.x = -92 / (isMobileRosiGame ? 2 : 1);
     this.elon.y = -111 / (isMobileRosiGame ? 2 : 1);
+    this.elon.gotoAndStop(4);
     this.elonAndCoin.addChild(this.elon);
 
     this.elonAndCoindAnimationHandle = null;
@@ -29,6 +40,9 @@ export class CoinAnimation {
     this.setCoinDefaultPosition();
 
     this.container.visible = false;
+
+    this.initialBoostAnimationComplete = false;
+    this.trajectoryCurrentX = 0;
   }
 
   getCurrentElonFrame() {
@@ -39,21 +53,19 @@ export class CoinAnimation {
     return this.elon.totalFrames;
   }
 
-  advanceElonAnim() {
-    if (this.elon.currentFrame + 1 < this.elon.totalFrames) {
-      this.elon.gotoAndStop(this.elon.currentFrame + 1);
-    }
-  }
-
   setElonFrame(frame) {
-    if (frame <= this.elon.totalFrames) {
+    if (frame <= this.elon.totalFrames && this.elon.currentFrame !== frame) {
       this.elon.gotoAndStop(frame);
     }
   }
 
+  canUpdateElonFrame() {
+    return this.initialBoostAnimationComplete;
+  }
+
   setCoinDefaultPosition() {
     this.elonAndCoin.scale.set(1);
-    this.elonAndCoin.x = 0;
+    this.elonAndCoin.x = -this.elonAndCoin.width / 2;
     this.elonAndCoin.y = this.app.renderer.height - this.coin.height / 2;
   }
 
@@ -74,54 +86,60 @@ export class CoinAnimation {
   }
 
   startCoinFlyingAnimation() {
+    this.setElonFrame(4);
+    this.initialBoostAnimationComplete = false;
     this.container.visible = true;
     this.resetAllAnimations();
     this.setCoinDefaultPosition();
 
-    /* Coin and Elon */
-    const destX = calcPercent(this.app.renderer.width, 90);
-    const destY = calcPercent(this.app.renderer.height, 35);
-    const distanceX = destX - this.elonAndCoin.x;
-    const distanceY = destY - this.elonAndCoin.y;
-    const length = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
-    const vx = distanceX / length;
-    const vy = distanceY / length;
-    const defaultSpeed = length / (ROSI_GAME_MAX_DURATION_SEC * 100);
-    // start with higher speed for the boost effect
-    let speed = defaultSpeed * 150;
+    const easing = TWEEN.Easing.Quintic.Out;
+    const interpolation = TWEEN.Interpolation.Linear;
+    const time = 1500;
 
-    let x = 0;
-    let y = this.elonAndCoin.y + this.coin.height / 2;
+    // move elonAndCoin
+    const coinTweenData = { x: 0, y: this.app.renderer.height };
+    new TWEEN.Tween(coinTweenData)
+      .to({ x: this.destX, y: this.destY }, time)
+      .easing(easing)
+      .onUpdate(() => {
+        this.elonAndCoin.x = coinTweenData.x;
+        this.elonAndCoin.y = coinTweenData.y;
 
-    // save for later elon flying animation after coin explosion
-    this.elonAndCoin.vx = vx;
-    this.elonAndCoin.vy = vy;
-    this.elonAndCoin.speed = defaultSpeed;
+        const percentComplete = (coinTweenData.x * 100) / this.destX;
+        if (percentComplete >= 98) {
+          this.initialBoostAnimationComplete = true;
+        }
+      })
+      .onComplete(() => {
+        this.initialBoostAnimationComplete = true;
+      })
+      .interpolation(interpolation)
+      .start();
 
-    const update = dt => {
-      if (this.elonAndCoin.x < destX || this.elonAndCoin.y > destY) {
-        this.elonAndCoin.x += vx * speed * dt;
-        this.elonAndCoin.y += vy * speed * dt;
-      }
+    const lineTweenData = { x: coinTweenData.x, y: coinTweenData.y };
+    let prevX = lineTweenData.x;
+    let prevY = lineTweenData.y;
 
-      let prev_x = x;
-      let prev_y = y;
-      x += vx * speed * dt;
-      y += vy * speed * dt;
+    // draw line
+    this.drawLineTween = new TWEEN.Tween(lineTweenData)
+      .to({ x: this.trajectoryDestX, y: this.trajectoryDestY }, time)
+      .easing(easing)
+      .interpolation(interpolation)
+      .onStart(() => {
+        const lineWidth = 2;
+        this.trajectory.lineStyle(lineWidth, 0x7300d8, 1);
+        this.trajectoryCurrentX = lineTweenData.x;
+      })
+      .onUpdate(() => {
+        this.trajectory.moveTo(prevX, prevY);
+        this.trajectory.lineTo(lineTweenData.x, lineTweenData.y);
 
-      this.trajectory.lineStyle(2, 0x7300d8, 1);
-      this.trajectory.moveTo(prev_x, prev_y);
-      this.trajectory.lineTo(x, y);
+        prevX = lineTweenData.x;
+        prevY = lineTweenData.y;
 
-      if (speed > defaultSpeed) {
-        speed -= defaultSpeed * 2.5 * dt; // 8 is a magic number...
-      } else {
-        speed = defaultSpeed;
-      }
-    };
-
-    this.elonAndCoindAnimationHandle = update;
-    this.app.ticker.add(update);
+        this.trajectoryCurrentX = lineTweenData.x;
+      })
+      .start();
   }
 
   endCoinFlyingAnimation() {
@@ -130,21 +148,13 @@ export class CoinAnimation {
       this.elonAndCoindAnimationHandle = null;
     }
 
+    if (this.drawLineTween) {
+      this.drawLineTween.stop();
+      this.drawLineTween = null;
+    }
+
     this.coin.alpha = 0;
     this.elon.alpha = 0;
-  }
-
-  startElonAfterExplosionAnimation() {
-    // const rotationSpeed = 0.005;
-    // For the sake of simplicty animate elonAndCoin container instead of just elon.
-    // Coin is hidden anyway and positions are already being reset before next animation.
-    // const update = dt => {
-    //   this.elonAndCoin.rotation += rotationSpeed * dt;
-    //   this.elonAndCoin.x += this.elonAndCoin.vx * this.elonAndCoin.speed * dt;
-    //   this.elonAndCoin.y += this.elonAndCoin.vy * this.elonAndCoin.speed * dt;
-    // };
-    // this.elonAfterExplosionAnimationHandle = update;
-    // this.app.ticker.add(update);
   }
 
   resetAllAnimations() {
@@ -158,17 +168,14 @@ export class CoinAnimation {
       this.elonAfterExplosionAnimationHandle = null;
     }
 
+    this.initialBoostAnimationComplete = false;
     this.coin.alpha = 1;
     this.elon.alpha = 1;
     this.elonAndCoin.rotation = 0;
-    this.elon.gotoAndStop(0);
     this.trajectory.clear();
   }
 
-  getCurrentVelocty() {
-    return {
-      x: this.elonAndCoin.vx,
-      y: this.elonAndCoin.vy,
-    };
+  isBoostAnimComplete() {
+    return this.initialBoostAnimationComplete === true;
   }
 }

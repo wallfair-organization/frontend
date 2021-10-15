@@ -240,6 +240,16 @@ const logout = function* () {
   yield put(push(Routes.home));
 };
 
+const forcedLogout = function* () {
+  Api.setToken(null);
+  crashGameApi.setToken(null);
+
+  yield delay(1 * 1000);
+  yield put(
+    AlertActions.showError({ message: 'Session expired. Please log in again.' })
+  );
+};
+
 const restoreToken = function* () {
   const locationPathname = window.location.pathname;
   const locationSearch = window.location.search;
@@ -356,6 +366,7 @@ const signUp = function* (action) {
     password: action.password,
     passwordConfirm: action.passwordConfirm,
     ref: action.ref,
+    recaptchaToken: action.recaptchaToken,
   };
 
   const { response, error } = yield call(Api.signUp, payload);
@@ -459,6 +470,7 @@ export default {
   fetchReferrals,
   fetchReferralsSucceeded,
   logout,
+  forcedLogout,
   refreshImportantData,
   registrationSucceeded,
   requestSms,

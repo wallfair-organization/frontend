@@ -52,7 +52,7 @@ const initialState = {
 const fetchAllSucceeded = (action, state) => {
   return update(state, {
     events: {
-      $set: action.events,
+      $set: action.events.map(e => ({ ...e, bookmarks: e.bookmarks || [] })),
     },
   });
 };
@@ -132,6 +132,36 @@ const fetchNewsDataSuccess = (state, { payload }) => {
   };
 };
 
+const bookmarkEvent = (state, { eventId, userId }) => {
+  const idx = state.events.findIndex(event => event._id === eventId);
+  if (idx > -1 && userId) {
+    return update(state, {
+      events: {
+        [idx]: {
+          bookmarks: { $push: [userId] },
+        },
+      },
+    });
+  }
+  return state;
+};
+
+const bookmarkEventCancel = (state, { eventId, userId }) => {
+  const idx = state.events.findIndex(event => event._id === eventId);
+  if (idx > -1 && userId) {
+    return update(state, {
+      events: {
+        [idx]: {
+          bookmarks: {
+            $set: state.events[idx].bookmarks.filter(uid => uid !== userId),
+          },
+        },
+      },
+    });
+  }
+  return state;
+};
+
 export default function (state = initialState, action) {
   switch (action.type) {
     // @formatter:off
@@ -153,6 +183,14 @@ export default function (state = initialState, action) {
       return fetchHomeEventsSuccess(action, state);
     case EventTypes.FETCH_TAGS_SUCCESS:
       return fetchTagsSuccess(action, state);
+    case EventTypes.BOOKMARK_EVENT_INIT:
+      return bookmarkEvent(state, action);
+    case EventTypes.BOOKMARK_EVENT_FAILED:
+      return bookmarkEventCancel(state, action);
+    case EventTypes.BOOKMARK_EVENT_CANCEL_INIT:
+      return bookmarkEventCancel(state, action);
+    case EventTypes.BOOKMARK_EVENT_CANCEL_FAILED:
+      return bookmarkEvent(state, action);
     default:
       return state;
     // @formatter:on

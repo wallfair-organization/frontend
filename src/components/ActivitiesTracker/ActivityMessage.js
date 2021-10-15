@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
 import { formatToFixed } from 'helper/FormatNumbers';
+import { TOKEN_NAME } from '../../constants/Token';
+import { calculateGain } from '../../helper/Calculation';
 
 const ActivityMessage = ({ activity, date, users, events }) => {
   const [dateString, setDateString] = useState('');
@@ -43,13 +45,19 @@ const ActivityMessage = ({ activity, date, users, events }) => {
       }
 
       return (
-        <a target={'_blank'} href={thisUrl} rel="noreferrer">
+        <a
+          className={'global-link-style'}
+          target={'_blank'}
+          href={thisUrl}
+          rel="noreferrer"
+        >
           {_.get(event, 'name')}
         </a>
       );
     } else if (eventType === 'non-streamed' && bets.length === 1) {
       return (
         <a
+          className={'global-link-style'}
           target={'_blank'}
           href={`${window.location.origin}/trade/${eventSlug}/${_.get(
             bets,
@@ -63,6 +71,7 @@ const ActivityMessage = ({ activity, date, users, events }) => {
     } else {
       return (
         <a
+          className={'global-link-style'}
           target={'_blank'}
           href={`${window.location.origin}/trade/${eventSlug}/bet`}
           rel="noreferrer"
@@ -73,20 +82,36 @@ const ActivityMessage = ({ activity, date, users, events }) => {
     }
   };
 
-  const getUserProfileUrl = user => {
-    if (!user) {
-      return 'Unknown user';
+  const getUserProfileUrl = data => {
+    let user = _.get(data, 'user');
+    let userId = _.get(user, '_id');
+    let userName = _.get(user, 'username');
+
+    //fallback if not yet, new event structure contains userId directly in event payload
+    if (!userId) {
+      userId = _.get(data, 'trade.userId');
     }
 
-    const userId = _.get(user, 'userId');
+    if (!userId) {
+      userId = _.get(data, 'userId');
+    }
+
+    if (!userName) {
+      userName = _.get(data, 'username');
+    }
+    //use name as username
+    if (!userName) {
+      userName = _.get(data, 'name');
+    }
 
     return (
       <a
+        className={'global-link-style'}
         target={'_blank'}
         href={`${window.location.origin}/user/${userId}`}
         rel="noreferrer"
       >
-        {_.get(user, 'username', 'Unknown user')}
+        {userName || 'Unknown user'}
       </a>
     );
   };
@@ -110,8 +135,12 @@ const ActivityMessage = ({ activity, date, users, events }) => {
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has been rewarded with{' '}
-            <b>{formatToFixed(_.get(data, 'winToken'), 0)} WFAIR</b> from{' '}
-            <b>{_.get(event, 'name')}</b>.
+            <div className={'global-token-currency'}>
+              <b>
+                {formatToFixed(_.get(data, 'winToken'), 0, true)} {TOKEN_NAME}
+              </b>
+            </div>{' '}
+            from <b>{_.get(event, 'name')}</b>.
           </div>
         );
       case 'Notification/EVENT_ONLINE':
@@ -127,9 +156,10 @@ const ActivityMessage = ({ activity, date, users, events }) => {
       case 'Notification/EVENT_NEW_BET':
         return (
           <div>
-            New bet has been created{' '}
+            New event has been created:
             <b>
               <a
+                className={'global-link-style'}
                 target={'_blank'}
                 href={`${window.location.origin}/trade/${_.get(
                   event,
@@ -149,9 +179,14 @@ const ActivityMessage = ({ activity, date, users, events }) => {
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has bet{' '}
-            {_.get(data, 'trade.investmentAmount')} WFAIR on{' '}
+            <div className={'global-token-currency'}>
+              {formatToFixed(_.get(data, 'trade.investmentAmount'), 0, true)}{' '}
+              {TOKEN_NAME}
+            </div>{' '}
+            on{' '}
             {
               <a
+                className={'global-link-style'}
                 target={'_blank'}
                 href={`${window.location.origin}/trade/${_.get(
                   event,
@@ -166,12 +201,31 @@ const ActivityMessage = ({ activity, date, users, events }) => {
           </div>
         );
       case 'Notification/EVENT_BET_CASHED_OUT':
+        const gainValueEvent = _.get(data, 'gain.value');
+        const gainNegativeEvent = _.get(data, 'gain.negative');
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has cashed out{' '}
-            <b>{_.get(data, 'amount')} WFAIR</b> from{' '}
+            <div className={'global-token-currency'}>
+              <b>
+                {formatToFixed(_.get(data, 'amount'), 0, true)} {TOKEN_NAME}
+              </b>
+            </div>{' '}
+            {gainValueEvent && (
+              <div
+                className={
+                  gainNegativeEvent
+                    ? 'global-cashout-loss'
+                    : 'global-cashout-profit'
+                }
+              >
+                ({gainValueEvent})
+              </div>
+            )}{' '}
+            from{' '}
             <b>
               <a
+                className={'global-link-style'}
                 target={'_blank'}
                 href={`${window.location.origin}/trade/${_.get(
                   event,
@@ -191,21 +245,87 @@ const ActivityMessage = ({ activity, date, users, events }) => {
             Bet <b>{getEventUrl(data)}</b> has been resolved.
           </div>
         );
+      case 'Notification/EVENT_BET_EVALUATED':
+        return (
+          <div>
+            Bet <b>{_.get(data, 'bet_question')}</b> has been rated as{' '}
+            <b>{_.get(data, 'rating')}</b>.
+          </div>
+        );
       case 'Casino/CASINO_PLACE_BET':
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has placed{' '}
-            <b>{_.get(data, 'amount')} WFAIR</b> bet on Elon Game.{' '}
+            <div className={'global-token-currency'}>
+              <b>
+                {formatToFixed(_.get(data, 'amount'), 0, true)} {TOKEN_NAME}
+              </b>
+            </div>{' '}
+            bet on Elon Game.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
         );
       case 'Casino/CASINO_CASHOUT':
+        const stakedAmount = _.get(data, 'stakedAmount');
+        const reward = _.get(data, 'reward');
+        const gain = calculateGain(stakedAmount, reward);
+        const gainValueCasino = _.get(gain, 'value');
+        const gainNegativeCasino = _.get(gain, 'negative');
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has cashed out{' '}
-            <b>{_.get(data, 'reward')} WFAIR</b> from Elon Game.{' '}
+            <div className={'global-token-currency'}>
+              <b>
+                {formatToFixed(_.get(data, 'reward'), 0, true)} {TOKEN_NAME}
+              </b>
+            </div>{' '}
+            {gainValueCasino && (
+              <div
+                className={
+                  gainNegativeCasino
+                    ? 'global-cashout-loss'
+                    : 'global-cashout-profit'
+                }
+              >
+                ({gainValueCasino})
+              </div>
+            )}{' '}
+            from Elon Game.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
+        );
+      case 'Notification/EVENT_USER_SIGNED_UP':
+        return (
+          <div>
+            <b>{getUserProfileUrl(data)}</b> has signed up.
+          </div>
+        );
+      case 'Notification/EVENT_USER_UPLOADED_PICTURE':
+        return (
+          <div>
+            <b>{getUserProfileUrl(data)}</b> has updated avatar.
+          </div>
+        );
+      case 'Notification/EVENT_USER_CHANGED_USERNAME':
+        return (
+          <div>
+            <b>{_.get(data, 'oldUsername')}</b> has changed username to{' '}
+            <b>{getUserProfileUrl(data)}</b>.
+          </div>
+        );
+      case 'Notification/EVENT_USER_CHANGED_NAME':
+        return (
+          <div>
+            <b>{_.get(data, 'oldName')}</b> has changed name to{' '}
+            <b>{getUserProfileUrl(data)}</b>.
+          </div>
+        );
+      case 'Notification/EVENT_USER_CHANGED_ABOUT_ME':
+        return (
+          <div>
+            <b>{getUserProfileUrl(data)}</b> has changed its profile's "About
+            me" section.
+          </div>
         );
       default:
         return null;
@@ -221,10 +341,6 @@ const ActivityMessage = ({ activity, date, users, events }) => {
 
     if (!user) {
       user = _.get(activity, 'data.user');
-    }
-
-    if (!user) {
-      //@todo sometimes user is not there, we are displaying 'Unknown user' we should do an api call to get this? Better to add missing part to the event message in USER_REWARDED
     }
 
     return (

@@ -48,12 +48,10 @@ const SectionFour = ({ classes }) => {
           You buy the tokens from our top up store, or one of our exchange
           partners and that's it, you’re ready to go. Not only that, but we have
           hidden more ways to earn more tokens everywhere throughout our
-          platform, either through rewards or hidden items and collectables. The
-          price for one $WFAIR Token on Alpha is 0,20€ and will change after our
-          official token listing event with our exchange partners and users will
-          get new tokens every week as well as from referring friends, family
-          and completing feedback tasks to help the Wallfair team improve the
-          user journey for our valued players.
+          platform, either through rewards or hidden items and collectables.
+          Users will get new tokens every week as well as from referring
+          friends, family and completing feedback tasks to help the Wallfair
+          team improve the user journey for our valued players.
         </p>
         {/* <br />
         <br /> */}

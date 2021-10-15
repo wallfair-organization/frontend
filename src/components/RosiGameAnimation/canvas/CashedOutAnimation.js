@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import TWEEN from '@tweenjs/tween.js';
-import { isMobileRosiGame } from './utils';
+import { isMobileRosiGame, calcPercent, calcTotalDelayTime } from './utils';
 
 const AMOUNT_TEXT_FILL_COLOR = 0xefff54;
 const AMOUN_FONT_FAMILY = 'PlusJakarta-Bold';
@@ -12,8 +12,6 @@ const COIN_DEFAULT_SCALE = isMobileRosiGame ? 0.5 : 0.3;
 class Animation {
   constructor(app) {
     this.app = app;
-    this.vx = 0;
-    this.vy = 0;
     this.speed = 0;
     this.container = new PIXI.Container();
     this.textContainer = new PIXI.Container();
@@ -28,6 +26,7 @@ class Animation {
     this.amountTextTween = amountTextTween;
 
     this.crashFactorText = this.createCashFactorText();
+    this.initialAnimationFrameDone = false;
   }
 
   createAmountText() {
@@ -37,7 +36,6 @@ class Animation {
       fill: AMOUNT_TEXT_FILL_COLOR,
     });
 
-    amountText.anchor.set(0.5);
     this.textContainer.addChild(amountText);
 
     const tweenTime = 900;
@@ -64,8 +62,6 @@ class Animation {
       fontWeight: 400,
     });
 
-    crashFactorText.anchor.set(0.5);
-
     this.textContainer.addChild(crashFactorText);
 
     return crashFactorText;
@@ -77,8 +73,9 @@ class Animation {
     const coin = new PIXI.Sprite(this.app.loader.resources.coin.texture);
     coin.x = 0;
     coin.y = 0;
-    coin.anchor.set(0.5);
     coin.scale.set(COIN_DEFAULT_SCALE);
+    coin.defaultWidth = coin.width;
+    coin.defaultHeight = coin.height;
     this.container.addChild(coin);
 
     const tweenData = { scale: 0 };
@@ -96,18 +93,12 @@ class Animation {
     return [coin, coinTween];
   }
 
-  positionElements(x, y, textOrientation = 'bottom') {
-    this.amountText.y = 0;
-    this.crashFactorText.y = this.amountText.height;
-    this.textContainer.y = this.textContainer.height;
-
-    if (textOrientation === 'top') {
-      this.textContainer.y = -this.textContainer.height - this.coin.height / 2;
+  positionElements(textOrientation = 'bottom') {
+    if (textOrientation === 'bottom') {
+      this.textContainer.y = this.coin.defaultHeight * 1.2;
+    } else if (textOrientation === 'top') {
+      this.textContainer.y = -this.coin.defaultHeight * 1.2;
     }
-
-    // move whole cointainer to the crash point
-    this.container.x = x;
-    this.container.y = y;
   }
 
   setTextValues(amount, crashFactor) {
@@ -128,24 +119,24 @@ class Animation {
     this.coin.scale.set(COIN_DEFAULT_SCALE);
     this.container.visible = false;
     this.speed = 0;
+    this.initialAnimationFrameDone = false;
   }
 
   setSpeed(speed) {
     this.speed = speed;
   }
 
-  setVelocity(vx, vy) {
-    this.vx = vx;
-    this.vy = vy;
-  }
-
-  update(dt) {
-    this.container.x -= this.vx * this.speed * dt;
-    this.container.y -= this.vy * this.speed * dt;
-
+  update() {
     const textPos = this.textContainer.getGlobalPosition();
+
+    this.amountText.x = this.coin.defaultWidth / 2 - this.amountText.width / 2;
+    this.crashFactorText.x =
+      (this.amountText.x + this.amountText.width) / 2 -
+      this.crashFactorText.width / 2;
+    this.crashFactorText.y = this.amountText.y + this.amountText.height;
+
     if (textPos.y + this.textContainer.height > this.app.renderer.height) {
-      this.positionElements(this.container.x, this.container.y, 'top');
+      this.positionElements('top');
     }
   }
 
@@ -173,15 +164,24 @@ class Animation {
 }
 
 class CashedOutAnimation {
-  constructor(app) {
+  constructor(app, coinAndTrajectory) {
     this.app = app;
     this.container = new PIXI.Container();
     this.currentAnims = [];
     this.cachedAnims = [];
     this.currentTextOrientation = 'bottom';
+    this.coinAndTrajectory = coinAndTrajectory;
+
+    // cache some coin animation objects from the start
+    for (let i = 0; i < 20; i++) {
+      const anim = new Animation(this.app);
+      anim.setTextValues('000', '1.00');
+      anim.positionElements('bottom');
+      this.cachedAnims.push(anim);
+    }
   }
 
-  animate(x, y, amount, crashFactor, velocity) {
+  animate(x, amount, crashFactor) {
     const previousAnimX =
       this.currentAnims.length > 0
         ? this.currentAnims[this.currentAnims.length - 1].getX()
@@ -196,9 +196,10 @@ class CashedOutAnimation {
       this.container.addChild(anim.container);
     }
 
-    anim.setVelocity(velocity.x, velocity.y);
     this.currentAnims.push(anim);
 
+    anim.elapsedTime = calcTotalDelayTime(crashFactor) / 1000;
+    anim.crashFactor = crashFactor;
     anim.setTextValues(amount, crashFactor);
 
     const isSmallDistanceBetweenCrashes = x - previousAnimX <= anim.getWidth();
@@ -209,7 +210,7 @@ class CashedOutAnimation {
       this.currentTextOrientation = 'bottom';
     }
 
-    anim.positionElements(x, y, this.currentTextOrientation);
+    anim.positionElements(this.currentTextOrientation);
     anim.scaleInAnimation();
   }
 
@@ -223,11 +224,9 @@ class CashedOutAnimation {
     }
   }
 
-  update(dt) {
+  update(dt, elapsedTime) {
     let prevAnim;
     for (const anim of this.currentAnims) {
-      const animSpeed = anim.getX() / 1000;
-
       if (
         prevAnim &&
         prevAnim.isTextVisible() &&
@@ -236,8 +235,21 @@ class CashedOutAnimation {
         anim.hideText();
       }
 
-      anim.setSpeed(animSpeed);
       anim.update(dt);
+
+      const x = anim.elapsedTime;
+      const sw = this.coinAndTrajectory.isBoostAnimComplete()
+        ? this.coinAndTrajectory.trajectoryDestX
+        : this.coinAndTrajectory.trajectoryCurrentX;
+      const scaleX = (sw * 2) / (-elapsedTime - x);
+
+      anim.container.x = sw / 2 + -x * scaleX - sw / 2;
+      const percentX = (anim.container.x * 100) / sw;
+
+      const destY = this.coinAndTrajectory.trajectoryDestY;
+      anim.container.y =
+        this.app.renderer.height -
+        calcPercent(this.app.renderer.height - destY, percentX + 10);
 
       prevAnim = anim;
     }

@@ -64,6 +64,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    align-items: center;
   }
 
   .dateString {
@@ -71,7 +72,6 @@
     display: flex;
     align-items: center;
     right: -6px;
-    text-align: center;
     width: 47px;
     justify-content: flex-end;
     text-align: right;
@@ -79,7 +79,7 @@
 
   .messageItem {
     opacity: 1;
-    font-size: 15px;
+    font-size: 14px;
     align-items: center;
     //width: 100%;
   }

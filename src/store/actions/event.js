@@ -31,6 +31,14 @@ export const EventTypes = {
   DELETE_EVENT: 'Event/DELETE_EVENT',
   DELETE_EVENT_SUCCEEDED: 'Event/DELETE_EVENT_SUCCESS',
   DELETE_EVENT_FAILED: 'Event/DELETE_EVENT_FAIL',
+  BOOKMARK_EVENT: 'Event/BOOKMARK_EVENT',
+  BOOKMARK_EVENT_SUCCEEDED: 'Event/BOOKMARK_EVENT_SUCCESS',
+  BOOKMARK_EVENT_FAILED: 'Event/BOOKMARK_EVENT_FAIL',
+  BOOKMARK_EVENT_CANCEL: 'Event/BOOKMARK_EVENT_CANCEL',
+  BOOKMARK_EVENT_CANCEL_SUCCEEDED: 'Event/BOOKMARK_EVENT_CANCEL_SUCCEEDED',
+  BOOKMARK_EVENT_CANCEL_FAILED: 'Event/BOOKMARK_EVENT_CANCEL_FAIL',
+  BOOKMARK_EVENT_INIT: 'Event/BOOKMARK_EVENT_INIT',
+  BOOKMARK_EVENT_CANCEL_INIT: 'Event/BOOKMARK_EVENT_CANCEL_INIT',
 };
 
 const fetchAll = makeActionCreator(EventTypes.FETCH_ALL);
@@ -174,6 +182,38 @@ const deleteEventSuccess = makeActionCreator(
 );
 const deleteEventFail = makeActionCreator(EventTypes.DELETE_EVENT_FAILED);
 
+const bookmarkEvent = makeActionCreator(EventTypes.BOOKMARK_EVENT, {
+  eventId: null,
+});
+const bookmarkEventSuccess = makeActionCreator(
+  EventTypes.BOOKMARK_EVENT_SUCCEEDED
+);
+const bookmarkEventFail = makeActionCreator(EventTypes.BOOKMARK_EVENT_FAILED);
+const bookmarkEventInit = makeActionCreator(EventTypes.BOOKMARK_EVENT_INIT, {
+  eventId: null,
+  userId: null,
+});
+
+const bookmarkEventCancel = makeActionCreator(
+  EventTypes.BOOKMARK_EVENT_CANCEL,
+  {
+    eventId: null,
+  }
+);
+const bookmarkEventCancelSuccess = makeActionCreator(
+  EventTypes.BOOKMARK_EVENT_CANCEL_SUCCEEDED
+);
+const bookmarkEventCancelFail = makeActionCreator(
+  EventTypes.BOOKMARK_EVENT_CANCEL_FAILED
+);
+const bookmarkEventCancelInit = makeActionCreator(
+  EventTypes.BOOKMARK_EVENT_CANCEL_INIT,
+  {
+    eventId: null,
+    userId: null,
+  }
+);
+
 export const EventActions = {
   fetchAll,
   fetchAllSucceeded,
@@ -205,4 +245,12 @@ export const EventActions = {
   deleteEvent,
   deleteEventSuccess,
   deleteEventFail,
+  bookmarkEvent,
+  bookmarkEventInit,
+  bookmarkEventSuccess,
+  bookmarkEventFail,
+  bookmarkEventCancel,
+  bookmarkEventCancelInit,
+  bookmarkEventCancelSuccess,
+  bookmarkEventCancelFail,
 };

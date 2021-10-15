@@ -72,15 +72,15 @@
   .wrapper {
     position: relative;
     height: 370px;
-    flex-basis: 33%;
+    flex-basis: 20%;
     padding: 10px;
 
     &:first-child {
-      flex-basis: 50%;
+      flex-basis: 20%;
     }
 
     &:nth-child(2) {
-      flex-basis: 50%;
+      flex-basis: 20%;
     }
 
     @media (max-width: $screen-md) {
@@ -94,12 +94,12 @@
     .gameItem {
       height: 100%;
 
-      // &.inactive {
-      //   img,
-      //   .gameInfo {
-      //     filter: opacity(0.4);
-      //   }
-      // }
+      &.inactive {
+        img,
+        .gameInfo {
+          filter: opacity(0.4);
+        }
+      }
 
       &.gameItemLg {
         .gameInfo {
@@ -202,21 +202,17 @@
       }
 
       .inactivePlaceholder {
-        background-image: url('../../data/backgrounds/games/games-highlight.png');
-        background-repeat: no-repeat;
-        background-size: contain;
         position: absolute;
         top: 50%;
         left: 50%;
-        min-width: 250px;
-        min-height: 70px;
         transform: translate(-50%, -50%);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
-        font-family: $fontRegular;
-        color: $colorBlack;
+        font-size: 24px;
+        font-family: $fontMedium;
+        color: #F2FF53;
+        text-align: center;
         font-weight: 700;
       }
     }

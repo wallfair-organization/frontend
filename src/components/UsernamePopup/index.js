@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.scss';
 import { ReactComponent as ConfettiLeft } from '../../data/icons/confetti-left.svg';
 import { ReactComponent as ConfettiRight } from '../../data/icons/confetti-right.svg';
@@ -10,6 +10,8 @@ import { AuthenticationActions } from '../../store/actions/authentication';
 import PopupTheme from '../Popup/PopupTheme';
 import { connect } from 'react-redux';
 import authState from 'constants/AuthState';
+import _ from 'lodash';
+import { checkUsername } from '../../api';
 
 const UsernamePopup = ({
   hidePopup = () => {},
@@ -19,19 +21,37 @@ const UsernamePopup = ({
   user,
 }) => {
   const [username, setUsername] = useState('');
+  const [errorMessage, setErrorMessage] = useState();
+  const [profileErrorMessage, setProfileErrorMessage] = useState();
 
   const isAuthenticated = () => user.authState === authState.LOGGED_IN;
 
-  const onConfirm = () => {
+  const onConfirm = async () => {
     if (!isAuthenticated()) return;
 
-    const payload = {
-      email: user.email,
-      name: user.name,
-      profilePicture: user.profilePicture,
-      username,
-    };
-    updateUser(payload);
+    //check unique username
+    const response = await checkUsername(username).catch(err => {
+      console.error('checkUsername err', err);
+    });
+
+    const isUnique = _.get(response, 'data.isUnique', false);
+
+    if (isUnique) {
+      setErrorMessage('');
+      const payload = {
+        email: user.email,
+        name: user.name,
+        profilePicture: user.profilePicture,
+        username,
+      };
+      updateUser(payload);
+    } else {
+      setErrorMessage(
+        <div>
+          Username <b>"{username}"</b> already exists. Please use another name.
+        </div>
+      );
+    }
   };
 
   const skipUsername = () => {
@@ -53,6 +73,9 @@ const UsernamePopup = ({
         setValue={setUsername}
         onConfirm={onConfirm}
       />
+      {!_.isEmpty(errorMessage) && (
+        <div className={styles.errorHandLing}>{errorMessage}</div>
+      )}
       <div className={styles.buttons}>
         <Button
           onClick={skipUsername}

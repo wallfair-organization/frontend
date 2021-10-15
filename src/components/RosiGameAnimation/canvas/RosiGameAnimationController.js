@@ -7,6 +7,7 @@ import CoinExplosion from './CoinExplosion';
 import { calcCrashFactorFromElapsedTime, isMobileRosiGame } from './utils';
 import CashedOutAnimation from './CashedOutAnimation';
 import PreparingRound from './PreparingRound';
+import { ROSI_GAME_INTERVALS } from 'constants/RosiGame';
 
 // hide PIXI welcome messege in console
 PIXI.utils.skipHello();
@@ -25,6 +26,7 @@ function loadAssets(loader) {
     .add('purplePlanet', constructPath('purplePlanet.png'))
     .add('star1', constructPath('star1.png'))
     .add('star2', constructPath('star2.png'))
+    .add('starship', constructPath('starship.png'))
     .add('preparing-round-anim', constructPath('preparing-round-anim.json'))
     .add('elon-coin-animation', constructPath('elon-coin-animation.json'))
     .add(
@@ -55,6 +57,7 @@ class RosiAnimationController {
 
     this.gameStartTime = 0;
     this.lastCrashFactor = 1.0;
+    this.currentIntervalIndex = -1;
   }
 
   load(done) {
@@ -68,19 +71,12 @@ class RosiAnimationController {
   }
 
   update(dt) {
+    const coinPos = this.coinAndTrajectory.getCoinCrashPosition();
     const elapsed = Date.now() - this.gameStartTime;
     const crashFactor = Number(calcCrashFactorFromElapsedTime(elapsed)) || 1.0;
     const maxElonFrames = this.coinAndTrajectory.getElonFramesCount();
-    const intervals = [
-      // fromFactor, toFactor, speed, elonFrame
-      [1, 1.5, 1, 0],
-      [1.5, 2, 2, 1],
-      [2, 3, 3, 2],
-      [3, 3.5, 4, 3],
-      [3.5, 4, 5, 4],
-      [4, 4.5, 6, 5],
-    ];
 
+    const intervals = ROSI_GAME_INTERVALS;
     const currentInterval =
       intervals.find(
         ([fromFactor, toFactor]) =>
@@ -88,14 +84,27 @@ class RosiAnimationController {
       ) || intervals[intervals.length - 1];
 
     const [_f, _t, speed, elonFrame] = currentInterval;
+    const currentIntervalIndex = intervals.indexOf(currentInterval);
 
-    if (elonFrame < maxElonFrames) {
+    if (
+      this.coinAndTrajectory.canUpdateElonFrame() &&
+      elonFrame < maxElonFrames
+    ) {
       this.coinAndTrajectory.setElonFrame(elonFrame);
     }
 
+    if (this.currentIntervalIndex !== currentIntervalIndex) {
+      this.background.setStarsSpeed(speed);
+      this.currentIntervalIndex = currentIntervalIndex;
+    }
+
+    if (this.background.shouldShowStarshipAnimation(crashFactor)) {
+      this.background.doStarshipAnimation();
+    }
+
     TWEEN.update(this.app.ticker.lastTime);
-    this.cashedOut.update(dt);
-    this.background.update(dt, speed);
+    this.cashedOut.update(dt, elapsed / 1000, coinPos);
+    this.background.update(dt, this.coinAndTrajectory.trajectoryAngle);
   }
 
   drawElements() {
@@ -103,15 +112,13 @@ class RosiAnimationController {
     this.app.stage.addChild(this.background.container);
 
     this.coinExplosion = new CoinExplosion(this.app);
-    this.app.stage.addChild(this.coinExplosion.container);
-
     this.coinAndTrajectory = new CoinAnimation(this.app);
-    this.app.stage.addChild(this.coinAndTrajectory.container);
-
-    this.cashedOut = new CashedOutAnimation(this.app);
-    this.app.stage.addChild(this.cashedOut.container);
-
+    this.cashedOut = new CashedOutAnimation(this.app, this.coinAndTrajectory);
     this.preparingRound = new PreparingRound(this.app);
+
+    this.app.stage.addChild(this.coinExplosion.container);
+    this.app.stage.addChild(this.coinAndTrajectory.container);
+    this.app.stage.addChild(this.cashedOut.container);
     this.app.stage.addChild(this.preparingRound.container);
   }
 
@@ -120,6 +127,8 @@ class RosiAnimationController {
     this.coinAndTrajectory.startCoinFlyingAnimation();
     this.cashedOut.reset();
     this.gameStartTime = gameStartTime;
+    this.currentIntervalIndex = -1;
+    this.background.updateStarshipAnimationTrigger();
   }
 
   end() {
@@ -130,14 +139,8 @@ class RosiAnimationController {
 
   doCashedOutAnimation(data) {
     const point = this.coinAndTrajectory.getCoinCrashPosition();
-    const elonVelocity = this.coinAndTrajectory.getCurrentVelocty();
-    this.cashedOut.animate(
-      point.x,
-      point.y,
-      data.amount,
-      data.crashFactor,
-      elonVelocity
-    );
+
+    this.cashedOut.animate(point.x, data.amount, data.crashFactor);
   }
 }
 

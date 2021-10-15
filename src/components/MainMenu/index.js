@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 import Icon from '../Icon';
@@ -16,6 +16,8 @@ import EmailNotifications from 'components/EmailNotifications';
 import Preferences from 'components/Preferences';
 import Referrals from 'components/Referrals';
 import Textarea from 'components/Textarea';
+import { Link } from 'react-router-dom';
+import { checkUsername } from '../../api';
 
 const MainMenu = ({
   opened,
@@ -41,6 +43,8 @@ const MainMenu = ({
   const [profilePic, setProfilePic] = useState(user.profilePicture);
   const [imageName, setImageName] = useState(null);
   const [aboutMe, setAboutMe] = useState(user.aboutMe);
+  const [profileSubmitActive, setProfileSubmitActive] = useState(true);
+  const [profileErrorMessage, setProfileErrorMessage] = useState();
 
   const profilePictureRefName = useRef(null);
 
@@ -93,8 +97,34 @@ const MainMenu = ({
     setName(e.target.value);
   };
 
+  const handleUsernameDebounceAction = useMemo(() => {
+    return _.debounce(async eventValue => {
+      const response = await checkUsername(eventValue).catch(err => {
+        console.error('checkUsername err', err);
+      });
+
+      const isUnique = _.get(response, 'data.isUnique', false);
+
+      if (isUnique) {
+        setProfileErrorMessage('');
+        setProfileSubmitActive(true);
+      } else {
+        setProfileErrorMessage(
+          <div>
+            Username <b>"{eventValue}"</b> already exists. Please use another
+            name.
+          </div>
+        );
+      }
+    }, 300);
+  }, []);
+
   const handleUsername = e => {
+    setProfileSubmitActive(false);
     setUsername(e.target.value);
+
+    //debounce 300ms, to avoid unnecessary multiple calls
+    handleUsernameDebounceAction(e.target.value);
   };
 
   const handleEmail = e => {
@@ -309,7 +339,14 @@ const MainMenu = ({
                   onChange={handleEmail}
                 />
               </div>
+
+              {!_.isEmpty(profileErrorMessage) && (
+                <div className={styles.profileErrorHandLing}>
+                  {profileErrorMessage}
+                </div>
+              )}
               <input
+                disabled={profileSubmitActive ? false : true}
                 className={styles.profileSubmit}
                 type={'submit'}
                 value={'Save changes'}
@@ -335,7 +372,11 @@ const MainMenu = ({
             styles.panelHidden
         )}
       >
-        <h2 className={styles.profileHeading}>My Profile</h2>
+        <h2 className={styles.profileHeading}>
+          <Link to={Routes.user.replace(':userId', user.userId)}>
+            My Profile
+          </Link>
+        </h2>
         <div className={styles.mainContent}>
           <HomeSettings
             onEditClick={() => onClickShowEditProfile()}

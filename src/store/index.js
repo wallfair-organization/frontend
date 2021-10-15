@@ -30,27 +30,24 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer(history));
 
-export default initialState => {
-  const isDevelopment = Environment.isDevelopment();
-  const allMiddlewares = [
-    isDevelopment ? require('redux-immutable-state-invariant').default() : null,
-    sagaMiddleware,
-    routerMiddleware(history),
-  ];
-  const middlewares = _.reject(allMiddlewares, _.isNull);
-  const composeEnhancers =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
-  const store = createStore(
-    persistedReducer,
-    initialState,
-    composeEnhancers(withReady, applyMiddleware(...middlewares))
-  );
+const isDevelopment = Environment.isDevelopment();
+const allMiddlewares = [
+  isDevelopment ? require('redux-immutable-state-invariant').default() : null,
+  sagaMiddleware,
+  routerMiddleware(history),
+];
+const middlewares = _.reject(allMiddlewares, _.isNull);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
+const store = createStore(
+  persistedReducer,
+  {},
+  composeEnhancers(withReady, applyMiddleware(...middlewares))
+);
 
-  store.ready().then(state => {
-    sagaMiddleware.run(sagas.root);
-  });
+store.ready().then(state => {
+  sagaMiddleware.run(sagas.root);
+});
 
-  const persistor = persistStore(store);
+const persistor = persistStore(store);
 
-  return { store, persistor };
-};
+export default () => ({ store, persistor });

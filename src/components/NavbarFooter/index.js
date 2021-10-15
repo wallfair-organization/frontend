@@ -8,13 +8,22 @@ const NavbarFooter = ({
   location,
   className = null,
   skipRoutes = [],
+  hideVisibility = false,
 }) => {
   if (skipRoutes.some(route => matchPath(location.pathname, route))) {
     return null;
   }
 
   return (
-    <div className={classNames(styles.navbarFooter, className)}>{children}</div>
+    <div
+      className={classNames(
+        styles.navbarFooter,
+        { [styles.hideVisibility]: hideVisibility },
+        className
+      )}
+    >
+      {children}
+    </div>
   );
 };
 

@@ -2,14 +2,15 @@ import InputBox from '../InputBox';
 import styles from './styles.module.scss';
 import { AuthenticationActions } from '../../store/actions/authentication';
 import { connect } from 'react-redux';
-import { useEffect, useRef, useState } from 'react';
-import { useParams, useHistory, useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import CheckBox from '../CheckBox';
 import ReactTooltip from 'react-tooltip';
 import { FormGroup, InputLabel } from '@material-ui/core';
 import Button from 'components/Button';
 import HighlightType from 'components/Highlight/HighlightType';
 import AuthenticationType from './AuthenticationType';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const Authentication = ({
   loading,
@@ -29,6 +30,8 @@ const Authentication = ({
     useState(false);
   const [error, setError] = useState(null);
   const [forgotPassword, setForgotPassword] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   let fooRef = useRef(null);
   let emailRef = useRef(null);
@@ -57,6 +60,7 @@ const Authentication = ({
       fooRef.current = genericRef;
       setError(errorState);
       ReactTooltip.show(fooRef);
+      if (isSignUp()) handleReCaptchaVerify();
     }
 
     return () => {
@@ -81,7 +85,7 @@ const Authentication = ({
     let error;
 
     if (isSignUp() && !forgotPassword && !legalAuthorizationAgreed) {
-      error = "Confirm that you're legally authorized";
+      error = 'Confirm that you agree with Terms and Conditions';
       fooRef = acceptRef;
     }
     if (isSignUp() && !forgotPassword && !passwordsMatch()) {
@@ -105,11 +109,20 @@ const Authentication = ({
     return error;
   };
 
+  const handleReCaptchaVerify = useCallback(async () => {
+    if (!executeRecaptcha) return;
+
+    const token = await executeRecaptcha('join');
+    setRecaptchaToken(token);
+  }, [executeRecaptcha]);
+
+  useEffect(() => {
+    handleReCaptchaVerify();
+  }, [handleReCaptchaVerify]);
+
   const onConfirm = () => {
     const error = validateInput();
     if (error) return;
-
-    const urlRef = urlParams.get('ref');
 
     if (forgotPassword) {
       initForgotPassword(email);
@@ -119,7 +132,8 @@ const Authentication = ({
             email,
             password,
             passwordConfirm: passwordConfirmation,
-            ref: urlRef,
+            ref: urlParams.get('ref'),
+            recaptchaToken,
           })
         : login({
             email,

@@ -218,6 +218,52 @@ const deleteEvent = function* ({ payload: { eventId } }) {
   }
 };
 
+const bookmarkEvent = function* ({ eventId }) {
+  const userId = yield select(state => state.authentication.userId);
+  try {
+    if (userId) {
+      yield put(
+        EventActions.bookmarkEventInit({
+          eventId,
+          userId,
+        })
+      );
+      yield call(Api.bookmarkEvent, eventId);
+      yield put(EventActions.bookmarkEventSuccess());
+    }
+  } catch (error) {
+    yield put(
+      EventActions.bookmarkEventFail({
+        eventId,
+        userId,
+      })
+    );
+  }
+};
+
+const bookmarkEventCancel = function* ({ eventId }) {
+  const userId = yield select(state => state.authentication.userId);
+  try {
+    if (userId) {
+      yield put(
+        EventActions.bookmarkEventCancelInit({
+          eventId,
+          userId,
+        })
+      );
+      yield call(Api.bookmarkEventCancel, eventId);
+      yield put(EventActions.bookmarkEventCancelSuccess());
+    }
+  } catch (error) {
+    yield put(
+      EventActions.bookmarkEventCancelFail({
+        eventId,
+        userId,
+      })
+    );
+  }
+};
+
 export default {
   fetchAll,
   fetchAllSucceeded,
@@ -229,4 +275,6 @@ export default {
   createEvent,
   editEvent,
   deleteEvent,
+  bookmarkEvent,
+  bookmarkEventCancel,
 };

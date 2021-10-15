@@ -36,7 +36,9 @@ const RewardCard = ({
   return (
     <div className={styles.card}>
       <div className={styles.cardReward}>
-        <span>{rewardAmount} WFAIR</span>
+        <span>
+          {rewardAmount} {TOKEN_NAME}
+        </span>
       </div>
       <p>{title}</p>
       <div className={styles.cardRewardDescrption}>{description}</div>
@@ -330,8 +332,8 @@ const Rewards = ({ user, showPopup }) => {
           <div className={styles.rewardsInfo}>
             <h3>Activation Games</h3>
             <p>
-              Earn extra $WFAIR Tokens to use instantly, playing our activation
-              games are simple and get you back in the game, fast.
+              Earn extra ${TOKEN_NAME} Tokens to use instantly, playing our
+              activation games are simple and get you back in the game, fast.
             </p>
             <p>
               Come back every week for new ways for you to earn more tokens.

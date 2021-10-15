@@ -20,11 +20,17 @@ import { ChatTypes } from '../actions/chat';
 import { WebsocketsTypes, WebsocketsActions } from '../actions/websockets';
 import { LOCATION_CHANGE } from 'connected-react-router';
 import { LeaderboardTypes } from '../actions/leaderboard';
+import { RosiGameTypes } from '../actions/rosi-game';
+import { endGame, stopSound } from './rosi-game';
 
 const root = function* () {
   yield all([
     // @formatter:off
     takeLatest([AuthenticationTypes.LOGOUT], AuthenticationSagas.logout),
+    takeLatest(
+      [AuthenticationTypes.FORCED_LOGOUT],
+      AuthenticationSagas.forcedLogout
+    ),
     takeLatest([AuthenticationTypes.VERIFY_SMS], AuthenticationSagas.verifySms),
     takeLatest(
       [AuthenticationTypes.REQUEST_SMS],
@@ -151,6 +157,13 @@ const root = function* () {
     takeLatest([EventTypes.CREATE_EVENT], EventSagas.createEvent),
     takeLatest([EventTypes.EDIT_EVENT], EventSagas.editEvent),
     takeLatest([EventTypes.DELETE_EVENT], EventSagas.deleteEvent),
+    takeLatest([EventTypes.BOOKMARK_EVENT], EventSagas.bookmarkEvent),
+    takeLatest(
+      [EventTypes.BOOKMARK_EVENT_CANCEL],
+      EventSagas.bookmarkEventCancel
+    ),
+    takeLatest([WebsocketsTypes.LEAVE_ROOM], stopSound),
+    takeEvery([RosiGameTypes.ADD_LAST_CRASH], endGame),
     // @formatter:on
   ]);
 };

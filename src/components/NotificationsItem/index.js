@@ -97,7 +97,7 @@ const NotificationsItem = ({ notification, setUnread, events }) => {
           Congratulations! You won
         </span>
         <span className={style.congratulatoryBannerAmount}>
-          {formatToFixed(notification.tokensWon)} {TOKEN_NAME}
+          {formatToFixed(notification.tokensWon, 2, true)} {TOKEN_NAME}
         </span>
       </div>
     );

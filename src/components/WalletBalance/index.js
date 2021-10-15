@@ -43,7 +43,7 @@ const WalletBalance = () => {
                 startAngle={270}
               />
               <p className={styles.overallFundsTotal}>
-                {formatToFixed(overallFundsTotal)}
+                {formatToFixed(overallFundsTotal, 2, true)}
               </p>
               <p className={styles.overallFundsTitle}>{currency}</p>
             </div>
@@ -58,7 +58,7 @@ const WalletBalance = () => {
               </div>
               <div className={styles.availableWfairsAmount}>
                 <p className={styles.availableWfairsTotal}>
-                  {formatToFixed(formattedBalance)}
+                  {formatToFixed(formattedBalance, 2, true)}
                 </p>
                 <p className={styles.availableWfairsTitle}>{currency}</p>
               </div>
@@ -72,7 +72,7 @@ const WalletBalance = () => {
               </div>
               <div className={styles.liquidFundsAmount}>
                 <p className={styles.liquidFundsTotal}>
-                  {formatToFixed(totalOpenTradesAmount)}
+                  {formatToFixed(totalOpenTradesAmount, 2, true)}
                 </p>
                 <p className={styles.liquidFundsTitle}>{currency}</p>
               </div>

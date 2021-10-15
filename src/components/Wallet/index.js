@@ -152,7 +152,7 @@ const Wallet = ({
                     ),
                     <>
                       <span className={styles[direction.toLowerCase()]}>
-                        {formatToFixed(tokenAmount)}
+                        {formatToFixed(tokenAmount, 2, true)}
                       </span>
                       <span className={styles.secondaryData}>
                         {moment(trx_timestamp).format('DD.MM.YYYY')}

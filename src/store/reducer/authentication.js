@@ -421,6 +421,7 @@ export default function (state = initialState, action) {
   switch (action.type) {
     // @formatter:off
     case AuthenticationTypes.LOGOUT:
+    case AuthenticationTypes.FORCED_LOGOUT:
       return logout(action, state);
     case AuthenticationTypes.SET_EMAIL:
       return setEmail(action, state);

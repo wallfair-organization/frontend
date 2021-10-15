@@ -137,7 +137,7 @@ const MyTradesList = ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    showPulloutBetPopup: (betId, outcome, amount) => {
+    showPulloutBetPopup: (betId, outcome, amount, gain) => {
       dispatch(
         PopupActions.show({
           popupType: PopupTheme.pulloutApprove,
@@ -147,6 +147,7 @@ const mapDispatchToProps = dispatch => {
               betId,
               outcome,
               amount,
+              gain,
             },
           },
         })

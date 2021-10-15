@@ -15,7 +15,7 @@ const SocialIcons = ({ className }) => {
         rel="noreferrer"
       >
         <div className={styles.iconWrapper}>
-          <SocialFollowerBadge className={styles.badge} followers="70K" />
+          <SocialFollowerBadge className={styles.badge} followers="90K" />
           <TelegramIcon />
         </div>
       </a>
@@ -26,7 +26,7 @@ const SocialIcons = ({ className }) => {
         rel="noreferrer"
       >
         <div className={styles.iconWrapper}>
-          <SocialFollowerBadge className={styles.badge} followers="1,4K" />
+          <SocialFollowerBadge className={styles.badge} followers="1,6K" />
           <InstagramIcon />
         </div>
       </a>
@@ -37,7 +37,7 @@ const SocialIcons = ({ className }) => {
         rel="noreferrer"
       >
         <div className={styles.iconWrapper}>
-          <SocialFollowerBadge className={styles.badge} followers="46K" />
+          <SocialFollowerBadge className={styles.badge} followers="60K" />
           <TwitterIcon />
         </div>
       </a>

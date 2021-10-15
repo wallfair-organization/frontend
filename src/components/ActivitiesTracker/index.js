@@ -19,12 +19,58 @@ import { useRef } from 'react';
 import { useState } from 'react';
 import { useIsMount } from '../hoc/useIsMount';
 import ActivityMessage from './ActivityMessage';
-import { getNotificationEvents } from '../../api';
+import {
+  getNotificationEvents,
+  getNotificationEventsByBet,
+  getNotificationEventsByUser,
+} from '../../api';
 
 import { ACTIVITIES_TO_TRACK } from '../../constants/Activities';
 import { NotificationActions } from '../../store/actions/notification';
 
 SwiperCore.use([Navigation, Pagination]);
+
+/***
+ *
+ * @param className - class name for container
+ * @param messagesClassName - class name for messages
+ * @param activities - saga state for global activities (api initial call + websocket combined)
+ * @param addInitialActivities - saga action to dispatch
+ * @param showCategories - show categories selector
+ * @param activitiesLimit - api call activities limit to fetch
+ * @param betId - when exist we are showing things related with defined betId
+ * @param preselectedCategory - focus on specific categories only
+ * @returns {JSX.Element}
+ * @constructor
+ */
+
+const callByParams = async params => {
+  const { betId, userId, activitiesLimit, selectedCategory } = params;
+  if (betId) {
+    return await getNotificationEventsByBet({
+      limit: activitiesLimit || 10,
+      betId,
+    }).catch(err => {
+      console.error("Can't getNotificationEventsByBet", err);
+    });
+  }
+
+  if (userId) {
+    return await getNotificationEventsByUser({
+      limit: activitiesLimit || 10,
+      userId,
+    }).catch(err => {
+      console.error("Can't getNotificationEventsByUser", err);
+    });
+  }
+
+  return getNotificationEvents({
+    limit: activitiesLimit || 10,
+    category: selectedCategory,
+  }).catch(err => {
+    console.error("Can't getNotificationEvents", err);
+  });
+};
 
 const ActivitiesTracker = ({
   className,
@@ -33,12 +79,20 @@ const ActivitiesTracker = ({
   addInitialActivities,
   showCategories,
   activitiesLimit,
+  betId,
+  userId,
+  preselectedCategory,
 }) => {
   const messageListRef = useRef();
 
-  const [selectedCategory, setSelectedCategory] = useState(
-    ACTIVITIES_TO_TRACK[0].value
-  );
+  const preselectCategory = preselectedCategory
+    ? _.get(
+        _.find(ACTIVITIES_TO_TRACK, { value: preselectedCategory }),
+        'value'
+      )
+    : ACTIVITIES_TO_TRACK[0].value;
+
+  const [selectedCategory, setSelectedCategory] = useState(preselectCategory);
 
   const [initialLoaded, setInitialLoaded] = useState(false);
 
@@ -47,11 +101,13 @@ const ActivitiesTracker = ({
   useEffect(() => {
     if (isMount) {
       (async () => {
-        const initialActivities = await getNotificationEvents({
-          limit: activitiesLimit || 10,
-          category: selectedCategory,
+        let initialActivities = await callByParams({
+          betId,
+          userId,
+          activitiesLimit,
+          selectedCategory,
         }).catch(err => {
-          console.error("Can't get trade by id:", err);
+          console.error("Can't callByParams", err);
         });
 
         addInitialActivities(initialActivities);
@@ -77,10 +133,6 @@ const ActivitiesTracker = ({
       });
     }
   }, [selectedCategory]);
-
-  useEffect(() => {
-    messageListScrollToBottom();
-  }, [activities.length]);
 
   const renderActivities = () => {
     const selectedCategoryLower = selectedCategory.toLowerCase();
@@ -212,6 +264,12 @@ const ActivitiesTracker = ({
     }
   };
 
+  useEffect(() => {
+    if (initialLoaded) {
+      messageListScrollToBottom();
+    }
+  }, [activities, initialLoaded]);
+
   return (
     <div className={classNames(styles.activitiesTrackerContainer, className)}>
       {showCategories && renderCategories()}
@@ -219,7 +277,7 @@ const ActivitiesTracker = ({
         className={classNames(messagesClassName, styles.messageContainer)}
         ref={messageListRef}
       >
-        {renderActivities()}
+        {initialLoaded && renderActivities()}
       </div>
     </div>
   );

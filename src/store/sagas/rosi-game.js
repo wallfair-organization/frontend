@@ -1,34 +1,14 @@
-import * as Api from '../../api';
-
-import { call, put } from 'redux-saga/effects';
+import { delay, put, select } from 'redux-saga/effects';
 import { RosiGameActions } from '../actions/rosi-game';
 
-export const createTrade = function* (action) {
-  const { trade } = action;
-  const { response } = yield call(Api.createTrade, trade);
-
-  console.log(response.data);
-
-  yield put(RosiGameActions.setUserBet())
-
-  // if (response) {
-  //   console.log(response.data);
-
-  //   yield put(
-  //     RosiGameActions.setUserBet();
-  //   );
-  // }
-
-  // else {
-  //   yield put(
-  //     ChatActions.fetchFailed({
-  //       eventId,
-  //       error,
-  //     })
-  //   );
-  // }
+export const endGame = function* () {
+  yield put(RosiGameActions.startEndgamePeriod());
+  yield delay(1500);
+  yield put(RosiGameActions.endEndgamePeriod());
+  yield put(RosiGameActions.resetInGameBets());
+  yield put(RosiGameActions.resetCashedOut());
 };
 
-export default {
-  createTrade
+export const stopSound = function* () {
+  yield put(RosiGameActions.stopFlyingSound());
 };

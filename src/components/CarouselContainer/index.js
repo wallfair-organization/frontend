@@ -23,7 +23,7 @@ const CarouselContainer = ({
   return (
     <div className={classNames(styles.carouselContainer)}>
       {withComingSoonBanner && (
-        <div className={styles.inactivePlaceholder}>Coming soon</div>
+        <div className={styles.inactivePlaceholder}>Coming Soon</div>
       )}
       <div className={styles.titleContainer}>
         <div className={styles.title}>{title}</div>

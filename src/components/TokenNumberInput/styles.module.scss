@@ -10,11 +10,11 @@
     border-radius:    10px;
     border:           1.2px solid rgba(14, 9, 39, 0.3);
     background:       none;
-    justify-content:  center;
+    justify-content:  flex-end;
 
     @media (min-width: $screen-lg)
     {
-        padding: 1rem 4rem;
+        padding: 1rem 1rem;
     }
 
     .input
@@ -45,7 +45,7 @@
     .eventTokenLabel
     {
         color:          $colorGrayLight1;
-        font-family:    $fontRegular;
+        font-family:    $fontRegular;        
         font-size:      20px;
         font-style:     normal;
         font-weight:    400;
@@ -53,6 +53,32 @@
         letter-spacing: 0px;
         text-align:     left;
 
+    }
+
+    .buttonWrapper 
+    {
+        margin-left:    0px;
+        @media (min-width: $screen-lg)
+        {
+            margin-left:    30px;
+        }
+        :first-child {
+            font-size:      20px;            
+        }
+
+        :nth-child(2) {
+            font-size:      16px;
+        }
+
+        :last-child {
+            font-size:      14px;
+        }
+        .button
+        {
+            margin-left:    12px;
+            font-family:    $fontMedium;
+            cursor:         pointer;
+        }
     }
 }
 

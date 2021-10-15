@@ -34,7 +34,7 @@ const WelcomeView = ({ hidePopup, visible }) => {
     return (
       <div className={styles.welcomeTextContainer}>
         <span className={styles.welcomeTextHeadline}>
-          5.000 {TOKEN_NAME}
+          5,000 {TOKEN_NAME}
           <span>*</span>
           <span className={styles.welcomeTextHeadlineUnderline}></span>
         </span>
@@ -53,7 +53,7 @@ const WelcomeView = ({ hidePopup, visible }) => {
       <div className={styles.welcomeTextContainer}>
         <span className={styles.disclaimer}>
           * Please be aware that the platform you are currently using is based
-          on the virtual WFAIR tokens that have been implemented with the
+          on the virtual {TOKEN_NAME} tokens that have been implemented with the
           purpose to provide a full impression of the Wallfair gaming
           experience.{' '}
           {!readMore && (

@@ -5,6 +5,7 @@ export const selectNextGameAt = state => state.rosiGame.nextGameAt;
 export const selectLastCrash = state => state.rosiGame.lastCrashes[0];
 export const betInQueue = state => state.rosiGame.placedBetInQueue;
 export const isCashedOut = state => state.rosiGame.isCashedOut;
+export const selectEndgame = state => state.rosiGame.isEndgame;
 export const selectLastCrashes = state =>
   state.rosiGame.lastCrashes.slice(0, 10);
 export const selectInGameBets = ({ rosiGame }) => {

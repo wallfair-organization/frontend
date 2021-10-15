@@ -4,6 +4,8 @@ import { connect, useSelector } from 'react-redux';
 import BaseContainerWithNavbar from '../../components/BaseContainerWithNavbar';
 import EventsCarouselContainer from '../../components/EventsCarouselContainer';
 import Leaderboard from '../../components/Leaderboard';
+import Lightbox from '../../components/Lightbox/Lightbox';
+import UniswapContent from '../../components/Lightbox/UniswapContent';
 import { Link, useParams } from 'react-router-dom';
 import { LeaderboardActions } from '../../store/actions/leaderboard';
 import { EventActions } from 'store/actions/event';
@@ -19,6 +21,8 @@ import LandingPage from 'screens/LandingPage';
 import classNames from 'classnames';
 import SocialIcons from 'components/SocialIcons';
 import YellowButton from 'components/YellowButton';
+import AlphaPlatformCards from 'components/AlphaPlatformCards';
+import { ALPHA_PLATFORMS } from 'constants/AlphaPlatform';
 import { GeneralActions } from '../../store/actions/general';
 
 const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
@@ -111,6 +115,10 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
     );
   };
 
+  const renderAlphaPlatform = () => {
+    return <AlphaPlatformCards alphaplatforms={ALPHA_PLATFORMS} />;
+  };
+
   const renderRosiBanner = () => {
     return (
       <Link data-tracking-id="home-play-elon" to={Routes.rosiGame}>
@@ -123,6 +131,16 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
           <YellowButton className={styles.button}>Play now</YellowButton>
         </div>
       </Link>
+    );
+  };
+
+  const renderUniswap = () => {
+    return (
+      <div className={styles.lightboxWrapper}>
+        <Lightbox>
+          <UniswapContent />
+        </Lightbox>
+      </div>
     );
   };
 
@@ -160,10 +178,12 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
       {/* <Header /> */}
       <div className={styles.containerWrapper}>
         <div className={styles.container}>
+          {renderAlphaPlatform()}
           {renderRosiBanner()}
           <EventsCarouselContainer eventType="non-streamed" />
           <EventsCarouselContainer eventType="streamed" />
           {renderCategoriesAndLeaderboard()}
+          {renderUniswap()}
           <ContentFooter />
         </div>
       </div>

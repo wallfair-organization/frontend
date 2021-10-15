@@ -16,6 +16,8 @@ export const RosiGameTypes = {
   PLAY_WIN_SOUND: 'RosiGame/PLAY_WIN_SOUND',
   PLAY_FLYING_SOUND: 'RosiGame/PLAY_FLYING_SOUND',
   STOP_FLYING_SOUND: 'RosiGame/STOP_FLYING_SOUND',
+  START_ENDGAME_PERIOD: 'RosiGame/START_ENDGAME_PERIOD',
+  END_ENDGAME_PERIOD: 'RosiGame/END_ENDGAME_PERIOD',
 };
 
 const initializeState = payload => ({
@@ -93,6 +95,16 @@ const stopFlyingSound = payload => ({
   payload,
 });
 
+const startEndgamePeriod = payload => ({
+  type: RosiGameTypes.START_ENDGAME_PERIOD,
+  payload,
+});
+
+const endEndgamePeriod = payload => ({
+  type: RosiGameTypes.END_ENDGAME_PERIOD,
+  payload,
+});
+
 export const RosiGameActions = {
   initializeState,
   setHasStarted,
@@ -110,4 +122,6 @@ export const RosiGameActions = {
   playWinSound,
   playFlyingSound,
   stopFlyingSound,
+  startEndgamePeriod,
+  endEndgamePeriod,
 };

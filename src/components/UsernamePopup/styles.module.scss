@@ -84,4 +84,18 @@
       bottom: 220px;
     }
   }
+
+  .errorHandLing {
+    font-size: 14.5px;
+    height: 60px;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $colorRedLight;
+    color: $colorWhite;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
 }

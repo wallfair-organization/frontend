@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import { connect } from 'react-redux';
 import PopupTheme from 'components/Popup/PopupTheme';
+import { TOKEN_NAME } from 'constants/Token';
 
 const canvasStyles = {
   position: 'fixed',
@@ -77,7 +78,7 @@ const LotteryGamePopup = ({ hidePopup, rewardId, visible }) => {
       <p>Congratulations!</p>
       <div className={styles.title}>Your Number: {rewardId}</div>
       <div className={styles.subtitle}>
-        You Have A Chance To Win Up To 5000 WFair
+        You Have A Chance To Win Up To 5,000 {TOKEN_NAME}
       </div>
 
       <div className={styles.content}>

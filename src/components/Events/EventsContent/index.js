@@ -20,6 +20,7 @@ import BetCard from '../../BetCard';
 import EventsCarouselContainer from 'components/EventsCarouselContainer';
 
 import { PopupButton } from '@typeform/embed-react';
+import { EventActions } from '../../../store/actions/event';
 
 const SuggestAnEvent = React.memo(props => {
   return (
@@ -35,7 +36,15 @@ const SuggestAnEvent = React.memo(props => {
   );
 });
 
-function EventsContent({ eventType, categories, setCategories, showPopup }) {
+function EventsContent({
+  eventType,
+  categories,
+  setCategories,
+  showPopup,
+  userId,
+  bookmarkEvent,
+  bookmarkEventCancel,
+}) {
   const dispatch = useDispatch();
   const [coverStream, setCoverStream] = useState('');
 
@@ -97,6 +106,8 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
       previewImageUrl: current.previewImageUrl,
       tags: mappedTags(current._id),
       category: current.category,
+      eventId: current._id,
+      bookmarks: current.bookmarks,
     }));
     const concat = [...acc, ...bets];
     return concat;
@@ -137,6 +148,12 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
   const handleHelpClick = useCallback(event => {
     showPopup(PopupTheme.explanation, {
       type: eventType,
+    });
+  }, []);
+
+  const showJoinPopup = useCallback(event => {
+    showPopup(PopupTheme.auth, {
+      small: false,
     });
   }, []);
 
@@ -259,6 +276,20 @@ function EventsContent({ eventType, categories, setCategories, showPopup }) {
                     eventEnd={item.endDate}
                     outcomes={item.outcomes}
                     category={item.category}
+                    isBookmarked={!!item?.bookmarks?.includes(userId)}
+                    onBookmark={e => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      if (!userId) {
+                        showJoinPopup(e);
+                      }
+                      bookmarkEvent(item.eventId);
+                    }}
+                    onBookmarkCancel={e => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      bookmarkEventCancel(item.eventId);
+                    }}
                   />
                 </Link>
               ))}
@@ -282,7 +313,19 @@ const mapDispatchToProps = dispatch => {
         })
       );
     },
+    bookmarkEvent: eventId => {
+      dispatch(EventActions.bookmarkEvent({ eventId }));
+    },
+    bookmarkEventCancel: eventId => {
+      dispatch(EventActions.bookmarkEventCancel({ eventId }));
+    },
   };
 };
 
-export default connect(null, mapDispatchToProps)(EventsContent);
+function mapStateToProps(state) {
+  return {
+    userId: state.authentication.userId,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventsContent);

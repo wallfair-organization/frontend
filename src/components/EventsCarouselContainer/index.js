@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { connect } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
@@ -9,6 +9,8 @@ import { EventActions } from '../../store/actions/event';
 import styles from './styles.module.scss';
 import BetCard from 'components/BetCard';
 import BetState from 'constants/BetState';
+import { PopupActions } from '../../store/actions/popup';
+import PopupTheme from '../Popup/PopupTheme';
 
 const EventsCarouselContainer = ({
   events,
@@ -21,6 +23,10 @@ const EventsCarouselContainer = ({
   titleLink,
   noEventsMessage = 'No events',
   fetchEvents,
+  userId,
+  bookmarkEvent,
+  bookmarkEventCancel,
+  showPopup,
 }) => {
   const location = useLocation();
   const [page, setPage] = useState(1);
@@ -89,6 +95,12 @@ const EventsCarouselContainer = ({
     setPage(previous);
   };
 
+  const showJoinPopup = useCallback(event => {
+    showPopup(PopupTheme.auth, {
+      small: false,
+    });
+  }, []);
+
   const renderLiveEvents = () => {
     return _.map(currentEvents, event => {
       const eventId = _.get(event, '_id');
@@ -137,6 +149,8 @@ const EventsCarouselContainer = ({
           previewImageUrl: current.previewImageUrl,
           tags: _.map(current.tags, tag => tag.name),
           category: current.category,
+          bookmarks: current.bookmarks,
+          eventId: current._id,
         }))
         .filter(bet => {
           return (
@@ -196,6 +210,20 @@ const EventsCarouselContainer = ({
             outcomes={outcomes}
             eventCardClass={styles.eventCardHome}
             category={bet?.category ? bet.category : 'all'}
+            isBookmarked={!!bet?.bookmarks?.includes(userId)}
+            onBookmark={e => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (!userId) {
+                showJoinPopup(e);
+              }
+              bookmarkEvent(bet.eventId);
+            }}
+            onBookmarkCancel={e => {
+              e.preventDefault();
+              e.stopPropagation();
+              bookmarkEventCancel(bet.eventId);
+            }}
           />
         </Link>
       );
@@ -229,6 +257,7 @@ const EventsCarouselContainer = ({
 const mapStateToProps = state => {
   return {
     events: _.get(state.event, 'homeEvents', []),
+    userId: state.authentication.userId,
   };
 };
 
@@ -236,6 +265,20 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchEvents: params => {
       dispatch(EventActions.fetchHomeEvents(params));
+    },
+    showPopup: (popupType, options) => {
+      dispatch(
+        PopupActions.show({
+          popupType,
+          options,
+        })
+      );
+    },
+    bookmarkEvent: eventId => {
+      dispatch(EventActions.bookmarkEvent({ eventId }));
+    },
+    bookmarkEventCancel: eventId => {
+      dispatch(EventActions.bookmarkEventCancel({ eventId }));
     },
   };
 };

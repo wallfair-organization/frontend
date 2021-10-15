@@ -8,22 +8,17 @@
     position: relative;
 
     .inactivePlaceholder {
-        background-image: url('../../data/backgrounds/games/games-highlight.png');
-        background-repeat: no-repeat;
-        background-size: contain;
         position: absolute;
         left: 50%;
         top: 180px;
         z-index: 20;
-        min-width: 250px;
-        min-height: 70px;
         transform: translate(-50%, -50%);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
-        font-family: $fontRegular;
-        color: $colorBlack;
+        font-size: 24px;
+        font-family: $fontMedium;
+        color: #F2FF53;
         font-weight: 700;
     }
 

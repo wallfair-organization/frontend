@@ -64,8 +64,8 @@ const mapDispatchToProps = dispatch => {
     hidePopup: () => {
       dispatch(PopupActions.hide());
     },
-    pullOutBet: (betId, outcome, amount) => {
-      dispatch(BetActions.pullOutBet({ betId, outcome, amount }));
+    pullOutBet: (betId, outcome, amount, gain) => {
+      dispatch(BetActions.pullOutBet({ betId, outcome, amount, gain }));
     },
   };
 };

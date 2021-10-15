@@ -9,6 +9,7 @@ import PopupTheme from 'components/Popup/PopupTheme';
 import { useCallback } from 'react';
 import { PopupActions } from 'store/actions/popup';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 const GameCards = ({ games, category, showHowtoLink, showPopup }) => {
   const getGameItemSizeClass = () => {
@@ -30,7 +31,10 @@ const GameCards = ({ games, category, showHowtoLink, showPopup }) => {
       <div className={styles.games}>
         {games.map((game, index) => {
           return (
-            <div className={styles.wrapper}>
+            <div
+              className={styles.wrapper}
+              key={`gamecard-${_.get(game, 'title')}-${index}-`}
+            >
               {game?.infoIcon && (
                 <InfoBox
                   iconType={game.infoIcon.iconType}

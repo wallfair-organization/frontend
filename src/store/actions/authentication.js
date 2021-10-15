@@ -5,6 +5,7 @@ export const AuthenticationTypes = {
   FETCH_REFERRALS_FAILED: 'Authentication/FETCH_REFERRALS_FAILED',
   FETCH_REFERRALS_SUCCEEDED: 'Authentication/FETCH_REFERRALS_SUCCEEDED',
   LOGOUT: 'Authentication/LOGOUT',
+  FORCED_LOGOUT: 'Authentication/FORCED_LOGOUT',
   REQUEST_SMS: 'Authentication/REQUEST_SMS',
   REQUEST_SMS_FAILED: 'Authentication/REQUEST_SMS_FAILED',
   REQUEST_SMS_SUCCEEDED: 'Authentication/REQUEST_SMS_SUCCEEDED',
@@ -53,6 +54,7 @@ const fetchReferralsSucceeded = makeActionCreator(
   }
 );
 const logout = makeActionCreator(AuthenticationTypes.LOGOUT);
+const forcedLogout = makeActionCreator(AuthenticationTypes.FORCED_LOGOUT);
 
 const requestSms = makeActionCreator(AuthenticationTypes.REQUEST_SMS);
 
@@ -187,6 +189,7 @@ const signUp = makeActionCreator(AuthenticationTypes.SIGN_UP, {
   password: null,
   passwordConfirm: null,
   ref: null,
+  recaptchaToken: null,
 });
 
 const signUpFail = makeActionCreator(AuthenticationTypes.SIGN_UP_FAIL, {
@@ -233,6 +236,7 @@ export const AuthenticationActions = {
   fetchReferralsFailed,
   fetchReferralsSucceeded,
   logout,
+  forcedLogout,
   requestSms,
   requestSmsFailed,
   requestSmsSucceeded,

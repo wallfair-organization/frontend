@@ -245,16 +245,15 @@
   display: flex;
   width: 100%;
   align-items: center;
-  padding: 10.5px;
-  padding-right: 110px !important;
+  padding: 10.5px;  
   height: 45px;
   border-radius: 10px;
   border: 1.2px solid rgba(14, 9, 39, 0.3);
   background: none;
-  justify-content: center;
+  justify-content: flex-end;
   margin-bottom: 30px;
   @media (min-width: $screen-lg) {
-    padding: 1rem 4rem;
+    padding: 1rem 1rem;
   }
 
   .input {
@@ -292,6 +291,32 @@
     line-height: 24px;
     letter-spacing: 0px;
     text-align: left;
+  }
+
+  .buttonWrapper 
+  {
+      margin-left:    0px;
+      @media (min-width: $screen-lg)
+      {
+          margin-left:    30px;
+      }
+      :first-child {
+          font-size:      20px;            
+      }
+
+      :nth-child(2) {
+          font-size:      16px;
+      }
+      
+      :last-child {
+          font-size:      14px;
+      }
+      .buttonItem
+      {
+          margin-left:    12px;
+          font-family:    $fontMedium;
+          cursor:         pointer;
+      }
   }
 }
 

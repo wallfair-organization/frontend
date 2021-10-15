@@ -296,9 +296,8 @@ const BetView = ({
         <div className={styles.labelWrapper}>
           <label className={styles.label}>You trade:</label>
           <InfoBox autoWidth={true} iconType={IconType.question}>
-            {/* 1 WFAIR equals 0.20€ */}
-            You need to have a suficient amount of WFAIR tokens to participate
-            in events
+            You need to have a suficient amount of {TOKEN_NAME} tokens to
+            participate in events
             {/* How to buy WFAIR token? */}
           </InfoBox>
         </div>
@@ -459,14 +458,15 @@ const BetView = ({
               <InfoBox iconType={IconType.question}>
                 <p>How to place a bet?</p>
                 <p>
-                  - First select the amount (in WFAIR) you want to put into this
-                  bet by tapping on the desired percentage of your portfolio or
-                  by typing in the amount you want to trade with.
+                  - First select the amount (in {TOKEN_NAME}) you want to put
+                  into this bet by tapping on the desired percentage of your
+                  portfolio or by typing in the amount you want to trade with.
                 </p>
                 <p>
                   - After that pick your outcome by tapping on the outcome you
-                  think will come true. The potential gains in WFAIR and percent
-                  will automatically adjust according to your placed bet amount.
+                  think will come true. The potential gains in {TOKEN_NAME} and
+                  percent will automatically adjust according to your placed bet
+                  amount.
                 </p>
                 <p>
                   - To finalize your bet click on the Place bet Button and enjoy

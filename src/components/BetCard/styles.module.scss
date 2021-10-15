@@ -74,6 +74,7 @@
       justify-content: space-between;
       //margin-bottom: 15px;
       padding: 16px 16px 16px 28px;
+      cursor: default;
     }
 
     .special{
@@ -113,6 +114,35 @@
         }
       }
     }
+    .buttonContainer{
+      width: 100%;
+      display: flex;
+      padding: 14px 0 14px 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .button {
+        outline: 0;
+        @media screen and (max-width: $screen-xs) {
+          margin-top: 10px;
+        }
+        color: $colorBlack;
+        width: 10em;
+        height: 50px;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+        font-family: $fontRegular;
+        justify-content: space-around;
+        background-image: url('../../data/backgrounds/games/games-highlight.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+      }
+    }
+
   }
 }
 
@@ -167,6 +197,18 @@
   width: 17px;
   height: 17px;
   background-size: cover;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.starFull{
+  background-image: url("../../data/icons/star-2.svg");
+  background-repeat: no-repeat;
+  width: 17px;
+  height: 17px;
+  background-size: cover;
+  z-index: 10;
+  cursor: pointer;
 }
 
 .picture{

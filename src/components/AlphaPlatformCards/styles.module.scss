@@ -1,0 +1,122 @@
+@import '../../styles/all';
+
+.alphaplatformsContainer {
+  padding-top: 30px;  
+  margin-top: 30px;
+  padding-bottom: 24px;
+  border-radius: 12px;
+  background-color: #1f1d38;
+  @media (max-width: $screen-md) {
+    padding: 32px 150px 15px;
+  }
+
+  @media (max-width: $screen-sm) {
+    padding: 32px 100px 15px;
+  }
+
+  @media (max-width: $screen-xs) {
+    padding: 24px 15px 15px;
+  }
+}
+
+.alphaplatformsCategory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $colorWhite;
+
+  .title {
+    text-align: center;
+    font-family: $fontMedium;
+    font-size: 24px;
+    font-weight: bold;
+    color: #f2ff54;
+  }
+
+  .subtitle {
+    margin-top: 7px;    
+    font-family: $fontRegular;
+    font-size: 12px;
+    font-weight: 500;
+    color: $colorWhite;
+    .link {
+      margin-left: 2px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+
+}
+
+.alphaplatforms {  
+  display: flex;
+  flex-wrap: wrap;  
+  margin-top: 50px;
+  width: 100%;
+
+  @media (max-width: $screen-md) {
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  .wrapper {
+    position: relative;    
+    flex-basis: 25%;
+    padding: 10px;
+    margin-top: 8px;
+
+    &:first-child {
+      flex-basis: 25%;
+    }
+
+    &:nth-child(2) {
+      flex-basis: 25%;
+    }
+
+    @media (max-width: $screen-md) {
+      padding: 20px 0;
+      margin-top: 20px;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    .alphaplatformItem {            
+      .alphaplatformHeader {        
+        padding: 8px 16px 0 16px;
+        .title {
+          height: 52px;
+          position: absolute;
+          top: 0px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .background {
+          width: 100%;
+          object-fit: contain;        
+        }
+      }
+
+      .alphaplatformInfo {
+        color: $colorWhite;
+        font-family: $fontRegular;
+        margin-top: 12px;
+        padding-left: 24px;
+        padding-right: 24px;
+
+        .description {
+          text-align: center;
+          font-size: 14.4px;
+          font-weight: 500;
+          color: $colorWhite;
+          @media (max-width: $screen-md) {
+            font-size: 14px;
+          }
+        }
+      }
+
+    }
+  }
+}

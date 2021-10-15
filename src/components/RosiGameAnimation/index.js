@@ -49,7 +49,6 @@ const RosiGameAnimation = ({ connected, muteButtonClick, isMute }) => {
   const gameStartedTimeStamp = useSelector(selectTimeStarted);
   const gameStartedTime = new Date(gameStartedTimeStamp).getTime();
 
-  const [cashedOutCount, setCashedOutCount] = useState(0);
   const [isPreparingRound, setIsPreparingRound] = useState(!gameStarted);
   const [isAnimationReady, setAnimationReady] = useState(false);
 
@@ -71,10 +70,16 @@ const RosiGameAnimation = ({ connected, muteButtonClick, isMute }) => {
     }
 
     if (gameStarted) {
-      setCashedOutCount(0);
       setIsPreparingRound(false);
       RosiGameAnimationController.start(gameStartedTime);
       dispatch(RosiGameActions.playFlyingSound());
+
+      if (cashedOut.length > 0) {
+        for (const cashOut of cashedOut) {
+          RosiGameAnimationController.doCashedOutAnimation(cashOut);
+        }
+      }
+
       return;
     }
 
@@ -94,9 +99,9 @@ const RosiGameAnimation = ({ connected, muteButtonClick, isMute }) => {
       return;
     }
 
-    if (cashedOut && cashedOut.length > cashedOutCount) {
-      setCashedOutCount(cashedOutCount + 1);
-      RosiGameAnimationController.doCashedOutAnimation(cashedOut[0]);
+    const freshCashOuts = cashedOut.filter(({ isFresh }) => isFresh === true);
+    for (const cashOut of freshCashOuts) {
+      RosiGameAnimationController.doCashedOutAnimation(cashOut);
     }
   }, [isAnimationReady, gameStarted, cashedOut]); // eslint-disable-line
 
@@ -150,7 +155,7 @@ const RosiGameAnimation = ({ connected, muteButtonClick, isMute }) => {
 const mapStateToProps = state => {
   return {
     connected: state.websockets.connected,
-    isMute: state.rosiGame.isMute,
+    isMute: !state.rosiGame.volumeLevel,
   };
 };
 

@@ -1,3 +1,4 @@
+import { TOKEN_NAME } from 'constants/Token';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserBet } from '../../store/selectors/rosi-game';
@@ -28,18 +29,31 @@ const Timer = ({ startTimeMs, showIncome = false }) => {
   }, []);
 
   function renderProfit() {
-    if (!bet || !bet.amount) return <span className={'empty'}>+ 0 WFAIR</span>;
+    if (!bet || !bet.amount)
+      return <span className={'empty'}>+ 0 {TOKEN_NAME}</span>;
     const profit = (bet.amount * factor).toFixed(0);
     if (profit > 0) {
-      return <span className={'positive'}>+ {profit} WFAIR</span>;
+      return (
+        <span className={'positive'}>
+          + {profit} {TOKEN_NAME}
+        </span>
+      );
     }
     if (profit === 0) {
-      return <span className={'zero'}>{profit} WFAIR</span>;
+      return (
+        <span className={'zero'}>
+          {profit} {TOKEN_NAME}
+        </span>
+      );
     }
     if (profit < 0) {
-      return <span className={'negative'}>- {profit} WFAIR</span>;
+      return (
+        <span className={'negative'}>
+          - {profit} {TOKEN_NAME}
+        </span>
+      );
     }
-    return <span className={'empty'}>+ 0 WFAIR</span>;
+    return <span className={'empty'}>+ 0 {TOKEN_NAME}</span>;
   }
 
   return showIncome ? (

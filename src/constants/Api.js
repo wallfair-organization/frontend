@@ -1,14 +1,15 @@
 // Env vars
 export const BACKEND_URL =
-  process.env.REACT_APP_BACKEND_URL ||
-  'https://staging-zeaec.ondigitalocean.app/';
+  process.env.REACT_APP_BACKEND_URL || 'https://staging-api.wallfair.io/';
 export const BACKEND_SOCKET_URL = BACKEND_URL;
 export const CRASH_GAME_BACKEND_URL =
   process.env.REACT_APP_CRASH_GAME_BACKEND_URL || 'http://localhost:8001/';
+
 export const NEWS_API_URL = 'https://gnews.io/api/v4/search';
 export const NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 export const NEWS_API_SSL_MODE =
   process.env.REACT_APP_NEWS_API_SSL_MODE === 'true';
+export const RECAPTCHA_KEY = process.env.REACT_APP_RECAPTCHA_KEY;
 
 // Services
 export const API_AUTHENTICATION_REQUEST_SMS_URL = 'api/user/login';
@@ -30,12 +31,15 @@ export const API_BET_TEMPLATES = 'api/bet-template';
 export const API_EVENT_CREATE = 'api/event/create';
 export const API_EVENT_EDIT = 'api/event/:id';
 export const API_EVENT_DELETE = 'api/event/:id';
+export const API_EVENT_BOOKMARK = 'api/event/:id/bookmark';
+export const API_EVENT_BOOKMARK_CANCEL = 'api/event/:id/bookmark/cancel';
 export const API_EVENT_LIST = 'api/event/list';
 export const API_EVENT_LIST_FILTERED =
   'api/event/list/:type/:category/:count/:page/:sortBy/:upcoming/:deactivated/:searchQuery';
 export const API_EVENT_CHAT_MESSAGES = 'api/event/chat-messages/:id';
 export const API_EVENT_EVALUATE_SEND = 'api/event/evaluate';
 export const API_USER = 'api/user/:id';
+export const API_USER_CHECK_USERNAME = 'api/user/check-username';
 export const API_USER_PREFERENCES = 'api/user/:id/preferences';
 export const API_LEADERBOARD = 'api/user/getLeaderboard/:skip/:limit';
 export const API_USER_HISTORY = 'api/user/history';
@@ -58,6 +62,10 @@ export const API_CASH_OUT = 'api/cashout';
 export const API_TRADE_GET_BY_ID = 'api/event/trade/:id';
 export const API_GET_NOTIFICATION_EVENTS =
   'api/notification-events/list?limit=:limit&cat=:category';
+export const API_GET_NOTIFICATION_EVENTS_BY_BET =
+  'api/notification-events/list/bets/:betId?limit=:limit';
+export const API_GET_NOTIFICATION_EVENTS_BY_USER =
+  'api/notification-events/list/users/:userId?limit=:limit';
 export const API_AUTH_LOGIN = 'api/auth/login';
 export const API_AUTH_SIGNUP = 'api/auth/sign-up';
 export const API_AUTH_FORGOT_PASSWORD = 'api/auth/forgot-password';

@@ -26,6 +26,7 @@ import InfoBox from 'components/InfoBox';
 import IconType from '../Icon/IconType';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
 import Timer from '../RosiGameAnimation/Timer';
+import { TOKEN_NAME } from 'constants/Token';
 
 const PlaceBet = ({ connected }) => {
   const dispatch = useDispatch();
@@ -88,6 +89,17 @@ const PlaceBet = ({ connected }) => {
     let value = _.get(event, 'target.value', 0);
     const amount = round(value, 0);
     setAmount(amount <= 10000 ? amount : 10000);
+  };
+
+  const onBetAmountChanged = multiplier => {
+    const changedValue = _.floor(amount * multiplier, 0);
+    if (changedValue > 10000) {
+      setAmount(10000);
+    } else if (changedValue < 1) {
+      setAmount(1);
+    } else {
+      setAmount(changedValue);
+    }
   };
 
   useEffect(() => {
@@ -250,7 +262,7 @@ const PlaceBet = ({ connected }) => {
     } else {
       return (
         <div className={styles.profitPlaceholder}>
-          <span>+0 WFAIR</span>
+          <span>+0 {TOKEN_NAME}</span>
         </div>
       );
     }
@@ -335,8 +347,28 @@ const PlaceBet = ({ connected }) => {
                 max={'10000'}
               />
               <span className={styles.eventTokenLabel}>
-                <span>WFAIR</span>
+                <span>{TOKEN_NAME}</span>
               </span>
+              <div className={styles.buttonWrapper}>
+                <span
+                  className={styles.buttonItem}
+                  onClick={() => onBetAmountChanged(0.5)}
+                >
+                  ½
+                </span>
+                <span
+                  className={styles.buttonItem}
+                  onClick={() => onBetAmountChanged(2)}
+                >
+                  2x
+                </span>
+                <span
+                  className={styles.buttonItem}
+                  onClick={() => setAmount(10000)}
+                >
+                  Max
+                </span>
+              </div>
             </div>
           )}
         </div>

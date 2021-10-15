@@ -12,7 +12,7 @@ const LiveEvents = () => {
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
       <div className={styles.placeholderLiveEventsScreenshot}>
-        <div className={styles.inactivePlaceholder}>Coming soon</div>
+        <div className={styles.inactivePlaceholder}>Coming Soon</div>
         <img
           src={LiveEventsScreenshot}
           alt="live events screenshot"

@@ -13,8 +13,6 @@ import { ConnectedRouter } from 'connected-react-router';
 import { history } from './store';
 import { Provider } from 'react-redux';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import PrivateRoute from 'components/PrivateRoute';
-import GuestRoute from 'components/GuestRoute';
 import Navbar from 'components/Navbar';
 import NavbarFooter from 'components/NavbarFooter';
 import NavbarFooterAction from 'components/NavbarFooterAction';
@@ -27,23 +25,24 @@ import BlogItem from './components/BlogItem';
 import { PersistGate } from 'redux-persist/integration/react';
 import Games from './screens/Games';
 import Activities from './screens/Activities';
-import Rewards from './screens/Rewards';
 import ResetPassword from './screens/ResetPassword';
 import UserProfile from './screens/UserProfile';
-import LandingPage from 'screens/LandingPage';
 import { initTagManager } from './config/gtm';
 import AudioContent from './components/AudioContent';
 import ScrollToTop from 'utils/ScrollToTop';
 import DisclaimerPopupContainer from 'components/DisclaimerPopupContainer';
 import PageTracker from 'components/PageTracker';
+import useHideMobileScrollingMenu from 'hooks/useHideMobileScrollingMenu';
 
 const { store, persistor } = configStore();
 
 initTagManager();
 
 const App = () => {
+  const { onScroll, hideNavbar } = useHideMobileScrollingMenu();
 
   return (
+    <div onScroll={onScroll}>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <ConnectedRouter history={history}>
@@ -89,7 +88,10 @@ const App = () => {
             {/* <PrivateRoute path={Routes.rewards} component={Rewards} /> */}
             <Redirect to={Routes.home} />
           </Switch>
-          <NavbarFooter skipRoutes={[Routes.bet, Routes.verify]}>
+          <NavbarFooter 
+            hideVisibility={hideNavbar}
+            skipRoutes={[Routes.bet, Routes.verify]}
+          >
             <NavbarFooterAction
               route={Routes.home}
               iconType={IconType.home}
@@ -118,6 +120,7 @@ const App = () => {
         </ConnectedRouter>
       </PersistGate>
     </Provider>
+    </div>
   );
 };
 

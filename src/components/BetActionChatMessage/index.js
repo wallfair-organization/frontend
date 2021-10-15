@@ -32,7 +32,7 @@ const BetActionChatMessage = ({
   const { currency } = useSelector(selectUser);
 
   const userName = _.get(user, 'username');
-  const tokenAmount = formatToFixed(convert(amount, currency));
+  const tokenAmount = formatToFixed(convert(amount, currency), 2, true);
   const betOutcome = _.get(bet, ['outcomes', outcome]);
   const outcomeValue = _.get(betOutcome, 'name');
 
@@ -57,25 +57,33 @@ const BetActionChatMessage = ({
       case ChatMessageType.createBet:
         return (
           <>
-            {userName} created trade{' '}
-            <strong>{`${tokenAmount} ${currency}`}</strong> on{' '}
-            <strong>{outcomeValue}</strong>.
+            <b>{userName}</b> created trade{' '}
+            <div className={'global-token-currency'}>
+              <strong>{`${tokenAmount} ${currency}`}</strong>
+            </div>{' '}
+            on <strong>{outcomeValue}</strong>.
           </>
         );
 
       case ChatMessageType.placeBet:
         return (
           <>
-            {userName} bought <strong>{`${tokenAmount} ${currency}`}</strong> of{' '}
-            <strong>{outcomeValue}</strong>.
+            <b>{userName}</b> bought{' '}
+            <div className={'global-token-currency'}>
+              <strong>{`${tokenAmount} ${currency}`}</strong>
+            </div>{' '}
+            of <strong>{outcomeValue}</strong>.
           </>
         );
 
       case ChatMessageType.pulloutBet:
         return (
           <>
-            {userName} sold <strong>{outcomeValue}</strong> for{' '}
-            <strong>{`${tokenAmount} ${currency}`}</strong>.
+            <b>{userName}</b> sold <strong>{outcomeValue}</strong> for{' '}
+            <div className={'global-token-currency'}>
+              <strong>{`${tokenAmount} ${currency}`}</strong>
+            </div>
+            .
           </>
         );
     }

@@ -9,6 +9,7 @@ import Chat from 'components/Chat';
 import { ROSI_GAME_EVENT_ID } from 'constants/RosiGame';
 import styles from './styles.module.scss';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
+import ActivitiesTracker from "../../components/ActivitiesTracker";
 
 const useTabsStyles = makeStyles({
   indicator: {
@@ -65,7 +66,7 @@ const MobileBets = ({ inGameBets, cashedOut }) => {
           classes={{ root: tabClasses.root }}
         />
         <Tab
-          label="In Game Bets"
+          label="Activities"
           disableRipple
           classes={{ root: tabClasses.root }}
         />
@@ -89,9 +90,11 @@ const MobileBets = ({ inGameBets, cashedOut }) => {
         </div>
       </TabPanel>
       <TabPanel value={selectedTab} index={2} className={tabClasses.tabPanel}>
-        <GameBets
-          label="In Game Bets"
-          bets={inGameBets}
+        <ActivitiesTracker
+          showCategories={false}
+          activitiesLimit={50}
+          className={styles.activitiesTrackerGamesBlock}
+          preselectedCategory={"elongame"}
         />
       </TabPanel>
       <TabPanel value={selectedTab} index={3} className={tabClasses.tabPanel}>

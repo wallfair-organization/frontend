@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import * as Api from 'api/crash-game';
 import { connect, useDispatch } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
@@ -25,10 +25,12 @@ import Icon from 'components/Icon';
 import IconType from 'components/Icon/IconType';
 import IconTheme from 'components/Icon/IconTheme';
 import { PopupActions } from 'store/actions/popup';
+import ActivitiesTracker from '../../components/ActivitiesTracker';
 
 const RosiGame = ({ showPopup, connected }) => {
   const dispatch = useDispatch();
-  const { lastCrashes, inGameBets, cashedOut } = useRosiData();
+  const { lastCrashes, inGameBets, cashedOut, hasStarted, isEndgame } =
+    useRosiData();
   const isSmallDevice = useMediaQuery('(max-width:768px)');
   const isMiddleOrLargeDevice = useMediaQuery('(min-width:769px)');
 
@@ -52,6 +54,55 @@ const RosiGame = ({ showPopup, connected }) => {
     const interval = setInterval(() => dispatch(RosiGameActions.tick()), 1000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      if (!isPopupDisplayed()) {
+        showPopup(PopupTheme.explanation);
+        localStorage.setItem('gameHowDoesItWorkTip', true);
+      }
+    }, 1000);
+    return () => clearTimeout(timerId);
+  }, []);
+
+  const isPopupDisplayed = () => {
+    return localStorage.getItem('gameHowDoesItWorkTip') || false;
+  };
+
+  const renderActivities = () => (
+    <Grid item xs={12} md={4}>
+      <div className={styles.chatWrapper}>
+        <div className={styles.chatContainer}>
+          <ActivitiesTracker
+            showCategories={false}
+            activitiesLimit={50}
+            className={styles.activitiesTrackerGamesBlock}
+            preselectedCategory={'elongame'}
+          />
+        </div>
+      </div>
+    </Grid>
+  );
+
+  const renderBets = () => (
+    <Grid item xs={12} md={4}>
+      <GameBets
+        label="Cashed Out"
+        bets={[
+          ...inGameBets.map(b => ({
+            ...b,
+            cashedOut: false,
+          })),
+          ...cashedOut.map(b => ({
+            ...b,
+            cashedOut: true,
+          })),
+        ]}
+        gameRunning={hasStarted}
+        endGame={isEndgame}
+      />
+    </Grid>
+  );
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
@@ -82,32 +133,23 @@ const RosiGame = ({ showPopup, connected }) => {
               <LastCrashes lastCrashes={lastCrashes} />
               <GameAnimation inGameBets={inGameBets} />
             </Grid>
-            {isMiddleOrLargeDevice && (
-              <>
-                <Grid item xs={12} md={3}>
-                  <PlaceBet connected={connected} />
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <div className={styles.chatWrapper}>
-                    <Chat
-                      roomId={ROSI_GAME_EVENT_ID}
-                      className={styles.chatContainer}
-                      chatMessageType={ChatMessageType.game}
-                    />
-                  </div>
-                </Grid>
-                <Grid item md={4}>
-                  <GameBets label="In Game Bets" bets={inGameBets} />
-                </Grid>
-                <Grid item md={4}>
-                  <GameBets label="Cashed Out" bets={cashedOut} cashedOut />
-                </Grid>
-              </>
-            )}
+            <Grid item xs={12} md={3}>
+              <PlaceBet connected={connected} />
+            </Grid>
+            {isMiddleOrLargeDevice ? (
+              <Grid item xs={12} md={4}>
+                <div className={styles.chatWrapper}>
+                  <Chat
+                    roomId={ROSI_GAME_EVENT_ID}
+                    className={styles.chatContainer}
+                    chatMessageType={ChatMessageType.game}
+                  />
+                </div>
+              </Grid>
+            ) : null}
+            {isMiddleOrLargeDevice ? renderActivities() : renderBets()}
+            {isMiddleOrLargeDevice ? renderBets() : null}
           </Grid>
-          {isSmallDevice && (
-            <MobileBets inGameBets={inGameBets} cashedOut={cashedOut} />
-          )}
           <ContentFooter className={styles.betFooter} />
         </div>
       </div>

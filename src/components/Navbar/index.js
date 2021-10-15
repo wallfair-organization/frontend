@@ -28,8 +28,6 @@ import { selectUser } from 'store/selectors/authentication';
 import { formatToFixed } from 'helper/FormatNumbers';
 import AuthenticationType from '../Authentication/AuthenticationType';
 import TimeLeftCounter from '../TimeLeftCounter';
-import Moment from 'moment';
-import { nextDayweek } from '../../helper/Time';
 
 const Navbar = ({
   user,
@@ -185,7 +183,7 @@ const Navbar = ({
         data-tracking-id="menu-wallet-icon"
       >
         <Icon iconType={'wallet'} />
-        {formatToFixed(balance, 0)} {currency}
+        {formatToFixed(balance, 0, true)} {currency}
       </div>
     );
 
@@ -256,18 +254,14 @@ const Navbar = ({
       <div className={style.leaderboardInfoItem}>
         <div className={style.leaderboardInfoItemText}>{text}</div>
         <div className={style.leaderboardInfoItemNumber}>
-          {formatToFixed(number, 0)}
+          {formatToFixed(number, 0, true)}
           <span className={style.leaderboardInfoItemToken}> {currency}</span>
         </div>
       </div>
     );
   };
 
-  const leaderboardWeeklyDate = nextDayweek(new Date(), 3, {
-    hour: 12,
-    minute: 0,
-    second: 0,
-  });
+  const leaderboardWeeklyDate = new Date('2021-11-01T12:00:00.000Z');
 
   const renderLeaderboardDrawer = () => {
     return (

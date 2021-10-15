@@ -25,7 +25,6 @@ const TokenValueSelector = ({
     const isEnabled = _.get(valueObject, 'enabled', true);
     const isHighlighted = _.get(valueObject, 'highlighted', false);
     let isSelected = false;
-
     if (formatToFixed(activeValue) === formatToFixed(value)) {
       isSelected = true;
     }

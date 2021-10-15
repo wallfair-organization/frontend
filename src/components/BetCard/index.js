@@ -3,11 +3,13 @@ import styles from './styles.module.scss';
 import classNames from 'classnames';
 import { getOutcomes } from 'api';
 import { calculateTimeLeft } from '../../helper/Time';
-import { kebabCase, startCase } from 'lodash/string';
 import { EVENT_CATEGORIES } from '../../constants/EventCategories';
+import { nanoid } from 'nanoid';
 const BetCard = ({
   betId,
   onClick,
+  onBookmark = () => {},
+  onBookmarkCancel = () => {},
   title,
   image,
   eventEnd,
@@ -15,6 +17,7 @@ const BetCard = ({
   outcomes,
   category,
   item,
+  isBookmarked = false,
 }) => {
   const getEventCardStyle = () => {
     return {
@@ -80,7 +83,12 @@ const BetCard = ({
           <span className={styles.section}>{category}</span>
 
           <div className={styles.special}>
-            <div className={styles.star}></div>
+            {isBookmarked ? (
+              <div className={styles.starFull} onClick={onBookmarkCancel} />
+            ) : (
+              <div className={styles.star} onClick={onBookmark} />
+            )}
+
             {eventEnd && (
               <div className={styles.timer}>
                 <span>
@@ -102,7 +110,7 @@ const BetCard = ({
           </div>
           <div className={styles.outcomesContainer}>
             {outcomeValues.map(outcome => (
-              <div className={styles.outcome}>
+              <div className={styles.outcome} key={nanoid()}>
                 <span className={styles.outcomeName} title={outcome.name}>
                   {outcome.name}
                 </span>
@@ -117,6 +125,9 @@ const BetCard = ({
                 </span>
               </div>
             ))}
+          </div>
+          <div className={styles.buttonContainer}>
+            <div className={styles.button}>Trade</div>
           </div>
         </div>
       </div>

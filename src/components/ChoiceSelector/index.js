@@ -28,7 +28,8 @@ const ChoiceSelector = ({
                   2,
                   4 - parseInt(roundedWinAmount, 10).toString().length
                 )
-              : 0
+              : 0,
+            true
           )
         : '-';
 

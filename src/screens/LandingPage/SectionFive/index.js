@@ -5,6 +5,7 @@ import { PopupActions } from 'store/actions/popup';
 import PopupTheme from 'components/Popup/PopupTheme';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
 import styles from './styles.module.scss';
+import { TOKEN_NAME } from 'constants/Token';
 
 const SectionFive = ({ classes }) => {
   const dispatch = useDispatch();
@@ -39,7 +40,8 @@ const SectionFive = ({ classes }) => {
         <p className={classes.textParagraph}>
           To register, please follow the instructions on our website; we want to
           let you know that you will be joining the Alpha version of the
-          platform where you will be granted a certain amount of Play-WFAIR
+          platform where you will be granted a certain amount of the play money
+          {TOKEN_NAME}
           tokens to test our event and betting experience.
         </p>
         <br />
