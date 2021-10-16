@@ -30,11 +30,19 @@ const initializeState = (action, state) => {
   const hasStarted = action.payload.state === 'STARTED';
   let { currentBets, upcomingBets, cashedOutBets, userId } = action.payload;
 
-  currentBets = currentBets.filter(ib => {
-    return !cashedOutBets.find(cb => cb.userId === ib.userId);
+  var tempCurrentBets = [];
+  var tempCashedOutBets = [];
+  if (currentBets !== undefined) {
+    tempCurrentBets = JSON.parse(currentBets);
+  }
+  if (cashedOutBets !== undefined) {
+    tempCashedOutBets = JSON.parse(cashedOutBets);
+  }
+  tempCurrentBets = tempCurrentBets.filter(ib => {
+    return !tempCashedOutBets.find(cb => cb.userId === ib.userId);
   });
 
-  const userBet = currentBets.find(b => {
+  const userBet = tempCurrentBets.find(b => {
     return b.userId === userId;
   });
 
@@ -44,9 +52,9 @@ const initializeState = (action, state) => {
     nextGameAt: hasStarted ? null : action.payload.nextGameAt,
     timeStarted: action.payload.timeStarted,
     lastCrashes: action.payload.lastCrashes,
-    inGameBets: currentBets,
+    inGameBets: tempCurrentBets,
     betQueue: upcomingBets,
-    cashedOut: cashedOutBets,
+    cashedOut: tempCashedOutBets,
     userBet,
   };
 };

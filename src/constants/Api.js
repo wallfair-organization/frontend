@@ -3,7 +3,8 @@ export const BACKEND_URL =
   process.env.REACT_APP_BACKEND_URL || 'https://staging-api.wallfair.io/';
 export const BACKEND_SOCKET_URL = BACKEND_URL;
 export const CRASH_GAME_BACKEND_URL =
-  process.env.REACT_APP_CRASH_GAME_BACKEND_URL || 'http://localhost:8001/';
+  process.env.REACT_APP_CRASH_GAME_BACKEND_URL ||
+  'https://staging-elon-api.wallfair.io/';
 
 export const NEWS_API_URL = 'https://gnews.io/api/v4/search';
 export const NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY;
