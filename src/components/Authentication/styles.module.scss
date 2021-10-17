@@ -1,5 +1,23 @@
 @import '../../styles/all';
 
+.totalCount{
+  text-align: center;
+  margin: 0 auto;
+  font-size: 16px;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 1;
+  .underline{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    border-bottom: 9px solid $colorYellowLight;
+    z-index: -1;
+  }
+}
+
 .authentication {
   overflow-y: auto;
 }

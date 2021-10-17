@@ -2,11 +2,12 @@ import styles from './styles.module.scss';
 import _ from 'lodash';
 import { useSelector } from 'react-redux';
 import Icon from '../Icon';
+import classNames from 'classnames';
 
-const News = () => {
+const News = ({ className }) => {
   const news = useSelector(state => state.event.newsData?.articles) || [];
   return (
-    <div className={styles.newsTicker}>
+    <div className={classNames(styles.newsTicker, className)}>
       {news.map(({ title, description, url, source }) => (
         <div key={title} className={styles.newsItem}>
           <div className={styles.newsTitle}>{_.unescape(title)}</div>

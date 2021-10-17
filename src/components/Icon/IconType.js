@@ -59,4 +59,6 @@ export default {
   withdrawal: 'withdrawal',
   newsIcon: 'newsIcon',
   shareLink: 'shareLink',
+  star: 'star',
+  starFull: 'starFull',
 };

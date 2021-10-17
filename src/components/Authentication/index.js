@@ -1,7 +1,7 @@
 import InputBox from '../InputBox';
 import styles from './styles.module.scss';
 import { AuthenticationActions } from '../../store/actions/authentication';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import CheckBox from '../CheckBox';
@@ -11,6 +11,7 @@ import Button from 'components/Button';
 import HighlightType from 'components/Highlight/HighlightType';
 import AuthenticationType from './AuthenticationType';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { selectTotalUsers } from '../../store/selectors/leaderboard';
 
 const Authentication = ({
   loading,
@@ -32,6 +33,7 @@ const Authentication = ({
   const [forgotPassword, setForgotPassword] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const totalUsers = useSelector(selectTotalUsers);
 
   let fooRef = useRef(null);
   let emailRef = useRef(null);
@@ -295,6 +297,12 @@ const Authentication = ({
       <h2 className={styles.title}>
         {forgotPassword ? 'Password Reset' : action}
       </h2>
+      {isSignUp() && (
+        <h3 className={styles.totalCount}>
+          {totalUsers}/500 slots available
+          <span className={styles.underline}></span>
+        </h3>
+      )}
       {renderInputBoxes()}
     </div>
   );

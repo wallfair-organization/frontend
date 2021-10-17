@@ -62,6 +62,8 @@ import { ReactComponent as IconWithdrawal } from '../../data/icons/withdrawal.sv
 import { ReactComponent as NewsIcon } from '../../data/icons/news-icon.svg';
 import { ReactComponent as ShareIcon } from '../../data/icons/share-solid-fa.svg';
 import { ReactComponent as IconTrash } from '../../data/icons/trash.svg';
+import { ReactComponent as IconStar } from '../../data/icons/star-1.svg';
+import { ReactComponent as IconStarFull } from '../../data/icons/star-2.svg';
 
 const Icon = ({
   className,
@@ -137,6 +139,8 @@ const Icon = ({
       [IconType.edit]: <IconEdit />,
       [IconType.hourglass]: <IconHourglass />,
       [IconType.trash]: <IconTrash />,
+      [IconType.star]: <IconStar />,
+      [IconType.starFull]: <IconStarFull />,
     });
   };
 
@@ -161,6 +165,7 @@ const Icon = ({
             styles.iconPrimaryLightTransparent,
           [IconTheme.white]: styles.iconWhite,
           [IconTheme.notification]: styles.notificationCheckbox,
+          [IconTheme.favorite]: styles.iconFavorite,
         }),
         circle === true ? styles.iconCircled : null
       )}

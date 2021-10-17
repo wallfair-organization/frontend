@@ -1,6 +1,7 @@
 import './styles.module.scss';
 import AlertBox from './components/AlertBox';
 import Bet from './screens/Bet';
+import BetVTwo from './screens/BetVTwo'
 import Home from './screens/Home';
 import Logout from './screens/Logout';
 import Popup from './components/Popup';
@@ -43,83 +44,84 @@ const App = () => {
 
   return (
     <div onScroll={onScroll}>
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <ConnectedRouter history={history}>
-          <PageTracker />
-          <ScrollToTop />
-          <Navbar skipRoutes={[]} />
-          <AlertBox />
-          <Popup />
-          <AudioContent />
-          <DisclaimerPopupContainer />
-          <Switch>
-            <Route exact path={Routes.logout} component={Logout} />
-            <Route
-              exact
-              path={Routes.termsAndConditions}
-              component={TermsAndConditions}
-            />
-            <Route
-              exact
-              path={Routes.privacyPolicy}
-              component={PrivacyPolicy}
-            />
-            <Route exact path={Routes.home} component={Home} />
-            <Route exact path={Routes.bet} component={Bet} />
-            <Route exact path={Routes.betApproveDirect} component={Home} />
-            <Route exact path={Routes.liveEvents} component={LiveEvents} />
-            <Route exact path={Routes.events} component={Events} />
-            <Route exact path={Routes.rosiGame} component={RosiGame} />
-            <Route
-              path={Routes.blog}
-              render={({ match: { url } }) => (
-                <>
-                  <Route path={`${url}/`} component={Blog} exact />
-                  <Route path={`${url}/:slug`} component={BlogItem} />
-                </>
-              )}
-            />
-            <Route exact path={Routes.activities} component={Activities} />
-            <Route path={Routes.verify} component={EmailVerification} />
-            <Route path={Routes.games} component={Games} />
-            <Route path={Routes.resetPassword} component={ResetPassword} />
-            <Route exact path={Routes.user} component={UserProfile} />
-            {/* <PrivateRoute path={Routes.rewards} component={Rewards} /> */}
-            <Redirect to={Routes.home} />
-          </Switch>
-          <NavbarFooter 
-            hideVisibility={hideNavbar}
-            skipRoutes={[Routes.bet, Routes.verify]}
-          >
-            <NavbarFooterAction
-              route={Routes.home}
-              iconType={IconType.home}
-              text="Home"
-              trackingId="mobile-menu-home"
-            />
-            <NavbarFooterAction
-              route={`/live-events`}
-              iconType={IconType.camera}
-              text="Live Stream"
-              trackingId="mobile-menu-live-events"
-            />
-            <NavbarFooterAction
-              route={`/events`}
-              iconType={IconType.bet2}
-              text="Events"
-              trackingId="mobile-menu-events"
-            />
-            <NavbarFooterAction
-              route={Routes.games}
-              iconType={IconType.shuttle}
-              text="Games"
-              trackingId="mobile-menu-games"
-            />
-          </NavbarFooter>
-        </ConnectedRouter>
-      </PersistGate>
-    </Provider>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <ConnectedRouter history={history}>
+            <PageTracker />
+            <ScrollToTop />
+            <Navbar skipRoutes={[]} />
+            <AlertBox />
+            <Popup />
+            <AudioContent />
+            <DisclaimerPopupContainer />
+            <Switch>
+              <Route exact path={Routes.logout} component={Logout} />
+              <Route
+                exact
+                path={Routes.termsAndConditions}
+                component={TermsAndConditions}
+              />
+              <Route
+                exact
+                path={Routes.privacyPolicy}
+                component={PrivacyPolicy}
+              />
+              <Route exact path={Routes.home} component={Home} />
+              {/* <Route exact path={Routes.bet} component={Bet} /> */}
+              <Route exact path={Routes.bet} component={BetVTwo} />
+              <Route exact path={Routes.betApproveDirect} component={Home} />
+              <Route exact path={Routes.liveEvents} component={LiveEvents} />
+              <Route exact path={Routes.events} component={Events} />
+              <Route exact path={Routes.rosiGame} component={RosiGame} />
+              <Route
+                path={Routes.blog}
+                render={({ match: { url } }) => (
+                  <>
+                    <Route path={`${url}/`} component={Blog} exact />
+                    <Route path={`${url}/:slug`} component={BlogItem} />
+                  </>
+                )}
+              />
+              <Route exact path={Routes.activities} component={Activities} />
+              <Route path={Routes.verify} component={EmailVerification} />
+              <Route path={Routes.games} component={Games} />
+              <Route path={Routes.resetPassword} component={ResetPassword} />
+              <Route exact path={Routes.user} component={UserProfile} />
+              {/* <PrivateRoute path={Routes.rewards} component={Rewards} /> */}
+              <Redirect to={Routes.home} />
+            </Switch>
+            <NavbarFooter
+              hideVisibility={hideNavbar}
+              skipRoutes={[Routes.bet, Routes.verify]}
+            >
+              <NavbarFooterAction
+                route={Routes.home}
+                iconType={IconType.home}
+                text="Home"
+                trackingId="mobile-menu-home"
+              />
+              <NavbarFooterAction
+                route={`/live-events`}
+                iconType={IconType.camera}
+                text="Live Stream"
+                trackingId="mobile-menu-live-events"
+              />
+              <NavbarFooterAction
+                route={`/events`}
+                iconType={IconType.bet2}
+                text="Events"
+                trackingId="mobile-menu-events"
+              />
+              <NavbarFooterAction
+                route={Routes.games}
+                iconType={IconType.shuttle}
+                text="Games"
+                trackingId="mobile-menu-games"
+              />
+            </NavbarFooter>
+          </ConnectedRouter>
+        </PersistGate>
+      </Provider>
     </div>
   );
 };

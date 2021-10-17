@@ -4,4 +4,5 @@ export default {
   primaryLightTransparent: 'primaryLightTransparent',
   white: 'white',
   notification: 'notification',
+  favorite: 'favorite',
 };

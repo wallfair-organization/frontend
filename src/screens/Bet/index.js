@@ -214,7 +214,7 @@ const Bet = ({
     if (event) {
       setIsReady(true);
       const timerId = setTimeout(() => {
-        if (!isPopupDisplayed(event)) {
+        if (hasAcceptedTerms() && !isPopupDisplayed(event)) {
           showPopup(PopupTheme.explanation);
           localStorage.setItem(`eventHowDoesItWorkTip-${event.type}`, true);
         }
@@ -226,6 +226,10 @@ const Bet = ({
       }
     }
   }, [event, isMounted]);
+
+  const hasAcceptedTerms = () => {
+    return localStorage.getItem('acceptedTerms') || false;
+  };
 
   const isPopupDisplayed = () => {
     return localStorage.getItem(`eventHowDoesItWorkTip-${event.type}`) || false;

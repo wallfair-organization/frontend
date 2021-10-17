@@ -1,62 +1,55 @@
 @import '../../styles/all';
 
-.icon
-{
-    background-size: contain;
-    width:           100%;
-    height:          auto;
-    display:         flex;
-    justify-content: center;
-    align-items:     center;
-    position:        relative;
+.icon {
+  background-size: contain;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
-    &.iconCircled
-    {
-        border:        solid 1.2px $colorPrimary;
-        border-radius: 100%;
-        padding:       5px;
-    }
+  &.iconCircled {
+    border: solid 1.2px $colorPrimary;
+    border-radius: 100%;
+    padding: 5px;
+  }
 
-    &.iconBlack
-    {
-        > svg
-        {
-            @include svgColorStroke($colorBlack)
-        }
+  &.iconBlack {
+    > svg {
+      @include svgColorStroke($colorBlack);
     }
+  }
 
-    &.iconPrimary
-    {
-        > svg
-        {
-            @include svgColorStroke($colorPrimary)
-        }
+  &.iconPrimary {
+    > svg {
+      @include svgColorStroke($colorPrimary);
     }
+  }
 
-    &.iconPrimaryLightTransparent
-    {
-        > svg
-        {
-            @include svgColorStroke($colorPrimaryLight20)
-        }
+  &.iconFavorite {
+    > svg {
+      @include svgColorFill($colorYellow);
     }
+  }
 
-    &.iconWhite
-    {
-        > svg
-        {
-            @include svgColorStroke($colorWhite)
-        }
+  &.iconPrimaryLightTransparent {
+    > svg {
+      @include svgColorStroke($colorPrimaryLight20);
     }
-    &.notificationCheckbox
-    {
-      width: 30px;
-      height: 30px;
-      margin: 0 16px;
-      > svg
-      {
-        @include svgColorFill($colorBlue);
-      }
-    }
+  }
 
+  &.iconWhite {
+    > svg {
+      @include svgColorStroke($colorWhite);
+    }
+  }
+  &.notificationCheckbox {
+    width: 30px;
+    height: 30px;
+    margin: 0 16px;
+    > svg {
+      @include svgColorFill($colorBlue);
+    }
+  }
 }

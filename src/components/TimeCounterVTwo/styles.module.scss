@@ -1,0 +1,35 @@
+@import '../../styles/all';
+
+.timePartContainer {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.timerColon {
+  padding: 0 5px;
+  font-size: 18px;
+  font-weight: 800;
+  color: $colorWhite;
+  opacity: 0.8;
+}
+
+.timePartValue {
+  font-size: 14px;
+  font-family: 'PlusJakarta-Bold';
+  color: $colorWhite;
+  @media (max-width: $screen-sm) {
+    font-size: 10px;
+  }
+}
+
+.timePartName {
+  margin-left: 5px;
+  font-size: 10px;
+  font-weight: normal;
+  color: $colorGrayLight9;
+  opacity: 0.8;
+  @media (max-width: $screen-sm) {
+    font-size: 8px;
+  }
+}

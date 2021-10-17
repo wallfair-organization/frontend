@@ -1,0 +1,22 @@
+@import '../../styles/all';
+.fvtTrigger {
+  position: relative;
+  z-index: 10;
+  .fvtContainer {
+    .fvtButton {
+      display: flex;
+      color: $colorWhite;
+      background-color: #201d38;
+      border: 1px solid $colorDarkSlateGray;
+      text-align: center;
+      padding: 4px 8px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      position: relative;
+      .fvtIcon {
+        margin-right: 6px;
+      }
+    }
+  }
+}

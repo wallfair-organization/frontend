@@ -1,0 +1,754 @@
+@import '../../styles/all';
+
+.bet {
+  display: flex;
+  flex-direction: column;
+  background-color: $colorPrimaryDark;
+  min-height: 100%;
+  color: $colorWhite;
+  padding: 0.5rem 1.7rem 2.5rem 1.7rem;
+  font-family: $fontLight;
+  position: relative;
+
+  max-width: 1300px;
+  margin: 0 auto;
+
+  @media (max-width: $screen-md) {
+    padding-top: 1rem;
+    padding-bottom: 0;
+
+    & .betFooter {
+      display: none;
+    }
+  }
+
+  .upperLeftOval,
+  .centeredBottomOval {
+    display: none;
+    position: absolute;
+    opacity: 0.2;
+    object-fit: contain;
+
+    &.upperLeftOval {
+      top: -20%;
+      left: -14%;
+      width: 40%;
+      height: 40%;
+      background-image: radial-gradient(
+        circle at 52% 50%,
+        #2df8d5,
+        rgba(45, 248, 213, 0) 58%
+      );
+    }
+
+    &.centeredBottomOval {
+      bottom: 0;
+      left: 10%;
+      width: 80%;
+      height: 35%;
+      background-image: radial-gradient(
+        circle at 52% 110%,
+        #2df8d5,
+        rgba(45, 248, 213, 0) 60%
+      );
+    }
+
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+  }
+
+  .headlineContainer {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    z-index: 2;
+    margin: 0 -1rem 1rem -1rem;
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 2rem;
+      flex-wrap: nowrap;
+    }
+    .headlineImage {
+      flex: 0 0 35%;
+      max-width: 35%;
+      padding: 0 1rem;
+      position: relative;
+
+      @media (max-width: $screen-sm) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      img {
+        border-radius: 20px;
+        max-width: 100%;
+        @media (max-width: $screen-sm) {
+          width: 52px;
+          height: 52px;
+          border-radius: 100%;
+          display: inline-block;
+        }
+      }
+
+      .categorySticker {
+        width: 52px;
+        height: 52px;
+        background: url('../../data/icons/events-all-icon.svg');
+        border-radius: 50%;
+        background-position: center;
+        position: absolute;
+        top: -25px;
+        z-index: 3;
+        right: -5px;
+
+        @media (max-width: $screen-sm) {
+          display: inline-block;
+          position: static;
+          margin-right: 10px;
+        }
+      }
+
+      .streamStateBadge {
+        position: absolute;
+        left: -10px;
+        top: -10px;
+
+        @media (max-width: $screen-sm) {
+          display: none;
+        }
+      }
+    }
+    .headline {
+      flex: 0 0 65%;
+      max-width: 65%;
+      padding: 0 1rem;
+
+      @media (max-width: $screen-sm) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        margin-bottom: 15px;
+        @media (max-width: $screen-sm) {
+          font-size: 20px;
+        }
+      }
+      p {
+        color: $colorGrayLight9;
+      }
+      strong {
+        font-family: $fontBold;
+      }
+      a {
+        color: $colorYellow;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-bottom: 40px;
+    z-index: 1;
+
+    @media (max-width: $screen-md) {
+      margin-left: -1.7rem;
+      margin-right: -1.7rem;
+      flex-direction: column;
+    }
+    .columnFull {
+      width: 100%;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+
+      @media (max-width: $screen-md) {
+        padding: 0 20px;
+      }
+
+      > div {
+        margin-bottom: 60px;
+      }
+
+      .sectionHeader {
+        margin-bottom: 40px;
+        h4 {
+          position: relative;
+          display: inline-block;
+          color: $colorGrayLight9;
+          font-size: 1.25rem;
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 3px;
+            right: 3px;
+            height: 3px;
+            background-color: $colorYellow;
+          }
+        }
+      }
+    }
+    .columnLeft {
+      width: 50%;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+
+      @media (max-width: $screen-md) {
+        width: 100%;
+        padding: 0 20px;
+      }
+
+      > div {
+        margin-bottom: 30px;
+        border-radius: 10px;
+        background-color: $colorBackgroundShadeLighter;
+      }
+
+      .timeOutterWrapper {
+        @media all and (max-width: $screen-sm) {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: none;
+          border-radius: 0;
+          margin-bottom: 10px;
+        }
+      }
+      .streamContainer {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        position: relative;
+        // harcoded 16:9 aspect ration of the container
+        padding-top: calc(9 / 16 * 100%);
+
+        .streamPositioner {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        .twitchStream {
+          display: flex;
+          flex: 1;
+          padding-bottom: 1rem;
+
+          @media (max-width: $screen-md) {
+            min-height: unset;
+          }
+        }
+
+        .timeLeft {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          color: $colorWhite;
+          font-family: $fontLight;
+          font-size: 12px;
+        }
+
+        @media (max-width: $screen-md) {
+          min-height: unset;
+        }
+      }
+    }
+
+    .columnRight {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      padding: 0 1em;
+      text-align: right;
+
+      @media (max-width: $screen-md) {
+        padding: 0 20px;
+        width: 100%;
+      }
+
+      > div {
+        margin-bottom: 30px;
+      }
+
+      .eventTradesContainer {
+        margin-bottom: 1rem;
+        padding: 0;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        @media (max-width: $screen-md) {
+          margin-top: 1rem;
+          justify-content: space-between;
+        }
+
+        .chatTab,
+        .newsTab {
+          @media (min-width: $screen-md) {
+            display: none;
+          }
+        }
+      }
+      .betViewWrapper {
+        height: 100%;
+        .betViewContent {
+          height: 100%;
+          > div {
+            height: 100%;
+          }
+        }
+      }
+
+      .betViewClose {
+        display: flex;
+        cursor: pointer;
+        font-size: 15px;
+        margin-bottom: 2.3rem;
+
+        @media (max-width: $screen-md) {
+          padding: 30px 0 0 10px;
+        }
+
+        .arrowBack {
+          width: fit-content;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  .relatedBets {
+    display: flex;
+    flex-direction: column;
+
+    .headline {
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      h2 {
+        font-family: $fontBold;
+        font-size: 20px;
+        margin-right: 1rem;
+      }
+    }
+
+    .myTrades {
+      > div:first-child > div {
+        padding: 20px 0 !important;
+        text-align: left;
+      }
+
+      img {
+        width: 70px !important;
+      }
+    }
+
+    .relatedBetsCarousel {
+      flex: 1;
+
+      > div:first-child {
+        height: 100%;
+
+        > div {
+          height: 100%;
+
+          > ul {
+            height: 100%;
+
+            > li {
+              padding: 0 2px;
+            }
+          }
+        }
+      }
+
+      &.oneCarouselPage {
+        > div:first-child {
+          > ul {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .relatedBetsNone {
+    margin: 2rem 2px;
+    padding: 2rem;
+    border-radius: 10px;
+    background: $colorWhite;
+    color: $colorPrimaryDark;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mobileChat {
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+  }
+
+  .desktopChat,
+  .desktopCarousel {
+    @media (max-width: $screen-md) {
+      // display: none;
+    }
+  }
+
+  .mobileCarousel {
+    flex: 1;
+    margin: 1rem 0 0;
+
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+  }
+
+  .mobileMenu {
+    padding: 0 1rem;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 2rem;
+    align-items: center;
+
+    @media (max-width: $screen-sm), (min-width: $screen-md) {
+      display: none;
+    }
+
+    .indicators {
+      padding: 0.5rem 1rem;
+      opacity: 0.9;
+      border-radius: 30px;
+      background-color: $colorPrimaryDark;
+      max-height: 40px;
+
+      span {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin: 0 0.5rem;
+        background-color: $colorWhite30;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &.active {
+          background-color: $colorWhite;
+        }
+      }
+    }
+  }
+
+  .carouselSlide {
+    padding: 0 0 60px;
+
+    @media (max-width: $screen-md) {
+      padding: 0 1rem 60px;
+    }
+  }
+}
+
+.linkBack {
+  display: flex;
+}
+
+.tabOptions {
+  margin-top: 20px;
+}
+
+.eventAdminActionsContainer {
+  flex-basis: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: $screen-md) {
+    flex: auto;
+    justify-content: flex-end;
+  }
+}
+
+.deleteEventLink,
+.editEventLink,
+.newBetLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin: 10px;
+  color: $colorWhite;
+  cursor: pointer;
+
+  &.fadedLink {
+    color: $colorWhite50;
+    .icon {
+      opacity: 0.5;
+    }
+    cursor: not-allowed;
+  }
+
+  .icon {
+    margin-right: 7px;
+    svg {
+      g,
+      path {
+        fill: $colorWhite;
+      }
+    }
+  }
+  .infoTooltip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $colorBlack;
+    border-radius: 8px;
+    padding: 10px;
+    width: max-content;
+    max-width: 250px;
+    color: $colorWhite;
+  }
+
+  &:hover {
+    .infoTooltip {
+      display: block;
+    }
+  }
+}
+
+.shareButton {
+  display: flex;
+  justify-content: flex-end;
+
+  > div:first-child {
+    margin-right: 15px;
+  }
+
+  .mobileFavorite {
+    padding: 10px !important;
+    div {
+      margin-right: 0 !important;
+    }
+  }
+}
+
+.descriptionContainer {
+  margin-bottom: 10px;
+
+  .tradeDescTitle {
+    font-size: 16px;
+    font-family: $fontBold;
+    margin-bottom: 5px;
+  }
+
+  .tradeDesc {
+    font-family: $fontRegular;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: $colorGrayLight1;
+    text-align: left;
+    letter-spacing: 0.3px;
+    padding: 0;
+    margin-bottom: 16px;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    a {
+      text-decoration: underline;
+      color: $colorPurple;
+    }
+    &.hidden {
+      -webkit-line-clamp: 3;
+    }
+
+    .evidenceDescription {
+      padding-top: 10px;
+    }
+  }
+  .tradeShortDesc {
+    margin-bottom: 16px;
+  }
+
+  .evidenceSource {
+    margin-top: 15px;
+  }
+
+  .betDescription {
+    @media screen and (max-width: $screen-md) {
+      display: none;
+    }
+  }
+}
+
+.evidenceTabContainerDesktop {
+  margin-top: 20px;
+}
+
+.activitiesTabContainerDesktop {
+  margin-top: 20px;
+}
+
+.activitiesTabContainerMobile {
+  margin-top: 0;
+}
+
+.timeLeftCounterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: $colorWhite;
+  font-size: 12px;
+  padding: 6px 16px;
+  @media (max-width: $screen-sm) {
+    flex: 0 0 70%;
+    max-width: 70%;
+    border-radius: 10px;
+    background-color: $colorBackgroundShadeLighter;
+  }
+}
+
+.timerLabel {
+  color: $colorWhite;
+  font-family: $fontBold;
+  font-size: 12px;
+  @media (max-width: $screen-sm) {
+    font-size: 10px;
+  }
+}
+
+.timerParts {
+  display: flex;
+  justify-content: center;
+}
+
+.timerOnlyMobile {
+  @media screen and (min-width: $screen-md) {
+    display: none;
+  }
+
+  .timeLeftCounterContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0 20px;
+    color: $colorWhite;
+    font-size: 12px;
+  }
+
+  .timerLabel {
+    color: $colorWhite;
+    font-family: $fontRegular;
+    font-size: 20px;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  .timerParts {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+
+    .timePartContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.diagramButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: $colorBackgroundShadeLighter;
+  border-radius: 10px;
+  padding: 8px 16px;
+  flex: 0 0 25%;
+  max-width: 25%;
+  svg {
+    width: 15px;
+    height: 12px;
+    fill: $colorWhite;
+    color: $colorWhite;
+    margin-right: 12px;
+  }
+}
+
+.eventNotExist {
+  min-height: 200px;
+  font-size: 26px;
+  position: relative;
+  z-index: 20;
+
+  .eventNotExistLabel {
+    font-size: 16px;
+    font-style: italic;
+    word-break: break-all;
+  }
+}
+.chatWrapper {
+  padding: 15px;
+
+  @media (max-width: $screen-sm) {
+    background-color: $colorBackgroundShadeLighter;
+    border-radius: 10px;
+  }
+  .desktopChat {
+    max-height: 300px !important;
+    @media (max-width: $screen-sm) {
+      height: auto;
+      max-height: 300px;
+    }
+  }
+  .messageArea {
+    @media (max-width: $screen-sm) {
+      margin-bottom: 20px;
+    }
+  }
+  .inputArea {
+    @media (max-width: $screen-sm) {
+      position: static !important;
+      width: 100% !important;
+      padding: 0px 15px !important;
+      border-radius: 10px !important;
+    }
+  }
+}
+.activitiesTrackerTabBlock {
+  height: 230px !important;
+}
+.newsContainer {
+  justify-content: space-between;
+  row-gap: 60px !important;
+  grid-row-gap: 60px !important;
+}

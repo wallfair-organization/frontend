@@ -4,9 +4,12 @@ import {
   calcPercent,
   getRandomInRange,
   intersect,
+  getRandomItems,
 } from './utils';
 import TWEEN from '@tweenjs/tween.js';
 import { ROSI_GAME_MAX_CRASH_FACTOR } from 'constants/RosiGame';
+
+const planetNames = ['planet1', 'planet2', 'planet3', 'planet4'];
 
 class RosiAnimationBackground {
   constructor(app) {
@@ -18,15 +21,15 @@ class RosiAnimationBackground {
     this.drawCircle();
     this.container.addChild(this.circle);
 
+    this.planets = [];
+    this.visiblePlanets = [];
+    this.createPlanets();
+
     this.stars = [];
     this.createStars();
 
     this.createStarship();
 
-    this.redPlanet = null;
-    this.purplePlanet = null;
-    this.planets = [];
-    this.createPlanets();
     this.currentIntervalIndex = 0;
     this.starsSpeed = 0;
     this.starshipAnimationTriggered = false;
@@ -132,20 +135,70 @@ class RosiAnimationBackground {
   }
 
   createPlanets() {
-    const redPlanetTexture = this.app.loader.resources.redPlanet.texture;
-    this.redPlanet = new PIXI.Sprite(redPlanetTexture);
-    this.redPlanet.x =
-      calcPercent(this.app.renderer.width, 65) - this.redPlanet.width;
-    this.container.addChild(this.redPlanet);
+    for (const name of planetNames) {
+      const texture = this.app.loader.resources[name].texture;
+      const planet = new PIXI.Sprite(texture);
+      planet.speed = isMobileRosiGame ? 0.03 : 0.08;
+      planet.visible = false;
+      planet.name = name;
+      this.planets.push(planet);
+      this.container.addChild(planet);
+    }
 
-    const purplePlanetTexture = this.app.loader.resources.purplePlanet.texture;
-    this.purplePlanet = new PIXI.Sprite(purplePlanetTexture);
-    this.purplePlanet.x = calcPercent(this.app.renderer.width, 85);
-    this.purplePlanet.y =
-      this.app.renderer.height / 2 - this.purplePlanet.height / 2;
-    this.container.addChild(this.purplePlanet);
+    // randomly select 2 planets for the start of the game
+    const planets = getRandomItems(this.planets, 2);
+    const sw = this.app.renderer.width;
 
-    this.planets = [this.redPlanet, this.purplePlanet];
+    for (let i = 0; i < planets.length; i++) {
+      const planet = planets[i];
+      planet.moving = true;
+      planet.visible = true;
+      // one planet in the beginning of the screen, another in the end
+      if (i === 0) {
+        planet.x = calcPercent(sw, 50);
+        planet.y = this.getRandomPlanetY('top', planet);
+        planet.orientation = 'top';
+      } else if (i === 1) {
+        planet.x = getRandomInRange(calcPercent(sw, 5), calcPercent(sw, 15));
+        planet.y = this.getRandomPlanetY('bottom', planet);
+        planet.orientation = 'bottom';
+      }
+
+      planet.scale.set(0);
+      this.visiblePlanets.push(planet);
+
+      this.doPlanetPopInAnimation(planet);
+    }
+  }
+
+  getRandomPlanetY(orientation) {
+    const sh = this.app.renderer.height;
+
+    if (orientation === 'top') {
+      return getRandomInRange(calcPercent(sh, -15), calcPercent(sh, 2));
+    } else if (orientation === 'bottom') {
+      return getRandomInRange(calcPercent(sh, 55), calcPercent(sh, 85));
+    }
+  }
+
+  getRandomPlanetX() {
+    const sw = this.app.renderer.width;
+    return getRandomInRange(calcPercent(sw, -5), calcPercent(sw, 25));
+  }
+
+  doPlanetPopInAnimation(planet) {
+    const tweenData = { scale: 0 };
+    new TWEEN.Tween(tweenData)
+      .to({ scale: 1 }, 1000)
+      .onStart(() => {
+        planet.scale.set(0);
+        planet.visible = true;
+      })
+      .onUpdate(() => {
+        planet.scale.set(tweenData.scale);
+      })
+      .easing(TWEEN.Easing.Back.Out)
+      .start();
   }
 
   drawCircle() {
@@ -183,6 +236,38 @@ class RosiAnimationBackground {
   update(dt, angle) {
     const vx = this.starsSpeed * Math.cos(angle);
     const vy = this.starsSpeed * Math.sin(angle);
+
+    for (const planet of this.planets) {
+      if (planet.moving) {
+        planet.x += planet.speed * dt;
+      }
+
+      if (planet.x > this.app.renderer.width && planet.moving) {
+        setTimeout(() => {
+          const otherPlanetTexture = this.planets.find(
+            p => p !== planet
+          ).texture;
+          const possibleTextures = [
+            this.app.loader.resources.planet1.texture,
+            this.app.loader.resources.planet2.texture,
+            this.app.loader.resources.planet3.texture,
+            this.app.loader.resources.planet4.texture,
+          ];
+
+          planet.texture = getRandomItems(
+            possibleTextures.filter(t => t !== otherPlanetTexture),
+            1
+          )[0];
+          planet.x = this.getRandomPlanetX();
+          planet.y = this.getRandomPlanetY(planet.orientation, planet);
+          planet.moving = true;
+          this.doPlanetPopInAnimation(planet);
+        }, getRandomInRange(5000, 20000));
+
+        planet.moving = false;
+        planet.visible = false;
+      }
+    }
 
     for (const star of this.stars) {
       star.x -= vx * star.speed * dt;

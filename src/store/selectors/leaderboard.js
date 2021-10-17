@@ -2,6 +2,9 @@ import _ from 'lodash';
 import { convert } from '../../helper/Currency';
 import { selectCurrency } from './authentication';
 
+export const selectTotalUsers = state => {
+  return state.leaderboard.leaderboard.total;
+};
 export const selectLeaderboard = state => {
   const currency = selectCurrency(state);
   const leaderboard = state.leaderboard.leaderboard;

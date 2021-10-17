@@ -62,13 +62,17 @@ const RosiGame = ({ showPopup, connected, userId }) => {
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      if (!isPopupDisplayed()) {
+      if (hasAcceptedTerms() && !isPopupDisplayed()) {
         showPopup(PopupTheme.explanation);
         localStorage.setItem('gameHowDoesItWorkTip', true);
       }
     }, 1000);
     return () => clearTimeout(timerId);
   }, []);
+
+  const hasAcceptedTerms = () => {
+    return localStorage.getItem('acceptedTerms') || false;
+  };
 
   const isPopupDisplayed = () => {
     return localStorage.getItem('gameHowDoesItWorkTip') || false;

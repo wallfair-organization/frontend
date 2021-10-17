@@ -29,6 +29,25 @@
     }
   }
 
+  .featureList{
+    list-style: none;
+    margin: 1rem 0;
+    li{
+      margin-bottom: 1rem;
+    }
+
+    li::before {
+      content: "\2713";
+      color: $colorGreen;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      //margin-left: -2em;
+      margin-right: 0.5rem;
+    }
+
+  }
+
   .welcomeTextContainer {
     display: flex;
     flex-direction: column;

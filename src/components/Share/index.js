@@ -25,6 +25,8 @@ const Share = props => {
     dynamicTitle,
     dynamicText,
     skipCalculatePos,
+    isMobile = false,
+    buttonClass,
   } = props;
 
   const defaultSharing = ['facebook', 'twitter', 'telegram', 'reddit'];
@@ -110,13 +112,13 @@ const Share = props => {
       <div className={styles.ShareButtonContainer}>
         <div
           ref={shareButtonRef}
-          className={classNames(styles.shareButton)}
+          className={classNames(styles.shareButton, buttonClass)}
           onClick={handleShareClicked}
         >
           <div className={styles.shareIcon}>
             <Icon iconType={IconType.shareLink} iconTheme={IconTheme.primary} />
           </div>{' '}
-          Share
+          {!isMobile && `Share`}
           <div
             onClick={e => {
               e.stopPropagation();

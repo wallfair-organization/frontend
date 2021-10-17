@@ -125,3 +125,126 @@
     flex-grow: 1;
   }
 }
+.promoMessage.raffle{
+  justify-content: normal;
+  text-align: left;
+  flex-basis: 50%;
+  ul{
+    font-family: $fontRegular;
+    z-index: 2;
+    line-height: 1.75;
+    position: relative;
+    z-index: 2;
+    strong {
+      font-family: $fontBold;
+      border-bottom: 3px solid $colorYellow;
+    }
+    align-self: center;
+  }
+  ul.hidden{
+    display: none;
+  }
+  .confettiRight {
+    right: -20px;
+    bottom: -90px;
+    height: 200px;
+  }
+  @media screen and (max-width: $screen-xs) {
+    .confettiRight,
+    .confettiLeft {
+      transform: scale(0.8);
+    }
+    .confettiLeft {
+      left: -60px;
+      top: -40px;
+    }
+    .confettiRight {
+      right: -70px;
+      bottom: -100px;
+      height: 220px;
+    }
+  }
+
+}
+.raffleContent{
+  display: flex;
+  align-self: center;
+  margin-top: 2rem;
+  font-family: $fontRegular;
+  z-index: 1;
+  line-height: 1.75;
+  position: relative;
+  strong {
+    font-family: $fontBold;
+    border-bottom: 3px solid $colorYellow;
+  }
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+    .iphone{
+    width: 120px;
+    margin-right: 30px;
+    ;
+  }
+
+}
+.criteria{
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  .underline{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    border-bottom: 9px solid $colorYellowLight;
+    z-index: -1;
+  }
+}
+
+.giveaway{
+  color: $colorPrimary;
+  font-size: 28px;
+  font-family: $fontBold;
+  text-align: center;
+  margin-bottom: 1rem;
+  z-index: 2;
+}
+
+
+.buttonContainer{
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  font-weight: bold;
+  align-self: center;
+  padding: 0 100px;
+  .button {
+    outline: 0;
+    @media screen and (max-width: $screen-xs) {
+      margin-top: 10px;
+    }
+    color: $colorBlack;
+    width: 10em;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    font-family: $fontRegular;
+    justify-content: space-around;
+    background-image: url('../../data/backgrounds/games/games-highlight.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    z-index: 2;
+  }
+}
