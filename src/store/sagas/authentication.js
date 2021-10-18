@@ -482,13 +482,17 @@ const updateStatus = function* (action) {
   );
 
   if (response) {
-    AlertActions.showSuccess({
-      message: 'User status has been updated successfully',
-    });
+    yield put(
+      AlertActions.showSuccess({
+        message: 'User status has been updated successfully',
+      })
+    );
   } else {
-    AlertActions.showError({
-      message: error.message,
-    });
+    yield put(
+      AlertActions.showError({
+        message: error.message,
+      })
+    );
   }
 };
 
