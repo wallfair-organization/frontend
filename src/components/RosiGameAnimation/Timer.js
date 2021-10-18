@@ -4,12 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectUserBet } from '../../store/selectors/rosi-game';
 import { calcCrashFactorFromElapsedTime } from './canvas/utils';
 
-// Crash factor = (elapsed time) * TIME_TO_FACTOR_RATIO
-const TIME_TO_FACTOR_RATIO = 0.1; // 1s = 0.1x
-const START_FACTOR = 1;
-
 const Timer = ({ startTimeMs, showIncome = false }) => {
-  const startTime = new Date(startTimeMs);
   const bet = useSelector(selectUserBet);
   const [factor, setFactor] = useState(0);
 
@@ -19,8 +14,8 @@ const Timer = ({ startTimeMs, showIncome = false }) => {
 
     const tick = () => {
       let now = Date.now();
-
-      setFactor(calcCrashFactorFromElapsedTime(now - startTime.getTime()));
+      const diff = now - startTimeMs;
+      setFactor(calcCrashFactorFromElapsedTime(diff < 1 ? 1 : diff));
     };
 
     intervalId = setInterval(tick, intervalTime);

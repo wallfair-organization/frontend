@@ -5,7 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import Leaderboard from '../../components/Leaderboard';
 import TabOptions from '../../components/TabOptions';
-import { getUser } from '../../api';
+import { getUserPublicInfo } from '../../api';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
 
 import ProfileActivityTemplate1 from '../../data/backgrounds/profile/userprofile_activity1.png';
@@ -38,7 +38,7 @@ const UserProfile = () => {
   }, [userId]);
 
   const fetchUser = async userId => {
-    const userResponse = await getUser(userId).catch(err => {
+    const userResponse = await getUserPublicInfo(userId).catch(err => {
       console.error("Can't get user by id:", err);
     });
     const user = _.get(userResponse, 'data', null);

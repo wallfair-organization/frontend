@@ -1,16 +1,17 @@
 import MomentUtils from '@date-io/moment';
 import {
-  DateTimePicker as MuiDateTimePicker,
   MuiPickersUtilsProvider,
+  KeyboardDateTimePicker,
 } from '@material-ui/pickers';
 import styles from './styles.module.scss';
 
 function DateTimePicker({ value, onChange, ...props }) {
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
-      <MuiDateTimePicker
+      <KeyboardDateTimePicker
         label="DateTimePicker"
         inputVariant="outlined"
+        format="DD.MM.YYYY HH:mm"
         value={value}
         onChange={onChange}
         className={styles.datePicker}

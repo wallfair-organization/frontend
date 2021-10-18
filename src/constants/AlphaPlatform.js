@@ -13,7 +13,8 @@ export const ALPHA_PLATFORMS = [
     background: FirstBackground,
     title: FirstTitle,
     subtitle: '',
-    description: 'Sign up and you get 5000 PFAIR tokens to play',
+    description:
+      'Sign up and you get 5000 PFAIR tokens to play. PFAIR is the play money version of the WFAIR token.',
     active: false,
     linkTo: '',
   },

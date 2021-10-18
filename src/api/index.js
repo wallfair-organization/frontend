@@ -132,6 +132,14 @@ const getUser = userId => {
   });
 };
 
+const getUserPublicInfo = userId => {
+  return Api.get(_.replace(ApiUrls.API_USER_PUBLIC_INFO, ':id', userId)).catch(
+    error => {
+      console.log('[API Error] called: getUserPublicInfo', error);
+    }
+  );
+};
+
 const checkUsername = username => {
   return Api.post(ApiUrls.API_USER_CHECK_USERNAME, { username }).catch(
     error => {
@@ -497,4 +505,5 @@ export {
   getNotificationEventsByBet,
   getNotificationEventsByUser,
   checkUsername,
+  getUserPublicInfo,
 };

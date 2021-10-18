@@ -726,13 +726,14 @@
   .desktopChat {
     max-height: 300px !important;
     @media (max-width: $screen-sm) {
-      height: auto;
-      max-height: 300px;
+      justify-content: space-between;
+      height: 400px;
+      max-height: 400px !important;
     }
   }
   .messageArea {
     @media (max-width: $screen-sm) {
-      margin-bottom: 20px;
+      margin-bottom: 25px !important;
     }
   }
   .inputArea {

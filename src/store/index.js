@@ -25,7 +25,7 @@ const persistConfig = {
   version: MIGRATION_VERSION,
   stateReconciler: autoMergeLevel2,
   migrate: createMigrate(migrations, { debug: true }),
-  blacklist: ['router'],
+  blacklist: ['router', 'rosiGame'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer(history));

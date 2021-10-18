@@ -39,6 +39,7 @@ export const API_EVENT_LIST_FILTERED =
 export const API_EVENT_CHAT_MESSAGES = 'api/event/chat-messages/:id';
 export const API_EVENT_EVALUATE_SEND = 'api/event/evaluate';
 export const API_USER = 'api/user/:id';
+export const API_USER_PUBLIC_INFO = 'api/user/:id/info';
 export const API_USER_CHECK_USERNAME = 'api/user/check-username';
 export const API_USER_PREFERENCES = 'api/user/:id/preferences';
 export const API_LEADERBOARD = 'api/user/getLeaderboard/:skip/:limit';

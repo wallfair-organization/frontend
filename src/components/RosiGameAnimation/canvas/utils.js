@@ -16,10 +16,10 @@ export function getRandomItems(items, n) {
   return shuffled.slice(0, n);
 }
 
-export function calcCrashFactorFromElapsedTime(timeDiff) {
+export function calcCrashFactorFromElapsedTime(timeDiff = 1) {
   let offsetTime = 0;
   let offsetFactor = 0;
-  let speed = 0;
+  let speed = 120;
 
   if (timeDiff > 0 && timeDiff < 18000) {
     offsetTime = 0;
