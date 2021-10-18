@@ -53,7 +53,7 @@ export function playFlyingSound(volumeLevel = 0.5, seek = 0) {
 export function stopFlyingSound() {
   try {
     const el = document.getElementById('audio-flying');
-    if (el.play) {
+    if (el?.play) {
       el.pause();
       el.currentTime = 0;
     }

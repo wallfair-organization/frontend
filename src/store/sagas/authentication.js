@@ -474,12 +474,16 @@ const resetPassword = function* (action) {
   }
 };
 
-const lockUser = function* (action) {
-  const { response, error } = yield call(Api.lockUser, action.userId);
+const updateStatus = function* (action) {
+  const { response, error } = yield call(
+    Api.updateStatus,
+    action.userId,
+    action.status
+  );
 
   if (response) {
     AlertActions.showSuccess({
-      message: 'User locked successfully',
+      message: 'User status has been updated successfully',
     });
   } else {
     AlertActions.showError({
@@ -507,5 +511,5 @@ export default {
   login,
   forgotPassword,
   resetPassword,
-  lockUser,
+  updateStatus,
 };

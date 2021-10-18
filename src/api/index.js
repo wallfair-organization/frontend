@@ -452,8 +452,10 @@ const shortenerTinyUrl = url => {
     .catch(error => ({ error: error.response.data }));
 };
 
-const lockUser = userId => {
-  return Api.post(ApiUrls.API_USER_LOCK.replace(':id', userId))
+const updateStatus = (userId, status) => {
+  return Api.post(ApiUrls.API_USER_UPDATE_STATUS.replace(':id', userId), {
+    status,
+  })
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
@@ -512,5 +514,5 @@ export {
   getNotificationEventsByUser,
   checkUsername,
   getUserPublicInfo,
-  lockUser,
+  updateStatus,
 };

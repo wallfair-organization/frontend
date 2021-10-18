@@ -39,7 +39,7 @@ export const AuthenticationTypes = {
   FORGOT_PASSWORD_FAIL: 'Authentication/FORGOT_PASSWORD_FAIL',
   RESET_PASSWORD: 'Authentication/RESET_PASSWORD',
   RESET_PASSWORD_FAIL: 'Authentication/RESET_PASSWORD_FAIL',
-  LOCK_USER: 'Authentication/LOCK_USER',
+  UPDATE_STATUS: 'Authentication/UPDATE_STATUS',
 };
 
 const fetchReferrals = makeActionCreator(AuthenticationTypes.FETCH_REFERRALS);
@@ -234,8 +234,9 @@ const resetPasswordFail = makeActionCreator(
   AuthenticationTypes.RESET_PASSWORD_FAIL
 );
 
-const lockUser = makeActionCreator(AuthenticationTypes.LOCK_USER, {
+const updateStatus = makeActionCreator(AuthenticationTypes.UPDATE_STATUS, {
   userId: null,
+  status: null,
 });
 
 export const AuthenticationActions = {
@@ -276,5 +277,5 @@ export const AuthenticationActions = {
   forgotPasswordFail,
   resetPassword,
   resetPasswordFail,
-  lockUser,
+  updateStatus,
 };

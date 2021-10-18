@@ -25,6 +25,7 @@ const UserProfile = () => {
   const { userId } = useParams();
   const [user, setUser] = useState();
   const [suspendButtonVisible, setSuspendButtonVisible] = useState(false);
+  const [locked, setLocked] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
   const tabOptions = [
     { name: 'TRANSACTION HISTORY', index: 0 },
@@ -45,31 +46,18 @@ const UserProfile = () => {
     });
     const user = _.get(userResponse, 'data', null);
     setUser(user);
-    setSuspendButtonVisible(
-      user?.status !== 'locked' &&
-        currentUser.admin &&
-        currentUser.userId !== userId
-    );
+    setLocked(user?.status === 'locked');
+    setSuspendButtonVisible(currentUser.admin && currentUser.userId !== userId);
   };
 
   const handleSwitchTab = option => {
     setTabIndex(option.index);
   };
 
-  const onSuspendButtonClick = () => {
-    dispatch(AuthenticationActions.lockUser({ userId }));
-    setSuspendButtonVisible(false);
+  const onSuspendButtonClick = status => {
+    dispatch(AuthenticationActions.updateStatus({ userId, status }));
+    setLocked(status === 'locked');
   };
-
-  // const renderCategoriesAndLeaderboard = () => {
-  //   return (
-  //     <div className={styles.bottomWrapper}>
-  //       <div className={styles.leaderboard}>
-  //         <Leaderboard fetch={true} small={true} />
-  //       </div>
-  //     </div>
-  //   );
-  // };
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
@@ -102,9 +90,11 @@ const UserProfile = () => {
               {suspendButtonVisible && (
                 <Button
                   className={styles.suspendButton}
-                  onClick={onSuspendButtonClick}
+                  onClick={() =>
+                    onSuspendButtonClick(locked ? 'active' : 'locked')
+                  }
                 >
-                  <span>Suspend</span>
+                  <span>{locked ? 'Reactivate' : 'Suspend'}</span>
                 </Button>
               )}
             </div>
