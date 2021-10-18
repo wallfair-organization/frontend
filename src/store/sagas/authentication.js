@@ -474,6 +474,20 @@ const resetPassword = function* (action) {
   }
 };
 
+const lockUser = function* (action) {
+  const { response, error } = yield call(Api.lockUser, action.userId);
+
+  if (response) {
+    AlertActions.showSuccess({
+      message: 'User locked successfully',
+    });
+  } else {
+    AlertActions.showError({
+      message: error.message,
+    });
+  }
+};
+
 export default {
   authenticationSucceeded,
   fetchReferrals,
@@ -493,4 +507,5 @@ export default {
   login,
   forgotPassword,
   resetPassword,
+  lockUser,
 };

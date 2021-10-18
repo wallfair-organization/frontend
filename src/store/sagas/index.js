@@ -74,6 +74,7 @@ const root = function* () {
       [AuthenticationTypes.RESET_PASSWORD],
       AuthenticationSagas.resetPassword
     ),
+    takeLatest(AuthenticationTypes.LOCK_USER, AuthenticationSagas.lockUser),
     takeEvery(
       [
         AuthenticationTypes.FETCH_REFERRALS_FAILED,

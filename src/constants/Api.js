@@ -42,6 +42,7 @@ export const API_USER = 'api/user/:id';
 export const API_USER_PUBLIC_INFO = 'api/user/:id/info';
 export const API_USER_CHECK_USERNAME = 'api/user/check-username';
 export const API_USER_PREFERENCES = 'api/user/:id/preferences';
+export const API_USER_LOCK = 'api/user/:id/lock';
 export const API_LEADERBOARD = 'api/user/getLeaderboard/:skip/:limit';
 export const API_USER_HISTORY = 'api/user/history';
 export const API_USER_OPEN_BETS = 'api/user/open-bets';

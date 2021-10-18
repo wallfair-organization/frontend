@@ -116,6 +116,18 @@
           opacity: 0.6;
         }
       }
+
+      .userInfo {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        .suspendButton {
+          min-width: 150px;
+          height: 40px;
+          font-size: 16px;
+        }
+      }
     }
     .tabLayout {
       display: flex;

@@ -452,6 +452,12 @@ const shortenerTinyUrl = url => {
     .catch(error => ({ error: error.response.data }));
 };
 
+const lockUser = userId => {
+  return Api.post(ApiUrls.API_USER_LOCK.replace(':id', userId))
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
 export {
   Api,
   createBet,
@@ -506,4 +512,5 @@ export {
   getNotificationEventsByUser,
   checkUsername,
   getUserPublicInfo,
+  lockUser,
 };

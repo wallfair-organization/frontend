@@ -1,9 +1,8 @@
 import styles from './styles.module.scss';
 import _ from 'lodash';
 import { useEffect, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
-import Leaderboard from '../../components/Leaderboard';
 import TabOptions from '../../components/TabOptions';
 import { getUserPublicInfo } from '../../api';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
@@ -16,15 +15,16 @@ import ProfileActivityMobileTemplate1 from '../../data/backgrounds/profile/userp
 import ProfileActivityMobileTemplate2 from '../../data/backgrounds/profile/userprofile_mobile_activity2.png';
 import ProfileActivityMobileTemplate3 from '../../data/backgrounds/profile/userprofile_mobile_activity3.png';
 import ActivitiesTracker from '../../components/ActivitiesTracker';
+import Button from 'components/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { AuthenticationActions } from 'store/actions/authentication';
 
 const UserProfile = () => {
   let matchMediaMobile = window.matchMedia(`(max-width: ${768}px)`).matches;
 
   const { userId } = useParams();
-  const [profilePic, setProfilePic] = useState('');
   const [user, setUser] = useState();
-  const [userName, setUserName] = useState('');
-  const [aboutMe, setAboutMe] = useState('');
+  const [suspendButtonVisible, setSuspendButtonVisible] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
   const tabOptions = [
     { name: 'TRANSACTION HISTORY', index: 0 },
@@ -32,6 +32,8 @@ const UserProfile = () => {
     { name: 'LEADERBOARD', index: 2 },
   ];
   const tabOption = _.get(tabOptions, `${tabIndex}.name`);
+  const currentUser = useSelector(state => state.authentication);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchUser(userId);
@@ -43,28 +45,31 @@ const UserProfile = () => {
     });
     const user = _.get(userResponse, 'data', null);
     setUser(user);
-    setProfilePic(user?.profilePicture);
-    setUserName(user?.username);
-    if (user?.aboutMe == undefined) {
-      setAboutMe('This user has not provided an about info yet. How boring!');
-    } else {
-      setAboutMe(user?.aboutMe);
-    }
+    setSuspendButtonVisible(
+      user?.status !== 'locked' &&
+        currentUser.admin &&
+        currentUser.userId !== userId
+    );
   };
 
   const handleSwitchTab = option => {
     setTabIndex(option.index);
   };
 
-  const renderCategoriesAndLeaderboard = () => {
-    return (
-      <div className={styles.bottomWrapper}>
-        <div className={styles.leaderboard}>
-          <Leaderboard fetch={true} small={true} />
-        </div>
-      </div>
-    );
+  const onSuspendButtonClick = () => {
+    dispatch(AuthenticationActions.lockUser({ userId }));
+    setSuspendButtonVisible(false);
   };
+
+  // const renderCategoriesAndLeaderboard = () => {
+  //   return (
+  //     <div className={styles.bottomWrapper}>
+  //       <div className={styles.leaderboard}>
+  //         <Leaderboard fetch={true} small={true} />
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
@@ -75,21 +80,40 @@ const UserProfile = () => {
             <div className={styles.avatarBox}>
               <img
                 className={styles.profileImage}
-                src={getProfilePictureUrl(profilePic)}
+                src={getProfilePictureUrl(user?.profilePic)}
+                alt="Profile"
               />
             </div>
-            <div className={styles.profileTitle}>
-              <h2>{userName}</h2>
+
+            <div className={styles.userInfo}>
+              <div>
+                <div className={styles.profileTitle}>
+                  <h2>{user?.userName}</h2>
+                </div>
+                <div className={styles.aboutSection}>
+                  <h3>About</h3>
+                  <p>
+                    {' '}
+                    {user?.aboutMe ||
+                      'This user has not provided an about info yet. How boring!'}{' '}
+                  </p>
+                </div>
+              </div>
+              {suspendButtonVisible && (
+                <Button
+                  className={styles.suspendButton}
+                  onClick={onSuspendButtonClick}
+                >
+                  <span>Suspend</span>
+                </Button>
+              )}
             </div>
-            <div className={styles.aboutSection}>
-              <h3>About</h3>
-              <p> {aboutMe} </p>
-            </div>
+
             <TabOptions options={tabOptions} className={styles.tabLayout}>
               {option => (
                 <div
                   className={
-                    option.index == tabIndex
+                    option.index === tabIndex
                       ? styles.tabItemSelected
                       : styles.tabItem
                   }
@@ -113,24 +137,26 @@ const UserProfile = () => {
                 {matchMediaMobile ? (
                   <img
                     src={
-                      tabIndex == 0
+                      tabIndex === 0
                         ? ProfileActivityMobileTemplate1
-                        : tabIndex == 1
+                        : tabIndex === 1
                         ? ProfileActivityMobileTemplate2
                         : ProfileActivityMobileTemplate3
                     }
                     className={styles.templateImage}
+                    alt=""
                   />
                 ) : (
                   <img
                     src={
-                      tabIndex == 0
+                      tabIndex === 0
                         ? ProfileActivityTemplate1
-                        : tabIndex == 1
+                        : tabIndex === 1
                         ? ProfileActivityTemplate2
                         : ProfileActivityTemplate3
                     }
                     className={styles.templateImage}
+                    alt=""
                   />
                 )}
                 <div className={styles.inactivePlaceholder}>Coming soon</div>
