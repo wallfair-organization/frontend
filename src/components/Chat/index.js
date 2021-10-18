@@ -185,10 +185,14 @@ const Chat = ({
 
   const messageListScrollToBottom = () => {
     if (messageListRef) {
+      const scrollHeight = messageListRef.current.scrollHeight;
+      const height = messageListRef.current.clientHeight;
+      const maxScrollTop = scrollHeight - height;
+
       messageListRef.current.scrollTo({
-        top: messageListRef.current.scrollHeight,
+        top: maxScrollTop > 0 ? maxScrollTop : 0,
         left: 0,
-        behavior: 'smooth',
+        behavior: 'instant',
       });
     }
   };
