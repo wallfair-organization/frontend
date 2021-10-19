@@ -152,6 +152,13 @@
       }
     }
 
+    .video {
+      width: 900px;
+      @media (max-width: $screen-xs) {
+        width: 100%;
+      }
+    }
+
     .swiperElement {
       width: 96%;
       margin: auto;

@@ -52,6 +52,13 @@ const actionTypes = {
       </p>
     ),
   },
+  [actions.disableSharing]: {
+    title: 'Wallfair',
+    text: 'Sharing is disabled during closed testing',
+    acceptLabel: 'Ok',
+    declineLabel: 'Disabled',
+    onAccept: (data, { hidePopup }) => hidePopup(),
+  },
 };
 
 const DialogActionPopup = ({ data, actionType, actionDispatchers }) => {
@@ -70,7 +77,7 @@ const DialogActionPopup = ({ data, actionType, actionDispatchers }) => {
   ) : (
     <p className={styles.text}>
       {text}
-      <strong>"{data?.marketQuestion}"</strong>
+      {declineLabel !== 'Disabled' && <strong>"{data?.marketQuestion}"</strong>}
     </p>
   );
 
@@ -83,14 +90,15 @@ const DialogActionPopup = ({ data, actionType, actionDispatchers }) => {
       {!!form && form(formData, setFormData, setIsFormValid)}
 
       <div className={styles.buttonContainer}>
-        <Button
-          withoutBackground={true}
-          className={styles.declineButton}
-          onClick={actionDispatchers.hidePopup}
-        >
-          {declineLabel}
-        </Button>
-
+        {declineLabel !== 'Disabled' && (
+          <Button
+            withoutBackground={true}
+            className={styles.declineButton}
+            onClick={actionDispatchers.hidePopup}
+          >
+            {declineLabel}
+          </Button>
+        )}
         <Button
           className={styles.acceptButton}
           highlightType={HighlightType.highlightModalButton}

@@ -24,6 +24,7 @@ const Share = props => {
     directUrl,
     dynamicTitle,
     dynamicText,
+    showPopup,
     skipCalculatePos,
     isMobile = false,
     buttonClass,
@@ -80,6 +81,7 @@ const Share = props => {
 
   const handleShareClicked = useCallback(
     async event => {
+      /*
       const shareData = {
         title: dynamicTitle,
         text: dynamicText,
@@ -100,6 +102,8 @@ const Share = props => {
           setShowPopover(show => !show);
         }
       }
+      */
+      showPopup(PopupTheme.disableSharing);
     },
     [dynamicTitle, dynamicText, realUrl]
   );

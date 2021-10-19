@@ -4,6 +4,8 @@ import Button from '../Button';
 import { PopupActions } from '../../store/actions/popup';
 import { TOKEN_NAME } from '../../constants/Token';
 import { useLocation } from 'react-router';
+import { isMobile } from 'react-device-detect';
+import VideoPlayer from 'components/EmbedVideo/VideoPlayer';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 // swiper bundle styles
@@ -120,20 +122,16 @@ const ExplanationViewPopup = ({ closed, hidePopup }) => {
     const renderSteps = () => {
       return (
         <div className={styles.stepsContainer}>
-          <div className={styles.stepItem}>
-            <div className={styles.cropGames}>
-              <img src={gamesStep1} />
-            </div>
-          </div>
-          <div className={styles.stepItem}>
-            <div className={styles.cropGames}>
-              <img src={gamesStep2} />
-            </div>
-          </div>
-          <div className={styles.stepItem}>
-            <div className={styles.cropGames}>
-              <img src={gamesStep3} />
-            </div>
+          <div className={styles.video}>
+            <VideoPlayer
+              video={
+                isMobile
+                  ? 'https://files.wallfair.io/elon-game-720p.mp4'
+                  : 'https://files.wallfair.io/elon-game-1080p.mp4'
+              }
+              controls={true}
+              loop={true}
+            />
           </div>
         </div>
       );

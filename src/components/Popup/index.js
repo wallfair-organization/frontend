@@ -175,6 +175,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             actionType={DialogActions.deleteEvent}
           />
         );
+      case PopupTheme.disableSharing:
+        return <DialogActionPopup actionType={DialogActions.disableSharing} />;
       case PopupTheme.newBet:
         return <NewBetPopup />;
       case PopupTheme.editBet:

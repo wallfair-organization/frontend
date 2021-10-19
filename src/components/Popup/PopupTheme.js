@@ -20,6 +20,7 @@ export default {
   newEvent: 'newEvent',
   editEvent: 'editEvent',
   deleteEvent: 'deleteEvent',
+  disableSharing: 'disableSharing',
   newBet: 'newBet',
   editBet: 'editBet',
   viewImage: 'viewImage',
