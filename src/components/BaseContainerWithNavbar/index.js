@@ -20,6 +20,7 @@ const BaseContainerWithNavbar = ({
       )}
     >
       {children}
+      <div className={'main-page-background'}></div>
     </div>
   );
 };

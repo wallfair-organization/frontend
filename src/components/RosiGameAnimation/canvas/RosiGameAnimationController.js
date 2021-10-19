@@ -31,6 +31,7 @@ function loadAssets(loader) {
     .add('star1', constructPath('star1.png'))
     .add('star2', constructPath('star2.png'))
     .add('starship', constructPath('starship.png'))
+    .add('particle', constructPath('particle.png'))
     .add('preparing-round-anim', constructPath('preparing-round-anim.json'))
     .add('elon-coin-animation', constructPath('elon-coin-animation.json'))
     .add(
@@ -50,7 +51,7 @@ function loadAssets(loader) {
 }
 
 class RosiAnimationController {
-  init(canvas) {
+  init(canvas, animationIndex) {
     this.app = new PIXI.Application({
       view: canvas,
       backgroundColor: 0x12132e,
@@ -62,6 +63,7 @@ class RosiAnimationController {
     this.gameStartTime = 0;
     this.lastCrashFactor = 1.0;
     this.currentIntervalIndex = -1;
+    this.animationIndex = animationIndex;
   }
 
   load(done) {
@@ -107,7 +109,7 @@ class RosiAnimationController {
     }
 
     TWEEN.update(this.app.ticker.lastTime);
-    this.cashedOut.update(dt, elapsed / 1000, coinPos);
+    this.cashedOut.update(dt, elapsed, coinPos);
     this.background.update(dt, this.coinAndTrajectory.trajectoryAngle);
   }
 
@@ -118,17 +120,17 @@ class RosiAnimationController {
     this.coinExplosion = new CoinExplosion(this.app);
     this.coinAndTrajectory = new CoinAnimation(this.app);
     this.cashedOut = new CashedOutAnimation(this.app, this.coinAndTrajectory);
-    this.preparingRound = new PreparingRound(this.app);
+    this.preparingRound = new PreparingRound(this.app, this.animationIndex);
 
-    this.app.stage.addChild(this.coinExplosion.container);
     this.app.stage.addChild(this.coinAndTrajectory.container);
     this.app.stage.addChild(this.cashedOut.container);
+    this.app.stage.addChild(this.coinExplosion.container);
     this.app.stage.addChild(this.preparingRound.container);
   }
 
   start(gameStartTime) {
     this.preparingRound.hide();
-    this.coinAndTrajectory.startCoinFlyingAnimation();
+    this.coinAndTrajectory.startCoinFlyingAnimation(gameStartTime);
     this.cashedOut.reset();
     this.gameStartTime = gameStartTime;
     this.currentIntervalIndex = -1;
@@ -143,8 +145,8 @@ class RosiAnimationController {
 
   doCashedOutAnimation(data) {
     const point = this.coinAndTrajectory.getCoinCrashPosition();
-
-    this.cashedOut.animate(point.x, data.amount, data.crashFactor);
+    const elapsed = Date.now() - this.gameStartTime;
+    this.cashedOut.animate(point.x, data.amount, data.crashFactor, elapsed);
   }
 }
 

@@ -9,7 +9,7 @@ export function useTabOptions(event) {
     { name: 'news', isActive: false },
     { name: 'evidence', isActive: false },
     { name: 'activities', isActive: false },
-    // { name: 'all trades', isActive: false },
+    { name: 'all trades', isActive: false },
   ]);
 
   useEffect(() => {
@@ -17,10 +17,10 @@ export function useTabOptions(event) {
       const updatedTabOptions = tabOptions.filter(item => {
         return (
           event.type === 'streamed' &&
-            item.name !== 'news' &&
-            item.name !== 'evidence',
-          item.name !== 'activities'
-          // item.name !== 'all trades'
+          item.name !== 'news' &&
+          item.name !== 'evidence' &&
+          item.name !== 'activities' &&
+          item.name !== 'all trades'
         );
       });
       setTabOptions(updatedTabOptions);

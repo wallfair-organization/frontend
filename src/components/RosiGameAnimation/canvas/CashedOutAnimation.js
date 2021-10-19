@@ -198,7 +198,7 @@ class CashedOutAnimation {
 
     this.currentAnims.push(anim);
 
-    anim.elapsedTime = calcTotalDelayTime(crashFactor) / 1000;
+    anim.elapsedTime = calcTotalDelayTime(crashFactor);
     anim.crashFactor = crashFactor;
     anim.setTextValues(amount, crashFactor);
 
@@ -226,6 +226,10 @@ class CashedOutAnimation {
 
   update(dt, elapsedTime) {
     let prevAnim;
+    const currentGPos =
+      this.coinAndTrajectory.getGlobalPositionByTime(elapsedTime);
+    const currentRPos = this.coinAndTrajectory.getRealPosition(currentGPos);
+
     for (const anim of this.currentAnims) {
       if (
         prevAnim &&
@@ -237,20 +241,20 @@ class CashedOutAnimation {
 
       anim.update(dt);
 
-      const x = anim.elapsedTime;
-      const sw = this.coinAndTrajectory.isBoostAnimComplete()
-        ? this.coinAndTrajectory.trajectoryDestX
-        : this.coinAndTrajectory.trajectoryCurrentX;
-      const scaleX = (sw * 2) / (-elapsedTime - x);
+      if (this.currentAnims[0] === anim) {
+        anim.index = 0;
+      }
 
-      anim.container.x = sw / 2 + -x * scaleX - sw / 2;
-      const percentX = (anim.container.x * 100) / sw;
+      const gPos = this.coinAndTrajectory.getGlobalPositionByTime(
+        anim.elapsedTime
+      );
+      const rPos = this.coinAndTrajectory.getRealPositionByScale(
+        gPos,
+        currentRPos
+      );
 
-      const destY = this.coinAndTrajectory.trajectoryDestY;
-      anim.container.y =
-        this.app.renderer.height -
-        calcPercent(this.app.renderer.height - destY, percentX + 10);
-
+      anim.container.x = rPos.x;
+      anim.container.y = rPos.y + (isMobileRosiGame ? 20 : 45);
       prevAnim = anim;
     }
   }

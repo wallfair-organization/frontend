@@ -53,35 +53,39 @@ const fetchSucceeded = function* (action) {
   const userId = user.userId;
 
   if (userId === selfUserId) {
-    const profilePicture = user.profilePicture;
-    const balance = user.balance;
-    const username = user.username;
-    const name = user.name;
-    const admin = user.admin;
-    const totalWin = user.totalWin;
-    const rank = user.rank;
-    const amountWon = user.amountWon;
-    const toNextRank = user.toNextRank;
-    const email = user.email;
-    const preferences = user.preferences;
-    const aboutMe = user.aboutMe;
+    if (user.status === 'locked') {
+      yield put(AuthenticationActions.logout());
+    } else {
+      const profilePicture = user.profilePicture;
+      const balance = user.balance;
+      const username = user.username;
+      const name = user.name;
+      const admin = user.admin;
+      const totalWin = user.totalWin;
+      const rank = user.rank;
+      const amountWon = user.amountWon;
+      const toNextRank = user.toNextRank;
+      const email = user.email;
+      const preferences = user.preferences;
+      const aboutMe = user.aboutMe;
 
-    yield put(
-      AuthenticationActions.updateData({
-        profilePicture,
-        balance,
-        username,
-        name,
-        admin,
-        totalWin,
-        rank,
-        amountWon,
-        toNextRank,
-        email,
-        preferences,
-        aboutMe,
-      })
-    );
+      yield put(
+        AuthenticationActions.updateData({
+          profilePicture,
+          balance,
+          username,
+          name,
+          admin,
+          totalWin,
+          rank,
+          amountWon,
+          toNextRank,
+          email,
+          preferences,
+          aboutMe,
+        })
+      );
+    }
   }
 };
 

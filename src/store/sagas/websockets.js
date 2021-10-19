@@ -193,11 +193,7 @@ export function* init() {
             }
             break;
           case ChatMessageType.casinoStart:
-            yield put(
-              RosiGameActions.setHasStarted({
-                timeStarted: payload.timeStarted,
-              })
-            );
+            yield put(RosiGameActions.setHasStarted(payload));
             yield put(RosiGameActions.resetCashedOut());
             break;
           case ChatMessageType.casinoEnd:

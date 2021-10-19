@@ -176,6 +176,7 @@ const Chat = ({
               date={date}
               parentRef={messageListRef}
               lastMessage={index === messages.length - 1}
+              currentUser={isLoggedIn() ? user : null}
             />
           );
         })}
@@ -185,10 +186,14 @@ const Chat = ({
 
   const messageListScrollToBottom = () => {
     if (messageListRef) {
+      const scrollHeight = messageListRef.current.scrollHeight;
+      const height = messageListRef.current.clientHeight;
+      const maxScrollTop = scrollHeight - height;
+
       messageListRef.current.scrollTo({
-        top: messageListRef.current.scrollHeight,
+        top: maxScrollTop > 0 ? maxScrollTop : 0,
         left: 0,
-        behavior: 'smooth',
+        behavior: 'instant',
       });
     }
   };
@@ -218,7 +223,7 @@ const Chat = ({
       >
         <Input
           type={'text'}
-          placeholder={'Comment...'}
+          placeholder={'Write here...'}
           value={message}
           disabled={!isLoggedIn()}
           onChange={onMessageInputChange}

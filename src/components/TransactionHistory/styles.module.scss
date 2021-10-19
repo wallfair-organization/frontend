@@ -1,0 +1,29 @@
+.primaryData {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.89;
+  letter-spacing: 0.2px;
+}
+.secondaryData {
+  opacity: 0.3;
+  font-size: 12px;
+  line-height: 2.2;
+  letter-spacing: 0.3px;
+}
+
+.buy {
+  color: #ff5858;
+  letter-spacing: 0.35px;
+  &::before {
+    content: '- ';
+  }
+}
+.payout,
+.refund,
+.sell {
+  color: #acffce;
+  letter-spacing: 0.35px;
+  &::before {
+    content: '+ ';
+  }
+}

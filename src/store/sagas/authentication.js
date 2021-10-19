@@ -474,6 +474,28 @@ const resetPassword = function* (action) {
   }
 };
 
+const updateStatus = function* (action) {
+  const { response, error } = yield call(
+    Api.updateStatus,
+    action.userId,
+    action.status
+  );
+
+  if (response) {
+    yield put(
+      AlertActions.showSuccess({
+        message: 'User status has been updated successfully',
+      })
+    );
+  } else {
+    yield put(
+      AlertActions.showError({
+        message: error.message,
+      })
+    );
+  }
+};
+
 export default {
   authenticationSucceeded,
   fetchReferrals,
@@ -493,4 +515,5 @@ export default {
   login,
   forgotPassword,
   resetPassword,
+  updateStatus,
 };

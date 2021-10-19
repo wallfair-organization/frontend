@@ -6,11 +6,17 @@ import ChatMessageType from './ChatMessageType';
 import ChatMessage from '../ChatMessage';
 import BetActionChatMessage from '../BetActionChatMessage';
 
-const ChatMessageWrapper = ({ message, date, parentRef, lastMessage }) => {
+const ChatMessageWrapper = ({
+  message,
+  date,
+  parentRef,
+  lastMessage,
+  currentUser,
+}) => {
   const [dateString, setDateString] = useState('');
 
   const updateDateText = useCallback(() => {
-    const dateText = DateText.getChatTimeText(date);
+    const dateText = DateText.getHoursAndMins(date);
 
     setDateString(dateText);
   }, [date]);
@@ -25,8 +31,8 @@ const ChatMessageWrapper = ({ message, date, parentRef, lastMessage }) => {
 
   const renderMessageContent = () => {
     const type = _.get(message, 'type');
-    const user = _.get(message, 'user');
     const userId = _.get(message, 'userId');
+    const user = _.get(message, 'user');
 
     switch (type) {
       case ChatMessageType.event:
@@ -40,6 +46,7 @@ const ChatMessageWrapper = ({ message, date, parentRef, lastMessage }) => {
             userId={userId}
             message={_.get(message, 'message')}
             dateString={dateString}
+            currentUser={currentUser}
           />
         );
 

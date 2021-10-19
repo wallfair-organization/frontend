@@ -74,6 +74,10 @@ const root = function* () {
       [AuthenticationTypes.RESET_PASSWORD],
       AuthenticationSagas.resetPassword
     ),
+    takeLatest(
+      AuthenticationTypes.UPDATE_STATUS,
+      AuthenticationSagas.updateStatus
+    ),
     takeEvery(
       [
         AuthenticationTypes.FETCH_REFERRALS_FAILED,
@@ -140,7 +144,10 @@ const root = function* () {
     takeLatest([REHYDRATE], WebsocketsSagas.idleCheck),
     takeEvery([LOCATION_CHANGE], WebsocketsSagas.joinOrLeaveRoomOnRouteChange),
     takeLatest([REHYDRATE], AuthenticationSagas.restoreToken),
-    takeLatest([REHYDRATE], AuthenticationSagas.refreshImportantData),
+    takeLatest(
+      [REHYDRATE, AuthenticationTypes.LOGIN_SUCCESS],
+      AuthenticationSagas.refreshImportantData
+    ),
     takeLatest([REHYDRATE], AuthenticationSagas.firstSignUpPopup),
     takeLatest([LeaderboardTypes.FETCH_ALL], LeaderboardSagas.fetchAll),
     takeLatest([EventTypes.FETCH_TAGS], EventSagas.fetchTags),

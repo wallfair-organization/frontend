@@ -4,16 +4,14 @@ import { connect, useSelector } from 'react-redux';
 import styles from './styles.module.scss';
 import MenuItem from '../MenuItem';
 import { useEffect, useState } from 'react';
-import TwoColumnTable from 'components/TwoColumnTable';
-import moment from 'moment';
 import WalletBalance from '../WalletBalance';
 import useTransactions from 'hooks/useTransactions';
 import { selectUser } from 'store/selectors/authentication';
-import { formatToFixed } from 'helper/FormatNumbers';
 import { BetActions } from 'store/actions/bet';
 import { TransactionActions } from 'store/actions/transaction';
 import MyTrades from 'components/MyTrades';
 import navbarStyle from '../Navbar/styles.module.scss';
+import TransactionHistory from '../TransactionHistory';
 
 const Wallet = ({
   show,
@@ -121,47 +119,9 @@ const Wallet = ({
               {backButton()}
               Transaction History
             </>,
-            <TwoColumnTable
-              headings={['Latest transactions', currency]}
-              rows={transactions.map(
-                ({
-                  event,
-                  bet,
-                  direction,
-                  trx_timestamp,
-                  outcomeTokensBought,
-                  investmentAmount,
-                  type,
-                }) => {
-                  const tokenAmount =
-                    direction === 'PAYOUT'
-                      ? outcomeTokensBought
-                      : investmentAmount;
-                  return [
-                    type === 'BET' ? (
-                      <>
-                        <span className={styles.primaryData}>
-                          {event?.name}
-                        </span>
-                        <span className={styles.secondaryData}>
-                          {bet?.marketQuestion}
-                        </span>
-                      </>
-                    ) : (
-                      <span className={styles.primaryData}>Casino Game</span>
-                    ),
-                    <>
-                      <span className={styles[direction.toLowerCase()]}>
-                        {formatToFixed(tokenAmount, 2, true)}
-                      </span>
-                      <span className={styles.secondaryData}>
-                        {moment(trx_timestamp).format('DD.MM.YYYY')}
-                      </span>
-                    </>,
-                  ];
-                }
-              )}
-              noResultMessage={'No transactions yet.'}
+            <TransactionHistory
+              transactions={transactions}
+              currency={currency}
             />
           )}
         </div>

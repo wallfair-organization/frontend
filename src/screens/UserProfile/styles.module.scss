@@ -6,7 +6,8 @@
   justify-content: center;
   flex-direction: column;
   margin: 0 1rem;
-  .container{
+
+  .container {
     margin: 0 2rem;
     max-width: 930px;
     width: 100%;
@@ -15,6 +16,7 @@
       margin: 0 3rem;
       width: 100%;
     }
+
     .containerHeader {
       width: 100%;
       height: 344px;
@@ -31,6 +33,7 @@
         height: 120px;
       }
     }
+
     .headerBody {
       position: relative;
       display: flex;
@@ -46,6 +49,7 @@
         justify-content: flex-start;
         align-items: center;
       }
+
       .avatarBox {
         position: absolute;
         left: 60px;
@@ -61,6 +65,7 @@
           width: 93.7px;
           height: 93.7px;
         }
+
         .profileImage {
           object-fit: cover;
           object-position: center;
@@ -70,6 +75,7 @@
           margin: 0;
         }
       }
+
       .profileTitle {
         position: absolute;
         color: $colorWhite;
@@ -80,6 +86,7 @@
           left: 50%;
           transform: translateX(-50%);
         }
+
         h2 {
           font-family: $fontBold;
           font-style: normal;
@@ -92,6 +99,7 @@
           }
         }
       }
+
       .aboutSection {
         padding-left: 250px;
         @media (max-width: $screen-sm) {
@@ -99,6 +107,7 @@
           padding-left: 20px;
           padding-right: 20px;
         }
+
         h3 {
           font-family: $fontRegular;
           font-style: normal;
@@ -106,6 +115,7 @@
           font-size: 18px;
           line-height: 23px;
         }
+
         p {
           margin-top: 8px;
           font-family: $fontRegular;
@@ -116,7 +126,28 @@
           opacity: 0.6;
         }
       }
+
+      .userInfo {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        @media (max-width: $screen-sm) {
+          flex-direction: column;
+        }
+
+        .suspendButton {
+          min-width: 150px;
+          height: 40px;
+          font-size: 16px;
+
+          @media (max-width: $screen-sm) {
+            margin: 20px 0 0 20px;
+          }
+        }
+      }
     }
+
     .tabLayout {
       display: flex;
       align-items: flex-end;
@@ -134,12 +165,14 @@
         font-size: 11px;
         line-height: 14px;
       }
+
       .tabItem {
         text-align: center;
         padding-bottom: 12px;
         opacity: 0.3;
         cursor: pointer;
       }
+
       .tabItemSelected {
         text-align: center;
         padding-bottom: 12px;
@@ -148,11 +181,11 @@
         cursor: pointer;
       }
     }
+
     .userActivities {
       position: relative;
       display: flex;
       flex-direction: row;
-      margin-top: 20px;
       width: 100%;
 
       .activitiesTrackerUserPage {
@@ -163,12 +196,15 @@
         width: 100%;
         filter: blur(2px);
       }
+
       .activityWrapper {
         width: 75%
       }
+
       .statistics {
         width: 25%
       }
+
       .inactivePlaceholder {
         position: absolute;
         top: 25%;
@@ -184,6 +220,88 @@
       }
     }
   }
+
+
+  .contentBlock {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+    }
+
+    .mainContent {
+      margin-right: 15px;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    .sideContent {
+      border-radius: 10px;
+      background-color: #20213D;
+      width: 300px;
+      //flex-grow: 1;
+      //width: 300px;
+      color: white;
+      padding: 15px;
+
+      @media (max-width: $screen-sm) {
+        margin-top: 15px;
+        width: 100%;
+      }
+
+      .header {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .statsBlock {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .statItem {
+          background-color: #100D27;
+          border-radius: 20px;
+          width: 95px;
+          padding: 15px 10px;
+          margin-bottom: 10px;
+
+          @media (max-width: $screen-md) {
+            width: 100%;
+          }
+
+          .statItemHead {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            span {
+              font-size: 16px;
+              color: $colorYellow;
+              margin-right: 5px;
+            }
+          }
+
+          .statItemHint {
+            margin-top: 5px;
+            font-size: 10px;
+            line-height: 1.10;
+            text-align: center;
+            color: #5C5C6D;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 .bottomWrapper {

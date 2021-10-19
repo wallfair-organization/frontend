@@ -3,7 +3,6 @@
 .bet {
   display: flex;
   flex-direction: column;
-  background-color: $colorPrimaryDark;
   min-height: 100%;
   color: $colorWhite;
   padding: 0.5rem 1.7rem 2.5rem 1.7rem;
@@ -718,17 +717,16 @@
 }
 .chatWrapper {
   padding: 15px;
+  background-color: rgba(34, 35, 62, 0.65) !important;
 
   @media (max-width: $screen-sm) {
-    background-color: $colorBackgroundShadeLighter;
     border-radius: 10px;
   }
   .desktopChat {
-    max-height: 300px !important;
+    max-height: 250px !important;
+    height: 250px !important;
     @media (max-width: $screen-sm) {
       justify-content: space-between;
-      height: 400px;
-      max-height: 400px !important;
     }
   }
   .messageArea {

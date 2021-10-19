@@ -1,18 +1,10 @@
 @import '../../../styles/all';
 
 .datePicker {
-  .inputLabel {
-    display: none;
-  }
-
-  .inputBase {
+  input {
     border: 1px solid rgba(14, 9, 39, 0.1);
     border-radius: 12px;
     font-size: 14px;
     color: rgba(18, 14, 39, 0.5);
-  }
-
-  .inputBase fieldset {
-    display: none;
   }
 }

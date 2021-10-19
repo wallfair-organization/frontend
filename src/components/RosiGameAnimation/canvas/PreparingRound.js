@@ -8,34 +8,33 @@ import {
 import TWEEN from '@tweenjs/tween.js';
 
 class PreparingRound {
-  constructor(app) {
+  constructor(app, animationIndex = 1) {
     this.app = app;
     this.container = new PIXI.Container();
 
     this.backdrop = new PIXI.Graphics();
     this.container.addChild(this.backdrop);
-
-    this.initAnimation();
+    this.animationIndex = 1;
+    this.initAnimation(this.animationIndex);
 
     this.drawBackdrop();
 
     this.hide();
   }
 
-  createRocketAnim() {
-    this.animationIndex = Math.floor(Math.random() * 3);
+  createRocketAnim(animationIndex) {
     var spritesheet =
       this.app.loader.resources['preparing-round-anim'].spritesheet;
-    if (this.animationIndex === ROSI_GAME_PLAYGROUND_CAR) {
+    if (animationIndex === ROSI_GAME_PLAYGROUND_CAR) {
       spritesheet =
         this.app.loader.resources['preparing-round-anim-car'].spritesheet;
-    } else if (this.animationIndex === ROSI_GAME_PLAYGROUND_RUNNING) {
+    } else if (animationIndex === ROSI_GAME_PLAYGROUND_RUNNING) {
       spritesheet =
         this.app.loader.resources['preparing-round-anim-running'].spritesheet;
     } else {
     }
     const anim = new PIXI.AnimatedSprite(Object.values(spritesheet.textures));
-    if (this.animationIndex === ROSI_GAME_PLAYGROUND_ROCKET) {
+    if (animationIndex === ROSI_GAME_PLAYGROUND_ROCKET) {
       anim.loop = false;
     } else {
       anim.loop = true;
@@ -43,12 +42,12 @@ class PreparingRound {
     return anim;
   }
 
-  initAnimation() {
+  initAnimation(animationIndex) {
     if (this.rocketAnim !== null) {
       this.container.removeChild(this.rocketAnim);
     }
-    this.rocketAnim = this.createRocketAnim();
-    if (this.animationIndex === ROSI_GAME_PLAYGROUND_ROCKET) {
+    this.rocketAnim = this.createRocketAnim(animationIndex);
+    if (animationIndex === ROSI_GAME_PLAYGROUND_ROCKET) {
       this.rocketAnim.anchor.set(0.5);
 
       if (isMobileRosiGame) {
@@ -111,8 +110,9 @@ class PreparingRound {
     this.backdrop.endFill();
   }
 
-  show() {
-    this.initAnimation();
+  show(animationIndex) {
+    this.animationIndex = animationIndex;
+    this.initAnimation(animationIndex);
     this.container.visible = true;
     this.rocketAnim.x = this.rocketDefaultX;
     this.rocketAnim.y = this.rocketDefaultY;

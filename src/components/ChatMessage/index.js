@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import styles from './styles.module.scss';
-import { getProfilePictureUrl } from '../../helper/ProfilePicture';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -14,9 +13,10 @@ const ChatMessage = ({
   className,
   parentRef,
   lastMessage,
+  currentUser,
 }) => {
-  const profilePicture = getProfilePictureUrl(_.get(user, 'profilePicture'));
-  const userName = _.get(user, 'username', 'Unknown');
+  const userName =
+    currentUser?.userId === userId ? 'You' : _.get(user, 'username', 'Unknown');
   const [isVisible, setVisible] = useState(false);
   const elementRef = useChatIntersection(parentRef, setVisible);
   return (
@@ -29,18 +29,21 @@ const ChatMessage = ({
       )}
       ref={elementRef}
     >
-      <Link to={`/user/${userId}`}>
+      {/* <Link to={`/user/${userId}`}>
         <img src={profilePicture} alt={userName} />
+      </Link> */}
+      <span className={styles.singleMessageTime}>{dateString}</span>
+      <Link
+        to={`/user/${userId}`}
+        className={classNames(
+          styles.singleMessageUser,
+          currentUser?.userId === userId && styles.singleMessageCurrentUser
+        )}
+      >
+        {userName}
       </Link>
-      <div>
-        <Link to={`/user/${userId}`}>
-          <span>
-            <small>{userName}</small>
-            <small>{dateString}</small>
-          </span>
-        </Link>
-        <p>{message}</p>
-      </div>
+      {`:`}
+      <span className={styles.singleMessage}>{message}</span>
     </div>
   );
 };

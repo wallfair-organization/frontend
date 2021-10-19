@@ -50,7 +50,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem 1rem 1rem 3rem;
+    padding: 0.5rem 1rem;
     border-radius: 10px;
 
     @media (max-width: $screen-sm) {
@@ -80,7 +80,7 @@
       border: none;
       width: 100%;
       display: inline-block;
-      font-size: 16px;
+      font-size: 12px;
 
       @media (max-width: $screen-sm) {
         background-color: $colorGrayLight5;

@@ -127,3 +127,47 @@ $border: 1px solid $colorWhite30;
   font-weight: bold;
   text-decoration: underline;
 }
+
+.main-page-background {
+  background: $colorPrimaryDark;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+
+  &:before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    opacity: 1;
+    z-index: -2;
+    position: absolute;
+    background: linear-gradient(
+        180deg, rgba(2, 0, 36, 0) 18%, rgb(18, 14, 39) 100%), linear-gradient(
+        360deg, rgba(2, 0, 36, 0) 10%, rgb(18, 14, 39) 100%);
+    max-height: 700px;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+
+  &:after {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    opacity: 1;
+    z-index: -3;
+    position: absolute;
+    max-height: 700px;
+    background-size: cover;
+    background-image: url('../data/backgrounds/main-page-bg.png');
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+
+}

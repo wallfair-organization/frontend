@@ -45,6 +45,7 @@ const RosiGameAnimation = ({
   muteButtonClick,
   isMute,
   isSynced,
+  animationIndex,
 }) => {
   const dispatch = useDispatch();
   const canvasRef = useRef(null);
@@ -60,7 +61,7 @@ const RosiGameAnimation = ({
 
   useEffect(() => {
     if (canvasRef.current) {
-      RosiGameAnimationController.init(canvasRef.current);
+      RosiGameAnimationController.init(canvasRef.current, animationIndex);
       RosiGameAnimationController.load(() => {
         setAnimationReady(true);
         if (isPreparingRound) {
@@ -94,7 +95,7 @@ const RosiGameAnimation = ({
       dispatch(RosiGameActions.stopFlyingSound());
       // leave some time for player to see crash value
       setTimeout(() => {
-        RosiGameAnimationController.preparingRound.show();
+        RosiGameAnimationController.preparingRound.show(animationIndex);
         setIsPreparingRound(true);
       }, ROSI_GAME_AFTER_CRASH_DELAY);
     }
@@ -122,12 +123,18 @@ const RosiGameAnimation = ({
       <div
         className={cn(styles.timer, { [styles.flashAnimation]: !gameStarted })}
       >
-        {gameStarted ? (
-          <Timer pause={!gameStarted} startTimeMs={gameStartedTime} />
-        ) : (
-          <span>{lastCrashValue.toFixed(2)}</span>
+        {gameStarted && (
+          <>
+            <Timer pause={!gameStarted} startTimeMs={gameStartedTime} />
+            <span>x</span>
+          </>
         )}
-        <span>x</span>
+        {!gameStarted && !!lastCrashValue && (
+          <>
+            <span>{lastCrashValue.toFixed(2)}</span>
+            <span>x</span>
+          </>
+        )}
       </div>
     );
   }
@@ -159,6 +166,7 @@ const mapStateToProps = state => {
     connected: state.websockets.connected,
     isMute: !state.rosiGame.volumeLevel,
     isSynced: state.rosiGame.timeStarted || state.rosiGame.nextGameAt,
+    animationIndex: state.rosiGame.animationIndex,
   };
 };
 

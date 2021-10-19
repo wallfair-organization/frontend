@@ -170,7 +170,7 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
     );
   };
 
-  if (!userLoggedIn) return <LandingPage />;
+  //if (!userLoggedIn) return <LandingPage />;
 
   return (
     <BaseContainerWithNavbar>

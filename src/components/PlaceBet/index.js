@@ -58,6 +58,12 @@ const PlaceBet = ({ connected }) => {
     };
   }, [canBet]);
 
+  useEffect(() => {
+    if (user.isLoggedIn && userBalance < amount) {
+      setAmount(userBalance);
+    }
+  }, [user]);
+
   const onTokenNumberChange = number => {
     setAmount(number);
     // debouncedSetCommitment(number, currency);
@@ -111,17 +117,22 @@ const PlaceBet = ({ connected }) => {
 
   const placeABet = () => {
     if (userUnableToBet) return;
+    if (amount > userBalance) return;
     const payload = {
       amount,
       crashFactor: Math.round(Math.abs(parseFloat(crashFactor)) * 100) / 100,
     };
 
     Api.createTrade(payload)
-      .then(response => {
+      .then(_ => {
         dispatch(RosiGameActions.setUserBet(payload));
       })
-      .catch(error => {
-        dispatch(AlertActions.showError(error.message));
+      .catch(_ => {
+        dispatch(
+          AlertActions.showError({
+            message: 'Elon Game: Place Bet failed',
+          })
+        );
       });
   };
 
@@ -145,8 +156,12 @@ const PlaceBet = ({ connected }) => {
         setAnimate(true);
         AlertActions.showSuccess(JSON.stringify(response));
       })
-      .catch(error => {
-        dispatch(AlertActions.showError(error.message));
+      .catch(_ => {
+        dispatch(
+          AlertActions.showError({
+            message: 'Elon Game: Cashout failed',
+          })
+        );
       });
   };
 
@@ -176,7 +191,10 @@ const PlaceBet = ({ connected }) => {
           tabIndex="0"
           className={classNames(styles.button, {
             [styles.buttonDisabled]:
-              !connected || userUnableToBet || isBetInQueue,
+              !connected ||
+              userUnableToBet ||
+              isBetInQueue ||
+              (amount > userBalance && user.isLoggedIn),
             [styles.notConnected]: !connected,
           })}
           onClick={user.isLoggedIn ? placeABet : placeGuestBet}

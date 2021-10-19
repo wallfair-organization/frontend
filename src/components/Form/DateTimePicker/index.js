@@ -1,25 +1,19 @@
-import MomentUtils from '@date-io/moment';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDateTimePicker,
-} from '@material-ui/pickers';
+import 'react-datetime/css/react-datetime.css';
+import Datetime from 'react-datetime';
 import styles from './styles.module.scss';
 
 function DateTimePicker({ value, onChange, ...props }) {
   return (
-    <MuiPickersUtilsProvider utils={MomentUtils}>
-      <KeyboardDateTimePicker
-        label="DateTimePicker"
-        inputVariant="outlined"
-        format="DD.MM.YYYY HH:mm"
-        value={value}
-        onChange={onChange}
-        className={styles.datePicker}
-        InputLabelProps={{ shrink: true, className: styles.inputLabel }}
-        InputProps={{ className: styles.inputBase }}
-        {...props}
-      />
-    </MuiPickersUtilsProvider>
+    <Datetime
+      value={value}
+      onChange={onChange}
+      className={styles.datePicker}
+      dateFormat="DD.MM.YYYY"
+      timeFormat="HH:mm"
+      closeOnSelect
+      closeOnClickOutside
+      {...props}
+    />
   );
 }
 

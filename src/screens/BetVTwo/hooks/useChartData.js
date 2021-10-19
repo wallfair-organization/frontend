@@ -32,21 +32,25 @@ export function useChartData(betId) {
   };
 
   const handleChartPeriodFilter = filterName => {
-    setFilterActive(filterName);
+    if (betId) {
+      setFilterActive(filterName);
 
-    currentParams.current.rangeType = filterMap[filterName].rangeType;
-    currentParams.current.rangeValue = filterMap[filterName].rangeValue;
-    dispatch(
-      EventActions.updateChartParams(betId, { ...currentParams.current })
-    );
+      currentParams.current.rangeType = filterMap[filterName].rangeType;
+      currentParams.current.rangeValue = filterMap[filterName].rangeValue;
+      dispatch(
+        EventActions.updateChartParams(betId, { ...currentParams.current })
+      );
+    }
   };
 
   const handleChartDirectionFilter = (directionIndex = 0) => {
-    currentParams.current.direction = directionIndex === 0 ? 'BUY' : 'SELL';
+    if (betId) {
+      currentParams.current.direction = directionIndex === 0 ? 'BUY' : 'SELL';
 
-    dispatch(
-      EventActions.updateChartParams(betId, { ...currentParams.current })
-    );
+      dispatch(
+        EventActions.updateChartParams(betId, { ...currentParams.current })
+      );
+    }
   };
 
   useEffect(() => {

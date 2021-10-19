@@ -1,11 +1,12 @@
 @import '../../styles/all';
 
 .alphaplatformsContainer {
-  padding-top: 30px;  
+  padding-top: 30px;
   margin-top: 30px;
   padding-bottom: 24px;
   border-radius: 12px;
-  background-color: #1f1d38;
+  //background-color: #1f1d38;
+  background: linear-gradient(to bottom, rgba(31, 29, 56, 0.65), rgba(31, 29, 56, 1));
   @media (max-width: $screen-md) {
     padding: 32px 150px 15px;
   }
@@ -35,7 +36,7 @@
   }
 
   .subtitle {
-    margin-top: 7px;    
+    margin-top: 7px;
     font-family: $fontRegular;
     font-size: 12px;
     font-weight: 500;
@@ -49,9 +50,9 @@
 
 }
 
-.alphaplatforms {  
+.alphaplatforms {
   display: flex;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
   margin-top: 50px;
   width: 100%;
 
@@ -61,7 +62,7 @@
   }
 
   .wrapper {
-    position: relative;    
+    position: relative;
     flex-basis: 25%;
     padding: 10px;
     margin-top: 8px;
@@ -83,8 +84,8 @@
       padding-right: 0;
     }
 
-    .alphaplatformItem {            
-      .alphaplatformHeader {        
+    .alphaplatformItem {
+      .alphaplatformHeader {
         padding: 8px 16px 0 16px;
         .title {
           height: 52px;
@@ -95,7 +96,7 @@
         }
         .background {
           width: 100%;
-          object-fit: contain;        
+          object-fit: contain;
         }
       }
 

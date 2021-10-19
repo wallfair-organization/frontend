@@ -34,6 +34,14 @@ class DateText {
 
     return `${day}/${month}/${year} @ ${hour}:${minutes}`;
   }
+
+  static getHoursAndMins(input) {
+    const pad = s => String(s).padStart(2, '0');
+    const date = new Date(input);
+    const hour = pad(date.getUTCHours());
+    const minutes = pad(date.getMinutes());
+    return `${hour}:${minutes}`;
+  }
 }
 
 export default DateText;

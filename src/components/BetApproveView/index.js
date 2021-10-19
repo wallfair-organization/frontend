@@ -25,14 +25,8 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
   const trade = _.get(options, 'data.trade');
   const bet = _.get(options, 'data.bet');
 
-  const amountPlaced = convert(
-    _.get(trade, 'investmentAmount', 0),
-    currency
-  ).toFixed(2);
-  const potentialOutcome = convert(
-    _.get(trade, 'outcomeTokens', 0),
-    currency
-  ).toFixed(2);
+  const amountPlaced = convert(_.get(trade, 'investmentAmount', 0), currency);
+  const potentialOutcome = convert(_.get(trade, 'outcomeTokens', 0), currency);
   const potentialPercent = calculateGain(amountPlaced, potentialOutcome);
   const potentialPercentGain = _.get(potentialPercent, 'value');
   const potentialPercentType = _.get(potentialPercent, 'negative', false);
@@ -75,7 +69,7 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
         <div className={classNames(styles.entry)}>
           <div className={styles.label}>Potential outcome</div>
           <div className={styles.value}>
-            {potentialOutcome} <span>{currency}</span>
+            {potentialOutcome.toFixed(2)} <span>{currency}</span>
           </div>
         </div>
         <div className={classNames(styles.entry, styles.alignRight)}>

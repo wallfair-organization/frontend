@@ -7,7 +7,7 @@ const useTransactions = () => {
   const transactions = useSelector(selectTransactions);
   const events = useSelector(state => state.event.events);
 
-  const transactionsMapped = _.map(transactions, transaction => {
+  const transactionsMapped = transactions.map(transaction => {
     const betId = _.get(transaction, 'bet');
     const event = State.getEventByTrade(betId, events);
     const bet = State.getTradeByEvent(betId, event);

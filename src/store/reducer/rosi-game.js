@@ -8,6 +8,9 @@ import {
   stopFlyingSound,
   silenceAllSounds,
   resetAllSounds,
+  playBetSound,
+  playLoseSound,
+  playGameoverSound,
 } from '../../helper/Audio';
 import { calcCrashFactorFromElapsedTime } from '../../components/RosiGameAnimation/canvas/utils';
 
@@ -24,11 +27,22 @@ const initialState = {
   nextGameAt: null,
   volumeLevel: 0.5,
   isEndgame: false,
+  animationIndex: 0,
+  musicIndex: 0,
+  bgIndex: 0,
 };
 
 const initializeState = (action, state) => {
   const hasStarted = action.payload.state === 'STARTED';
-  let { currentBets, upcomingBets, cashedOutBets, userId } = action.payload;
+  let {
+    currentBets,
+    upcomingBets,
+    cashedOutBets,
+    userId,
+    animationIndex,
+    musicIndex,
+    bgIndex,
+  } = action.payload;
 
   currentBets = currentBets.filter(ib => {
     return !cashedOutBets.find(cb => cb.userId === ib.userId);
@@ -48,20 +62,28 @@ const initializeState = (action, state) => {
     betQueue: upcomingBets,
     cashedOut: cashedOutBets,
     userBet,
+    animationIndex,
+    musicIndex,
+    bgIndex,
   };
 };
 
 const setHasStarted = (action, state) => {
+  console.log(action.payload);
   return {
     ...state,
     hasStarted: true,
     timeStarted: action.payload.timeStarted,
     placedBetInQueue: false,
     betQueue: [],
+    animationIndex: action.payload.animationIndex,
+    musicIndex: action.payload.musicIndex,
+    bgIndex: action.payload.bgIndex,
   };
 };
 
 const setUserBet = (action, state) => {
+  playBetSound(state.volumeLevel);
   if (state.hasStarted) {
     return {
       ...state,
@@ -76,10 +98,14 @@ const setUserBet = (action, state) => {
 };
 
 const addLastCrash = (action, state) => {
-  if (action.payload.crashFactor <= 1) {
-    playFailSound(state.volumeLevel);
+  if (state.userBet && !state.isCashedOut) {
+    playLoseSound(state.volumeLevel);
   } else {
-    playCrashSound(state.volumeLevel);
+    if (action.payload.crashFactor <= 1) {
+      playLoseSound(state.volumeLevel);
+    } else {
+      playGameoverSound(state.volumeLevel);
+    }
   }
 
   return {
@@ -215,7 +241,7 @@ const onPlayWinSound = (action, state) => {
 
 const onPlayFlyingSound = (action, state) => {
   const diff = (Date.now() - new Date(state.timeStarted).getTime()) / 1000;
-  playFlyingSound(state.volumeLevel, diff);
+  playFlyingSound(state.volumeLevel, diff, state.musicIndex);
   return state;
 };
 

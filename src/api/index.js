@@ -140,6 +140,14 @@ const getUserPublicInfo = userId => {
   );
 };
 
+const getUserPublicStats = userId => {
+  return Api.get(_.replace(ApiUrls.API_USER_PUBLIC_STATS, ':id', userId)).catch(
+    error => {
+      console.log('[API Error] called: getUserPublicStats', error);
+    }
+  );
+};
+
 const checkUsername = username => {
   return Api.post(ApiUrls.API_USER_CHECK_USERNAME, { username }).catch(
     error => {
@@ -347,7 +355,7 @@ const createEventFromYoutubeUrl = data => {
 const getCoverStream = () => {
   return Api.get(ApiUrls.API_EVENT_GET_COVER_STREAM)
     .then(response => ({ response }))
-    .catch(error => ({ error: error.response.data }));
+    .catch(error => ({ error: error.response?.data }));
 };
 
 const resolveBet = (betId, data) => {
@@ -452,6 +460,14 @@ const shortenerTinyUrl = url => {
     .catch(error => ({ error: error.response.data }));
 };
 
+const updateStatus = (userId, status) => {
+  return Api.post(ApiUrls.API_USER_UPDATE_STATUS.replace(':id', userId), {
+    status,
+  })
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
 export {
   Api,
   createBet,
@@ -506,4 +522,6 @@ export {
   getNotificationEventsByUser,
   checkUsername,
   getUserPublicInfo,
+  getUserPublicStats,
+  updateStatus,
 };

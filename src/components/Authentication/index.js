@@ -241,7 +241,7 @@ const Authentication = ({
           withoutBackground={true}
           highlightType={HighlightType.highlightAuthButton}
           className={styles.submitButton}
-          disabled={loading}
+          disabled={false}
           disabledWithOverlay={true}
         >
           <span>{forgotPassword ? 'Send' : action}</span>
