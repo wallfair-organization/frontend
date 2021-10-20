@@ -25,6 +25,7 @@ const Authentication = ({
   const location = useLocation();
   let urlParams = new URLSearchParams(location.search);
   const [email, setInputEmail] = useState('');
+  const [signUpDisabled, setSignUpDisabled] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [legalAuthorizationAgreed, setLegalAuthorizationAgreed] =
@@ -67,6 +68,7 @@ const Authentication = ({
 
     return () => {
       setError(null);
+      setSignUpDisabled(false);
     };
   }, [errorState, fooRef]);
 
@@ -125,6 +127,8 @@ const Authentication = ({
   const onConfirm = () => {
     const error = validateInput();
     if (error) return;
+
+    setSignUpDisabled(true);
 
     if (forgotPassword) {
       initForgotPassword(email);
@@ -241,7 +245,7 @@ const Authentication = ({
           withoutBackground={true}
           highlightType={HighlightType.highlightAuthButton}
           className={styles.submitButton}
-          disabled={false}
+          disabled={signUpDisabled}
           disabledWithOverlay={true}
         >
           <span>{forgotPassword ? 'Send' : action}</span>
