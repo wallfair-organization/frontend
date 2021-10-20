@@ -1,13 +1,13 @@
 @import '../../styles/all';
 
-.totalCount{
+.totalCount {
   text-align: center;
   margin: 0 auto;
   font-size: 16px;
   margin-top: 1rem;
   position: relative;
   z-index: 1;
-  .underline{
+  .underline {
     position: absolute;
     bottom: 10px;
     left: 0;
@@ -145,7 +145,7 @@
   position: relative;
   height: 60px;
   width: 100%;
-  padding: 30px;
+  padding: 30px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
