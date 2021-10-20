@@ -132,7 +132,7 @@ function createSocketChannel(socket) {
     socket.on('CASINO_END', casinoEndHandler);
     socket.on('CASINO_TRADE', casinoTradeHandler);
     socket.on('CASINO_REWARD', casinoRewardHandler);
-    socket.on('BET_STARTED', betStartedHandler);
+    socket.on('EVENT_BET_STARTED', betStartedHandler);
     socket.onAny(onAnyListener);
 
     const unsubscribe = () => {
@@ -145,7 +145,7 @@ function createSocketChannel(socket) {
       socket.off('CASINO_END', casinoEndHandler);
       socket.off('CASINO_TRADE', casinoTradeHandler);
       socket.off('CASINO_REWARD', casinoRewardHandler);
-      socket.off('BET_STARTED', betStartedHandler);
+      socket.off('EVENT_BET_STARTED', betStartedHandler);
       socket.offAny(onAnyListener);
     };
 
@@ -155,9 +155,9 @@ function createSocketChannel(socket) {
 
 const notificationTypes = {
   EVENT_START: 'Notification/EVENT_START',
-  EVENT_RESOLVE: 'Notification/EVENT_RESOLVE',
+  EVENT_USER_REWARD: 'Notification/EVENT_USER_REWARD',
   EVENT_CANCEL: 'Notification/EVENT_CANCEL',
-  BET_STARTED: 'Notification/EVENT_BET_STARTED',
+  EVENT_BET_STARTED: 'Notification/EVENT_BET_STARTED',
 };
 
 export function* init() {
@@ -245,7 +245,7 @@ export function* init() {
             break;
           case 'notification':
           case notificationTypes.EVENT_CANCEL:
-          case notificationTypes.EVENT_RESOLVE:
+          case notificationTypes.EVENT_USER_REWARD:
           case notificationTypes.EVENT_START:
             yield put(
               NotificationActions.addNotification({
@@ -254,14 +254,14 @@ export function* init() {
               })
             );
             break;
-          case notificationTypes.BET_STARTED:
+          case notificationTypes.EVENT_BET_STARTED:
             yield put(EventActions.fetchAll());
             break;
           case 'any':
             if (trackedActivities.indexOf(payload.eventName) > -1) {
               yield put(
                 NotificationActions.addActivity({
-                  activity: payload.data,
+                  activity: payload.data.data,
                   eventName: payload.eventName,
                 })
               );

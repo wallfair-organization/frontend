@@ -1,7 +1,7 @@
 // Env vars
 export const BACKEND_URL =
   process.env.REACT_APP_BACKEND_URL || 'https://staging-api.wallfair.io/';
-export const BACKEND_SOCKET_URL = BACKEND_URL;
+export const BACKEND_SOCKET_URL = process.env.REACT_APP_SOCKET_URL;
 export const CRASH_GAME_BACKEND_URL =
   process.env.REACT_APP_CRASH_GAME_BACKEND_URL || 'http://localhost:8001/';
 
