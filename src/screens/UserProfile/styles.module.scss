@@ -219,6 +219,23 @@
         font-weight: 700;
       }
     }
+
+    .activities {
+      width: 100%;
+      background-color: #21203C;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .leaderboard {
+      width: 100%;
+      background-color: #21203C;
+      border-radius: 10px;
+
+      .heading {
+        background-color: transparent;
+      }
+    }
   }
 
 
@@ -241,10 +258,8 @@
 
     .sideContent {
       border-radius: 10px;
-      background-color: #20213D;
+      background-color: #21203C;
       width: 300px;
-      //flex-grow: 1;
-      //width: 300px;
       color: white;
       padding: 15px;
 
@@ -301,43 +316,4 @@
       }
     }
   }
-
 }
-
-.bottomWrapper {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-top: 24px;
-
-  .leaderboard {
-    width: 100%;
-    border-radius: 8px;
-    @media (max-width: $screen-sm) {
-      padding: 0;
-    }
-  }
-
-  .headline {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: $colorWhite;
-    font-family: $fontRegular;
-    font-size: 24px;
-    margin-bottom: 20px;
-
-    .leaderboardLink {
-      font-size: 14px;
-      color: $colorWhite;
-      line-height: 12px;
-      letter-spacing: 0.6px;
-      font-family: $fontLight;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-  }
-}
-
-
-

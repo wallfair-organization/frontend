@@ -18,6 +18,7 @@ import ActivitiesTracker from '../../components/ActivitiesTracker';
 import Button from 'components/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { AuthenticationActions } from 'store/actions/authentication';
+import Leaderboard from 'components/Leaderboard';
 
 const UserProfile = () => {
   let matchMediaMobile = window.matchMedia(`(max-width: ${768}px)`).matches;
@@ -33,7 +34,6 @@ const UserProfile = () => {
     { name: 'ACTIVITIES', index: 1 },
     { name: 'LEADERBOARD', index: 2 },
   ];
-  const tabOption = _.get(tabOptions, `${tabIndex}.name`);
   const currentUser = useSelector(state => state.authentication);
   const dispatch = useDispatch();
 
@@ -47,7 +47,7 @@ const UserProfile = () => {
       console.error("Can't get user by id:", err);
     });
     const user = _.get(userResponse, 'data', null);
-    setUser(user);
+    setUser({ ...user, userId });
     setLocked(user?.status === 'locked');
     setSuspendButtonVisible(currentUser.admin && currentUser.userId !== userId);
   };
@@ -67,6 +67,47 @@ const UserProfile = () => {
   const onSuspendButtonClick = status => {
     dispatch(AuthenticationActions.updateStatus({ userId, status }));
     setLocked(status === 'locked');
+  };
+
+  const renderTabConditional = () => {
+    switch (tabIndex) {
+      case 0:
+        return (
+          <>
+            <img
+              src={
+                matchMediaMobile
+                  ? ProfileActivityMobileTemplate1
+                  : ProfileActivityTemplate1
+              }
+              className={styles.templateImage}
+              alt=""
+            />
+            <div className={styles.inactivePlaceholder}>Coming soon</div>
+          </>
+        );
+      case 1:
+        return (
+          <div className={styles.activities}>
+            <ActivitiesTracker
+              showCategories={false}
+              activitiesLimit={50}
+              userId={userId}
+              className={styles.activitiesTrackerUserPage}
+            />
+          </div>
+        );
+      case 2:
+        return (
+          <div className={styles.leaderboard}>
+            <Leaderboard
+              fetch={true}
+              headingClass={styles.heading}
+              userRef={user}
+            />
+          </div>
+        );
+    }
   };
 
   const UserStatsSide = () => {
@@ -170,45 +211,7 @@ const UserProfile = () => {
           <div className={styles.contentBlock}>
             <div className={styles.mainContent}>
               <div className={styles.userActivities}>
-                {tabOption === 'ACTIVITIES' ? (
-                  <ActivitiesTracker
-                    showCategories={false}
-                    activitiesLimit={50}
-                    userId={userId}
-                    className={styles.activitiesTrackerUserPage}
-                  />
-                ) : (
-                  <>
-                    {matchMediaMobile ? (
-                      <img
-                        src={
-                          tabIndex === 0
-                            ? ProfileActivityMobileTemplate1
-                            : tabIndex === 1
-                            ? ProfileActivityMobileTemplate2
-                            : ProfileActivityMobileTemplate3
-                        }
-                        className={styles.templateImage}
-                        alt=""
-                      />
-                    ) : (
-                      <img
-                        src={
-                          tabIndex === 0
-                            ? ProfileActivityTemplate1
-                            : tabIndex === 1
-                            ? ProfileActivityTemplate2
-                            : ProfileActivityTemplate3
-                        }
-                        className={styles.templateImage}
-                        alt=""
-                      />
-                    )}
-                    <div className={styles.inactivePlaceholder}>
-                      Coming soon
-                    </div>
-                  </>
-                )}
+                {renderTabConditional()}
               </div>
             </div>
 

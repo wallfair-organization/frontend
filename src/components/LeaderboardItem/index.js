@@ -9,8 +9,6 @@ import { formatToFixed } from 'helper/FormatNumbers';
 import classNames from 'classnames';
 import ReactTooltip from 'react-tooltip';
 import { TOKEN_NAME } from '../../constants/Token';
-import styles from '../BetView/styles.module.scss';
-import { useEffect } from 'react';
 
 const topRewards = {
   1: 6200,
@@ -29,6 +27,7 @@ const LeaderboardItem = ({
   user,
   isCurrentUser = false,
   showLoadButton = false,
+  skipUsernameSuffix = false,
   onLoad,
 }) => {
   const renderLoadButton = () => {
@@ -51,7 +50,9 @@ const LeaderboardItem = ({
       formattedUsername = formattedUsername.substring(0, 17) + '...';
     }
 
-    if (isCurrentUser) return formattedUsername + ' (You)';
+    if (isCurrentUser && !skipUsernameSuffix)
+      return formattedUsername + ' (You)';
+
     return formattedUsername;
   };
 
@@ -66,7 +67,6 @@ const LeaderboardItem = ({
 
       {user.rank === 1 ? (
         <>
-          <div className={style.placeSeperate} />
           <div
             className={classNames(
               style.tableFirst,

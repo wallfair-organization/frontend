@@ -7,18 +7,20 @@ import { useState, useEffect } from 'react';
 import { LOGGED_IN } from 'constants/AuthState';
 import { selectLeaderboard } from 'store/selectors/leaderboard';
 import { selectUser } from 'store/selectors/authentication';
-import TimeLeftCounter from '../TimeLeftCounter';
-import Moment from 'moment';
+import classNames from 'classnames';
 
 const Leaderboard = ({
   fetchLeaderboard,
+  fetchByUser,
   fetch = false,
   setMissingAmount = () => {},
   small = false,
+  headingClass,
+  userRef,
 }) => {
   const LIMIT = small ? 5 : 10;
   const SKIP_FOR_CURRENT = small ? 1 : 3;
-  const LIMIT_FOR_CURRENT = small ? 5 : 5;
+  const LIMIT_FOR_CURRENT = 5;
 
   const [fetched, setFetched] = useState(false);
 
@@ -26,16 +28,17 @@ const Leaderboard = ({
 
   const users = _.get(leaderboard, 'users', []);
   const usersWithCurrent = _.get(leaderboard, 'usersWithCurrent', []);
+  const usersWithSelected = _.get(leaderboard, 'usersWithSelected', []);
   const user = useSelector(selectUser);
 
   const isLoggedIn = () => user.authState === LOGGED_IN;
 
   useEffect(() => {
-    if (fetch && !fetched) {
+    if (fetch && !fetched && !userRef) {
       fetchLeaderboard(
         0,
         LIMIT,
-        user.authState === LOGGED_IN,
+        isLoggedIn(),
         SKIP_FOR_CURRENT,
         small ? 1 : LIMIT_FOR_CURRENT
       );
@@ -44,9 +47,15 @@ const Leaderboard = ({
     }
   }, [fetch, fetched]);
 
+  useEffect(() => {
+    if (userRef) {
+      fetchByUser(userRef.rank > 6 ? userRef.rank - 6 : 0, 11);
+    }
+  }, [userRef, fetchByUser]);
+
   const getMissingWinnerAmount = () => {
     const first = users[0];
-    if (users.length == 0 || first._id === user.userId) return 0;
+    if (users.length === 0 || first._id === user.userId) return 0;
     return first.amountWon - user.amountWon;
   };
 
@@ -67,44 +76,47 @@ const Leaderboard = ({
     fetchLeaderboard(skip, 0, true, SKIP_FOR_CURRENT, LIMIT_FOR_CURRENT);
   };
 
+  const onSelectedUserLoad = () => {
+    fetchByUser(usersWithSelected[usersWithSelected.length - 1].rank, 10, true);
+  };
+
+  const renderItems = (list, user, onLoad) => {
+    return list.map(u => {
+      return (
+        <LeaderboardItem
+          user={u}
+          isCurrentUser={u._id === user.userId}
+          key={u.rank}
+          showLoadButton={list[list.length - 1] === u}
+          onLoad={onLoad}
+          skipUsernameSuffix={userRef}
+        />
+      );
+    });
+  };
+
   return (
     <div className={style.leaderboardTable}>
-      <div className={style.tableHeadings}>
+      <div className={classNames(style.tableHeadings, headingClass)}>
         <p className={style.rankingHeading}>RANKING</p>
         <p className={style.userHeading}>USER</p>
         <p className={style.tokenHeading}>TOKENS WON</p>
       </div>
       <div className={style.leaderboardRanking}>
-        {users &&
-          users.map(u => {
-            const isThisUserRow = u._id === user.userId;
-            return (
-              <LeaderboardItem
-                user={u}
-                isCurrentUser={isThisUserRow}
-                key={u.rank}
-                showLoadButton={users[users.length - 1] === u}
-                onLoad={() => onLeaderboardLoad()}
-              />
-            );
-          })}
+        {!userRef &&
+          users &&
+          renderItems(users, user, () => onLeaderboardLoad())}
 
-        {isLoggedIn() && usersWithCurrent
-          ? usersWithCurrent.map(u => {
-              const isThisUserRow = u._id === user.userId;
-              return (
-                <LeaderboardItem
-                  user={u}
-                  isCurrentUser={isThisUserRow}
-                  key={u.rank}
-                  showLoadButton={
-                    usersWithCurrent[usersWithCurrent.length - 1] === u
-                  }
-                  onLoad={() => onAfterCurrentLeaderboardLoad()}
-                />
-              );
-            })
-          : null}
+        {!userRef &&
+          isLoggedIn() &&
+          usersWithCurrent &&
+          renderItems(usersWithCurrent, user, () =>
+            onAfterCurrentLeaderboardLoad()
+          )}
+
+        {userRef &&
+          usersWithSelected &&
+          renderItems(usersWithSelected, userRef, () => onSelectedUserLoad())}
       </div>
     </div>
   );
@@ -128,6 +140,9 @@ const mapDispatchToProps = dispatch => {
           limitForCurrent,
         })
       );
+    },
+    fetchByUser: (skip, limit, paginate = false) => {
+      dispatch(LeaderboardActions.fetchByUser({ skip, limit, paginate }));
     },
   };
 };

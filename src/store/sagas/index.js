@@ -150,6 +150,7 @@ const root = function* () {
     ),
     takeLatest([REHYDRATE], AuthenticationSagas.firstSignUpPopup),
     takeLatest([LeaderboardTypes.FETCH_ALL], LeaderboardSagas.fetchAll),
+    takeLatest([LeaderboardTypes.FETCH_BY_USER], LeaderboardSagas.fetchByUser),
     takeLatest([EventTypes.FETCH_TAGS], EventSagas.fetchTags),
     takeLatest([REHYDRATE], rehydrationDone),
     takeLatest(

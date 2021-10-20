@@ -1,7 +1,4 @@
-import update from 'immutability-helper';
-import { act } from 'react-dom/test-utils';
 import { LeaderboardTypes } from '../actions/leaderboard';
-import user from './user';
 
 const initialState = {
   leaderboard: {
@@ -14,6 +11,7 @@ const initialState = {
     },
     users: [],
     usersWithCurrent: [],
+    usersWithSelected: [],
     total: 0,
     page: 0,
     perPage: 0,
@@ -95,6 +93,31 @@ const handleDrawer = (action, state) => {
   };
 };
 
+const fetchByUserSuccess = (action, state) => {
+  const usersState = state.leaderboard.usersWithSelected;
+  const users = action.users;
+  let skip = action.skip;
+
+  let usersWithSelected = users.map(user => {
+    skip += 1;
+    const mapped = {
+      ...user,
+      rank: skip,
+    };
+    return mapped;
+  });
+
+  return {
+    ...state,
+    leaderboard: {
+      ...state.leaderboard,
+      usersWithSelected: action.paginate
+        ? [...usersState, ...usersWithSelected]
+        : usersWithSelected,
+    },
+  };
+};
+
 export default function (state = initialState, action) {
   switch (action.type) {
     // @formatter:off
@@ -102,6 +125,8 @@ export default function (state = initialState, action) {
       return fetchAllSucceeded(action, state);
     case LeaderboardTypes.HANDLE_DRAWER:
       return handleDrawer(action, state);
+    case LeaderboardTypes.FETCH_BY_USER_SUCCESS:
+      return fetchByUserSuccess(action, state);
     default:
       return state;
     // @formatter:on
