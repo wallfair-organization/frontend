@@ -187,7 +187,6 @@ const addReward = (action, state) => {
     ...action.payload,
     crashFactor: round(action.payload.crashFactor, 2),
     amount: action.payload.reward,
-    username: correspondingBet?.username,
     isFresh: true,
   };
   return {
