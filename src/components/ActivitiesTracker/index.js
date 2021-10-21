@@ -30,6 +30,17 @@ import { NotificationActions } from '../../store/actions/notification';
 
 SwiperCore.use([Navigation, Pagination]);
 
+const getInitialActivitiesBySort = data => {
+  //@todo update backend default sort order, to achieve this sorting
+  return _.map(Array.from(data).reverse(), (item, index) => {
+    return {
+      data: _.get(item, 'data'),
+      type: _.get(item, 'type'),
+      updatedAt: _.get(item, 'updatedAt'),
+    };
+  });
+};
+
 /***
  *
  * @param className - class name for container
@@ -76,7 +87,6 @@ const ActivitiesTracker = ({
   className,
   messagesClassName,
   activities,
-  addInitialActivities,
   showCategories,
   activitiesLimit,
   betId,
@@ -95,6 +105,8 @@ const ActivitiesTracker = ({
   const [selectedCategory, setSelectedCategory] = useState(preselectCategory);
 
   const [initialLoaded, setInitialLoaded] = useState(false);
+  const [activitiesToDisplay, setActivitiesToDisplay] = useState([]);
+  const [initialApiActivities, setInitialApiActivities] = useState([]);
 
   const isMount = useIsMount();
 
@@ -109,8 +121,9 @@ const ActivitiesTracker = ({
         }).catch(err => {
           console.error("Can't callByParams", err);
         });
-
-        addInitialActivities(initialActivities);
+        setInitialApiActivities(
+          getInitialActivitiesBySort(initialActivities?.data)
+        );
         setInitialLoaded(true);
       })().catch(err => {
         console.error('initialNotification error', err);
@@ -127,29 +140,47 @@ const ActivitiesTracker = ({
         }).catch(err => {
           console.error("Can't get trade by id:", err);
         });
-        addInitialActivities(initialActivities);
+        setInitialApiActivities(
+          getInitialActivitiesBySort(initialActivities?.data)
+        );
       })().catch(err => {
         console.error('initialNotification error', err);
       });
     }
   }, [selectedCategory]);
 
+  useEffect(() => {
+    if (activities) {
+      const selectedCategoryLower = selectedCategory.toLowerCase();
+      const categoryCfg = _.find(ACTIVITIES_TO_TRACK, {
+        value: selectedCategoryLower,
+      });
+      const categoryEvents = _.get(categoryCfg, 'eventsCats', []);
+
+      const newFiltered = activities.filter(item => {
+        if (selectedCategoryLower === 'all') {
+          if (betId) {
+            return item?.data?.bet?._id === betId;
+          }
+
+          if (userId) {
+            return item?.data?.userId === userId;
+          }
+
+          return true;
+        }
+
+        return categoryEvents.indexOf(item.type) > -1;
+      });
+
+      setActivitiesToDisplay(stateData => {
+        return [...initialApiActivities, ...newFiltered];
+      });
+    }
+  }, [activities, initialApiActivities]);
+
   const renderActivities = () => {
-    const selectedCategoryLower = selectedCategory.toLowerCase();
-    const categoryCfg = _.find(ACTIVITIES_TO_TRACK, {
-      value: selectedCategoryLower,
-    });
-    const categoryEvents = _.get(categoryCfg, 'eventsCats', []);
-    // console.log("notifications", notifications);
-    const categoryFiltered = _.filter(activities, item => {
-      if (selectedCategoryLower === 'all') {
-        return true;
-      }
-
-      return categoryEvents.indexOf(item.type) > -1;
-    });
-
-    return _.map(categoryFiltered, (activityMessage, index) => {
+    return _.map(activitiesToDisplay, (activityMessage, index) => {
       let date = _.get(activityMessage, 'updatedAt');
 
       //try to get trade updatedAt date
@@ -268,7 +299,7 @@ const ActivitiesTracker = ({
     if (initialLoaded) {
       messageListScrollToBottom();
     }
-  }, [activities, initialLoaded]);
+  }, [activitiesToDisplay, initialLoaded]);
 
   return (
     <div className={classNames(styles.activitiesTrackerContainer, className)}>
@@ -295,15 +326,6 @@ const mapDispatchToProps = dispatch => {
   return {
     addActivity: (type, activity) => {
       dispatch(NotificationActions.addActivity({ type, activity }));
-    },
-    addInitialActivities: data => {
-      const responseData = _.get(data, 'data', []);
-
-      dispatch(
-        NotificationActions.addInitialActivities({
-          data: responseData,
-        })
-      );
     },
   };
 };

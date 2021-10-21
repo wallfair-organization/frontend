@@ -53,22 +53,6 @@ const addActivity = (action, state) => {
   };
 };
 
-const addInitialActivities = (action, state) => {
-  const { data } = action;
-
-  return {
-    ...state,
-    //@todo update backend default sort order, to achieve this sorting
-    activities: _.map(Array.from(data).reverse(), (item, index) => {
-      return {
-        data: _.get(item, 'data'),
-        type: _.get(item, 'type'),
-        updatedAt: _.get(item, 'updatedAt'),
-      };
-    }),
-  };
-};
-
 const setUnread = (action, state) => {
   const { notification } = action;
 
@@ -87,8 +71,6 @@ export default function (state = initialState, action) {
     // @formatter:off
     case NotificationTypes.ADD_ACTIVITY:
       return addActivity(action, state);
-    case NotificationTypes.ADD_INITIAL_ACTIVITIES:
-      return addInitialActivities(action, state);
     case NotificationTypes.ADD_NOTIFICATION:
       return addNotification(action, state);
     case NotificationTypes.SET_UNREAD:
