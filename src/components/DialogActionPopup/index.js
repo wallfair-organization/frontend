@@ -117,7 +117,7 @@ const mapDispatchToProps = dispatch => {
   return {
     actionDispatchers: {
       deleteEvent: eventId => {
-        dispatch(EventActions.deleteEvent(eventId));
+        dispatch(EventActions.deleteEvent({ eventId }));
       },
       hidePopup: () => {
         dispatch(PopupActions.hide());

@@ -3,23 +3,19 @@ import {
   FormGroup,
   InputLabel,
   Input,
-  Tags,
   InputError,
 } from 'components/Form';
-import {
-  isValid,
-  useValidatedState,
-  Validators,
-} from 'components/Form/hooks/useValidatedState';
+import { useValidatedState } from 'components/Form/hooks/useValidatedState';
+import { Validators, isValid } from 'components/Form/utils/validators';
+import Outcomes from 'components/Form/Outcomes';
 import Moment from 'moment';
+import { useState } from 'react';
 
 const BetForm = ({ setBetData, styles, fgClasses, setValidity }) => {
   const [marketQuestion, setMarketQuestion, marketQuestionErrors] =
     useValidatedState('', [Validators.required]);
-  const [outcomes, setOutcomes, outcomesErrors] = useValidatedState(
-    [{ _id: Date.now().toString(), name: '' }],
-    [Validators.minLength(2), Validators.requiredTags]
-  );
+  const [outcomes, setOutcomes] = useState([]);
+  const [areOutcomesValid, setAreOutcomesValid] = useState(false);
   const [
     evidenceDescription,
     setEvidenceDescription,
@@ -35,18 +31,22 @@ const BetForm = ({ setBetData, styles, fgClasses, setValidity }) => {
     new Moment().add(1, 'hour'),
     [Validators.required, Validators.dateAfter(new Moment())]
   );
+  const [liquidity, setLiquidity, liquidityErrors] = useValidatedState(50000, [
+    Validators.required,
+    Validators.integer,
+    Validators.numberLimit(0, 'floor'),
+  ]);
 
   const isFormValid =
     [
       marketQuestionErrors,
-      outcomesErrors,
       evidenceDescriptionErrors,
       evidenceSourceErrors,
       descriptionErrors,
       endDateErrors,
     ]
       .map(isValid)
-      .filter(valid => !valid).length === 0;
+      .filter(valid => !valid).length === 0 && areOutcomesValid;
 
   setValidity(isFormValid);
 
@@ -58,6 +58,7 @@ const BetForm = ({ setBetData, styles, fgClasses, setValidity }) => {
     description,
     endDate,
     slug: 'bet',
+    liquidity,
   };
 
   const setters = {
@@ -67,32 +68,20 @@ const BetForm = ({ setBetData, styles, fgClasses, setValidity }) => {
     endDate: setEndDate,
     evidenceSource: setEvidenceSource,
     description: setDescription,
+    liquidity: setLiquidity,
   };
 
   const setFormValue = (key, value) => {
     betData[key] = value;
     setBetData({
       ...betData,
-      outcomes: betData.outcomes.map(({ name }, index) => ({ name, index })),
+      outcomes: betData.outcomes.map(({ name, probability }, index) => ({
+        name,
+        index,
+        probability,
+      })),
     });
     setters[key](value);
-  };
-
-  const handleTagChange = (name, id) => {
-    updateValue('outcomes')(
-      outcomes.map(tag => (tag._id === id ? { ...tag, name } : tag))
-    );
-  };
-
-  const addTag = () => {
-    updateValue('outcomes')([
-      ...outcomes,
-      { _id: Date.now().toString(), name: '' },
-    ]);
-  };
-
-  const removeTag = id => {
-    updateValue('outcomes')(outcomes.filter(tag => tag._id !== id));
   };
 
   /** @param {keyof betData} key */
@@ -101,7 +90,9 @@ const BetForm = ({ setBetData, styles, fgClasses, setValidity }) => {
   return (
     <div className={styles.betForm}>
       <h3>Bet Data</h3>
-      <FormGroup className={fgClasses(marketQuestionErrors)}>
+      <FormGroup
+        className={fgClasses(marketQuestionErrors, styles.fullWidthContainer)}
+      >
         <InputLabel>Market Question</InputLabel>
         <Input
           type="text"
@@ -111,21 +102,11 @@ const BetForm = ({ setBetData, styles, fgClasses, setValidity }) => {
         <InputError errors={marketQuestionErrors} />
       </FormGroup>
 
-      <FormGroup className={fgClasses(outcomesErrors)}>
+      <FormGroup className={fgClasses({}, styles.fullWidthContainer)}>
         <InputLabel>Options</InputLabel>
-        <Tags
-          tags={outcomes}
-          onTagChange={handleTagChange}
-          addTag={addTag}
-          removeTag={removeTag}
-          max={4}
-        />
-        <InputError
-          errors={outcomesErrors}
-          placeholderValues={{
-            minLength: ['2', 'outcomes'],
-            hasEmptyMembers: ['outcomes'],
-          }}
+        <Outcomes
+          onChange={updateValue('outcomes')}
+          setIsValid={setAreOutcomesValid}
         />
       </FormGroup>
       <FormGroup className={fgClasses(descriptionErrors)}>
@@ -171,6 +152,19 @@ const BetForm = ({ setBetData, styles, fgClasses, setValidity }) => {
           onChange={updateValue('evidenceSource')}
         />
         <InputError errors={evidenceSourceErrors} />
+      </FormGroup>
+
+      <FormGroup className={fgClasses(liquidityErrors)}>
+        <InputLabel>Liquidity</InputLabel>
+        <Input
+          type="text"
+          value={liquidity}
+          onChange={updateValue('liquidity')}
+        />
+        <InputError
+          errors={liquidityErrors}
+          placeholderValues={{ tooLow: [0] }}
+        />
       </FormGroup>
     </div>
   );

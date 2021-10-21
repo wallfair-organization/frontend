@@ -14,11 +14,8 @@ import PopupTheme from 'components/Popup/PopupTheme';
 import { connect } from 'react-redux';
 import Dropdown from 'components/Dropdown';
 import Button from 'components/Button';
-import {
-  useValidatedState,
-  Validators,
-  isValid,
-} from 'components/Form/hooks/useValidatedState';
+import { useValidatedState } from 'components/Form/hooks/useValidatedState';
+import { Validators, isValid } from '../Form/utils/validators';
 import Moment from 'moment';
 import classNames from 'classnames';
 import HighlightType from 'components/Highlight/HighlightType';

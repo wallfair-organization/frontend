@@ -35,4 +35,16 @@ export const trackPageView = dataLayerProps => {
   TagManager.dataLayer(tagManagerArgs);
 };
 
+export const trackNonstreamedEventPlaceTrade = dataLayerProps => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      pageUrl: window.location.href,
+      event: 'nonstreamedEventPlaceTrade',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
 export default TagManager;

@@ -12,6 +12,9 @@ import { TransactionActions } from 'store/actions/transaction';
 import MyTrades from 'components/MyTrades';
 import navbarStyle from '../Navbar/styles.module.scss';
 import TransactionHistory from '../TransactionHistory';
+import PartyIcon from '../../data/icons/party.svg';
+import { PopupActions } from '../../store/actions/popup';
+import PopupTheme from '../Popup/PopupTheme';
 
 const Wallet = ({
   show,
@@ -19,6 +22,7 @@ const Wallet = ({
   fetchOpenBets,
   fetchTradeHistory,
   fetchTransactions,
+  showRequestTokenPopup,
 }) => {
   const menus = {
     wallet: 'wallet',
@@ -32,8 +36,9 @@ const Wallet = ({
   };
 
   const [openMenu, setOpenMenu] = useState(menus.wallet);
+  const [displayRequestTokens, setDisplayRequestTokens] = useState(false);
 
-  const { currency } = useSelector(selectUser);
+  const { currency, balance } = useSelector(selectUser);
   const { transactions, transactionCount } = useTransactions();
 
   const isOpen = page => openMenu === page;
@@ -48,6 +53,10 @@ const Wallet = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [show]);
+
+  useEffect(() => {
+    setDisplayRequestTokens(balance < 5000);
+  }, [balance]);
 
   const backButton = () => (
     <Icon
@@ -71,7 +80,18 @@ const Wallet = ({
           isFirstPanel && styles.firstPanel
         )}
       >
-        <h2 className={styles.walletHeading}>{heading}</h2>
+        <h2 className={styles.walletHeading}>
+          {heading}
+          {displayRequestTokens && (
+            <div
+              className={styles.requestTokens}
+              onClick={showRequestTokenPopup}
+            >
+              <span>Request Tokens</span>
+              <img className={styles.party} src={PartyIcon} />
+            </div>
+          )}
+        </h2>
         <div className={styles.walletContents}>{contents}</div>
       </div>
     );
@@ -146,6 +166,9 @@ const mapDispatchToProps = dispatch => {
     },
     fetchTradeHistory: () => {
       dispatch(BetActions.fetchTradeHistory());
+    },
+    showRequestTokenPopup: () => {
+      dispatch(PopupActions.show({ popupType: PopupTheme.requestTokens }));
     },
   };
 };

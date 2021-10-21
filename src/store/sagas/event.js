@@ -194,7 +194,7 @@ const editEvent = function* ({ eventId, event }) {
   }
 };
 
-const deleteEvent = function* ({ payload: { eventId } }) {
+const deleteEvent = function* ({ eventId }) {
   try {
     yield put(PopupActions.hide());
     const {

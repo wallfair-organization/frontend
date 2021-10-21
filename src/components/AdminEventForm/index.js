@@ -9,25 +9,18 @@ import {
   Tags,
   InputError,
 } from '../Form';
-import * as Api from 'api';
 import { LIVE_EVENTS_CATEGORIES } from 'constants/EventCategories';
 import styles from './styles.module.scss';
 import { connect } from 'react-redux';
 import { setUniqueSlug } from '../../helper/Slug';
-import { PopupActions } from '../../store/actions/popup';
 import eventTypes from 'constants/EventTypes';
 import BetForm from './BetForm';
-import {
-  useValidatedState,
-  hasError,
-  Validators,
-  isValid,
-} from '../Form/hooks/useValidatedState';
+import { useValidatedState } from 'components/Form/hooks/useValidatedState';
+import { Validators, isValid } from '../Form/utils/validators';
 import classNames from 'classnames';
 import Button from 'components/Button';
-import HighlightTheme from 'components/Highlight/HighlightTheme';
 import HighlightType from 'components/Highlight/HighlightType';
-import { EventActions, EventTypes } from 'store/actions/event';
+import { EventActions } from 'store/actions/event';
 
 const categoriesOptions = LIVE_EVENTS_CATEGORIES.map(c => ({
   label: c.value,
@@ -135,10 +128,11 @@ const AdminEventForm = ({
     setTags(prevTags => prevTags.filter(tag => tag._id !== id));
   };
 
-  const fgClasses = err =>
+  const fgClasses = (err, ...args) =>
     classNames(
       styles.inputContainer,
-      !isValid(err) && styles.inputContainerError
+      !isValid(err) && styles.inputContainerError,
+      ...args
     );
 
   const renderStreamInput = () => (

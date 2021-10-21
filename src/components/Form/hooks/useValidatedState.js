@@ -1,27 +1,4 @@
-import moment from 'moment';
-import { useState, Dispatch, useEffect } from 'react';
-
-export const Validators = {
-  required: val =>
-    !!val && val !== null && val !== '' ? null : { required: true },
-  minLength: length => val =>
-    val?.length >= length ? null : { minLength: true },
-  isUrl: val =>
-    !!val &&
-    (val.startsWith('http://') || val.startsWith('https://')) &&
-    val.split('/').at(-1) !== '' &&
-    val.includes('.')
-      ? null
-      : { invalidUrl: true },
-  requiredTags: val =>
-    val.some(({ name }) => name === '') ? { hasEmptyMembers: true } : null,
-  dateAfter: date => value =>
-    !!value && moment(value).isBefore(date) ? { dateBeforeLimit: true } : null,
-};
-
-export const isValid = errors => Object.keys(errors).length === 0;
-
-export const hasError = (errorKey, errors) => !!errors[errorKey];
+import { useState, useEffect } from 'react';
 
 const validate = (errorSetter, validators, newValue) => {
   errorSetter(
@@ -33,9 +10,9 @@ const validate = (errorSetter, validators, newValue) => {
 };
 
 /**
- * @param {T} initialValue
- * @param {[() => ({[key: string]: boolean} | null)]} validators
- * @returns { [T, Dispatch<T>, {[key: string]: boolean} ]
+ * @param {any} initialValue
+ * @param {[(value: any) => ({[key: string]: boolean} | null)]} validators
+ * @returns { [any, (newValue: any) => {}, {[key: string]: boolean} ]
  */
 export const useValidatedState = (initialValue, validators = []) => {
   const [value, setValue] = useState(initialValue || '');

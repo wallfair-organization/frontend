@@ -1,3 +1,4 @@
+export const API_USER_REQUEST_TOKENS = 'api/user/requestTokens';
 // Env vars
 export const BACKEND_URL =
   process.env.REACT_APP_BACKEND_URL || 'https://staging-api.wallfair.io/';

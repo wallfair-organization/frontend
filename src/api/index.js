@@ -168,6 +168,10 @@ const updateUser = (userId, user) => {
   );
 };
 
+const requestTokens = () => {
+  return Api.post(ApiUrls.API_USER_REQUEST_TOKENS);
+};
+
 const updateUserPreferences = (userId, preferences) => {
   return Api.patch(_.replace(ApiUrls.API_USER_PREFERENCES, ':id', userId), {
     preferences,
@@ -527,4 +531,5 @@ export {
   getUserPublicInfo,
   getUserPublicStats,
   updateStatus,
+  requestTokens,
 };

@@ -1,0 +1,48 @@
+@import '../../styles/all';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding-top: 25px;
+  background-color: $colorWhite;
+  color: $colorPrimaryDark;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  padding: 35px 60px;
+  .info{
+    font-size: 18px;
+    font-family: $fontRegular;
+    line-height: 1.5;
+    margin: 30px auto;
+  }
+  .buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    font-family: $fontBold;
+    font-size: 16px;
+    .accept{
+      background: url("../../data/backgrounds/highlight-home-cta-bet.svg");
+      width: 100px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .reject{
+      background: url("../../data/backgrounds/highlight-home-cta-bet.svg");
+      width: 100px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+}

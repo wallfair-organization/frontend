@@ -4,7 +4,7 @@ import { AuthenticationActions } from '../actions/authentication';
 import { call } from 'redux-saga/effects';
 import { put } from 'redux-saga/effects';
 import { select } from 'redux-saga/effects';
-import { UserActions } from '../actions/user';
+import { UserActions, UserTypes } from '../actions/user';
 import { LOGGED_IN } from 'constants/AuthState';
 import { AlertActions } from 'store/actions/alert';
 
@@ -111,8 +111,19 @@ const updatePreferences = function* (action) {
   }
 };
 
+const requestTokens = function* () {
+  try {
+    yield call(Api.requestTokens);
+    yield put(UserActions.requestTokensSucceeded());
+  } catch (e) {
+    yield put(UserActions.requestTokensFailed());
+    yield put(AlertActions.showError({ message: 'Request failed' }));
+  }
+};
+
 export default {
   fetch,
   fetchSucceeded,
   updatePreferences,
+  requestTokens,
 };

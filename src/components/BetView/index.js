@@ -43,6 +43,7 @@ import ButtonSmallTheme from 'components/ButtonSmall/ButtonSmallTheme';
 import InfoBox from 'components/InfoBox';
 import EventTypes from 'constants/EventTypes';
 import BetActionsMenu from 'components/BetActionsMenu';
+import { trackNonstreamedEventPlaceTrade } from '../../config/gtm';
 
 const BetView = ({
   betId,
@@ -381,6 +382,7 @@ const BetView = ({
         } else if (!tradeButtonDisabled) {
           onTradeButtonConfirm();
           fetchOutcomes(commitment, betId);
+          trackNonstreamedEventPlaceTrade({ eventTitle: bet?.marketQuestion });
         } else {
           _.noop();
         }
