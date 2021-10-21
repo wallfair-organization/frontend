@@ -59,8 +59,8 @@ const initializeState = (action, state) => {
     animationIndex,
     musicIndex,
     bgIndex,
-    placedBetInQueue: !!upcomingBets.find(b => b.userId === userId),
-    isCashedOut: !!cashedOutBets.find(b => b.userId === userId),
+    placedBetInQueue: !!upcomingBets.find(b => b?.userId === userId),
+    isCashedOut: !!cashedOutBets.find(b => b?.userId === userId),
     volumeLevel: parseInt(volumeLevel),
   };
 };
@@ -175,7 +175,7 @@ const cashedOutGuest = (action, state) => {
     userBet: null,
     isCashedOut: true,
     cashedOut: [bet, ...state.cashedOut],
-    inGameBets: state.inGameBets.filter(bet => bet.userId !== 'Guest'),
+    inGameBets: state.inGameBets.filter(bet => bet?.userId !== 'Guest'),
   };
 };
 
@@ -193,9 +193,9 @@ const addReward = (action, state) => {
   return {
     ...state,
     cashedOut: [bet, ...state.cashedOut],
-    inGameBets: state.inGameBets.filter(
-      bet => bet.userId !== correspondingBet.userId
-    ),
+    inGameBets: correspondingBet
+      ? state.inGameBets.filter(bet => bet.userId !== correspondingBet.userId)
+      : state.inGameBets,
   };
 };
 
