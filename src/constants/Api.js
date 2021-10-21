@@ -19,7 +19,7 @@ export const API_AUTHENTICATION_VERIFY_SMS_URL = 'api/user/verifyLogin';
 export const API_AUTHENTICATION_VERIFY_EMAIL =
   'api/user/confirm-email/?userId=:userId&code=:code';
 export const API_AUTHENTICATION_RESEND_EMAIL_VERIFICATION =
-  'api/user/resend-confirm';
+  'api/user/resend-confirm?userId=:userId';
 export const API_BET_CREATE = 'api/event/bet/create';
 export const API_EVENT_BET_CREATE = 'api/event/bet/create';
 export const API_EVENT_BET_EDIT = '/api/event/bet/:betId'; // or this endpoint /api/event/:id/bet/:betId

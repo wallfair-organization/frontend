@@ -8,10 +8,15 @@ import Button from '../Button';
 import { ReactComponent as SuccessIcon } from '../../data/icons/success-circle.svg';
 import { ReactComponent as FailedIcon } from '../../data/icons/failed-circle.svg';
 
-const VerifyEmailPopup = ({ closed, hidePopup, emailVerificationState }) => {
+const VerifyEmailPopup = ({
+  closed,
+  hidePopup,
+  emailVerificationState,
+  emailVerificationUserId,
+}) => {
   const onResendClick = async () => {
     hidePopup();
-    await resendEmailVerification();
+    await resendEmailVerification(emailVerificationUserId);
   };
 
   const onCloseClick = () => {
@@ -72,9 +77,10 @@ const VerifyEmailPopup = ({ closed, hidePopup, emailVerificationState }) => {
 
 const mapStateToProps = state => {
   const emailVerificationState = state.authentication.emailVerificationState;
-
+  const emailVerificationUserId = state.authentication.emailVerificationUserId;
   return {
     emailVerificationState,
+    emailVerificationUserId,
   };
 };
 

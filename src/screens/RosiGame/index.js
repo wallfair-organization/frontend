@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as Api from 'api/crash-game';
 import { connect, useDispatch } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
@@ -31,7 +31,7 @@ const RosiGame = ({ showPopup, connected, userId }) => {
   const dispatch = useDispatch();
   const { lastCrashes, inGameBets, cashedOut, hasStarted, isEndgame } =
     useRosiData();
-  const isSmallDevice = useMediaQuery('(max-width:768px)');
+  const [audio, setAudio] = useState(null);
   const isMiddleOrLargeDevice = useMediaQuery('(min-width:769px)');
 
   const handleHelpClick = useCallback(event => {
@@ -140,10 +140,21 @@ const RosiGame = ({ showPopup, connected, userId }) => {
           <Grid container spacing={1}>
             <Grid item xs={12} md={9}>
               <LastCrashes lastCrashes={lastCrashes} />
-              <GameAnimation inGameBets={inGameBets} />
+              <GameAnimation
+                inGameBets={inGameBets}
+                onInit={audio => setAudio(audio)}
+              />
             </Grid>
             <Grid item xs={12} md={3}>
-              <PlaceBet connected={connected} />
+              <PlaceBet
+                connected={connected}
+                onBet={() => {
+                  audio.playBetSound();
+                }}
+                onCashout={() => {
+                  audio.playWinSound();
+                }}
+              />
             </Grid>
             {isMiddleOrLargeDevice ? (
               <Grid item xs={12} md={4}>

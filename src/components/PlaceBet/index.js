@@ -28,7 +28,7 @@ import AuthenticationType from 'components/Authentication/AuthenticationType';
 import Timer from '../RosiGameAnimation/Timer';
 import { TOKEN_NAME } from 'constants/Token';
 
-const PlaceBet = ({ connected }) => {
+const PlaceBet = ({ connected, onBet, onCashout }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const userBalance = parseInt(user?.balance || 0, 10);
@@ -118,6 +118,7 @@ const PlaceBet = ({ connected }) => {
   const placeABet = () => {
     if (userUnableToBet) return;
     if (amount > userBalance) return;
+    onBet();
     const payload = {
       amount,
       crashFactor: Math.round(Math.abs(parseFloat(crashFactor)) * 100) / 100,
@@ -138,6 +139,7 @@ const PlaceBet = ({ connected }) => {
 
   const placeGuestBet = () => {
     if (userUnableToBet) return;
+    onBet();
     const payload = {
       amount,
       crashFactor: Math.round(Math.abs(parseFloat(crashFactor)) * 100) / 100,
@@ -154,6 +156,7 @@ const PlaceBet = ({ connected }) => {
     Api.cashOut()
       .then(response => {
         setAnimate(true);
+        onCashout();
         AlertActions.showSuccess(JSON.stringify(response));
       })
       .catch(_ => {
@@ -202,7 +205,7 @@ const PlaceBet = ({ connected }) => {
             user.isLoggedIn ? 'elongame-place-bet' : 'elongame-play-demo'
           }
         >
-          {user.isLoggedIn ? 'Place Bet' : 'Play Demo'}
+          {user.isLoggedIn ? 'Place Bet' : 'Play Demos'}
         </span>
       );
     } else if ((userPlacedABet && !isGameRunning) || isBetInQueue) {
@@ -304,7 +307,6 @@ const PlaceBet = ({ connected }) => {
         particleCount={300}
         spread={360}
         origin={{ x: 0.4, y: 0.45 }}
-        onFire={() => dispatch(RosiGameActions.playWinSound())}
       />
       <div className={styles.inputContainer}>
         <div className={styles.placeBetContainer}>

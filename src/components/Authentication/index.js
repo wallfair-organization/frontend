@@ -32,6 +32,7 @@ const Authentication = ({
   const [error, setError] = useState(null);
   const [forgotPassword, setForgotPassword] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState(false);
+  const [submitInProgress, setSubmitInProgress] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
   const totalUsers = useSelector(selectTotalUsers);
 
@@ -53,12 +54,14 @@ const Authentication = ({
     setLegalAuthorizationAgreed(false);
     setError(null);
     setForgotPassword(false);
+    setSubmitInProgress(false);
   }, [popupVisible]);
 
   useEffect(() => {
     ReactTooltip.rebuild();
 
     if (errorState) {
+      setSubmitInProgress(false);
       fooRef.current = genericRef;
       setError(errorState);
       ReactTooltip.show(fooRef);
@@ -115,6 +118,8 @@ const Authentication = ({
     if (!executeRecaptcha) return;
 
     const token = await executeRecaptcha('join');
+    if (!token) return handleReCaptchaVerify();
+
     setRecaptchaToken(token);
   }, [executeRecaptcha]);
 
@@ -125,6 +130,8 @@ const Authentication = ({
   const onConfirm = () => {
     const error = validateInput();
     if (error) return;
+
+    setSubmitInProgress(true);
 
     if (forgotPassword) {
       initForgotPassword(email);
@@ -183,6 +190,7 @@ const Authentication = ({
             className={styles.inputBox}
             placeholder="john.doe@gmail.com"
             value={email}
+            disabled={submitInProgress}
             setValue={e => {
               setInputEmail(e.trim().toLowerCase());
             }}
@@ -206,6 +214,7 @@ const Authentication = ({
               placeholder="***********"
               value={password}
               setValue={setPassword}
+              disabled={submitInProgress}
               onConfirm={onConfirm}
             />
           </FormGroup>
@@ -228,6 +237,7 @@ const Authentication = ({
               placeholder="***********"
               value={passwordConfirmation}
               setValue={setPasswordConfirmation}
+              disabled={submitInProgress}
               onConfirm={onConfirm}
             />
           </FormGroup>
@@ -241,7 +251,7 @@ const Authentication = ({
           withoutBackground={true}
           highlightType={HighlightType.highlightAuthButton}
           className={styles.submitButton}
-          disabled={false}
+          disabled={submitInProgress}
           disabledWithOverlay={true}
         >
           <span>{forgotPassword ? 'Send' : action}</span>
