@@ -102,7 +102,9 @@ const BetVTwo = ({
 
   useNewsFeed(event);
 
-  const isNonStreamed = _.get(event, 'type') === EventTypes.nonStreamed;
+  const eventType = _.get(event, 'type');
+
+  const isNonStreamed = eventType === EventTypes.nonStreamed;
   const canDeleteEvent = _.get(event, 'bets')?.every(
     ({ status }) => status === BetState.canceled
   );
@@ -290,7 +292,7 @@ const BetVTwo = ({
   const renderBetSidebarContent = () => {
     return (
       <div className={styles.betViewWrapper}>
-        {event.type === EventTypes.streamed && relatedBets.length > 1 && (
+        {eventType === EventTypes.streamed && relatedBets.length > 1 && (
           <div className={styles.betViewClose} onClick={onBetClose()}>
             <Icon
               iconType={'arrowLeft'}
@@ -376,7 +378,7 @@ const BetVTwo = ({
                 </span>
               )}
             </span>
-            {event.type === EventTypes.streamed && (
+            {eventType === EventTypes.streamed && (
               <span
                 className={styles.newBetLink}
                 onClick={() => showPopup(PopupTheme.newBet, { event })}
@@ -464,7 +466,7 @@ const BetVTwo = ({
                       </>
                     )}
                   </div>
-                  {event.type === 'non-streamed' && matchMediaMobile && (
+                  {eventType === 'non-streamed' && matchMediaMobile && (
                     <div
                       className={styles.diagramButton}
                       onClick={onShowHideChart}
@@ -478,12 +480,12 @@ const BetVTwo = ({
                 <div
                   className={classNames(
                     styles.chartMainWrapper,
-                    event.type === 'streamed'
+                    eventType === 'streamed'
                       ? styles.streamContainer
                       : styles.nonStreamContainer
                   )}
                 >
-                  {event.type === 'non-streamed' ? (
+                  {eventType === 'non-streamed' ? (
                     <div className={styles.chart}>
                       {((matchMediaMobile && showChart) ||
                         !matchMediaMobile) && (
