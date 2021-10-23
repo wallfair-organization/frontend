@@ -33,6 +33,13 @@ const addNotification = (action, state) => {
   };
 };
 
+const cleanUpActivities = (action, state) => {
+  return {
+    ...state,
+    activities: [],
+  };
+};
+
 const addActivity = (action, state) => {
   const { activity, eventName } = action;
 
@@ -71,6 +78,8 @@ export default function (state = initialState, action) {
     // @formatter:off
     case NotificationTypes.ADD_ACTIVITY:
       return addActivity(action, state);
+    case NotificationTypes.CLEANUP_ACTIVITIES:
+      return cleanUpActivities(action, state);
     case NotificationTypes.ADD_NOTIFICATION:
       return addNotification(action, state);
     case NotificationTypes.SET_UNREAD:

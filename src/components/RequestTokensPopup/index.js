@@ -10,8 +10,9 @@ const RequestTokensPopup = ({ hidePopup, requestTokens }) => {
     <div className={styles.container}>
       <h1>Request Tokens</h1>
       <div className={styles.info}>
-        Your balance will be updated to 5000 PFAIR and your position on the
-        leaderboard will be reset to 0.
+        Your balance will be updated to{' '}
+        <span className={styles.amount}>5,000 PFAIR</span> and your position on
+        the leaderboard will be reset to <span className={styles.red}>0</span>.
       </div>
       <div className={styles.buttons}>
         <div

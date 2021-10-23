@@ -43,12 +43,11 @@ const App = () => {
   const { onScroll, hideNavbar } = useHideMobileScrollingMenu();
 
   return (
-    <div onScroll={onScroll}>
+    <div id={"main-scroll-container"} onScroll={onScroll}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <ConnectedRouter history={history}>
             <PageTracker />
-            <ScrollToTop />
             <Navbar skipRoutes={[]} />
             <AlertBox />
             <Popup />
@@ -119,6 +118,7 @@ const App = () => {
                 trackingId="mobile-menu-games"
               />
             </NavbarFooter>
+            <ScrollToTop />
           </ConnectedRouter>
         </PersistGate>
       </Provider>

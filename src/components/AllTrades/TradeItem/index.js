@@ -77,7 +77,8 @@ const TradeItem = ({ currentUserId, trade, showPulloutBetPopup }) => {
                   showPulloutBetPopup(
                     trade.betId,
                     trade.outcomeIndex,
-                    trade.outcomeSell
+                    trade.outcomeSell,
+                    trade.outcomeName
                   )
                 }
                 data-tracking-id="all-trades-cashout"
@@ -94,7 +95,7 @@ const TradeItem = ({ currentUserId, trade, showPulloutBetPopup }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    showPulloutBetPopup: (betId, outcome, amount) => {
+    showPulloutBetPopup: (betId, outcome, amount, outcomeName) => {
       dispatch(
         PopupActions.show({
           popupType: PopupTheme.pulloutApprove,
@@ -104,6 +105,7 @@ const mapDispatchToProps = dispatch => {
               betId,
               outcome,
               amount,
+              outcomeName,
             },
           },
         })

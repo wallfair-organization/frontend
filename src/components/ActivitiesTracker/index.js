@@ -92,6 +92,7 @@ const ActivitiesTracker = ({
   betId,
   userId,
   preselectedCategory,
+  cleanUpActivities,
 }) => {
   const messageListRef = useRef();
 
@@ -113,6 +114,8 @@ const ActivitiesTracker = ({
   useEffect(() => {
     if (isMount) {
       (async () => {
+        //make sure we have clear redux-persist initially
+        cleanUpActivities();
         let initialActivities = await callByParams({
           betId,
           userId,
@@ -134,6 +137,7 @@ const ActivitiesTracker = ({
   useEffect(() => {
     if (initialLoaded) {
       (async () => {
+        setActivitiesToDisplay([]);
         const initialActivities = await getNotificationEvents({
           limit: activitiesLimit || 10,
           category: selectedCategory,
@@ -173,9 +177,11 @@ const ActivitiesTracker = ({
         return categoryEvents.indexOf(item.type) > -1;
       });
 
-      setActivitiesToDisplay(stateData => {
-        return [...initialApiActivities, ...newFiltered];
-      });
+      if (activitiesToDisplay.length === 0) {
+        setActivitiesToDisplay(initialApiActivities);
+      } else {
+        setActivitiesToDisplay([...initialApiActivities, ...newFiltered]);
+      }
     }
   }, [activities, initialApiActivities]);
 
@@ -285,19 +291,23 @@ const ActivitiesTracker = ({
     );
   };
 
-  const messageListScrollToBottom = () => {
+  const messageListScrollToBottom = (behavior = 'smooth') => {
     if (messageListRef) {
       messageListRef.current.scrollTo({
         top: messageListRef.current.scrollHeight,
         left: 0,
-        behavior: 'smooth',
+        behavior: behavior,
       });
     }
   };
 
   useEffect(() => {
     if (initialLoaded) {
-      messageListScrollToBottom();
+      if (activities.length === 0) {
+        messageListScrollToBottom('instant');
+      } else {
+        messageListScrollToBottom();
+      }
     }
   }, [activitiesToDisplay, initialLoaded]);
 
@@ -326,6 +336,9 @@ const mapDispatchToProps = dispatch => {
   return {
     addActivity: (type, activity) => {
       dispatch(NotificationActions.addActivity({ type, activity }));
+    },
+    cleanUpActivities: data => {
+      dispatch(NotificationActions.cleanUpActivities());
     },
   };
 };

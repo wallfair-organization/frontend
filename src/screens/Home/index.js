@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import _ from 'lodash';
 import { connect, useSelector } from 'react-redux';
+import { isMobile } from 'react-device-detect';
 import BaseContainerWithNavbar from '../../components/BaseContainerWithNavbar';
 import EventsCarouselContainer from '../../components/EventsCarouselContainer';
 import Leaderboard from '../../components/Leaderboard';

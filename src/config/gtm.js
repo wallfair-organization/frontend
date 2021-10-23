@@ -47,4 +47,15 @@ export const trackNonstreamedEventPlaceTrade = dataLayerProps => {
   TagManager.dataLayer(tagManagerArgs);
 };
 
+export const trackApproveCashout = dataLayerProps => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      event: 'approveCashout',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
 export default TagManager;

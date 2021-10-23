@@ -1,4 +1,4 @@
 REACT_APP_CRASH_GAME_BACKEND_URL=https://staging-elon-api.wallfair.io/
 REACT_APP_BACKEND_URL=https://staging-api.wallfair.io/
 REACT_APP_NEWS_API_SSL_MODE=true
-SHOW_UPCOMING_FEATURES=true
+REACT_APP_SHOW_UPCOMING_FEATURES=true

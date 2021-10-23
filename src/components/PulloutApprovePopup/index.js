@@ -6,17 +6,19 @@ import { BetActions } from 'store/actions/bet';
 import LikeIcon from '../../data/icons/like-icon.svg';
 import HighlightType from 'components/Highlight/HighlightType';
 import { selectUser } from 'store/selectors/authentication';
+import { trackApproveCashout } from '../../config/gtm';
 
 const PulloutApprovePopup = ({
   hidePopup,
   pullOutBet,
-  betData: { betId, amount, outcome },
+  betData: { betId, amount, outcome, outcomeName },
 }) => {
   const { currency } = useSelector(selectUser);
 
   const onApprovePulloutClick = () => {
     pullOutBet(betId, outcome, amount);
     hidePopup();
+    trackApproveCashout({ eventTitle: outcomeName });
   };
 
   const onCancelPulloutClick = () => {

@@ -83,6 +83,7 @@ const Bet = ({
   const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const [isReady, setIsReady] = useState(false);
   const [showChart, setShowChart] = useState(false);
+  const [title, setTitle] = useState('');
 
   const mobileChatRef = useRef(null);
   const ref = useRef(null);
@@ -154,6 +155,10 @@ const Bet = ({
         ? _.get(event, 'bets[0]._id')
         : _.get(currentBet, '_id');
     setBetId(currentBetId);
+
+    const key = isNonStreamed ? 'bets[0].marketQuestion' : 'name';
+    const title = _.get(event, key);
+    setTitle(title);
 
     if (betSlug) {
       selectBet(currentBetId, betSlug);
@@ -662,7 +667,11 @@ const Bet = ({
                 </Link>
               </div>
               <div className={styles.shareButton}>
-                <Share />
+                <Share
+                  popupPosition={
+                    matchMediaMobile ? '' : title.length < 16 ? 'right' : 'left'
+                  }
+                />
               </div>
               <AdminOnly>
                 <div className={styles.eventAdminActionsContainer}>

@@ -89,6 +89,7 @@ const fetchHomeEvents = function* (action) {
     category: action.category || 'all',
     upcoming: action.upcoming,
     deactivated: action.deactivated,
+    sortBy: action.sortBy || '-date',
   };
 
   const response = yield call(Api.listEventsFiltered, params);

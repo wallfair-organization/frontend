@@ -23,7 +23,7 @@ export const ALPHA_PLATFORMS = [
     title: SecondTitle,
     subtitle: '',
     description:
-      'As you play you also earn rewards and climb on the leaderboard',
+      'As you play you also earn rewards and climb on the leaderboard.',
     active: false,
     linkTo: '',
   },
@@ -32,7 +32,7 @@ export const ALPHA_PLATFORMS = [
     title: ThirdTitle,
     subtitle: '',
     description:
-      'Every week, the Top 10 on the leaderboard are rewarded real WFAIR tokens',
+      'Every week, the Top 10 on the leaderboard are rewarded real WFAIR tokens.',
     active: false,
     linkTo: '',
   },
@@ -41,7 +41,7 @@ export const ALPHA_PLATFORMS = [
     title: FourthTitle,
     subtitle: '',
     description:
-      'You can sell the tokens or use them when our platform launches',
+      'You can sell the tokens or use them when our platform launches.',
     active: false,
     linkTo: '',
   },
