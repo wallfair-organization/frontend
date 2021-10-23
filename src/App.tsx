@@ -34,6 +34,7 @@ import ScrollToTop from 'utils/ScrollToTop';
 import DisclaimerPopupContainer from 'components/DisclaimerPopupContainer';
 import PageTracker from 'components/PageTracker';
 import useHideMobileScrollingMenu from 'hooks/useHideMobileScrollingMenu';
+import EventRouter from 'components/Events/EventRouter';
 
 const { store, persistor } = configStore();
 
@@ -67,7 +68,8 @@ const App = () => {
               />
               <Route exact path={Routes.home} component={Home} />
               {/* <Route exact path={Routes.bet} component={Bet} /> */}
-              <Route exact path={Routes.bet} component={BetVTwo} />
+              {/* <Route exact path={Routes.bet} component={BetVTwo} /> */}
+              <Route exact path={Routes.bet} component={EventRouter} />
               <Route exact path={Routes.betApproveDirect} component={Home} />
               <Route exact path={Routes.liveEvents} component={LiveEvents} />
               <Route exact path={Routes.events} component={Events} />

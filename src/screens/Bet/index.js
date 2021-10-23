@@ -373,14 +373,16 @@ const Bet = ({
     const eventViews = [
       EventTradeViewsHelper.getView('Chat', undefined, false, styles.chatTab),
       EventTradeViewsHelper.getView('Event Trades'),
-      event.type === 'non-streamed'
-        ? EventTradeViewsHelper.getView('Evidence', undefined, false)
-        : EventTradeViewsHelper.getView(
-            'My Trades',
-            isLoggedIn() ? activeBets.length : 0,
-            true
-          ),
-      ...(isNonStreamed && [EventTradeViewsHelper.getView('All Trades')]),
+      ...(isNonStreamed
+        ? [EventTradeViewsHelper.getView('Evidence', undefined, false)]
+        : [
+            EventTradeViewsHelper.getView(
+              'My Trades',
+              isLoggedIn() ? activeBets.length : 0,
+              true
+            ),
+            EventTradeViewsHelper.getView('All Trades'),
+          ]),
     ];
 
     return (

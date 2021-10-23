@@ -210,7 +210,7 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
             user.isLoggedIn ? 'elongame-place-bet' : 'elongame-play-demo'
           }
         >
-          {user.isLoggedIn ? 'Place Bet' : 'Play Demos'}
+          {user.isLoggedIn ? 'Place Bet' : 'Play Demo'}
         </span>
       );
     } else if ((userPlacedABet && !isGameRunning) || isBetInQueue) {
