@@ -25,7 +25,7 @@ const SignUpPopup = ({ closed, user, hidePopup, showPopup, authState }) => {
           <span className={styles.welcomeTextHeadlineUnderline}></span>
         </span>
         <ul className={styles.featureList}>
-          <li>Only {totalUsers}/500 slots available</li>
+          <li>Only {totalUsers}/700 slots available</li>
           <li>PFAIR = WFAIR playmoney</li>
           <li>No risk of losing any real money</li>
         </ul>

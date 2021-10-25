@@ -1,0 +1,31 @@
+.muteButton {
+  min-width: 30px;
+  min-height: 30px;
+  background: url('../../data/icons/volume_up_white_24dp.svg');
+  background-size: cover;
+
+  cursor: pointer;
+}
+
+.muteButton.mute {
+  background: url('../../data/icons/volume_off_white_24dp.svg');
+  background-size: cover;
+}
+
+.muteButton.low {
+  background: url('../../data/icons/volume_down_white_24dp.svg');
+  background-size: cover;
+}
+
+.container{
+  width: 140px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (max-width: 768px){
+    flex-direction: column;
+    height: 140px;
+    width: 40px;
+  }
+}

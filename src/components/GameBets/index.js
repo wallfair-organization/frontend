@@ -3,7 +3,7 @@ import { TOKEN_NAME } from '../../constants/Token';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
 
-const formatAmount = amount => amount.toFixed(0);
+const formatAmount = amount => (amount ? amount.toFixed(0) : '-'); // TODO: temp solution (sometimes amount is undefined)
 const isCashedOut = bets => bets.findIndex(b => b.cashedOut) > -1;
 
 const calculateTotal = (bets, gameRunning, endGame) => {

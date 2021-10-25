@@ -16,9 +16,16 @@ import { isString } from 'lodash/lang';
 PIXI.utils.skipHello();
 
 class AudioController {
-  constructor(volume = 1.0, bgmIndex = 0) {
+  constructor(bgmIndex = 0) {
+    let volume = 0;
+    try {
+      const savedVolume = localStorage.getItem('gameVolume');
+      this.volume = savedVolume ? parseFloat(savedVolume) : volume;
+    } catch (e) {
+      this.volume = 0;
+      console.error(e);
+    }
     this.errors = [];
-    this.volume = isString(volume) ? parseInt(volume) : volume;
     this.bgmIndex = bgmIndex;
     this.elapsed = 0;
     this.ready = true;
@@ -70,6 +77,8 @@ class AudioController {
       } else {
         this.volume = volume;
       }
+
+      localStorage.setItem('gameVolume', `${volume}`);
 
       Sound.sound.volume('bgm', this.volume);
       Sound.sound.volume('flying', this.volume);
@@ -194,7 +203,7 @@ class RosiAnimationController {
     } catch (e) {
       console.error(e);
     }
-    this.audio = new AudioController(1.0);
+    this.audio = new AudioController();
 
     this.audio.setBgmIndex(options.musicIndex);
 
@@ -287,6 +296,7 @@ class RosiAnimationController {
   end(isLosing) {
     const coinPosition = this.coinAndTrajectory.getCoinExplosionPosition();
     this.coinExplosion.startAnimation(coinPosition.x, coinPosition.y);
+    this.cashedOut.crashed = true;
     this.coinAndTrajectory.endCoinFlyingAnimation();
     isLosing ? this.audio.playLoseSound() : this.audio.playGameOverSound();
     this.audio.stopBgm();

@@ -7,5 +7,10 @@ namespace: staging
 commonLabels:
   environment: staging
 
+configMapGenerator:
+  - name: frontend-config
+    behavior: merge
+    envs:
+      - environment
 patches:
 - priorityPatch.yaml

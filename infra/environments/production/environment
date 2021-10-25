@@ -1,3 +1,5 @@
 REACT_APP_BACKEND_URL=https://production-api.wallfair.io/
 REACT_APP_CRASH_GAME_BACKEND_URL=https://production-elon-api.wallfair.io/
 REACT_APP_SHOW_UPCOMING_FEATURES=false
+REACT_APP_URL=https://play.wallfair.io
+ENABLE_SITE_MAP=true

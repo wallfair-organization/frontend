@@ -1,0 +1,13 @@
+@import '../../styles/all';
+
+.slider{
+    color: #7166c7 !important;
+   width: 100px !important;
+    @media screen and (max-width: 768px){
+      flex-direction: column;
+      height: 60px !important;
+      width: 5px !important;
+      margin-bottom: 5px;
+    }
+  }
+

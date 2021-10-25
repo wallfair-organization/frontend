@@ -35,10 +35,16 @@
       flex-basis: 45%;
       height: 100%;
       position: relative;
-
+      background-image: url('../../data/backgrounds/elon/elon-in-space_background.png');;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
       @media (max-width: $screen-md) {
         width: 100%;
         flex-basis: 100%;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
       }
 
       .buttonWrapper {

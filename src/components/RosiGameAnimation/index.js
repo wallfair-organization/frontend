@@ -15,6 +15,8 @@ import Counter from './Counter';
 import styles from './styles.module.scss';
 import RosiGameAnimationController from './canvas/RosiGameAnimationController';
 import { RosiGameActions } from '../../store/actions/rosi-game';
+import VolumeSlider from '../VolumeSlider';
+import GameAudioControls from '../GameAudioControls';
 
 const PreparingRound = ({ nextGameAt }) => (
   <div className={styles.preparingRound}>
@@ -153,16 +155,11 @@ const RosiGameAnimation = ({
 
   return (
     <div className={styles.animation}>
-      <div
-        className={classNames({
-          [styles.muteButton]: true,
-          [styles.mute]: !(audio?.volume > 0),
-        })}
-        onClick={() => {
-          muteButtonClick();
-          audio.volume === 0.0 ? audio.setVolume(1.0) : audio.mute();
-        }}
-      />
+      <div className={styles.audioControls}>
+        {audio && (
+          <GameAudioControls audio={audio} muteButtonClick={muteButtonClick} />
+        )}
+      </div>
       <canvas
         className={classNames(
           styles.canvas,

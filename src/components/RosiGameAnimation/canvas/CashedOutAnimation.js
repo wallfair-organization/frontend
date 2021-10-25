@@ -27,6 +27,7 @@ class Animation {
 
     this.crashFactorText = this.createCashFactorText();
     this.initialAnimationFrameDone = false;
+    this.crashed = false;
   }
 
   createAmountText() {
@@ -120,6 +121,7 @@ class Animation {
     this.container.visible = false;
     this.speed = 0;
     this.initialAnimationFrameDone = false;
+    this.crashed = false;
   }
 
   setSpeed(speed) {
@@ -218,6 +220,7 @@ class CashedOutAnimation {
     this.cachedAnims = this.currentAnims.slice();
     this.currentAnims = [];
     this.currentTextOrientation = 'bottom';
+    this.crashed = false;
 
     for (const anim of this.cachedAnims) {
       anim.reset();
@@ -225,6 +228,7 @@ class CashedOutAnimation {
   }
 
   update(dt, elapsedTime) {
+    if (this.crashed === true) return;
     let prevAnim;
     const currentGPos =
       this.coinAndTrajectory.getGlobalPositionByTime(elapsedTime);

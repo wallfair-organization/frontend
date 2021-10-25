@@ -297,11 +297,11 @@
             font-size: 12px;
             justify-content: center;
             flex-wrap: wrap;
+            flex-direction: column;
 
             span {
               font-size: 16px;
               color: $colorYellow;
-              margin-right: 5px;
             }
           }
 
