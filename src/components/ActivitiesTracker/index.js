@@ -30,6 +30,17 @@ import { NotificationActions } from '../../store/actions/notification';
 
 SwiperCore.use([Navigation, Pagination]);
 
+const getInitialActivitiesBySort = data => {
+  //@todo update backend default sort order, to achieve this sorting
+  return _.map(Array.from(data).reverse(), (item, index) => {
+    return {
+      data: _.get(item, 'data'),
+      type: _.get(item, 'type'),
+      updatedAt: _.get(item, 'updatedAt'),
+    };
+  });
+};
+
 /***
  *
  * @param className - class name for container
@@ -76,12 +87,12 @@ const ActivitiesTracker = ({
   className,
   messagesClassName,
   activities,
-  addInitialActivities,
   showCategories,
   activitiesLimit,
   betId,
   userId,
   preselectedCategory,
+  cleanUpActivities,
 }) => {
   const messageListRef = useRef();
 
@@ -95,12 +106,16 @@ const ActivitiesTracker = ({
   const [selectedCategory, setSelectedCategory] = useState(preselectCategory);
 
   const [initialLoaded, setInitialLoaded] = useState(false);
+  const [activitiesToDisplay, setActivitiesToDisplay] = useState([]);
+  const [initialApiActivities, setInitialApiActivities] = useState([]);
 
   const isMount = useIsMount();
 
   useEffect(() => {
     if (isMount) {
       (async () => {
+        //make sure we have clear redux-persist initially
+        cleanUpActivities();
         let initialActivities = await callByParams({
           betId,
           userId,
@@ -109,8 +124,9 @@ const ActivitiesTracker = ({
         }).catch(err => {
           console.error("Can't callByParams", err);
         });
-
-        addInitialActivities(initialActivities);
+        setInitialApiActivities(
+          getInitialActivitiesBySort(initialActivities?.data)
+        );
         setInitialLoaded(true);
       })().catch(err => {
         console.error('initialNotification error', err);
@@ -121,35 +137,56 @@ const ActivitiesTracker = ({
   useEffect(() => {
     if (initialLoaded) {
       (async () => {
+        setActivitiesToDisplay([]);
         const initialActivities = await getNotificationEvents({
           limit: activitiesLimit || 10,
           category: selectedCategory,
         }).catch(err => {
           console.error("Can't get trade by id:", err);
         });
-        addInitialActivities(initialActivities);
+        setInitialApiActivities(
+          getInitialActivitiesBySort(initialActivities?.data)
+        );
       })().catch(err => {
         console.error('initialNotification error', err);
       });
     }
   }, [selectedCategory]);
 
-  const renderActivities = () => {
-    const selectedCategoryLower = selectedCategory.toLowerCase();
-    const categoryCfg = _.find(ACTIVITIES_TO_TRACK, {
-      value: selectedCategoryLower,
-    });
-    const categoryEvents = _.get(categoryCfg, 'eventsCats', []);
-    // console.log("notifications", notifications);
-    const categoryFiltered = _.filter(activities, item => {
-      if (selectedCategoryLower === 'all') {
-        return true;
+  useEffect(() => {
+    if (activities) {
+      const selectedCategoryLower = selectedCategory.toLowerCase();
+      const categoryCfg = _.find(ACTIVITIES_TO_TRACK, {
+        value: selectedCategoryLower,
+      });
+      const categoryEvents = _.get(categoryCfg, 'eventsCats', []);
+
+      const newFiltered = activities.filter(item => {
+        if (selectedCategoryLower === 'all') {
+          if (betId) {
+            return item?.data?.bet?._id === betId;
+          }
+
+          if (userId) {
+            return item?.data?.userId === userId;
+          }
+
+          return true;
+        }
+
+        return categoryEvents.indexOf(item.type) > -1;
+      });
+
+      if (activitiesToDisplay.length === 0) {
+        setActivitiesToDisplay(initialApiActivities);
+      } else {
+        setActivitiesToDisplay([...initialApiActivities, ...newFiltered]);
       }
+    }
+  }, [activities, initialApiActivities]);
 
-      return categoryEvents.indexOf(item.type) > -1;
-    });
-
-    return _.map(categoryFiltered, (activityMessage, index) => {
+  const renderActivities = () => {
+    return _.map(activitiesToDisplay, (activityMessage, index) => {
       let date = _.get(activityMessage, 'updatedAt');
 
       //try to get trade updatedAt date
@@ -254,21 +291,25 @@ const ActivitiesTracker = ({
     );
   };
 
-  const messageListScrollToBottom = () => {
+  const messageListScrollToBottom = (behavior = 'smooth') => {
     if (messageListRef) {
       messageListRef.current.scrollTo({
         top: messageListRef.current.scrollHeight,
         left: 0,
-        behavior: 'smooth',
+        behavior: behavior,
       });
     }
   };
 
   useEffect(() => {
     if (initialLoaded) {
-      messageListScrollToBottom();
+      if (activities.length === 0) {
+        messageListScrollToBottom('instant');
+      } else {
+        messageListScrollToBottom();
+      }
     }
-  }, [activities, initialLoaded]);
+  }, [activitiesToDisplay, initialLoaded]);
 
   return (
     <div className={classNames(styles.activitiesTrackerContainer, className)}>
@@ -296,14 +337,8 @@ const mapDispatchToProps = dispatch => {
     addActivity: (type, activity) => {
       dispatch(NotificationActions.addActivity({ type, activity }));
     },
-    addInitialActivities: data => {
-      const responseData = _.get(data, 'data', []);
-
-      dispatch(
-        NotificationActions.addInitialActivities({
-          data: responseData,
-        })
-      );
+    cleanUpActivities: data => {
+      dispatch(NotificationActions.cleanUpActivities());
     },
   };
 };

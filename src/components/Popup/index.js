@@ -39,6 +39,7 @@ import ExplanationViewPopup from 'components/ExplanationViewPopup';
 import DisclaimerPopupView from 'components/DisclaimerPopupView';
 import UsernamePopup from 'components/UsernamePopup';
 import AlphaPlatformPopup from 'components/AlphaPlatformPopup';
+import RequestTokensPopup from '../RequestTokensPopup';
 
 const Popup = ({ type, visible, options = {}, hidePopup }) => {
   const small = _.get(options, 'small', false);
@@ -217,6 +218,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <DisclaimerPopupView />;
       case PopupTheme.username:
         return <UsernamePopup initialReward={options.initialReward} />;
+      case PopupTheme.requestTokens:
+        return <RequestTokensPopup />;
     }
 
     return null;

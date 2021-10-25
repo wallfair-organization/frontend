@@ -83,6 +83,7 @@ const Bet = ({
   const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const [isReady, setIsReady] = useState(false);
   const [showChart, setShowChart] = useState(false);
+  const [title, setTitle] = useState('');
 
   const mobileChatRef = useRef(null);
   const ref = useRef(null);
@@ -154,6 +155,10 @@ const Bet = ({
         ? _.get(event, 'bets[0]._id')
         : _.get(currentBet, '_id');
     setBetId(currentBetId);
+
+    const key = isNonStreamed ? 'bets[0].marketQuestion' : 'name';
+    const title = _.get(event, key);
+    setTitle(title);
 
     if (betSlug) {
       selectBet(currentBetId, betSlug);
@@ -368,14 +373,16 @@ const Bet = ({
     const eventViews = [
       EventTradeViewsHelper.getView('Chat', undefined, false, styles.chatTab),
       EventTradeViewsHelper.getView('Event Trades'),
-      event.type === 'non-streamed'
-        ? EventTradeViewsHelper.getView('Evidence', undefined, false)
-        : EventTradeViewsHelper.getView(
-            'My Trades',
-            isLoggedIn() ? activeBets.length : 0,
-            true
-          ),
-      ...(isNonStreamed && [EventTradeViewsHelper.getView('All Trades')]),
+      ...(isNonStreamed
+        ? [EventTradeViewsHelper.getView('Evidence', undefined, false)]
+        : [
+            EventTradeViewsHelper.getView(
+              'My Trades',
+              isLoggedIn() ? activeBets.length : 0,
+              true
+            ),
+            EventTradeViewsHelper.getView('All Trades'),
+          ]),
     ];
 
     return (
@@ -662,7 +669,11 @@ const Bet = ({
                 </Link>
               </div>
               <div className={styles.shareButton}>
-                <Share />
+                <Share
+                  popupPosition={
+                    matchMediaMobile ? '' : title.length < 16 ? 'right' : 'left'
+                  }
+                />
               </div>
               <AdminOnly>
                 <div className={styles.eventAdminActionsContainer}>

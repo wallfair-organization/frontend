@@ -132,6 +132,7 @@ function EventsContent({
     fetchFilteredEvents({
       category: encodedCategory,
       sortBy: 'name',
+      count: 50,
     });
   }, [category, fetchFilteredEvents, handleSelectCategory]);
 

@@ -67,13 +67,16 @@ const verifyEmail = (userId, code) => {
   });
 };
 
-const resendEmailVerification = () => {
-  return Api.get(ApiUrls.API_AUTHENTICATION_RESEND_EMAIL_VERIFICATION).catch(
-    error => {
-      console.log('[API Error] called verifyEmail:', error);
-      throw error;
-    }
-  );
+const resendEmailVerification = userId => {
+  return Api.get(
+    ApiUrls.API_AUTHENTICATION_RESEND_EMAIL_VERIFICATION.replace(
+      ':userId',
+      userId
+    )
+  ).catch(error => {
+    console.log('[API Error] called verifyEmail:', error);
+    throw error;
+  });
 };
 
 const saveAdditionalInfo = (name, username, email) => {
@@ -163,6 +166,10 @@ const updateUser = (userId, user) => {
       return error;
     }
   );
+};
+
+const requestTokens = () => {
+  return Api.post(ApiUrls.API_USER_REQUEST_TOKENS);
 };
 
 const updateUserPreferences = (userId, preferences) => {
@@ -524,4 +531,5 @@ export {
   getUserPublicInfo,
   getUserPublicStats,
   updateStatus,
+  requestTokens,
 };

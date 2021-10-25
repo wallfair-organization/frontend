@@ -75,7 +75,7 @@ const RewardCards = ({ user }) => {
 
   const handleResendEmail = () => {
     setIsLoadingResend(true);
-    resendEmailVerification().then(
+    resendEmailVerification(user.id).then(
       res => {
         setIsLoadingResend(false);
         // TODO toast?

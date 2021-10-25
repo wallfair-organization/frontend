@@ -116,7 +116,8 @@ const MyTradesList = ({
                           item.outcomes.find(
                             ({ name }) => name === item.outcomeValue
                           ).index,
-                          item.sellAmount
+                          item.sellAmount,
+                          item.marketQuestion
                         )
                       }
                       data-tracking-id="wallet-cashout"
@@ -137,7 +138,7 @@ const MyTradesList = ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    showPulloutBetPopup: (betId, outcome, amount, gain) => {
+    showPulloutBetPopup: (betId, outcome, amount, outcomeName, gain) => {
       dispatch(
         PopupActions.show({
           popupType: PopupTheme.pulloutApprove,
@@ -148,6 +149,7 @@ const mapDispatchToProps = dispatch => {
               outcome,
               amount,
               gain,
+              outcomeName,
             },
           },
         })

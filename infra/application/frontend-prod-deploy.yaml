@@ -5,7 +5,7 @@ metadata:
   labels:
     app: frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: frontend
@@ -23,6 +23,18 @@ spec:
           requests:
             cpu: 400m
             memory: 1024Mi
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 2
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 2
+          periodSeconds: 3
         name: frontend
         envFrom:
         - configMapRef:
@@ -30,7 +42,7 @@ spec:
         - configMapRef:
             name: frontend-app-secrets
         ports:
-          - containerPort: 80
+          - containerPort: 3000
 
 ---
 

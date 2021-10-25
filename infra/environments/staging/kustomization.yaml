@@ -6,3 +6,6 @@ resources:
 namespace: staging
 commonLabels:
   environment: staging
+
+patches:
+- priorityPatch.yaml

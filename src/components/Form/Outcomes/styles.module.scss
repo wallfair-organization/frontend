@@ -1,0 +1,65 @@
+@import '../../../styles/all';
+
+.outcomes {
+  display: flex;
+  flex-flow: wrap;
+  grid-gap: 10px;
+  .outcomeCard {
+    flex-basis: calc(50% - 5px);
+    padding: 10px;
+    border: 1px solid $colorGrayLight6;
+    background-color: $colorGrayLight3;
+    border-radius: 6px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    .index {
+      font-size: 10px;
+      color: $colorGrayLight2;
+      height: 16px;
+    }
+    .removeButton {
+      border-radius: 50%;
+      height: 16px;
+      width: 16px;
+      line-height: 1;
+      border: 1px solid;
+      background-color: transparent;
+      color: $colorGray;
+      cursor: pointer;
+      opacity: 0.7;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    input {
+      padding: 4px;
+      font-size: 13px;
+      height: auto;
+    }
+  }
+  .addButton {
+    border-radius: 6px;
+    margin: auto;
+    cursor: pointer;
+    padding: 15px 20px;
+    border: 1px solid $colorGrayLight6;
+    background-color: $colorGrayLight3;
+    color: $colorGray;
+  }
+}
+.outcomeForm {
+  flex-basis: 100%;
+  label {
+    font-size: 13px;
+    margin-bottom: 4px;
+    display: block;
+  }
+}
+
+.outcomesErrors {
+  margin: 0 auto;
+  flex-basis: 100%;
+  text-align: center;
+}

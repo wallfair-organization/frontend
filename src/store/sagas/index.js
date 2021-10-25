@@ -172,6 +172,7 @@ const root = function* () {
     ),
     takeLatest([WebsocketsTypes.LEAVE_ROOM], stopSound),
     takeEvery([RosiGameTypes.ADD_LAST_CRASH], endGame),
+    takeEvery([UserTypes.REQUEST_TOKENS], UserSagas.requestTokens),
     // @formatter:on
   ]);
 };

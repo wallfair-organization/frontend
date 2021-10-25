@@ -12,6 +12,7 @@ import { PopupActions } from '../actions/popup';
 import { WebsocketsActions } from '../actions/websockets';
 import PopupTheme from '../../components/Popup/PopupTheme';
 import { AlertActions } from 'store/actions/alert';
+import { RosiGameActions } from '../actions/rosi-game';
 
 const afterLoginRoute = Routes.home;
 
@@ -221,6 +222,7 @@ const authenticationSucceeded = function* (action) {
     yield put(EventActions.fetchAll());
     yield put(AuthenticationActions.fetchReferrals());
     yield put(WebsocketsActions.init());
+    yield put(RosiGameActions.clearGuestData());
     yield put(AlertActions.showSuccess({ message: 'Successfully logged in' }));
     if (action.newUser) {
       yield put(

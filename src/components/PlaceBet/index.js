@@ -5,7 +5,11 @@ import ReactTooltip from 'react-tooltip';
 import * as Api from 'api/crash-game';
 import { RosiGameActions } from 'store/actions/rosi-game';
 import { AlertActions } from 'store/actions/alert';
-import { selectUserBet, selectHasStarted } from 'store/selectors/rosi-game';
+import {
+  selectUserBet,
+  selectHasStarted,
+  selectGameOffline,
+} from 'store/selectors/rosi-game';
 import styles from './styles.module.scss';
 import { formatToFixed } from '../../helper/FormatNumbers';
 import { selectUser } from 'store/selectors/authentication';
@@ -28,7 +32,7 @@ import AuthenticationType from 'components/Authentication/AuthenticationType';
 import Timer from '../RosiGameAnimation/Timer';
 import { TOKEN_NAME } from 'constants/Token';
 
-const PlaceBet = ({ connected }) => {
+const PlaceBet = ({ connected, onBet, onCashout }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const userBalance = parseInt(user?.balance || 0, 10);
@@ -47,7 +51,8 @@ const PlaceBet = ({ connected }) => {
   const [crashFactorDirty, setCrashFactorDirty] = useState(false);
   const [animate, setAnimate] = useState(false);
   const [canBet, setCanBet] = useState(true);
-  const userUnableToBet = amount < 1 || !canBet;
+  const gameOffline = useSelector(selectGameOffline);
+  const userUnableToBet = amount < 1 || !canBet || gameOffline;
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -118,6 +123,7 @@ const PlaceBet = ({ connected }) => {
   const placeABet = () => {
     if (userUnableToBet) return;
     if (amount > userBalance) return;
+    onBet();
     const payload = {
       amount,
       crashFactor: Math.round(Math.abs(parseFloat(crashFactor)) * 100) / 100,
@@ -138,6 +144,7 @@ const PlaceBet = ({ connected }) => {
 
   const placeGuestBet = () => {
     if (userUnableToBet) return;
+    onBet();
     const payload = {
       amount,
       crashFactor: Math.round(Math.abs(parseFloat(crashFactor)) * 100) / 100,
@@ -154,6 +161,7 @@ const PlaceBet = ({ connected }) => {
     Api.cashOut()
       .then(response => {
         setAnimate(true);
+        onCashout();
         AlertActions.showSuccess(JSON.stringify(response));
       })
       .catch(_ => {
@@ -245,6 +253,18 @@ const PlaceBet = ({ connected }) => {
   };
 
   const renderMessage = () => {
+    if (gameOffline) {
+      return (
+        <div
+          className={classNames([
+            styles.betInfo,
+            !user.isLoggedIn ? styles.guestInfo : [],
+          ])}
+        >
+          Waiting for connection...
+        </div>
+      );
+    }
     if ((userPlacedABet && !isGameRunning) || isBetInQueue) {
       return (
         <div
@@ -304,7 +324,6 @@ const PlaceBet = ({ connected }) => {
         particleCount={300}
         spread={360}
         origin={{ x: 0.4, y: 0.45 }}
-        onFire={() => dispatch(RosiGameActions.playWinSound())}
       />
       <div className={styles.inputContainer}>
         <div className={styles.placeBetContainer}>

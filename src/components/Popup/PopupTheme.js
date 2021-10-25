@@ -31,4 +31,5 @@ export default {
   deleteBet: 'deleteBet',
   disclaimer: 'disclaimer',
   username: 'username',
+  requestTokens: 'requestTokens',
 };

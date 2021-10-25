@@ -18,6 +18,7 @@ export const RosiGameTypes = {
   STOP_FLYING_SOUND: 'RosiGame/STOP_FLYING_SOUND',
   START_ENDGAME_PERIOD: 'RosiGame/START_ENDGAME_PERIOD',
   END_ENDGAME_PERIOD: 'RosiGame/END_ENDGAME_PERIOD',
+  CLEAR_GUEST_DATA: 'RosiGame/CLEAR_GUEST_DATA',
 };
 
 const initializeState = payload => ({
@@ -105,6 +106,11 @@ const endEndgamePeriod = payload => ({
   payload,
 });
 
+const clearGuestData = payload => ({
+  type: RosiGameTypes.CLEAR_GUEST_DATA,
+  payload,
+});
+
 export const RosiGameActions = {
   initializeState,
   setHasStarted,
@@ -124,4 +130,5 @@ export const RosiGameActions = {
   stopFlyingSound,
   startEndgamePeriod,
   endEndgamePeriod,
+  clearGuestData,
 };

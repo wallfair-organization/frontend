@@ -8,7 +8,7 @@ import medalCoin from '../../data/icons/medal-coin.png';
 import { formatToFixed } from 'helper/FormatNumbers';
 import classNames from 'classnames';
 import ReactTooltip from 'react-tooltip';
-import { TOKEN_NAME } from '../../constants/Token';
+import { REWARD_TOKEN_NAME } from '../../constants/Token';
 
 const topRewards = {
   1: 6200,
@@ -80,7 +80,7 @@ const LeaderboardItem = ({
                 data-tip={`Reward: ${_.get(
                   topRewards,
                   user.rank
-                )} ${TOKEN_NAME}`}
+                )} ${REWARD_TOKEN_NAME}`}
                 src={medalGold}
                 alt="medal"
               />
@@ -109,7 +109,7 @@ const LeaderboardItem = ({
                 data-tip={`Reward: ${_.get(
                   topRewards,
                   user.rank
-                )} ${TOKEN_NAME}`}
+                )} ${REWARD_TOKEN_NAME}`}
                 src={medalSilver}
                 alt="medal"
               />
@@ -138,7 +138,7 @@ const LeaderboardItem = ({
                 data-tip={`Reward: ${_.get(
                   topRewards,
                   user.rank
-                )} ${TOKEN_NAME}`}
+                )} ${REWARD_TOKEN_NAME}`}
                 src={medalBronze}
                 alt="medal"
               />
@@ -167,7 +167,7 @@ const LeaderboardItem = ({
                 data-tip={`Reward: ${_.get(
                   topRewards,
                   user.rank
-                )} ${TOKEN_NAME}`}
+                )} ${REWARD_TOKEN_NAME}`}
                 src={medalCoin}
                 alt="medal"
               />
@@ -199,7 +199,7 @@ const LeaderboardItem = ({
                   data-tip={`Reward: ${_.get(
                     topRewards,
                     user.rank
-                  )} ${TOKEN_NAME}`}
+                  )} ${REWARD_TOKEN_NAME}`}
                   src={medalCoin}
                   alt="medal"
                 />

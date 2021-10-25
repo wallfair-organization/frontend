@@ -89,6 +89,7 @@ const fetchHomeEvents = function* (action) {
     category: action.category || 'all',
     upcoming: action.upcoming,
     deactivated: action.deactivated,
+    sortBy: action.sortBy || '-date',
   };
 
   const response = yield call(Api.listEventsFiltered, params);
@@ -194,7 +195,7 @@ const editEvent = function* ({ eventId, event }) {
   }
 };
 
-const deleteEvent = function* ({ payload: { eventId } }) {
+const deleteEvent = function* ({ eventId }) {
   try {
     yield put(PopupActions.hide());
     const {

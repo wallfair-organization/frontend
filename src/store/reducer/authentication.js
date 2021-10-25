@@ -13,6 +13,7 @@ const initialState = {
   email: '',
   aboutMe: '',
   emailVerificationState: null,
+  emailVerificationUserId: null,
   token: null,
   balance: 0,
   totalWin: 0,
@@ -417,6 +418,13 @@ const updateInvestmentData = (action, state) => {
   });
 };
 
+const onVerify = (action, state) => {
+  return {
+    ...state,
+    emailVerificationUserId: action.userId,
+  };
+};
+
 export default function (state = initialState, action) {
   switch (action.type) {
     // @formatter:off
@@ -439,6 +447,8 @@ export default function (state = initialState, action) {
       return requestSmsVerified(action, state);
     case AuthenticationTypes.VERIFY_SMS_FAILED:
       return requestSmsVerifyFailed(action, state);
+    case AuthenticationTypes.VERIFY_EMAIL:
+      return onVerify(action, state);
     case AuthenticationTypes.VERIFY_EMAIL_SUCCEEDED:
       return requestEmailVerified(action, state);
     case AuthenticationTypes.VERIFY_EMAIL_FAILED:

@@ -11,6 +11,38 @@
         font-size: 24px;
         margin: 0 0 50px;
         display: flex;
+        justify-content: space-between;
+        min-height: 41px;
+      .requestTokens{
+        font-weight: bolder;
+        position: relative;
+        background: url("../../data/backgrounds/highlight-request-tokens.svg") no-repeat;
+        background-size: contain;
+        min-width: 203px;
+        color: $colorBlack;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        cursor: pointer;
+        .party{
+          background-size: cover;
+          z-index: 3;
+          color: black;
+          min-width: 25px;
+          min-height: 25px;
+          width: 25px;
+          height: 25px;
+          padding-left: 25px;
+          display: none;
+        }
+        span{
+          font-family: $fontBold;
+          font-weight: bold;
+          font-size: 12px;
+          padding-left: 40px;
+          padding-bottom: 0;
+        }
+      }
     }
     .walletContents {
         overflow-y: auto;

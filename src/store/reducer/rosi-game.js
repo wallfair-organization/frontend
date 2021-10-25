@@ -1,17 +1,5 @@
 import { RosiGameTypes } from '../actions/rosi-game';
 import { round } from 'lodash';
-import {
-  playCrashSound,
-  playFailSound,
-  playWinSound,
-  playFlyingSound,
-  stopFlyingSound,
-  silenceAllSounds,
-  resetAllSounds,
-  playBetSound,
-  playLoseSound,
-  playGameoverSound,
-} from '../../helper/Audio';
 import { calcCrashFactorFromElapsedTime } from '../../components/RosiGameAnimation/canvas/utils';
 
 const initialState = {
@@ -34,6 +22,12 @@ const initialState = {
 
 const initializeState = (action, state) => {
   const hasStarted = action.payload.state === 'STARTED';
+  let volumeLevel = '1.0';
+  try {
+    volumeLevel = localStorage.getItem('gameVolume');
+  } catch (e) {
+    console.error(e);
+  }
   let {
     currentBets,
     upcomingBets,
@@ -65,11 +59,13 @@ const initializeState = (action, state) => {
     animationIndex,
     musicIndex,
     bgIndex,
+    placedBetInQueue: !!upcomingBets.find(b => b?.userId === userId),
+    isCashedOut: !!cashedOutBets.find(b => b?.userId === userId),
+    volumeLevel: parseInt(volumeLevel),
   };
 };
 
 const setHasStarted = (action, state) => {
-  console.log(action.payload);
   return {
     ...state,
     hasStarted: true,
@@ -83,7 +79,6 @@ const setHasStarted = (action, state) => {
 };
 
 const setUserBet = (action, state) => {
-  playBetSound(state.volumeLevel);
   if (state.hasStarted) {
     return {
       ...state,
@@ -98,16 +93,6 @@ const setUserBet = (action, state) => {
 };
 
 const addLastCrash = (action, state) => {
-  if (state.userBet && !state.isCashedOut) {
-    playLoseSound(state.volumeLevel);
-  } else {
-    if (action.payload.crashFactor <= 1) {
-      playLoseSound(state.volumeLevel);
-    } else {
-      playGameoverSound(state.volumeLevel);
-    }
-  }
-
   return {
     ...state,
     hasStarted: false,
@@ -190,7 +175,7 @@ const cashedOutGuest = (action, state) => {
     userBet: null,
     isCashedOut: true,
     cashedOut: [bet, ...state.cashedOut],
-    inGameBets: state.inGameBets.filter(bet => bet.userId !== 'Guest'),
+    inGameBets: state.inGameBets.filter(bet => bet?.userId !== 'Guest'),
   };
 };
 
@@ -202,15 +187,14 @@ const addReward = (action, state) => {
     ...action.payload,
     crashFactor: round(action.payload.crashFactor, 2),
     amount: action.payload.reward,
-    username: correspondingBet?.username,
     isFresh: true,
   };
   return {
     ...state,
     cashedOut: [bet, ...state.cashedOut],
-    inGameBets: state.inGameBets.filter(
-      bet => bet.userId !== correspondingBet.userId
-    ),
+    inGameBets: correspondingBet
+      ? state.inGameBets.filter(bet => bet.userId !== correspondingBet.userId)
+      : state.inGameBets,
   };
 };
 
@@ -223,37 +207,17 @@ const onTick = (action, state) => {
 };
 
 const onMuteButtonClick = (action, state) => {
-  if (state.volumeLevel) {
-    silenceAllSounds();
-  } else {
-    resetAllSounds();
+  try {
+    localStorage.setItem(
+      'gameVolume',
+      `${state.volumeLevel === 0.0 ? 1.0 : 0.0}`
+    );
+  } catch (e) {
+    console.error(e);
   }
   return {
     ...state,
-    volumeLevel: state.volumeLevel ? 0.0 : 0.5,
-  };
-};
-
-const onPlayWinSound = (action, state) => {
-  playWinSound(state.volumeLevel);
-  return state;
-};
-
-const onPlayFlyingSound = (action, state) => {
-  const diff = (Date.now() - new Date(state.timeStarted).getTime()) / 1000;
-  playFlyingSound(state.volumeLevel, diff, state.musicIndex);
-  return state;
-};
-
-const onStopFlyingSound = (action, state) => {
-  stopFlyingSound();
-  return state;
-};
-
-const onStartEndgamePeriod = (action, state) => {
-  return {
-    ...state,
-    isEndgame: true,
+    volumeLevel: state.volumeLevel === 0.0 ? 1.0 : 0.0,
   };
 };
 
@@ -263,6 +227,15 @@ const onEndEndgamePeriod = (action, state) => {
     isEndgame: false,
   };
 };
+
+function clearGuestData(action, state) {
+  return {
+    ...state,
+    placedBetInQueue: false,
+    isCashedOut: false,
+    userBet: null,
+  };
+}
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -292,16 +265,10 @@ export default function (state = initialState, action) {
       return onTick(action, state);
     case RosiGameTypes.MUTE_BUTTON_CLICK:
       return onMuteButtonClick(action, state);
-    case RosiGameTypes.PLAY_WIN_SOUND:
-      return onPlayWinSound(action, state);
-    case RosiGameTypes.PLAY_FLYING_SOUND:
-      return onPlayFlyingSound(action, state);
-    case RosiGameTypes.STOP_FLYING_SOUND:
-      return onStopFlyingSound(action, state);
-    case RosiGameTypes.START_ENDGAME_PERIOD:
-      return onStartEndgamePeriod(action, state);
     case RosiGameTypes.END_ENDGAME_PERIOD:
       return onEndEndgamePeriod(action, state);
+    case RosiGameTypes.CLEAR_GUEST_DATA:
+      return clearGuestData(action, state);
     default:
       return state;
   }
