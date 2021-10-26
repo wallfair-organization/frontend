@@ -5,6 +5,16 @@
   border-radius: 10px;
   padding: 10px 20px;
   position: relative;
+  height: 400px;
+}
+.labelContainer {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-family: $fontRegular;
+  font-size: 16px;
+  font-weight: 500;
+  color: $colorWhite;
 }
 .filters {
   position: absolute;

@@ -33,13 +33,20 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                 href="https://wallfair.gitbook.io/wallfair/"
                 target="_blank"
                 rel="noreferrer"
+                data-tracking-id="footer-documentation"
               >
                 Documentation
               </a>
 
-              <Link to={Routes.blog}>Blog</Link>
+              <Link data-tracking-id="footer-blog" to={Routes.blog}>
+                Blog
+              </Link>
 
-              <button onClick={openLeaderboard} href="#">
+              <button
+                data-tracking-id="footer-leaderboard"
+                onClick={openLeaderboard}
+                href="#"
+              >
                 Leaderboard
               </button>
 
@@ -47,6 +54,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                 href="https://wallfair.io/career"
                 target="_blank"
                 rel="noreferrer"
+                data-tracking-id="footer-career"
               >
                 Career
               </a>
@@ -66,6 +74,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                 href="https://github.com/wallfair-organization"
                 target="_blank"
                 rel="noreferrer"
+                data-tracking-id="footer-source-code"
               >
                 <img src={GitHubLogo} width={18} alt={'Github Logo'} />
                 Source Code
@@ -73,14 +82,28 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
             </div>
 
             <div className={styles.secondRow}>
-              <Link to={'/privacy-policy'}>Imprint</Link>
+              <Link data-tracking-id="footer-imprint" to={'/privacy-policy'}>
+                Imprint
+              </Link>
 
-              <Link to={'/terms-and-conditions'}>{'Terms & Conditions'}</Link>
+              <Link
+                data-tracking-id="footer-terms"
+                to={'/terms-and-conditions'}
+              >
+                {'Terms & Conditions'}
+              </Link>
             </div>
           </div>
         </div>
 
-        <SocialIcons className={styles.socialIcons} />
+        <SocialIcons
+          className={styles.socialIcons}
+          dataTrackingIds={{
+            telegram: 'footer-telegram-click',
+            instagram: 'footer-instagram-click',
+            twitter: 'footer-twitter-click',
+          }}
+        />
       </div>
 
       <div className={classNames(styles.iconsContainer, className)}>

@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 import styles from './styles.module.scss';
 import ChartCtr from '../../config/chart';
-import { chartOptions } from '../../helper/Chart/chartOptions';
+import {
+  chartOptions,
+  dohnutChartOptions,
+} from '../../helper/Chart/chartOptions';
 import Button from '../Button';
 
 export default function Chart({
@@ -23,7 +26,10 @@ export default function Chart({
       }
 
       const ctx = chartEl.current.getContext('2d');
-      chartInstance.current = new ChartCtr(ctx, chartOptions('line', data));
+      chartInstance.current = new ChartCtr(
+        ctx,
+        dohnutChartOptions('doughnut', data)
+      );
     }
 
     chartRender.current += 1;
@@ -39,7 +45,7 @@ export default function Chart({
   return (
     <>
       <div className={styles.chartContainer}>
-        <div className={styles.filters}>
+        {/* <div className={styles.filters}>
           <Button
             className={classNames(styles.filterButton, {
               [styles.active]: filterActive === '24H',
@@ -64,7 +70,8 @@ export default function Chart({
           >
             30D
           </Button>
-        </div>
+        </div> */}
+        <div className={styles.labelContainer}>Probabilities</div>
         <canvas ref={chartEl} height={height}></canvas>
       </div>
     </>

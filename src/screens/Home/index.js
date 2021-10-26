@@ -76,7 +76,14 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
 
         <div className={styles.slogan}>Clear, Social &amp; Fair</div>
 
-        <SocialIcons className={styles.socialIcons} />
+        <SocialIcons
+          className={styles.socialIcons}
+          dataTrackingIds={{
+            telegram: 'home-telegram',
+            instagram: 'home-instagram',
+            twitter: 'home-twitter',
+          }}
+        />
       </div>
     );
   };
@@ -103,7 +110,7 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
 
   const renderBlogBanner = () => {
     return (
-      <Link to={Routes.blog}>
+      <Link data-tracking-id="home-blog-open" to={Routes.blog}>
         <div className={classNames(styles.banner, styles.blogBanner)}>
           {/* <div className={styles.title}>Blog</div> */}
           <div className={styles.title}>
@@ -151,7 +158,11 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
         <div className={styles.categories}>
           <div className={styles.headline}>
             Activities{' '}
-            <Link className={styles.seeAllActivities} to={Routes.activities}>
+            <Link
+              data-tracking-id="activities-see-all"
+              className={styles.seeAllActivities}
+              to={Routes.activities}
+            >
               See all
             </Link>
           </div>
@@ -161,7 +172,11 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
         <div className={styles.leaderboard}>
           <div className={styles.headline}>
             Community Leaderboard
-            <div className={styles.leaderboardLink} onClick={onSeeLeaderboard}>
+            <div
+              className={styles.leaderboardLink}
+              onClick={onSeeLeaderboard}
+              data-tracking-id="leaderboard-see-leaderboard"
+            >
               See Leaderboard
             </div>
           </div>

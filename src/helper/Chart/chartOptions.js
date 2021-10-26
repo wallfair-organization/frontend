@@ -1,4 +1,9 @@
-import { calcLabels, calcDatasets } from './chartHelpers';
+import {
+  calcLabels,
+  calcDatasets,
+  calcDohnutLabels,
+  calcDohnutDatasets,
+} from './chartHelpers';
 import legendPadding from './plugins/legendHeightPlugin';
 
 export const chartOptions = (type, data) => {
@@ -53,6 +58,50 @@ export const chartOptions = (type, data) => {
         y: {
           max: 1,
           beginAtZero: true,
+        },
+      },
+    },
+  };
+};
+
+export const dohnutChartOptions = (type, data) => {
+  let matchMediaMobile = window.matchMedia(`(max-width: ${768}px)`).matches;
+
+  return {
+    type,
+    data: {
+      labels: calcDohnutLabels(data),
+      datasets: calcDohnutDatasets(data),
+    },
+    options: {
+      animation: false,
+      maintainAspectRatio: false,
+      layout: {
+        padding: 60,
+      },
+      plugins: {
+        legend: {
+          display: false,
+        },
+        datalabels: {
+          align: 'end',
+          anchor: 'end',
+          backgroundColor: null,
+          borderColor: null,
+          borderRadius: 4,
+          borderWidth: 1,
+          color: '#eee',
+          font: {
+            size: 13,
+          },
+          offset: 16,
+          padding: 0,
+          textAlign: 'center',
+          formatter: function (value, context) {
+            var label = context.chart.data.labels[context.dataIndex] || null;
+            label += `\n${value}%`;
+            return label;
+          },
         },
       },
     },
