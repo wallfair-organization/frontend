@@ -749,6 +749,7 @@ const Bet = ({
                         <div
                           className={styles.diagramButton}
                           onClick={onShowHideChart}
+                          data-tracking-id="nonstreamed-chart-switcher"
                         >
                           {' '}
                           <LineChartIcon />

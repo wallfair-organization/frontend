@@ -296,7 +296,11 @@ const BetView = ({
       <>
         <div className={styles.labelWrapper}>
           <label className={styles.label}>You trade:</label>
-          <InfoBox autoWidth={true} iconType={IconType.question}>
+          <InfoBox
+            autoWidth={true}
+            iconType={IconType.question}
+            dataTrackingId="nonstreamed-event-trade-help"
+          >
             You need to have a sufficient amount of {TOKEN_NAME} tokens to
             participate in events
             {/* How to buy WFAIR token? */}
@@ -458,7 +462,10 @@ const BetView = ({
           >
             <div className={styles.pickOutcomeContainer}>
               <label className={styles.label}>Pick outcome</label>
-              <InfoBox iconType={IconType.question}>
+              <InfoBox
+                iconType={IconType.question}
+                dataTrackingId="nonstreamed-event-outcome-help"
+              >
                 <p>How to place a bet?</p>
                 <p>
                   - First select the amount (in {TOKEN_NAME}) you want to put

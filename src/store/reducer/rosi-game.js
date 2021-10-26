@@ -228,6 +228,13 @@ const onEndEndgamePeriod = (action, state) => {
   };
 };
 
+const onStartEndgamePeriod = (action, state) => {
+  return {
+    ...state,
+    isEndgame: true,
+  };
+};
+
 function clearGuestData(action, state) {
   return {
     ...state,
@@ -267,6 +274,8 @@ export default function (state = initialState, action) {
       return onMuteButtonClick(action, state);
     case RosiGameTypes.END_ENDGAME_PERIOD:
       return onEndEndgamePeriod(action, state);
+    case RosiGameTypes.START_ENDGAME_PERIOD:
+      return onStartEndgamePeriod(action, state);
     case RosiGameTypes.CLEAR_GUEST_DATA:
       return clearGuestData(action, state);
     default:

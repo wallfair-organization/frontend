@@ -54,7 +54,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
 
             <div className={styles.firstRow}>
               <a
-                href="https://app.uniswap.org/#/swap?inputCurrency=ETH&amp;outputCurrency=0xc6065b9fc8171ad3d29bad510709249681758972&amp;exactAmount=1"
+                href="https://wallfair.io/buy-wfair"
                 target="_blank"
                 rel="noreferrer"
                 data-tracking-id="footer-buy-wfair"

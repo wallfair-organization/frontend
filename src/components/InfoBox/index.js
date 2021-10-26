@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useOutsideClick } from 'hooks/useOutsideClick';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import Icon from '../Icon';
 import IconType from '../Icon/IconType';
 import styles from './styles.module.scss';
@@ -18,6 +18,7 @@ const InfoBox = ({
   iconType = IconType.info,
   iconClassName = ``,
   autoWidth = false,
+  dataTrackingId = undefined,
 }) => {
   const [showContent, setShowContent] = useState(false);
 
@@ -31,6 +32,7 @@ const InfoBox = ({
         className={classNames(styles.infoIcon, styles[iconClassName])}
         iconType={iconType}
         onClick={onHandleClick}
+        dataTrackingId={dataTrackingId}
       />
     );
   };

@@ -175,7 +175,11 @@ function EventsContent({
           width={25}
           onClick={handleHelpClick}
         />
-        <span onClick={handleHelpClick} className={styles.howtoLink}>
+        <span
+          onClick={handleHelpClick}
+          className={styles.howtoLink}
+          data-tracking-id="nonstreamed-event-how-does-it-work"
+        >
           How does it work?
         </span>
       </section>

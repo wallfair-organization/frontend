@@ -75,6 +75,7 @@ const Icon = ({
   onClick,
   children,
   style,
+  dataTrackingId = undefined,
 }) => {
   const renderIcon = () => {
     return SelectionHelper.get(iconType, {
@@ -170,6 +171,7 @@ const Icon = ({
         circle === true ? styles.iconCircled : null
       )}
       onClick={onClick}
+      data-tracking-id={dataTrackingId}
     >
       {renderIcon()}
       {children}
