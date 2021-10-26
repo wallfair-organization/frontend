@@ -168,18 +168,13 @@ const UserProfile = () => {
             </div>
 
             <div className={styles.userInfo}>
-              <div>
-                <div className={styles.profileTitle}>
-                  <h2>{user?.userName}</h2>
-                </div>
-                <div className={styles.aboutSection}>
-                  <h3>About</h3>
-                  <p>
-                    {' '}
-                    {user?.aboutMe ||
-                      'This user has not provided an about info yet. How boring!'}{' '}
-                  </p>
-                </div>
+              <div className={styles.profileSection}>
+                <h2>{user?.username}</h2>
+                <p>
+                  {' '}
+                  {user?.aboutMe ||
+                    'This user has not provided an about info yet. How boring!'}{' '}
+                </p>
               </div>
               {suspendButtonVisible && (
                 <Button

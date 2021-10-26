@@ -1,16 +1,21 @@
 @import '../../styles/all';
 
 .container {
-  display: flex;
-  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
 
   @media screen and (max-width: $screen-xs) {
     display: block;
     padding: 0 20px;
   }
+
+  @media (min-width: $screen-lg) {
+    max-width: 1300px;
+  }
 }
 
 .content {
+  padding-left: 20px;
   padding-right: 20px;
   flex: 1;
 
@@ -60,11 +65,41 @@
   }
 
   @media screen and (max-width: $screen-xs) {
+    padding-left: 0px;
     padding-right: 0px;
 
     & .betFooter {
       display: none;
     }
+  }
+  .mainContainer {
+    display: flex;
+    @media (max-width: $screen-md) {
+      flex-direction: column;
+    }
+    .leftContainer {      
+      width: calc(100% - 370px);
+      @media (max-width: $screen-md) {
+        width: 100%;
+      }
+    }
+    .rightContainer {
+      width: 370px;
+      padding-left: 14px;
+      @media (max-width: $screen-md) {
+        padding-left: 0px;
+        width: 100%;
+        margin-top: 7px;
+      }
+      .placeContainer {
+        display: flex;
+        flex-direction: column;
+        height: 596px;        
+        @media (max-width: $screen-md) {          
+          height: 100%;
+        }
+      }
+    }    
   }
 }
 
@@ -76,8 +111,13 @@
   }
 }
 
+.bottomWrapper {
+  display: flex;
+  flex-direction: row;  
+}
 .chatWrapper {
-  height: 300px;
+  margin-top: 32px;
+  padding-right: 7px;
 
   @media screen and (max-width: $screen-xs) {
     margin-bottom: 20px;
@@ -85,13 +125,13 @@
 }
 
 .chatContainer {
-  height: 300px;
+  height: 312px;
   background: rgba(34, 35, 62, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.17);
   border-radius: 10px;
   margin: 0px;
-  height: 100%;
   padding: 10px;
+  margin-top: 12px;
 
   .chatMessageContainer {
     @media (max-width: $screen-sm) {
@@ -100,6 +140,79 @@
   }
 }
 
+.activityWrapper {
+  margin-top: 32px;
+  padding-left: 7px;
+  
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 20px;
+  }
+  .activityContainer {
+    position: relative;
+    height: 312px;
+    background: rgba(34, 35, 62, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 10px;
+    margin: 0px;
+    padding: 10px;
+    margin-top: 12px;
+
+    .chatMessageContainer {
+      @media (max-width: $screen-sm) {
+        margin-bottom: 0;
+      }
+    }
+
+    .inactivePlaceholder {
+      position: absolute;
+      top: 45%;      
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-family: $fontMedium;
+      color: #F2FF53;
+      font-weight: 700;
+    }
+  }
+}
+
 .activitiesTrackerGamesBlock {
   height: 100%;
 }
+
+.tabLayout {
+    display: flex;
+    align-items: flex-end;
+    color: $colorWhite;
+    font-family: $fontRegular;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 24px;
+    margin-left: 16px;
+    @media (max-width: $screen-sm) {
+      margin-left: 0px;
+      justify-content: space-between;
+      font-size: 11px;
+      line-height: 14px;
+    }
+
+    .tabItem {
+      text-align: center;
+      padding-bottom: 12px;
+      opacity: 0.3;
+      cursor: pointer;
+    }
+
+    .tabItemSelected {
+      text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #F1FF54;
+      opacity: 1;
+      cursor: pointer;
+    }
+  }

@@ -87,13 +87,13 @@ const TokenNumberInput = ({
         className={styles.tokenNumberErrorHint}
         errorText={errorText}
       />
-      <TokenSlider
+      {/* <TokenSlider
         value={Number(value)}
         setValue={setValue}
         maxValue={maxValue}
         minValue={minValue}
         decimalPlaces={decimalPlaces}
-      />
+      /> */}
     </>
   );
 };

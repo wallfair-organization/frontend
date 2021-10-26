@@ -19,7 +19,7 @@
 
     .containerHeader {
       width: 100%;
-      height: 344px;
+      height: 280px;
       background-image: url('../../data/backgrounds/profile/background.png');
       background-repeat: no-repeat;
       background-position: top;
@@ -41,8 +41,7 @@
       justify-content: space-between;
       background-color: #21203C;
       color: $colorWhite;
-      padding-top: 20px;
-      padding-right: 16px;
+      padding-top: 20px;      
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
       @media (max-width: $screen-sm) {
@@ -76,57 +75,6 @@
         }
       }
 
-      .profileTitle {
-        position: absolute;
-        color: $colorWhite;
-        top: -54px;
-        left: 250px;
-        @media (max-width: $screen-sm) {
-          top: 60px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        h2 {
-          font-family: $fontBold;
-          font-style: normal;
-          font-weight: bold;
-          font-size: 30px;
-          line-height: 39px;
-          @media (max-width: $screen-sm) {
-            font-size: 24px;
-            line-height: 31px;
-          }
-        }
-      }
-
-      .aboutSection {
-        padding-left: 250px;
-        @media (max-width: $screen-sm) {
-          padding-top: 80px;
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-
-        h3 {
-          font-family: $fontRegular;
-          font-style: normal;
-          font-weight: 500;
-          font-size: 18px;
-          line-height: 23px;
-        }
-
-        p {
-          margin-top: 8px;
-          font-family: $fontRegular;
-          font-style: normal;
-          font-weight: normal;
-          font-size: 14px;
-          line-height: 24px;
-          opacity: 0.6;
-        }
-      }
-
       .userInfo {
         display: flex;
         align-items: flex-start;
@@ -135,14 +83,45 @@
         @media (max-width: $screen-sm) {
           flex-direction: column;
         }
+        .profileSection {          
+          padding-left: 250px;
+          @media (max-width: $screen-sm) {
+            padding-top: 56px;
+            padding-left: 20px;
+            padding-right: 20px;
+          }
 
+          h2 {
+            font-family: $fontBold;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 39px;
+            @media (max-width: $screen-sm) {
+              font-size: 24px;
+              line-height: 31px;
+              text-align: center;
+            }
+          }
+
+          p {
+            margin-top: 8px;
+            font-family: $fontRegular;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 24px;
+            opacity: 0.6;
+          }
+        }
         .suspendButton {
           min-width: 150px;
           height: 40px;
           font-size: 16px;
-
+          margin-right: 20px;
           @media (max-width: $screen-sm) {
-            margin: 20px 0 0 20px;
+            margin: 20px 0 0;
+            align-self: center;
           }
         }
       }

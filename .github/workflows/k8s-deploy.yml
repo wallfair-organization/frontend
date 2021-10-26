@@ -7,6 +7,7 @@ on:
       - main
       - production
       - development
+      - feature/elon-games
 
 jobs:
   build_and_push:
@@ -39,6 +40,11 @@ jobs:
         run: |
           docker build . -q --build-arg REACT_APP_CRASH_GAME_BACKEND_URL="https://staging-elon-api.wallfair.io/" --build-arg REACT_APP_BACKEND_URL="https://staging-api.wallfair.io/" --build-arg REACT_APP_NEWS_API_KEY=${{ secrets.REACT_APP_NEWS_API_KEY }} --build-arg REACT_APP_RECAPTCHA_KEY=${{ secrets.REACT_APP_RECAPTCHA_KEY }} --build-arg REACT_APP_GTM_ID=${{ secrets.REACT_APP_GTM_ID }}  -t registry.digitalocean.com/wallfair/frontend_k8s_staging:${GITHUB_SHA::6}
           docker push registry.digitalocean.com/wallfair/frontend_k8s_staging:${GITHUB_SHA::6}
+      - name: Build the docker image (newelon)
+        if: github.ref == 'refs/heads/feature/elon-games'
+        run: |
+          docker build . -q --build-arg REACT_APP_CRASH_GAME_BACKEND_URL="https://staging-elon-api.wallfair.io/" --build-arg REACT_APP_BACKEND_URL="https://staging-api.wallfair.io/" --build-arg REACT_APP_NEWS_API_KEY=${{ secrets.REACT_APP_NEWS_API_KEY }} --build-arg REACT_APP_RECAPTCHA_KEY=${{ secrets.REACT_APP_RECAPTCHA_KEY }} --build-arg REACT_APP_GTM_ID=${{ secrets.REACT_APP_GTM_ID }}  -t registry.digitalocean.com/wallfair/frontend_k8s_elon:${GITHUB_SHA::6}
+          docker push registry.digitalocean.com/wallfair/frontend_k8s_elon:${GITHUB_SHA::6}
       - name: Build the docker image (development)
         if: github.ref == 'refs/heads/development'
         run: |
@@ -65,6 +71,15 @@ jobs:
             cd infra/environments/staging
             kustomize edit set image registry.digitalocean.com/wallfair/frontend_k8s=registry.digitalocean.com/wallfair/frontend_k8s_staging:${GITHUB_SHA::6}
             kustomize build .
+      - name: Edit deployment image (newelon)
+        if: github.ref == 'refs/heads/feature/elon-games'
+        uses: stefanprodan/kube-tools@v1
+        with:
+          kustomize: 4.2.0
+          command: |
+            cd infra/environments/elon
+            kustomize edit set image registry.digitalocean.com/wallfair/frontend_k8s=registry.digitalocean.com/wallfair/frontend_k8s_elon:${GITHUB_SHA::6}
+            kustomize build .
       - name: Edit deployment image (development)
         if: github.ref == 'refs/heads/development'
         uses: stefanprodan/kube-tools@v1
@@ -89,6 +104,12 @@ jobs:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
           args: apply -k infra/environments/staging
+      - uses: actions-hub/kubectl@master
+        if: github.ref == 'refs/heads/feature/elon-games'
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        with:
+          args: apply -k infra/environments/elon
       - uses: actions-hub/kubectl@master
         if: github.ref == 'refs/heads/development'
         env:

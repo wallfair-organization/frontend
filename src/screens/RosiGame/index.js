@@ -25,7 +25,8 @@ import Icon from 'components/Icon';
 import IconType from 'components/Icon/IconType';
 import IconTheme from 'components/Icon/IconTheme';
 import { PopupActions } from 'store/actions/popup';
-import ActivitiesTracker from '../../components/ActivitiesTracker';
+import EventActivitiesTracker from '../../components/EventActivitiesTracker';
+import TabOptions from '../../components/TabOptions';
 
 const RosiGame = ({ showPopup, connected, userId }) => {
   const dispatch = useDispatch();
@@ -33,7 +34,14 @@ const RosiGame = ({ showPopup, connected, userId }) => {
     useRosiData();
   const [audio, setAudio] = useState(null);
   const isMiddleOrLargeDevice = useMediaQuery('(min-width:769px)');
-
+  const [chatTabIndex, setChatTabIndex] = useState(0);
+  const chatTabOptions = [{ name: 'CHAT', index: 0 }];
+  const [activityTabIndex, setActivityTabIndex] = useState(0);
+  const activityTabOptions = [
+    { name: 'ACTIVITIES', index: 0 },
+    { name: 'HIGH WINS', index: 1 },
+    { name: 'LUCKY WINS', index: 2 },
+  ];
   const handleHelpClick = useCallback(event => {
     showPopup(PopupTheme.explanation);
   }, []);
@@ -78,39 +86,88 @@ const RosiGame = ({ showPopup, connected, userId }) => {
     return localStorage.getItem('gameHowDoesItWorkTip') || false;
   };
 
+  const handleChatSwitchTab = option => {
+    setChatTabIndex(option.index);
+  };
+
+  const handleActivitySwitchTab = option => {
+    setActivityTabIndex(option.index);
+  };
+
   const renderActivities = () => (
-    <Grid item xs={12} md={4}>
-      <div className={styles.chatWrapper}>
-        <div className={styles.chatContainer}>
-          <ActivitiesTracker
-            showCategories={false}
-            activitiesLimit={50}
-            className={styles.activitiesTrackerGamesBlock}
-            preselectedCategory={'elongame'}
-          />
+    <Grid item xs={12} md={6}>
+      <div className={styles.activityWrapper}>
+        <TabOptions options={activityTabOptions} className={styles.tabLayout}>
+          {option => (
+            <div
+              className={
+                option.index === activityTabIndex
+                  ? styles.tabItemSelected
+                  : styles.tabItem
+              }
+              onClick={() => handleActivitySwitchTab(option)}
+            >
+              {option.name}
+            </div>
+          )}
+        </TabOptions>
+        <div className={styles.activityContainer}>
+          {activityTabIndex == 0 ? (
+            <EventActivitiesTracker
+              activitiesLimit={50}
+              className={styles.activitiesTrackerGamesBlock}
+              preselectedCategory={'elongame'}
+            />
+          ) : (
+            <div className={styles.inactivePlaceholder}>Coming soon</div>
+          )}
         </div>
       </div>
     </Grid>
   );
 
-  const renderBets = () => (
-    <Grid item xs={12} md={4}>
-      <GameBets
-        label="Cashed Out"
-        bets={[
-          ...inGameBets.map(b => ({
-            ...b,
-            cashedOut: false,
-          })),
-          ...cashedOut.map(b => ({
-            ...b,
-            cashedOut: true,
-          })),
-        ]}
-        gameRunning={hasStarted}
-        endGame={isEndgame}
-      />
+  const renderChat = () => (
+    <Grid item xs={12} md={6}>
+      <div className={styles.chatWrapper}>
+        <TabOptions options={chatTabOptions} className={styles.tabLayout}>
+          {option => (
+            <div
+              className={
+                option.index === chatTabIndex
+                  ? styles.tabItemSelected
+                  : styles.tabItem
+              }
+              onClick={() => handleChatSwitchTab(option)}
+            >
+              {option.name}
+            </div>
+          )}
+        </TabOptions>
+        <Chat
+          roomId={ROSI_GAME_EVENT_ID}
+          className={styles.chatContainer}
+          chatMessageType={ChatMessageType.game}
+        />
+      </div>
     </Grid>
+  );
+
+  const renderBets = () => (
+    <GameBets
+      label="Cashed Out"
+      bets={[
+        ...inGameBets.map(b => ({
+          ...b,
+          cashedOut: false,
+        })),
+        ...cashedOut.map(b => ({
+          ...b,
+          cashedOut: true,
+        })),
+      ]}
+      gameRunning={hasStarted}
+      endGame={isEndgame}
+    />
   );
 
   return (
@@ -137,39 +194,36 @@ const RosiGame = ({ showPopup, connected, userId }) => {
             </span>
           </div>
 
-          <Grid container spacing={1}>
-            <Grid item xs={12} md={9}>
+          <div className={styles.mainContainer}>
+            <div className={styles.leftContainer}>
               <LastCrashes lastCrashes={lastCrashes} />
               <GameAnimation
                 inGameBets={inGameBets}
                 onInit={audio => setAudio(audio)}
               />
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <PlaceBet
-                connected={connected}
-                onBet={() => {
-                  audio.playBetSound();
-                }}
-                onCashout={() => {
-                  audio.playWinSound();
-                }}
-              />
-            </Grid>
-            {isMiddleOrLargeDevice ? (
-              <Grid item xs={12} md={4}>
-                <div className={styles.chatWrapper}>
-                  <Chat
-                    roomId={ROSI_GAME_EVENT_ID}
-                    className={styles.chatContainer}
-                    chatMessageType={ChatMessageType.game}
-                  />
-                </div>
-              </Grid>
-            ) : null}
-            {isMiddleOrLargeDevice ? renderActivities() : renderBets()}
-            {isMiddleOrLargeDevice ? renderBets() : null}
-          </Grid>
+            </div>
+            <div className={styles.rightContainer}>
+              <div className={styles.placeContainer}>
+                <PlaceBet
+                  connected={connected}
+                  onBet={() => {
+                    audio.playBetSound();
+                  }}
+                  onCashout={() => {
+                    audio.playWinSound();
+                  }}
+                />
+                {isMiddleOrLargeDevice ? renderBets() : null}
+              </div>
+            </div>
+          </div>
+          {isMiddleOrLargeDevice ? null : renderBets()}
+          {isMiddleOrLargeDevice ? (
+            <div className={styles.bottomWrapper}>
+              {renderChat()}
+              {renderActivities()}
+            </div>
+          ) : null}
           <ContentFooter className={styles.betFooter} />
         </div>
       </div>

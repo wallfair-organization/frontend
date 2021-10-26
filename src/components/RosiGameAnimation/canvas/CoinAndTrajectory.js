@@ -57,7 +57,7 @@ export class CoinAnimation {
     this.boundary = {
       x0: 0,
       x1: this.app.renderer.width - (isMobileRosiGame ? 50 : 55),
-      y0: calcPercent(this.app.renderer.height, 74),
+      y0: this.app.renderer.height - (isMobileRosiGame ? 60 : 100),
       y1: calcPercent(this.app.renderer.height, 25),
     };
 
@@ -341,12 +341,12 @@ export class CoinAnimation {
         const gP1 = this.getGlobalPositionByTime(t + 1000);
         randYArray[tP] = e
           ? e
-          : Math.sin((t / 1000) * Math.PI) * (gP1.y - gP.y) * t * 0.02;
+          : Math.sin((t / 3000) * Math.PI) * (gP1.y - gP.y) * t * 0.02;
       });
       const gPos1 = this.getGlobalPositionByTime(time + 1000);
 
       randYArray[tSegs] =
-        Math.sin((time / 1000) * Math.PI) * (gPos1.y - gPos.y) * time * 0.02;
+        Math.sin((time / 3000) * Math.PI) * (gPos1.y - gPos.y) * time * 0.02;
 
       /* x axis */
       this.axisLabels.forEach(e => (e.visible = false));

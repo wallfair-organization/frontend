@@ -4,6 +4,7 @@ export const NotificationTypes = {
   ADD_NOTIFICATION: 'Notification/ADD_NOTIFICATION',
   SET_UNREAD: 'Notification/SET_UNREAD',
   ADD_ACTIVITY: 'Notification/ADD_ACTIVITY',
+  ADD_INITIAL_ACTIVITIES: 'Notification/ADD_INITIAL_ACTIVITIES',
   CLEANUP_ACTIVITIES: 'Notification/CLEANUP_ACTIVITIES',
 };
 
@@ -16,6 +17,13 @@ const addActivity = makeActionCreator(NotificationTypes.ADD_ACTIVITY, {
   eventName: null,
   activity: null,
 });
+
+const addInitialActivities = makeActionCreator(
+  NotificationTypes.ADD_INITIAL_ACTIVITIES,
+  {
+    data: null,
+  }
+);
 
 const cleanUpActivities = makeActionCreator(
   NotificationTypes.CLEANUP_ACTIVITIES,
@@ -31,6 +39,7 @@ const setUnread = makeActionCreator(NotificationTypes.SET_UNREAD, {
 export const NotificationActions = {
   addNotification,
   addActivity,
+  addInitialActivities,
   cleanUpActivities,
   setUnread,
 };

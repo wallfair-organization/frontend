@@ -1,3 +1,4 @@
 REACT_APP_CRASH_GAME_BACKEND_URL=https://dev-elon-api.wallfair.io/
 REACT_APP_BACKEND_URL=https://dev-api.wallfair.io/
 REACT_APP_URL=https://dev.wallfair.io
+REACT_APP_SOCKET_URL=https://comm-dev-api.wallfair.io/
