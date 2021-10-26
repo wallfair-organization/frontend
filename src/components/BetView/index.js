@@ -312,6 +312,11 @@ const BetView = ({
           currency={currency}
           errorText={commitmentErrorText}
           maxValue={formatToFixed(userLoggedIn ? balance : BALANCE_NOT_LOGGED)}
+          dataTrackingIds={{
+            inputFieldHalf: 'nonstreamed-event-input-field-half',
+            inputFieldDouble: 'nonstreamed-event-input-field-double',
+            inputFieldAllIn: 'nonstreamed-event-input-field-allin',
+          }}
         />
       </>
     );

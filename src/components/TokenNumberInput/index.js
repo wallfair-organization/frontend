@@ -14,6 +14,7 @@ const TokenNumberInput = ({
   currency,
   errorText,
   className,
+  dataTrackingIds,
   ...props
 }) => {
   const onChange = event => {
@@ -72,21 +73,21 @@ const TokenNumberInput = ({
           <span
             className={styles.button}
             onClick={() => onBetAmountChanged(0.5)}
-            data-tracking-id="nonstreamed-event-input-field-half"
+            data-tracking-id={dataTrackingIds.inputFieldHalf}
           >
             ½
           </span>
           <span
             className={styles.button}
             onClick={() => onBetAmountChanged(2)}
-            data-tracking-id="nonstreamed-event-input-field-double"
+            data-tracking-id={dataTrackingIds.inputFieldDouble}
           >
             2x
           </span>
           <span
             className={styles.button}
             onClick={() => onBetAmountMax()}
-            data-tracking-id="nonstreamed-event-input-field-allin"
+            data-tracking-id={dataTrackingIds.inputFieldAllIn}
           >
             Max
           </span>

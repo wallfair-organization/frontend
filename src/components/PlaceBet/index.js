@@ -382,6 +382,11 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
               maxValue={formatToFixed(
                 user.balance > 10000 ? 10000 : user.balance
               )}
+              dataTrackingIds={{
+                inputFieldHalf: 'elongame-input-field-half',
+                inputFieldDouble: 'elongame-event-input-field-double',
+                inputFieldAllIn: 'elongame-event-input-field-allin',
+              }}
             />
           ) : (
             <div className={classNames(styles.cashedOutInputContainer)}>
