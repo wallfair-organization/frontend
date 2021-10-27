@@ -58,4 +58,15 @@ export const trackApproveCashout = dataLayerProps => {
   TagManager.dataLayer(tagManagerArgs);
 };
 
+export const trackSignup = dataLayerProps => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      event: 'signUp',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
 export default TagManager;

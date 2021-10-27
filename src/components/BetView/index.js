@@ -391,7 +391,10 @@ const BetView = ({
         } else if (!tradeButtonDisabled) {
           onTradeButtonConfirm();
           fetchOutcomes(commitment, betId);
-          trackNonstreamedEventPlaceTrade({ eventTitle: bet?.marketQuestion });
+          trackNonstreamedEventPlaceTrade({
+            eventTitle: bet?.marketQuestion,
+            amount: commitment,
+          });
         } else {
           _.noop();
         }

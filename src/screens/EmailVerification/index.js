@@ -5,6 +5,7 @@ import { useHistory } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { AuthenticationActions } from '../../store/actions/authentication';
+import { trackSignup } from '../../config/gtm';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -17,6 +18,9 @@ const EmailVerification = ({ emailVerificationState, verifyEmail }) => {
 
   useEffect(async () => {
     await verifyEmail(userId, code);
+
+    trackSignup({ method: 'Email' });
+
     history.push({
       pathname: Routes.home,
       query: { emailVerified: emailVerificationState },
