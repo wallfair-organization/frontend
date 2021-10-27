@@ -1,0 +1,189 @@
+@import '../../../styles/all';
+
+.title {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.02;
+  letter-spacing: 0.75px;
+  color: white;
+
+  margin: 32px auto 0;
+  width: 80%;
+
+  .howtoLink {
+    cursor: pointer;
+    font-size: 11px;
+    font-family: $fontRegular;
+    text-decoration: underline;
+    color: $colorYellow;
+
+    @media (max-width: $screen-xs) {
+      display: none;
+      margin: 0;
+      width: 100%;
+      padding: 0 15px 15px;
+    }
+  }
+
+  .questionIcon {
+    cursor: pointer;
+    display: none;
+
+    svg {
+      g,
+      path,
+      circle {
+        fill: $colorYellow;
+      }
+    }
+
+    @media (max-width: $screen-xs) {
+      display: block;
+    }
+  }
+
+  @media (max-width: $screen-sm) {
+    margin: 0;
+    width: 100%;
+    padding: 0 15px 15px;
+    align-items: center;
+  }
+}
+
+.header {
+  color: white;
+  width: 80%;
+  margin: 32px auto 0;
+
+  @media (min-width: $screen-lg) {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  @media (max-width: $screen-sm) {
+    margin: 0;
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+.categories {
+}
+
+.main {
+  color: white;
+  width: 80%;
+  margin: 32px auto 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @media (max-width: $screen-sm) {
+    margin: 0;
+    padding: 0 15px;
+    width: 100%;
+  }
+
+  @media (max-width: $screen-xs) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  > * {
+    margin-bottom: 10px;
+  }
+
+  > a {
+    text-decoration: none;
+
+    @media (max-width: $screen-xs) {
+      width: 100%;
+    }
+  }
+}
+
+.nonStreamed {
+  color: white;
+  width: 100%;
+  margin: 32px 0 0 0;
+  grid-gap: 20px;
+  display: flex;
+  flex-flow: wrap;
+
+  .betLinkWrapper {
+    display: block;
+    flex-basis: 100%;
+    text-decoration: none;
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    padding: 0;
+    .betLinkWrapper {
+      flex-basis: calc(50% - 10px);
+    }
+  }
+  @media screen and (min-width: $screen-md) {
+    grid-gap: 60px;
+    .betLinkWrapper {
+      flex-basis: calc(33.33% - 40px);
+    }
+  }
+  @media screen and (min-width: $screen-xl) {
+    justify-content: center;
+    .betLinkWrapper {
+      flex: 330px 0 1;
+    }
+  }
+}
+
+.newEventLink {
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: $colorWhite;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  border: 1px solid $colorWhite30;
+  background-color: rgba(172, 196, 255, 0.12);
+  border-radius: 12px;
+
+  span {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0.5;
+  }
+
+  &:hover span {
+    opacity: 0.8;
+  }
+
+  .newEventIcon {
+    margin-right: 10px;
+  }
+
+  svg {
+    g,
+    path,
+    circle {
+      stroke: $colorWhite;
+      fill: transparent;
+    }
+
+    // special handling for add-yellow icon
+    path {
+      display: none;
+
+      &:first-child {
+        display: block;
+      }
+    }
+  }
+}

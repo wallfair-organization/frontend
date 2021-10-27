@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
-import EventsContent from 'components/Events/EventsContent';
+import NonStreamedEventsContent from 'components/Events/NonStreamedEventsContent';
 import { EVENT_CATEGORIES } from '../../constants/EventCategories';
 
 const Events = () => {
@@ -8,7 +8,7 @@ const Events = () => {
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
-      <EventsContent
+      <NonStreamedEventsContent
         eventType="non-streamed"
         categories={categories}
         setCategories={setCategories}

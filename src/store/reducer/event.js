@@ -134,11 +134,18 @@ const fetchNewsDataSuccess = (state, { payload }) => {
 
 const bookmarkEvent = (state, { eventId, userId }) => {
   const idx = state.events.findIndex(event => event._id === eventId);
+  const fidx = state.filteredEvents.findIndex(event => event._id === eventId);
+  const bookmarks = [...state.events[idx]?.bookmarks, userId];
   if (idx > -1 && userId) {
     return update(state, {
       events: {
         [idx]: {
-          bookmarks: { $push: [userId] },
+          bookmarks: { $set: bookmarks },
+        },
+      },
+      filteredEvents: {
+        [fidx]: {
+          bookmarks: { $set: bookmarks },
         },
       },
     });
@@ -148,12 +155,24 @@ const bookmarkEvent = (state, { eventId, userId }) => {
 
 const bookmarkEventCancel = (state, { eventId, userId }) => {
   const idx = state.events.findIndex(event => event._id === eventId);
+  const fidx = state.filteredEvents.findIndex(event => event._id === eventId);
+  const bookmarks = (state.events[idx]?.bookmarks || []).filter(
+    uid => uid !== userId
+  );
+
   if (idx > -1 && userId) {
     return update(state, {
       events: {
         [idx]: {
           bookmarks: {
-            $set: state.events[idx].bookmarks.filter(uid => uid !== userId),
+            $set: bookmarks,
+          },
+        },
+      },
+      filteredEvents: {
+        [fidx]: {
+          bookmarks: {
+            $set: bookmarks,
           },
         },
       },

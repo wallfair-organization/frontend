@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { EventActions } from '../../../../store/actions/event';
+import { EventActions } from '../../../store/actions/event';
 
 export function useMappedActions(eventType) {
   const dispatch = useDispatch();

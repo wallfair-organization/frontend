@@ -80,6 +80,10 @@ const BetCard = ({
       <div className={classNames(styles.betCard, eventCardClass)}>
         <div className={styles.picture} style={getEventCardStyle()} />
         <div className={styles.header}>
+          <div
+            className={classNames([styles.categorySticker])}
+            style={getStickerStyle(category)}
+          />
           <span className={styles.section}>{category}</span>
 
           <div className={styles.special}>
@@ -89,22 +93,21 @@ const BetCard = ({
               <div className={styles.star} onClick={onBookmark} />
             )}
 
-            {eventEnd && (
+            {eventEnd && new Date(eventEnd) > new Date() ? (
               <div className={styles.timer}>
                 <span>
                   {timeLeft?.days || 0}d {timeLeft?.hours || 0}h{' '}
                   {timeLeft?.minutes || 0}m
                 </span>
               </div>
+            ) : (
+              <div className={styles.timer}>
+                <span>Ended</span>
+              </div>
             )}
           </div>
         </div>
         <div className={styles.content}>
-          <div
-            className={classNames([styles.categorySticker])}
-            style={getStickerStyle(category)}
-          />
-
           <div className={styles.titleContainer} title={title}>
             <span className={styles.title}>{title}</span>
           </div>

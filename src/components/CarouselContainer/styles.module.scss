@@ -1,119 +1,119 @@
 @import '../../styles/all';
 
 .carouselContainer {
-    margin: auto;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    width: 100%;
-    position: relative;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  width: 100%;
+  position: relative;
 
-    .inactivePlaceholder {
-        position: absolute;
-        left: 50%;
-        top: 180px;
-        z-index: 20;
-        transform: translate(-50%, -50%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        font-family: $fontMedium;
-        color: #F2FF53;
-        font-weight: 700;
-    }
-
-    .titleContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 30px;
-
-        .title {
-            color: $colorWhite;
-            font-size: 24px;
-        }
-
-        .titleLink {
-            font-size: 14px;
-            color: $colorWhite;
-            line-height: 12px;
-            letter-spacing: 0.6px;
-            margin-left: 20px;
-        }
-    }
-
-    .carousel {
-        display: flex;
-        align-items: flex-start;
-        position: relative;
-
-        &.blurContainer {
-            filter: blur(4px);
-        }
-
-        .comingSoonContainer {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 10;
-        }
-
-        @media (max-width: 1300px) {
-            overflow-x: scroll;
-        }
-
-        a {
-            text-decoration: none;
-
-            @media (max-width: $screen-md) {
-                margin-bottom: 10px;
-            }
-        }
-    }
-}
-
-.scrollButtons {
+  .inactivePlaceholder {
+    position: absolute;
+    left: 50%;
+    top: 180px;
+    z-index: 20;
+    transform: translate(-50%, -50%);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-family: $fontMedium;
+    color: #f2ff53;
+    font-weight: 700;
+  }
+
+  .titleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    .title {
+      color: $colorWhite;
+      font-size: 24px;
+    }
+
+    .titleLink {
+      font-size: 14px;
+      color: $colorWhite;
+      line-height: 12px;
+      letter-spacing: 0.6px;
+      margin-left: 20px;
+    }
+  }
+
+  .carousel {
+    display: flex;
     position: relative;
+    column-gap: 40px;
 
     &.blurContainer {
-        filter: blur(4px);
+      filter: blur(4px);
     }
 
     .comingSoonContainer {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 10;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
     }
 
-    @media (min-width: $screen-md) {
-        // display: flex;
+    @media (max-width: 1300px) {
+      overflow-x: scroll;
     }
 
-    .buttons {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    a {
+      text-decoration: none;
 
-    .arrowNext,
-    .arrowPrev {
-        background-color: transparent;
-        border: none;
-        height: 60px;
-        width: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-
-        &.inactive {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+      @media (max-width: $screen-md) {
+        margin-bottom: 10px;
+      }
     }
+  }
+}
+
+.scrollButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &.blurContainer {
+    filter: blur(4px);
+  }
+
+  .comingSoonContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  @media (min-width: $screen-md) {
+    // display: flex;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .arrowNext,
+  .arrowPrev {
+    background-color: transparent;
+    border: none;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &.inactive {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
 }

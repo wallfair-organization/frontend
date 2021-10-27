@@ -1,0 +1,32 @@
+@import '../../../styles/all';
+
+.suggestAnEventTriggerContainer {
+  display: flex;
+  width: auto;
+  margin-bottom: 0;
+}
+
+.suggestAnEventTrigger {
+  display: block;
+  all: unset;
+  font-family: Helvetica, Arial, sans-serif;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #f2ff53;
+  color: #000000;
+  font-size: 16px;
+  border-radius: 25px;
+  padding: 0 20px;
+  font-weight: bold;
+  height: 40px;
+  cursor: pointer;
+  text-align: center;
+  margin: 2px 0;
+  text-decoration: none;
+
+  @media (max-width: $screen-sm) {
+    margin: 0 20px;
+  }
+}

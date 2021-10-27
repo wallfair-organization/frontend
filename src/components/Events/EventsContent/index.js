@@ -4,8 +4,8 @@ import { useSelector, useDispatch, connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 import CategoryList from '../../CategoryList';
-import { useMappedActions } from './hooks/useMappedActions';
-import { useRouteHandling } from './hooks/useRouteHandling';
+import { useMappedActions } from '../hooks/useMappedActions';
+import { useRouteHandling } from '../hooks/useRouteHandling';
 import ContentFooter from 'components/ContentFooter';
 import AdminOnly from 'components/AdminOnly';
 import { PopupActions } from 'store/actions/popup';
@@ -19,22 +19,8 @@ import IconTheme from 'components/Icon/IconTheme';
 import BetCard from '../../BetCard';
 import EventsCarouselContainer from 'components/EventsCarouselContainer';
 
-import { PopupButton } from '@typeform/embed-react';
 import { EventActions } from '../../../store/actions/event';
-
-const SuggestAnEvent = React.memo(props => {
-  return (
-    <div className={styles.suggestAnEventTriggerContainer}>
-      <PopupButton
-        key={'XbyRBuOp'}
-        id="XbyRBuOp"
-        className={styles.suggestAnEventTrigger}
-      >
-        Suggest an event
-      </PopupButton>
-    </div>
-  );
-});
+import SuggestEventButton from '../SuggestEventButton';
 
 function EventsContent({
   eventType,
@@ -224,7 +210,7 @@ function EventsContent({
           eventType !== 'streamed' ? styles.notStreamed : '',
         ])}
       >
-        <SuggestAnEvent />
+        <SuggestEventButton />
         {eventType === 'streamed' && (
           <div className={styles.streamedContainer}>
             <EventsCarouselContainer

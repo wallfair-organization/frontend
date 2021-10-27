@@ -1,0 +1,56 @@
+@import '../../../../styles/all';
+
+.statusPicker {
+  border-bottom: 1px solid $colorGrayLight1;
+  width: 100%;
+  margin-bottom: 70px;
+  position: relative;
+
+  @media screen and (min-width: $screen-md) {
+    margin-bottom: 20px;
+  }
+
+  .tabButton {
+    padding: 8px 4px;
+    border: none;
+    background-color: transparent;
+    color: $colorGrayLight1;
+    text-transform: uppercase;
+    font-size: 12px;
+    position: relative;
+    cursor: pointer;
+    margin-right: 3px;
+
+    @media screen and (min-width: $screen-xs) {
+      margin-right: 37px;
+      font-size: 14px;
+    }
+  }
+
+  .tabButtonActive {
+    color: $colorWhite;
+    font-weight: 900;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      border-bottom: 3px solid $colorYellow;
+    }
+  }
+}
+
+.suggestEventButton {
+  position: absolute;
+  bottom: -70px;
+  > button {
+    margin: 0;
+  }
+  @media screen and (min-width: $screen-md) {
+    right: 0;
+    width: auto;
+    bottom: 10px;
+  }
+}
