@@ -18,6 +18,7 @@ import BetCard from '../../BetCard';
 
 import { EventActions } from '../../../store/actions/event';
 import StatusTabs from './StatusTabs';
+import AuthenticationType from 'components/Authentication/AuthenticationType';
 
 const NonStreamedEventsContent = ({
   categories,
@@ -116,6 +117,7 @@ const NonStreamedEventsContent = ({
   const showJoinPopup = useCallback(event => {
     showPopup(PopupTheme.auth, {
       small: false,
+      authenticationType: AuthenticationType.register,
     });
   }, []);
 

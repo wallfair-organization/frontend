@@ -11,6 +11,7 @@ import BetCard from 'components/BetCard';
 import BetState from 'constants/BetState';
 import { PopupActions } from '../../store/actions/popup';
 import PopupTheme from '../Popup/PopupTheme';
+import AuthenticationType from 'components/Authentication/AuthenticationType';
 
 const EventsCarouselContainer = ({
   events,
@@ -99,6 +100,7 @@ const EventsCarouselContainer = ({
   const showJoinPopup = useCallback(event => {
     showPopup(PopupTheme.auth, {
       small: false,
+      authenticationType: AuthenticationType.register,
     });
   }, []);
 
@@ -216,7 +218,7 @@ const EventsCarouselContainer = ({
               e.preventDefault();
               e.stopPropagation();
               if (!userId) {
-                showJoinPopup(e);
+                return showJoinPopup(e);
               }
               bookmarkEvent(bet.eventId);
             }}

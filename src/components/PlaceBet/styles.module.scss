@@ -5,8 +5,8 @@
   background: #fff;
   border: 1px solid rgba(255, 255, 255, 0.17);
   border-radius: 10px;
-  padding: 25px 20px 20px 20px;  
-  margin-bottom: 14px;  
+  padding: 25px 20px 20px 20px;
+  margin-bottom: 14px;
 
   @media screen and (max-width: $screen-md) {
     margin-top: 7px;
@@ -188,6 +188,7 @@
   @media screen and (max-width: $screen-xs) {
     margin-top: 10px;
   }
+  font-family: $fontBold;
   width: 15em;
   height: 60px;
   border-radius: 4px;
@@ -196,14 +197,19 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-image: url('../../data/backgrounds/games/games-highlight.png');
+  background-image: url('../../data/backgrounds/games/bet-button.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  
+
   &:hover {
     cursor: pointer;
   }
+}
+
+.button.cancel{
+  background-image: url('../../data/backgrounds/games/cancel-button.svg');
+  color: white;
 }
 
 .buttonDisabled {
@@ -247,7 +253,7 @@
   display: flex;
   width: 100%;
   align-items: center;
-  padding: 10.5px;  
+  padding: 10.5px;
   height: 45px;
   border-radius: 10px;
   border: 1.2px solid rgba(14, 9, 39, 0.3);
@@ -295,7 +301,7 @@
     text-align: left;
   }
 
-  .buttonWrapper 
+  .buttonWrapper
   {
       margin-left:    0px;
       @media (min-width: $screen-lg)
@@ -303,13 +309,13 @@
           margin-left:    30px;
       }
       :first-child {
-          font-size:      20px;            
+          font-size:      20px;
       }
 
       :nth-child(2) {
           font-size:      16px;
       }
-      
+
       :last-child {
           font-size:      14px;
       }

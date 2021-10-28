@@ -1,4 +1,4 @@
-import { delay, put, select } from 'redux-saga/effects';
+import { call, delay, put, select } from 'redux-saga/effects';
 import { RosiGameActions } from '../actions/rosi-game';
 
 export const endGame = function* () {

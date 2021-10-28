@@ -144,6 +144,23 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
       });
   };
 
+  const cancelBet = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCanBet(false);
+    Api.cancelBet()
+      .then(() => {
+        dispatch(RosiGameActions.cancelBet({ userId: user.userId }));
+      })
+      .catch(() => {
+        dispatch(
+          AlertActions.showError({
+            message: 'Elon Game: Cancel Bet failed',
+          })
+        );
+      });
+  };
+
   const placeGuestBet = () => {
     if (numberOfDemoPlays === 3) {
       showLoginPopup();
@@ -190,6 +207,11 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
     setAnimate(true);
   };
 
+  const cancelGuestBet = () => {
+    setCanBet(false);
+    dispatch(RosiGameActions.clearGuestData());
+  };
+
   const showLoginPopup = () => {
     dispatch(
       PopupActions.show({
@@ -230,13 +252,13 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
           <span
             role="button"
             tabIndex="0"
-            className={classNames(styles.button, styles.buttonDisabled)}
-            onClick={user.isLoggedIn ? () => {} : showLoginPopup}
+            className={classNames(styles.button, styles.cancel)}
+            onClick={user.isLoggedIn ? cancelBet : cancelGuestBet}
             data-tracking-id={
               user.isLoggedIn ? null : 'elongame-showloginpopup'
             }
           >
-            {user.isLoggedIn ? 'Bet Placed' : 'Bet Placed'}
+            {user.isLoggedIn ? 'Cancel Bet' : 'Cancel Bet'}
           </span>
         </>
       );

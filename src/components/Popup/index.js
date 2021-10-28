@@ -257,7 +257,7 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             type === PopupTheme.username ? styles.usernamePopup : null,
             small ? styles.small : null,
             type === PopupTheme.auth &&
-              options?.authenticationType === 'register' &&
+              options?.authenticationType === AuthenticationType.register &&
               styles.registrationPopupContainer,
             [
               PopupTheme.signUpNotificationFirst,
