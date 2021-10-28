@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import State from '../../helper/State';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { formatToFixed } from 'helper/FormatNumbers';
+import { formatToFixed, toNumericString } from 'helper/FormatNumbers';
 import { TOKEN_NAME } from '../../constants/Token';
 import { calculateGain } from '../../helper/Calculation';
 import medalCoin from '../../data/icons/medal-coin.png';
@@ -53,11 +53,12 @@ const ActivityMessage = ({ activity, date, users, events }) => {
     }
     const usrname = getUserProfileUrl(data);
     const amount = formatToFixed(_.get(data, 'amount'), 0, true);
-    const rewardAmount = formatToFixed(_.get(data, 'reward'), 0, true);
+    const rewardAmountFormatted = formatToFixed(data?.reward, 0, true);
+    const rewardAmount = toNumericString(rewardAmountFormatted);
     switch (activity.type) {
       case 'Casino/CASINO_CASHOUT':
         const game = _.get(data, 'gameName');
-        const stakedAmount = _.get(data, 'stakedAmount');
+        const stakedAmount = toNumericString(data?.stakedAmount);
         const crashFactor = _.get(data, 'crashFactor');
         const reward = _.get(data, 'reward');
         const gain = calculateGain(stakedAmount, reward);

@@ -12,3 +12,9 @@ export const formatToFixed = (
   }
   return newAmount;
 };
+
+export const toNumericString = number => {
+  return number == null || Number.isNaN(number) === true
+    ? ''
+    : Number(number).toLocaleString('en-US');
+};
