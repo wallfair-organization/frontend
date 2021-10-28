@@ -207,10 +207,16 @@ export function* init() {
             );
             break;
           case ChatMessageType.casinoTrade:
-            yield put(RosiGameActions.addInGameBet(payload));
+            const u = yield select(state => state.authentication.userId);
+            yield put(
+              RosiGameActions.addInGameBet({ ...payload, clientUserId: u })
+            );
             break;
           case ChatMessageType.casinoReward:
-            yield put(RosiGameActions.addReward(payload));
+            const ui = yield select(state => state.authentication.userId);
+            yield put(
+              RosiGameActions.addReward({ ...payload, clientUserId: ui })
+            );
             break;
           case ChatMessageType.pulloutBet:
           case ChatMessageType.createBet:

@@ -35,6 +35,7 @@ import DisclaimerPopupContainer from 'components/DisclaimerPopupContainer';
 import PageTracker from 'components/PageTracker';
 import useHideMobileScrollingMenu from 'hooks/useHideMobileScrollingMenu';
 import EventRouter from 'components/Events/EventRouter';
+import TypeformController from 'components/TypeformController';
 
 const { store, persistor } = configStore();
 
@@ -54,6 +55,7 @@ const App = () => {
             <Popup />
             <AudioContent />
             <DisclaimerPopupContainer />
+            <TypeformController />
             <Switch>
               <Route exact path={Routes.logout} component={Logout} />
               <Route

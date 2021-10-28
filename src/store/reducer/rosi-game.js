@@ -109,9 +109,11 @@ const addLastCrash = (action, state) => {
 };
 
 const addInGameBet = (action, state) => {
+  const { clientUserId, userId } = action.payload;
   if (state.hasStarted || state.isEndgame) {
     return {
       ...state,
+      placedBetInQueue: state.placedBetInQueue || clientUserId === userId,
       betQueue: [
         {
           ...action.payload,
@@ -121,8 +123,16 @@ const addInGameBet = (action, state) => {
       ],
     };
   }
+  let userBet = null;
+  if (state.userBet) {
+    userBet = state.userBet;
+  } else if (clientUserId === userId) {
+    userBet = action.payload;
+  }
+
   return {
     ...state,
+    userBet: userBet,
     inGameBets: [
       {
         ...action.payload,
@@ -180,6 +190,7 @@ const cashedOutGuest = (action, state) => {
 };
 
 const addReward = (action, state) => {
+  const { clientUserId, userId } = action.payload;
   const correspondingBet = state.inGameBets.find(
     bet => action.payload.userId.toString() === bet.userId
   );
@@ -192,6 +203,8 @@ const addReward = (action, state) => {
   return {
     ...state,
     cashedOut: [bet, ...state.cashedOut],
+    isCashedOut: state.isCashedOut || clientUserId === userId,
+    userBet: clientUserId === userId ? null : state.userBet,
     inGameBets: correspondingBet
       ? state.inGameBets.filter(bet => bet.userId !== correspondingBet.userId)
       : state.inGameBets,
