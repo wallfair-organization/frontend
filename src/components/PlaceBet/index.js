@@ -161,7 +161,7 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
       const autoCashoutAt = parseFloat(crashFactor);
       const factor = calcCrashFactorFromElapsedTime(diff < 1 ? 1 : diff);
 
-      if (factor >= autoCashoutAt) {
+      if (factor >= 1 && factor < 999 && factor >= autoCashoutAt) {
         if (user.isLoggedIn) {
           cashOut();
         } else {
