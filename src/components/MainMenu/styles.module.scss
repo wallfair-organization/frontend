@@ -149,6 +149,11 @@ $largeMobileHeight: 700px;
             height: 35px;
             margin: auto;
 
+            svg {
+              width: 35px;
+              height: 35px;
+            }
+
             > .uploadIcon {
               fill: white;
             }

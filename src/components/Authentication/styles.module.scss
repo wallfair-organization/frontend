@@ -51,7 +51,7 @@
   .formGroup {
     position: relative;
     width: 100%;
-    margin: 20px 0;
+    margin: 12px 0;
 
     @media (max-width: $screen-sm) {
       margin: 10px 0;
@@ -100,6 +100,57 @@
 
     @media (max-width: $screen-sm) {
       margin: 10px 0;
+    }
+  }
+
+  .ageVerificationForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .solidButton {
+      display: flex;
+      overflow: hidden;
+      font-family:  $fontRegular;
+      font-size: 16px;
+      border-radius: 10px;
+      margin: 20px 0 0;
+      padding: 0 20px;
+      height: 42px;
+      background-color: $colorYellowLight;
+      justify-content: center;      
+      align-items: center;
+      cursor: pointer;
+      @media (max-width: $screen-sm) {
+        height: 36px;
+        margin: 10px 0 0;
+      }
+    }
+
+    .outlinedButton {
+      display: flex;
+      overflow: hidden;
+      font-family:  $fontRegular;
+      font-size: 16px;
+      border-radius: 10px;
+      margin: 20px 0 0;
+      padding: 0 20px;
+      height: 42px;
+      background-color: $colorWhite;
+      border-color: $colorYellowLight;
+      border-style: solid;
+      border-width: 2px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      @media (max-width: $screen-sm) {
+        height: 36px;
+        margin: 10px 0 0;
+      }
+
+      span > svg {
+        width: 100%;
+      }
     }
   }
 }
@@ -152,4 +203,11 @@
   background-color: $colorRedLight;
   color: $colorWhite;
   border-radius: 10px;
+}
+
+.errorText {
+  margin: 10px 5px 11px 0;
+  font-family: $fontRegular;
+  font-size: 14px;      
+  color: $colorRedLight
 }

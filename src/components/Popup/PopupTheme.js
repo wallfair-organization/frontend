@@ -32,4 +32,5 @@ export default {
   disclaimer: 'disclaimer',
   username: 'username',
   requestTokens: 'requestTokens',
+  lastGamesDetail: 'lastGamesDetail',
 };

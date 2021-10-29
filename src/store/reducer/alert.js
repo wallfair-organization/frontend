@@ -49,6 +49,30 @@ const showResult = (action, state) => {
   });
 };
 
+const showNotification = (action, state) => {
+  const nextAlertId = state.nextAlertId;
+
+  return update(state, {
+    alerts: {
+      $push: [
+        {
+          id: nextAlertId,
+          notification: {
+            ...action.notification,
+            payload: {
+              ...action.notification,
+            },
+          },
+          type: AlertType.notification,
+        },
+      ],
+    },
+    nextAlertId: {
+      $set: nextAlertId + 1,
+    },
+  });
+};
+
 export default function (state = initialState, action) {
   switch (action.type) {
     // @formatter:off
@@ -60,6 +84,8 @@ export default function (state = initialState, action) {
     case AlertTypes.SHOW_ERROR:
     case AlertTypes.SHOW_SUCCESS:
       return showResult(action, state);
+    case AlertTypes.SHOW_NOTIFICATION:
+      return showNotification(action, state);
     default:
       return state;
     // @formatter:on

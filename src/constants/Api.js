@@ -55,6 +55,8 @@ export const API_CURRENT = 'api/current';
 export const API_CHART_DATA = 'api/event/bet/:betId/history';
 export const API_CHAT_MESSAGES =
   'api/chat/chat-messages/:roomId?skip=:skip&limit=:limit';
+export const API_USER_MESSAGES = 'api/user-messages?skip=:skip&limit=:limit';
+export const API_USER_MESSAGE_SET_READ = 'api/user-messages/:id/read';
 export const API_EVENT_CREATE_FROM_TWITCH = 'api/event/extract/twitch';
 export const API_EVENT_CREATE_FROM_YOUTUBE = 'api/event/create-from-youtube';
 export const API_EVENT_GET_COVER_STREAM = 'api/event/cover/streamed';
@@ -76,3 +78,4 @@ export const API_AUTH_FORGOT_PASSWORD = 'api/auth/forgot-password';
 export const API_AUTH_RESET_PASSWORD = 'api/auth/reset-password';
 //3rd parties
 export const TINYURL_SHORTENER = 'https://tinyurl.com/api-create.php';
+export const CRASH_GAME_API_GET_GAME_DETAILS = 'api/matches/:gameId';

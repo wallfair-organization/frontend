@@ -1,43 +1,46 @@
 @import '../../styles/all';
 
 .alertBoxContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
-  flex-direction: column;
   width: 100%;
   left: 0;
-  top: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   z-index: $zIndexAlertContainer;
-  padding: 25px 10px 10px;
   pointer-events: none;
+  top: 95px;
+  align-items: flex-end;
+  padding-right: 10px;
 
-  @media (min-width: $screen-sm) {
-    align-items: flex-end;
-    padding: 25px;
+  @media (max-width: $screen-sm) {
+    top: 60px;
+    padding-right: 0;
   }
 
   .alertContainer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    position: relative;
-    max-width: calc(100% - 20px);
-    width: 300px;
-    height: auto;
-    margin-bottom: 20px;
-    background: $colorYellow;
-    transform: scale(0);
     color: $colorPrimary;
-    opacity: 0;
-    pointer-events: all;
-    overflow: hidden;
-    animation: scale-in 0.3s ease-out forwards,
-      expand 0.35s 0.25s ease-out forwards;
+    background: $colorYellow;
+    border-radius: 10px;
+    align-items: center;
+  }
 
-    @media (min-width: $screen-sm) {
-      max-width: calc(100% - 50px);
+  > div {
+    border: 1px solid $colorPrimary;
+    animation: movein 0.5s ease-out forwards, moveout 0.5s 7.6s ease-in forwards;
+    right: -500px;
+
+    margin: 0 0 20px 0;
+    position: relative;
+    width: 450px;
+    height: auto;
+    pointer-events: all;
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+
+    @media (max-width: $screen-sm) {
+      max-width: calc(100% - 5px);
     }
 
     .alertIcon,
@@ -68,37 +71,34 @@
       font-family: $fontBold;
       padding: 8px 12px;
       font-size: 14px;
-      animation: fade-in 0.65s ease-in forwards;
     }
   }
 }
 
-@keyframes scale-in {
+@keyframes movein {
+  0% {
+    right: -500px;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
   100% {
-    transform: scale(1);
+    right: 0px;
     opacity: 1;
   }
 }
 
-@keyframes expand {
-  50% {
-    border-radius: 6px;
-  }
-
-  100% {
-    width: 400px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-      0 3px 3px -1px rgba(0, 0, 0, 0.1);
-  }
-}
-
-@keyframes fade-in {
+@keyframes moveout {
   0% {
+    right: 0px;
+    opacity: 1;
+  }
+
+  80% {
     opacity: 0;
   }
-
   100% {
-    opacity: 0.8;
+    right: -500px;
   }
 }

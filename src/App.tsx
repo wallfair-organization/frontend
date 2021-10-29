@@ -21,8 +21,6 @@ import IconType from 'components/Icon/IconType';
 import Events from './screens/Events';
 import LiveEvents from './screens/LiveEvents';
 import RosiGame from './screens/RosiGame';
-import Blog from './screens/Blog';
-import BlogItem from './components/BlogItem';
 import { PersistGate } from 'redux-persist/integration/react';
 import Games from './screens/Games';
 import Activities from './screens/Activities';
@@ -76,15 +74,6 @@ const App = () => {
               <Route exact path={Routes.liveEvents} component={LiveEvents} />
               <Route exact path={Routes.events} component={Events} />
               <Route exact path={Routes.rosiGame} component={RosiGame} />
-              <Route
-                path={Routes.blog}
-                render={({ match: { url } }) => (
-                  <>
-                    <Route path={`${url}/`} component={Blog} exact />
-                    <Route path={`${url}/:slug`} component={BlogItem} />
-                  </>
-                )}
-              />
               <Route exact path={Routes.activities} component={Activities} />
               <Route path={Routes.verify} component={EmailVerification} />
               <Route path={Routes.games} component={Games} />

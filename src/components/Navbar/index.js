@@ -28,10 +28,11 @@ import { selectUser } from 'store/selectors/authentication';
 import { formatToFixed } from 'helper/FormatNumbers';
 import AuthenticationType from '../Authentication/AuthenticationType';
 import TimeLeftCounter from '../TimeLeftCounter';
+import { UserMessageRoomId } from '../../store/actions/websockets';
+import { ChatActions } from 'store/actions/chat';
 
 const Navbar = ({
   user,
-  notifications,
   setUnread,
   authState,
   location,
@@ -41,6 +42,8 @@ const Navbar = ({
   setOpenDrawer,
   setEditProfileVisible,
   showPopup,
+  userMessages,
+  setMessageRead,
 }) => {
   const [missingWinnerAmount, setMisingWinnerAmount] = useState(null);
   const openDrawer = useSelector(state => state.general.openDrawer);
@@ -80,10 +83,6 @@ const Navbar = ({
     wallet: 'wallet',
     emailNotifications: 'emailNotifications',
   };
-
-  const unreadNotifications = notifications.filter(
-    notification => !notification.read
-  ).length;
 
   const toggleOpenDrawer = drawerName => {
     if (!drawers.hasOwnProperty(drawerName)) {
@@ -168,9 +167,9 @@ const Navbar = ({
         onClick={() => toggleOpenDrawer(drawers.notifications)}
       >
         <Icon iconType={IconType.bell} className={style.notificationIcon} />
-        {unreadNotifications > 0 && (
+        {userMessages?.total > 0 && (
           <div className={style.notificationNew}>
-            <p className={style.notificationNewText}>{unreadNotifications}</p>
+            <p className={style.notificationNewText}>{userMessages.total}</p>
           </div>
         )}
       </div>
@@ -239,7 +238,7 @@ const Navbar = ({
         <div className={style.navbarItems}>
           {leaderboardBtn}
           {walletBtn}
-          {/* {notificationsBtn} */}
+          {notificationsBtn}
           {profileBtn}
         </div>
       );
@@ -341,12 +340,14 @@ const Navbar = ({
         )}
       >
         <div className={classNames(style.drawerContent)}>
-          <Notifications
-            notifications={notifications}
-            unreadNotifications={unreadNotifications}
-            closeNotifications={closeDrawers}
-            setUnread={setUnread}
-          />
+          {userMessages && (
+            <Notifications
+              notifications={userMessages.messages}
+              total={userMessages.total}
+              closeNotifications={closeDrawers}
+              setUnread={setMessageRead}
+            />
+          )}
         </div>
         <div className={style.drawerBackdropBg}></div>
       </div>
@@ -427,7 +428,7 @@ const Navbar = ({
 const mapStateToProps = state => {
   return {
     authState: state.authentication.authState,
-    notifications: state.notification.notifications,
+    userMessages: state.chat?.messagesByRoom[UserMessageRoomId],
     user: state.authentication,
     location: state.router.location,
     leaderboardOpen: state.leaderboard.leaderboard.openDrawer,
@@ -436,6 +437,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    setMessageRead: message => {
+      dispatch(
+        ChatActions.setMessageRead({
+          messageId: message._id,
+          roomId: message.roomId,
+        })
+      );
+    },
     setUnread: notification => {
       dispatch(NotificationActions.setUnread({ notification }));
     },

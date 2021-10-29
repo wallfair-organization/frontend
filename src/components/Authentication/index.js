@@ -31,6 +31,7 @@ const Authentication = ({
     useState(false);
   const [error, setError] = useState(null);
   const [forgotPassword, setForgotPassword] = useState(false);
+  const [ageOver18, setAgeOver18] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState(false);
   const [submitInProgress, setSubmitInProgress] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -42,6 +43,7 @@ const Authentication = ({
   let pwConfirmRef = useRef(null);
   let acceptRef = useRef(null);
   let genericRef = useRef(null);
+  let ageRef = useRef(null);
 
   const isSignUp = () => authenticationType === AuthenticationType.register;
 
@@ -92,6 +94,10 @@ const Authentication = ({
     if (isSignUp() && !forgotPassword && !legalAuthorizationAgreed) {
       error = 'Confirm that you agree with Terms and Conditions';
       fooRef = acceptRef;
+    }
+    if (isSignUp() && !forgotPassword && !ageOver18) {
+      error = 'You need to be at least 18 years old to use the platform';
+      fooRef = ageRef;
     }
     if (isSignUp() && !forgotPassword && !passwordsMatch()) {
       error = 'Passwords do not match';
@@ -242,7 +248,7 @@ const Authentication = ({
             />
           </FormGroup>
         )}
-
+        {isSignUp() && renderLegalAuthorizationAgeVerification()}
         {isSignUp() && renderLegalAuthorizationAgreementCheckBox()}
         {!isSignUp() && renderForgotPasswordLink()}
 
@@ -251,7 +257,9 @@ const Authentication = ({
           withoutBackground={true}
           highlightType={HighlightType.highlightAuthButton}
           className={styles.submitButton}
-          disabled={submitInProgress}
+          disabled={
+            submitInProgress || (isSignUp() && !forgotPassword && !ageOver18)
+          }
           disabledWithOverlay={true}
         >
           <span>{forgotPassword ? 'Send' : action}</span>
@@ -260,6 +268,29 @@ const Authentication = ({
     );
   };
 
+  const renderLegalAuthorizationAgeVerification = () => {
+    return (
+      <div ref={ref => (ageRef = ref)} className={styles.formGroup}>
+        <InputLabel className={styles.inputLabel}>
+          Please verify your age together
+        </InputLabel>
+        <div className={styles.ageVerificationForm}>
+          <span
+            onClick={() => setAgeOver18(true)}
+            className={ageOver18 ? styles.solidButton : styles.outlinedButton}
+          >
+            <span>I am over 18</span>
+          </span>
+          <span
+            onClick={() => setAgeOver18(false)}
+            className={ageOver18 ? styles.outlinedButton : styles.solidButton}
+          >
+            <span>I am under 18</span>
+          </span>
+        </div>
+      </div>
+    );
+  };
   const renderLegalAuthorizationAgreementCheckBox = () => {
     const legalAuthorizationAgreementText = (
       <p
@@ -280,7 +311,11 @@ const Authentication = ({
       </p>
     );
 
-    return (
+    return !ageOver18 ? (
+      <span className={styles.errorText}>
+        You need to be above 18 years old in order to use this system
+      </span>
+    ) : (
       <CheckBox
         className={styles.authenticationLegalAuthorizationAgreementCheckBox}
         checked={legalAuthorizationAgreed}

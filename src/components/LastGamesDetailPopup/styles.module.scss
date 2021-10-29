@@ -1,0 +1,129 @@
+@import '../../styles/all';
+
+.gameDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 35px;
+
+  .logo {
+    height: 60px;
+  }
+
+  .title {
+    position: relative;
+    font-family: $fontBold;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .nextGame, .prevGame {
+    font-size: 13px;
+    position: absolute;
+    font-weight: 100;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .prevGame {
+    right: -80px;
+    bottom: -12px;
+  }
+
+  .nextGame {
+    left: -80px;
+    bottom: -12px;
+  }
+
+  .subtitle {
+    font-family: $fontRegular;
+    font-size: 14px;
+    padding-top: 5px;
+  }
+
+  .separator {
+    margin: 5px 0;
+    height: 1px;
+    width: 160px;
+    background-color: $colorGrayLight1;
+    border-radius: 100%;
+  }
+
+  .gameDate {
+    font-size: 14px;
+    color: $colorDarkSlateGray;
+    margin-bottom: 15px;
+  }
+
+  .content {
+    width: 800px;
+    font-size: 15px;
+
+
+
+    & > div {
+      margin-bottom: 4px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: $screen-md) {
+      width: 100%;
+    }
+  }
+
+  .betsTableContainer {
+    margin-top: 15px;
+
+    @media (max-width: $screen-sm) {
+      display: none;
+    }
+
+    //
+    .betState1, .betState4, .betState3 {
+      color: $colorRedDark;
+      font-weight: bold;
+    }
+
+    //cashout
+    .betState2 {
+      color: $colorGreenDarker;
+      font-weight: bold;
+    }
+
+    table {
+      width:100%;
+      table-layout: fixed;
+      overflow-wrap: break-word;
+      border-collapse: collapse;
+    }
+
+    /* Zebra striping */
+    tr:nth-of-type(odd) {
+      background: $colorGrayLight5;
+    }
+
+    th {
+      background: $colorDarkSlateGray;
+      color: white;
+      font-weight: bold;
+    }
+
+    td, th {
+      padding: 5px;
+      border: 1px solid #ccc;
+      text-align: left;
+      font-size: 15px;
+
+      &:nth-of-type(1) {
+        width: 230px;
+      }
+    }
+  }
+}

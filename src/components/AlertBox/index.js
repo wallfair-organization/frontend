@@ -5,8 +5,10 @@ import React from 'react';
 import styles from './styles.module.scss';
 import { connect } from 'react-redux';
 import { AlertActions } from '../../store/actions/alert';
+import NotificationCard from '../NotificationCard';
+import { ChatActions } from 'store/actions/chat';
 
-const AlertBox = ({ alerts, removeAlert }) => {
+const AlertBox = ({ alerts, removeAlert, setMessageRead }) => {
   // just format test
   const renderAlertIcon = alert => {
     switch (alert.type) {
@@ -27,35 +29,36 @@ const AlertBox = ({ alerts, removeAlert }) => {
     return null;
   };
 
-  const onAlertXClick = (alert, id) => {
-    return () => {
-      removeAlert({ id });
-    };
-  };
+  const onAlertXClick = id => removeAlert({ id });
 
   const renderAlert = (alert, index) => {
-    return (
-      <div className={styles.alertContainer} key={index}>
+    return alert.notification ? (
+      <NotificationCard
+        key={alert.id ?? index}
+        notification={alert.notification}
+        onMarkAsRead={() => {
+          onAlertXClick(alert.id);
+          setMessageRead(alert.notification.messageId);
+        }}
+      ></NotificationCard>
+    ) : (
+      <div className={styles.alertContainer} key={alert.id}>
         {renderAlertIcon(alert)}
         <span className={styles.alertMessage}>{alert.message}</span>
         <Icon
           className={styles.closeIcon}
           iconType={IconType.deleteInput}
-          onClick={onAlertXClick(alert, alert.id)}
+          onClick={() => onAlertXClick(alert.id)}
         />
       </div>
     );
   };
 
-  const renderAlerts = () => {
-    if (alerts !== null) {
-      return <>{alerts.map(renderAlert)}</>;
-    }
-
-    return null;
-  };
-
-  return <div className={styles.alertBoxContainer}>{renderAlerts()}</div>;
+  return (
+    <div className={styles.alertBoxContainer}>
+      {alerts && alerts.map(renderAlert)}
+    </div>
+  );
 };
 
 const mapStateToProps = state => {
@@ -68,6 +71,13 @@ const mapDispatchToProps = dispatch => {
   return {
     removeAlert: id => {
       dispatch(AlertActions.removeAlert(id));
+    },
+    setMessageRead: messageId => {
+      dispatch(
+        ChatActions.setMessageRead({
+          messageId,
+        })
+      );
     },
   };
 };

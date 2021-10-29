@@ -337,11 +337,27 @@ const getBetTemplates = () => {
     .catch(error => ({ error: error.response.data }));
 };
 
+const fetchChatMessagesByUser = (limit, skip) => {
+  return Api.get(
+    ApiUrls.API_USER_MESSAGES.replace(':limit', limit).replace(':skip', skip)
+  )
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.message }));
+};
+
 const fetchChatMessagesByRoom = (roomId, limit, skip) => {
   return Api.get(
     ApiUrls.API_CHAT_MESSAGES.replace(':roomId', roomId)
       .replace(':limit', limit)
       .replace(':skip', skip)
+  )
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.message }));
+};
+
+const setUserMessageRead = userMessageId => {
+  return Api.put(
+    ApiUrls.API_USER_MESSAGE_SET_READ.replace(':id', userMessageId)
   )
     .then(response => ({ response }))
     .catch(error => ({ error: error.message }));
@@ -532,4 +548,6 @@ export {
   getUserPublicStats,
   updateStatus,
   requestTokens,
+  fetchChatMessagesByUser,
+  setUserMessageRead,
 };

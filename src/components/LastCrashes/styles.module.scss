@@ -14,6 +14,10 @@
     width: 30%;
 
     @media screen and (max-width: $screen-sm) {
+      width: 30%;
+    }
+
+    @media screen and (max-width: $screen-xs) {
       width: 50%;
     }
   }
@@ -25,8 +29,12 @@
     width: 70%;
     position: relative;
     @media screen and (max-width: $screen-sm) {
+      width: 70%;
+      overflow-x: hidden;
+    }
+
+    @media screen and (max-width: $screen-xs) {
       width: 50%;
-      overflow-x: scroll;
     }
   }
   .overlay {
@@ -35,16 +43,22 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(270deg, #1f1d38 0%, rgba(9, 9, 121, 0) 50%);
+    background: linear-gradient(270deg, #1f1d38 0%, rgba(9, 9, 121, 0) 40%);
     z-index: 2;
+    pointer-events: none;
   }
 
   .crash {
     color: $colorYellow;
-    margin-right: 50px;
+    margin-right: 25px;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
 
     @media screen and (max-width: $screen-sm) {
-      margin-right: 30px;
+      margin-right: 25px;
     }
   }
 }

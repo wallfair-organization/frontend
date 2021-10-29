@@ -149,31 +149,6 @@
   }
 }
 
-.blogBanner {
-  margin-top: 32px;
-  background-image: url('../../data/backgrounds/blogs/blog-banner-lg.png');
-
-  @media (max-width: $screen-sm) {
-    background-image: url('../../data/backgrounds/blogs/blog-banner-mobile.png');
-    padding: 5px 80px;
-  }
-}
-
-.blogSectionContainer {
-  width: 100%;
-  display: flex;
-
-  @media (max-width: $screen-sm) {
-    padding: 10px 40px;
-  }
-
-  .blogPlaceHolder {
-    @media (max-width: $screen-sm) {
-      display: none;
-    }
-  }
-}
-
 .bottomWrapper {
   display: flex;
   align-items: flex-start;

@@ -61,6 +61,16 @@
       height: auto;
     }
 
+    &.maxWidth {
+      max-width: max-content;
+      width: auto;
+      height: auto;
+
+      @media (max-width: $screen-md) {
+        max-width: calc(100vw - 15px);
+      }
+    }
+
     &.disclaimerContainer {
       max-width: 800px;
       height: auto;

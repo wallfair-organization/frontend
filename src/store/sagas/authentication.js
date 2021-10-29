@@ -9,10 +9,11 @@ import { push } from 'connected-react-router';
 import { put, call, select, delay } from 'redux-saga/effects';
 import { UserActions } from '../actions/user';
 import { PopupActions } from '../actions/popup';
-import { WebsocketsActions } from '../actions/websockets';
+import { UserMessageRoomId, WebsocketsActions } from '../actions/websockets';
 import PopupTheme from '../../components/Popup/PopupTheme';
 import { AlertActions } from 'store/actions/alert';
 import { RosiGameActions } from '../actions/rosi-game';
+import { ChatActions } from 'store/actions/chat';
 
 const afterLoginRoute = Routes.home;
 
@@ -224,6 +225,15 @@ const authenticationSucceeded = function* (action) {
     yield put(WebsocketsActions.init());
     yield put(RosiGameActions.clearGuestData());
     yield put(AlertActions.showSuccess({ message: 'Successfully logged in' }));
+
+    yield put(
+      WebsocketsActions.joinRoom({
+        userId,
+        roomId: UserMessageRoomId,
+      })
+    );
+    yield put(ChatActions.fetchByRoom({ roomId: UserMessageRoomId }));
+
     if (action.newUser) {
       yield put(
         PopupActions.show({

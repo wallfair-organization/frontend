@@ -1,0 +1,92 @@
+@import '../../styles/all';
+
+.notificationCardUnread {
+  border-radius: 12px;
+  position: relative;
+  display: block;
+  margin: 5px 25px 15px 25px;
+  padding: 15px 0px 0px 10px;
+  background-color: #27223f;
+
+  .notificationCardContent {
+    display: flex;
+    align-items: center;
+
+    .notificationMessage {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 15px;
+      font-size: 14px;
+      line-height: 20px;
+      color: #ffffff;
+      margin-right: 15px;
+      margin-left: 10px;
+
+      em {
+        font-size: 11px;
+        color: #888895;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      a {
+        color: #f2ff53;
+        font-family: $fontBold;
+      }
+
+      p {
+        flex: 1;
+      }
+
+      .imageContainer {
+        display: flex;
+        align-items: center;
+
+        img.notificationCardThumbnail {
+          height: 70px;
+          width: 110px;
+          object-fit: cover;
+          border-radius: 6px;
+          margin-left: 6px;
+          margin-right: 6px;
+        }
+      }
+    }
+
+    .categorySticker {
+      width: 35px;
+      height: 35px;
+      background-position: center;
+      position: absolute;
+      top: 7px;
+      right: 100px;
+      z-index: 1;
+    }
+  }
+
+  .closeIcon {
+    width: 25px;
+    height: 25px;
+
+    * {
+      stroke: $colorPrimary;
+    }
+
+    cursor: pointer;
+  }
+
+  .markSingleRead {
+    position: absolute;
+    right: 24px;
+    bottom: 12px;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: right;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    mix-blend-mode: normal;
+    opacity: 0.3;
+    cursor: pointer;
+  }
+}

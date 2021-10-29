@@ -31,6 +31,15 @@ import IconType from '../Icon/IconType';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
 import Timer from '../RosiGameAnimation/Timer';
 import { TOKEN_NAME } from 'constants/Token';
+import { calcCrashFactorFromElapsedTime } from '../RosiGameAnimation/canvas/utils';
+import { getMaxListeners } from 'process';
+import {
+  trackElonChangeAutoCashout,
+  trackElonPlaceBet,
+  trackElonCashout,
+  trackElonPlaceBetGuest,
+  trackElonCancelBet,
+} from '../../config/gtm';
 
 const PlaceBet = ({ connected, onBet, onCashout }) => {
   const dispatch = useDispatch();
@@ -46,7 +55,7 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
   const isBetInQueue = useSelector(betInQueue);
   const userCashedOut = useSelector(isCashedOut);
   const [amount, setAmount] = useState(sliderMinAmount);
-  const [crashFactor, setCrashFactor] = useState(999);
+  const [crashFactor, setCrashFactor] = useState('25.00');
   const [showCashoutWarning, setShowCashoutWarning] = useState(false);
   const [crashFactorDirty, setCrashFactorDirty] = useState(false);
   const [animate, setAnimate] = useState(false);
@@ -75,27 +84,36 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
     setAmount(number);
     // debouncedSetCommitment(number, currency);
   };
+
+  const processAutoCashoutValue = value => {
+    const regex = new RegExp('^[0w]+(?!$)', 'g');
+    let v = value.replaceAll(regex, '');
+    v = v.replaceAll(',', '.');
+    v = v.replaceAll(/[^0-9.]+/g, '');
+    return v;
+  };
+
   const onCrashFactorChange = event => {
     setCrashFactorDirty(true);
     let value = _.get(event, 'target.value', 0);
-    const regex = new RegExp('^0+(?!$)', 'g');
-    const v = value.replaceAll(regex, '');
+    const v = processAutoCashoutValue(value);
+    event.target.value = v;
 
-    const [f, s] = v.split('.');
-    let result = round(v, 2);
-    //check so we don't round up values such as 1.05
-    //TODO: look for a better way to achieve this
-    if (f && s && s === '0') {
-      result = v;
-    }
-    event.target.value = result;
-    setCrashFactor(round(v, 2));
+    setCrashFactor(v);
+    let result = parseFloat(v);
     if (result > 0 && result < 1) {
       setShowCashoutWarning(true);
     } else {
       setShowCashoutWarning(false);
     }
-    // debouncedSetCommitment(number, currency);
+  };
+
+  const onCrashFactorLostFocus = event => {
+    let value = _.get(event, 'target.value', 0);
+    const v = processAutoCashoutValue(value);
+    let result = parseFloat(v);
+
+    trackElonChangeAutoCashout({ multiplier: result });
   };
 
   const onGuestAmountChange = event => {
@@ -122,17 +140,43 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
     setAnimate(false);
   }, [isGameRunning]);
 
+  useEffect(() => {
+    const intervalTime = 4;
+    let intervalId;
+    const tick = () => {
+      let now = Date.now();
+      const diff = now - gameStartedTime;
+      const autoCashoutAt = parseFloat(crashFactor);
+      const factor = calcCrashFactorFromElapsedTime(diff < 1 ? 1 : diff);
+      if (factor >= autoCashoutAt) {
+        if (user.isLoggedIn) {
+          cashOut();
+        } else {
+          cashOutGuest();
+        }
+        clearInterval(intervalId);
+      }
+    };
+
+    if (!userPlacedABet || !isGameRunning || userCashedOut) return;
+    if (userPlacedABet && isGameRunning) {
+      intervalId = setInterval(tick, intervalTime);
+      return () => clearInterval(intervalId);
+    }
+  }, [isGameRunning, crashFactor, userCashedOut]);
+
   const placeABet = () => {
     if (userUnableToBet) return;
     if (amount > userBalance) return;
     onBet();
     const payload = {
       amount,
-      crashFactor: Math.round(Math.abs(parseFloat(crashFactor)) * 100) / 100,
+      crashFactor: 999,
     };
 
     Api.createTrade(payload)
       .then(_ => {
+        trackElonPlaceBet({ amount: payload.amount, multiplier: crashFactor });
         dispatch(RosiGameActions.setUserBet(payload));
       })
       .catch(_ => {
@@ -150,6 +194,7 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
     setCanBet(false);
     Api.cancelBet()
       .then(() => {
+        trackElonCancelBet({ amount });
         dispatch(RosiGameActions.cancelBet({ userId: user.userId }));
       })
       .catch(() => {
@@ -175,6 +220,12 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
       username: 'Guest',
       userId: 'Guest',
     };
+
+    trackElonPlaceBetGuest({
+      amount: payload.amount,
+      multiplier: payload.crashFactor,
+    });
+
     dispatch(RosiGameActions.setUserBet(payload));
     dispatch(RosiGameActions.addInGameBet(payload));
 
@@ -188,6 +239,12 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
     dispatch(RosiGameActions.cashOut());
     Api.cashOut()
       .then(response => {
+        const { crashFactor: crashFactorCashout, reward } = response.data;
+
+        trackElonCashout({
+          amount: reward,
+          multiplier: parseFloat(crashFactorCashout),
+        });
         setAnimate(true);
         onCashout();
         AlertActions.showSuccess(JSON.stringify(response));
@@ -411,9 +468,14 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
               }}
             />
           ) : (
-            <div className={classNames(styles.cashedOutInputContainer)}>
+            <div
+              className={classNames(
+                styles.cashedOutInputContainer,
+                styles.demoInput
+              )}
+            >
               <Input
-                className={styles.input}
+                className={classNames(styles.input)}
                 type={'number'}
                 value={amount}
                 onChange={onGuestAmountChange}
@@ -446,8 +508,59 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
               </div>
             </div>
           )}
+          <div className={styles.inputContainer}>
+            <label
+              className={classNames(
+                styles.label,
+                showCashoutWarning ? styles.warning : null
+              )}
+            >
+              Attempt Auto Cashout at
+            </label>
+            <div
+              className={classNames(
+                styles.cashedOutInputContainer,
+                showCashoutWarning ? styles.warning : null
+              )}
+            >
+              <Input
+                className={styles.input}
+                type={'text'}
+                value={crashFactor}
+                onChange={onCrashFactorChange}
+                onBlur={onCrashFactorLostFocus}
+                min="1"
+                pattern={/^[^0-9.]+/}
+              />
+              <span className={styles.eventTokenLabel}>
+                <span>×</span>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
+      {showCashoutWarning ? (
+        <div className={styles.error}>
+          <span>Betting less than 1 is not recommended. </span>
+          <span
+            data-for="rt"
+            className={styles.why}
+            data-tip="The multiplying factor defines your final reward.<br/>
+             A multiplier of 2x means twice the reward, when the game ends.<br/>
+              If the game ends before your multiplier,<br/> your amount invested is lost.<br/>"
+          >
+            Understand why.
+          </span>
+        </div>
+      ) : null}
+      <ReactTooltip
+        id={'rt'}
+        place="top"
+        effect="solid"
+        offset={{ bottom: 10 }}
+        multiline
+        className={styles.tooltip}
+      />
       {renderProfit()}
       {renderButton()}
       {renderMessage()}

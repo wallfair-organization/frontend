@@ -108,21 +108,6 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
     );
   };
 
-  const renderBlogBanner = () => {
-    return (
-      <Link data-tracking-id="home-blog-open" to={Routes.blog}>
-        <div className={classNames(styles.banner, styles.blogBanner)}>
-          {/* <div className={styles.title}>Blog</div> */}
-          <div className={styles.title}>
-            {'        '}
-            <br />
-            {'         '}
-          </div>
-        </div>
-      </Link>
-    );
-  };
-
   const renderAlphaPlatform = () => {
     return <AlphaPlatformCards alphaplatforms={ALPHA_PLATFORMS} />;
   };

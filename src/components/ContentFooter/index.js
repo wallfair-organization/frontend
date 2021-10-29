@@ -6,6 +6,7 @@ import FairTradeIcon from '../../data/icons/fair-trade.svg';
 import BlockchainIcon from '../../data/icons/blockchain.svg';
 import NoMiddleMan from '../../data/icons/no-middle-man.svg';
 import OpenSourceIcon from '../../data/icons/open-source.svg';
+import PrivacyDoc from '../../data/docs/wallfair-privacy.pdf';
 
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
@@ -13,7 +14,6 @@ import SocialIcons from 'components/SocialIcons';
 import { LeaderboardActions } from 'store/actions/leaderboard';
 import { useCallback } from 'react';
 import { GeneralActions } from 'store/actions/general';
-import Routes from 'constants/Routes';
 
 const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
   const openLeaderboard = useCallback(event => {
@@ -37,10 +37,6 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
               >
                 Documentation
               </a>
-
-              <Link data-tracking-id="footer-blog" to={Routes.blog}>
-                Blog
-              </Link>
 
               <button
                 data-tracking-id="footer-leaderboard"
@@ -91,6 +87,14 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                 to={'/terms-and-conditions'}
               >
                 {'Terms & Conditions'}
+              </Link>
+
+              <Link
+                data-tracking-id="footer-privacy"
+                to={PrivacyDoc}
+                target="_blank"
+              >
+                {'Privacy Policy'}
               </Link>
             </div>
           </div>

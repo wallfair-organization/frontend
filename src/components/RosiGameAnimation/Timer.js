@@ -20,7 +20,7 @@ const Timer = ({ startTimeMs, showIncome = false }) => {
 
     intervalId = setInterval(tick, intervalTime);
 
-    return () => clearTimeout(intervalId);
+    return () => clearInterval(intervalId);
   }, []);
 
   function renderProfit() {

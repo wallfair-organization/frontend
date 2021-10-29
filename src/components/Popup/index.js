@@ -40,9 +40,11 @@ import DisclaimerPopupView from 'components/DisclaimerPopupView';
 import UsernamePopup from 'components/UsernamePopup';
 import AlphaPlatformPopup from 'components/AlphaPlatformPopup';
 import RequestTokensPopup from '../RequestTokensPopup';
+import LastGamesDetailPopup from '../LastGamesDetailPopup';
 
 const Popup = ({ type, visible, options = {}, hidePopup }) => {
   const small = _.get(options, 'small', false);
+  const maxWidth = _.get(options, 'maxWidth', false);
 
   useEffect(() => {
     const close = e => {
@@ -151,7 +153,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         );
       case PopupTheme.reportEvent:
         return <ReportEventPopup />;
-
+      case PopupTheme.lastGamesDetail:
+        return <LastGamesDetailPopup data={options?.data} />;
       case PopupTheme.loginRegister:
         return <JoinPopup />;
 
@@ -256,6 +259,7 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             type === PopupTheme.betApprove ? styles.betApproveContainer : null,
             type === PopupTheme.username ? styles.usernamePopup : null,
             small ? styles.small : null,
+            maxWidth ? styles.maxWidth : null,
             type === PopupTheme.auth &&
               options?.authenticationType === AuthenticationType.register &&
               styles.registrationPopupContainer,

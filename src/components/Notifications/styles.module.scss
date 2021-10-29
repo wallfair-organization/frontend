@@ -1,84 +1,127 @@
-@import "../../styles/all";
+@import '../../styles/all';
 
 .notifications {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 90px 0 0 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(14, 9, 39, 0.86);
+  backdrop-filter: blur(3px);
+  z-index: 2;
+
+  @media (min-width: $screen-sm) {
+    width: 500px;
+    background-color: $colorPrimary90;
+  }
+
+  .notificationsHeader {
+    display: flex;
+    align-items: center;
+    margin: 0 24px 25px;
+
+    .closeNotifications {
+      @extend .floatingCloseButton;
+
+      @media (min-width: $screen-sm) {
+        display: none;
+      }
+    }
+
+    .notificationHeadline {
+      font-size: 20px;
+      line-height: 39px;
+      letter-spacing: 0.75px;
+      color: #ffffff;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+
+      @media screen and (min-width: $screen-xs) {
+        font-size: 24px;
+      }
+    }
+
+    .notificationUnreadBadge {
+      background-color: $colorRedLight;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      line-height: 18px;
+      font-family: $fontBold;
+
+      @media screen and (min-width: $screen-xs) {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .markRead {
     position: relative;
+    text-align: right;
+    margin-left: auto;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-decoration-line: underline;
+    color: #ffffff;
+    cursor: pointer;
+
+    @media screen and (min-width: $screen-xs) {
+      font-size: 14px;
+    }
+  }
+
+  .notificationsHolder {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 90px 0 0 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(14, 9, 39, 0.86);
-    backdrop-filter: blur(3px);
-    z-index: 2;
+    flex: auto;
+    overflow-y: auto;
+  }
 
-    @media (min-width: $screen-sm) {
-        width: 500px;
-        background-color: $colorPrimary90;
-    }
+  .emptyListWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 
-    .notificationsHeader {
-        display: flex;
-        align-items: center;
-        margin: 0 24px 50px;
+    .emptyListPicture {
+      display: flex;
+      flex-direction: column;
 
-        .closeNotifications {
-            @extend .floatingCloseButton;
-
-            @media (min-width: $screen-sm) {
-                display: none;
-            }
-        }
-
-        .notificationHeadline {
-            font-size: 20px;
-            line-height: 39px;
-            letter-spacing: 0.75px;
-            color: #ffffff;
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-
-            @media screen and (min-width: $screen-xs) {
-                font-size: 24px;
-            }
-        }
-
-        .notificationUnreadBadge {
-            background-color: $colorRedLight;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 13px;
-            line-height: 18px;
-            font-family: $fontBold;
-
-
-            @media screen and (min-width: $screen-xs) {
-                font-size: 15px;
-            }
-        }
-    }
-
-    .markRead {
-        position: relative;
-        text-align: right;
-        margin-left: auto;
-        font-size: 12px;
-        line-height: 18px;
-        letter-spacing: 0.5px;
-        text-decoration-line: underline;
-        color: #ffffff;
+      .emptyListPictureContainer {
+        margin-bottom: 20px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px dashed rgba(172, 196, 255, 0.1);
         cursor: pointer;
-
-        @media screen and (min-width: $screen-xs) {
-            font-size: 14px;
-        }
-    }
-
-    .notificationsHolder {
-        width: 100%;
         display: flex;
-        flex-direction: column;
-        flex: auto;
-        overflow-y: auto;
+
+        .iconContainer {
+          width: 35px;
+          height: 35px;
+          margin: auto;
+
+          svg {
+            width: 35px;
+            height: 35px;
+          }
+
+          > .emptyListIcon {
+            fill: white;
+          }
+        }
+      }
+
+      .emptyListLabel {
+        font-size: 12px;
+        opacity: 0.4;
+        text-align: center;
+        color: $colorWhite;
+      }
     }
+  }
 }

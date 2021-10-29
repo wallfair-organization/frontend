@@ -1,5 +1,7 @@
 import { makeActionCreator } from '../../helper/Store';
 
+export const UserMessageRoomId = 'undefinedRoom';
+
 export const WebsocketsTypes = {
   INIT: 'Websockets/INIT',
   INIT_SUCCEEDED: 'Websockets/INIT_SUCCEEDED',

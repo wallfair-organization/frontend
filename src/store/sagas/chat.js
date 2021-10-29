@@ -5,6 +5,7 @@ import _ from 'lodash';
 import State from '../../helper/State';
 import { UserActions } from '../actions/user';
 import { AlertActions } from 'store/actions/alert';
+import { UserMessageRoomId } from '../actions/websockets';
 
 const addMessage = function* (action) {
   const userId = _.get(action, ['message', 'userId']);
@@ -24,13 +25,11 @@ const addMessage = function* (action) {
 };
 
 const fetchByRoom = function* (action) {
-  const { roomId, limit, skip } = action;
-  const { response, error } = yield call(
-    Api.fetchChatMessagesByRoom,
-    roomId,
-    limit,
-    skip
-  );
+  const { roomId, limit = 20, skip = 0 } = action;
+  const { response, error } =
+    roomId === UserMessageRoomId
+      ? yield call(Api.fetchChatMessagesByUser, limit, skip)
+      : yield call(Api.fetchChatMessagesByRoom, roomId, limit, skip);
 
   if (response) {
     yield put(
@@ -48,7 +47,17 @@ const fetchByRoom = function* (action) {
   }
 };
 
+const setMessageRead = function* (action) {
+  const messageId = action?.messageId;
+  const roomId = action?.roomId || UserMessageRoomId;
+  if (messageId) {
+    yield call(Api.setUserMessageRead, messageId);
+    yield fetchByRoom({ roomId });
+  }
+};
+
 export default {
   addMessage,
   fetchByRoom,
+  setMessageRead,
 };

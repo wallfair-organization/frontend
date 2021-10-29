@@ -145,7 +145,7 @@ const RosiGameAnimation = ({
         )}
         {!gameStarted && !!lastCrashValue && (
           <>
-            <span>{lastCrashValue.toFixed(2)}</span>
+            <span>{lastCrashValue?.crashFactor?.toFixed(2)}</span>
             <span>x</span>
           </>
         )}

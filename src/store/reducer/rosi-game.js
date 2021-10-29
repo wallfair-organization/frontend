@@ -93,6 +93,11 @@ const setUserBet = (action, state) => {
 };
 
 const addLastCrash = (action, state) => {
+  const lastCrash = {
+    crashFactor: action.payload.crashFactor,
+    gameHash: action.payload.gameHash,
+  };
+
   return {
     ...state,
     hasStarted: false,
@@ -103,7 +108,7 @@ const addLastCrash = (action, state) => {
       }
       return bet.userId === action.payload.userId;
     }),
-    lastCrashes: [action.payload.crashFactor, ...state.lastCrashes],
+    lastCrashes: [lastCrash, ...state.lastCrashes],
     isCashedOut: false,
   };
 };

@@ -2,10 +2,15 @@ import { take, put, call, select, delay } from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import { RosiGameActions } from '../actions/rosi-game';
 import { NotificationActions } from '../actions/notification';
+import { AlertActions } from '../actions/alert';
 import _ from 'lodash';
 import ChatMessageType from '../../components/ChatMessageWrapper/ChatMessageType';
 import { ChatActions } from '../actions/chat';
-import { WebsocketsActions } from '../actions/websockets';
+import {
+  WebsocketsActions,
+  WebsocketsTypes,
+  UserMessageRoomId,
+} from '../actions/websockets';
 import { createSocket, websocket } from '../../api/websockets';
 import { createMatchSelector } from 'connected-react-router';
 import Routes from '../../constants/Routes';
@@ -213,6 +218,7 @@ export function* init() {
               RosiGameActions.addLastCrash({
                 nextGameAt: payload.nextGameAt,
                 crashFactor: payload.crashFactor,
+                gameHash: payload.gameId,
                 userId,
               })
             );
@@ -271,11 +277,11 @@ export function* init() {
           case notificationTypes.EVENT_RESOLVE:
           case notificationTypes.EVENT_START:
             yield put(
-              NotificationActions.addNotification({
-                eventId: payload.eventId,
+              AlertActions.showNotification({
                 notification: payload,
               })
             );
+            yield put(ChatActions.fetchByRoom({ roomId: UserMessageRoomId }));
             break;
           case notificationTypes.BET_STARTED:
             yield put(EventActions.fetchAll());
@@ -308,69 +314,43 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
   const connected = yield select(state => state.websockets.connected);
 
   if (!ready && !connected) {
-    yield call(init);
+    return yield call(init);
     // @TODO: we need to call/fork from init to join-or-leave
-  } else {
-    const userId = yield select(state => state.authentication.userId);
-    const room = yield select(state => state.websockets.room);
-    const pathname = yield select(state => state.router.location.pathname);
-    const currentAction = action.payload.location.pathname.slice(1).split('/');
-    const pathSlugs = pathname.slice(1).split('/');
+  }
 
-    if (currentAction[0] === 'trade' || pathSlugs[0] === 'trade') {
-      const eventSlug = pathSlugs[1];
-      const events = yield select(state => state.event.events);
-      const event = events.find(
-        e => e.slug === (!!currentAction[1] ? currentAction[1] : eventSlug)
-      );
+  const userId = yield select(state => state.authentication.userId);
+  const currentRoom = yield select(state => state.websockets.room);
+  const pathname = yield select(state => state.router.location.pathname);
+  const currentAction = action.payload.location.pathname.slice(1).split('/');
+  const pathSlugs = pathname.slice(1).split('/');
+  let newRoomToJoin;
 
-      if (room) {
-        yield put(
-          WebsocketsActions.leaveRoom({
-            userId,
-            roomId: room,
-          })
-        );
-      }
-      if (event) {
-        yield put(
-          WebsocketsActions.joinRoom({
-            userId,
-            roomId: event._id,
-          })
-        );
+  if (currentAction[0] === 'trade' || pathSlugs[0] === 'trade') {
+    const eventSlug = pathSlugs[1];
+    const events = yield select(state => state.event.events);
+    const event = events.find(
+      e => e.slug === (!!currentAction[1] ? currentAction[1] : eventSlug)
+    );
+    if (event) newRoomToJoin = event._id;
+  } else if (currentAction[1] === 'elon-game' || pathSlugs[1] === 'elon-game') {
+    newRoomToJoin = ROSI_GAME_EVENT_ID;
+  }
 
-        return;
-      }
-    }
-    if (currentAction[1] === 'elon-game' || pathSlugs[1] === 'elon-game') {
-      if (room) {
-        yield put(
-          WebsocketsActions.leaveRoom({
-            userId,
-            roomId: room,
-          })
-        );
-      }
-
+  if (newRoomToJoin) {
+    if (currentRoom !== UserMessageRoomId) {
       yield put(
-        WebsocketsActions.joinRoom({
+        WebsocketsActions.leaveRoom({
           userId,
-          roomId: ROSI_GAME_EVENT_ID,
+          roomId: currentRoom,
         })
       );
-
-      return;
-    } else {
-      if (room) {
-        yield put(
-          WebsocketsActions.leaveRoom({
-            userId,
-            roomId: room,
-          })
-        );
-      }
     }
+    yield put(
+      WebsocketsActions.joinRoom({
+        userId,
+        roomId: newRoomToJoin,
+      })
+    );
   }
 }
 
@@ -386,7 +366,6 @@ export function* connected() {
 
     if (eventId) {
       const userId = yield select(state => state.authentication.userId);
-
       yield put(
         WebsocketsActions.joinRoom({
           userId,
