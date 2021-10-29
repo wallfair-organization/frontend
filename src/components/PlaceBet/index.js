@@ -147,7 +147,7 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
     const diff = now - gameStartedTime;
     const autoCashoutAt = parseFloat(crashFactor);
     const factor = calcCrashFactorFromElapsedTime(diff < 1 ? 1 : diff);
-    if (userPlacedABet && isGameRunning) {
+    if (isGameRunning) {
       console.log(`DEBUG: now is ${now}`);
       console.log(`DEBUG: GameStart is ${gameStartedTime}`);
       console.log(`DEBUG: factor is ${factor}`);
