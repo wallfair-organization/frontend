@@ -34,6 +34,7 @@ const Authentication = ({
   const [ageOver18, setAgeOver18] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState(false);
   const [submitInProgress, setSubmitInProgress] = useState(false);
+  const [focusTrap, setFocusTrap] = useState([]);
   const { executeRecaptcha } = useGoogleReCaptcha();
   const totalUsers = useSelector(selectTotalUsers);
 
@@ -48,6 +49,13 @@ const Authentication = ({
   const isSignUp = () => authenticationType === AuthenticationType.register;
 
   const action = isSignUp() ? 'Sign Up' : 'Login';
+
+  useEffect(() => {
+    const focusTrapElements = document.querySelectorAll(
+      "input[type='email'], input[type='password']"
+    );
+    setFocusTrap([...focusTrapElements]);
+  }, []);
 
   useEffect(() => {
     setInputEmail('');
@@ -88,7 +96,7 @@ const Authentication = ({
     return passwordConfirmation && password === passwordConfirmation;
   };
 
-  const validateInput = () => {
+  const validateInput = options => {
     let error;
 
     if (isSignUp() && !forgotPassword && !legalAuthorizationAgreed) {
@@ -110,6 +118,10 @@ const Authentication = ({
     if (!emailIsValid()) {
       error = 'Not a valid email address';
       fooRef = emailRef;
+    }
+    if (emailIsValid() && options && options.emailOnly) {
+      error = undefined;
+      ReactTooltip.hide(emailRef);
     }
 
     setError(error);
@@ -157,6 +169,25 @@ const Authentication = ({
     }
   };
 
+  const handleFocusTrap = e => {
+    if (e.key !== 'Tab') {
+      return;
+    }
+
+    e.preventDefault();
+
+    const indexOfFocusedElement = focusTrap.indexOf(document.activeElement);
+    let nextPosition = indexOfFocusedElement + 1;
+
+    if (nextPosition === focusTrap.length) {
+      nextPosition = 0;
+    }
+
+    if (focusTrap[nextPosition]) {
+      focusTrap[nextPosition].focus();
+    }
+  };
+
   const renderInputBoxes = () => {
     return (
       <form
@@ -193,6 +224,7 @@ const Authentication = ({
         >
           <InputLabel className={styles.inputLabel}>E-Mail address</InputLabel>
           <InputBox
+            type="email"
             className={styles.inputBox}
             placeholder="john.doe@gmail.com"
             value={email}
@@ -201,6 +233,8 @@ const Authentication = ({
               setInputEmail(e.trim().toLowerCase());
             }}
             onConfirm={onConfirm}
+            onBlur={() => validateInput({ emailOnly: true })}
+            onKeyDown={handleFocusTrap}
           />
         </FormGroup>
 
@@ -222,6 +256,7 @@ const Authentication = ({
               setValue={setPassword}
               disabled={submitInProgress}
               onConfirm={onConfirm}
+              onKeyDown={handleFocusTrap}
             />
           </FormGroup>
         )}
@@ -245,6 +280,7 @@ const Authentication = ({
               setValue={setPasswordConfirmation}
               disabled={submitInProgress}
               onConfirm={onConfirm}
+              onKeyDown={handleFocusTrap}
             />
           </FormGroup>
         )}
@@ -344,7 +380,7 @@ const Authentication = ({
       </h2>
       {isSignUp() && (
         <h3 className={styles.totalCount}>
-          {totalUsers}/700 slots available
+          {totalUsers}/5000 slots available
           <span className={styles.underline}></span>
         </h3>
       )}

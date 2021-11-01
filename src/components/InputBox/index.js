@@ -32,6 +32,8 @@ const InputBox = ({
   className,
   containerClassName,
   onConfirm,
+  onBlur,
+  onKeyDown,
   showDeleteIcon = true,
   disabled = false,
 }) => {
@@ -104,9 +106,12 @@ const InputBox = ({
         min={min}
         max={max}
         onChange={event => setValue(event.target.value)}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
         onSubmit={onConfirm}
         reference={inputRef}
         disabled={disabled}
+        autoFocus={type === 'email'}
       />
     );
   };
