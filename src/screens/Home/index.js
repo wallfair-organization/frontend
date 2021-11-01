@@ -7,7 +7,7 @@ import EventsCarouselContainer from '../../components/EventsCarouselContainer';
 import Leaderboard from '../../components/Leaderboard';
 import Lightbox from '../../components/Lightbox/Lightbox';
 import UniswapContent from '../../components/Lightbox/UniswapContent';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { LeaderboardActions } from '../../store/actions/leaderboard';
 import { EventActions } from 'store/actions/event';
 import { useIsMount } from 'components/hoc/useIsMount';
@@ -29,6 +29,9 @@ import { GeneralActions } from '../../store/actions/general';
 const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
   const isMount = useIsMount();
   const { eventId, betId, tradeId } = useParams();
+  const location = useLocation();
+  let urlParams = new URLSearchParams(location.search);
+
   const userLoggedIn = useSelector(
     state => state.authentication.authState === 'LOGGED_IN'
   );
@@ -62,10 +65,19 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
     }
   };
 
+  const handleRefPersistent = () => {
+    const ref = urlParams.get('ref');
+
+    if (ref) {
+      localStorage.setItem('urlParam_ref', ref);
+    }
+  };
+
   useEffect(() => {
     if (isMount) {
       fetchTags();
       renderBetApprovePopup();
+      handleRefPersistent();
     }
   }, []);
 

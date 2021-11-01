@@ -399,6 +399,7 @@ const signUp = function* (action) {
         initialReward,
       })
     );
+    localStorage.removeItem('urlParam_ref');
   } else {
     yield put(
       AuthenticationActions.signUpFail({

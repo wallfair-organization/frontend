@@ -53,7 +53,7 @@ const ActivityMessage = ({ activity, date, users, events }) => {
     }
     const usrname = getUserProfileUrl(data);
     const amount = formatToFixed(_.get(data, 'amount'), 0, true);
-    const rewardAmountFormatted = formatToFixed(data?.reward, 0, true);
+    const rewardAmountFormatted = formatToFixed(data?.reward, 0, false);
     const rewardAmount = toNumericString(rewardAmountFormatted);
     switch (activity.type) {
       case 'Casino/CASINO_CASHOUT':

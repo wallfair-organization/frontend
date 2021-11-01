@@ -154,12 +154,14 @@ const Authentication = ({
     if (forgotPassword) {
       initForgotPassword(email);
     } else {
+      const refLocalStorage = localStorage.getItem('urlParam_ref');
+
       isSignUp()
         ? signUp({
             email,
             password,
             passwordConfirm: passwordConfirmation,
-            ref: urlParams.get('ref'),
+            ref: refLocalStorage,
             recaptchaToken,
           })
         : login({
