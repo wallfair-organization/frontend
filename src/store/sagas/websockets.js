@@ -322,19 +322,21 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
       e => e.slug === (!!currentAction[1] ? currentAction[1] : eventSlug)
     );
     if (event) newRoomToJoin = event._id;
-  } else if (currentAction[1] === 'elon-game' || pathSlugs[1] === 'elon-game') {
+  }
+  if (currentAction[1] === 'elon-game' || pathSlugs[1] === 'elon-game') {
     newRoomToJoin = ROSI_GAME_EVENT_ID;
   }
 
+  if (currentRoom && currentRoom !== UserMessageRoomId) {
+    yield put(
+      WebsocketsActions.leaveRoom({
+        userId,
+        roomId: currentRoom,
+      })
+    );
+  }
+
   if (newRoomToJoin) {
-    if (currentRoom !== UserMessageRoomId) {
-      yield put(
-        WebsocketsActions.leaveRoom({
-          userId,
-          roomId: currentRoom,
-        })
-      );
-    }
     yield put(
       WebsocketsActions.joinRoom({
         userId,
