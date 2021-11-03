@@ -59,12 +59,13 @@ const getGameDetailById = (gameId, type) => {
 
 const transformUser = user => ({
   crashFactor: user.crashfactor,
-  createdAt: user.createdAt,
-  gameMatch: user.gamematch,
-  gameHash: user.gameHash,
+  createdAt: user.created_at,
+  gameMatch: user.game_match,
+  gameHash: user.gamehash,
   stakedAmount: user.stakedamount,
   state: 2,
-  userId: user.id,
+  userId: user.userid,
+  username: user.username,
   rewardAmount: user.crashfactor * user.stakedamount,
 });
 

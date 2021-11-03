@@ -5,9 +5,24 @@ import { TOKEN_NAME } from '../../constants/Token';
 import medalCoin from '../../data/icons/medal-coin.png';
 import { toNumericString } from 'helper/FormatNumbers';
 
+const UserLink = props => {
+  const { userId, username } = props;
+  return (
+    <a
+      className={'global-link-style'}
+      target={'_blank'}
+      href={`${window.location.origin}/user/${userId}`}
+      rel="noreferrer"
+    >
+      {username || 'User'}
+    </a>
+  );
+};
+
 const ActivityTableRow = ({ data }) => {
   const {
     userId,
+    username,
     stakedAmount: stakedAmountRaw,
     rewardAmount: rewardAmountRaw,
     crashFactor,
@@ -24,7 +39,13 @@ const ActivityTableRow = ({ data }) => {
         </Grid>
         <Grid item xs>
           <div className={styles.messageCenter}>
-            <p>{userId}</p>
+            <p>
+              {username ? (
+                <UserLink userId={userId} username={username} />
+              ) : (
+                userId
+              )}
+            </p>
           </div>
         </Grid>
         <Grid item xs>
