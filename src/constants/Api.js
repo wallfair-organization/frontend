@@ -66,6 +66,8 @@ export const API_BET_DELETE = 'api/event/bet/:id/delete';
 export const API_TRADE_CREATE = 'api/trade';
 export const API_CASH_OUT = 'api/cashout';
 export const API_TRADE_GET_BY_ID = 'api/event/trade/:id';
+export const API_TRADES_LUCKY = 'api/trades/lucky';
+export const API_TRADES_HIGH = 'api/trades/high';
 export const API_GET_NOTIFICATION_EVENTS =
   'api/notification-events/list?limit=:limit&cat=:category';
 export const API_GET_NOTIFICATION_EVENTS_BY_BET =

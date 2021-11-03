@@ -11,11 +11,10 @@ import GameAnimation from 'components/RosiGameAnimation';
 import GameBets from 'components/GameBets';
 import Chat from 'components/Chat';
 import { ROSI_GAME_EVENT_ID } from 'constants/RosiGame';
-import { RosiGameActions } from 'store/actions/rosi-game';
 import useRosiData from 'hooks/useRosiData';
-import MobileBets from './MobileBets';
 import styles from './styles.module.scss';
 import { AlertActions } from '../../store/actions/alert';
+import { RosiGameActions } from '../../store/actions/rosi-game';
 import ContentFooter from 'components/ContentFooter';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
 import { ChatActions } from 'store/actions/chat';
@@ -27,11 +26,25 @@ import IconTheme from 'components/Icon/IconTheme';
 import { PopupActions } from 'store/actions/popup';
 import EventActivitiesTracker from '../../components/EventActivitiesTracker';
 import TabOptions from '../../components/TabOptions';
+import ActivityTable from 'components/EventActivitiesTracker/ActivityTable';
 
-const RosiGame = ({ showPopup, connected, userId }) => {
+const RosiGame = ({
+  showPopup,
+  connected,
+  userId,
+  refreshHighData,
+  refreshLuckyData,
+}) => {
   const dispatch = useDispatch();
-  const { lastCrashes, inGameBets, cashedOut, hasStarted, isEndgame } =
-    useRosiData();
+  const {
+    lastCrashes,
+    inGameBets,
+    cashedOut,
+    hasStarted,
+    isEndgame,
+    highData,
+    luckyData,
+  } = useRosiData();
   const [audio, setAudio] = useState(null);
   const isMiddleOrLargeDevice = useMediaQuery('(min-width:769px)');
   const [chatTabIndex, setChatTabIndex] = useState(0);
@@ -60,6 +73,8 @@ const RosiGame = ({ showPopup, connected, userId }) => {
         dispatch(AlertActions.showError(error.message));
       });
     dispatch(ChatActions.fetchByRoom({ roomId: ROSI_GAME_EVENT_ID }));
+    refreshHighData();
+    refreshLuckyData();
   }, [dispatch, connected]);
 
   //Bets state update interval
@@ -90,8 +105,16 @@ const RosiGame = ({ showPopup, connected, userId }) => {
     setChatTabIndex(option.index);
   };
 
-  const handleActivitySwitchTab = option => {
-    setActivityTabIndex(option.index);
+  const handleActivitySwitchTab = ({ index }) => {
+    switch (index) {
+      case 1: // high wins
+        refreshHighData();
+        break;
+      case 2: // lucky wins
+        refreshLuckyData();
+        break;
+    }
+    setActivityTabIndex(index);
   };
 
   const renderActivities = () => (
@@ -112,14 +135,17 @@ const RosiGame = ({ showPopup, connected, userId }) => {
           )}
         </TabOptions>
         <div className={styles.activityContainer}>
-          {activityTabIndex == 0 ? (
+          {activityTabIndex === 0 && (
             <EventActivitiesTracker
               activitiesLimit={50}
               className={styles.activitiesTrackerGamesBlock}
               preselectedCategory={'elongame'}
             />
-          ) : (
-            <div className={styles.inactivePlaceholder}>Coming soon</div>
+          )}
+          {activityTabIndex !== 0 && (
+            <ActivityTable
+              rowData={activityTabIndex === 1 ? highData : luckyData}
+            />
           )}
         </div>
       </div>
@@ -240,6 +266,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    refreshHighData: () => dispatch(RosiGameActions.fetchHighData()),
+    refreshLuckyData: () => dispatch(RosiGameActions.fetchLuckyData()),
     hidePopup: () => {
       dispatch(PopupActions.hide());
     },

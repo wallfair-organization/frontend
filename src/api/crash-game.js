@@ -1,10 +1,6 @@
 import * as ApiUrls from '../constants/Api';
 import axios from 'axios';
 import ContentTypes from '../constants/ContentTypes';
-import {
-  API_CASH_OUT,
-  CRASH_GAME_API_GET_GAME_DETAILS,
-} from '../constants/Api';
 
 const createInstance = (host, apiPath) => {
   return axios.create({
@@ -61,6 +57,29 @@ const getGameDetailById = (gameId, type) => {
   });
 };
 
+const transformUser = user => ({
+  crashFactor: user.crashfactor,
+  createdAt: user.createdAt,
+  gameMatch: user.gamematch,
+  gameHash: user.gameHash,
+  stakedAmount: user.stakedamount,
+  state: 2,
+  userId: user.id,
+  rewardAmount: user.crashfactor * user.stakedamount,
+});
+
+const getLuckyUsers = () => {
+  return Api.get(ApiUrls.API_TRADES_LUCKY).then(response => ({
+    data: response.data.map(transformUser),
+  }));
+};
+
+const getHighUsers = () => {
+  return Api.get(ApiUrls.API_TRADES_HIGH).then(response => ({
+    data: response.data.map(transformUser),
+  }));
+};
+
 export {
   Api,
   setToken,
@@ -69,4 +88,6 @@ export {
   cashOut,
   cancelBet,
   getGameDetailById,
+  getLuckyUsers,
+  getHighUsers,
 };

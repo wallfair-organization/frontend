@@ -30,6 +30,7 @@ import AuthenticationType from '../Authentication/AuthenticationType';
 import TimeLeftCounter from '../TimeLeftCounter';
 import { UserMessageRoomId } from '../../store/actions/websockets';
 import { ChatActions } from 'store/actions/chat';
+import moment from 'moment';
 
 const Navbar = ({
   user,
@@ -45,6 +46,9 @@ const Navbar = ({
   userMessages,
   setMessageRead,
 }) => {
+  const [leaderboardWeeklyDate, setLeaderboardWeeklyDate] = useState(
+    new Date()
+  );
   const [missingWinnerAmount, setMisingWinnerAmount] = useState(null);
   const openDrawer = useSelector(state => state.general.openDrawer);
 
@@ -53,6 +57,11 @@ const Navbar = ({
   });
 
   const { balance, currency, toNextRank } = useSelector(selectUser);
+
+  useEffect(() => {
+    let nextSunday = moment().day(7).startOf('day').toDate();
+    setLeaderboardWeeklyDate(nextSunday);
+  }, []);
 
   useEffect(() => {
     if (leaderboardOpen) {
@@ -264,8 +273,6 @@ const Navbar = ({
     );
   };
 
-  const leaderboardWeeklyDate = new Date('2021-11-01T12:00:00.000Z');
-
   const renderLeaderboardDrawer = () => {
     return (
       <div
@@ -405,6 +412,12 @@ const Navbar = ({
           )}
           {renderNavbarLink(`/events`, 'Events', null, 'menu-events')}
           {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
+          {renderNavbarLink(
+            `/activities`,
+            'Activities',
+            null,
+            'menu-activities'
+          )}
           {/* {isLoggedIn() && renderNavbarLink(`/rewards`, 'Earn', null, 'menu-earn')} */}
         </div>
       </div>

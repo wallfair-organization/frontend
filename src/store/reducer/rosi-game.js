@@ -18,6 +18,8 @@ const initialState = {
   animationIndex: 0,
   musicIndex: 0,
   bgIndex: 0,
+  highData: [],
+  luckyData: [],
 };
 
 const initializeState = (action, state) => {
@@ -318,6 +320,19 @@ function cancelBet(action, state) {
   }
 }
 
+const fetchHighData = ({ data }, state) => {
+  console.log('fetch high data reducer');
+  return {
+    ...state,
+    highData: data,
+  };
+};
+
+const fetchLuckyData = ({ data }, state) => ({
+  ...state,
+  luckyData: data,
+});
+
 export default function (state = initialState, action) {
   switch (action.type) {
     case RosiGameTypes.INITIALIZE_STATE:
@@ -356,6 +371,10 @@ export default function (state = initialState, action) {
       return cancelBet(action, state);
     case RosiGameTypes.HANDLE_CANCEL_BET:
       return removeCanceledBet(action, state);
+    case RosiGameTypes.FETCH_HIGH_DATA_COMPLETE:
+      return fetchHighData(action, state);
+    case RosiGameTypes.FETCH_LUCKY_DATA_COMPLETE:
+      return fetchLuckyData(action, state);
     default:
       return state;
   }

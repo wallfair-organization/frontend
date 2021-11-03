@@ -6,6 +6,8 @@ export const selectLastCrash = state => state.rosiGame.lastCrashes[0];
 export const betInQueue = state => state.rosiGame.placedBetInQueue;
 export const isCashedOut = state => state.rosiGame.isCashedOut;
 export const selectEndgame = state => state.rosiGame.isEndgame;
+export const selectHighData = state => state.rosiGame.highData;
+export const selectLuckyData = state => state.rosiGame.luckyData;
 export const selectGameOffline = state =>
   !state.websockets.connected ||
   !(state.rosiGame.timeStarted || state.rosiGame.nextGameAt);

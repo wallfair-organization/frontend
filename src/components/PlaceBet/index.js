@@ -259,6 +259,7 @@ const PlaceBet = ({ connected, onBet, onCashout }) => {
   };
 
   const cashOutGuest = () => {
+    onCashout();
     setCanBet(false);
     dispatch(RosiGameActions.cashOutGuest());
     setAnimate(true);

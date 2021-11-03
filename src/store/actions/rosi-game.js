@@ -21,6 +21,12 @@ export const RosiGameTypes = {
   CLEAR_GUEST_DATA: 'RosiGame/CLEAR_GUEST_DATA',
   CANCEL_BET: 'RosiGame/CANCEL_BET',
   HANDLE_CANCEL_BET: 'RosiGame/HANDLE_CANCEL_BET',
+  FETCH_LUCKY_DATA_STARTED: 'RosiGame/FETCH_LUCKY_DATA_STARTED',
+  FETCH_LUCKY_DATA_COMPLETE: 'RosiGame/FETCH_LUCKY_DATA_COMPLETE',
+  FETCH_LUCKY_DATA_ERROR: 'RosiGame/FETCH_LUCKY_DATA_ERROR',
+  FETCH_HIGH_DATA_STARTED: 'RosiGame/FETCH_HIGH_DATA_STARTED',
+  FETCH_HIGH_DATA_COMPLETE: 'RosiGame/FETCH_HIGH_DATA_COMPLETE',
+  FETCH_HIGH_DATA_ERROR: 'RosiGame/FETCH_HIGH_DATA_ERROR',
 };
 
 const initializeState = payload => ({
@@ -123,6 +129,34 @@ const handleCancelBet = payload => ({
   payload,
 });
 
+const fetchLuckyData = () => ({
+  type: RosiGameTypes.FETCH_LUCKY_DATA_STARTED,
+});
+
+const fetchLuckyDataComplete = data => ({
+  type: RosiGameTypes.FETCH_LUCKY_DATA_COMPLETE,
+  data,
+});
+
+const fetchLuckyDataError = error => ({
+  type: RosiGameTypes.FETCH_LUCKY_DATA_ERROR,
+  error,
+});
+
+const fetchHighData = () => ({
+  type: RosiGameTypes.FETCH_HIGH_DATA_STARTED,
+});
+
+const fetchHighDataComplete = data => ({
+  type: RosiGameTypes.FETCH_HIGH_DATA_COMPLETE,
+  data,
+});
+
+const fetchHighDataError = error => ({
+  type: RosiGameTypes.FETCH_HIGH_DATA_ERROR,
+  error,
+});
+
 export const RosiGameActions = {
   initializeState,
   setHasStarted,
@@ -145,4 +179,10 @@ export const RosiGameActions = {
   clearGuestData,
   cancelBet,
   handleCancelBet,
+  fetchLuckyData,
+  fetchLuckyDataComplete,
+  fetchLuckyDataError,
+  fetchHighData,
+  fetchHighDataComplete,
+  fetchHighDataError,
 };

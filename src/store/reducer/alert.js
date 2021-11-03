@@ -57,12 +57,7 @@ const showNotification = (action, state) => {
       $push: [
         {
           id: nextAlertId,
-          notification: {
-            ...action.notification,
-            payload: {
-              ...action.notification,
-            },
-          },
+          notification: action.notification,
           type: AlertType.notification,
         },
       ],

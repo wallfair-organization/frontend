@@ -14,6 +14,7 @@ import { convert } from '../../helper/Currency';
 import Share from '../../components/Share';
 import routes from '../../constants/Routes';
 import useConfettiAnimation from 'hooks/useConfettiAnimation';
+import { toNumericString } from 'helper/FormatNumbers';
 
 const BetApproveView = ({ visible, hidePopup, options }) => {
   const { currency } = useSelector(selectUser);
@@ -63,13 +64,14 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
         <div className={classNames(styles.entry)}>
           <div className={styles.label}>Amount placed</div>
           <div className={styles.value}>
-            {amountPlaced} <span>{currency}</span>
+            {toNumericString(amountPlaced)} <span>{currency}</span>
           </div>
         </div>
         <div className={classNames(styles.entry)}>
           <div className={styles.label}>Potential outcome</div>
           <div className={styles.value}>
-            {potentialOutcome.toFixed(2)} <span>{currency}</span>
+            {toNumericString(potentialOutcome.toFixed(2))}{' '}
+            <span>{currency}</span>
           </div>
         </div>
         <div className={classNames(styles.entry, styles.alignRight)}>

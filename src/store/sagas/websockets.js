@@ -2,15 +2,11 @@ import { take, put, call, select, delay } from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import { RosiGameActions } from '../actions/rosi-game';
 import { NotificationActions } from '../actions/notification';
-import { AlertActions } from '../actions/alert';
+import { AlertActions, UserNotificationTypes } from '../actions/alert';
 import _ from 'lodash';
 import ChatMessageType from '../../components/ChatMessageWrapper/ChatMessageType';
 import { ChatActions } from '../actions/chat';
-import {
-  WebsocketsActions,
-  WebsocketsTypes,
-  UserMessageRoomId,
-} from '../actions/websockets';
+import { WebsocketsActions, UserMessageRoomId } from '../actions/websockets';
 import { createSocket, websocket } from '../../api/websockets';
 import { createMatchSelector } from 'connected-react-router';
 import Routes from '../../constants/Routes';
@@ -119,7 +115,7 @@ function createSocketChannel(socket) {
     const betStartedHandler = data => {
       const message = {
         ...data,
-        type: notificationTypes.BET_STARTED,
+        type: UserNotificationTypes.BET_STARTED,
       };
 
       emit(message);
@@ -168,13 +164,6 @@ function createSocketChannel(socket) {
     return unsubscribe;
   });
 }
-
-const notificationTypes = {
-  EVENT_START: 'Notification/EVENT_START',
-  EVENT_RESOLVE: 'Notification/EVENT_RESOLVE',
-  EVENT_CANCEL: 'Notification/EVENT_CANCEL',
-  BET_STARTED: 'Notification/EVENT_BET_STARTED',
-};
 
 export function* init() {
   const token = yield select(state => state.authentication.token);
@@ -273,9 +262,10 @@ export function* init() {
             );
             break;
           case 'notification':
-          case notificationTypes.EVENT_CANCEL:
-          case notificationTypes.EVENT_RESOLVE:
-          case notificationTypes.EVENT_START:
+          case UserNotificationTypes.EVENT_CANCEL:
+          case UserNotificationTypes.EVENT_RESOLVE:
+          case UserNotificationTypes.EVENT_START:
+          case UserNotificationTypes.USER_AWARD:
             yield put(
               AlertActions.showNotification({
                 notification: payload,
@@ -283,7 +273,7 @@ export function* init() {
             );
             yield put(ChatActions.fetchByRoom({ roomId: UserMessageRoomId }));
             break;
-          case notificationTypes.BET_STARTED:
+          case UserNotificationTypes.BET_STARTED:
             yield put(EventActions.fetchAll());
             break;
           case 'any':
@@ -332,19 +322,21 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
       e => e.slug === (!!currentAction[1] ? currentAction[1] : eventSlug)
     );
     if (event) newRoomToJoin = event._id;
-  } else if (currentAction[1] === 'elon-game' || pathSlugs[1] === 'elon-game') {
+  }
+  if (currentAction[1] === 'elon-game' || pathSlugs[1] === 'elon-game') {
     newRoomToJoin = ROSI_GAME_EVENT_ID;
   }
 
+  if (currentRoom && currentRoom !== UserMessageRoomId) {
+    yield put(
+      WebsocketsActions.leaveRoom({
+        userId,
+        roomId: currentRoom,
+      })
+    );
+  }
+
   if (newRoomToJoin) {
-    if (currentRoom !== UserMessageRoomId) {
-      yield put(
-        WebsocketsActions.leaveRoom({
-          userId,
-          roomId: currentRoom,
-        })
-      );
-    }
     yield put(
       WebsocketsActions.joinRoom({
         userId,

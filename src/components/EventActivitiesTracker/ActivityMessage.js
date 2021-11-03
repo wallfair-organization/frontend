@@ -8,8 +8,9 @@ import { formatToFixed, toNumericString } from 'helper/FormatNumbers';
 import { TOKEN_NAME } from '../../constants/Token';
 import { calculateGain } from '../../helper/Calculation';
 import medalCoin from '../../data/icons/medal-coin.png';
+import ActivityTableRow from './ActivityTableRow';
 
-const ActivityMessage = ({ activity, date, users, events }) => {
+const ActivityMessage = ({ activity, users }) => {
   const getUserProfileUrl = data => {
     let user = _.get(data, 'user');
     let userId = _.get(user, '_id');
@@ -46,57 +47,19 @@ const ActivityMessage = ({ activity, date, users, events }) => {
 
   const prepareMessageByType = (activity, user) => {
     const data = activity.data;
-    let event = _.get(data, 'event');
-
-    if (!event) {
-      event = State.getEvent(_.get(data, 'bet.event'), events);
-    }
-    const usrname = getUserProfileUrl(data);
-    const amount = formatToFixed(_.get(data, 'amount'), 0, true);
+    const userName = getUserProfileUrl(data);
     const rewardAmountFormatted = formatToFixed(data?.reward, 0, false);
     const rewardAmount = toNumericString(rewardAmountFormatted);
     switch (activity.type) {
       case 'Casino/CASINO_CASHOUT':
-        const game = _.get(data, 'gameName');
         const stakedAmount = toNumericString(data?.stakedAmount);
-        const crashFactor = _.get(data, 'crashFactor');
-        const reward = _.get(data, 'reward');
-        const gain = calculateGain(stakedAmount, reward);
-        const gainValueCasino = _.get(gain, 'value');
-        const gainNegativeCasino = _.get(gain, 'negative');
-        return (
-          <Grid container>
-            <Grid item xs>
-              <div className={styles.messageLeft}>
-                <p>{'Elon Game'}</p>
-              </div>
-            </Grid>
-            <Grid item xs>
-              <div className={styles.messageCenter}>
-                <p>{usrname}</p>
-              </div>
-            </Grid>
-            <Grid item xs>
-              <div className={styles.messageRight}>
-                {stakedAmount} {TOKEN_NAME}
-                <img src={medalCoin} alt="medal" />
-              </div>
-            </Grid>
-            <Grid item xs>
-              <div className={styles.messageCenter}>
-                <p className={styles.rewardMulti}>{crashFactor}x</p>
-              </div>
-            </Grid>
-            <Grid item xs>
-              <div className={styles.messageLast}>
-                <p className={styles.reward}>
-                  {rewardAmount} {TOKEN_NAME}
-                </p>
-                <img src={medalCoin} alt="medal" />
-              </div>
-            </Grid>
-          </Grid>
-        );
+        const rowData = {
+          userId: userName,
+          rewardAmount,
+          stakedAmount,
+          crashFactor: data?.crashFactor,
+        };
+        return <ActivityTableRow data={rowData} />;
       default:
         return null;
     }
@@ -111,25 +74,17 @@ const ActivityMessage = ({ activity, date, users, events }) => {
       user = _.get(activity, 'data.user');
     }
 
-    return (
-      <div className={classNames(styles.messageItem)}>
-        {prepareMessageByType(activity, user)}
-      </div>
-    );
+    return prepareMessageByType(activity, user);
   };
 
   return renderMessageContent();
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     users: _.get(state, 'user.users', []),
     events: _.get(state, 'event.events', []),
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ActivityMessage);
+export default connect(mapStateToProps)(ActivityMessage);

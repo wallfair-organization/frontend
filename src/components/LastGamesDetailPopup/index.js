@@ -45,12 +45,12 @@ const BetsTable = props => {
                 {getReadableAmount(bet.stakedamount)}
               </td>
               <td className={styles[`betState${bet.state}`]}>
-                {bet.crashfactor == 999 ? '-' : bet.crashfactor}
+                {roundToTwo(bet.crashfactor)}
               </td>
               <td className={styles[`betState${bet.state}`]}>
-                {bet.crashfactor == 999
-                  ? '-'
-                  : getReadableAmount(bet.stakedamount * bet.crashfactor)}
+                {bet.state == 2
+                  ? getReadableAmount(bet.stakedamount * bet.crashfactor)
+                  : '-'}
               </td>
             </tr>
           );

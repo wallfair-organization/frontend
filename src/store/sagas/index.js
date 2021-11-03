@@ -25,7 +25,7 @@ import {
 import { LOCATION_CHANGE } from 'connected-react-router';
 import { LeaderboardTypes } from '../actions/leaderboard';
 import { RosiGameTypes } from '../actions/rosi-game';
-import { endGame } from './rosi-game';
+import * as RosiGameSagas from './rosi-game';
 
 const root = function* () {
   yield all([
@@ -179,8 +179,16 @@ const root = function* () {
       [EventTypes.BOOKMARK_EVENT_CANCEL],
       EventSagas.bookmarkEventCancel
     ),
-    takeEvery([RosiGameTypes.ADD_LAST_CRASH], endGame),
+    takeEvery([RosiGameTypes.ADD_LAST_CRASH], RosiGameSagas.endGame),
     takeEvery([UserTypes.REQUEST_TOKENS], UserSagas.requestTokens),
+    takeLatest(
+      [RosiGameTypes.FETCH_HIGH_DATA_STARTED],
+      RosiGameSagas.fetchHighData
+    ),
+    takeLatest(
+      [RosiGameTypes.FETCH_LUCKY_DATA_STARTED],
+      RosiGameSagas.fetchLuckyData
+    ),
     // @formatter:on
   ]);
 };
