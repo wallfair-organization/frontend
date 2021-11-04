@@ -16,4 +16,5 @@ export default [
   'Notification/EVENT_BET_EVALUATED',
   'Casino/CASINO_PLACE_BET',
   'Casino/CASINO_CASHOUT',
+  'Casino/EVENT_CASINO_LOST',
 ];

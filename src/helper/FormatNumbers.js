@@ -18,3 +18,12 @@ export const toNumericString = number => {
     ? ''
     : Number(number).toLocaleString('en-US');
 };
+
+export const roundToTwo = num => {
+  return +(Math.round(num + 'e+2') + 'e-2');
+};
+
+export const getReadableAmount = amount => {
+  const one = 10000;
+  return roundToTwo(+amount / one);
+};

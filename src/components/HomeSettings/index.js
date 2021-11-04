@@ -50,26 +50,26 @@ const HomeSettings = ({
             className={styles.goIntoSettingIcon}
           />
         </div>
-        <div
-          className={classNames(
-            styles.singleSettingHolder,
-            styles.settingActive
-          )}
-          onClick={onEmailNotificationClick}
-        >
-          <img
-            src={SettingNotification}
-            alt="notifications"
-            className={styles.settingIcon}
-            style={{ width: '22px', marginLeft: '4px' }}
-          />
-          <p className={styles.settingTitle}>Email Notifications</p>
-          <Icon
-            width={15}
-            iconType={IconType.arrowSmallRight}
-            className={styles.goIntoSettingIcon}
-          />
-        </div>
+        {/*<div*/}
+        {/*  className={classNames(*/}
+        {/*    styles.singleSettingHolder,*/}
+        {/*    styles.settingActive*/}
+        {/*  )}*/}
+        {/*  onClick={onEmailNotificationClick}*/}
+        {/*>*/}
+        {/*  <img*/}
+        {/*    src={SettingNotification}*/}
+        {/*    alt="notifications"*/}
+        {/*    className={styles.settingIcon}*/}
+        {/*    style={{ width: '22px', marginLeft: '4px' }}*/}
+        {/*  />*/}
+        {/*  <p className={styles.settingTitle}>Email Notifications</p>*/}
+        {/*  <Icon*/}
+        {/*    width={15}*/}
+        {/*    iconType={IconType.arrowSmallRight}*/}
+        {/*    className={styles.goIntoSettingIcon}*/}
+        {/*  />*/}
+        {/*</div>*/}
         <div
           className={classNames(
             styles.singleSettingHolder,

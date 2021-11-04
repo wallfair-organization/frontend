@@ -68,6 +68,7 @@ const fetchSucceeded = function* (action) {
       const email = user.email;
       const preferences = user.preferences;
       const aboutMe = user.aboutMe;
+      const notificationSettings = user.notificationSettings;
 
       yield put(
         AuthenticationActions.updateData({
@@ -83,6 +84,7 @@ const fetchSucceeded = function* (action) {
           email,
           preferences,
           aboutMe,
+          notificationSettings,
         })
       );
     }

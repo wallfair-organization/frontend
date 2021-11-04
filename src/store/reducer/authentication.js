@@ -27,6 +27,7 @@ const initialState = {
   totalInvestmentAmount: 0,
   totalOpenTradesAmount: 0,
   preferences: {},
+  notificationSettings: {},
 };
 
 const requestSmsSucceeded = (action, state) => {
@@ -240,6 +241,9 @@ const updateData = (action, state) => {
     },
     aboutMe: {
       $set: action.aboutMe,
+    },
+    notificationSettings: {
+      $set: action.notificationSettings,
     },
   });
 };

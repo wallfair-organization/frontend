@@ -75,6 +75,16 @@
     }
   }
 
+  .birthInputBox {
+    position: relative;    
+    margin-left: 6px;
+    margin-right: 6px;
+
+    @media (max-width: $screen-sm) {
+      font-size: 14px;
+    }
+  }
+
   .submitButton {
     overflow: hidden;
     font-size: 16px;
@@ -103,55 +113,11 @@
     }
   }
 
-  .ageVerificationForm {
+  .inputForm {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-
-    .solidButton {
-      display: flex;
-      overflow: hidden;
-      font-family:  $fontRegular;
-      font-size: 16px;
-      border-radius: 10px;
-      margin: 20px 0 0;
-      padding: 0 20px;
-      height: 42px;
-      background-color: $colorYellowLight;
-      justify-content: center;      
-      align-items: center;
-      cursor: pointer;
-      @media (max-width: $screen-sm) {
-        height: 36px;
-        margin: 10px 0 0;
-      }
-    }
-
-    .outlinedButton {
-      display: flex;
-      overflow: hidden;
-      font-family:  $fontRegular;
-      font-size: 16px;
-      border-radius: 10px;
-      margin: 20px 0 0;
-      padding: 0 20px;
-      height: 42px;
-      background-color: $colorWhite;
-      border-color: $colorYellowLight;
-      border-style: solid;
-      border-width: 2px;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      @media (max-width: $screen-sm) {
-        height: 36px;
-        margin: 10px 0 0;
-      }
-
-      span > svg {
-        width: 100%;
-      }
-    }
+    padding-top: 10px;    
   }
 }
 

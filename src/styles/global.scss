@@ -113,6 +113,12 @@ $border: 1px solid $colorWhite30;
   display: inline-block;
 }
 
+.global-game-crashfactor {
+  color: $colorYellow;
+  font-weight: bold;
+  display: inline-block;
+}
+
 .global-cashout-profit, .global-cashout-loss {
   color: $colorGreen;
   font-weight: bold;

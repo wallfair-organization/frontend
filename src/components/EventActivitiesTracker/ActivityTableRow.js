@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 import { TOKEN_NAME } from '../../constants/Token';
 import medalCoin from '../../data/icons/medal-coin.png';
 import { toNumericString } from 'helper/FormatNumbers';
+import classNames from 'classnames';
 
 const UserLink = props => {
   const { userId, username } = props;
@@ -19,7 +20,7 @@ const UserLink = props => {
   );
 };
 
-const ActivityTableRow = ({ data }) => {
+const ActivityTableRow = ({ data, type }) => {
   const {
     userId,
     username,
@@ -29,45 +30,80 @@ const ActivityTableRow = ({ data }) => {
   } = data;
   const stakedAmount = Number.parseInt(stakedAmountRaw);
   const rewardAmount = Number.parseInt(rewardAmountRaw);
+  const gameName = 'Elon Game';
   return (
     <div className={styles.messageItem}>
-      <Grid container>
-        <Grid item xs>
-          <div className={styles.messageLeft}>
-            <p>{'Elon Game'}</p>
-          </div>
+      {type === 'lost' ? (
+        <Grid container>
+          <Grid item xs>
+            <div className={styles.messageLeft}>
+              <p>{gameName}</p>
+            </div>
+          </Grid>
+          <Grid item xs>
+            <div className={styles.messageCenter}>
+              <p>{userId}</p>
+            </div>
+          </Grid>
+          <Grid item xs>
+            <div className={classNames(styles.messageRight)}>
+              {stakedAmount} {TOKEN_NAME}
+              <img src={medalCoin} alt="medal" />
+            </div>
+          </Grid>
+          <Grid item xs>
+            <div className={styles.messageCenter}>
+              <p className={styles.rewardMulti}>{crashFactor}x</p>
+            </div>
+          </Grid>
+          <Grid item xs>
+            <div className={styles.messageLast}>
+              <p className={'global-cashout-loss'}>
+                -{toNumericString(stakedAmount)} {TOKEN_NAME}
+              </p>
+              <img src={medalCoin} alt="medal" />
+            </div>
+          </Grid>
         </Grid>
-        <Grid item xs>
-          <div className={styles.messageCenter}>
-            <p>
-              {username ? (
-                <UserLink userId={userId} username={username} />
-              ) : (
-                userId
-              )}
-            </p>
-          </div>
+      ) : (
+        <Grid container>
+          <Grid item xs>
+            <div className={styles.messageLeft}>
+              <p>{gameName}</p>
+            </div>
+          </Grid>
+          <Grid item xs>
+            <div className={styles.messageCenter}>
+              <p>
+                {username ? (
+                  <UserLink userId={userId} username={username} />
+                ) : (
+                  userId
+                )}
+              </p>
+            </div>
+          </Grid>
+          <Grid item xs>
+            <div className={styles.messageRight}>
+              {toNumericString(stakedAmount)} {TOKEN_NAME}
+              <img src={medalCoin} alt="medal" />
+            </div>
+          </Grid>
+          <Grid item xs>
+            <div className={styles.messageCenter}>
+              <p className={styles.rewardMulti}>{crashFactor}x</p>
+            </div>
+          </Grid>
+          <Grid item xs>
+            <div className={styles.messageLast}>
+              <p className={styles.reward}>
+                {toNumericString(rewardAmount)} {TOKEN_NAME}
+              </p>
+              <img src={medalCoin} alt="medal" />
+            </div>
+          </Grid>
         </Grid>
-        <Grid item xs>
-          <div className={styles.messageRight}>
-            {toNumericString(stakedAmount)} {TOKEN_NAME}
-            <img src={medalCoin} alt="medal" />
-          </div>
-        </Grid>
-        <Grid item xs>
-          <div className={styles.messageCenter}>
-            <p className={styles.rewardMulti}>{crashFactor}x</p>
-          </div>
-        </Grid>
-        <Grid item xs>
-          <div className={styles.messageLast}>
-            <p className={styles.reward}>
-              {toNumericString(rewardAmount)} {TOKEN_NAME}
-            </p>
-            <img src={medalCoin} alt="medal" />
-          </div>
-        </Grid>
-      </Grid>
+      )}
     </div>
   );
 };

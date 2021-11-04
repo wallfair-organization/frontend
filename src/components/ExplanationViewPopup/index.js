@@ -104,16 +104,6 @@ const ExplanationViewPopup = ({ closed, hidePopup }) => {
           <span className={styles.explanationTextHeadlineUnderline}></span>
         </h3>
         <div className={styles.visualSteps}>{renderSteps()}</div>
-
-        <div className={styles.checkMore}>
-          For more information,{' '}
-          <a
-            href={'https://wallfair.gitbook.io/wallfair/placing-a-bet'}
-            target={'_blank'}
-          >
-            check our gitbook !
-          </a>
-        </div>
       </div>
     );
   };
@@ -144,16 +134,6 @@ const ExplanationViewPopup = ({ closed, hidePopup }) => {
           <span className={styles.explanationTextHeadlineUnderline}></span>
         </h3>
         <div className={styles.visualSteps}>{renderSteps()}</div>
-
-        <div className={styles.checkMore}>
-          For more information,{' '}
-          <a
-            href={'https://wallfair.gitbook.io/wallfair/placing-a-bet'}
-            target={'_blank'}
-          >
-            check our gitbook !
-          </a>
-        </div>
       </div>
     );
   };

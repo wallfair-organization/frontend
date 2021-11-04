@@ -9,6 +9,7 @@ import { TOKEN_NAME } from '../../constants/Token';
 import { calculateGain } from '../../helper/Calculation';
 import medalCoin from '../../data/icons/medal-coin.png';
 import ActivityTableRow from './ActivityTableRow';
+import { roundToTwo } from '../../helper/FormatNumbers';
 
 const ActivityMessage = ({ activity, users }) => {
   const getUserProfileUrl = data => {
@@ -40,7 +41,7 @@ const ActivityMessage = ({ activity, users }) => {
         href={`${window.location.origin}/user/${userId}`}
         rel="noreferrer"
       >
-        {userName || 'Unknown user'}
+        {userName || 'User'}
       </a>
     );
   };
@@ -53,13 +54,25 @@ const ActivityMessage = ({ activity, users }) => {
     switch (activity.type) {
       case 'Casino/CASINO_CASHOUT':
         const stakedAmount = toNumericString(data?.stakedAmount);
+        const crashFactor = roundToTwo(_.get(data, 'crashFactor'));
         const rowData = {
           userId: userName,
           rewardAmount,
           stakedAmount,
-          crashFactor: data?.crashFactor,
+          crashFactor,
         };
-        return <ActivityTableRow data={rowData} />;
+        return <ActivityTableRow data={rowData} type={'cashout'} />;
+      case 'Casino/EVENT_CASINO_LOST': {
+        const stakedAmount = toNumericString(data?.stakedAmount);
+        const crashFactor = roundToTwo(_.get(data, 'crashFactor'));
+        const rowData = {
+          userId: userName,
+          rewardAmount,
+          stakedAmount,
+          crashFactor,
+        };
+        return <ActivityTableRow data={rowData} type={'lost'} />;
+      }
       default:
         return null;
     }

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import DateText from '../../helper/DateText';
 import styles from './styles.module.scss';
 import State from '../../helper/State';
+import { roundToTwo } from '../../helper/FormatNumbers';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
@@ -111,7 +112,7 @@ const ActivityMessage = ({ activity, date, users, events }) => {
         href={`${window.location.origin}/user/${userId}`}
         rel="noreferrer"
       >
-        {userName || 'Unknown user'}
+        {userName || 'User'}
       </a>
     );
   };
@@ -239,12 +240,37 @@ const ActivityMessage = ({ activity, date, users, events }) => {
             .
           </div>
         );
-      case 'Notification/EVENT_BET_RESOLVED':
+      case 'Notification/EVENT_BET_RESOLVED': {
+        const event = _.get(data, 'event');
+        const eventSlug = _.get(event, 'slug');
+        const bet = _.get(data, 'bet', []);
+        const outcomeIndex = _.get(bet, 'finalOutcome');
+        const outcomesName = _.get(bet, `outcomes[${outcomeIndex}].name`);
+
+        const ResolveLink = () => (
+          <a
+            className={'global-link-style'}
+            target={'_blank'}
+            href={`${window.location.origin}/trade/${eventSlug}/${_.get(
+              bet,
+              'slug'
+            )}`}
+            rel="noreferrer"
+          >
+            {_.get(bet, 'marketQuestion')}
+          </a>
+        );
+
         return (
           <div>
-            Bet <b>{getEventUrl(data)}</b> has been resolved.
+            Bet{' '}
+            <b>
+              <ResolveLink />
+            </b>{' '}
+            has been resolved with <b>{outcomesName}</b>.
           </div>
         );
+      }
       case 'Notification/EVENT_BET_EVALUATED':
         return (
           <div>
@@ -326,6 +352,24 @@ const ActivityMessage = ({ activity, date, users, events }) => {
             <b>{getUserProfileUrl(data)}</b> has changed its profile's "About
             me" section.
           </div>
+        );
+      case 'Casino/EVENT_CASINO_LOST':
+        return (
+          <div>
+            <b>{getUserProfileUrl(data)}</b> has lost{' '}
+            <div className={'global-token-currency'}>
+              <b className={'global-cashout-loss'}>
+                {formatToFixed(_.get(data, 'stakedAmount'), 0, true)}{' '}
+                {TOKEN_NAME}
+              </b>
+            </div>{' '}
+            at{' '}
+            <div className={'global-game-crashfactor'}>
+              {roundToTwo(data?.crashFactor)}
+            </div>{' '}
+            crash factor on Elon Game.{' '}
+          </div>
+          // TODO: Replace this hardcoded game name with actual one later
         );
       default:
         return null;

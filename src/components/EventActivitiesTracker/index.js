@@ -145,7 +145,10 @@ const EventActivitiesTracker = ({
         return true;
       }
 
-      return item.type === 'Casino/CASINO_CASHOUT';
+      return (
+        item.type === 'Casino/CASINO_CASHOUT' ||
+        item.type === 'Casino/EVENT_CASINO_LOST'
+      );
     });
 
     return _.map(categoryFiltered, (activityMessage, index) => {

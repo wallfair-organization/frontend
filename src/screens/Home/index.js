@@ -120,10 +120,6 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
     );
   };
 
-  const renderAlphaPlatform = () => {
-    return <AlphaPlatformCards alphaplatforms={ALPHA_PLATFORMS} />;
-  };
-
   const renderRosiBanner = () => {
     return (
       <Link data-tracking-id="home-play-elon" to={Routes.rosiGame}>
@@ -191,7 +187,6 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
       {/* <Header /> */}
       <div className={styles.containerWrapper}>
         <div className={styles.container}>
-          {renderAlphaPlatform()}
           {renderRosiBanner()}
           <EventsCarouselContainer eventType="non-streamed" />
           <EventsCarouselContainer eventType="streamed" />

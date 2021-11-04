@@ -1,0 +1,44 @@
+@import '../../styles/all';
+
+.inputContainer
+{
+    display:          flex;
+    width:            100%;
+    align-items:      center;
+    padding:          10.5px;
+    height:           40px;
+    border-radius:    10px;
+    border:           1.2px solid $colorGray;
+    background:       none;
+    justify-content:  center;
+
+    .input
+    {
+        flex:             none;
+        text-align:       center;
+        margin-right:     0;
+        background-color: transparent;
+        border:           none;
+        outline:          none !important;        
+        min-width:        10px !important;
+        width:            6ch;
+        font-family:      $fontRegular;
+        font-style:       normal;
+        font-weight:      bold;
+        font-size:        14px;
+        line-height:      22px;
+
+        &::-webkit-inner-spin-button
+        {
+            -webkit-appearance: none;
+            margin:             0;
+        }
+
+        -moz-appearance:  textfield;
+    }
+}
+
+.tokenNumberErrorHint
+{
+    margin-top: 10px;
+}

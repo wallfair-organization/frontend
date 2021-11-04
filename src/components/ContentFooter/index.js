@@ -29,15 +29,6 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
         <div className={styles.links}>
           <div className={styles.column}>
             <div className={styles.firstRow}>
-              <a
-                href="https://wallfair.gitbook.io/wallfair/"
-                target="_blank"
-                rel="noreferrer"
-                data-tracking-id="footer-documentation"
-              >
-                Documentation
-              </a>
-
               <button
                 data-tracking-id="footer-leaderboard"
                 onClick={openLeaderboard}
