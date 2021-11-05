@@ -404,13 +404,6 @@ const Navbar = ({
         )}
 
         <div className={style.linkWrapper}>
-          {renderNavbarLink(
-            `/live-events/all`,
-            'Live Events',
-            null,
-            'menu-live-events'
-          )}
-          {renderNavbarLink(`/events`, 'Events', null, 'menu-events')}
           {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
           {renderNavbarLink(
             `/activities`,
@@ -418,6 +411,13 @@ const Navbar = ({
             null,
             'menu-activities'
           )}
+          {renderNavbarLink(`/events`, 'Events', null, 'menu-events')}
+          {/*{renderNavbarLink(*/}
+          {/*  `/live-events/all`,*/}
+          {/*  'Live Events',*/}
+          {/*  null,*/}
+          {/*  'menu-live-events'*/}
+          {/*)}*/}
           {/* {isLoggedIn() && renderNavbarLink(`/rewards`, 'Earn', null, 'menu-earn')} */}
         </div>
       </div>

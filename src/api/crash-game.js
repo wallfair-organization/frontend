@@ -1,6 +1,7 @@
 import * as ApiUrls from '../constants/Api';
 import axios from 'axios';
 import ContentTypes from '../constants/ContentTypes';
+import { CRASH_GAME_GET_VOLUME_BETS } from '../constants/Api';
 
 const createInstance = (host, apiPath) => {
   return axios.create({
@@ -81,6 +82,11 @@ const getHighUsers = () => {
   }));
 };
 
+const getTotalBetsVolumeByRange = (range = '24h') => {
+  const url = ApiUrls.CRASH_GAME_GET_VOLUME_BETS.replace(':range', range);
+  return Api.get(url);
+};
+
 export {
   Api,
   setToken,
@@ -91,4 +97,5 @@ export {
   getGameDetailById,
   getLuckyUsers,
   getHighUsers,
+  getTotalBetsVolumeByRange,
 };

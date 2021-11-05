@@ -14,7 +14,7 @@
     height: auto;
   }
 
-  .activitiesCategory {
+  .globalStats {
     display: flex;
     flex-direction: row;
     column-gap: 10px;
@@ -24,5 +24,55 @@
     font-size: 24px;
     font-weight: 700;
     padding-bottom: 30px;
+  }
+
+  .statsBlock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+
+    .statItem {
+      background-color: #100D27;
+      border-radius: 20px;
+      width: 16%;
+      padding: 15px 10px;
+      margin-bottom: 10px;
+
+      @media (max-width: $screen-lg) {
+        width: 33%;
+      }
+
+      @media (max-width: $screen-md) {
+        width: 50%;
+      }
+
+      @media (max-width: $screen-xs) {
+        width: 100%;
+      }
+
+      .statItemHead {
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        span {
+          font-size: 16px;
+          color: $colorYellow;
+        }
+      }
+
+      .statItemHint {
+        margin-top: 5px;
+        font-size: 12px;
+        line-height: 1.10;
+        text-align: center;
+        color: #5C5C6D;
+      }
+    }
   }
 }
