@@ -1,0 +1,10 @@
+@import '../../styles/all';
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  @media (min-width: $screen-lg) {
+    max-width: 80%;
+  }
+}

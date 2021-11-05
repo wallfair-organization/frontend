@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as Api from 'api/crash-game';
 import { connect, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
@@ -27,6 +28,7 @@ import { PopupActions } from 'store/actions/popup';
 import EventActivitiesTracker from '../../components/EventActivitiesTracker';
 import TabOptions from '../../components/TabOptions';
 import ActivityTable from 'components/EventActivitiesTracker/ActivityTable';
+import Routes from 'constants/Routes';
 
 const RosiGame = ({
   showPopup,
@@ -196,6 +198,14 @@ const RosiGame = ({
     />
   );
 
+  const renderWallpaperBanner = () => {
+    return (
+      <Link data-tracking-id="elon-wallpaper" to={Routes.elonWallpaper}>
+        <div className={styles.banner}></div>
+      </Link>
+    );
+  };
+
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
       <div className={styles.container}>
@@ -250,6 +260,7 @@ const RosiGame = ({
               {renderActivities()}
             </div>
           ) : null}
+          {isMiddleOrLargeDevice && renderWallpaperBanner()}
           <ContentFooter className={styles.betFooter} />
         </div>
       </div>

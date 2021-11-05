@@ -53,7 +53,7 @@ const ActivityMessage = ({ activity, users }) => {
     const rewardAmount = toNumericString(rewardAmountFormatted);
     switch (activity.type) {
       case 'Casino/CASINO_CASHOUT':
-        const stakedAmount = toNumericString(data?.stakedAmount);
+        const stakedAmount = data?.stakedAmount;
         const crashFactor = roundToTwo(_.get(data, 'crashFactor'));
         const rowData = {
           userId: userName,
@@ -63,7 +63,7 @@ const ActivityMessage = ({ activity, users }) => {
         };
         return <ActivityTableRow data={rowData} type={'cashout'} />;
       case 'Casino/EVENT_CASINO_LOST': {
-        const stakedAmount = toNumericString(data?.stakedAmount);
+        const stakedAmount = data?.stakedAmount;
         const crashFactor = roundToTwo(_.get(data, 'crashFactor'));
         const rowData = {
           userId: userName,

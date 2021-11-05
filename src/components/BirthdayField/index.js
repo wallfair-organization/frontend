@@ -18,15 +18,13 @@ const BirthdayField = ({
   const onChange = event => {
     const value = _.get(event, 'target.value', 0);
     const regex = new RegExp('^0+(?!$)', 'g');
-    let targetValue = _.toNumber(value.replaceAll(regex, ''));
-
+    //let targetValue = _.toNumber(value.replaceAll(regex, ''));
+    let targetValue = value;
     // make sure value is not above maxValue (if given)
     if (maxValue && targetValue > maxValue) {
       targetValue = maxValue;
     }
-
     event.target.value = targetValue;
-
     setValue(targetValue);
   };
 

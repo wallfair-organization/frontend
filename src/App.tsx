@@ -34,6 +34,7 @@ import PageTracker from 'components/PageTracker';
 import useHideMobileScrollingMenu from 'hooks/useHideMobileScrollingMenu';
 import EventRouter from 'components/Events/EventRouter';
 import TypeformController from 'components/TypeformController';
+import ElonWallPaper from 'screens/ElonWallPaper';
 
 const { store, persistor } = configStore();
 
@@ -41,7 +42,6 @@ initTagManager();
 
 const App = () => {
   const { onScroll, hideNavbar } = useHideMobileScrollingMenu();
-
   return (
     <div id={"main-scroll-container"} onScroll={onScroll}>
       <Provider store={store}>
@@ -74,6 +74,7 @@ const App = () => {
               <Route exact path={Routes.liveEvents} component={LiveEvents} />
               <Route exact path={Routes.events} component={Events} />
               <Route exact path={Routes.rosiGame} component={RosiGame} />
+              <Route exact path={Routes.elonWallpaper} component={ElonWallPaper} />
               <Route exact path={Routes.activities} component={Activities} />
               <Route path={Routes.verify} component={EmailVerification} />
               <Route path={Routes.games} component={Games} />
@@ -122,7 +123,6 @@ const App = () => {
 // Recalculating after resizing screen
 window.addEventListener('resize', () => {
   let vh = window.innerHeight * 0.01;
-
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 

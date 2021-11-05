@@ -1,0 +1,218 @@
+@import '../../styles/all';
+
+.cardsContainer {
+  padding: 30px;
+
+  @media (max-width: $screen-md) {
+    padding: 0 150px 15px;
+  }
+
+  @media (max-width: $screen-sm) {
+    padding: 0 100px 15px;
+  }
+
+  @media (max-width: $screen-xs) {
+    padding: 0 15px 15px;
+  }
+}
+
+.cardsCategory {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: $colorWhite;
+  font-family: $fontRegular;
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 20px;
+
+  .howtoLink {
+    cursor: pointer;
+    font-size: 11px;
+    font-family: $fontRegular;
+    text-decoration: underline;
+    color: $colorYellow;
+
+    @media (max-width: $screen-xs) {
+      display: none;
+      margin: 0;
+      width: 100%;
+      padding: 0 15px 15px;
+    }
+  }
+
+  .questionIcon {
+    cursor: pointer;
+    display: none;
+
+    svg {
+
+      g,
+      path,
+      circle {
+        fill: $colorYellow;
+      }
+    }
+
+    @media (max-width: $screen-xs) {
+      display: block;
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @media (max-width: $screen-md) {
+    flex-direction: column;
+  }
+
+  .wrapper {
+    position: relative;
+    flex-basis: 20%;
+    padding: 20px;
+
+    @media (max-width: $screen-md) {
+      padding: 20px 0;
+    }
+
+    .cardItem {
+      height: 100%;
+
+      &.inactive {
+        img,
+        .cardInfo {
+          filter: opacity(0.7);
+        }
+      }
+
+      &.cardItemLg {
+        .cardInfo {
+          .title {
+            @media (max-width: $screen-md) {
+              font-size: 16px;
+            }
+          }
+
+          .subtitle {
+            @media (max-width: $screen-md) {
+              font-size: 12px;
+            }
+          }
+
+          .description {
+            @media (max-width: $screen-md) {
+              font-size: 14px;
+            }
+          }
+        }
+
+        .inactivePlaceholder {
+          @media (max-width: $screen-md) {
+            min-width: 150px;
+            min-height: 45px;
+            font-size: 14px;
+          }
+        }
+      }
+
+      &.cardItemMd,
+      &.cardItemSm {
+        .inactivePlaceholder {
+          min-width: 150px;
+          min-height: 45px;
+          font-size: 14px;
+        }
+      }
+
+      &.cardItemMd {
+        .cardInfo {
+          .title {
+            @media (max-width: $screen-md) {
+              font-size: 26px;
+            }
+          }
+        }
+      }
+
+      &.cardItemSm {
+        .cardInfo {
+          .title {
+            font-size: 26px;
+          }
+        }
+
+        .inactivePlaceholder {
+          @media (max-width: $screen-md) {
+            min-width: 250px;
+            min-height: 70px;
+            font-size: 18px;
+          }
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .cardInfo {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: $colorWhite;
+        font-family: $fontRegular;
+        padding: 30px;
+
+        .title {
+          font-size: 36px;
+          font-weight: 700;
+          padding: 10px 0;
+          line-height: 1;
+        }
+
+        .subtitle {
+          font-size: 14px;
+          opacity: 0.7;
+        }
+
+        .description {
+          font-size: 16px;
+          opacity: 0.7;
+          min-height: 60px;
+        }
+      }
+
+      .inactivePlaceholder {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-family: $fontMedium;
+        color: #F2FF53;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      @media (max-width: $screen-md) {
+        padding: 0 16px;
+      }
+      
+    }
+
+    .cardLink {
+      text-decoration: none;
+
+      &.cardLinkInactive {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

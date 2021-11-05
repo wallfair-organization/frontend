@@ -101,6 +101,39 @@
       }
     }    
   }
+
+  .banner {
+    margin-top: 50px;
+    background-image: url('../../data/backgrounds/games/wallpaper-banner.png');    
+    min-height: 208px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @media (max-width: $screen-lg) {
+      padding: 20px;
+      min-height: unset;
+      height: 200px;
+    }
+
+    @media (max-width: $screen-md) {
+      padding: 20px;
+      min-height: unset;
+      height: 150px;
+    }
+
+    @media (max-width: $screen-sm) {
+      background-image: url('../../data/backgrounds/games/wallpaper-banner.png');
+      height: 100%;
+      background-position: center;
+      padding: 80px;
+    }
+
+    @media (max-width: $screen-xs) {
+      padding: 40px;
+    }
+
+  }
 }
 
 .sidebar {

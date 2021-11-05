@@ -1,5 +1,6 @@
 import InputBox from '../InputBox';
 import BirthdayField from '../BirthdayField';
+import DropdownComplex from '../DropdownComplex';
 import Dropdown from '../Dropdown';
 import styles from './styles.module.scss';
 import { AuthenticationActions } from '../../store/actions/authentication';
@@ -15,7 +16,8 @@ import HighlightType from 'components/Highlight/HighlightType';
 import AuthenticationType from './AuthenticationType';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { selectTotalUsers } from '../../store/selectors/leaderboard';
-import { COUNTRIES } from 'constants/Countries';
+import { COUNTRIES, NOT_ALLOWED_COUNTRIES } from 'constants/Countries';
+
 const Authentication = ({
   loading,
   errorState,
@@ -33,7 +35,7 @@ const Authentication = ({
   const [birthDay, setBirthDay] = useState('');
   const [birthMonth, setBirthMonth] = useState('');
   const [birthYear, setBirthYear] = useState('');
-  const [country, setCountry] = useState('US');
+  const [country, setCountry] = useState();
   const [legalAuthorizationAgreed, setLegalAuthorizationAgreed] =
     useState(false);
   const [error, setError] = useState(null);
@@ -377,7 +379,7 @@ const Authentication = ({
           Select your country
         </InputLabel>
         <div className={styles.inputForm}>
-          <Dropdown
+          <DropdownComplex
             options={COUNTRIES}
             placeholder={''}
             setValue={setCountry}
@@ -408,10 +410,16 @@ const Authentication = ({
         </a>
       </p>
     );
-
+    const notAllowed = NOT_ALLOWED_COUNTRIES.findIndex(
+      c => c.value === country?.value
+    );
     return !birthdayIsValid() ? (
       <span className={styles.errorText}>
         You need to be above 18 years old in order to use this system
+      </span>
+    ) : notAllowed >= 0 ? (
+      <span className={styles.errorText}>
+        Users in this country are currently unable to access Wallfair services.
       </span>
     ) : (
       <CheckBox

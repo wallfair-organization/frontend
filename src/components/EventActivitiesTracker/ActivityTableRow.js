@@ -47,7 +47,7 @@ const ActivityTableRow = ({ data, type }) => {
           </Grid>
           <Grid item xs>
             <div className={classNames(styles.messageRight)}>
-              {stakedAmount} {TOKEN_NAME}
+              {toNumericString(stakedAmount)} {TOKEN_NAME}
               <img src={medalCoin} alt="medal" />
             </div>
           </Grid>

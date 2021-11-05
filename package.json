@@ -53,6 +53,7 @@
     "react-responsive-carousel": "^3.2.18",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-select": "^5.2.0",
     "react-share": "^4.4.0",
     "react-time-ago": "^7.1.2",
     "react-tooltip": "^4.2.21",

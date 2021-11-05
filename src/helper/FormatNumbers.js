@@ -19,8 +19,10 @@ export const toNumericString = number => {
     : Number(number).toLocaleString('en-US');
 };
 
-export const roundToTwo = num => {
-  return +(Math.round(num + 'e+2') + 'e-2');
+export const roundToTwo = (value, decimalPlaces = 2) => {
+  return Number(
+    Math.round(parseFloat(value + 'e' + decimalPlaces)) + 'e-' + decimalPlaces
+  ).toFixed(decimalPlaces);
 };
 
 export const getReadableAmount = amount => {

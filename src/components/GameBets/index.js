@@ -56,7 +56,9 @@ const Bet = ({ cashedOut, bet, gameRunning, endGame }) => {
       <div className={styles.user}>{bet.username}</div>
       <div className={styles.rightColumn}>
         {cashedOut ? (
-          <span className={styles.crashFactor}>{bet.crashFactor}</span>
+          <span className={styles.crashFactor}>
+            {bet.crashFactor.toFixed(2)}
+          </span>
         ) : null}
         <span
           className={classNames({
