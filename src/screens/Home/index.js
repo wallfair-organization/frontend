@@ -189,7 +189,7 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
         <div className={styles.container}>
           {renderRosiBanner()}
           <EventsCarouselContainer eventType="non-streamed" />
-          <EventsCarouselContainer eventType="streamed" />
+          {/*<EventsCarouselContainer eventType="streamed" />*/}
           {renderCategoriesAndLeaderboard()}
           {renderUniswap()}
           <ContentFooter />

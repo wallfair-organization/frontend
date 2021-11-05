@@ -3,7 +3,8 @@
 .registration {
   padding: 50px 20px;
   display: flex;
-  max-width: 600px;
+  max-width: 500px;
+  width: 100vw;
   @media screen and (min-width: $screen-sm) {
     padding: 50px;
   }
@@ -122,6 +123,7 @@
   }
   .form {
     flex-basis: 50%;
+    max-width: 100%;
     flex-grow: 1;
   }
 }

@@ -381,6 +381,8 @@ const updateUserData = function* (action) {
 const signUp = function* (action) {
   const payload = {
     email: action.email,
+    country: action.country,
+    birth: action.birth,
     password: action.password,
     passwordConfirm: action.passwordConfirm,
     ref: action.ref,

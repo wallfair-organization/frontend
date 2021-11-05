@@ -121,7 +121,9 @@ const Authentication = ({
 
   const validateInput = options => {
     let error;
-
+    const notAllowed = NOT_ALLOWED_COUNTRIES.findIndex(
+      c => c.value === country?.value || c.value === country
+    );
     if (isSignUp() && !forgotPassword && !legalAuthorizationAgreed) {
       error = 'Confirm that you agree with Terms and Conditions';
       fooRef = acceptRef;
@@ -133,6 +135,14 @@ const Authentication = ({
     if (isSignUp() && !forgotPassword && !passwordsMatch()) {
       error = 'Passwords do not match';
       fooRef = pwConfirmRef;
+    }
+    if (isSignUp() && !forgotPassword && notAllowed) {
+      error = 'Country is needed';
+      fooRef = countryRef;
+    }
+    if (isSignUp() && !forgotPassword && notAllowed) {
+      error = 'Country not allowed';
+      fooRef = countryRef;
     }
     if (!passwordIsValid() && !forgotPassword) {
       error = 'Your password needs to be 8 characters long';
@@ -176,16 +186,15 @@ const Authentication = ({
     if (forgotPassword) {
       initForgotPassword(email);
     } else {
-      const birthDate = moment(`${birthDay}/${birthMonth}/${birthYear}`).unix();
+      const birthDate = `${birthMonth}/${birthDay}/${birthYear}`;
       const refLocalStorage = localStorage.getItem('urlParam_ref');
-
       isSignUp()
         ? signUp({
             email,
             password,
             passwordConfirm: passwordConfirmation,
             birth: birthDate,
-            country,
+            country: country?.value ? country.value : country,
             ref: refLocalStorage,
             recaptchaToken,
           })
@@ -411,7 +420,7 @@ const Authentication = ({
       </p>
     );
     const notAllowed = NOT_ALLOWED_COUNTRIES.findIndex(
-      c => c.value === country?.value
+      c => c.value === country?.value || c.value === country
     );
     return !birthdayIsValid() ? (
       <span className={styles.errorText}>
@@ -470,6 +479,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     signUp: payload => {
+      console.log('payload', payload);
       dispatch(AuthenticationActions.signUp(payload));
     },
     login: payload => {

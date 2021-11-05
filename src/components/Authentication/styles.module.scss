@@ -17,7 +17,9 @@
     z-index: -1;
   }
 }
-
+.stepsTooltipError{
+  position: absolute;
+}
 .authentication {
   overflow-y: auto;
 }
@@ -77,8 +79,11 @@
 
   .birthInputBox {
     position: relative;
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-right: 12px;
+    &:last-child{
+      margin-right: 0px;
+
+    }
 
     @media (max-width: $screen-sm) {
       font-size: 14px;
@@ -91,7 +96,7 @@
     border-radius: 10px;
     margin: 20px 0 0;
     width: 100%;
-
+    cursor: pointer;
     @media (max-width: $screen-sm) {
       height: 50px;
       margin: 10px 0 0;

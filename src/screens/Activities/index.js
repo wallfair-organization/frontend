@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import styles from './styles.module.scss';
 import ActivitiesTracker from '../../components/ActivitiesTracker';
@@ -12,12 +13,9 @@ import { getTotalBetsVolumeByRange } from '../../api/crash-game';
 import { TOKEN_NAME } from '../../constants/Token';
 
 import './swiper.scss';
-import React, { useEffect, useState } from 'react';
-import { useIsMount } from '../../components/hoc/useIsMount'; //workaround for swiper module
 
 const Activities = () => {
   const dispatch = useDispatch();
-  const isMounted = useIsMount();
 
   const [data24h, setData24h] = useState();
   const [dataLastWeek, setDataLastWeek] = useState();
@@ -25,47 +23,43 @@ const Activities = () => {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if (isMounted) {
-      (async () => {
-        try {
-          const response24 = await getTotalBetsVolumeByRange('24h').catch(
-            err => {
-              throw new Error(
-                'An error occurred fetching game statistics. (24h)'
-              );
-            }
-          );
+    getBetInfo();
+    const interval = setInterval(() => {
+      getBetInfo();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
-          const responseLastWeek = await getTotalBetsVolumeByRange('1w').catch(
-            err => {
-              throw new Error(
-                'An error occurred fetching game statistics. (1w)'
-              );
-            }
-          );
+  const getBetInfo = async () => {
+    try {
+      const response24 = await getTotalBetsVolumeByRange('24h').catch(err => {
+        throw new Error('An error occurred fetching game statistics. (24h)');
+      });
 
-          const responseAllTime = await getTotalBetsVolumeByRange('all').catch(
-            err => {
-              throw new Error(
-                'An error occurred fetching game statistics. (all)'
-              );
-            }
-          );
-
-          setData24h(response24?.data);
-          setDataLastWeek(responseLastWeek?.data);
-          setDataAllTime(responseAllTime?.data);
-          setReady(true);
-        } catch (err) {
-          dispatch(
-            AlertActions.showError({
-              message: err.message,
-            })
-          );
+      const responseLastWeek = await getTotalBetsVolumeByRange('1w').catch(
+        err => {
+          throw new Error('An error occurred fetching game statistics. (1w)');
         }
-      })();
+      );
+
+      const responseAllTime = await getTotalBetsVolumeByRange('all').catch(
+        err => {
+          throw new Error('An error occurred fetching game statistics. (all)');
+        }
+      );
+
+      setData24h(response24?.data);
+      setDataLastWeek(responseLastWeek?.data);
+      setDataAllTime(responseAllTime?.data);
+      setReady(true);
+    } catch (err) {
+      dispatch(
+        AlertActions.showError({
+          message: err.message,
+        })
+      );
     }
-  }, [isMounted]);
+  };
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
