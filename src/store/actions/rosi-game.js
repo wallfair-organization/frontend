@@ -129,8 +129,9 @@ const handleCancelBet = payload => ({
   payload,
 });
 
-const fetchLuckyData = () => ({
+const fetchLuckyData = data => ({
   type: RosiGameTypes.FETCH_LUCKY_DATA_STARTED,
+  data,
 });
 
 const fetchLuckyDataComplete = data => ({
@@ -143,8 +144,9 @@ const fetchLuckyDataError = error => ({
   error,
 });
 
-const fetchHighData = () => ({
+const fetchHighData = data => ({
   type: RosiGameTypes.FETCH_HIGH_DATA_STARTED,
+  data,
 });
 
 const fetchHighDataComplete = data => ({

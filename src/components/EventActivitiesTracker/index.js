@@ -45,7 +45,7 @@ SwiperCore.use([Navigation, Pagination]);
  */
 
 const callByParams = async params => {
-  const { betId, userId, activitiesLimit, selectedCategory } = params;
+  const { betId, userId, activitiesLimit, selectedCategory, gameId } = params;
   if (betId) {
     return await getNotificationEventsByBet({
       limit: activitiesLimit || 10,
@@ -67,6 +67,7 @@ const callByParams = async params => {
   return getNotificationEvents({
     limit: activitiesLimit || 10,
     category: selectedCategory,
+    gameId: gameId,
   }).catch(err => {
     console.error("Can't getNotificationEvents", err);
   });
@@ -81,6 +82,7 @@ const EventActivitiesTracker = ({
   betId,
   userId,
   preselectedCategory,
+  gameId,
 }) => {
   const messageListRef = useRef();
 
@@ -105,6 +107,7 @@ const EventActivitiesTracker = ({
           userId,
           activitiesLimit,
           selectedCategory,
+          gameId,
         }).catch(err => {
           console.error("Can't callByParams", err);
         });
@@ -143,6 +146,13 @@ const EventActivitiesTracker = ({
     const categoryFiltered = _.filter(activities, item => {
       if (selectedCategoryLower === 'all') {
         return true;
+      }
+
+      if(gameId) {
+        return (gameId === item.data.gameTypeId) && (
+          item.type === 'Casino/CASINO_CASHOUT' ||
+          item.type === 'Casino/EVENT_CASINO_LOST'
+        )
       }
 
       return (

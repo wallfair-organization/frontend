@@ -4,6 +4,7 @@ const initialState = {
   init: false,
   connected: false,
   room: null,
+  rooms: [],
 };
 
 const initSucceeded = (action, state) => {
@@ -18,12 +19,19 @@ const connected = (action, state) => {
 const disconnected = (action, state) => {
   return { ...state, connected: false };
 };
-const joinRoom = (action, state) => {
-  return { ...state, room: action.roomId };
-};
-const leaveRoom = (action, state) => {
-  return { ...state, room: null };
-};
+const joinRoom = (action, state) => ({
+  ...state,
+  room: action.roomId,
+  rooms: state.rooms.includes(action.roomId)
+    ? [...state.rooms]
+    : [...state.rooms, action.roomId],
+});
+
+const leaveRoom = (action, state) => ({
+  ...state,
+  room: null,
+  rooms: state.rooms.filter(r => r !== action.roomId),
+});
 
 export default function (state = initialState, action) {
   switch (action.type) {

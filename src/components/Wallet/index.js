@@ -1,9 +1,9 @@
+import { useEffect, useState, memo } from 'react';
 import classNames from 'classnames';
 import Icon from '../Icon';
 import { connect, useSelector } from 'react-redux';
 import styles from './styles.module.scss';
 import MenuItem from '../MenuItem';
-import { useEffect, useState } from 'react';
 import WalletBalance from '../WalletBalance';
 import useTransactions from 'hooks/useTransactions';
 import { selectUser } from 'store/selectors/authentication';
@@ -15,6 +15,8 @@ import TransactionHistory from '../TransactionHistory';
 import PartyIcon from '../../data/icons/party.svg';
 import { PopupActions } from '../../store/actions/popup';
 import PopupTheme from '../Popup/PopupTheme';
+import ReactTooltip from 'react-tooltip';
+import { calculateTimeLeft } from '../../helper/Time';
 
 const Wallet = ({
   show,
@@ -38,9 +40,13 @@ const Wallet = ({
   const [openMenu, setOpenMenu] = useState(menus.wallet);
   const [displayRequestTokens, setDisplayRequestTokens] = useState(false);
 
-  const { currency, balance } = useSelector(selectUser);
+  const { currency, balance, tokensRequestedAt } = useSelector(selectUser);
   const { transactions, transactionCount } = useTransactions();
-
+  const tokensRequestedAtMs = new Date(tokensRequestedAt).getTime();
+  const now = Date.now();
+  const tokenTimeDiff = now - tokensRequestedAtMs;
+  const canRequestTokens = tokenTimeDiff >= 3600 * 1000;
+  const timeLeft = calculateTimeLeft(tokensRequestedAtMs + 3600 * 1000);
   const isOpen = page => openMenu === page;
 
   useEffect(() => {
@@ -83,13 +89,35 @@ const Wallet = ({
         <h2 className={styles.walletHeading}>
           {heading}
           {displayRequestTokens && (
-            <div
-              className={styles.requestTokens}
-              onClick={showRequestTokenPopup}
-            >
-              <span>Request Tokens</span>
-              <img className={styles.party} src={PartyIcon} />
-            </div>
+            <>
+              {canRequestTokens ? (
+                <div
+                  className={styles.requestTokens}
+                  onClick={showRequestTokenPopup}
+                >
+                  <span>Request Tokens</span>
+                </div>
+              ) : (
+                <div
+                  data-for="rt-tokens"
+                  data-tip={`Available in ${timeLeft.minutes}m ${timeLeft.seconds}s`}
+                  className={classNames({
+                    [styles.requestTokens]: true,
+                    [styles.disabled]: !canRequestTokens,
+                  })}
+                >
+                  <span>Request Tokens</span>
+                </div>
+              )}
+              <ReactTooltip
+                id={'rt-tokens'}
+                place="bottom"
+                effect="solid"
+                offset={{ bottom: 10 }}
+                multiline
+                className={styles.tooltip}
+              />
+            </>
           )}
         </h2>
         <div className={styles.walletContents}>{contents}</div>
@@ -173,4 +201,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Wallet);
+const Connected = connect(null, mapDispatchToProps)(Wallet);
+export default memo(Connected);

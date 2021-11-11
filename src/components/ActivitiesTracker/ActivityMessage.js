@@ -11,6 +11,7 @@ import { getProfilePictureUrl } from '../../helper/ProfilePicture';
 import { formatToFixed } from 'helper/FormatNumbers';
 import { TOKEN_NAME } from '../../constants/Token';
 import { calculateGain } from '../../helper/Calculation';
+import { getGameById } from '../../helper/Games';
 
 const ActivityMessage = ({ activity, date, users, events }) => {
   const [dateString, setDateString] = useState('');
@@ -124,6 +125,10 @@ const ActivityMessage = ({ activity, date, users, events }) => {
     if (!event) {
       event = State.getEvent(_.get(data, 'bet.event'), events);
     }
+
+    const gameName = data?.gameName;
+    const gameTypeId = data?.gameTypeId;
+    const gameLabel = getGameById(gameTypeId)?.name || gameName;
 
     switch (activity.type) {
       case 'Notification/EVENT_BET_CANCELED':
@@ -287,7 +292,7 @@ const ActivityMessage = ({ activity, date, users, events }) => {
                 {formatToFixed(_.get(data, 'amount'), 0, true)} {TOKEN_NAME}
               </b>
             </div>{' '}
-            bet on Elon Game.{' '}
+            bet on {gameLabel}.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
         );
@@ -316,7 +321,7 @@ const ActivityMessage = ({ activity, date, users, events }) => {
                 ({gainValueCasino})
               </div>
             )}{' '}
-            from Elon Game.{' '}
+            from {gameLabel}.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
         );
@@ -354,6 +359,11 @@ const ActivityMessage = ({ activity, date, users, events }) => {
           </div>
         );
       case 'Casino/EVENT_CASINO_LOST':
+        const multiplier = data?.crashFactor || data?.winMultiplier;
+        const multiplierLabel = data?.crashFactor
+          ? 'crash factor'
+          : 'multiplier';
+
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has lost{' '}
@@ -365,9 +375,9 @@ const ActivityMessage = ({ activity, date, users, events }) => {
             </div>{' '}
             at{' '}
             <div className={'global-game-crashfactor'}>
-              {roundToTwo(data?.crashFactor)}
+              {roundToTwo(multiplier)}
             </div>{' '}
-            crash factor on Elon Game.{' '}
+            {multiplierLabel} on {gameLabel}.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
         );

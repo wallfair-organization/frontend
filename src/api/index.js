@@ -21,7 +21,10 @@ const createInstance = (host, apiPath) => {
   axiosClient.interceptors.response.use(
     response => response,
     error => {
-      if (error.response.status === 401) {
+      if (
+        error.response.status === 401 &&
+        error.response.data?.message !== 'Invalid login'
+      ) {
         dispatch(AuthenticationActions.forcedLogout());
       }
       throw error;
@@ -410,12 +413,23 @@ const getTradeById = id => {
 const getNotificationEvents = params => {
   const limit = _.get(params, 'limit', 10);
   const category = _.get(params, 'category', 10);
-  return Api.get(
-    ApiUrls.API_GET_NOTIFICATION_EVENTS.replace(':limit', limit).replace(
-      ':category',
-      category
+  const gameId = _.get(params, 'gameId');
+
+  let urlToCall = ApiUrls.API_GET_NOTIFICATION_EVENTS.replace(
+    ':limit',
+    limit
+  ).replace(':category', category);
+
+  if (gameId) {
+    urlToCall = ApiUrls.API_GET_NOTIFICATION_EVENTS_BY_GAME.replace(
+      ':limit',
+      limit
     )
-  ).catch(error => {
+      .replace(':category', category)
+      .replace(':gameId', gameId);
+  }
+
+  return Api.get(urlToCall).catch(error => {
     console.log('[API Error] called: getNotificationEvents', error);
   });
 };

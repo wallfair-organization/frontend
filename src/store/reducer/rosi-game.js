@@ -321,7 +321,6 @@ function cancelBet(action, state) {
 }
 
 const fetchHighData = ({ data }, state) => {
-  console.log('fetch high data reducer');
   return {
     ...state,
     highData: data,

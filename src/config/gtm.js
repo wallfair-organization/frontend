@@ -70,6 +70,8 @@ export const trackSignup = ({ method, ...dataLayerProps }) => {
   TagManager.dataLayer(tagManagerArgs);
 };
 
+/* ELON GAME CUSTOM EVENTS TRACKING */
+
 export const trackElonChangeAutoCashout = ({
   multiplier,
   ...dataLayerProps
@@ -138,6 +140,56 @@ export const trackElonCancelBet = ({ amount, ...dataLayerProps }) => {
       ...dataLayerProps,
       amount,
       event: 'elongameCancelBet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+
+/* ALPACAWHEEL GAME CUSTOM EVENTS TRACKING */
+
+export const trackAlpacaWheelPlaceBet = ({
+  amount,
+  multiplier,
+  ...dataLayerProps
+}) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      multiplier,
+      event: 'alpacawheelPlaceBet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackAlpacaWheelPlaceBetGuest = ({
+  amount,
+  multiplier,
+  ...dataLayerProps
+}) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      multiplier,
+      event: 'alpacawheelPlaceBetGuest',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackAlpacaWheelCashout = ({ amount, multiplier, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      multiplier,
+      event: 'alpacawheelCashout',
     },
   };
 

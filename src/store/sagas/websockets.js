@@ -11,9 +11,10 @@ import { createSocket, websocket } from '../../api/websockets';
 import { createMatchSelector } from 'connected-react-router';
 import Routes from '../../constants/Routes';
 import { matchPath } from 'react-router';
-import { ROSI_GAME_EVENT_ID } from 'constants/RosiGame';
+import { UNIVERSAL_EVENTS_ROOM_ID } from 'constants/Activities';
 import { EventActions } from '../actions/event';
 import trackedActivities from '../../components/ActivitiesTracker/trackedActivities';
+import { GAMES } from '../../constants/Games';
 
 function createSocketChannel(socket) {
   return eventChannel(emit => {
@@ -142,8 +143,8 @@ function createSocketChannel(socket) {
     socket.on('CASINO_END', casinoEndHandler);
     socket.on('CASINO_TRADE', casinoTradeHandler);
     socket.on('CASINO_REWARD', casinoRewardHandler);
+    socket.on('EVENT_BET_STARTED', betStartedHandler);
     socket.on('CASINO_CANCEL', casinoBetCanceledHandler);
-    socket.on('BET_STARTED', betStartedHandler);
     socket.onAny(onAnyListener);
 
     const unsubscribe = () => {
@@ -156,8 +157,8 @@ function createSocketChannel(socket) {
       socket.off('CASINO_END', casinoEndHandler);
       socket.off('CASINO_TRADE', casinoTradeHandler);
       socket.off('CASINO_REWARD', casinoRewardHandler);
+      socket.off('EVENT_BET_STARTED', betStartedHandler);
       socket.off('CASINO_CANCEL', casinoBetCanceledHandler);
-      socket.off('BET_STARTED', betStartedHandler);
       socket.offAny(onAnyListener);
     };
 
@@ -165,14 +166,19 @@ function createSocketChannel(socket) {
   });
 }
 
+const notificationTypes = {
+  EVENT_START: 'Notification/EVENT_START',
+  EVENT_USER_REWARD: 'Notification/EVENT_USER_REWARD',
+  EVENT_CANCEL: 'Notification/EVENT_CANCEL',
+  EVENT_BET_STARTED: 'Notification/EVENT_BET_STARTED',
+};
+
 export function* init() {
   const token = yield select(state => state.authentication.token);
-
   try {
     const socket = yield call(createSocket, token);
     const socketChannel = yield call(createSocketChannel, socket);
     yield put(WebsocketsActions.initSucceeded());
-
     while (true) {
       try {
         const payload = yield take(socketChannel);
@@ -183,15 +189,16 @@ export function* init() {
             if (socket && socket.connected) {
               yield put(WebsocketsActions.connected());
               const userId = yield select(state => state.authentication.userId);
-              const room = yield select(state => state.websockets.room);
-
-              if (room) {
-                yield put(
-                  WebsocketsActions.joinRoom({
-                    userId,
-                    roomId: room,
-                  })
-                );
+              const rooms = yield select(state => state.websockets.rooms);
+              if (rooms) {
+                for (let roomId of rooms) {
+                  yield put(
+                    WebsocketsActions.joinRoom({
+                      userId,
+                      roomId: roomId,
+                    })
+                  );
+                }
               }
             } else {
               yield put(WebsocketsActions.disconnected());
@@ -262,9 +269,11 @@ export function* init() {
             );
             break;
           case 'notification':
+          case UserNotificationTypes.BET_RESOLVED:
+          case UserNotificationTypes.EVENT_BET_CANCELLED:
           case UserNotificationTypes.EVENT_CANCEL:
           case UserNotificationTypes.EVENT_RESOLVE:
-          case UserNotificationTypes.EVENT_START:
+          case UserNotificationTypes.EVENT_USER_REWARD:
           case UserNotificationTypes.USER_AWARD:
             yield put(
               AlertActions.showNotification({
@@ -273,7 +282,7 @@ export function* init() {
             );
             yield put(ChatActions.fetchByRoom({ roomId: UserMessageRoomId }));
             break;
-          case UserNotificationTypes.BET_STARTED:
+          case notificationTypes.EVENT_BET_STARTED:
             yield put(EventActions.fetchAll());
             break;
           case 'any':
@@ -299,6 +308,14 @@ export function* init() {
   }
 }
 
+const isActivitiesPage = (currentAction, pathSlugs) =>
+  currentAction[0] === 'activities' || pathSlugs[0] === 'activities';
+const isHomePage = (currentAction, pathSlugs) =>
+  currentAction[0] === '' || pathSlugs[0] === '';
+const isGamePage = (currentAction, pathSlugs) =>
+  (currentAction[0] === 'games' || pathSlugs[0] === 'games') &&
+  (pathSlugs.length > 1 || currentAction.length > 1);
+
 export function* joinOrLeaveRoomOnRouteChange(action) {
   const ready = yield select(state => state.websockets.init);
   const connected = yield select(state => state.websockets.connected);
@@ -309,11 +326,11 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
   }
 
   const userId = yield select(state => state.authentication.userId);
-  const currentRoom = yield select(state => state.websockets.room);
+  const currentRooms = yield select(state => state.websockets.rooms) || [];
   const pathname = yield select(state => state.router.location.pathname);
   const currentAction = action.payload.location.pathname.slice(1).split('/');
   const pathSlugs = pathname.slice(1).split('/');
-  let newRoomToJoin;
+  let newRoomsToJoin = [];
 
   if (currentAction[0] === 'trade' || pathSlugs[0] === 'trade') {
     const eventSlug = pathSlugs[1];
@@ -321,28 +338,51 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
     const event = events.find(
       e => e.slug === (!!currentAction[1] ? currentAction[1] : eventSlug)
     );
-    if (event) newRoomToJoin = event._id;
-  }
-  if (currentAction[1] === 'elon-game' || pathSlugs[1] === 'elon-game') {
-    newRoomToJoin = ROSI_GAME_EVENT_ID;
+    if (event) newRoomsToJoin.push(event._id);
   }
 
-  if (currentRoom && currentRoom !== UserMessageRoomId) {
-    yield put(
-      WebsocketsActions.leaveRoom({
-        userId,
-        roomId: currentRoom,
-      })
-    );
+  if (
+    isActivitiesPage(currentAction, pathSlugs) ||
+    isHomePage(currentAction, pathSlugs)
+  ) {
+    newRoomsToJoin.push(UNIVERSAL_EVENTS_ROOM_ID);
   }
 
-  if (newRoomToJoin) {
-    yield put(
-      WebsocketsActions.joinRoom({
-        userId,
-        roomId: newRoomToJoin,
-      })
+  if (isGamePage(currentAction, pathSlugs)) {
+    const game = Object.values(GAMES).find(
+      g => g.slug === (pathSlugs[1] || currentAction[1])
     );
+    if (game) {
+      newRoomsToJoin.push(game.id);
+      newRoomsToJoin.push(UNIVERSAL_EVENTS_ROOM_ID);
+    }
+  }
+
+  // leave all non active rooms except UserMessageRoomId
+  for (let roomIdToLeave of currentRooms) {
+    if (
+      roomIdToLeave !== UserMessageRoomId &&
+      !newRoomsToJoin.includes(roomIdToLeave)
+    ) {
+      yield put(
+        WebsocketsActions.leaveRoom({
+          userId,
+          roomId: roomIdToLeave,
+        })
+      );
+    }
+  }
+
+  // join all non already active rooms
+  for (let roomId of newRoomsToJoin) {
+    if (!currentRooms.includes(roomId)) {
+      yield put(
+        WebsocketsActions.joinRoom({
+          userId,
+          roomId: roomId,
+        })
+      );
+    }
   }
 }
 

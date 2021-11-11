@@ -9,10 +9,17 @@ export const selectCurrency = ({ authentication }) => {
 
 export const selectUserId = state => state.authentication.userId;
 export const selectUserLoggedIn = state => state.authentication.userId;
+export const selectTokensRequestedAt = state => {
+  const id = selectUserId(state);
+  return state.user.users[id] && state.user.users[id].tokensRequestedAt
+    ? state.user.users[id].tokensRequestedAt
+    : new Date(Date.now() - (3600 * 1010)).toISOString();
+};
 
 export const selectUser = state => {
   const user = state.authentication;
   const currency = selectCurrency(state);
+  const tokensRequestedAt = selectTokensRequestedAt(state);
 
   return {
     ...user,
@@ -29,5 +36,6 @@ export const selectUser = state => {
       currency
     ),
     currency,
+    tokensRequestedAt,
   };
 };

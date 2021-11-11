@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, memo } from 'react';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import EventsContent from 'components/Events/EventsContent';
 import { EVENT_CATEGORIES } from 'constants/EventCategories';
@@ -37,4 +37,4 @@ const LiveEvents = () => {
   );
 };
 
-export default LiveEvents;
+export default memo(LiveEvents);

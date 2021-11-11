@@ -1,40 +1,30 @@
+import { useEffect, memo } from 'react';
 import styles from './styles.module.scss';
 import _ from 'lodash';
-import { connect, useSelector } from 'react-redux';
-import { isMobile } from 'react-device-detect';
+import { connect } from 'react-redux';
 import BaseContainerWithNavbar from '../../components/BaseContainerWithNavbar';
 import EventsCarouselContainer from '../../components/EventsCarouselContainer';
 import Leaderboard from '../../components/Leaderboard';
 import Lightbox from '../../components/Lightbox/Lightbox';
 import UniswapContent from '../../components/Lightbox/UniswapContent';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { LeaderboardActions } from '../../store/actions/leaderboard';
 import { EventActions } from 'store/actions/event';
 import { useIsMount } from 'components/hoc/useIsMount';
-import { useEffect } from 'react';
 import Routes from 'constants/Routes';
 import ContentFooter from '../../components/ContentFooter';
 import { PopupActions } from '../../store/actions/popup';
 import State from '../../helper/State';
 import { getTradeById } from '../../api';
 import ActivitiesTracker from '../../components/ActivitiesTracker';
-import LandingPage from 'screens/LandingPage';
-import classNames from 'classnames';
 import SocialIcons from 'components/SocialIcons';
 import YellowButton from 'components/YellowButton';
-import AlphaPlatformCards from 'components/AlphaPlatformCards';
-import { ALPHA_PLATFORMS } from 'constants/AlphaPlatform';
 import { GeneralActions } from '../../store/actions/general';
 
-const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
+const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events }) => {
   const isMount = useIsMount();
   const { eventId, betId, tradeId } = useParams();
   const location = useLocation();
   let urlParams = new URLSearchParams(location.search);
-
-  const userLoggedIn = useSelector(
-    state => state.authentication.authState === 'LOGGED_IN'
-  );
 
   const renderBetApprovePopup = async () => {
     if (isMount) {
@@ -122,7 +112,7 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, users }) => {
 
   const renderRosiBanner = () => {
     return (
-      <Link data-tracking-id="home-play-elon" to={Routes.rosiGame}>
+      <Link data-tracking-id="home-play-elon" to={Routes.elonGame}>
         <div className={styles.banner}>
           <div className={styles.title}>
             Play the
@@ -225,4 +215,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+const Connected = connect(mapStateToProps, mapDispatchToProps)(Home);
+export default memo(Connected);

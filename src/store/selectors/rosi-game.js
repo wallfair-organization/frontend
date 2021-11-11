@@ -8,6 +8,16 @@ export const isCashedOut = state => state.rosiGame.isCashedOut;
 export const selectEndgame = state => state.rosiGame.isEndgame;
 export const selectHighData = state => state.rosiGame.highData;
 export const selectLuckyData = state => state.rosiGame.luckyData;
+export const selectIsMute = state => state.rosiGame.volumeLevel == 0;
+export const selectVolumeLevel = state => state.rosiGame.volumeLevel;
+export const selectMusicIndex = state => state.rosiGame.musicIndex;
+export const selectIsSynced = state =>
+  state.rosiGame.timeStarted || state.rosiGame.nextGameAt;
+export const selectAnimationIndex = state => state.rosiGame.animationIndex;
+export const selectIsLosing = state =>
+  state.rosiGame.userBet && !state.rosiGame.isCashedOut;
+export const selectIsConnected = state => state.websockets.connected;
+
 export const selectGameOffline = state =>
   !state.websockets.connected ||
   !(state.rosiGame.timeStarted || state.rosiGame.nextGameAt);

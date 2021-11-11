@@ -3,7 +3,6 @@ import TradeItem from './TradeItem';
 import * as ApiUrls from '../../constants/Api';
 
 const AllTrades = ({ bet, currentUserId }) => {
-  console.log('bet', bet);
   const betId = bet?._id;
   const [trades, setTrades] = useState([]);
 

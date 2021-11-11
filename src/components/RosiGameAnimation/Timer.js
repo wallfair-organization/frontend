@@ -9,13 +9,14 @@ const Timer = ({ startTimeMs, showIncome = false }) => {
   const [factor, setFactor] = useState(0);
 
   useEffect(() => {
-    const intervalTime = 10;
+    const intervalTime = 100;
     let intervalId;
 
     const tick = () => {
       let now = Date.now();
       const diff = now - startTimeMs;
-      setFactor(calcCrashFactorFromElapsedTime(diff < 1 ? 1 : diff));
+      const newFactor = calcCrashFactorFromElapsedTime(diff < 1 ? 1 : diff);
+      setFactor(newFactor);
     };
 
     intervalId = setInterval(tick, intervalTime);

@@ -137,7 +137,6 @@ const Authentication = ({
       error = 'Your password needs to be 8 characters long';
       fooRef = pwRef;
     }
-    console.log('DALE');
 
     if (!emailIsValid()) {
       error = 'Not a valid email address';

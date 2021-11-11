@@ -20,7 +20,7 @@ const UserLink = props => {
   );
 };
 
-const ActivityTableRow = ({ data, type }) => {
+const ActivityTableRow = ({ data, type, gameLabel }) => {
   const {
     userId,
     username,
@@ -30,14 +30,13 @@ const ActivityTableRow = ({ data, type }) => {
   } = data;
   const stakedAmount = Number.parseInt(stakedAmountRaw);
   const rewardAmount = Number.parseInt(rewardAmountRaw);
-  const gameName = 'Elon Game';
   return (
     <div className={styles.messageItem}>
       {type === 'lost' ? (
         <Grid container>
           <Grid item xs>
             <div className={styles.messageLeft}>
-              <p>{gameName}</p>
+              <p>{gameLabel}</p>
             </div>
           </Grid>
           <Grid item xs>
@@ -69,7 +68,7 @@ const ActivityTableRow = ({ data, type }) => {
         <Grid container>
           <Grid item xs>
             <div className={styles.messageLeft}>
-              <p>{gameName}</p>
+              <p>{gameLabel}</p>
             </div>
           </Grid>
           <Grid item xs>

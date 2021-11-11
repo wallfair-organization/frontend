@@ -11,6 +11,9 @@ services:
   - key: REACT_APP_BACKEND_URL
     scope: RUN_TIME
     value: $REACT_APP_BACKEND_URL
+  - key: REACT_APP_SOCKET_URL
+    scope: RUN_TIME
+    value: $REACT_APP_SOCKET_URL
   - key: REACT_APP_CRASH_GAME_BACKEND_URL
     scope: RUN_TIME
     value: $REACT_APP_CRASH_GAME_BACKEND_URL

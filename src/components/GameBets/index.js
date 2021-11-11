@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { nanoid } from 'nanoid';
 import { TOKEN_NAME } from '../../constants/Token';
 import styles from './styles.module.scss';
@@ -106,4 +107,4 @@ const GameBets = ({ bets, endGame, gameRunning }) => {
   );
 };
 
-export default GameBets;
+export default memo(GameBets);

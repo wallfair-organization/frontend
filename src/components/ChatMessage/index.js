@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import _ from 'lodash';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
@@ -48,4 +49,4 @@ const ChatMessage = ({
   );
 };
 
-export default ChatMessage;
+export default memo(ChatMessage);
