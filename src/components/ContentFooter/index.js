@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { connect } from 'react-redux';
 import styles from './styles.module.scss';
 import LogoDemo from '../../data/images/logo-demo.svg';
@@ -141,4 +142,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContentFooter);
+const Connected = connect(mapStateToProps, mapDispatchToProps)(ContentFooter);
+export default memo(Connected);

@@ -121,9 +121,6 @@ const Authentication = ({
 
   const validateInput = options => {
     let error;
-    const notAllowed = NOT_ALLOWED_COUNTRIES.findIndex(
-      c => c.value === country?.value || c.value === country
-    );
     if (isSignUp() && !forgotPassword && !legalAuthorizationAgreed) {
       error = 'Confirm that you agree with Terms and Conditions';
       fooRef = acceptRef;
@@ -136,18 +133,11 @@ const Authentication = ({
       error = 'Passwords do not match';
       fooRef = pwConfirmRef;
     }
-    if (isSignUp() && !forgotPassword && notAllowed) {
-      error = 'Country is needed';
-      fooRef = countryRef;
-    }
-    if (isSignUp() && !forgotPassword && notAllowed) {
-      error = 'Country not allowed';
-      fooRef = countryRef;
-    }
     if (!passwordIsValid() && !forgotPassword) {
       error = 'Your password needs to be 8 characters long';
       fooRef = pwRef;
     }
+
     if (!emailIsValid()) {
       error = 'Not a valid email address';
       fooRef = emailRef;
@@ -479,7 +469,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     signUp: payload => {
-      console.log('payload', payload);
       dispatch(AuthenticationActions.signUp(payload));
     },
     login: payload => {

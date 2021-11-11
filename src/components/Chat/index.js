@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import _ from 'lodash';
 import ChatMessageWrapper from '../ChatMessageWrapper';
 import classNames from 'classnames';
@@ -264,4 +265,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+const Connected = connect(mapStateToProps, mapDispatchToProps)(Chat);
+export default memo(Connected);

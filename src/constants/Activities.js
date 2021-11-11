@@ -1,6 +1,9 @@
 import AllIcon from '../data/icons/events-all-icon.svg';
 import VegasIcon from '../data/icons/vegas.svg';
 
+export const UNIVERSAL_EVENTS_ROOM_ID =
+  process.env.UNIVERSAL_EVENTS_ROOM_ID || 'UNIVERSAL_EVENTS_ROOM_ID';
+
 export const ACTIVITIES_TO_TRACK = [
   {
     value: 'all',
@@ -38,8 +41,8 @@ export const ACTIVITIES_TO_TRACK = [
     ],
   },
   {
-    value: 'elongame',
-    category: 'Elon game',
+    value: 'game',
+    category: 'Games',
     image: VegasIcon,
     eventsCats: [
       'Casino/CASINO_PLACE_BET',

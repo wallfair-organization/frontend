@@ -11,7 +11,7 @@ const ElonGame = props => {
   return (
     <div className={styles.elonGameWrapper}>
       <div className={styles.headerTitle}>Elon Game</div>
-      <Link data-tracking-id="games-play-elon" to={Routes.rosiGame}>
+      <Link data-tracking-id="games-play-elon" to={Routes.elonGame}>
         <div className={styles.elonGameContainer}>
           <div className={styles.leftColumn}>
             <div className={styles.imgWrapper}>

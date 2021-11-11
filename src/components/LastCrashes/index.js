@@ -5,7 +5,7 @@ import PopupTheme from '../Popup/PopupTheme';
 import { getGameDetailById } from '../../api/crash-game';
 import _ from 'lodash';
 
-const LastCrashes = ({ lastCrashes, showPopup }) => {
+const LastCrashes = ({ lastCrashes, showPopup, text }) => {
   const handleCrashFactorClick = async (crash, e) => {
     const gameHash = crash?.gameHash;
     const response = await getGameDetailById(gameHash).catch(err => {
@@ -25,7 +25,7 @@ const LastCrashes = ({ lastCrashes, showPopup }) => {
 
   return (
     <div className={styles.container}>
-      <span className={styles.title}>Last Crashes</span>
+      <span className={styles.title}>{text ? text : 'Last Crashes'}</span>
       <div className={styles.crashes}>
         <div className={styles.overlay}></div>
         {lastCrashes.map((crash, i) => (

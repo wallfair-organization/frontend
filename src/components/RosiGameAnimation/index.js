@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import cn from 'classnames';
 import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector, connect } from 'react-redux';
+import { useSelector, connect } from 'react-redux';
 import { ROSI_GAME_AFTER_CRASH_DELAY } from 'constants/RosiGame';
 import {
   selectHasStarted,
@@ -15,8 +16,8 @@ import Counter from './Counter';
 import styles from './styles.module.scss';
 import RosiGameAnimationController from './canvas/RosiGameAnimationController';
 import { RosiGameActions } from '../../store/actions/rosi-game';
-import VolumeSlider from '../VolumeSlider';
 import GameAudioControls from '../GameAudioControls';
+import GameOffline from '../GameOffline';
 
 const PreparingRound = ({ nextGameAt }) => (
   <div className={styles.preparingRound}>
@@ -29,23 +30,11 @@ const PreparingRound = ({ nextGameAt }) => (
       </div>
     </div>
   </div>
-);
-
-const GameOffline = () => (
-  <div className={styles.preparingRound}>
-    <div>
-      <h2 className={styles.title}>Connecting to the game engine</h2>
-      <div className={styles.description}>
-        If this takes too long, try reloading the page
-      </div>
-    </div>
-  </div>
-);
+)
 
 const RosiGameAnimation = ({
   connected,
   muteButtonClick,
-  isMute,
   isSynced,
   isLosing,
   volumeLevel,
@@ -53,7 +42,6 @@ const RosiGameAnimation = ({
   animationIndex,
   onInit,
 }) => {
-  const dispatch = useDispatch();
   const canvasRef = useRef(null);
   const lastCrashValue = useSelector(selectLastCrash);
   const gameStarted = useSelector(selectHasStarted);
@@ -171,7 +159,7 @@ const RosiGameAnimation = ({
       {isAnimationReady && isSynced ? render() : <GameOffline />}
     </div>
   );
-};
+}
 
 const mapStateToProps = state => {
   return {
@@ -193,4 +181,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RosiGameAnimation);
+const Connected = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RosiGameAnimation);
+export default memo(Connected);

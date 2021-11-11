@@ -10,18 +10,18 @@ export const endGame = function* () {
   yield put(RosiGameActions.resetCashedOut());
 };
 
-export const fetchLuckyData = function* () {
+export const fetchLuckyData = function* (action) {
   try {
-    const { data } = yield call(Api.getLuckyUsers);
+    const { data } = yield call(Api.getLuckyUsers, action.data);
     yield put(RosiGameActions.fetchLuckyDataComplete(data));
   } catch (error) {
     yield put(RosiGameActions.fetchLuckyDataError(error));
   }
 };
 
-export const fetchHighData = function* () {
+export const fetchHighData = function* (action) {
   try {
-    const { data } = yield call(Api.getHighUsers);
+    const { data } = yield call(Api.getHighUsers, action.data);
     yield put(RosiGameActions.fetchHighDataComplete(data));
   } catch (error) {
     yield put(RosiGameActions.fetchHighDataError(error));

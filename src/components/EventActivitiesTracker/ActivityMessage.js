@@ -10,6 +10,7 @@ import { calculateGain } from '../../helper/Calculation';
 import medalCoin from '../../data/icons/medal-coin.png';
 import ActivityTableRow from './ActivityTableRow';
 import { roundToTwo } from '../../helper/FormatNumbers';
+import { getGameById } from '../../helper/Games';
 
 const ActivityMessage = ({ activity, users }) => {
   const getUserProfileUrl = data => {
@@ -51,27 +52,46 @@ const ActivityMessage = ({ activity, users }) => {
     const userName = getUserProfileUrl(data);
     const rewardAmountFormatted = formatToFixed(data?.reward, 0, false);
     const rewardAmount = toNumericString(rewardAmountFormatted);
+    const gameName = data?.gameName;
+    const gameTypeId = data?.gameTypeId;
+    const gameLabel = getGameById(gameTypeId)?.name || gameName;
+    const multiplier = data?.crashFactor || data?.winMultiplier;
+
     switch (activity.type) {
       case 'Casino/CASINO_CASHOUT':
         const stakedAmount = data?.stakedAmount;
-        const crashFactor = roundToTwo(_.get(data, 'crashFactor'));
+        const crashFactor = roundToTwo(multiplier);
         const rowData = {
           userId: userName,
           rewardAmount,
           stakedAmount,
           crashFactor,
+          gameLabel,
         };
-        return <ActivityTableRow data={rowData} type={'cashout'} />;
+        return (
+          <ActivityTableRow
+            data={rowData}
+            type={'cashout'}
+            gameLabel={gameLabel}
+          />
+        );
       case 'Casino/EVENT_CASINO_LOST': {
         const stakedAmount = data?.stakedAmount;
-        const crashFactor = roundToTwo(_.get(data, 'crashFactor'));
+        const crashFactor = roundToTwo(multiplier);
         const rowData = {
           userId: userName,
           rewardAmount,
           stakedAmount,
           crashFactor,
+          gameLabel,
         };
-        return <ActivityTableRow data={rowData} type={'lost'} />;
+        return (
+          <ActivityTableRow
+            data={rowData}
+            type={'lost'}
+            gameLabel={gameLabel}
+          />
+        );
       }
       default:
         return null;

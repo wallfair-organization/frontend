@@ -388,9 +388,7 @@ const signUp = function* (action) {
     ref: action.ref,
     recaptchaToken: action.recaptchaToken,
   };
-
   const { response, error } = yield call(Api.signUp, payload);
-
   if (response) {
     const initialReward = response?.data?.initialReward;
     yield put(

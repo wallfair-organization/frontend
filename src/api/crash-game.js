@@ -14,6 +14,84 @@ const createInstance = (host, apiPath) => {
   });
 };
 
+class GameApi {
+  constructor(host, token) {
+    this.host = host;
+    this.api = createInstance(host, '/');
+    this.setToken(token);
+  }
+  setToken = token => {
+    if (!token) return;
+    const authentication = 'Bearer ' + token;
+
+    this.api.defaults.headers.common['Authorization'] = authentication;
+  };
+
+  createTrade = payload => {
+    return this.api.post(ApiUrls.API_TRADE_CREATE, payload).catch(error => {
+      console.log('[API Error] called: createTrade', error);
+      throw error;
+    });
+  };
+
+  cancelBet = () =>
+    this.api.delete(ApiUrls.API_TRADE_CREATE).catch(error => {
+      throw error;
+    });
+
+  getCurrentGameInfo = () => {
+    return this.api.get(ApiUrls.API_CURRENT).catch(error => {
+      console.log('[API Error] called: getCurrentGameInfo', error);
+    });
+  };
+
+  cashOut = () => {
+    return this.api.post(ApiUrls.API_CASH_OUT, {}).catch(error => {
+      console.log('[API Error] called: Cash Out', error);
+      throw error;
+    });
+  };
+
+  getGameDetailById = (gameId, type) => {
+    const gameUrl = ApiUrls.CRASH_GAME_API_GET_GAME_DETAILS.replace(
+      ':gameId',
+      gameId
+    );
+
+    return this.api.get(gameUrl + (type ? `/${type}` : '')).catch(error => {
+      console.log('[API Error] called: getGameDetailById', error);
+    });
+  };
+
+  transformUser = user => ({
+    crashFactor: user.crashfactor,
+    createdAt: user.createdAt,
+    gameMatch: user.gamematch,
+    gameHash: user.gameHash,
+    gameId: user.gameid,
+    stakedAmount: user.stakedamount,
+    state: 2,
+    userId: user.id,
+    rewardAmount: user.crashfactor * user.stakedamount,
+  });
+
+  getLuckyUsers = gameId => {
+    return Api.get(ApiUrls.API_TRADES_LUCKY.replace(':gameId', gameId)).then(
+      response => ({
+        data: response.data.map(transformUser),
+      })
+    );
+  };
+
+  getHighUsers = gameId => {
+    return Api.get(ApiUrls.API_TRADES_HIGH.replace(':gameId', gameId)).then(
+      response => ({
+        data: response.data.map(transformUser),
+      })
+    );
+  };
+}
+
 const Api = createInstance(ApiUrls.CRASH_GAME_BACKEND_URL, '/');
 
 const setToken = token => {
@@ -63,6 +141,7 @@ const transformUser = user => ({
   createdAt: user.created_at,
   gameMatch: user.game_match,
   gameHash: user.gamehash,
+  gameId: user.gameid,
   stakedAmount: user.stakedamount,
   state: 2,
   userId: user.userid,
@@ -70,16 +149,24 @@ const transformUser = user => ({
   rewardAmount: user.crashfactor * user.stakedamount,
 });
 
-const getLuckyUsers = () => {
-  return Api.get(ApiUrls.API_TRADES_LUCKY).then(response => ({
-    data: response.data.map(transformUser),
-  }));
+const getLuckyUsers = data => {
+  const { gameId } = data;
+
+  return Api.get(ApiUrls.API_TRADES_LUCKY.replace(':gameId', gameId)).then(
+    response => ({
+      data: response.data.map(transformUser),
+    })
+  );
 };
 
-const getHighUsers = () => {
-  return Api.get(ApiUrls.API_TRADES_HIGH).then(response => ({
-    data: response.data.map(transformUser),
-  }));
+const getHighUsers = data => {
+  const { gameId } = data;
+
+  return Api.get(ApiUrls.API_TRADES_HIGH.replace(':gameId', gameId)).then(
+    response => ({
+      data: response.data.map(transformUser),
+    })
+  );
 };
 
 const getTotalBetsVolumeByRange = (range = '24h') => {
@@ -88,6 +175,7 @@ const getTotalBetsVolumeByRange = (range = '24h') => {
 };
 
 export {
+  GameApi,
   Api,
   setToken,
   createTrade,

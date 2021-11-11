@@ -43,6 +43,11 @@
           padding-bottom: 0;
         }
       }
+      .requestTokens.disabled{
+        background: url("../../data/backgrounds/highlight-request-tokens-disabled.svg") no-repeat;
+        color: rgba(0, 0, 0, 0.5);
+        cursor: wait;
+      }
     }
     .walletContents {
         overflow-y: auto;
@@ -141,4 +146,11 @@
         margin-top: 40px;
         padding-bottom: 80px;
     }
+}
+
+.tooltip {
+  font-family: $fontBold;
+  background-color: $colorPrimary !important;
+  text-align: left !important;
+  z-index: 999;
 }

@@ -22,18 +22,19 @@ const DropdownComplex = ({
     const defaultValue = COUNTRIES.filter(
       c => navigator.language.slice(-2) === c.value
     )[0];
-    console.log('defaultValue', defaultValue);
     if (setValue) setValue(defaultValue);
   }, []);
-  if (isMobile) {
+
+  if (isMobile && value) {
     return (
-      <select onChange={onChange} className={styles.mobileselect}>
+      <select
+        defaultValue={value.value}
+        value={value.value}
+        onChange={onChange}
+        className={styles.mobileselect}
+      >
         {options.map(option => (
-          <option
-            key={option.value}
-            selected={option.value === value.value ? true : false}
-            value={option.value}
-          >
+          <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}

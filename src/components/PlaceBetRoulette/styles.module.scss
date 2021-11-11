@@ -1,0 +1,418 @@
+@import '../../styles/all';
+
+.riskSelection{
+  display: flex;
+  width: 100%;
+
+  button{
+    width: calc(20% - 4px);
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1.2px solid rgba(14, 9, 39, 0.3);
+    background: white;
+    margin-right: 2px;
+    text-align: center;
+    &:last-child{
+      margin-right: 0px;
+    }
+  }
+}
+.spinsleft{
+  margin: 5px;
+  text-align: center;
+}
+.container {
+  position: relative;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 10px;
+  padding: 10px 20px 20px 20px;
+  margin-bottom: 14px;
+
+  @media screen and (max-width: $screen-md) {
+    margin-top: 7px;
+    padding: 5px 20px;
+  }
+}
+
+.label {
+  display: inline-block;
+  color: #1f1d38;
+  opacity: 0.8;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-align: left;
+  line-height: 12px;
+  margin-top: 10px;
+  &.warning {
+    color: $colorRed;
+  }
+
+  @media (max-width: $screen-md) {
+    margin-top: 0;
+  }
+}
+.titlelabel {
+  display: block;
+  color: #1f1d38;
+  opacity: 0.8;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 12px;
+  margin-top: 10px;
+}
+.sliderContainer {
+  position: relative;
+  bottom: -10px;
+  div{
+    margin-bottom: 0;
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 1rem;
+    }
+    div{
+      margin-bottom: 0;
+
+    }
+  }
+
+}
+.profit {
+  position: relative;
+  bottom: -18px;
+  @media screen and (max-width: $screen-sm) {
+    bottom: -10px;
+  }
+  margin: 15px auto;
+  font-size: 18pt;
+  color: $colorGreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace $fontMedium;
+  .empty {
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+    color: $colorWhite !important;
+  }
+  .positive {
+    color: $colorGreen;
+  }
+  .zero {
+    color: $colorBlack;
+  }
+  .negative {
+    color: $colorRed;
+  }
+
+
+}
+
+.profitPlaceholder {
+  position: relative;
+  bottom: -18px;
+  @media screen and (max-width: $screen-sm) {
+    bottom: -10px;
+  }
+  margin: 15px auto;
+
+  font-size: 18pt;
+  color: $colorWhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace $fontMedium;
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.inputBoxContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10.5px 25px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1.2px solid rgba(14, 9, 39, 0.3);
+  background: none;
+  justify-content: center;
+
+  .input {
+    background-color: transparent !important;
+    flex: none;
+    text-align: right;
+    background-color: transparent !important;
+    border: none;
+    outline: none !important;
+    margin-right: 9px;
+    min-width: 10px !important;
+    width: 6ch !important;
+    font-family: $fontBold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    input {
+      flex: none;
+      text-align: right;
+      background-color: transparent !important;
+      border: none;
+      outline: none !important;
+      margin-right: 9px;
+      min-width: 10px !important;
+      width: 6ch !important;
+      font-family: $fontBold;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 24px;
+
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      -moz-appearance: textfield;
+    }
+  }
+}
+
+
+
+.inputContainer {
+  position: relative;
+  .placeBetContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .placebidTitle {
+      padding: 0;
+    }
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+}
+
+.actions {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  font-size: 14px;
+  font-family: Helvetica;
+  color: #02061e;
+
+  span {
+    margin-left: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.button {
+  // position: absolute;
+  bottom: 6px;
+  left: -50%;
+  right: -50%;
+  margin: 0px auto;
+  margin-top: 20px;
+  outline: 0;
+  @media screen and (max-width: $screen-xs) {
+    margin-top: 10px;
+  }
+  font-family: $fontBold;
+  width: 15em;
+  height: 60px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-image: url('../../data/backgrounds/games/bet-button.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button.cancel{
+  background-image: url('../../data/backgrounds/games/cancel-button.svg');
+  color: white;
+}
+
+.buttonDisabled {
+  opacity: 0.5;
+
+  &:hover {
+    cursor: wait;
+  }
+}
+.notConnected{
+  opacity: 0.5;
+}
+.buttonDisabled.notConnected{
+  @media screen and (max-width: $screen-xs) {
+    opacity: 1;
+  }
+}
+
+.header {
+  margin-bottom: 16px;
+}
+.placebidTitle {
+  color: #120e27;
+  text-align: center;
+  font-family: 'PlusJakarta-Bold';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  padding: 0 16%;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}
+.sliderContainer {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.cashedOutInputContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10.5px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1.2px solid rgba(14, 9, 39, 0.3);
+  background: none;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  @media (min-width: $screen-lg) {
+    padding: 1rem 120px 1rem 1rem;
+  }
+
+  @media (max-width: $screen-sm) {
+    padding-right: 120px;
+  }
+
+  .input {
+    flex: none;
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    outline: none !important;
+    margin-right: 9px;
+    min-width: 10px !important;
+    width: 6ch;
+    font-family: $fontBold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    -moz-appearance: textfield;
+  }
+  &.warning {
+    border: 2px solid $colorRed;
+  }
+
+
+  .eventTokenLabel {
+    color: $colorGrayLight1;
+    font-family: $fontRegular;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    span{
+      font-size: 30px;
+    }
+  }
+
+  .buttonWrapper
+  {
+      margin-left:    0px;
+      @media (min-width: $screen-lg)
+      {
+          margin-left:    30px;
+      }
+      :first-child {
+          font-size:      20px;
+      }
+
+      :nth-child(2) {
+          font-size:      16px;
+      }
+
+      :last-child {
+          font-size:      14px;
+      }
+      .buttonItem
+      {
+          margin-left:    12px;
+          font-family:    $fontMedium;
+          cursor:         pointer;
+      }
+  }
+}
+
+.cashedOutInputContainer.demoInput{
+  padding-right: 1rem;
+  .eventTokenLabel {
+    span{
+      font-size: 20px;
+    }
+  }
+}
+
+.error {
+  padding-top: 10px;
+  font-size: 14px;
+  color: $colorRed;
+  .why {
+    text-decoration: underline;
+    cursor: default;
+  }
+}
+
+.tooltip {
+  font-family: $fontBold;
+  background-color: $colorPrimary45 !important;
+  text-align: left !important;
+}
+
+.betInfo{
+  font-size: 14px;
+  color: $colorGray;
+  margin: 0 auto;
+  text-align: center;
+  overflow-wrap:  anywhere;
+}
+
+.betInfo.guestInfo{
+  padding-top: 10px;
+  @media screen and (max-width: $screen-xs) {
+    font-size: 12px;
+    padding-top: 5px;
+  }
+}

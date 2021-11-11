@@ -7,6 +7,15 @@ import {
   selectEndgame,
   selectHighData,
   selectLuckyData,
+  selectLastCrash,
+  selectNextGameAt,
+  selectTimeStarted,
+  selectIsMute,
+  selectVolumeLevel,
+  selectMusicIndex,
+  selectIsSynced,
+  selectAnimationIndex,
+  selectIsConnected,
 } from 'store/selectors/rosi-game';
 
 const useRosiData = () => {
@@ -17,6 +26,16 @@ const useRosiData = () => {
   const isEndgame = useSelector(selectEndgame);
   const highData = useSelector(selectHighData);
   const luckyData = useSelector(selectLuckyData);
+  const lastCrashValue = useSelector(selectLastCrash);
+  const nextGameAtTimeStamp = useSelector(selectNextGameAt);
+  const gameStartedTimeStamp = useSelector(selectTimeStarted);
+  const isMute = useSelector(selectIsMute);
+  const volumeLevel = useSelector(selectVolumeLevel);
+  const musicIndex = useSelector(selectMusicIndex);
+  const isSynced = useSelector(selectIsSynced);
+  const animationIndex = useSelector(selectAnimationIndex);
+  const isConnected = useSelector(selectIsConnected);
+
   return {
     lastCrashes,
     inGameBets,
@@ -25,6 +44,15 @@ const useRosiData = () => {
     isEndgame,
     highData,
     luckyData,
+    lastCrashValue,
+    nextGameAtTimeStamp,
+    gameStartedTimeStamp,
+    isMute,
+    volumeLevel,
+    musicIndex,
+    isSynced,
+    animationIndex,
+    isConnected,
   };
 };
 

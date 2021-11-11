@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './styles.module.scss';
 import ErrorHint from '../ErrorHint';
 import classNames from 'classnames';
@@ -38,4 +38,4 @@ const CheckBox = ({
   );
 };
 
-export default CheckBox;
+export default memo(CheckBox);

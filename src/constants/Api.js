@@ -1,10 +1,16 @@
 export const API_USER_REQUEST_TOKENS = 'api/user/requestTokens';
 // Env vars
 export const BACKEND_URL =
-  process.env.REACT_APP_BACKEND_URL || 'https://staging-api.wallfair.io/';
-export const BACKEND_SOCKET_URL = BACKEND_URL;
+  process.env.REACT_APP_BACKEND_URL || 'https://dev-api.wallfair.io/';
+export const BACKEND_SOCKET_URL =
+  process.env.REACT_APP_SOCKET_URL || 'https://comm-dev-api.wallfair.io/';
 export const CRASH_GAME_BACKEND_URL =
   process.env.REACT_APP_CRASH_GAME_BACKEND_URL || 'http://localhost:8001/';
+export const CRASH_GAMES_BACKEND_URL =
+    process.env.REACT_APP_CASINO_GAMES_BACKEND_URL || 'http://localhost:8003/';
+export const SECOND_CRASH_GAME_BACKEND_URL =
+  process.env.REACT_APP_SECOND_CRASH_GAME_BACKEND_URL ||
+  'http://localhost:8002/';
 
 export const NEWS_API_URL = 'https://gnews.io/api/v4/search';
 export const NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY;
@@ -64,12 +70,15 @@ export const API_BET_RESOLVE = 'api/event/bet/:id/resolve';
 export const API_BET_CANCEL = 'api/event/bet/:id/cancel';
 export const API_BET_DELETE = 'api/event/bet/:id/delete';
 export const API_TRADE_CREATE = 'api/trade';
+export const API_WHEEL_BET = 'api/trade/wheel';
 export const API_CASH_OUT = 'api/cashout';
 export const API_TRADE_GET_BY_ID = 'api/event/trade/:id';
-export const API_TRADES_LUCKY = 'api/trades/lucky';
-export const API_TRADES_HIGH = 'api/trades/high';
+export const API_TRADES_LUCKY = 'api/trades/lucky/:gameId';
+export const API_TRADES_HIGH = 'api/trades/high/:gameId';
 export const API_GET_NOTIFICATION_EVENTS =
   'api/notification-events/list?limit=:limit&cat=:category';
+export const API_GET_NOTIFICATION_EVENTS_BY_GAME =
+  'api/notification-events/list?limit=:limit&cat=:category&gameId=:gameId';
 export const API_GET_NOTIFICATION_EVENTS_BY_BET =
   'api/notification-events/list/bets/:betId?limit=:limit';
 export const API_GET_NOTIFICATION_EVENTS_BY_USER =

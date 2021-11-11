@@ -1,0 +1,34 @@
+@import '../../styles/all';
+
+.preparingRound {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    font-size: 46px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: $colorWhite;
+    text-align: center;
+
+    @media (max-width: $screen-xs-max) {
+      font-size: 32px;
+    }
+  }
+
+  .description {
+    font-size: 16px;
+    color: $colorYellow;
+    text-align: center;
+  }
+
+  .counter {
+    display: inline-block;
+    width: 3ch;
+    text-align: justify;
+  }
+}

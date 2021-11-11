@@ -140,9 +140,44 @@ const MainMenu = ({
   const handleProfilePictureUpload = async e => {
     if (!e.target.files.length) return;
     const base64 = await convertToBase64(e.target.files[0]);
-    setProfilePic(base64);
-    setImageName(e.target.files[0].name);
+    if (e.target.files[0].size / 1024 / 1024 > 1) {
+      const newPicture = await resizePicture(base64);
+      setProfilePic(newPicture);
+      setImageName(e.target.files[0].name);
+    } else {
+      setProfilePic(base64);
+      setImageName(e.target.files[0].name);
+    }
   };
+
+  const resizePicture = base64 =>
+    new Promise((resolve, reject) => {
+      const size = 300;
+      var canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      var ctx = canvas.getContext('2d');
+      var img = new Image();
+      img.onload = function () {
+        if (img.width < img.height) {
+          const width = size;
+          const height = (img.height / img.width) * width;
+          const top = (size - height) / 2;
+          ctx.drawImage(img, 0, top, width, height);
+          resolve(canvas.toDataURL());
+        } else {
+          const height = size;
+          const width = (img.width / img.height) * height;
+          const left = (size - width) / 2;
+          ctx.drawImage(img, left, 0, width, height);
+          resolve(canvas.toDataURL());
+        }
+      };
+      img.onerror = error => reject(error);
+      img.setAttribute('hidden', true); // works for me
+      img.setAttribute('crossorigin', 'anonymous'); // put before img.src :)
+      img.src = base64;
+    });
 
   const convertToBase64 = file => {
     return new Promise((resolve, reject) => {

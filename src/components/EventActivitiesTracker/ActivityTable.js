@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import Grid from '@material-ui/core/Grid';
 import ActivityTableRow from './ActivityTableRow';
 
-const ActivityTable = ({ rowData }) => {
+const ActivityTable = ({ rowData, gameLabel }) => {
   return (
     <div className={styles.activitiesTrackerContainer}>
       <div className={styles.header}>
@@ -27,8 +27,12 @@ const ActivityTable = ({ rowData }) => {
         </Grid>
       </div>
       <div className={styles.messageContainer}>
-        {rowData.map(r => (
-          <ActivityTableRow data={r} />
+        {rowData.map((r, i) => (
+          <ActivityTableRow
+            key={r.gameHash + i}
+            data={r}
+            gameLabel={gameLabel}
+          />
         ))}
       </div>
     </div>
