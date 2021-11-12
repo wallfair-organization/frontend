@@ -198,14 +198,14 @@ export const GAMES = {
     url: process.env.REACT_APP_CRASH_GAME_BACKEND_URL,
   },
   alpacaWheel: {
-    id: 'a81ded90fd22298859bc4',
+    id: '618a81ded90fd22298859bc4',
     slug: 'alpaca-wheel',
     name: `Alpaca Wheel`,
     url: process.env.REACT_APP_CASINO_GAMES_BACKEND_URL
   },
   plinko: {
-    id: 'a821bd90fd22298859bc5',
+    id: '618a821bd90fd22298859bc5',
     slug: 'plinko',
     name: `Plinko`,
-  },
+  }
 };
