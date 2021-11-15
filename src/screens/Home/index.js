@@ -238,7 +238,7 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, refreshHighDa
                 <div className={styles.detail}>
                   <h3>WEEKLY Awards</h3>
                   <p>
-                    Keep playing and rise to the top of the leaderboard every week
+                    Keep playing and rise to the top of the leaderboard every week 
                     and increase the chances of winning real WFAIR tokens.
                     Winners will be announced every Sunday!
                   </p>
