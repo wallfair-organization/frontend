@@ -74,7 +74,7 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, refreshHighDa
         refreshLuckyData();
         break;
       case 3:
-        refreshMyBetsData({userId:'6152b82b2a1ac4fa41b4c663'});
+        if(userId) refreshMyBetsData({userId});
         break;
     }
     setActivityTabIndex(index);
@@ -93,7 +93,7 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, refreshHighDa
   useEffect(() => {
     refreshHighData();
     refreshLuckyData();
-    refreshMyBetsData({userId:'6152b82b2a1ac4fa41b4c663'});
+    if(userId) refreshMyBetsData({userId});
   }, [dispatch, connected]);
 
   const renderBetApprovePopup = async () => {
@@ -238,7 +238,7 @@ const Home = ({ tags, setOpenDrawer, fetchTags, showPopup, events, refreshHighDa
                 <div className={styles.detail}>
                   <h3>WEEKLY Awards</h3>
                   <p>
-                    Keep playing and rise to the top of the leaderboard every week 
+                    Keep playing and rise to the top of the leaderboard every week
                     and increase the chances of winning real WFAIR tokens.
                     Winners will be announced every Sunday!
                   </p>
