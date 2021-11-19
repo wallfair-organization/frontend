@@ -2,6 +2,7 @@ import { useEffect, useState, memo} from 'react';
 import styles from './styles.module.scss';
 import _ from 'lodash';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import { LOGGED_IN } from 'constants/AuthState';
 import BaseContainerWithNavbar from '../../components/BaseContainerWithNavbar';
@@ -23,6 +24,9 @@ import ChipOne from '../../data/images/home/chip-one.png';
 import ChipTwo from '../../data/images/home/chip-two.png';
 import ChipThree from '../../data/images/home/chip-three.png';
 import medalCoin from '../../data/icons/medal-coin.png';
+import AlpacaWheelCrown from '../../data/images/home/alpaca-wheel-blue-crown.png';
+import ElonGameCrown from '../../data/images/home/elon-game-yellow-crown.png';
+import ElonGameRocket from '../../data/images/home/elon-game-rocket.png';
 import SlotGameIconBg from '../../data/images/house-games/title.svg';
 import howTokenWorkPToken from '../../data/images/token/PToken.png';
 import howTokenWorkWToken from '../../data/images/token/WToken.png';
@@ -320,6 +324,54 @@ const Home = ({ authState, tags, setOpenDrawer, fetchTags, showPopup, events}) =
       </div>
     )
   }
+
+  const renderGamesBanner = () => {
+    return (
+      <div className={styles.gamesBanner}>        
+        <div className={styles.cardBox}>          
+          <div className={classNames(styles.card, styles.first)}>
+            <div className={styles.title}>            
+              <h2>Play our <span class={styles.pink}>ALPACA</span>WHEEL!</h2>            
+            </div>
+            <p className={styles.description}>
+              Top our leaderboard every week<br/>
+              and recieve some great rewards!
+            </p>
+            <img src={AlpacaWheelCrown} alt=""/>
+          </div>
+          <Link data-tracking-id="home-play-wheel" to={Routes.wheelGame}>
+            <div className={styles.bottomContainer}>
+              <div className={styles.bottomBox}>
+                <p>PLAY <span className={styles.pink}>ALPACA</span> WHEEL NOW!</p>
+              </div>
+            </div>
+          </Link>
+        </div>
+        <div className={styles.cardBox}>
+          <div className={classNames(styles.card, styles.second)}>
+            <div className={styles.title}>            
+              <h2>Help Elon Musk Reach<br/> New Heights!</h2>            
+            </div>
+            <p className={styles.description}>
+              Top our leaderboard every week<br/>
+              and recieve some great rewards!
+            </p>
+            <div className={styles.imageContainer}>
+              <img src={ElonGameCrown} alt=""/>
+              <img src={ElonGameRocket} alt=""/>
+            </div>
+          </div>
+          <Link data-tracking-id="home-play-elon" to={Routes.elonGame}>
+            <div className={styles.bottomContainer}>
+              <div className={styles.bottomBox}>
+                <p>PLAY <span className={styles.pink}>ELON</span> GAME NOW!</p>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </div>
+    )
+  }
   const renderAlpacaDopter = () => {
     return (
       <div className={styles.alpacadopter}>
@@ -568,6 +620,7 @@ const Home = ({ authState, tags, setOpenDrawer, fetchTags, showPopup, events}) =
       <div className={styles.containerWrapper}>
         <div className={styles.container}>
           {!isLoggedIn() && renderWelcome()}
+          {!isLoggedIn() && renderGamesBanner()}
           {isLoggedIn() && renderRosiBanner()}
           {isLoggedIn() && renderGamesCards()}
           {isLoggedIn() && renderActivities()}

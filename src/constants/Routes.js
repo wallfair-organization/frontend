@@ -39,7 +39,7 @@ export default {
   rosiGame: '/games/:slug',
   plinkoGame: '/games/plinko',
   elonGame: '/games/elon-game',
-  rouletteGame: '/games/alpaca-wheel',
+  wheelGame: '/games/alpaca-wheel',
   elonWallpaper: '/games/elon-wallpaper',
   verify: '/verify',
   chart: 'event/bet/:betId/history/chart',

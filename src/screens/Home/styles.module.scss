@@ -527,8 +527,94 @@
   }
 }
 
+.gamesBanner {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  @media screen and (max-width: $screen-md) {
+    grid-template-columns: auto;
+  }
+  .cardBox {
+    display: flex;
+    flex-direction: column;
+    .first {
+      background-image: url('../../data/images/home/alpaca-wheel-bg.png');
+    }
+    .second {
+      background-image: url('../../data/images/home/elon-game-bg.png');
+    }
+    .card {
+      height: 100%;
+      min-height: 420px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      padding: 30px 0 20px 60px;
+      @media screen and (max-width: $screen-md) {
+        padding: 20px 0 0 30px;
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        font-family: $fontBold;
+        font-weight: 700;
+        justify-content: flex-start;
+        h2 {
+          color: white;
+          font-size: 22px;
+          line-height: 22.68px;
+          @media (max-width: $screen-xs) {
+            font-size: 18px;
+            text-align: center;
+          }
+        }
+        .pink {
+          color: #e82e89;
+        }
+      }
+      .description {
+        margin-top: 20px;
+        color: white;
+        font-size: 18px;
+      }
+      .imageContainer {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+    }
+    .bottomContainer {
+      margin-top: -2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .bottomBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0e0927;
+        border-radius: 0px 0px 12px 12px;
+        font-family: $fontMedium;
+        font-size: 24px;
+        padding: 12px 100px;
+        @media screen and (max-width: $screen-md) {
+          width: 100%;
+          padding: 8px 0;
+          font-size: 16px;
+        }
+        p {
+          color: #fff;
+          text-align: center;
+        }
+        .pink {
+          color: #e82e89;
+        }
+      }
+    }
+  }
+}
 .alpacadopter {
-  margin: 40px 0;
+  margin: 20px 0 40px;
   .title {
     display: flex;
     align-items: center;

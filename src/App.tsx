@@ -72,7 +72,7 @@ const App = () => {
               />
               <Route
                 exact
-                path={Routes.rouletteGame}
+                path={Routes.wheelGame}
                 component={RouletteGame}
               />
               <Route exact path={Routes.minesGame} component={MinesGame} />
