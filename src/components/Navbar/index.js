@@ -411,12 +411,12 @@ const Navbar = ({
 
         <div className={style.linkWrapper}>
           {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
-          {renderNavbarLink(
+          {/* {renderNavbarLink(
             `/activities`,
             'Activities',
             null,
             'menu-activities'
-          )}
+          )} */}
           {/* {renderNavbarLink(`/events`, 'Events', null, 'menu-events')} */}
           {/*{renderNavbarLink(*/}
           {/*  `/live-events/all`,*/}

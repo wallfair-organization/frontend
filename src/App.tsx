@@ -79,7 +79,7 @@ const App = () => {
               {/* <Route exact path={Routes.minesGame} component={MinesGame} /> */}
               <Route exact path={Routes.plinkoGame} component={PlinkoGame} />
               <Route exact path={Routes.rosiGame} component={RosiGame} />
-              <Route exact path={Routes.activities} component={Activities} />
+              {/* <Route exact path={Routes.activities} component={Activities} /> */}
               <Route path={Routes.verify} component={EmailVerification} />
               <Route path={Routes.games} component={Games} />
               <Route path={Routes.resetPassword} component={ResetPassword} />
