@@ -16,7 +16,7 @@ import Routes from './Routes';
 import gameCard1 from '../data/images/house-games/card-1.png';
 import gameCard5 from '../data/images/house-games/card-5.png';
 import gameCard3 from '../data/images/house-games/card-3.png';
-import gameCard4 from '../data/images/house-games/card-4.png';
+import gameCard4 from '../data/images/house-games/card-4-soon.png';
 import gameCardMines from '../data/images/house-games/card-mines.png';
 
 export const CASINO_GAMES = [
@@ -62,7 +62,7 @@ export const NEW_SLOTS_GAMES = [
     title: 'Plinko',
     subtitle: '',
     description: '',
-    active: true,
+    active: false,
     linkTo: '/games/plinko',
   },
   {
@@ -70,7 +70,7 @@ export const NEW_SLOTS_GAMES = [
     title: 'Alpaca Roulette',
     subtitle: '',
     description: 'Market top and flop jackpot tournament',
-    active: true,
+    active: false,
     linkTo: '/games/alpaca-wheel',
   },
   // {
