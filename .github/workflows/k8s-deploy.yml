@@ -56,7 +56,7 @@ jobs:
                             --build-arg REACT_APP_NEWS_API_KEY=${{ secrets.REACT_APP_NEWS_API_KEY }}\
                             --build-arg REACT_APP_RECAPTCHA_KEY=${{ secrets.REACT_APP_RECAPTCHA_KEY }}\
                             --build-arg REACT_APP_GTM_ID=${{ secrets.REACT_APP_GTM_ID }}\
-                            -t registry.digitalocean.com/wallfair/frontend_k8s_staging:${GITHUB_SHA::6}
+                            -t registry.digitalocean.com/wallfair/frontend_k8s_temp_prod:${GITHUB_SHA::6}
           docker push registry.digitalocean.com/wallfair/frontend_k8s_temp_prod:${GITHUB_SHA::6}
       - name: Build the docker image (staging)
         if: github.ref == 'refs/heads/main'
