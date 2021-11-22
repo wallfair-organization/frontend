@@ -13,7 +13,7 @@ import Plinko from '../data/backgrounds/games/game-plinko.png';
 import PumpDump from '../data/backgrounds/games/game-pump-dump.png';
 import Routes from './Routes';
 
-import gameCard1 from '../data/images/house-games/card-1.png';
+import gameCard1 from '../data/images/house-games/card-1-soon.png';
 import gameCard5 from '../data/images/house-games/card-5.png';
 import gameCard3 from '../data/images/house-games/card-3.png';
 import gameCard4 from '../data/images/house-games/card-4-soon.png';

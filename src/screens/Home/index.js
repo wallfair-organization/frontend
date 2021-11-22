@@ -28,7 +28,7 @@ import howTokenWorkPToken from '../../data/images/token/PToken.png';
 import howTokenWorkWToken from '../../data/images/token/WToken.png';
 import EloneWithPhone from '../../data/images/elon-with-phone.png';
 import alpacaActivities from '../../data/images/alpaca-activities.svg';
-import gameCard1 from '../../data/images/house-games/card-1.png';
+import gameCard1 from '../../data/images/house-games/card-1-soon.png';
 import gameCard5 from '../../data/images/house-games/card-5.png';
 import gameCard3 from '../../data/images/house-games/card-3.png';
 import gameCard4 from '../../data/images/house-games/card-4-soon.png';
