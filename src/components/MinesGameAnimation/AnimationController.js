@@ -116,7 +116,7 @@ export class AudioController {
   startBgm() {
     const diff = this.elapsed / 1000;
     if (this.bgmIndex === 0) {
-      this.playSound('bgm', true);
+      this.playSound('bgm', true, .1);
     }
   }
 
@@ -145,11 +145,11 @@ export class AudioController {
   }
 
   playCoinSfx() {
-    this.playSound('coin');
+    this.playSound('coin',false,1);
   }
 
   playPoopSfx() {
-    this.playSound('poop');
+    this.playSound('poop',false,1);
   }
 }
 
