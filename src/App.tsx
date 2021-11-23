@@ -38,6 +38,11 @@ import EventRouter from 'components/Events/EventRouter';
 import TypeformController from 'components/TypeformController';
 import ElonWallPaper from 'screens/ElonWallPaper';
 import Fair from 'screens/Fair';
+import TermsConditions from 'screens/TermsConditions';
+import ResponsibleGambling from 'screens/ResponsibleGambling';
+import KYCPolicy from 'screens/KYCPolicy';
+import Imprint from 'screens/Imprint';
+import PrivacyPolicy from 'screens/PrivacyPolicy';
 
 const { store, persistor } = configStore();
 
@@ -87,6 +92,12 @@ const App = () => {
               <Route exact path={Routes.leaderboard} component={LeaderboardPage} />
               {/* <PrivateRoute path={Routes.rewards} component={Rewards} /> */}
               <Route exact path={Routes.provablyfair} component={Fair} />
+              <Route exact path={Routes.terms} component={TermsConditions} />
+              <Route exact path={Routes.responsibleGambling} component={ResponsibleGambling} />
+              <Route exact path={Routes.kyc} component={KYCPolicy} />
+              <Route exact path={Routes.imprint} component={Imprint} />
+              <Route exact path={Routes.privacy} component={PrivacyPolicy} />
+              
               <Redirect to={Routes.home} />
             </Switch>
             <NavbarFooter

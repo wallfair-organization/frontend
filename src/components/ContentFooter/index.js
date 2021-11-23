@@ -59,41 +59,40 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
             <p>Source Code</p>
           </a>
 
-          <a
+          <Link
             data-tracking-id="footer-terms"
-            href="https://files.wallfair.io/docs/terms-and-conditions.pdf"
-            target="_blank"
-            rel="noreferrer"
+            to={Routes.terms}
           >
             <p>{'Terms & Conditions'}</p>
-          </a>
+          </Link>
 
-          <a
+          <Link
             data-tracking-id="footer-kyc"
-            href="https://files.wallfair.io/docs/kyc-policy.pdf"
-            target="_blank"
-            rel="noreferrer"
+            to={Routes.kyc}
           >
             <p>{'KYC Policy'}</p>
-          </a>
+          </Link>
 
-          <a
+          <Link
             data-tracking-id="footer-responsible-gambling"
-            href="https://files.wallfair.io/docs/responsible-gambling.pdf"
-            target="_blank"
-            rel="noreferrer"
+            to={Routes.responsibleGambling}
           >
             <p>{'Responsible Gambling'}</p>
-          </a>
+          </Link>
 
-          <a
+          <Link
             data-tracking-id="footer-privacy"
-            href="https://files.wallfair.io/docs/privacy_policy_alpacasino.pdf"
-            target="_blank"
-            rel="noreferrer"
+            to={Routes.privacy}
+          >
+            <p>Privacy Policy</p>
+          </Link>
+
+          <Link
+            data-tracking-id="footer-imprint"
+            to={Routes.imprint}
           >
             <p>Imprint</p>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,0 +1,36 @@
+@import '../../styles/all';
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1300px;
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    max-width: 1000px;
+    width: 100%;
+    margin-bottom: 50px;
+    text-align: justify;
+
+    li {
+      margin-left: 15px;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    p {
+      word-wrap: break-word;
+    }
+  }
+
+  // @media (min-width: $screen-lg) {
+  //   max-width: 80%;
+  // }
+}

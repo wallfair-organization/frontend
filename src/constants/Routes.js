@@ -48,4 +48,9 @@ export default {
   user: '/user/:userId?',
   minesGame: '/games/mines',
   provablyfair: '/provablyfair',
+  terms: '/termsandconditions',
+  kyc: '/kycpolicy',
+  imprint: '/imprint',
+  privacy: '/privacypolicy',
+  responsibleGambling: '/responsiblegambling',
 };
