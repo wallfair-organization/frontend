@@ -19,7 +19,7 @@ const LoginButton = ({ children, onClick, styles }) => (
   </Button>
 );
 
-const SocialLogin = ({ styles, prepend = [] }) => {
+const SocialLogin = ({ styles, prepend = [], type }) => {
   const { initGoogleLogin, initFacebookLogin } = useSocialLogins();
   const iconProps = {
     className: styles.buttonIcon,
@@ -40,12 +40,12 @@ const SocialLogin = ({ styles, prepend = [] }) => {
       }
       <LoginButton styles={styles} onClick={initGoogleLogin}>
         <Icon iconType={IconType.google} {...iconProps} />
-        <span>Sign in with Google</span>
+        <span>{type === 'registration' ? 'Sign up' : 'Login'} with Google</span>
       </LoginButton>
-      <LoginButton styles={styles} onClick={initFacebookLogin}>
+      {/* <LoginButton styles={styles} onClick={initFacebookLogin}>
         <Icon iconType={IconType.facebook} {...iconProps} />
-        <span>Sign in with Facebook</span>
-      </LoginButton>
+        <span>Login with Facebook</span>
+      </LoginButton> */}
     </>
   );
 };

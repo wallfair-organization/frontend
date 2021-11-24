@@ -36,6 +36,7 @@ const Register = ({ styles, openLoginPopup, preloadEmailSignUp = false }) => {
       ) : (
         <div className={styles.signUpOptions}>
           <SocialLogin
+            type="registration"
             styles={styles}
             prepend={[
               {
