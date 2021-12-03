@@ -9,9 +9,6 @@ const Authentication = ({
   authenticationType,
   preloadEmailSignUp
 }) => {
-
-  
-
   return {
     [AuthenticationType.register]: 
       <>

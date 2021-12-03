@@ -33,6 +33,10 @@ const EmailSignUp = ({ styles, signUp, errorState }) => {
   const [submitInProgress, setSubmitInProgress] = useState(false);
 
   useEffect(() => {
+    handleReCaptchaVerify();
+  }, [executeRecaptcha]);
+
+  useEffect(() => {
     ReactTooltip.rebuild();
 
     if (errorState) {
