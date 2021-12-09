@@ -18,7 +18,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14.x"
+          node-version: '14.x'
       - name: Install node dependencies
         run: npm ci
       - name: Install doctl (to be able to login on Digital Ocean)
@@ -53,7 +53,7 @@ jobs:
                             --build-arg REACT_APP_GOOGLE_CLIENT_ID=${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}\
                             --build-arg REACT_APP_FACEBOOK_CLIENT_ID=${{ secrets.REACT_APP_FACEBOOK_CLIENT_ID }}\
                             --build-arg REACT_APP_URL="https://main.alpacasino.io"\
-                            --build-arg REACT_APP_ACCOUNT_MAPPER_URL="https://account-mapper-staging.wallfair.io/map"\
+                            --build-arg REACT_APP_ACCOUNT_MAPPER_URL="https://account-mapper-staging.wallfair.io"\
                             --build-arg REACT_APP_DEPOSIT_WALLET="0xEfa1A1a1Ff0C49d4913Ef8A74E76221EE97BD75F"\
                             --build-arg REACT_APP_ENVIRONMENT="staging"\
                             --build-arg REACT_APP_DEPOSIT_WALLET_BITCOIN=tempstqet6vmulp4f0w3flmcj8wluhxtmtm9s22y7t\
