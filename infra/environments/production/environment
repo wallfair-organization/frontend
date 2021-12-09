@@ -5,4 +5,4 @@ REACT_APP_SHOW_UPCOMING_FEATURES=false
 REACT_APP_URL=https://play.wallfair.io
 ENABLE_SITE_MAP=true
 REACT_APP_DEPOSIT_WALLET=0xAA9e0AA096c55A9E1553a7a17Ea7415E4B4E4c66
-REACT_APP_ACCOUNT_MAPPER_URL=https://account-mapper.alpacasino.io/map
+REACT_APP_ACCOUNT_MAPPER_URL=https://account-mapper.alpacasino.io

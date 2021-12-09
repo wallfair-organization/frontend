@@ -11,7 +11,7 @@ export const CRASH_GAMES_BACKEND_URL =
 export const SECOND_CRASH_GAME_BACKEND_URL =
   process.env.REACT_APP_SECOND_CRASH_GAME_BACKEND_URL ||
   'http://localhost:8002/';
-export const ACCOUNT_MAPPING = process.env.REACT_APP_ACCOUNT_MAPPER_URL || 'https://account-mapper-dev.wallfair.io/map';
+export const ACCOUNT_MAPPING = process.env.REACT_APP_ACCOUNT_MAPPER_URL || 'https://account-mapper-dev.wallfair.io';
 export const WITHDRAW_SERVICE_URL = process.env.REACT_APP_WITHDRAW_SERVICE_URL || 'https://withdraw-service-staging.wallfair.io';
 
 export const NEWS_API_URL = 'https://gnews.io/api/v4/search';
