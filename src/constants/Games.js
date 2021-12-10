@@ -8,16 +8,13 @@ import Fifth from '../data/backgrounds/games/game5-bg.png';
 import Sixth from '../data/backgrounds/games/game6-bg.png';
 import Seventh from '../data/backgrounds/games/game7-bg.png';
 import Eight from '../data/backgrounds/games/game8-bg.png';
-import AlpacaWheel from '../data/backgrounds/games/game-alpacawheel.png';
-import Plinko from '../data/backgrounds/games/game-plinko.png';
-import PumpDump from '../data/backgrounds/games/game-pump-dump.png';
 import Routes from './Routes';
 
 import gameCardElon from '../data/images/house-games/card-elon.png';
-import gameCard1 from '../data/images/house-games/card-1.png';
+import gameCardWheel from '../data/images/house-games/card-wheel.png';
 import gameCard5 from '../data/images/house-games/card-5.png';
 import gameCardPumpDump from '../data/images/house-games/card-pumpdump.png';
-import gameCard4 from '../data/images/house-games/card-4.png';
+import gameCardPlinko from '../data/images/house-games/card-plinko.png';
 import gameCardMines from '../data/images/house-games/card-mines.png';
 import gameCardAlpacannon from '../data/images/house-games/card-alpacannon-soon.png';
 
@@ -81,7 +78,7 @@ export const NEW_SLOTS_GAMES = [
     linkTo: '/games/mines',
   },
   {
-    background: gameCard4,
+    background: gameCardPlinko,
     title: 'Plinko',
     subtitle: '',
     description: '',
@@ -89,7 +86,7 @@ export const NEW_SLOTS_GAMES = [
     linkTo: '/games/plinko',
   },
   {
-    background: gameCard1,
+    background: gameCardWheel,
     title: 'Alpaca Wheel',
     subtitle: '',
     description: '',

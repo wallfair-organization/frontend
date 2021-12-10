@@ -4,9 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: $colorWhite;
+  background: rgba(253, 253, 253, 0.2);
   border-radius: 12px;
-  border: 1px solid $colorWhite;
+  border: 1px solid $colorLightGray4;
   height: 543px;
   position: relative;
 
@@ -99,7 +99,7 @@
 
   .description {
     font-size: 16px;
-    color: $colorLightPink;
+    color: $colorLightYellow;
     text-align: center;
   }
 

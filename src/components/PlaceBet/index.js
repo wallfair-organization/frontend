@@ -42,6 +42,7 @@ import {
 } from '../../config/gtm';
 import { useParams } from 'react-router';
 import { GAMES } from 'constants/Games';
+import Button from 'components/Button';
 
 const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
   const dispatch = useDispatch();
@@ -354,7 +355,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
     if(autobet){
       return (
         <>
-          <span
+          <Button
             role="button"
             tabIndex="0"
             className={classNames(styles.button, styles.cancel)}
@@ -363,14 +364,14 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
               user.isLoggedIn ? null : 'elongame-showloginpopup'
             }
           >
-            {user.isLoggedIn ? 'Stop Auto Bet' : 'Stop Auto Bet'}
-          </span>
+            <p>{user.isLoggedIn ? 'Stop Auto Bet' : 'Stop Auto Bet'}</p>
+          </Button>
         </>
       );
     }else if (displayBetButton) {
     //  else{
         return (
-          <span
+          <Button
             role="button"
             tabIndex="0"
             className={classNames(styles.button, {
@@ -386,8 +387,8 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
               user.isLoggedIn ? 'elongame-place-bet' : 'elongame-play-demo'
             }
           >
-            {user.isLoggedIn ? (selector === 'manual' ? 'Place Bet (Next Round)' : 'Start Auto Bet') : 'Play Demo'}
-          </span>
+            <p>{user.isLoggedIn ? (selector === 'manual' ? 'Place Bet (Next Round)' : 'Start Auto Bet') : 'Play Demo'}</p>
+          </Button>
         );
     //  }
     } else if ((userPlacedABet && !isGameRunning) || isBetInQueue) {

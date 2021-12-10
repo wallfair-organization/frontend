@@ -17,6 +17,7 @@ import { useWeb3React } from '@web3-react/core';
 import Loader from 'components/Loader/Loader';
 import { WallfairActions } from 'store/actions/wallfair';
 import { TransactionActions } from 'store/actions/transaction';
+import Button from 'components/Button';
 
 const UserWallet = ({
   tags,
@@ -94,7 +95,7 @@ const UserWallet = ({
 
   useEffect(() => {
     fetchWalletTransactions();
-  }, [fetchWalletTransactions]);
+  }, [fetchWalletTransactions, balance]);
 
   useEffect(() => {
     isTransactionsFetchError ? setStakesLoading(false) : setStakesLoading(true);
@@ -179,48 +180,48 @@ const UserWallet = ({
             <div className={styles.currentBlanceDiscription}>
               <div className={styles.buttonContainer}>
                 <p className={styles.label}>No WFAIR? No problem!</p>
-                <button
+                <Button
                   className={styles.button}
                   onClick={showWalletBuyWfairPopup}
                 >
-                  Buy WFAIR!
-                </button>
+                  <span>Buy WFAIR!</span>
+                </Button>
               </div>
               <div className={styles.buttonContainer}>
                 <p className={styles.label}>Let's withdraw my funds</p>
-                <button
+                <Button
                   className={styles.button}
                   onClick={showWithdrawPopup}
                 >
-                  Withdraw
-                </button>
+                  <span>Withdraw</span>
+                </Button>
               </div>
               <div className={styles.buttonContainer}>
                 <p className={styles.label}>Start the verification</p>
-                <button
+                <Button
                   className={styles.button}
                   // onClick={showRequestTokenPopup}
                 >
                   <span>Verification</span>
-                </button>
+                </Button>
               </div>
               <div className={styles.buttonContainer}>
                 <p className={styles.label}>I need support</p>
-                <button
+                <Button
                   className={styles.button}
                   // onClick={showRequestTokenPopup}
                 >
                   <span>Support</span>
-                </button>
+                </Button>
               </div>
               {/* <div className={styles.buttonContainer}>
                 <p className={styles.label}>Start the verification</p>
-                <button
+                <Button
                   className={styles.button}
                   // onClick={showRequestTokenPopup}
                 >
                   <span>Request test tokens</span>
-                </button>
+                </Button>
               </div> */}
             </div>
           </Grid>

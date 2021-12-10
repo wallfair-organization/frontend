@@ -7,6 +7,7 @@ import medalBronze from '../../data/icons/medal-third.png';
 import medalCoin from '../../data/icons/medal-coin.png';
 import { formatToFixed } from 'helper/FormatNumbers';
 import classNames from 'classnames';
+import Button from 'components/Button';
 
 const LeaderboardItem = ({
   user,
@@ -20,9 +21,9 @@ const LeaderboardItem = ({
       <>
         {/* <div className={style.placeSeperate} /> */}
         <div className={style.tableEntryHolder}>
-          <div className={style.loadButton} onClick={onLoad}>
+          <span className={style.loadButton} onClick={onLoad}>
             Load more
-          </div>
+          </span>
         </div>
       </>
     );

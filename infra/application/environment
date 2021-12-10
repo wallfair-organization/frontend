@@ -1,7 +1,7 @@
 REACT_APP_BACKEND_URL=https://staging-api.alpacasino.io/
 REACT_APP_SOCKET_URL=https://comm-staging-api.alpacasino.io/
 REACT_APP_CASINO_GAMES_BACKEND_URL=https://staging-casino-api.alpacasino.io/
-REACT_APP_ACCOUNT_MAPPER_URL=https://account-mapper-staging.wallfair.io/map
+REACT_APP_ACCOUNT_MAPPER_URL=https://account-mapper-staging.wallfair.io
 
 REACT_APP_NEWS_API_SSL_MODE=true
 REACT_APP_SHOW_UPCOMING_FEATURES=true

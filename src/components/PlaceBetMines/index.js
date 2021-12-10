@@ -34,6 +34,7 @@ import {
   InputLabel,
   Select
 } from '../Form';
+import Button from 'components/Button';
 
 const PlaceBetMines = ({
   connected,
@@ -225,7 +226,7 @@ const PlaceBetMines = ({
   const renderButton = () => {
     if (!gameInProgress && !bet.autobet) {
       return (
-        <span
+        <Button
           role="button"
           tabIndex="0"
           className={classNames(styles.button, {
@@ -239,15 +240,15 @@ const PlaceBetMines = ({
           disabled={false}
           onClick={bet?.pending ? null : user.isLoggedIn ? (selector === 'manual' ? placeABet : placeAutoBet) : placeGuestBet }
         >
-          {user.isLoggedIn ? (selector === 'manual' ? 'Place Bet' : 'Start Auto Bet') : 'Play Demo'}
-        </span>
+          <p>{user.isLoggedIn ? (selector === 'manual' ? 'Place Bet' : 'Start Auto Bet') : 'Play Demo'}</p>
+        </Button>
       );
     } else {
       return (
         <>
           <div className={styles.currentMultiplier}>Multiplier: <span className={classNames('global-cashout-profit')}>{!multiplier ? "-" : 'x' + multiplier}</span></div>
           <div className={styles.currentMultiplier}>Profit: <span className={classNames('global-cashout-profit')}>{!profit ? "-" : '+' + roundToTwo(profit)}</span></div>
-          <span
+          <Button
             role="button"
             tabIndex="0"
             style={{display: bet.autobet ? 'auto':'none'}}
@@ -257,10 +258,10 @@ const PlaceBetMines = ({
               user.isLoggedIn ? null : 'alpacawheel-showloginpopup'
             }
           >
-            Stop Autobet
-          </span>
+            <p>Stop Autobet</p>
+          </Button>
 
-          <div
+          <Button
             id={"mines-cashout-btn"}
             role="button"
             tabIndex="0"
@@ -272,8 +273,8 @@ const PlaceBetMines = ({
             }
             onClick={currentStep === 0 ? ()=>{} : handleCashout }
           >
-            Cashout
-          </div>
+            <p>Cashout</p>
+          </Button>
         </>
       )
     }

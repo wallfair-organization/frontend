@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   color: $colorPrimary;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   padding: 20px;
   height: 250px;
   border-radius: 4px;
@@ -99,7 +99,7 @@
             position: absolute;
             font-weight: 500;
             font-size: 20px;
-            font-family: $fontRegular;
+            font-family: $fontOmnes;
             color: $colorPrimary;
             top: 45px;
           }
@@ -134,7 +134,7 @@
             min-width: 6px;
             min-height: 6px;
             margin-right: 6px;
-            background-color: $colorPinkDark;
+            background-color: $colorYellowLight;
             border-radius: 50%;
           }
         }
@@ -181,7 +181,7 @@
             min-width: 6px;
             min-height: 6px;
             margin-right: 6px;
-            background-color: $colorPinkDark;
+            background-color: $colorYellowLight;
             border-radius: 50%;
           }
         }

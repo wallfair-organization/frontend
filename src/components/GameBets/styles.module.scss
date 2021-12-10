@@ -1,8 +1,8 @@
 @import '../../styles/all.scss';
 
 .container {
-  background: $colorWhite;
-  border: 1px solid $colorLightGray;
+  background: rgba(253, 253, 253, 0.1);
+  border: 1px solid $colorLightGray4;
   border-radius: 10px;
   overflow: auto;
   flex: 1;
@@ -16,10 +16,9 @@
     display: flex;
     justify-content: space-between;
     padding: 15px 20px 10px 20px;
-    background: $colorLightGray1;
     .label {
-      color: $colorPrimary;
-      font-family: $fontBold;
+      color: $colorWhite;
+      font-family: $fontOmnes;
       line-height: 13.76px;
       // opacity: 0.5;
     }
@@ -27,7 +26,7 @@
     .value {
       color: $colorLightGreen;
       transition: color 0.2s ease-in;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
     }
     .value.positive {
       color: $colorGreen;
@@ -37,7 +36,7 @@
 
 .bets {
   overflow: auto;
-  color: black;
+  color: $colorWhite;
   .bet:nth-child(even) {
     background-color: $colorLightGray1;
   }
@@ -49,7 +48,7 @@
     align-items: center;
     font-family: Helvetica;
     font-size: 12px;
-    color: black;
+    color: $colorWhite;
     letter-spacing: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding: 12px 20px 12px 12px;
@@ -194,7 +193,7 @@
 
 .crashFactor {
   margin-right: 20px;
-  color: $colorLightPink;
+  color: $colorLightYellow;
 }
 
 .amount {

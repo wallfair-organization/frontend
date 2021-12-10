@@ -13,7 +13,7 @@
     left: 0;
     top: 12px;
     width: 100%;
-    border-bottom: 9px solid $colorLightPink;
+    border-bottom: 9px solid $colorLightYellow;
     z-index: -1;
   }
 }
@@ -27,13 +27,13 @@
 .title {
   color: $colorPrimary;
   font-size: 36px;
-  font-family: $fontBold;
+  font-family: $fontOmnes;
   text-align: center;
 }
 
 .authenticationDescription {
   width: 100%;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0;
@@ -49,7 +49,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  font-family: $fontBold;
+  font-family: $fontOmnes;
   text-transform: uppercase;
 
   .formGroup {
@@ -95,6 +95,8 @@
     align-self: flex-end;
     margin-bottom: 30px;
     text-decoration: underline;
+    font-family: $fontOmnes;
+    font-weight: 600;
     cursor: pointer;
 
     @media (max-width: $screen-sm) {
@@ -114,7 +116,7 @@
   width: (100% - $paddingHTotal);
   margin: 2rem $paddingPercent;
   font-size: 13px;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   line-height: 19.6px;
   letter-spacing: 0;
   color: rgba(2, 6, 30, 0.36);
@@ -163,7 +165,7 @@
 
 .errorText {
   margin: 10px 5px 11px 0;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-size: 14px;
   color: $colorRedLight;
   max-width: 390px;
@@ -195,7 +197,6 @@
 .signInButton {
   overflow: hidden;
   font-size: 16px;
-  border-radius: 10px;
   margin: 20px 0 0;
   width: 100%;
   cursor: pointer;
@@ -218,7 +219,6 @@
 }
 .signInButton {
   margin-top: 5px;
-  background: #eee;
   color: #666;
 
   &:first-child {
@@ -250,7 +250,7 @@
 .unstyledButton {
   background: transparent;
   border: none;
-  font-family: $fontMedium;
+  font-family: $fontOmnes;
   cursor: pointer;
   font-size: 16px;
 }

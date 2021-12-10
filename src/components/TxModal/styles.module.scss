@@ -3,7 +3,7 @@
 .modalHeaderDesc {
   color: $colorBlack;
   font-size: 14px;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   text-align: left;
   margin-top: 10px;
 }
@@ -15,7 +15,8 @@
   h1 {
     color: $colorBlack;
     font-size: 28px;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
 
     @media (max-width: 600px) {
       font-size: 20px;

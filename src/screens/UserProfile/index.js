@@ -7,20 +7,15 @@ import TabOptions from '../../components/TabOptions';
 import { getUserPublicInfo, getUserPublicStats } from '../../api';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
 
-import ProfileActivityTemplate1 from '../../data/backgrounds/profile/userprofile_activity1.png';
-import ProfileActivityTemplate2 from '../../data/backgrounds/profile/userprofile_activity2.png';
-import ProfileActivityTemplate3 from '../../data/backgrounds/profile/userprofile_activity3.png';
-
-import ProfileActivityMobileTemplate1 from '../../data/backgrounds/profile/userprofile_mobile_activity1.png';
-import ProfileActivityMobileTemplate2 from '../../data/backgrounds/profile/userprofile_mobile_activity2.png';
-import ProfileActivityMobileTemplate3 from '../../data/backgrounds/profile/userprofile_mobile_activity3.png';
 import ActivitiesTracker from '../../components/ActivitiesTracker';
 import Button from 'components/Button';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { AuthenticationActions } from 'store/actions/authentication';
 import Leaderboard from 'components/Leaderboard';
-
-const UserProfile = () => {
+import BetTable from 'components/UserWalletTables/tables/BetTable';
+import useRosiData from 'hooks/useRosiData';
+import { RosiGameActions } from 'store/actions/rosi-game';
+const UserProfile = ({refreshMyBetsData}) => {
   let matchMediaMobile = window.matchMedia(`(max-width: ${768}px)`).matches;
 
   const { userId } = useParams();
@@ -30,16 +25,25 @@ const UserProfile = () => {
   const [locked, setLocked] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
   const tabOptions = [
-    { name: 'TRANSACTION HISTORY', index: 0 },
-    { name: 'ACTIVITIES', index: 1 },
-    { name: 'LEADERBOARD', index: 2 },
+    { name: 'BETS PLACED', index: 0 },
+    { name: 'LEADERBOARD', index: 1 },
+  ];
+  const [sideTabIndex, setSideTabIndex] = useState(0);
+  const sideTabOptions = [
+    { name: 'Statistics', index: 0 },
+    { name: 'Achievement', index: 1 },
   ];
   const currentUser = useSelector(state => state.authentication);
   const dispatch = useDispatch();
+  const { myBetsData } = useRosiData();
+  const betsRow = myBetsData ? myBetsData: [];
+
 
   useEffect(() => {
+    refreshMyBetsData({ userId: userId });
     fetchUser(userId);
     fetchUserStats(userId);
+
   }, [userId]);
 
   const fetchUser = async userId => {
@@ -64,6 +68,10 @@ const UserProfile = () => {
     setTabIndex(option.index);
   };
 
+  const handleSwitchSideTab = option => {
+    setSideTabIndex(option.index);
+  };
+
   const onSuspendButtonClick = status => {
     dispatch(AuthenticationActions.updateStatus({ userId, status }));
     setLocked(status === 'locked');
@@ -73,31 +81,11 @@ const UserProfile = () => {
     switch (tabIndex) {
       case 0:
         return (
-          <>
-            <img
-              src={
-                matchMediaMobile
-                  ? ProfileActivityMobileTemplate1
-                  : ProfileActivityTemplate1
-              }
-              className={styles.templateImage}
-              alt=""
-            />
-            <div className={styles.inactivePlaceholder}>Coming soon</div>
-          </>
-        );
-      case 1:
-        return (
           <div className={styles.activities}>
-            <ActivitiesTracker
-              showCategories={false}
-              activitiesLimit={50}
-              userId={userId}
-              className={styles.activitiesTrackerUserPage}
-            />
+            <BetTable renderRow={betsRow} />
           </div>
         );
-      case 2:
+      case 1:
         return (
           <div className={styles.leaderboard}>
             <Leaderboard
@@ -114,7 +102,6 @@ const UserProfile = () => {
   const UserStatsSide = () => {
     return (
       <>
-        <div className={styles.header}>Statistics</div>
         <div className={styles.statsBlock}>
           <div className={styles.statItem}>
             <div className={styles.statItemHead}>
@@ -188,31 +175,46 @@ const UserProfile = () => {
                 </Button>
               )}
             </div>
-
-            <TabOptions options={tabOptions} className={styles.tabLayout}>
-              {option => (
-                <div
-                  className={
-                    option.index === tabIndex
-                      ? styles.tabItemSelected
-                      : styles.tabItem
-                  }
-                  onClick={() => handleSwitchTab(option)}
-                >
-                  {option.name}
-                </div>
-              )}
-            </TabOptions>
           </div>
           <div className={styles.contentBlock}>
             <div className={styles.mainContent}>
+              <TabOptions options={tabOptions} className={styles.tabLayout}>
+                {option => (
+                  <div
+                    className={
+                      option.index === tabIndex
+                        ? styles.tabItemSelected
+                        : styles.tabItem
+                    }
+                    onClick={() => handleSwitchTab(option)}
+                  >
+                    {option.name}
+                  </div>
+                )}
+              </TabOptions>
               <div className={styles.userActivities}>
                 {renderTabConditional()}
               </div>
             </div>
 
-            <div className={styles.sideContent}>
-              <UserStatsSide />
+            <div>
+              <TabOptions options={sideTabOptions} className={styles.tabLayout}>
+                {option => (
+                  <div
+                    className={
+                      option.index === sideTabIndex
+                        ? styles.tabItemSelected
+                        : styles.tabItem
+                    }
+                    onClick={() => handleSwitchSideTab(option)}
+                  >
+                    {option.name}
+                  </div>
+                )}
+              </TabOptions>
+              <div className={styles.sideContent}>
+                <UserStatsSide />
+              </div>
             </div>
           </div>
         </div>
@@ -221,4 +223,19 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+const mapStateToProps = state => {
+  return {
+    userId: state.authentication.userId,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    
+    refreshMyBetsData: data => dispatch(RosiGameActions.fetchMyBetsData(data)),
+    
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

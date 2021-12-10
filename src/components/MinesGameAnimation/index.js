@@ -381,7 +381,7 @@ const MinesGameAnimation = ({
       )}
     >
       <div className={styles.audioControls}>
-        {audio && <GameAudioControlsLocal audio={audio} muteButtonClick={muteButtonClick} color={'#e72d89'}/>}
+        {audio && <GameAudioControlsLocal audio={audio} muteButtonClick={muteButtonClick} color={'#ffd401'}/>}
       </div>
 
       <div>

@@ -13,12 +13,14 @@
 
   .title {
     position: relative;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
     font-size: 20px;
     margin-top: 20px;
   }
 
-  .nextGame, .prevGame {
+  .nextGame,
+  .prevGame {
     font-size: 13px;
     position: absolute;
     font-weight: 100;
@@ -40,7 +42,7 @@
   }
 
   .subtitle {
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-size: 14px;
     padding-top: 5px;
   }
@@ -81,7 +83,8 @@
     }
   }
 
-  .disabled, .disabled * {
+  .disabled,
+  .disabled * {
     cursor: not-allowed;
   }
 
@@ -93,7 +96,6 @@
     & > div {
       margin-bottom: 4px;
     }
-
 
     .minesGameBoard {
       display: flex;

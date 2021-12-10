@@ -11,7 +11,7 @@ const Referrals = ({ close: closeDrawer, referrals }) => {
     <div className={styles.referrals}>
       <ReferralLinkCopyInputBox
         className={styles.referralLink}
-        inputTheme={InputBoxTheme.copyToClipboardInputWhite}
+        inputTheme={InputBoxTheme.copyToClipboardInputTransparentWhite}
       />
       <TwoColumnTable
         headings={['Referrals', 'Joined date']}

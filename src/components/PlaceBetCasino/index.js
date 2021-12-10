@@ -23,6 +23,7 @@ import IconType from '../Icon/IconType';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
 import Timer from '../RosiGameAnimation/Timer';
 import { TOKEN_NAME } from 'constants/Token';
+import Button from 'components/Button';
 
 const PlaceBetCasino = ({
   gameName,
@@ -157,7 +158,7 @@ const PlaceBetCasino = ({
   const renderButton = () => {
     if (!bet.autobet) {
       return (
-        <span
+        <Button
           role="button"
           tabIndex="0"
           className={classNames(styles.button, {
@@ -173,13 +174,13 @@ const PlaceBetCasino = ({
             user.isLoggedIn ? 'alpacawheel-place-bet' : 'alpacawheel-play-demo'
           }
         >
-          {user.isLoggedIn ? (selector === 'manual' ? 'Place Bet' : 'Start autobet') : 'Play Demo'}
-        </span>
+          <p>{user.isLoggedIn ? (selector === 'manual' ? 'Place Bet' : 'Start autobet') : 'Play Demo'}</p>
+        </Button>
       );
     } else {
       return (
         <>
-          <span
+          <Button
             role="button"
             tabIndex="0"
             className={classNames(styles.button, styles.cancel)}
@@ -188,8 +189,8 @@ const PlaceBetCasino = ({
               user.isLoggedIn ? null : 'alpacawheel-showloginpopup'
             }
           >
-            {bet.autobet ? 'Stop Autobet' :  'Cancel Bet'}
-          </span>
+            <p>{bet.autobet ? 'Stop Autobet' :  'Cancel Bet'}</p>
+          </Button>
         </>
       )
     }

@@ -1,6 +1,6 @@
-REACT_APP_BACKEND_URL=https://dev-api.alpacasino.io/
+REACT_APP_BACKEND_URL=https://staging-api.alpacasino.io/
 REACT_APP_URL=https://dev.alpacasino.io
-REACT_APP_SOCKET_URL=https://comm-dev-api.alpacasino.io/
-REACT_APP_CASINO_GAMES_BACKEND_URL=https://dev-casino-api.wallfair.io/
+REACT_APP_SOCKET_URL=https://comm-staging-api.alpacasino.io/
+REACT_APP_CASINO_GAMES_BACKEND_URL=https://staging-casino-api.wallfair.io/
 REACT_APP_DEPOSIT_WALLET=0xB56AE8254dF096173A27700bf1F1EC2b659F3eC8
-REACT_APP_ACCOUNT_MAPPER_URL=https://account-mapper-dev.wallfair.io/map
+REACT_APP_ACCOUNT_MAPPER_URL=https://account-mapper-dev.wallfair.io

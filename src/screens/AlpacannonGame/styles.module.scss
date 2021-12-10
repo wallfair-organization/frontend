@@ -28,7 +28,7 @@
       padding-bottom: 20px;
       cursor: pointer;
       font-size: 11px;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       text-decoration: underline;
       color: $colorYellow;
 
@@ -151,12 +151,10 @@
 }
 .chatWrapper {
   margin-top: 32px;
-  width: 96%;
-  // padding-right: 7px;
-  background: #fff;
+  background: rgba(122, 121, 121, 0.1);
   border-radius: 10px;
-  color: #000;
-  border: 1px solid #ededed;
+  margin-right: 25px;
+  border: 1px solid $colorLightGray4;
 
   @media screen and (max-width: $screen-xs) {
     margin-bottom: 20px;
@@ -167,7 +165,7 @@
   height: 312px;
   border-radius: 10px;
   margin: 0px;
-  // padding: 10px;
+  margin-top: 12px;
 
   .chatMessageContainer {
     @media (max-width: $screen-sm) {
@@ -211,7 +209,7 @@
       align-items: center;
       justify-content: center;
       font-size: 24px;
-      font-family: $fontMedium;
+      font-family: $fontOmnes;
       color: #f2ff53;
       font-weight: 700;
     }
@@ -226,7 +224,7 @@
   display: flex;
   align-items: flex-end;
   color: $colorWhite;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;

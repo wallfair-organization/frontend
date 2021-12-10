@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 import AbViewStyles from './abViewStyles';
 import {CATEGORIES, EXPORT_SIZE} from './data';
 import DynamicSvg from './dynamicSvg';
+import Button from 'components/Button';
 
 const AlpacaBuilder = ({
   onExport,
@@ -141,15 +142,15 @@ const AlpacaBuilder = ({
         ></AbViewStyles>
 
       <div className={styles.toolbar}>
-          <span
+          <Button
             className={styles.secondaryAction}
-            onClick={() => {if(onCancel) onCancel();}}>{cancelLabel}</span>
-          <span
+            onClick={() => {if(onCancel) onCancel();}}><p>{cancelLabel}</p></Button>
+          <Button
             className={styles.primaryAction}
-            onClick={() => resetSvg(true)}>Randomize</span>
-          <span
+            onClick={() => resetSvg(true)}><p>Randomize</p></Button>
+          <Button
             className={styles.primaryAction}
-            onClick={() => exportSvg()}>{saveLabel}</span>
+            onClick={() => exportSvg()}><p>{saveLabel}</p></Button>
         </div>
     </div>
     <canvas ref={svgDownloader} style={{visibility:"hidden", height:0}}></canvas>

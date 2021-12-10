@@ -13,12 +13,13 @@
 
   .title {
     position: relative;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     font-size: 20px;
     margin-top: 20px;
   }
 
-  .nextGame, .prevGame {
+  .nextGame,
+  .prevGame {
     font-size: 13px;
     position: absolute;
     font-weight: 100;
@@ -40,7 +41,7 @@
   }
 
   .subtitle {
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-size: 14px;
     padding-top: 5px;
   }
@@ -62,8 +63,6 @@
   .content {
     width: 800px;
     font-size: 15px;
-
-
 
     & > div {
       margin-bottom: 4px;
@@ -90,7 +89,9 @@
     }
 
     //
-    .betState1, .betState4, .betState3 {
+    .betState1,
+    .betState4,
+    .betState3 {
       color: $colorRedDark;
       font-weight: bold;
     }
@@ -102,7 +103,7 @@
     }
 
     table {
-      width:100%;
+      width: 100%;
       table-layout: fixed;
       overflow-wrap: break-word;
       border-collapse: collapse;
@@ -119,7 +120,8 @@
       font-weight: bold;
     }
 
-    td, th {
+    td,
+    th {
       padding: 5px;
       border: 1px solid #ccc;
       text-align: left;

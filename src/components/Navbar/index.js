@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import classNames from 'classnames';
-import medalCoin from '../../data/icons/medal-coin.png';
+import CoinIcon from '../../data/icons/coin.png';
 import LogoDemo from '../../data/images/logo-demo.svg';
 import style from './styles.module.scss';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
@@ -14,9 +14,8 @@ import Notifications from '../Notifications';
 import { connect } from 'react-redux';
 import { NotificationActions } from 'store/actions/notification';
 import { LOGGED_IN } from 'constants/AuthState';
-import Button from '../Button';
 import Wallet from '../Wallet';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { matchPath } from 'react-router-dom';
 import { LeaderboardActions } from '../../store/actions/leaderboard';
 import { GeneralActions } from '../../store/actions/general';
@@ -62,6 +61,8 @@ const Navbar = ({
   });
 
   const { balance, currency, toNextRank } = useSelector(selectUser);
+
+  const history = useHistory();
 
   useEffect(() => {
     let nextSunday = moment().day(7).startOf('day').toDate();
@@ -119,6 +120,10 @@ const Navbar = ({
     setEditProfileVisible(false);
   };
 
+  const handleLeaderboard = () => {
+    toggleOpenDrawer(drawers.leaderboard);
+  }
+
   const getProfileStyle = () => {
     const profilePicture = getProfilePictureUrl(_.get(user, 'profilePicture'));
 
@@ -161,23 +166,42 @@ const Navbar = ({
     return authState === LOGGED_IN;
   };
 
+  const renderWalletButton = () => {
+    const walletBtn = (
+      <span
+        className={classNames(
+          style.balanceOverview,
+          style.walletButton,
+          style.leaderboardValues,
+          isOpen(drawers.wallet) ? style.pillButtonActive : null
+        )}
+        data-tracking-id="menu-wallet-icon"
+      >
+        <img src={CoinIcon} alt="medal" className={style.medal} />
+        <p>{formatToFixed(balance, 0, true)} {currency}</p>
+        <span 
+          className={style.plusButton}
+          onClick={() => history.push(Routes.wallet)}>+</span>
+      </span>
+    );
+    return (
+      <div className={style.centerContainer}>
+        {isLoggedIn() && walletBtn}
+      </div>
+    )
+  }
   const renderNavButtons = () => {
     const leaderboardBtn = (
-      <div
-        className={classNames(
-          style.ranking,
-          style.pillButton,
-          style.hiddenMobile,
-          isOpen(drawers.leaderboard) ? style.pillButtonActive : null
-        )}
+      <span
+        className={classNames(style.ranking, style.pillButton, style.hiddenMobile)}
         onClick={() => toggleOpenDrawer(drawers.leaderboard)}
         data-tracking-id="menu-leaderboard"
       >
-        <img src={medalCoin} alt="medal" className={style.medal} />
+        <img src={CoinIcon} alt="medal" className={style.medal} />
         <p className={style.rankingText}>
           {isLoggedIn() ? `# ${user.rank}` : 'Leaderboard'}
         </p>
-      </div>
+      </span>
     );
 
     const notificationsBtn = (
@@ -192,22 +216,6 @@ const Navbar = ({
           </div>
         )}
       </div>
-    );
-
-    const walletBtn = (
-      <Link
-        className={classNames(
-          style.balanceOverview,
-          style.pillButton,
-          style.leaderboardValues,
-          isOpen(drawers.wallet) ? style.pillButtonActive : null
-        )}
-        to={Routes.wallet}
-        data-tracking-id="menu-wallet-icon"
-      >
-        <Icon iconType={'pToken'} />
-        {formatToFixed(balance, 0, true)} {currency}
-      </Link>
     );
 
     const profileBtn = (
@@ -232,41 +240,54 @@ const Navbar = ({
       </div>
     );
 
+    const hamburgerMenuBtn = (
+      <div
+        role="button"
+        className={classNames(
+          style.menuContainer
+        )}
+        onClick={() => toggleOpenDrawer(drawers.profile)}
+      >
+        <Icon
+          className={style.menu}
+          iconType={isOpen(drawers.profile) || isOpen(drawers.leaderboard) ? 'close' : 'hamburgerMenu'}
+        />
+      </div>
+    );
+
     const joinBtn = (
       <div className={style.navbarItems}>
-        <Button
+        <span
           className={style.loginButton}
-          withoutBackground={true}
           onClick={() => showPopupForLogin()}
         >
-          Login
-        </Button>
-        <Button
+          <p>Login</p>
+        </span>
+        <span
           className={style.signUpButton}
-          withoutBackground={true}
           onClick={() =>
             showPopupForRegister()
           }
         >
-          Sign Up
-        </Button>
+          <p>Sign Up</p>
+        </span>
       </div>
     );
 
     if (isLoggedIn()) {
       return (
         <div className={style.navbarItems}>
-          {leaderboardBtn}
-          {walletBtn}
-          {notificationsBtn}
-          {profileBtn}
+          {/* {leaderboardBtn} */}
+          {/* {notificationsBtn} */}
+          {/* {profileBtn} */}
+          {hamburgerMenuBtn}
         </div>
       );
     } else {
       return (
         <div className={style.navbarItems}>
-          {leaderboardBtn}
           {joinBtn}
+          {hamburgerMenuBtn}
         </div>
       );
     }
@@ -294,12 +315,11 @@ const Navbar = ({
         )}
       >
         <div className={classNames(style.drawerContent)}>
-          <Icon
-            iconType={'cross'}
-            onClick={closeDrawers}
-            className={style.closeLeaderboard}
-          />
           <div className={style.leaderboardHeadingWrapper}>
+            <Icon
+              iconType={'leaderboard'}
+              className={style.leaderboardIcon}
+            />
             <p className={style.leaderboardHeading}>
               Community
               Leaderboard
@@ -319,24 +339,6 @@ const Navbar = ({
               {renderLeaderboardInfo('MISSING TO NEXT RANK', toNextRank)}
             </div>
           )}
-
-          <div className={style.leaderboardCountdownBlock}>
-            <div className={style.leaderboardInfoItem}>
-              <div className={style.timerSide}>
-                <span>Next draft at: </span>
-                <TimeLeftCounter
-                  endDate={leaderboardWeeklyDate}
-                  containerClass={style.leaderboardTimerComponent}
-                />
-              </div>
-              <div
-                className={style.linkSide}
-                onClick={() => showAlphaPlatformPopup()}
-              >
-                Learn more
-              </div>
-            </div>
-          </div>
 
           <Leaderboard
             fetch={openDrawer === drawers.leaderboard}
@@ -409,40 +411,27 @@ const Navbar = ({
       <div className={classNames(style.navbarItems, style.hideOnMobile)}>
         {renderNavbarLink(
           Routes.home,
-          <img
-            src={IconHeaderLogo}
-            alt="Header Logo"
-            className={style.medal}
-          />,
+          <div className={style.logoContainer}>
+            <img
+              src={IconHeaderLogo}
+              alt="Header Logo"
+              className={style.logoImg}
+            />
+            <span className={style.logoText}>
+              Alpacasino
+            </span>
+          </div>,          
           true
         )}
-
-        <div className={style.linkWrapper}>
-          {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
-          {renderNavbarLink(
-            `/activities`,
-            'Activities',
-            null,
-            'menu-activities'
-          )}
-          {/* {renderNavbarLink(`/events`, 'Events', null, 'menu-events')} */}
-          {/*{renderNavbarLink(*/}
-          {/*  `/live-events/all`,*/}
-          {/*  'Live Events',*/}
-          {/*  null,*/}
-          {/*  'menu-live-events'*/}
-          {/*)}*/}
-          {/* {isLoggedIn() && renderNavbarLink(`/rewards`, 'Earn', null, 'menu-earn')} */}
-        </div>
       </div>
-
+      {renderWalletButton()}
       <div ref={drawerWrapper} className={style.drawerWrapper}>
         {renderNavButtons()}
         {renderLeaderboardDrawer()}
+        {renderMenuDrawer()}
         {isLoggedIn() && (
           <>
             {renderNotificationsDrawer()}
-            {renderMenuDrawer()}
             {renderWalletDrawer()}
             {renderEmailNotificationDrawer()}
           </>

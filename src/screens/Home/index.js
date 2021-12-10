@@ -4,34 +4,28 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import { LOGGED_IN } from 'constants/AuthState';
+import {
+  EXTERNAL_GAMES
+} from '../../constants/Games';
 import BaseContainerWithNavbar from '../../components/BaseContainerWithNavbar';
 import Lightbox from '../../components/Lightbox/Lightbox';
 import UniswapContent from '../../components/Lightbox/UniswapContent';
+import Button from '../../components/Button';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { EventActions } from 'store/actions/event';
 import { useIsMount } from 'components/hoc/useIsMount';
-import Routes from 'constants/Routes';
 import { PopupActions } from '../../store/actions/popup';
 import State from '../../helper/State';
 import { getTradeById } from '../../api';
 import SocialIcons from 'components/SocialIcons';
+import GameSmartsoft from 'components/GameSmartsoft';
 import { GeneralActions } from '../../store/actions/general';
-import AuthenticationType from '../../components/Authentication/AuthenticationType';
-import PopupTheme from '../../components/Popup/PopupTheme';
-import WelceomBg from '../../data/images/home/welcome-bg.png';
-import ChipOne from '../../data/images/home/chip-one.png';
-import ChipTwo from '../../data/images/home/chip-two.png';
-import ChipThree from '../../data/images/home/chip-three.png';
-import medalCoin from '../../data/icons/medal-coin.png';
-import SlotGameIconBg from '../../data/images/house-games/title.svg';
 import howTokenWorkPToken from '../../data/images/token/PToken.png';
 import howTokenWorkWToken from '../../data/images/token/WToken.png';
 import EloneWithPhone from '../../data/images/elon-with-phone.png';
-import alpacaActivities from '../../data/images/alpaca-activities.svg';
-import gameCard1 from '../../data/images/house-games/card-1.png';
-import gameCard5 from '../../data/images/house-games/card-5.png';
-import gameCardPumpDump from '../../data/images/house-games/card-pumpdump.png';
-import gameCard4 from '../../data/images/house-games/card-4.png';
+import gameCardWheel from '../../data/images/house-games/card-wheel.png';
+import gameCardElon from '../../data/images/house-games/card-elon.png';
+import gameCardPlinko from '../../data/images/house-games/card-plinko.png';
 import gameCardMines from '../../data/images/house-games/card-mines.png';
 import IceCreamImg from '../../data/images/alpaca-verse/ice-cream.png';
 import SocialImg from '../../data/images/alpaca-verse/social-img.png';
@@ -142,42 +136,6 @@ const Home = ({
     );
   };
 
-  const onSeeLeaderboard = () => {
-    window.scrollTo(0, 0);
-    setOpenDrawer('leaderboard');
-  };
-
-  const renderTags = () => {
-    return (
-      <div className={styles.tags}>
-        {tags &&
-          tags.map((tag, index) => {
-            return (
-              <div key={index} className={styles.tag}>
-                #{tag}
-              </div>
-            );
-          })}
-      </div>
-    );
-  };
-
-  const renderRosiBanner = () => {
-    return (
-      <div className={styles.elonGame}>
-        <div className={styles.title}>
-          <img src={SlotGameIconBg} alt={'Visit slot games'} />
-          <h2>House Games</h2>
-        </div>
-        <Link data-tracking-id="home-play-elon" to={Routes.elonGame}>
-          <div className={styles.banner}>
-            <div className={styles.title}>Play the Elon Game</div>
-            <button className={styles.button}>SIGN UP!</button>
-          </div>
-        </Link>
-      </div>
-    );
-  };
   const renderHowTokenWorks = () => {
     return (
       <div className={styles.howTokenWorks}>
@@ -249,8 +207,7 @@ const Home = ({
   const renderActivities = () => {
     return (
       <div className={styles.activities}>
-        <div className={styles.title}>
-          <img src={alpacaActivities} alt="" />
+        <div className={styles.title}>          
           <h2>Activities</h2>
         </div>
         <Grid item xs={12}>
@@ -266,16 +223,14 @@ const Home = ({
     );
   };
 
-  const renderGamesCards = () => {
+  const renderHouseGames = () => {
     return (
       <div className={styles.gameCards}>
+        <div className={styles.title}>          
+          <h2>House Games</h2>
+        </div>
         <div className={styles.cardBox}>
-          <Grid container>
-            <Grid item lg={3} md={6} xs={12}>
-              <Link to={'/games/pump-dump'}>
-                <img src={gameCardPumpDump} alt="" />
-              </Link>
-            </Grid>
+          <Grid container spacing={1}>
             <Grid item lg={3} md={6} xs={12}>
               <Link to={'/games/mines'}>
                 <img src={gameCardMines} alt="" />
@@ -283,22 +238,35 @@ const Home = ({
             </Grid>
             <Grid item lg={3} md={6} xs={12}>
               <Link to={'/games/plinko'}>
-                <img src={gameCard4} alt="" />
+                <img src={gameCardPlinko} alt="" />
+              </Link>
+            </Grid>
+            <Grid item lg={3} md={6} xs={12}>
+              <Link to={'/games/elon-game'}>
+                <img src={gameCardElon} alt="" />
               </Link>
             </Grid>
             <Grid item lg={3} md={6} xs={12}>
               <Link to={'/games/alpaca-wheel'}>
-                <img src={gameCard1} alt="" />
+                <img src={gameCardWheel} alt="" />
               </Link>
             </Grid>
-            {/* <Grid item lg={3} md={6} xs={12}>
-              <img src={gameCard5} alt="" />
-            </Grid> */}
           </Grid>
         </div>
       </div>
     );
   };
+
+  const renderSlogGames = () => {
+    return (
+      <div className={styles.gameCards}>
+        <GameSmartsoft
+          games={EXTERNAL_GAMES}
+          category="Slot Games"
+        />
+      </div>
+    )
+  }
 
   const renderWelcome = () => {
     const showPopupForUnauthenticated = () => {
@@ -309,49 +277,17 @@ const Home = ({
     return (
       <div className={styles.welcomeContainer}>
         <div className={styles.cardBox}>
-          <div className={styles.leftSection}>
-            <div className={styles.title}>
-              <div className={styles.leftSection}>
-                <h2>
-                  WELCOME TO THE <br />
-                  <span className={styles.pink}>ALPACA</span>SINO
-                </h2>
-              </div>
-            </div>
-            <p className={styles.description}>
-              Hello Human, welcome to the Alpacasino. Sign up now and test our
-              upcoming WFAIR-powered casino absolutely for free with play-money.
-              Help our alpacas build the perfect fun, transparent and
-              decentralized casino.{' '}
-            </p>
-            <div className={styles.categorySection}>
-              <div className={styles.categoryItem}>
-                <img src={ChipOne} alt="chip-one" />
-                <span>FAIR</span>
-              </div>
-              <div className={styles.categoryItem}>
-                <img src={ChipTwo} alt="chip-two" />
-                <span>SOCIAL</span>
-              </div>
-              <div className={styles.categoryItem}>
-                <img src={ChipThree} alt="chip-three" />
-                <span>DECENTRALISED</span>
-              </div>
-            </div>
-            <div
-              className={styles.pillButton}
-              onClick={() =>
-                showPopupForUnauthenticated()
-              }
-            >
-              <img src={medalCoin} alt="medal" className={styles.medal} />
-              <p className={styles.rankingText}>TRY NOW</p>
-            </div>
-          </div>
-          <div className={styles.rightSection}>
-            <img src={WelceomBg} alt="" />
-          </div>
+          <h3>
+            GET YOUR BONUS<br/>
+            AND CREATE YOUR<br/> 
+            OWN ALPACA
+          </h3>
         </div>
+        <Button
+          className={styles.startButton}
+          onClick={showPopupForUnauthenticated}>
+          <span className={styles.buttonText}>START</span>
+        </Button>
       </div>
     );
   };
@@ -583,46 +519,18 @@ const Home = ({
     );
   };
 
-  const renderCurrentBalanceSection = () => {
-    return (
-      <div className={styles.currentBalanceSection}>
-        <Grid container alignContent="center">
-          <Grid container justifyContent="flex-end" item lg={6} md={6} xs={12}>
-            <div className={styles.currentBlanceCard}>
-              <p className={styles.currentbalanceHeading}>Current balance</p>
-              <p className={styles.currentbalanceWFair}>4365 WFAIR</p>
-            </div>
-          </Grid>
-
-          <Grid
-            container
-            justifyContent="flex-start"
-            item
-            lg={6}
-            md={6}
-            xs={12}
-          >
-            <div className={styles.currentBlanceDiscription}>
-              <p className={styles.noWFairNoProblem}>No WFAIR? No problem!</p>
-              <button className={styles.buyWFairButton}>Buy WFAIR!</button>
-            </div>
-          </Grid>
-        </Grid>
-      </div>
-    );
-  };
-
-  const renderStatusTableSection = () => {};
-
   return (
-    <BaseContainerWithNavbar>
+    <BaseContainerWithNavbar
+      home
+      loggedIn={isLoggedIn()}
+      >
       {/* {renderHeadline()} */}
       {/* <Header /> */}
       <div className={styles.containerWrapper}>
         <div className={styles.container}>
           {!isLoggedIn() && renderWelcome()}
-          {isLoggedIn() && renderRosiBanner()}
-          {isLoggedIn() && renderGamesCards()}
+          {isLoggedIn() && renderHouseGames()}
+          {isLoggedIn() && renderSlogGames()}
           {isLoggedIn() && renderActivities()}
           {renderAlpacaDopter()}
           {renderAlpacaVerse()}
@@ -630,19 +538,6 @@ const Home = ({
         </div>
       </div>
     </BaseContainerWithNavbar>
-
-    // <BaseContainerWithNavbar>
-    //   {/* {renderHeadline()} */}
-    //   {/* <Header /> */}
-    //   <div className={styles.containerWrapper}>
-    //     <div className={styles.container}>
-    //       {renderCurrentBalanceSection()}
-    //       {renderStatusTableSection()}
-    //       {renderCategoriesAndLeaderboard()}
-    //     </div>
-    //   </div>
-
-    // </BaseContainerWithNavbar>
   );
 };
 

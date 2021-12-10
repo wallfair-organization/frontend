@@ -20,7 +20,7 @@
 
   .alertContainer {
     color: $colorWhite;
-    background: $colorLightPink;
+    background: $colorLightYellow;
     border-radius: 10px;
     align-items: center;
   }
@@ -69,7 +69,7 @@
 
     .alertMessage {
       flex: 1;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       padding: 8px 12px;
       font-size: 14px;
     }

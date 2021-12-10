@@ -17,7 +17,7 @@
     }
   }
 
-  .styleView{
+  .styleView {
     display: flex;
     flex-direction: column;
   }
@@ -101,15 +101,13 @@
     }
   }
 
-
   .toolbar {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: center;
     align-items: flex-start;
 
     span {
-      width: 120px;
-      height: 80px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -119,49 +117,47 @@
       color: $toolbarBtnColor;
       cursor: pointer;
       margin: 0 16px;
+      @media (max-width: $largeScreen) {
+        margin: 0 4px;
+        font-size: 14px;
+      }
     }
-    .secondaryAction{
+    .secondaryAction {
       color: #000;
     }
   }
 
-  &.wide{
+  &.wide {
     @media (min-width: $largeScreen) {
       flex-direction: row;
       display: flex;
 
-      .head{
+      .head {
         display: flex;
         flex-direction: row;
         width: 44%;
 
-        .svg{
+        .svg {
           height: 395px;
           max-height: 100%;
         }
       }
-      .categoriesRow{
+      .categoriesRow {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 12%;
         .category {
-          margin:10px;
+          margin: 10px;
           border-radius: 20px;
           height: 40px;
           width: 80px;
           font-size: 10px;
           line-height: 40px;
         }
-
       }
-      .styleView{
+      .styleView {
         width: 44%;
-      }
-      .toolbar{
-        width: 100%;
-        justify-content: center;
-
       }
       .head {
         border: none;

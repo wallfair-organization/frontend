@@ -1,59 +1,51 @@
 @import '../../styles/all';
 
-.tradeDetailContainer
-{
-    display:        flex;
-    flex-direction: column;
-    width:          100%;
-    height:         100%;
-    padding-top:    30px;
+.tradeDetailContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 30px;
 
-    .headline
-    {
-        width:           100%;
-        display:         flex;
-        flex-direction:  row;
-        align-items:     center;
-        justify-content: center;
+  .headline {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
-        .headlineIcon
-        {
-            margin-right: 12px;
-        }
-
-        .headlineText
-        {
-            font-size: 12px;
-
-            strong
-            {
-                font-family: $fontBold;
-            }
-        }
+    .headlineIcon {
+      margin-right: 12px;
     }
 
-    .tradeDetailHeadline
-    {
-        width:      40%;
-        margin:     54px auto 0;
-        font-size:  20px;
-        text-align: center;
+    .headlineText {
+      font-size: 12px;
+
+      strong {
+        font-family: $fontOmnes;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .tradeDetailHeadline {
+    width: 40%;
+    margin: 54px auto 0;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .summaryRowContainer {
+    width: 100%;
+    height: 100%;
+    padding: 20px 50px 0;
+
+    .summaryRow {
+      min-height: 35px;
     }
 
-    .summaryRowContainer
-    {
-        width:   100%;
-        height:  100%;
-        padding: 20px 50px 0;
-
-        .summaryRow
-        {
-            min-height: 35px;
-        }
-
-        .summaryRowIcon
-        {
-            margin-right: 12px;
-        }
+    .summaryRowIcon {
+      margin-right: 12px;
     }
+  }
 }

@@ -3,7 +3,6 @@
 .chatContainer {
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
   height: 400px;
   position: relative;
 
@@ -18,7 +17,6 @@
     align-items: flex-start;
     flex-flow: column nowrap;
     overflow-y: scroll;
-    margin-bottom: 1rem;
     position: relative;
 
     @media (min-width: $screen-md) {
@@ -46,13 +44,13 @@
 
   .messageInputWrapper {
     position: relative;
+    padding: 10px;
     z-index: 1;
-    background-color: $colorWhite;
 
     &::before {
       position: absolute;
       content: '';
-      background-image: url('../../data/images/alpaca-icon-chat.svg');
+      //background-image: url('../../data/images/alpaca-icon-chat.svg');
       width: 120px;
       height: 160px;
       bottom: -12px;
@@ -61,7 +59,7 @@
     }
   }
   .messageInput {
-    background-color: $colorLightGray3;
+    background: rgba(255, 255, 255, 0.3);
     color: $colorPrimaryDark;
     display: flex;
     justify-content: center;
@@ -78,7 +76,7 @@
       z-index: 49;
       width: 100vw;
       height: 70px;
-      background-color: $colorWhite;
+      background: rgba(255, 255, 255, 0.3);
       padding: 0px 15px;
       border-radius: 0;
       color: $colorPrimary;
@@ -98,6 +96,7 @@
       width: 100%;
       display: inline-block;
       font-size: 12px;
+      color: $colorWhite;
 
       @media (max-width: $screen-sm) {
         background-color: transparent;
@@ -106,6 +105,10 @@
         border-radius: 5px;
         font-size: 12px;
       }
+    }
+
+    ::placeholder {
+      color: $colorWhite;
     }
 
     button {

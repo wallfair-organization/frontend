@@ -1,93 +1,82 @@
 @import '../../styles/all';
 
-.eventDetailContainer
-{
-    height:          100%;
-    display:         flex;
-    flex-direction:  column;
-    align-items:     center;
+.eventDetailContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+
+  .headline {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    padding-top:     30px;
 
-    .headline
-    {
-        width:           100%;
-        display:         flex;
-        flex-direction:  row;
-        align-items:     center;
-        justify-content: center;
-
-        .headlineIcon
-        {
-            margin-right: 12px;
-        }
-
-        .headlineText
-        {
-            font-size: 12px;
-
-            strong
-            {
-                font-family: $fontBold;
-            }
-        }
+    .headlineIcon {
+      margin-right: 12px;
     }
 
-    .switchableContainer
-    {
-        padding: 50px 50px 0;
+    .headlineText {
+      font-size: 12px;
 
-        @media (max-width: $screen-sm) {
-            padding: 0;
-            padding-top: 30px;
-            justify-content: space-around;
-        }
+      strong {
+        font-family: $fontOmnes;
+      }
+    }
+  }
+
+  .switchableContainer {
+    padding: 50px 50px 0;
+
+    @media (max-width: $screen-sm) {
+      padding: 0;
+      padding-top: 30px;
+      justify-content: space-around;
+    }
+  }
+
+  .divider {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  .summaryRowContainer {
+    width: 100%;
+    height: 100%;
+    padding: 20px 50px 0;
+
+    @media (max-width: $screen-sm) {
+      padding: 15px;
     }
 
-    .divider
-    {
-        margin-top:    10px;
-        margin-bottom: 0;
+    .summaryRow {
+      height: 35px;
+
+      @media (max-width: $screen-sm) {
+        height: auto;
+        min-height: 35px;
+      }
     }
 
-    .summaryRowContainer
-    {
-        width:   100%;
-        height:  100%;
-        padding: 20px 50px 0;
-
-        @media (max-width: $screen-sm) {
-            padding: 15px;
-        }
-
-        .summaryRow
-        {
-            height: 35px;
-
-            @media (max-width: $screen-sm) {
-                height: auto;
-                min-height: 35px;
-            }        
-        }
-
-        .summaryRowIcon
-        {
-            margin-right: 12px;
-        }
+    .summaryRowIcon {
+      margin-right: 12px;
     }
+  }
 
-    .tradeOverview
-    {
-        display:          flex;
-        flex-direction:   column;
-        align-items:      center;
-        width:            100%;
-        height:           100%;
-        background-color: $colorGrayLight;
-        overflow-x:       scroll;
+  .tradeOverview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: $colorGrayLight;
+    overflow-x: scroll;
 
-        @media (max-width: $screen-sm) {
-            padding: 0 15px;
-        }
+    @media (max-width: $screen-sm) {
+      padding: 0 15px;
     }
+  }
 }

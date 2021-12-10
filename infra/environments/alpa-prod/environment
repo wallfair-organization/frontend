@@ -1,6 +1,0 @@
-REACT_APP_BACKEND_URL=https://api.alpacasino.io/
-REACT_APP_CRASH_GAME_BACKEND_URL=https://casino-api.alpacasino.io/
-REACT_APP_CASINO_GAMES_BACKEND_URL=https://casino-api.alpacasino.io/
-REACT_APP_SHOW_UPCOMING_FEATURES=false
-REACT_APP_URL=https://alpacasino.io
-ENABLE_SITE_MAP=true

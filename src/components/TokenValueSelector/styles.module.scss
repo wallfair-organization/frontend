@@ -1,73 +1,63 @@
 @import '../../styles/all';
 
-.tokenValueSelector
-{
-    width:                 100%;
-    display:               grid;
+.tokenValueSelector {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(33% - 5px), 1fr));
+  column-gap: 5px;
+  row-gap: 5px;
+
+  @media (min-width: $screen-md) {
+    grid-template-columns: repeat(auto-fill, minmax(calc(50% - 5px), 1fr));
+  }
+
+  @media (min-width: $screen-lg) {
     grid-template-columns: repeat(auto-fill, minmax(calc(33% - 5px), 1fr));
-    column-gap:            5px;
-    row-gap:               5px;
+  }
 
-    @media (min-width: $screen-md)
-    {
-        grid-template-columns: repeat(auto-fill, minmax(calc(50% - 5px), 1fr));
+  .tokenValueSelectorBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 12px 8px 14px;
+    border-radius: 5px;
+    border: solid 1.2px $colorPrimary05;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &.tokenValueSelectorBoxSelected,
+    &:hover {
+      background-color: $colorGrayLight;
+
+      &.tokenValueSelectorBoxSelected {
+        cursor: default;
+      }
     }
 
-    @media (min-width: $screen-lg)
-    {
-        grid-template-columns: repeat(auto-fill, minmax(calc(33% - 5px), 1fr));
+    &.tokenValueSelectorBoxDisabled {
+      background-color: $colorGray;
+      cursor: default;
     }
 
-    .tokenValueSelectorBox
-    {
-        display:         flex;
-        align-items:     center;
-        justify-content: space-between;
-        padding:         7px 12px 8px 14px;
-        border-radius:   5px;
-        border:          solid 1.2px $colorPrimary05;
-        cursor:          pointer;
-        transition:      background-color .2s ease-in-out;
+    &.tokenValueSelectorBoxHighlighted {
+      border-color: $colorPurple;
+      border-width: 2px;
 
-        &.tokenValueSelectorBoxSelected,
-        &:hover
-        {
-            background-color: $colorGrayLight;
-
-            &.tokenValueSelectorBoxSelected
-            {
-                cursor: default;
-            }
-        }
-
-        &.tokenValueSelectorBoxDisabled
-        {
-            background-color: $colorGray;
-            cursor:           default;
-        }
-
-        &.tokenValueSelectorBoxHighlighted
-        {
-            border-color: $colorPurple;
-            border-width: 2px;
-
-            .value
-            {
-                font-family: $fontBold;
-                font-size:   16px;
-            }
-        }
-
-        .value
-        {
-            font-size: 20px;
-        }
-
-        .label
-        {
-            font-size:   11.9px;
-            opacity:     0.25;
-            margin-left: 10px;
-        }
+      .value {
+        font-family: $fontOmnes;
+        font-weight: bold;
+        font-size: 16px;
+      }
     }
+
+    .value {
+      font-size: 20px;
+    }
+
+    .label {
+      font-size: 11.9px;
+      opacity: 0.25;
+      margin-left: 10px;
+    }
+  }
 }

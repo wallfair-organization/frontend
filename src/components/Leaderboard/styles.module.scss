@@ -6,19 +6,15 @@
   width: 100%;
   flex: auto;
   overflow-y: auto;
-  background-color: $colorWhite;
 
   .tableHeadings {
     display: flex;
-    justify-content: space-between;
     width: 100%;
-    padding: 16px 24px;
-    background-color: $colorWhite !important;
+    padding: 24px 24px;
+    background-color: $colorPrimaryLight;
     position: sticky;
     top: 0;
     z-index: 1;
-    border-top: 0.5px solid $colorLightGray;
-    border-bottom: 0.5px solid $colorLightGray;
 
     @media (max-width: $screen-md) {
       padding: 16px;
@@ -27,8 +23,9 @@
     .rankingHeading {
       width: 60px;
       margin-right: 77px;
-      font-family: $fontBold;
-      color: $colorPrimary;
+      font-family: $fontOmnes;
+      font-weight: bold;
+      color: $colorLightYellow;
       font-size: 14px;
       line-height: 18px;
       display: flex;
@@ -47,10 +44,11 @@
     }
 
     .userHeading {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
       font-size: 14px;
       line-height: 18px;
-      color: $colorPrimary;
+      color: $colorLightYellow;
       display: flex;
       align-items: center;
       span {
@@ -65,14 +63,21 @@
     }
 
     .tokenHeading {
-      font-family: $fontBold;
+      position: absolute;
+      right: 50px;
+      font-family: $fontOmnes;
+      font-weight: bold;
       font-size: 14px;
       line-height: 18px;
-      color: $colorPrimary;
+      color: $colorLightYellow;
       display: flex;
       align-items: center;
       span {
         margin-right: 5px;
+      }
+
+      @media (max-width: $screen-md) {
+        right: 20px;
       }
 
       @media (max-width: $screen-xs) {
@@ -87,10 +92,10 @@
 .leaderboardRanking {
   > div {
     &:nth-child(odd) {
-      background: $colorLightGray1;
+      background: $colorPrimary;
     }
     &:nth-child(even) {
-      background: $colorWhite;
+      background: rgba(255, 255, 255, 0.1);
     }
   }
 }

@@ -49,7 +49,7 @@
   display: flex;
   align-items: flex-end;
   color: $colorWhite;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -71,6 +71,7 @@
   padding-bottom: 12px;
   opacity: 1;
   cursor: pointer;
+  color: $colorBlack;
   border-bottom: 3px solid $mainAction;
 }
 
@@ -79,6 +80,7 @@
   padding-bottom: 12px;
   opacity: 0.3;
   cursor: pointer;
+  color: $colorBlack;
 }
 
 .buyWithFiatTabContainer {
@@ -111,7 +113,7 @@
     }
 
     p {
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       font-style: normal;
       font-weight: normal;
       font-size: 16px;
@@ -164,7 +166,8 @@
         direction: ltr;
         text-align: right;
         font-size: 24px;
-        font-family: $fontBold;
+        font-family: $fontOmnes;
+        font-weight: bold;
         &:focus-visible {
           outline: none;
         }
@@ -234,7 +237,8 @@
 
           .innerContent {
             p {
-              font-family: $fontBold;
+              font-family: $fontOmnes;
+              font-weight: bold;
               font-size: 18px;
             }
           }
@@ -268,14 +272,14 @@
     .transankContineButton {
       background: linear-gradient(
         180deg,
-        $colorPinkDark 0%,
+        $colorLightYellow 0%,
         $colorLightDark2 97.4%
       );
       border-radius: 22.5px;
       border: 1px solid $colorWhite;
       width: 240px;
       height: 45px;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       color: $colorWhite;
       margin-top: 25px;
       margin-bottom: 36px;
@@ -310,7 +314,7 @@
     padding: 5px;
     margin-top: 20px;
     border-radius: 50px;
-    background-color: $colorPinkDark;
+    background-color: $colorLightYellow;
     justify-content: center;
 
     align-items: center;
@@ -335,7 +339,7 @@
         margin-left: 10px;
         font-size: 20px;
         line-height: 25px;
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         color: $colorWhite;
         @media (max-width: $screen-sm) {
           font-size: 12px;
@@ -398,11 +402,11 @@
       padding: 20px 5px;
       margin: 0px 10px;
       border: none;
-      font-size: large;
       direction: ltr;
       text-align: left;
       font-size: 16px;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
       &:focus-visible {
         outline: none;
       }
@@ -423,7 +427,7 @@
     margin-top: 25px;
     text-align: justify;
     p {
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       font-size: 16px;
       padding-bottom: 10px;
     }
@@ -472,11 +476,11 @@
         padding: 20px;
         margin: 0px 10px;
         border: none;
-        font-size: large;
         direction: ltr;
         text-align: right;
         font-size: 24px;
-        font-family: $fontBold;
+        font-family: $fontOmnes;
+        font-weight: bold;
         &:focus-visible {
           outline: none;
         }
@@ -522,7 +526,8 @@
 
           .innerContent {
             p {
-              font-family: $fontBold;
+              font-family: $fontOmnes;
+              font-weight: bold;
               font-size: 18px;
             }
           }
@@ -556,14 +561,14 @@
     .transankContineButton {
       background: linear-gradient(
         180deg,
-        $colorPinkDark 0%,
+        $colorLightYellow 0%,
         $colorLightDark2 97.4%
       );
       border-radius: 22.5px;
       border: 1px solid $colorWhite;
       width: 240px;
       height: 45px;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       color: $colorWhite;
       margin-top: 10px;
       margin-bottom: 25px;
@@ -597,14 +602,15 @@
       margin: 0 auto;
       flex-direction: column;
       p {
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         font-size: small;
         margin-bottom: 22px;
         text-align: justify;
         font-size: 16px;
 
         span {
-          font-family: $fontBold;
+          font-family: $fontOmnes;
+          font-weight: bold;
         }
       }
       .backBtn {
@@ -652,7 +658,8 @@
             direction: ltr;
             text-align: left;
             font-size: 16px;
-            font-family: $fontBold;
+            font-family: $fontOmnes;
+            font-weight: bold;
             &:focus-visible {
               outline: none;
             }
@@ -668,14 +675,14 @@
       .sendUrlBtn {
         background: linear-gradient(
           180deg,
-          $colorPinkDark 0%,
+          $colorLightYellow 0%,
           $colorLightDark2 97.4%
         );
         border-radius: 22.5px;
         border: 1px solid $colorWhite;
         width: 240px;
         height: 45px;
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         color: $colorWhite;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -704,7 +711,8 @@
     width: 100%;
     padding: 10px 0;
     text-align: center;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
   }
 
   .depositHeader {
@@ -712,7 +720,7 @@
     align-items: center;
     justify-content: center;
     border: 1px solid $colorWhite;
-    background-color: $colorPinkDark;
+    background-color: $colorLightYellow;
     border-radius: 50px;
     padding: 10px 8px;
     width: 318px;
@@ -764,7 +772,7 @@
       width: 255px;
       height: 16px;
       margin: 0 14px 0 0;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       font-size: 12.6px;
       font-weight: 500;
       color: $colorWhite;
@@ -787,7 +795,7 @@
     width: 443.9px;
     height: 32px;
     margin-top: 40px;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-size: 12.6px;
     font-weight: 500;
     text-align: center;
@@ -832,7 +840,7 @@
     .connectWalletButton {
       background: linear-gradient(
         180deg,
-        $colorPinkDark 0%,
+        $colorLightYellow 0%,
         $colorLightDark2 97.4%
       );
       margin-top: 16px;
@@ -840,7 +848,7 @@
       border: 1px solid $colorWhite;
       width: 240px;
       height: 45px;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       color: $colorWhite;
       margin-top: 10px;
       margin-bottom: 10px;

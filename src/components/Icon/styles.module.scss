@@ -29,19 +29,19 @@
 
   &.iconFavorite {
     > svg {
-      @include svgColorStroke($colorPinkDark);
+      @include svgColorStroke($colorLightYellow);
     }
   }
 
   &.iconPrimaryLightTransparent {
     > svg {
-      @include svgColorStroke($colorPrimaryLight20);
+      @include svgColorStroke($mainAction);
     }
   }
 
   &.iconWhite {
     > svg {
-      @include svgColorStroke($colorPrimary);
+      @include svgColorStroke($colorWhite);
     }
   }
   &.notificationCheckbox {

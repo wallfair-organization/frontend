@@ -34,9 +34,10 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
+    font-weight: 600;
     line-height: 44px;
     letter-spacing: 0.5px;
-    color: $colorPrimary;
+    color: $colorWhite;
     opacity: 1;
 
     @media (max-width: $screen-md) {
@@ -57,11 +58,11 @@
   }
 
   .firstName {
-    font-family: $fontRegular;
-    font-weight: 500;
+    font-family: $fontOmnes;
+    font-weight: 600;
     font-size: 14px;
     line-height: 18px;
-    color: $colorPrimary;
+    color: $colorWhite;
 
     @media (max-width: $screen-md) {
       font-size: 14px;
@@ -73,8 +74,9 @@
     position: absolute;
     right: 50px;
     text-align: end;
-    color: $colorPinkDark;
-    font-family: $fontBold;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
+    font-weight: 600;
     font-size: 14px;
     line-height: 18px;
 
@@ -104,9 +106,10 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
+    font-weight: 600;
     line-height: 44px;
     letter-spacing: 0.5px;
-    color: $colorPrimary;
+    color: $colorWhite;
     opacity: 1;
 
     @media (max-width: $screen-md) {
@@ -127,11 +130,11 @@
   }
 
   .secondName {
-    font-family: $fontRegular;
-    font-weight: 500;
+    font-family: $fontOmnes;
+    font-weight: 600;
     font-size: 14px;
     line-height: 18px;
-    color: $colorPrimary;
+    color: $colorWhite;
 
     @media (max-width: $screen-md) {
       font-size: 14px;
@@ -143,8 +146,9 @@
     position: absolute;
     right: 50px;
     text-align: end;
-    color: $colorPinkDark;
-    font-family: $fontBold;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
+    font-weight: 600;
     font-size: 14px;
     line-height: 18px;
 
@@ -174,9 +178,10 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
+    font-weight: 600;
     line-height: 44px;
     letter-spacing: 0.5px;
-    color: $colorPrimary;
+    color: $colorWhite;
     opacity: 1;
 
     @media (max-width: $screen-md) {
@@ -197,11 +202,11 @@
   }
 
   .thirdName {
-    font-family: $fontRegular;
-    font-weight: 500;
+    font-family: $fontOmnes;
+    font-weight: 600;
     font-size: 14px;
     line-height: 18px;
-    color: $colorPrimary;
+    color: $colorWhite;
 
     @media (max-width: $screen-md) {
       font-size: 14px;
@@ -213,8 +218,9 @@
     position: absolute;
     right: 50px;
     text-align: end;
-    color: $colorPinkDark;
-    font-family: $fontBold;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
+    font-weight: 600;
     font-size: 14px;
     line-height: 18px;
 
@@ -232,9 +238,10 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
+    font-weight: 600;
     line-height: 20px;
     letter-spacing: 0.5px;
-    color: $colorPrimary;
+    color: $colorWhite;
     opacity: 1;
 
     @media (max-width: $screen-md) {
@@ -276,7 +283,7 @@
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.5px;
-    color: $colorPrimary;
+    color: $colorWhite;
     opacity: 1;
 
     @media (max-width: $screen-md) {
@@ -298,11 +305,11 @@
   }
 
   .entryName {
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
-    color: $colorPrimary;
+    color: $colorWhite;
 
     @media (max-width: $screen-md) {
       font-size: 14px;
@@ -314,8 +321,9 @@
     position: absolute;
     right: 50px;
     text-align: end;
-    color: $colorPinkDark;
-    font-family: $fontBold;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
+    font-weight: 600;
     font-size: 14px;
     line-height: 18px;
 
@@ -327,26 +335,22 @@
   }
 
   .loadButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding: 0 24px;
     margin: 0 auto;
-    background: url('../../data/backgrounds/highlight-activities-labels-active.svg') !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    border-radius: 5px;
-    padding: 55px;
-    text-align: right;
-    color: white;
+    text-align: center;
+    color: $colorLightYellow;
     line-height: 1;
-    font-size: 12px;
+    font-family: $fontOmnes;
+    font-weight: 600;
+    font-size: 14px;
     position: relative;
     cursor: pointer;
     text-transform: uppercase;
-
-    &::before {
-      content: '...';
-      font-size: 12px;
-      height: 100%;
-      margin-right: 5px;
-    }
+    text-decoration: underline;
   }
 }
 
@@ -356,7 +360,8 @@
 }
 
 .rankingTooltip {
-  font-family: $fontBold;
+  font-family: $fontOmnes;
+  font-weight: 600;
   max-width: 180px;
   background-color: $colorPrimary45 !important;
 }

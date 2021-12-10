@@ -7,17 +7,12 @@
 
   .toolbar {
     .primaryAction {
-      background-image: url('../../data/backgrounds/highlight-modal-button.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
+      height: 48px;
+      padding: 0 24px;
     }
     .secondaryAction {
-      background-image: url('../../data/backgrounds/highlight-modal-button2-disabled.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
+      height: 48px;
+      padding: 0 24px;
     }
   }
 }
-

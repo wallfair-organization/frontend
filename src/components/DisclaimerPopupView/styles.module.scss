@@ -22,7 +22,6 @@
   .ctaButton {
     overflow: hidden;
     font-size: 16px;
-    border-radius: 10px;
     margin: 20px 0 0;
     width: 100%;
     max-width: 200px;
@@ -35,10 +34,15 @@
     span > svg {
       width: 100%;
     }
+
+    &[disabled] {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
   }
 
   .disabledCTA {
-    background: $colorGrayLight5 !important;
+    background: $colorLightYellow !important;
   }
 
   .disclaimerPopupTextContainer {
@@ -48,7 +52,7 @@
     padding: 0 20px;
 
     .disclaimerPopupTextHeadline {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       color: $colorPrimary;
       font-size: 25px;
       margin-bottom: 20px;
@@ -94,7 +98,7 @@
     padding: 10px 0 10px 10px;
 
     .disclaimerPopupScrollableText {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       width: 100%;
       height: 100%;
       flex: 1 1;
@@ -127,7 +131,7 @@
   .authenticationLegalAuthorizationAgreementCheckBox {
     display: flex;
     align-items: center;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     font-size: 12px;
     margin: 20px 20px 10px 20px;
     -webkit-text-size-adjust: 100%;

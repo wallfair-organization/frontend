@@ -4,7 +4,7 @@
   height: 40px;
   display: flex;
   align-items: center;
-  background: #e72d89;
+  background: $colorPrimary;
   border-radius: 20px;
   justify-content: flex-start;
   position: relative;
@@ -12,7 +12,7 @@
     width: 50%; //155px;
     box-shadow: 0 3px 6px 0 rgba(71, 101, 107, 0.12);
     border-radius: 18px;
-    background: #fff;
+    background: $colorLightYellow;
     height: 90%;
     top: 5%;
     left: 3px;
@@ -40,11 +40,12 @@
     }
     .selected {
       color: #000;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
     }
     .deselected {
       color: #fff;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
     }
   }
 }
@@ -55,7 +56,7 @@
   height: 90%;
   border-radius: 17px;
   display: flex;
-  background: #e72d89;
+  background: $colorWhite;
   justify-content: center;
   align-items: center;
   .buttonItem {
@@ -64,7 +65,7 @@
     cursor: pointer;
     min-width: 57px;
     font-size: 12px;
-    color: white;
+    color: $colorBlack;
     padding: 5px;
     z-index: 10;
     &:hover {
@@ -81,18 +82,18 @@
     position: absolute;
     bottom: 0;
     transition: all 0.5s ease;
-    background: #fff;
+    background: $colorLightYellow;
   }
   .selected {
     color: #000;
-    font-family: $fontMedium;
+    font-family: $fontOmnes;
   }
 }
 
 .container {
   position: relative;
-  background: #fff;
-  border: 1px solid $colorLightGray;
+  background: rgba(253, 253, 253, 0.1);
+  border: 1px solid $colorLightGray4;
   border-radius: 10px;
   margin-bottom: 14px;
 
@@ -106,7 +107,7 @@
   display: inline-block;
   color: #1f1d38;
   opacity: 0.8;
-  font-family: $fontMedium;
+  font-family: $fontOmnes;
   font-size: 12px;
   letter-spacing: 0;
   text-align: left;
@@ -146,9 +147,9 @@
 }
 .profit {
   position: relative;
-  bottom: -18px;
+  bottom: 0px;
   @media screen and (max-width: $screen-sm) {
-    bottom: -10px;
+    bottom: 0px;
   }
   margin: 15px auto;
   font-size: 18pt;
@@ -156,7 +157,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: monospace $fontMedium;
+  font-family: monospace $fontOmnes;
   .empty {
     cursor: default;
     pointer-events: none;
@@ -176,9 +177,9 @@
 
 .profitPlaceholder {
   position: relative;
-  bottom: -18px;
+  bottom: 0px;
   @media screen and (max-width: $screen-sm) {
-    bottom: -10px;
+    bottom: 0px;
   }
   margin: 15px auto;
 
@@ -187,7 +188,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: monospace $fontMedium;
+  font-family: monospace $fontOmnes;
   cursor: default;
   pointer-events: none;
   user-select: none;
@@ -208,13 +209,12 @@
     background-color: transparent !important;
     flex: none;
     text-align: right;
-    background-color: transparent !important;
     border: none;
     outline: none !important;
     margin-right: 9px;
     min-width: 10px !important;
     width: 6ch !important;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     font-style: normal;
     font-weight: bold;
     font-size: 21px;
@@ -228,7 +228,7 @@
       margin-right: 9px;
       min-width: 10px !important;
       width: 6ch !important;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       font-style: normal;
       font-weight: bold;
       font-size: 21px;
@@ -258,7 +258,8 @@
       padding: 0;
       font-size: 14px;
       line-height: 18px;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
       text-transform: uppercase;
     }
     @media screen and (max-width: 800px) {
@@ -287,27 +288,19 @@
 .button {
   // position: absolute;
   bottom: 6px;
-  left: -50%;
-  right: -50%;
   margin: 0px auto 20px;
   outline: 0;
   @media screen and (max-width: $screen-xs) {
     margin-top: 10px;
   }
-  font-family: $fontBold;
+  font-family: $fontOmnes;
   width: 15em;
   height: 70px;
-  border-radius: 4px;
   font-size: 16px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-image: url('../../data/backgrounds/games/bet-button.svg');
-  border-radius: 30px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
   color: $colorWhite;
 
   &:hover {
@@ -316,7 +309,6 @@
 }
 
 .button.cancel {
-  background-image: url('../../data/backgrounds/games/cancel-button.svg');
   color: white;
 }
 
@@ -383,8 +375,8 @@
   padding: 10.5px;
   height: 35px;
   border-radius: 10px;
-  border: 1.2px solid rgba(14, 9, 39, 0.3);
-  background: none;
+  border: 1.2px solid $colorLightGray4;
+  background: $colorPrimary;
   justify-content: flex-end;
   margin-bottom: 10px;
   @media (min-width: $screen-lg) {
@@ -404,7 +396,8 @@
     margin-right: 9px;
     min-width: 10px !important;
     width: 6ch;
-    font-family: $fontBold;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
     font-style: normal;
     font-weight: bold;
     font-size: 21px;
@@ -422,8 +415,8 @@
   }
 
   .eventTokenLabel {
-    color: #000;
-    font-family: $fontRegular;
+    color: $colorWhite;
+    font-family: $fontOmnes;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -453,7 +446,7 @@
     }
     .buttonItem {
       margin-left: 12px;
-      font-family: $fontMedium;
+      font-family: $fontOmnes;
       cursor: pointer;
     }
   }
@@ -479,7 +472,7 @@
 }
 
 .tooltip {
-  font-family: $fontBold;
+  font-family: $fontOmnes;
   background-color: $colorPrimary45 !important;
   text-align: left !important;
 }

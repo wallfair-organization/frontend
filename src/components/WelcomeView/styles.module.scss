@@ -11,7 +11,8 @@
   padding: 45px 0;
   background-color: $colorWhite;
   color: $colorPrimaryDark;
-  font-family: $fontBold;
+  font-family: $fontOmnes;
+  font-weight: bold;
   overflow: visible;
   row-gap: 15px;
 
@@ -61,7 +62,7 @@
         bottom: 10px;
         left: -2.5%;
         width: 100%;
-        border-bottom: 9px solid $colorLightPink;
+        border-bottom: 9px solid $colorLightYellow;
         z-index: -1;
 
         @media (min-width: $screen-sm) {
@@ -84,7 +85,7 @@
     .readmore,
     .disclaimer {
       font-size: 12px;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       text-align: justify;
       opacity: 0.7;
     }

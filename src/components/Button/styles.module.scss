@@ -6,11 +6,15 @@
   align-items: center;
   justify-content: center;
   height: 60px;
-  border-radius: 10px;
-  background-color: $colorPinkDark;
+  background: linear-gradient(180deg, #feea89 0%, #ffd401 100%);
+  border: 3px solid #ffbb31;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 4px #b67e0b;
+  border-radius: 60px;
   color: $colorPrimary;
   font-size: 20px;
-  font-family: $fontBold;
+  font-weight: 600;
+  font-family: $fontOmnes;
   letter-spacing: 0;
   user-select: none;
 
@@ -46,9 +50,24 @@
     }
   }
 
+  .buttonInnerBackground {
+    position: absolute;
+    background: #ffd401;
+    border: 2px solid #ffbb31;
+    box-sizing: border-box;
+    border-radius: 60px;
+    left: 4%;
+    right: 4%;
+    top: 16%;
+    bottom: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .buttonDisabledOverlay {
     position: absolute;
-    background-color: $colorPrimary66;
+    background: #ffd401;
     border-radius: 10px;
     left: 0;
     width: 100%;

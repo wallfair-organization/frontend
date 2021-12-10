@@ -37,10 +37,7 @@ export const wfSlice = createSlice({
       state.balances[symbol] = amount;
     },
     setStakes: (state, action) => {
-      console.log('---------->>>>>>>>setStakes', action.payload)
       const { lock, data } = action.payload;
-
-      console.log('----------->>>>', lock);
       state.stakes[lock] = data;
     },
     setHistory: (state, action) => {

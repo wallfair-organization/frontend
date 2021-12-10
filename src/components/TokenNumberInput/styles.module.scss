@@ -8,8 +8,8 @@
   height: 45px;
   margin-bottom: 24px;
   border-radius: 10px;
-  border: 1.2px solid rgba(14, 9, 39, 0.3);
-  background: none;
+  border: 1.2px solid $colorLightGray4;
+  background: $colorPrimary;
   justify-content: flex-end;
 
   @media (min-width: $screen-lg) {
@@ -25,7 +25,8 @@
     margin-right: 9px;
     min-width: 10px !important;
     width: 6ch;
-    font-family: $fontBold;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
@@ -40,8 +41,8 @@
   }
 
   .eventTokenLabel {
-    color: #000;
-    font-family: $fontRegular;
+    color: $colorWhite;
+    font-family: $fontOmnes;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -52,7 +53,8 @@
 
   .buttonWrapper {
     margin-left: 0px;
-    .button:hover{
+    color: $colorWhite;
+    .button:hover {
       background: #e72d8910;
     }
     @media (min-width: $screen-lg) {
@@ -71,7 +73,7 @@
     }
     .button {
       margin-left: 4px;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       cursor: pointer;
       border-radius: 5px;
       padding: 4px;

@@ -10,16 +10,15 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 50px 24px;
+  padding: 50px 50px;
   z-index: $sIndexNavbar;
-  background-color: $colorWhite;
 
-  @media (max-width: $screen-sm) {
+  @media (max-width: $screen-md) {
     padding: 36px 24px;
   }
 
-  img {
-    margin-right: 2rem;
+  @media (min-width: 1900px) {
+    padding: 50px 100px;
   }
 
   .drawerWrapper {
@@ -41,23 +40,73 @@
     height: inherit;
   }
 
+  .centerContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    .walletButton {
+      color: $colorLightYellow;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      padding-left: 8px;
+      border: 1px solid $colorLightYellow;
+      box-sizing: border-box;
+      border-radius: 24px;
+      font-family: $fontOmnes;
+      font-size: 12px;
+      cursor: pointer;
+      min-width: 80px;
+      height: 38px;
+      z-index: 0;
+
+      .plusButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 38px;
+        height: 38px;
+        margin-left: 10px;
+        background: #ffd31a;
+        border: 1px solid #ffd401;
+        box-sizing: border-box;
+        border-radius: 25px;
+        color: $colorWhite;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 20px;
+        padding-bottom: 7px;
+      }
+
+      img,
+      svg {
+        margin-right: 10px;
+        max-height: 24px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      &.leaderboardValues {
+        background-color: $colorPrimary;
+      }
+
+      &Active {
+        background-color: transparent;
+        border: 2px solid rgba(172, 196, 255, 0.42);
+        padding: 8px 13px;
+      }
+      @media (max-width: $screen-sm) {
+        display: none;
+      }
+    }
+  }
+
   .navbarItems {
     display: flex;
     align-items: center;
-    z-index: 2;
-
-    .signUpButton {
-      width: 11rem;
-      height: 55px;
-      border-radius: 4px;
-      font-size: 16px;
-      margin-left: 0;
-      background-image: url('../../data/images/signup-background-one.svg');
-      background-position: center;
-      @media (min-width: $screen-xs-max) {
-        margin-left: 20px;
-      }
-    }
 
     svg {
       stroke-width: 0;
@@ -76,48 +125,57 @@
       }
     }
     .signUpButton {
-      background: linear-gradient(180deg, #e82e89 0%, #a21c5d 97.4%) !important;
-      width: 11rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 43px;
       border-radius: 30px;
-      font-size: 15px;
+      font-family: $fontOmnes;
+      font-weight: 600;
+      font-size: 20px;
       line-height: 20px;
       margin-left: 0;
-      background-image: url('../../data/images/signup-background-one.svg');
-      background-position: center;
-      color: #ffffff;
-      text-transform: uppercase;
-      font-family: $fontRegular;
+      margin-right: 20px;
+      background: #ffd31a;
+      color: black;
+      border: 2px solid #ea9c00;
+      box-sizing: border-box;
+      border-radius: 25px;
+      padding: 0 24px;
+      cursor: pointer;
 
       @media (max-width: $screen-sm) {
-        width: 8rem;
+        display: none;
         height: 40px;
         font-size: 14px;
       }
     }
 
     .loginButton {
-      background: linear-gradient(180deg, #21155c 0%, #0e0927 100%) !important;
-      color: $colorWhite;
-      border-radius: 30px;
-      text-transform: uppercase;
-      width: 11rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 43px;
-      font-size: 16px;
-      border: 1px solid $colorWhite;
-      font-family: $fontRegular;
+      color: #ffd31a;
+      font-family: $fontOmnes;
+      font-weight: 600;
+      font-size: 20px;
       margin-right: 20px;
+      border: 2px solid #ffd31a;
+      box-sizing: border-box;
+      border-radius: 25px;
+      padding: 0 24px;
+      cursor: pointer;
 
       @media (max-width: $screen-sm) {
-        width: 8rem;
         height: 40px;
         font-size: 14px;
       }
     }
 
     a {
-      color: $colorPrimary;
-      opacity: 0.5;
+      color: $colorWhite;
+      opacity: 0.7;
       text-decoration: none;
       margin: 0 15px;
       font-family: $fontLight;
@@ -149,47 +207,6 @@
       z-index: 5;
       @media (max-width: 360px) {
         display: none !important;
-      }
-    }
-
-    .pillButton {
-      color: $colorWhite;
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-      padding: 10px;
-      padding-right: 16px;
-      background: $colorPinkDark;
-      font-size: 12px;
-      border-radius: 20px;
-      font-family: $fontRegular;
-      cursor: pointer;
-      margin-right: 10px;
-      height: 35px;
-      min-width: 80px;
-
-      img,
-      svg {
-        margin-right: 10px;
-        max-height: 21px;
-      }
-
-      p {
-        font-size: 13px;
-      }
-
-      @media screen and (min-width: $screen-sm) {
-        margin-right: 16px;
-      }
-
-      &.leaderboardValues {
-        background-color: $colorPrimary;
-      }
-
-      &Active {
-        background-color: transparent;
-        border: 2px solid rgba(172, 196, 255, 0.42);
-        padding: 8px 13px;
       }
     }
 
@@ -264,15 +281,27 @@
       }
     }
 
+    .menuContainer {
+      cursor: pointer;
+      z-index: 5;
+      .menu {
+        width: auto;
+        @media (max-width: $screen-md) {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+
     .active {
       opacity: 1;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       position: relative;
 
       &:after {
         content: '';
         position: absolute;
-        background-color: $colorPinkDark;
+        background-color: $colorWhite;
         bottom: -5px;
         left: 50%;
         width: 80%;
@@ -285,7 +314,20 @@
 
     .logoLink {
       opacity: 1;
-      margin: 4rem 0 0;
+      margin: 0;
+
+      .logoContainer {
+        display: flex;
+        align-items: center;
+        .logoText {
+          margin-left: 10px;
+          color: $colorWhite;
+          font-family: $fontOmnes;
+          font-weight: bold;
+          font-size: 30px;
+          line-height: 50px;
+        }
+      }
 
       & > img {
         margin: 0;
@@ -314,14 +356,11 @@
   }
 
   .leaderboard {
-    background-color: $colorWhite;
+    background-color: $colorPrimary;
 
     display: flex;
     flex-flow: column nowrap;
-    z-index: 5;
-    box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18),
-      0px 2px 2px rgba(159, 162, 191, 0.32);
-    border-radius: 0px 0px 12px 0px;
+    z-index: 1;
 
     .closeLeaderboard {
       @extend .floatingCloseButton;
@@ -336,11 +375,21 @@
       align-items: center;
       justify-content: space-between;
       position: relative;
+      padding: 15px 0;
 
+      @media (max-width: $screen-md) {
+        padding: 0;
+      }
+
+      .leaderboardIcon {
+        width: 30px;
+        height: 30px;
+        margin-left: 30px;
+      }
       &:after {
         content: '';
         position: absolute;
-        background: url('../../data/images/side-panel-alpaca.png');
+        //background: url('../../data/images/side-panel-alpaca.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -357,15 +406,17 @@
     }
 
     .leaderboardHeading {
-      padding: 20px 30px;
-      color: $colorPrimary;
+      padding: 20px 16px;
+      color: $colorWhite;
       width: 100%;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: 600;
       font-size: 24px;
       line-height: 30px;
 
-      @media screen and (min-width: $screen-xs) {
-        font-size: 24px;
+      @media (max-width: $screen-md) {
+        font-size: 22px;
+        margin-right: 30px;
       }
     }
 
@@ -406,91 +457,16 @@
       }
     }
 
-    .leaderboardCountdownBlock {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      margin-bottom: 15px;
-      width: 100%;
-      height: 44px;
-      z-index: -3;
-
-      @media (max-width: $screen-sm) {
-        padding: 0 15px;
-      }
-
-      .leaderboardInfoItem {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        width: 88%;
-        align-items: center;
-
-        &:last-child {
-          margin-right: 0;
-          margin-left: 0;
-        }
-
-        @media (max-width: $screen-sm) {
-          width: 100%;
-          //padding: 20px 15px;
-
-          @media (max-width: $screen-sm) {
-            //flex-direction: column;
-          }
-        }
-      }
-
-      @media (max-width: $screen-sm) {
-        margin: 15px 0;
-        flex-direction: column;
-      }
-
-      .timerSide {
-        font-weight: bold;
-        font-size: 14px;
-        display: flex;
-        font-family: $fontRegular;
-        align-items: center;
-      }
-
-      .linkSide {
-        font-family: $fontBold;
-        color: $colorPinkDark;
-        cursor: pointer;
-        font-size: 14px;
-        line-height: 18px;
-        text-decoration-line: underline;
-      }
-    }
-
-    .leaderboardTimerComponent {
-      span {
-        font-size: 18px;
-        font-family: $fontBold;
-        color: $colorPrimary;
-        opacity: 1;
-        padding: 0;
-      }
-    }
-
-    .time-part-name {
-      font-size: 16px;
-    }
-
     .leaderboardInfoItem {
-      background-color: $colorLightGray1;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
       width: 100%;
       padding: 20px;
-      border-radius: 12px;
-      color: $colorPrimary;
+      color: $colorWhite;
       height: 100%;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
 
       &:first-child {
         margin: 0 5px 0 30px;
@@ -532,7 +508,7 @@
 
   .logoMobile {
     width: auto;
-    max-width: 60px;
+    max-width: 42px;
 
     & > svg,
     & > svg > * {

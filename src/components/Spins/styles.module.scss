@@ -1,8 +1,8 @@
 @import '../../styles/all';
 
 .container {
-  background: $colorWhite;
-  border: 1px solid $colorLightGray;
+  background: rgba(253, 253, 253, 0.1);
+  border: 1px solid $colorLightGray4;
 
   border-radius: 10px;
   margin-bottom: 14px;
@@ -10,7 +10,7 @@
   margin-top: 14px;
   .title {
     display: inline-block;
-    color: #000;
+    color: $colorWhite;
     width: 30%;
 
     @media screen and (max-width: $screen-sm) {
@@ -43,7 +43,11 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0) 40%);
+    background: linear-gradient(
+      270deg,
+      rgba(253, 253, 253, 0.1) 0%,
+      rgba(255, 255, 255, 0) 40%
+    );
     z-index: 2;
     pointer-events: none;
   }

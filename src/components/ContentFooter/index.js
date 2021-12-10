@@ -43,7 +43,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
             <p>Blog</p>
           </a>
           <a
-            href="https://wallfair.io/about-us#career"
+            href="https://wallfair.io/career"
             target="_blank"
             rel="noreferrer"
             data-tracking-id="footer-career"

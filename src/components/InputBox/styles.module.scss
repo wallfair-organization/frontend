@@ -58,6 +58,17 @@
       }
     }
 
+    &.copyToClipboardInputBoxTransparentWhite {
+      .input {
+        caret-color: transparent;
+        margin-right: 40px;
+        color: $colorWhite;
+        &:after {
+          content: '...';
+        }
+      }
+    }
+
     &.coloredBorderMint {
       border-color: $colorMint;
     }
@@ -120,7 +131,7 @@
   }
 
   .MuiInputBase-input {
-    font-family: $fontRegular !important;
+    font-family: $fontOmnes !important;
   }
 
   .MuiPickersToolbar-toolbar,

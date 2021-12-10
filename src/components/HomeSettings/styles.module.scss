@@ -39,6 +39,11 @@ $largeMobileHeight: 700px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 80px;
+
+    @media (max-width: $screen-sm) {
+      margin-top: 30px;
+    }
 
     .singleSettingHolder {
       position: relative;
@@ -47,13 +52,7 @@ $largeMobileHeight: 700px;
       align-items: center;
       height: 60px;
       margin: 5px 0 5px 0;
-      background-color: $colorGrayLight;
-      box-shadow: 0px 2px 4px rgba(158, 158, 158, 0.16);
-      border-radius: 8px;
-
-      &:hover {
-        background-color: $colorGrayLight;
-      }
+      cursor: pointer;
 
       @media (max-width: $screen-sm) {
         width: 100%;
@@ -86,17 +85,15 @@ $largeMobileHeight: 700px;
         position: absolute;
         left: 70px;
         font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 22px;
-        color: $colorLightGray2;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 30px;
+        color: $colorWhite;
         @media (max-width: $screen-sm) {
-          width: 60%;
-          left: 50px;
-        }
-
-        &:hover {
-          color: $colorPrimary;
+          left: 70px;
+          font-size: 17px;
+          font-weight: 500;
+          line-height: 22px;
         }
       }
 

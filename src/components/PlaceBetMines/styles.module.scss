@@ -5,7 +5,7 @@
   height: 40px;
   display: flex;
   align-items: center;
-  background: #e72d89;
+  background: $colorPrimary;
   border-radius: 20px;
   justify-content: flex-start;
   position: relative;
@@ -14,7 +14,7 @@
     width: 50%; //155px;
     box-shadow: 0 3px 6px 0 rgba(71, 101, 107, 0.12);
     border-radius: 18px;
-    background: #fff;
+    background: $colorLightYellow;
     height: 90%;
     top: 5%;
     left: 3px;
@@ -41,11 +41,12 @@
     }
     .selected {
       color: #000;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
     }
     .deselected {
       color: #fff;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
     }
   }
 }
@@ -93,8 +94,8 @@
 }
 .container {
   position: relative;
-  background: #fff;
-  border: 1px solid $colorLightGray;
+  background: rgba(253, 253, 253, 0.1);
+  border: 1px solid $colorLightGray4;
   border-radius: 10px;
   margin-bottom: 14px;
 
@@ -105,9 +106,9 @@
 
 .label {
   display: inline-block;
-  color: #000;
+  color: $colorWhite;
   opacity: 0.8;
-  font-family: $fontMedium;
+  font-family: $fontOmnes;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0;
@@ -167,7 +168,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: monospace $fontMedium;
+  font-family: monospace $fontOmnes;
   .empty {
     cursor: default;
     pointer-events: none;
@@ -198,7 +199,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: monospace $fontMedium;
+  font-family: monospace $fontOmnes;
   cursor: default;
   pointer-events: none;
   user-select: none;
@@ -225,7 +226,7 @@
     margin-right: 9px;
     min-width: 10px !important;
     width: 6ch !important;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     font-style: normal;
     font-weight: bold;
     font-size: 21px;
@@ -239,7 +240,7 @@
       margin-right: 9px;
       min-width: 10px !important;
       width: 6ch !important;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       font-style: normal;
       font-weight: bold;
       font-size: 21px;
@@ -296,26 +297,19 @@
 .button {
   // position: absolute;
   bottom: 6px;
-  left: -50%;
-  right: -50%;
   margin: 10px auto 20px;
   outline: 0;
   @media screen and (max-width: $screen-xs) {
     margin-top: 10px;
   }
-  font-family: $fontBold;
+  font-family: $fontOmnes;
   width: 15em;
   height: 60px;
-  border-radius: 4px;
   font-size: 16px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-image: url('../../data/backgrounds/games/bet-button.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
   color: white;
 
   &:hover {
@@ -324,7 +318,6 @@
 }
 
 .button.cancel {
-  background-image: url('../../data/backgrounds/games/cancel-button.svg');
   color: white;
 }
 
@@ -375,8 +368,8 @@
   padding: 10.5px;
   height: 35px;
   border-radius: 10px;
-  border: 1.2px solid rgba(14, 9, 39, 0.3);
-  background: none;
+  border: 1.2px solid $colorLightGray4;
+  background: $colorPrimary;
   justify-content: flex-end;
   margin-bottom: 10px;
   @media (min-width: $screen-lg) {
@@ -398,7 +391,8 @@
     margin-right: 9px;
     min-width: 10px !important;
     width: 6ch;
-    font-family: $fontBold;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
     font-style: normal;
     font-weight: bold;
     font-size: 21px;
@@ -416,8 +410,8 @@
   }
 
   .eventTokenLabel {
-    color: #000;
-    font-family: $fontRegular;
+    color: $colorWhite;
+    font-family: $fontOmnes;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -430,6 +424,7 @@
   }
 
   .buttonWrapper {
+    color: $colorWhite;
     margin-left: 0px;
     @media (min-width: $screen-lg) {
       margin-left: 30px;
@@ -446,7 +441,7 @@
     }
     .buttonItem {
       margin-left: 12px;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       cursor: pointer;
     }
   }
@@ -487,7 +482,7 @@
     }
     .selected {
       color: #000;
-      font-family: $fontMedium;
+      font-family: $fontOmnes;
     }
   }
 }
@@ -512,7 +507,7 @@
 }
 
 .tooltip {
-  font-family: $fontBold;
+  font-family: $fontOmnes;
   background-color: $colorPrimary45 !important;
   text-align: left !important;
 }
@@ -537,7 +532,6 @@
   height: 45px;
   width: 100%;
 
-  background-color: white;
   font-weight: bold;
   font-size: 24px;
   line-height: 24px;
@@ -551,6 +545,7 @@
 .currentMultiplier {
   width: 100%;
   padding: 0 10px;
+  color: $colorWhite;
 }
 
 .noselect {

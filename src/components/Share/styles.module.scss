@@ -82,7 +82,7 @@
 
   .separator {
     height: 2px;
-    background: radial-gradient(circle, $colorPinkDark 0%, transparent 90%);
+    background: radial-gradient(circle, $colorYellowLight 0%, transparent 90%);
     width: 100%;
     margin: 20px 0;
   }
@@ -159,8 +159,8 @@
 
   .shareButton {
     display: flex;
-    color: $colorWhite;
-    background-color: #201d38;
+    color: $colorBlack;
+    background-color: $colorLightYellow;
     border: 1px solid $colorDarkSlateGray;
     text-align: center;
     padding: 4px 8px;

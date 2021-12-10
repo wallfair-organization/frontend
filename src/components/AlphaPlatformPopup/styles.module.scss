@@ -14,16 +14,12 @@
   overflow: visible;
 
   .ctaButton {
-    background-color: $colorWhite;
-    width: 100%;
+    width: 40%;
     height: 60px;
     font-size: 20px;
-    background-image: url('../../data/images/signup-background-one.svg');
-    background-position: center;
-    background-repeat: no-repeat;
 
-    @media (min-width: $screen-sm) {
-      width: 70%;
+    @media (max-width: $screen-xs) {
+      width: 80%;
     }
   }
 
@@ -35,7 +31,7 @@
     padding: 0 20px;
 
     .explanationTextHeadline {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       font-size: 20px;
       margin-bottom: 10px;
       position: relative;
@@ -53,7 +49,7 @@
         left: 0;
         top: 40px;
         width: 100%;
-        border-bottom: 9px solid $colorLightPink;
+        border-bottom: 9px solid $colorLightYellow;
         z-index: -1;
       }
     }

@@ -9,13 +9,18 @@ import Text from 'helper/Text';
 import moment from 'moment';
 
 const OnRampRow = ({ data, hideSecondaryColumns = false }) => {
-  const { amount, network_code, fiat_amount, fiat_currency, created_at, status } = data;
+  const { amount, network_code, fiat_amount, fiat_currency, created_at, status, symbol } = data;
   return (
     <div className={styles.messageItem}>
       <Grid container>
         <Grid item xs>
           <div className={classNames(styles.messageFirst, styles.messageLeft)}>
-            <p>{numberWithCommas(Text.formatByONEConstant(amount, 0))}</p>
+            {
+            symbol !== 'WFAIR' ?
+              <p>Processing</p>
+            :
+              <p>{numberWithCommas(Text.formatByONEConstant(amount, 0))}</p>
+            }
           </div>
         </Grid>
         <Grid item xs>

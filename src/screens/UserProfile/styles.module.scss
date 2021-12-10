@@ -9,7 +9,7 @@
 
   .container {
     margin: 0 2rem;
-    max-width: 930px;
+    max-width: 1200px;
     width: 100%;
 
     @media (max-width: $screen-sm) {
@@ -24,8 +24,7 @@
       background-repeat: no-repeat;
       background-position: top;
       background-size: cover;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      border-radius: 8px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -39,7 +38,6 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-color: $colorWhite;
       color: $colorBlack;
       padding-top: 20px;
       border-bottom-left-radius: 8px;
@@ -92,11 +90,12 @@
           }
 
           h2 {
-            font-family: $fontBold;
+            font-family: $fontOmnes;
             font-style: normal;
             font-weight: bold;
             font-size: 30px;
             line-height: 39px;
+            color: $colorLightYellow;
             @media (max-width: $screen-sm) {
               font-size: 24px;
               line-height: 31px;
@@ -106,12 +105,13 @@
 
           p {
             margin-top: 8px;
-            font-family: $fontRegular;
+            font-family: $fontOmnes;
             font-style: normal;
-            font-weight: normal;
+            font-weight: 600;
             font-size: 14px;
             line-height: 24px;
-            opacity: 0.6;
+            color: $colorWhite;
+            opacity: 0.8;
           }
         }
         .suspendButton {
@@ -131,13 +131,14 @@
       display: flex;
       align-items: flex-end;
       color: $colorBlack;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       font-style: normal;
       font-weight: bold;
       font-size: 14px;
       line-height: 18px;
       padding-top: 24px;
       margin-left: 16px;
+      margin-bottom: 8px;
       @media (max-width: $screen-sm) {
         margin-left: 0px;
         justify-content: space-between;
@@ -185,7 +186,15 @@
       .statistics {
         width: 25%;
       }
+    }
 
+    .transactionHistory {
+      width: 100%;
+      min-height: 480px;
+      display: flex;
+      justify-content: center;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
       .inactivePlaceholder {
         position: absolute;
         top: 25%;
@@ -195,27 +204,30 @@
         align-items: center;
         justify-content: center;
         font-size: 24px;
-        font-family: $fontMedium;
-        color: $colorPinkDark;
+        font-family: $fontOmnes;
+        color: $colorLightYellow;
         font-weight: 700;
       }
     }
 
     .activities {
       width: 100%;
-      background-color: $colorWhite;
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
-      padding: 20px;
     }
 
     .leaderboard {
       width: 100%;
-      background-color: $colorWhite;
-      border-radius: 10px;
-      padding: 12px 0;
+      background-color: $colorPrimary;
+      border-radius: 12px;
 
       .heading {
-        background-color: transparent;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        @media (max-width: $screen-sm) {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
       }
 
       .leaderboardTable {
@@ -227,7 +239,7 @@
   .contentBlock {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 8px;
     flex-grow: 0;
     flex-shrink: 0;
 
@@ -239,24 +251,27 @@
       margin-right: 15px;
       border-radius: 10px;
       width: 100%;
+      background: $colorWhite;
     }
 
     .sideContent {
       border-radius: 10px;
-      background-color: $colorWhite;
-      width: 300px;
-      color: $colorBlack;
+      background-color: $colorPrimary;
+      width: 400px;
+      color: $colorWhite;
       padding: 15px;
 
       @media (max-width: $screen-sm) {
         margin-top: 15px;
         width: 100%;
+        padding: 0px;
       }
 
       .header {
         font-size: 14px;
         font-weight: bold;
         margin-bottom: 15px;
+        color: $colorWhite;
       }
 
       .statsBlock {
@@ -265,37 +280,28 @@
         justify-content: space-between;
 
         .statItem {
-          background-color: #ededed;
-          border-radius: 20px;
-          width: 95px;
+          display: flex;
+          background-color: rgba(255, 255, 255, 0.1);
+          width: 100%;
           padding: 15px 10px;
           margin-bottom: 10px;
 
-          @media (max-width: $screen-md) {
-            width: 100%;
-          }
-
           .statItemHead {
+            width: 100px;
+            font-size: 16px;
             font-weight: bold;
             display: flex;
-            align-items: center;
-            font-size: 12px;
             justify-content: center;
             flex-wrap: wrap;
             flex-direction: column;
-
-            span {
-              font-size: 16px;
-              color: $mainAction;
-            }
+            color: $mainAction;
           }
 
           .statItemHint {
             margin-top: 5px;
-            font-size: 10px;
-            line-height: 1.1;
-            text-align: center;
-            color: #5c5c6d;
+            font-size: 16px;
+            font-weight: 600;
+            color: $colorWhite;
           }
         }
       }

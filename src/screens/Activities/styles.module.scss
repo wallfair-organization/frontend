@@ -11,7 +11,9 @@
   }
 
   .activitiesTrackerContainerFull {
+    margin-top: 24px;
     height: auto;
+    background: $colorPrimary;
     border: 1px solid $colorGrayLight;
     border-radius: 12px;
     box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18),
@@ -24,7 +26,7 @@
     column-gap: 10px;
     align-items: center;
     color: $colorWhite;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-size: 24px;
     font-weight: 700;
     padding-bottom: 30px;
@@ -37,11 +39,10 @@
     width: 100%;
 
     .statItem {
-      background-color: $colorWhite;
       border-radius: 50px;
-      border: 1px solid $colorLightGray;
+      border: 2px solid $colorLightYellow;
       width: 16%;
-      padding: 15px 10px;
+      padding: 8px 10px;
       margin-bottom: 10px;
       box-shadow: 0px 2px 3px rgba(159, 162, 191, 0.18),
         0px 1px 1px rgba(159, 162, 191, 0.32);
@@ -62,17 +63,18 @@
         font-weight: bold;
         display: flex;
         align-items: center;
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         font-size: 16px;
         justify-content: center;
         flex-wrap: wrap;
         flex-direction: column;
-        color: $colorPrimary;
+        color: $colorWhite;
 
         span {
           font-size: 16px;
-          color: $colorPinkDark;
-          font-family: $fontBold;
+          color: $colorLightYellow;
+          font-family: $fontOmnes;
+          font-weight: bold;
         }
       }
 
@@ -81,7 +83,7 @@
         font-size: 12px;
         line-height: 1.1;
         text-align: center;
-        color: #5c5c6d;
+        color: $colorWhite;
       }
     }
   }

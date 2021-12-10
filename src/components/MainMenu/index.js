@@ -16,6 +16,7 @@ import EmailNotifications from 'components/EmailNotifications';
 import Preferences from 'components/Preferences';
 import Referrals from 'components/Referrals';
 import Textarea from 'components/Textarea';
+import { LOGGED_IN } from 'constants/AuthState';
 import { Link } from 'react-router-dom';
 import { checkUsername } from '../../api';
 import { AlertActions } from 'store/actions/alert';
@@ -31,6 +32,7 @@ const MainMenu = ({
   user,
   updateUser,
   setEditVisible,
+  setOpenDrawer,
   handleMyTradesVisible,
   handleEmailNotificationsVisible,
   handlePreferencesVisible,
@@ -82,18 +84,25 @@ const MainMenu = ({
     history.push(destinationRoute);
   };
 
+  const onGamesClick = () => {
+    onClickGoToRoute(Routes.games);
+  }
+
+  const onActivitiesClick = () => {
+    onClickGoToRoute(Routes.activities);
+  }
+
+  const onLeaderboardClick = () => {
+    setOpenDrawer('leaderboard');
+  }
+
   const onClickShowEditProfile = () => {
     setProfilePic(user.profilePicture);
     setEditVisible(!editVisible);
   };
 
-  const onMyWalletClick = name => {
-    // fetchOpenBets();
-    // fetchTransactions();
-    // setOpenDrawer(name);
-    // handleMyTradesVisible(!myTradesVisible);
-    fetchReferrals();
-    // setOpenMenu(menus.referrals);
+  const onWalletClick = name => {
+    onClickGoToRoute(Routes.wallet);
   };
 
   const onEmailNotificationClick = () => {
@@ -406,7 +415,7 @@ const MainMenu = ({
           Edit My Profile
         </h2>
         <div className={styles.editProfileContent}>
-          <div className={styles.profilePictureWrapper}>
+          {/* <div className={styles.profilePictureWrapper}>
             <div className={styles.profilePicture}>
               <div
                 className={styles.profilePictureUpload}
@@ -437,7 +446,7 @@ const MainMenu = ({
               </div>
               <p className={styles.profilePictureUploadLabel}>Build your alpaca</p>
             </div>
-          </div>
+          </div> */}
           <form onSubmit={handleSubmit}>
             <div className={styles.profileContent}>
               {/* <div className={styles.profileInputGroup}>
@@ -484,12 +493,14 @@ const MainMenu = ({
                   {profileErrorMessage}
                 </div>
               )}
-              <input
-                disabled={profileSubmitActive ? false : true}
-                className={styles.profileSubmit}
-                type={'submit'}
-                value={'Save changes'}
-              />
+              <div className={styles.submitButtonContainer}>
+                <input
+                  disabled={profileSubmitActive ? false : true}
+                  className={styles.profileSubmit}
+                  type={'submit'}
+                  value={'Save changes'}
+                />
+              </div>
             </div>
           </form>
         </div>
@@ -511,14 +522,19 @@ const MainMenu = ({
             styles.panelHidden
         )}
       >
-        <h2 className={styles.profileHeading}>
+        {/* <h2 className={styles.profileHeading}>
           <Link to={Routes.user.replace(':userId', user.userId)}>
             My Profile
           </Link>
-        </h2>
+        </h2> */}
         <div className={styles.mainContent}>
           <HomeSettings
+            loggedIn={user.authState === LOGGED_IN}
             profilePic={profilePic}
+            onWalletClick={onWalletClick}
+            onGamesClick={onGamesClick}
+            onActivitiesClick={onActivitiesClick}
+            onLeaderboardClick={onLeaderboardClick}
             onEditClick={() => onClickShowEditProfile()}
             onReferralsClick={() => onReferralsClick()}
             onEmailNotificationClick={() => onEmailNotificationClick()}
@@ -569,6 +585,9 @@ const mapDispatchToProps = dispatch => {
           user: { notificationSettings },
         })
       );
+    },
+    setOpenDrawer: drawerName => {
+      dispatch(GeneralActions.setDrawer(drawerName));
     },
     setEditVisible: bool => {
       dispatch(GeneralActions.setEditProfileVisible(bool));

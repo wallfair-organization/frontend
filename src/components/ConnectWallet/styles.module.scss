@@ -6,7 +6,7 @@
 .modalHeaderDesc {
   color: $colorBlack;
   font-size: 14px;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   text-align: center;
   margin: 10px 0px;
 }
@@ -18,7 +18,7 @@
   h1 {
     color: $colorBlack;
     font-size: 28px;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     margin-left: 15px;
 
     @media (max-width: 600px) {
@@ -73,7 +73,7 @@
   strong {
     display: inline-block;
     font-size: 24px;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     text-align: center;
     position: relative;
     align-self: center;
@@ -98,6 +98,6 @@
   span {
     display: block;
     color: $colorRedLight !important;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
   }
 }

@@ -9,11 +9,7 @@ export const getNews = params =>
     },
   });
 
-export const accountMapping = (body, token) => {
-  const payload = {
-    userId: body.userId,
-    account: body.account,
-  };
+export const mapAccount = (payload, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -21,7 +17,24 @@ export const accountMapping = (body, token) => {
     },
   };
 
-  axios.post(ApiUrls.ACCOUNT_MAPPING, payload, config).then(response => {
-    return response.data;
-  });
+  return axios
+    .post(ApiUrls.ACCOUNT_MAPPING + '/mapAccount', payload, config)
+    .then(response => {
+      return response.data;
+    });
+};
+
+export const accountMappingChallenge = (payload, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return axios
+    .post(ApiUrls.ACCOUNT_MAPPING + '/challenge', payload, config)
+    .then(response => {
+      return response.data;
+    });
 };

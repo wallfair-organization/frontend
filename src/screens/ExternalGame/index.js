@@ -1,22 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { GameApi, setInitialSession } from 'api/casino-games';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
-import PlaceBet from 'components/PlaceBet';
-import PlaceBetCasino from 'components/PlaceBetCasino';
 import BackLink from 'components/BackLink';
-import Spins from 'components/Spins';
-import GameAnimation from 'components/RouletteGameAnimation';
-import GameBets from 'components/GameBets';
 import Chat from 'components/Chat';
-import useRosiData from 'hooks/useRosiData';
 import styles from './styles.module.scss';
 import { AlertActions } from '../../store/actions/alert';
 import { RosiGameActions } from '../../store/actions/rosi-game';
-import ContentFooter from 'components/ContentFooter';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
 import { ChatActions } from 'store/actions/chat';
 import Share from '../../components/Share';
@@ -26,14 +18,8 @@ import IconType from 'components/Icon/IconType';
 import IconTheme from 'components/Icon/IconTheme';
 import { PopupActions } from 'store/actions/popup';
 import TabOptions from '../../components/TabOptions';
-import Routes from 'constants/Routes';
 import { getGameById, ObjectId } from '../../helper/Games';
 import { GAMES } from '../../constants/Games';
-import {
-  trackAlpacaWheelPlaceBetGuest,
-  trackAlpacaWheelPlaceBet,
-  trackAlpacaWheelCashout,
-} from '../../config/gtm';
 import { UserActions } from 'store/actions/user';
 import EventActivitiesTabs from 'components/EventActivitiesTabs'
 import { isMobile } from 'react-device-detect';
@@ -177,10 +163,6 @@ const RouletteGame = ({
     </Grid>
   );
 
-  const handleNewSpin = (newSpin)=> {
-    setSpins([newSpin, ...spins])
-  }
-
   const url = `https://eu-staging.ssgportal.com/GameLauncher/Loader.aspx?GameCategory=${gameCategory}&GameName=${gameName}&Token=${init}&PortalName=wallfair&ReturnUrl=${window.location.origin}`
 
   const urltest = `https://server.ssg-public.com/GameLauncher/Loader.aspx?Token=DEMO&GameCategory=${gameCategory}&GameName=${gameName}&ReturnUrl=${window.location.origin}&Lang=en&PortalName=DEMO`
@@ -213,8 +195,6 @@ const RouletteGame = ({
     </BaseContainerWithNavbar>
   );
 };
-
-//https://eustaging.ssgportal.com/GameLauncher/Loader.aspx?GameCategory=GamesLobby&GameName=Cappadocia&Token=DEMO&PortalName=wallfair&ReturnUrl=http://localhost:3000/external-game/JetX
 
 const mapStateToProps = state => {
   return {

@@ -5,9 +5,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0 3rem;
+  margin: 0;
   margin-top: 100px;
-  background: $colorhomeBackground;
 
   @media (max-width: $screen-sm) {
     margin: 0 15px;
@@ -18,7 +17,7 @@
   width: 100%;
 
   @media (min-width: $screen-lg) {
-    max-width: 1440px;
+    max-width: 1300px;
   }
 }
 
@@ -46,7 +45,7 @@
   }
 
   h1 {
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     font-size: 46px;
     font-weight: bold;
     line-height: 1.13;
@@ -87,10 +86,11 @@
   div.slogan {
     padding: 12px 0;
     font-size: 25px;
-    font-family: $fontMedium;
+    font-family: $fontOmnes;
 
     span {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
       color: $colorYellowLight;
     }
 
@@ -102,110 +102,6 @@
 
   .socialIcons {
     padding-bottom: 0px;
-  }
-}
-
-.elonGame {
-  margin-top: 70px;
-  .title {
-    display: flex;
-    align-items: center;
-    font-size: 22px;
-    font-weight: 700;
-    justify-content: flex-start;
-
-    h2 {
-      font-size: 33px;
-
-      @media (max-width: $screen-xs) {
-        font-size: 28px;
-      }
-    }
-
-    img {
-      margin-right: 5px;
-    }
-  }
-  .banner {
-    margin-top: 16px;
-    background-image: url('../../data/backgrounds/games/elon-game-banner-lg.png');
-    border-radius: 12px;
-    min-height: 272px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    @media (max-width: $screen-lg) {
-      padding: 20px;
-      min-height: unset;
-      height: 200px;
-    }
-
-    @media (max-width: $screen-md) {
-      padding: 20px;
-      min-height: unset;
-      height: 150px;
-    }
-
-    @media (max-width: $screen-sm) {
-      background-image: url('../../data/backgrounds/games/elon-game-banner-mobile.png');
-      height: 100%;
-      background-position: center;
-      padding: 80px;
-    }
-
-    @media (max-width: $screen-xs) {
-      padding: 40px;
-    }
-
-    .title {
-      opacity: 0;
-      font-family: $fontBold;
-      font-size: 30px;
-      color: $colorWhite;
-
-      h2 {
-        font-size: 33px;
-
-        @media (max-width: $screen-xs) {
-          font-size: 28px;
-        }
-      }
-
-      @media (max-width: $screen-md) {
-        font-size: 22px;
-      }
-
-      @media (max-width: $screen-sm) {
-        font-size: 36px;
-        margin-top: 100%;
-      }
-
-      @media (max-width: $screen-xs) {
-        font-size: 30px;
-      }
-    }
-
-    .button {
-      opacity: 0;
-      margin-top: 10px;
-      background: linear-gradient(180deg, #e82e89 0%, #a21c5d 97.4%);
-      border-radius: 30px;
-      width: 340px;
-      border: none;
-      max-width: 95%;
-      box-sizing: border-box;
-      color: #fff;
-      padding: 12px;
-      font-size: 16px;
-      font-weight: 700;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
   }
 }
 
@@ -242,7 +138,7 @@
     align-items: center;
     justify-content: space-between;
     color: $colorWhite;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-size: 24px;
     margin-bottom: 20px;
 
@@ -260,28 +156,6 @@
 
 .lightboxWrapper {
   margin-top: 48px;
-}
-
-.tags {
-  display: flex;
-  flex-flow: wrap;
-  margin: 20px 0;
-
-  .tag {
-    background-color: rgba(172, 196, 255, 0.1);
-    padding: 10px;
-    font-size: 12px;
-    color: $colorWhite;
-    cursor: pointer;
-    border-radius: 2px;
-    margin: 5px;
-    opacity: 0.8;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      opacity: 1;
-    }
-  }
 }
 
 .seeAllActivities {
@@ -321,8 +195,10 @@
   .tokenDetail {
     display: grid;
     grid-template-columns: 1fr 1fr 1.2fr 0.2fr;
-    background: #ff0095;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
+    filter: drop-shadow(0px 9px 16px rgba(159, 162, 191, 0.18))
+      drop-shadow(0px 2px 2px rgba(159, 162, 191, 0.32));
     padding: 0 10px 0px 20px;
     margin: 15px 0 0;
     @media (max-width: $screen-md) {
@@ -381,154 +257,63 @@
 }
 
 .welcomeContainer {
-  margin-top: 70px;
-  @media screen and (max-width: $screen-md) {
-    margin-top: 84px;
+  margin: 200px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: $screen-md) {
+    margin: 60px 0;
   }
   .cardBox {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    background: white;
-    border: 1px solid #f2e5da;
-    box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18),
-      0px 2px 2px rgba(159, 162, 191, 0.32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 569px;
+    height: 264px;
+    background: rgba(0, 9, 43, 0.7);
+    border: 4px solid #ffd401;
+    box-sizing: border-box;
     border-radius: 12px;
-    @media screen and (max-width: $screen-md) {
-      grid-template-columns: auto;
+    @media (max-width: $screen-md) {
+      width: 100%;
+      height: 100%;
+      padding: 32px 0px;
     }
-    .leftSection {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 24px 0;
-      .description {
-        max-width: 400px;
-      }
-      .categorySection {
-        display: flex;
-        align-items: center;
-        margin-top: 18px;
-        @media screen and (max-width: $screen-md) {
-          flex-direction: column;
-        }
-        .categoryItem {
-          display: flex;
-          align-items: center;
-          img {
-            width: 30px;
-            height: 30px;
-          }
-          span {
-            color: #e82e89;
-            font-size: 22px;
-            font-family: $fontBold;
-            margin-left: 8px;
-            margin-right: 14px;
-            @media screen and (max-width: $screen-md) {
-              font-size: 16px;
-            }
-          }
-        }
-      }
-      .pillButton {
-        position: relative;
-        color: $colorWhite;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        padding: 10px;
-        background: $colorPinkDark;
-        font-size: 12px;
-        border-radius: 20px;
-        font-family: $fontRegular;
-        cursor: pointer;
-        height: 35px;
-        min-width: 250px;
-        margin-top: 30px;
-
-        img,
-        svg {
-          position: absolute;
-          left: 8px;
-          max-height: 21px;
-        }
-
-        .rankingText {
-          font-size: 18px;
-          align-self: center;
-          @media screen and (max-width: $screen-md) {
-            font-size: 14px;
-          }
-        }
-      }
-      p {
-        text-align: center;
-        font-size: 20px;
-        @media screen and (max-width: $screen-md) {
-          padding: 0 12px;
-          font-size: 16px;
-        }
-      }
-    }
-    .rightSection {
-      display: flex;
-      justify-content: flex-end;
-      img {
-        width: 100%;
-        object-fit: contain;
-      }
-    }
-    .title {
-      display: flex;
-      align-items: center;
-      font-family: $fontBold;
+    h3 {
+      font-family: $fontOmnes;
       font-weight: bold;
-      justify-content: flex-start;
-      h2 {
-        text-align: center;
-        font-size: 50px;
-        line-height: 60px;
-        color: #0e0927;
-        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        @media (max-width: $screen-xs) {
-          font-size: 28px;
-          text-align: center;
-          line-height: 40px;
-        }
-      }
-      .pink {
-        color: #e82e89;
+      font-size: 40px;
+      line-height: 50px;
+      text-align: center;
+      color: $colorWhite;
+      -webkit-text-stroke: 1px $colorBlack;
+      @media (max-width: $screen-md) {
+        font-size: 24px;
+        line-height: 36px;
       }
     }
   }
-  .bottomContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .bottomBox {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #0e0927;
-      border-radius: 0px 0px 12px 12px;
-      font-family: $fontMedium;
-      font-size: 24px;
-      padding: 12px 120px;
-      @media screen and (max-width: $screen-md) {
-        width: 100%;
-        padding: 8px 0;
-        font-size: 16px;
-      }
-      p {
-        color: #fff;
-        text-align: center;
-      }
-      .pink {
-        color: #e82e89;
+  .startButton {
+    width: 500px;
+    height: 120px;
+    margin-top: 10px;
+    @media (max-width: $screen-md) {
+      width: 100%;
+      height: 72px;
+    }
+    .buttonText {
+      -webkit-text-stroke: 2px #ff9c00;
+      font-family: $fontOmnes;
+      font-weight: bold;
+      font-size: 40px;
+      color: #ffd401;
+      @media (max-width: $screen-md) {
+        font-size: 30px;
       }
     }
+  }
+  @media screen and (max-width: $screen-md) {
+    margin-top: 84px;
   }
 }
 
@@ -537,25 +322,27 @@
   .title {
     display: flex;
     align-items: center;
-    font-family: $fontMedium;
+    font-family: $fontOmnes;
     font-size: 30px;
     font-weight: 700;
     justify-content: flex-start;
     h2 {
       font-size: 30px;
+      color: $colorWhite;
       @media (max-width: $screen-xs) {
         font-size: 28px;
         text-align: center;
       }
     }
     .pink {
-      color: #e82e89;
+      color: $colorWhite;
     }
   }
   .cardBox {
     margin-top: 30px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid #ededed;
+    box-sizing: border-box;
     box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18),
       0px 2px 2px rgba(159, 162, 191, 0.32);
     border-radius: 12px;
@@ -638,9 +425,9 @@
           }
         }
         h3 {
-          font-family: $fontMedium;
+          font-family: $fontOmnes;
           font-size: 22px;
-          color: #0e0927;
+          color: $colorWhite;
           margin-bottom: 6px;
           img {
             max-width: 160px;
@@ -651,7 +438,7 @@
           font-weight: 400;
           line-height: 20px;
           font-size: 14px;
-          color: #0e0927;
+          color: $colorWhite;
         }
         .thumbnail {
           display: flex;
@@ -676,7 +463,7 @@
       align-items: center;
       background: #0e0927;
       border-radius: 0px 0px 12px 12px;
-      font-family: $fontMedium;
+      font-family: $fontOmnes;
       font-size: 24px;
       padding: 12px 120px;
       @media screen and (max-width: $screen-md) {
@@ -685,11 +472,11 @@
         font-size: 16px;
       }
       p {
-        color: #fff;
+        color: $colorWhite;
         text-align: center;
       }
       .pink {
-        color: #e82e89;
+        color: $colorWhite;
       }
     }
   }
@@ -700,27 +487,29 @@
   .title {
     display: flex;
     align-items: center;
-    font-family: $fontMedium;
+    font-family: $fontOmnes;
     font-size: 30px;
     font-weight: 700;
     justify-content: flex-start;
     h2 {
       font-size: 30px;
+      color: $colorWhite;
       @media (max-width: $screen-xs) {
         font-size: 28px;
         text-align: center;
       }
     }
     .pink {
-      color: #e82e89;
+      color: $colorWhite;
     }
   }
   .cardBox {
     padding-top: 30px;
     .card {
       display: flex;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
       border: 1px solid #ededed;
+      box-sizing: border-box;
       margin: 20px auto;
       padding-right: 20px;
       padding-bottom: 28px;
@@ -755,9 +544,9 @@
           text-align: center;
         }
         h3 {
-          font-family: $fontMedium;
+          font-family: $fontOmnes;
           font-size: 22px;
-          color: #e82e89;
+          color: $colorWhite;
           margin-bottom: 6px;
           img {
             max-width: 160px;
@@ -768,15 +557,15 @@
           font-weight: 400;
           line-height: 20px;
           font-size: 14px;
-          color: #0e0927;
+          color: $colorWhite;
         }
         button {
           margin-top: 16px;
           background: transparent;
           border: 0;
-          font-family: $fontMedium;
+          font-family: $fontOmnes;
           font-size: 14px;
-          color: #e82e89;
+          color: $colorWhite;
           cursor: pointer;
         }
       }
@@ -820,7 +609,7 @@
   display: flex;
   align-items: flex-end;
   color: $colorWhite;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -849,6 +638,7 @@
   .title {
     display: flex;
     align-items: center;
+    color: $colorWhite;
 
     h2 {
       font-size: 33px;
@@ -864,7 +654,7 @@
   }
 }
 .gameCards {
-  margin-top: 20px;
+  margin-top: 70px;
   .title {
     display: flex;
     align-items: center;
@@ -874,7 +664,7 @@
 
     h2 {
       font-size: 33px;
-
+      color: $colorWhite;
       @media (max-width: $screen-xs) {
         font-size: 28px;
       }
@@ -890,99 +680,6 @@
       border-radius: 12px;
       margin: 20px 0;
       width: 96%;
-    }
-  }
-}
-
-.currentBalanceSection {
-  margin-top: 100px;
-  margin-bottom: 85px;
-
-  .currentBlanceCard {
-    width: 319px;
-    height: 271px;
-    padding: 56px 78px 57px;
-    box-shadow: 0px 0px 5px 5px $colorLightGray;
-    border-radius: 11.5px;
-    border: solid 1px $colorLightGray;
-    background-color: $colorWhite;
-    position: relative;
-    z-index: 1;
-
-    &::before {
-      position: absolute;
-      content: '';
-      background-image: url('../../data/backgrounds/home-icons.svg');
-      background-repeat: no-repeat;
-      width: 100%;
-      height: 100%;
-      top: 169px;
-      left: -140px;
-      z-index: -1;
-    }
-
-    @media (max-width: $screen-xs) {
-      &::before {
-        position: absolute;
-        content: '';
-        background-image: url('../../data/backgrounds/home-icons.svg');
-        background-repeat: no-repeat;
-        width: 100px;
-        height: 100px;
-        background-size: contain;
-        top: 200px;
-        left: -80px;
-        z-index: -1;
-      }
-    }
-
-    .currentbalanceHeading {
-      margin: 0 18px 11px 19px;
-      font-family: $fontMedium;
-      font-size: 16px;
-      font-weight: 800;
-      color: $colorBlack;
-    }
-
-    .currentbalanceWFair {
-      width: 163px;
-      height: 126px;
-      margin: 11px 0 0;
-      font-family: $fontBold;
-      font-size: 50px;
-      font-weight: 800;
-      text-align: center;
-      color: $colorBlack;
-    }
-  }
-
-  .currentBlanceDiscription {
-    width: 319px;
-    height: 271px;
-    padding: 56px 78px 57px;
-    border-radius: 11.5px;
-
-    .noWFairNoProblem {
-      width: 288px;
-      height: 30px;
-      font-family: $fontRegular;
-      font-size: 24px;
-      font-weight: 500;
-      color: $colorBlack;
-    }
-    .buyWFairButton {
-      margin-top: 27px;
-      width: 240px;
-      height: 45px;
-      border-radius: 22.5px;
-      background-image: linear-gradient(
-        to bottom,
-        $colorPinkDark,
-        $colorLightDark2 97%
-      );
-      font-family: $fontRegular;
-      border: 1px solid $colorhomeBackground;
-      color: $colorWhite;
     }
   }
 }

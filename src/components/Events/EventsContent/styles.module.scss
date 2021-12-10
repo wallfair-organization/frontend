@@ -19,7 +19,7 @@
   .howtoLink {
     cursor: pointer;
     font-size: 11px;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     text-decoration: underline;
     color: $colorYellow;
 
@@ -249,7 +249,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: #F2FF53;
+  background-color: #f2ff53;
   color: #000000;
   font-size: 16px;
   border-radius: 25px;

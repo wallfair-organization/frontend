@@ -2,12 +2,14 @@
 
 .chatMessage {
   color: $colorBlack;
+  width: 100%;
   padding: 0rem 1rem;
   border-radius: 10px;
   display: inline-flex;
   align-items: center;
   margin-top: 0.5rem;
   font-size: 14px;
+  font-weight: 600;
   text-align: left;
   hyphens: auto;
   opacity: 0.3;
@@ -36,8 +38,9 @@
     min-width: 36px;
   }
   .singleMessageUser {
-    font-family: $fontBold;
-    color: $colorPinkDark;
+    font-family: $fontOmnes;
+    font-weight: bold;
+    color: $colorLightYellow;
     text-decoration: underline;
     font-size: 12px;
 
@@ -47,27 +50,10 @@
   }
   .singleMessage {
     margin-left: 5px;
-    color: $colorBlack;
+    color: $colorWhite;
     font-size: 12px;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
   }
-
-  // span {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   align-items: center;
-
-  //   :first-child {
-  //     font-size: 12px;
-  //     font-family: $fontBold;
-  //   }
-
-  //   :last-child {
-  //     font-size: 12px;
-  //     text-align: right;
-  //     color: $colorGray;
-  //     width: 60px;
-  //     margin-left: 10px;
-  //   }
-  // }
 }

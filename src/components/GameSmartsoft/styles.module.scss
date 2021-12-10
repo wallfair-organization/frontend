@@ -1,10 +1,10 @@
 @import '../../styles/all';
 
 .gamesContainer {
-  padding: 30px 0;
+  padding: 0;
 
   @media (max-width: $screen-xs) {
-    padding: 0 15px 15px;
+    padding: 0;
   }
 }
 
@@ -13,10 +13,11 @@
   flex-direction: row;
   align-items: center;
   color: $colorBlack;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-size: 24px;
   font-weight: 700;
   padding-bottom: 20px;
+  margin-top: 40px;
 
   @media (max-width: $screen-lg) {
     padding: 20px;
@@ -24,6 +25,7 @@
 
   h2 {
     font-size: 33px;
+    color: $colorWhite;
 
     @media (max-width: $screen-xs) {
       font-size: 28px;
@@ -33,7 +35,7 @@
   .howtoLink {
     cursor: pointer;
     font-size: 11px;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     text-decoration: underline;
     color: $colorYellow;
 
@@ -66,43 +68,42 @@
 .games {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   width: 100%;
+  gap: 15px;
 
   @media (max-width: $screen-lg) {
-    padding: 0 20px;
+    padding: 0;
   }
 
   @media (max-width: $screen-xs) {
-    flex-direction: column;
-    row-gap: 20px;
+    //flex-direction: column;
+    gap: 10px;
   }
 
   .wrapper {
     position: relative;
-    height: 310px;
+    height: 148px;
     overflow: hidden;
-        border-radius: 20px;
-    width: 310px;
-    // margin-right: 10px;
-    margin-bottom: 20px;
+    border-radius: 20px;
+    width: 148px;
 
     @media (max-width: $screen-sm) {
+      width: 45%;
+      height: auto;
       margin: 0 auto;
-    }
-
-    @media (max-width: 320px) {
-      height: 400px;
     }
 
     .gameItem {
       height: 100%;
-      &:hover{
-        .title{
+      @media (max-width: $screen-md) {
+        height: auto;
+      }
+      &:hover {
+        .title {
           display: block !important;
         }
-        &::before{
-          content: "";
+        &::before {
+          content: '';
           z-index: 2;
           position: absolute;
           bottom: 0;
@@ -111,15 +112,18 @@
           left: 0;
           width: 100%;
           background: linear-gradient(
-          180deg,hsla(0,0%,100%,0),#00000060 75%);
+            180deg,
+            hsla(0, 0%, 100%, 0),
+            #00000060 75%
+          );
         }
       }
-      img{
+      img {
         width: 100%;
         height: fit-content;
       }
-      .title{
-        z-index: 3; 
+      .title {
+        z-index: 3;
         display: none;
         padding: 10px;
         color: white;
@@ -131,12 +135,6 @@
       }
 
       &.gameItemLg {
-        img{
-          position: absolute;
-          left: -300px;
-          right: -300px;
-          margin: auto;
-        }
         .gameInfo {
           .title {
             @media (max-width: $screen-md) {
@@ -209,6 +207,10 @@
         border: 2px solid rgba(255, 255, 255, 0.1);
         filter: drop-shadow(0px 9px 16px rgba(159, 162, 191, 0.48))
           drop-shadow(0px 2px 2px rgba(159, 162, 191, 0.62));
+        @media (max-width: $screen-md) {
+          width: 100%;
+          height: auto;
+        }
       }
 
       .gameInfo {
@@ -216,7 +218,7 @@
         bottom: 0;
         left: 0;
         color: $colorWhite;
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         padding: 30px;
 
         .title {
@@ -247,7 +249,7 @@
         align-items: center;
         justify-content: center;
         font-size: 24px;
-        font-family: $fontMedium;
+        font-family: $fontOmnes;
         color: #f2ff53;
         text-align: center;
         font-weight: 700;

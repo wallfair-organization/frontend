@@ -11,7 +11,7 @@ import { GAMES } from 'constants/Games';
 
 
 
-const DepositRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
+const BetsRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
   const { gameId,username, crashFactor, stakedAmount } = data;
   gameLabel =
   gameLabel ??
@@ -104,7 +104,7 @@ const BetTable = ({
       </div>
       <div className={styles.messageContainer}>
         {renderRow.map((row, index) => (
-          <DepositRow data={row} key={index} />
+          <BetsRow data={row} key={index} />
         ))}
       </div>
     </div>

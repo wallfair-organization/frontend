@@ -21,7 +21,8 @@
   strong {
     display: block;
     text-align: center;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
     margin-bottom: 20px;
     font-size: 20px;
   }
@@ -34,7 +35,8 @@
       width: 20%;
       display: block;
       // text-align: center;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
       font-size: 12px;
       margin-bottom: 10px;
       font-style: italic;
@@ -45,7 +47,7 @@
       width: 20px;
       border-radius: 12px;
       padding: 0 15px;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       font-size: 16px;
       margin-bottom: 10px;
       border: 1px solid $colorGrayLight;
@@ -65,14 +67,14 @@
     button {
       background: linear-gradient(
         180deg,
-        $colorPinkDark 0%,
+        $colorLightYellow 0%,
         $colorLightDark2 97.4%
       );
       border-radius: 22.5px;
       border: 1px solid $colorWhite;
       width: 240px;
       height: 45px;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       color: $colorWhite;
       cursor: pointer;
       font-size: 18px;

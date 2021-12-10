@@ -18,7 +18,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14.x"
+          node-version: '14.x'
       - name: Install node dependencies
         run: npm ci
       - name: Install doctl (to be able to login on Digital Ocean)
@@ -53,7 +53,7 @@ jobs:
                             --build-arg REACT_APP_GOOGLE_CLIENT_ID=${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}\
                             --build-arg REACT_APP_FACEBOOK_CLIENT_ID=${{ secrets.REACT_APP_FACEBOOK_CLIENT_ID }}\
                             --build-arg REACT_APP_URL="https://main.alpacasino.io"\
-                            --build-arg REACT_APP_ACCOUNT_MAPPER_URL="https://account-mapper-staging.wallfair.io/map"\
+                            --build-arg REACT_APP_ACCOUNT_MAPPER_URL="https://account-mapper-staging.wallfair.io"\
                             --build-arg REACT_APP_DEPOSIT_WALLET="0xEfa1A1a1Ff0C49d4913Ef8A74E76221EE97BD75F"\
                             --build-arg REACT_APP_ENVIRONMENT="staging"\
                             --build-arg REACT_APP_DEPOSIT_WALLET_BITCOIN=tempstqet6vmulp4f0w3flmcj8wluhxtmtm9s22y7t\
@@ -64,18 +64,18 @@ jobs:
       - name: Build the docker image (development)
         if: github.ref == 'refs/heads/development'
         run: |
-          docker build . -q --build-arg REACT_APP_CRASH_GAME_BACKEND_URL="https://dev-casino-api.alpacasino.io/"\
-                            --build-arg REACT_APP_BACKEND_URL="https://dev-api.alpacasino.io/"\
-                            --build-arg REACT_APP_CASINO_GAMES_BACKEND_URL="https://dev-casino-api.alpacasino.io/"\
-                            --build-arg REACT_APP_SOCKET_URL="https://comm-dev-api.alpacasino.io/"\
-                            --build-arg REACT_APP_PUMP_DUMP_GAME_BACKEND_URL="https://dev-pump-dump-api.alpacasino.io/"\
+          docker build . -q --build-arg REACT_APP_CRASH_GAME_BACKEND_URL="https://staging-casino-api.alpacasino.io/"\
+                            --build-arg REACT_APP_BACKEND_URL="https://staging-api.alpacasino.io/"\
+                            --build-arg REACT_APP_CASINO_GAMES_BACKEND_URL="https://staging-casino-api.alpacasino.io/"\
+                            --build-arg REACT_APP_SOCKET_URL="https://comm-staging-api.alpacasino.io/"\
+                            --build-arg REACT_APP_PUMP_DUMP_GAME_BACKEND_URL="https://staging-pump-dump-api.alpacasino.io/"\
                             --build-arg REACT_APP_NEWS_API_KEY=${{ secrets.REACT_APP_NEWS_API_KEY }}\
                             --build-arg REACT_APP_RECAPTCHA_KEY=${{ secrets.REACT_APP_RECAPTCHA_KEY }}\
                             --build-arg REACT_APP_GTM_ID=${{ secrets.REACT_APP_GTM_ID }}\
                             --build-arg REACT_APP_GOOGLE_CLIENT_ID=${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}\
                             --build-arg REACT_APP_FACEBOOK_CLIENT_ID=${{ secrets.REACT_APP_FACEBOOK_CLIENT_ID }}\
                             --build-arg REACT_APP_URL="https://dev.alpacasino.io"\
-                            --build-arg REACT_APP_ACCOUNT_MAPPER_URL="https://account-mapper-dev.wallfair.io/map"\
+                            --build-arg REACT_APP_ACCOUNT_MAPPER_URL="https://account-mapper-staging.wallfair.io/map"\
                             --build-arg REACT_APP_DEPOSIT_WALLET="0xB56AE8254dF096173A27700bf1F1EC2b659F3eC8"\
                             --build-arg REACT_APP_ENVIRONMENT="staging"\
                             --build-arg REACT_APP_DEPOSIT_WALLET_BITCOIN=tempstqet6vmulp4f0w3flmcj8wluhxtmtm9s22y7t\

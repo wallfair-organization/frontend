@@ -45,7 +45,7 @@
   }
 
   h1 {
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     font-size: 46px;
     font-weight: bold;
     line-height: 1.13;
@@ -86,10 +86,11 @@
   div.slogan {
     padding: 12px 0;
     font-size: 25px;
-    font-family: $fontMedium;
+    font-family: $fontOmnes;
 
     span {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
       color: $colorYellowLight;
     }
 
@@ -101,88 +102,6 @@
 
   .socialIcons {
     padding-bottom: 0px;
-  }
-}
-
-.banner {
-  margin-top: 50px;
-  background-image: url('../../data/backgrounds/games/elon-game-banner-lg.png');
-  border-radius: 12px;
-  min-height: 252px;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: center;
-  padding: 30px;
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  @media (max-width: $screen-lg) {
-    padding: 20px;
-    min-height: unset;
-    height: 200px;
-  }
-
-  @media (max-width: $screen-md) {
-    padding: 20px;
-    min-height: unset;
-    height: 150px;
-  }
-
-  @media (max-width: $screen-sm) {
-    background-image: url('../../data/backgrounds/games/elon-game-banner-mobile.png');
-    height: 100%;
-    background-position: center;
-    padding: 80px;
-  }
-
-  @media (max-width: $screen-xs) {
-    padding: 40px;
-  }
-
-  .title {
-    opacity: 0;
-    font-family: $fontBold;
-    font-size: 30px;
-    color: $colorWhite;
-
-    h2 {
-      font-size: 33px;
-
-      @media (max-width: $screen-xs) {
-        font-size: 28px;
-      }
-    }
-
-    @media (max-width: $screen-md) {
-      font-size: 22px;
-    }
-
-    @media (max-width: $screen-sm) {
-      font-size: 36px;
-      margin-top: 100%;
-    }
-
-    @media (max-width: $screen-xs) {
-      font-size: 30px;
-    }
-  }
-
-  .button {
-    opacity: 0;
-    margin-top: 10px;
-    background: linear-gradient(180deg, #e82e89 0%, #a21c5d 97.4%);
-    border-radius: 30px;
-    width: 340px;
-    border: none;
-    max-width: 95%;
-    box-sizing: border-box;
-    color: #fff;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
   }
 }
 
@@ -219,7 +138,7 @@
     align-items: center;
     justify-content: space-between;
     color: $colorWhite;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-size: 24px;
     margin-bottom: 20px;
 
@@ -397,8 +316,8 @@
 /* ACTIVITY TRACKER */
 .activityWrapper {
   margin-top: 32px;
-  background: $colorWhite;
-  border: 1px solid $colorLightGray;
+  background: $colorPrimary;
+  border: 1px solid $colorLightGray4;
 
   .headerTables {
     @media screen and (max-width: $screen-xs) {
@@ -445,7 +364,7 @@
   display: flex;
   align-items: flex-end;
   color: $colorWhite;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -568,7 +487,7 @@
 
     .currentbalanceHeading {
       // margin: 54px 18px 21px 19px;
-      font-family: $fontMedium;
+      font-family: $fontOmnes;
       font-size: 16px;
       font-weight: 800;
       color: $colorBlack;
@@ -577,7 +496,7 @@
     .currentbalanceWFair {
       // height: 126px;
       // margin: 11px 0 0;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       font-size: 50px;
       font-weight: 800;
       text-align: center;
@@ -613,10 +532,10 @@
 
       .label {
         height: 30px;
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         font-size: 24px;
         font-weight: 500;
-        color: $colorBlack;
+        color: $colorWhite;
       }
 
       .button {
@@ -624,14 +543,7 @@
         margin-bottom: 20px;
         width: 240px;
         height: 45px;
-        border-radius: 22.5px;
-        background-image: linear-gradient(
-          to bottom,
-          $colorPinkDark,
-          $colorLightDark2 97%
-        );
-        font-family: $fontRegular;
-        border: 1px solid $colorhomeBackground;
+        font-family: $fontOmnes;
         color: $colorWhite;
         cursor: pointer;
       }

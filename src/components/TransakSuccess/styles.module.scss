@@ -19,7 +19,8 @@
     align-items: center;
     font-size: 30px;
     text-align: center;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
 
     .logo {
       height: 60px;
@@ -31,7 +32,8 @@
     font-size: 16px;
     line-height: 25px;
     text-align: center;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
     margin-top: 10px;
   }
 

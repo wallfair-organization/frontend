@@ -9,30 +9,36 @@ const networkIds = {
   kovan: '0x2a',
   rinkeby: '0x4',
 };
+const netWorkSelectionChoice = {
+  "Ethereum": ["0x1", "0x2a"],
+  "Polygon": ["0x89", "0x13881"]
+}
 
+const environmentNetwork = {
+  production: {
+    [networkIds.mainPolygon]: 'Polygon',
+    [networkIds.mainEthereum]: 'Ethereum',
+  },
+  staging: {
+    [networkIds.mumbia]: 'Polygon',
+    [networkIds.kovan]: 'Ethereum',
+  },
+  development: {
+    [networkIds.mumbia]: 'Polygon',
+    [networkIds.kovan]: 'Ethereum',
+  },
+};
 
 const getNetworkOnEnviroment = () => {
   switch (environment) {
     case 'production':
-      return {
-        [networkIds.mainPolygon]: 'Polygon',
-        [networkIds.mainEthereum]: 'Ethereum',
-      };
+      return environmentNetwork.production;
     case 'staging':
-      return {
-        [networkIds.mumbia]: 'Polygon',
-        [networkIds.kovan]: 'Ethereum',
-      };
+      return environmentNetwork.staging
     case 'development':
-      return {
-        [networkIds.mumbia]: 'Polygon',
-        [networkIds.kovan]: 'Ethereum',
-      };
+      return environmentNetwork.development;
     default:
-      return {
-        [networkIds.mumbia]: 'Polygon',
-        [networkIds.kovan]: 'Ethereum',
-      };
+      return environmentNetwork.staging;
   }
 };
 
@@ -42,7 +48,14 @@ export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 export const IS_IN_IFRAME = window.parent !== window;
 export const SWITCH_NETWORKS = getNetworkOnEnviroment();
 export const NETWORK_TYPES = netWorkTypes;
-
+export const ENV_NETWORK = environmentNetwork[environment];
+export const networkSelection = (chainId) => {
+  for (const key in netWorkSelectionChoice) {
+    const chainIdExist  = netWorkSelectionChoice[key].includes(chainId);
+    if(chainIdExist) return key;
+  }
+  return '';
+}
 
 export const EXPLORERS = {
   staging: {
@@ -52,11 +65,10 @@ export const EXPLORERS = {
   production: {
     ETH: 'https://etherscan.io/tx/',
     MATIC: 'https://polygonscan.com/tx/',
-  }
-}
+  },
+};
 
 export const getTransactionURL = (network, txHash) => {
   const environment = process.env.REACT_APP_ENVIRONMENT;
   return `${EXPLORERS[environment][network]}${txHash}`;
-}
-
+};

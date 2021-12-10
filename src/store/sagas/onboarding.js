@@ -15,7 +15,7 @@ const loadOnboardingStep = function* (action) {
             ...action?.options,
             saveLabel:"Next",
             cancelLabel: "Skip",
-            popUpTitle: "Register your Alpaca",
+            popUpTitle: "Build your Alpaca",
             small: false
           },
         })

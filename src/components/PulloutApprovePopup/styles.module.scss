@@ -12,13 +12,14 @@
   .pulloutTitle {
     font-size: 28px;
     font-weight: 700;
-    margin: 20px 0 ;
+    margin: 20px 0;
   }
 
   .pulloutText {
     margin-bottom: 40px;
     strong {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
     }
   }
   .buttonContainer {
@@ -27,14 +28,14 @@
     align-items: center;
     justify-content: center;
   }
- 
+
   .approvePulloutButton {
     background-color: $colorWhite;
     width: 100px;
     height: 60px;
     font-size: 20px;
     background-image: url('../../data/images/signup-background-one.svg');
-    background-size: 80% ;
+    background-size: 80%;
     background-position: center;
     background-repeat: no-repeat;
   }

@@ -28,7 +28,7 @@
       padding-bottom: 20px;
 
       .label {
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         font-size: 20px;
         line-height: 24px;
       }
@@ -46,9 +46,9 @@
     }
 
     .inputDescription {
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       font-size: 14px;
-      color: rgba(255,255,255,.3);
+      color: rgba(255, 255, 255, 0.3);
 
       &.top {
         padding-bottom: 10px;
@@ -59,7 +59,7 @@
       }
 
       .number {
-        color: rgba(255,255,255,.7);
+        color: rgba(255, 255, 255, 0.7);
       }
     }
   }

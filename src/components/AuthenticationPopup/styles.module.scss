@@ -60,7 +60,7 @@
       position: relative;
       z-index: 2;
       strong {
-        font-family: $fontBold;
+        font-family: $fontOmnes;
         border-bottom: 3px solid $colorYellow;
       }
       @media screen and (min-width: $screen-md) {
@@ -69,7 +69,7 @@
     }
     .prizeAmount {
       font-size: 35px;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       text-align: center;
       position: relative;
       align-self: center;
@@ -134,13 +134,14 @@
   text-align: left;
   flex-basis: 50%;
   ul {
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     z-index: 2;
     line-height: 1.75;
     position: relative;
     z-index: 2;
     strong {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
       border-bottom: 3px solid $colorYellow;
     }
     align-self: center;
@@ -173,12 +174,13 @@
   display: flex;
   align-self: center;
   margin-top: 2rem;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   z-index: 1;
   line-height: 1.75;
   position: relative;
   strong {
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
     border-bottom: 3px solid $colorYellow;
   }
   @media screen and (max-width: $screen-xs) {
@@ -203,7 +205,7 @@
     left: 0;
     top: 10px;
     width: 100%;
-    border-bottom: 9px solid $colorLightPink;
+    border-bottom: 9px solid $colorLightYellow;
     z-index: -1;
   }
 }
@@ -211,7 +213,8 @@
 .giveaway {
   color: $colorPrimary;
   font-size: 28px;
-  font-family: $fontBold;
+  font-family: $fontOmnes;
+  font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
   z-index: 2;
@@ -239,7 +242,7 @@
     font-weight: bolder;
     display: flex;
     align-items: center;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     justify-content: space-around;
     background-image: url('../../data/backgrounds/games/games-highlight.png');
     background-repeat: no-repeat;

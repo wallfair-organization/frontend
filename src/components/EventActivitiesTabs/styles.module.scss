@@ -3,12 +3,11 @@
 /* ACTIVITY TRACKER */
 .activityWrapper {
   margin-top: 32px;
-  background: $colorWhite;
-  border: 1px solid $colorLightGray;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid $colorLightGray4;
 
-  box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18),
-    0px 2px 2px rgba(159, 162, 191, 0.32);
-  border-radius: 12px;
+  box-sizing: border-box;
+  border-radius: 6px;
 
   @media screen and (max-width: $screen-xs) {
     margin-bottom: 20px;
@@ -30,13 +29,13 @@
   padding-bottom: 12px;
   opacity: 1;
   cursor: pointer;
-  border-bottom: 3px solid $mainAction;
+  border-bottom: 3px solid $colorWhite;
 }
 .tabLayout {
   display: flex;
   align-items: flex-end;
   color: $colorWhite;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -60,4 +59,3 @@
   }
 }
 /* ACTIVITY TRACKER */
-

@@ -39,7 +39,7 @@
     }
 
     .title {
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       font-size: 16px;
       font-weight: 500;
       line-height: 1.5;
@@ -91,7 +91,7 @@
           color: #979ea7;
         }
         .outcomeName {
-          font-family: $fontRegular;
+          font-family: $fontOmnes;
           font-size: 10pt;
           line-height: 1.5;
           font-weight: 500;
@@ -117,7 +117,7 @@
         font-weight: bolder;
         display: flex;
         align-items: center;
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         justify-content: space-around;
         background-image: url('../../data/backgrounds/games/games-highlight.png');
         background-repeat: no-repeat;

@@ -13,12 +13,13 @@
 
   .title {
     position: relative;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     font-size: 20px;
     margin-top: 20px;
   }
 
-  .nextGame, .prevGame {
+  .nextGame,
+  .prevGame {
     font-size: 13px;
     position: absolute;
     font-weight: 100;
@@ -40,7 +41,7 @@
   }
 
   .subtitle {
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-size: 14px;
     padding-top: 5px;
   }
@@ -62,7 +63,6 @@
   .content {
     width: 800px;
     font-size: 15px;
-
 
     & > div {
       margin-bottom: 4px;
@@ -91,7 +91,9 @@
     }
 
     //
-    .betState1, .betState4, .betState3 {
+    .betState1,
+    .betState4,
+    .betState3 {
       color: $colorRedDark;
       font-weight: bold;
     }
@@ -120,7 +122,8 @@
       font-weight: bold;
     }
 
-    td, th {
+    td,
+    th {
       padding: 5px;
       border: 1px solid #ccc;
       text-align: left;
@@ -137,8 +140,8 @@
   display: inline-block;
 }
 
-.seedsRotateForm, .seedsCurrentForm {
-
+.seedsRotateForm,
+.seedsCurrentForm {
   label {
     display: block;
     margin-bottom: 4px;
@@ -163,32 +166,21 @@
     }
   }
 
-
   .button {
-    user-select: none;
-    // position: absolute;
-    bottom: 6px;
-    left: -50%;
-    right: -50%;
-    margin: 0px auto 20px;
+    margin: 20px auto 0;
     outline: 0;
     color: white;
     @media screen and (max-width: $screen-xs) {
       margin-top: 10px;
     }
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     width: 15em;
     height: 60px;
-    border-radius: 4px;
     font-size: 16px;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-image: url('../../data/backgrounds/games/bet-button.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
 
     &:hover {
       cursor: pointer;

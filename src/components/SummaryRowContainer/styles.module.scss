@@ -1,88 +1,76 @@
 @import '../../styles/all';
 
-.emptyRow
-{
-    height: 20px;
+.emptyRow {
+  height: 20px;
 }
 
-.summaryTicketRow
-{
-    display:        flex;
-    flex-direction: row;
-    width:          100%;
-    align-items:    center;
-    justify-content: space-between;
-    position:       relative;
-    margin-bottom:  15px;
-    font-size:      14px;
+.summaryTicketRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 15px;
+  font-size: 14px;
 
-    &.summaryTicketRowColumnDirection
-    {
-        flex-direction: column;
+  &.summaryTicketRowColumnDirection {
+    flex-direction: column;
 
-        > *
-        {
-            width:           100% !important;
-            text-align:      left !important;
-            justify-content: flex-start !important;
+    > * {
+      width: 100% !important;
+      text-align: left !important;
+      justify-content: flex-start !important;
 
-            &:nth-child(2)
-            {
-                margin-top: 20px;
-            }
-        }
+      &:nth-child(2) {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .key {
+    opacity: 0.4;
+  }
+
+  .bold {
+    font-family: $fontOmnes;
+    font-weight: bold;
+  }
+
+  .big {
+    font-family: $fontOmnes;
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .textColorRed {
+    color: $colorRed;
+  }
+
+  .textColorGreen {
+    color: $colorGreen;
+  }
+
+  .highlight {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+  }
+
+  > * {
+    overflow: hidden;
+    z-index: 1;
+
+    &:first-child {
+      width: 35%;
     }
 
-    .key
-    {
-        opacity: 0.4;
+    &:nth-child(2) {
+      display: flex;
+      justify-content: flex-end;
+      text-align: right;
+      width: 65%;
     }
-
-    .bold
-    {
-        font-family: $fontBold;
-    }
-
-    .big
-    {
-        font-family: $fontBold;
-        font-size:   24px;
-    }
-
-    .textColorRed
-    {
-        color: $colorRed;
-    }
-
-    .textColorGreen
-    {
-        color: $colorGreen;
-    }
-
-    .highlight
-    {
-        position: absolute;
-        z-index:  -1;
-        top:      0;
-        bottom:   0;
-    }
-
-    > *
-    {
-        overflow:      hidden;
-        z-index:       1;
-
-        &:first-child
-        {
-            width: 35%;
-        }
-
-        &:nth-child(2)
-        {
-            display:         flex;
-            justify-content: flex-end;
-            text-align:      right;
-            width:           65%;
-        }
-    }
+  }
 }

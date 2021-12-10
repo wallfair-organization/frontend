@@ -35,7 +35,6 @@ import AudioContent from './components/AudioContent';
 import ScrollToTop from 'utils/ScrollToTop';
 import DisclaimerPopupContainer from 'components/DisclaimerPopupContainer';
 import PageTracker from 'components/PageTracker';
-import useHideMobileScrollingMenu from 'hooks/useHideMobileScrollingMenu';
 import EventRouter from 'components/Events/EventRouter';
 import TypeformController from 'components/TypeformController';
 import ElonWallPaper from 'screens/ElonWallPaper';
@@ -52,9 +51,8 @@ const { store, persistor } = configStore();
 initTagManager();
 
 const App = () => {
-  const { onScroll, hideNavbar } = useHideMobileScrollingMenu();
   return (
-    <div id={'main-scroll-container'} onScroll={onScroll} style={{ overflow: 'auto' }}>
+    <div id={'main-scroll-container'}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <ConnectedRouter history={history}>
@@ -107,41 +105,6 @@ const App = () => {
               <PrivateRoute exact path={Routes.wallet} component={UserWallet} />
               <Redirect to={Routes.home} />
             </Switch>
-            <NavbarFooter
-              hideVisibility={hideNavbar}
-              skipRoutes={[Routes.bet, Routes.verify]}
-            >
-              <NavbarFooterAction
-                route={Routes.home}
-                iconType={IconType.home}
-                text="Home"
-                trackingId="mobile-menu-home"
-              />
-              <NavbarFooterAction
-                route={Routes.games}
-                iconType={IconType.shuttle}
-                text="Games"
-                trackingId="mobile-menu-games"
-              />
-              <NavbarFooterAction
-                route={Routes.activities}
-                iconType={IconType.newsIcon}
-                text="Activities"
-                trackingId="mobile-menu-activities"
-              />
-              <NavbarFooterAction
-                route={Routes.leaderboard}
-                iconType={IconType.leaderboard}
-                text="Leaderboard"
-                trackingId="mobile-menu-leaderboard"
-              />
-              {/*<NavbarFooterAction*/}
-              {/*  route={`/live-events`}*/}
-              {/*  iconType={IconType.camera}*/}
-              {/*  text="Live Stream"*/}
-              {/*  trackingId="mobile-menu-live-events"*/}
-              {/*/>*/}
-            </NavbarFooter>
             <ScrollToTop />
           </ConnectedRouter>
         </PersistGate>

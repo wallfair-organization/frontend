@@ -4,7 +4,7 @@
   padding: 30px 0;
 
   @media (max-width: $screen-xs) {
-    padding: 0 15px 15px;
+    padding: 0;
   }
 }
 
@@ -13,7 +13,7 @@
   flex-direction: row;
   align-items: center;
   color: $colorBlack;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-size: 24px;
   font-weight: 700;
   padding-bottom: 20px;
@@ -24,6 +24,7 @@
 
   h2 {
     font-size: 33px;
+    color: $colorWhite;
 
     @media (max-width: $screen-xs) {
       font-size: 28px;
@@ -33,7 +34,7 @@
   .howtoLink {
     cursor: pointer;
     font-size: 11px;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     text-decoration: underline;
     color: $colorYellow;
 
@@ -67,10 +68,12 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  gap: 15px;
+  row-gap: 15px;
+  column-gap: 15px;
 
   @media (max-width: $screen-xs) {
-    flex-direction: column;
+    //flex-direction: column;
+    column-gap: 0px;
   }
 
   .wrapper {
@@ -78,16 +81,16 @@
     height: 491px;
 
     @media (max-width: $screen-sm) {
+      width: 43%;
+      height: auto;
       margin: 0 auto;
-    }
-
-    @media (max-width: 320px) {
-      height: 400px;
     }
 
     .gameItem {
       height: 100%;
-
+      @media (max-width: $screen-md) {
+        height: auto;
+      }
       &.gameItemLg {
         .gameInfo {
           .title {
@@ -154,8 +157,11 @@
       }
 
       img {
-        width: auto;
+        width: 100%;
         height: 100%;
+        @media (max-width: $screen-md) {
+          height: auto;
+        }
         // object-fit: contain;
         border-radius: 20px;
         border: 2px solid rgba(255, 255, 255, 0.1);
@@ -168,7 +174,7 @@
         bottom: 0;
         left: 0;
         color: $colorWhite;
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         padding: 30px;
 
         .title {
@@ -199,7 +205,7 @@
         align-items: center;
         justify-content: center;
         font-size: 24px;
-        font-family: $fontMedium;
+        font-family: $fontOmnes;
         color: #f2ff53;
         text-align: center;
         font-weight: 700;

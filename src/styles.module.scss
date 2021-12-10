@@ -40,10 +40,14 @@
   max-width: 100vw;
 }
 
+body {
+  background: $colorBackground;
+}
+
 body,
 html {
   height: 100%;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
 
   > div {
     width: 100%;

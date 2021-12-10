@@ -14,6 +14,7 @@ import IconTheme from '../Icon/IconTheme';
 
 import CryptoJS from 'crypto-js';
 import {AlertActions} from "../../store/actions/alert";
+import Button from 'components/Button';
 
 const roundToTwo = num => {
   return +(Math.round(num + 'e+2') + 'e-2');
@@ -155,14 +156,12 @@ const FairnessPopup = ({hidePopup, showPopup, data}) => {
             />
           </div>
 
-          <div
-            role="button"
-            tabIndex="0"
+          <Button
             className={classNames(styles.button)}
             onClick={handleRotateSeeds}
           >
-            {rotated ? "Rotated succesfully" : "Rotate"}
-        </div>
+            <p>{rotated ? "Rotated succesfully" : "Rotate"}</p>
+          </Button>
 
         </div>
 

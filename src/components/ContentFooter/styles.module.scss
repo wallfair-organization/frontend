@@ -4,7 +4,7 @@
   width: 100%;
   flex-direction: column;
   padding: 40px 20px 60px 20px;
-  background-color: #0e0927;
+  background-color: $colorBackground;
 }
 
 .footer {
@@ -46,7 +46,7 @@
 
     a,
     button {
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       font-size: 12px;
       display: flex;
       align-items: center;

@@ -82,11 +82,10 @@ const DisclaimerPopupView = ({ closed, hidePopup }) => {
       <Button
         onClick={handleClickButton}
         className={classNames(
-          styles.ctaButton,
-          !agreedWithTerms ? styles.disabledCTA : null
+          styles.ctaButton
         )}
         disabled={!agreedWithTerms}
-        disabledWithOverlay={false}
+        disabledWithOverlay={true}
       >
         <span>Proceed</span>
       </Button>
