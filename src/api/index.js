@@ -523,7 +523,7 @@ const convertCurrency = ({convertFrom, convertTo, amount}) => {
     },
   })
     .then(response => ({ response }))
-    .catch(error => ({ error: error.response.data }));
+    .catch(error => ({ error: error.response?.data }));
 };
 
 const getWalletTransactions = () => {

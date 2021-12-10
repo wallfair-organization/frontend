@@ -97,8 +97,8 @@ const BuyWithFiatTab = ({ hidePopup , showWalletBuyWfairPopup, showTransakSucces
         amount: currency
       };
 
-      const { response } = await convertCurrency(convertCurrencyPayload);
-      const { convertedAmount } = response?.data;
+      const response = await convertCurrency(convertCurrencyPayload);
+      const convertedAmount = response?.response?.data?.convertedAmount || 0;
       const adjustedAmount = convertedAmount * 0.9; //90% of estimated amount to consider Transak fees
       const roundedAmount = Math.floor(Number(adjustedAmount) * 100) / 100;
 
