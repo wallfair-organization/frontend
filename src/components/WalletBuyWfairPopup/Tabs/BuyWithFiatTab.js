@@ -120,14 +120,12 @@ const BuyWithFiatTab = ({ hidePopup , showWalletBuyWfairPopup, showTransakSucces
 
   const fetchUserKycData = async user => {
     if(!user?.kyc?.uid) {
-      console.log(`fetching user kyc data skipped because user hasn't completed kyc`)
       setUserKycData(null);
       return;
     }
     const userKycDataResponse = await getUserKycData(user.userId).catch(err => {
       console.error("Can't get user kyc data by id:", err);
     });
-    console.log('fetching user kyc data result:', userKycDataResponse.response?.data?.userInfo);
     setUserKycData(userKycDataResponse?.response?.data?.userInfo);
   };
 
