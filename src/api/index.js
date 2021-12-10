@@ -550,6 +550,12 @@ const getWithdrawStatus = (transactionId) => {
     .catch(error => ({ error: error.response.data }));
 };
 
+const getUserKycData = (userId) => {
+  return Api.get(ApiUrls.KYC_DATA_FOR_USER.replace(':userId', userId))
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.message }));
+};
+
 export {
   Api,
   createBet,
@@ -615,4 +621,5 @@ export {
   getWithdrawQuote,
   processWithdraw,
   getWithdrawStatus,
+  getUserKycData,
 };
