@@ -55,11 +55,15 @@ const DepositTab = ({ user, resetState, setNotSelectedNetwork }) => {
   }, [visibleWalletForm, account]);
 
   useEffect(() => {
-    resetState();
-    if (active) {
-      setTokenAreaOpen(true);
-      sendAccountMappingCall();
+    async function checkActive() {
+      resetState();
+      if (active) {
+        setTokenAreaOpen(true);
+        await sendAccountMappingCall();
+      }
     }
+
+    checkActive();
   }, [account, active, resetState, sendAccountMappingCall]);
 
   useEffect(() => {
