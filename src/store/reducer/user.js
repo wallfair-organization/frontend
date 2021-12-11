@@ -2,7 +2,7 @@ import _ from 'lodash';
 import update from 'immutability-helper';
 import { UserTypes } from '../actions/user';
 
-const initialState = {
+export const initialState = {
   users: {},
 };
 

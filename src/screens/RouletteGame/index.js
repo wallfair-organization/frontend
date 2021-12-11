@@ -77,36 +77,39 @@ const RouletteGame = ({
 
 
   useEffect(() => {
-    getSpinsAlpacaWheel(ALPACA_WHEEL_GAME_EVENT_ID)
-      .then(response => {
-        const lastSpins = response?.data.lastCrashes;
-        setSpins(lastSpins.map((spin) => {
-          const output = {};
-          if (spin.profit > 0) {
-            output.type = 'win';
-            output.value = '+' + spin.profit;
-          } else {
-            output.type = 'loss';
-            output.value = spin.profit;
-          }
+    if(userId) {
+      getSpinsAlpacaWheel(ALPACA_WHEEL_GAME_EVENT_ID)
+        .then(response => {
+          const lastSpins = response?.data.lastCrashes;
+          setSpins(lastSpins.map((spin) => {
+            const output = {};
+            if (spin.profit > 0) {
+              output.type = 'win';
+              output.value = '+' + spin.profit;
+            } else {
+              output.type = 'loss';
+              output.value = spin.profit;
+            }
 
-          output.gameHash = spin.gameHash;
+            output.gameHash = spin.gameHash;
 
-          return output;
-        }))
+            return output;
+          }))
 
-      })
-      .catch(error => {
-        dispatch(AlertActions.showError(error.message));
-      });
-
-  }, [])
+        })
+        .catch(error => {
+          dispatch(AlertActions.showError(error.message));
+        });
+    }
+  }, [userId])
 
   useEffect(() => {
     (async () => {
       //this get route is for retrieving client / server seeds for the game, if its very first time,
       //casino_fairness record will be created automatically
-      await Api.getCurrentFairnessByGame(game.id);
+      if(userId) {
+        await Api.getCurrentFairnessByGame(game.id);
+      }
     })().catch(error => {
       dispatch(AlertActions.showError({
         message: `${game.name}: ${error.response?.data || error.message}`
@@ -200,7 +203,9 @@ const RouletteGame = ({
   );
 
   const handleNewSpin = (newSpin) => {
-    setSpins([newSpin, ...spins])
+    if(userId) {
+      setSpins([newSpin, ...spins]);
+    }
   }
 
   return (

@@ -75,7 +75,8 @@ const PlinkoGame = ({
   }, []);
 
   useEffect(() => {
-    getSpinsAlpacaWheel(gameCfg.id)
+    if(userId) {
+      getSpinsAlpacaWheel(gameCfg.id)
         .then(response => {
           const lastSpins = response?.data.lastCrashes;
 
@@ -84,7 +85,7 @@ const PlinkoGame = ({
             if (spin.profit > 0) {
               output.type = 'win';
               output.value = '+' + spin.profit;
-            } else if(spin.profit === 0) {
+            } else if (spin.profit === 0) {
               output.type = 'even';
               output.value = spin.profit;
             } else {
@@ -101,8 +102,8 @@ const PlinkoGame = ({
         .catch(error => {
           dispatch(AlertActions.showError(error.message));
         });
-
-  }, [])
+    }
+  }, [userId])
 
   useEffect(() => {
     dispatch(ChatActions.fetchByRoom({ roomId: PLINKO_GAME_EVENT_ID }));
@@ -114,7 +115,9 @@ const PlinkoGame = ({
     (async () => {
       //this get route is for retrieving client / server seeds for the game, if its very first time,
       //casino_fairness record will be created automatically
-      await Api.getCurrentFairnessByGame(gameCfg.id);
+      if(userId) {
+        await Api.getCurrentFairnessByGame(gameCfg.id);
+      }
     })().catch(error => {
       dispatch(AlertActions.showError({
         message: `${gameCfg.name}: ${error.response?.data || error.message}`

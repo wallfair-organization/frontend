@@ -93,7 +93,7 @@ const PlinkoGame = ({
           dispatch(AlertActions.showError(error.message));
         });
     }
-  }, [])
+  }, [user.isLoggedIn])
 
   useEffect(() => {
     dispatch(ChatActions.fetchByRoom({ roomId: ALPACANNON_GAME_EVENT_ID }));

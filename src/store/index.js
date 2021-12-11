@@ -15,6 +15,7 @@ import Environment from '../helper/Environment';
 import createMigrate from 'redux-persist/es/createMigrate';
 import { migrations, MIGRATION_VERSION } from './migration';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
+import {initialState as userInitialState} from './reducer/user';
 
 export const history = createBrowserHistory();
 export const sagaMiddleware = createSagaMiddleware();
@@ -38,8 +39,22 @@ const allMiddlewares = [
 ];
 const middlewares = _.reject(allMiddlewares, _.isNull);
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
+
+const rootReducerProxy = (state, action) => {
+  if (action.type === 'Authentication/LOGOUT') {
+    //destroy user on logout from redux-persist
+    state = {
+      ...state,
+      user: {
+        ...userInitialState
+      }
+    }
+  }
+  return persistedReducer(state, action);
+};
+
 const store = createStore(
-  persistedReducer,
+  rootReducerProxy,
   {},
   composeEnhancers(withReady, applyMiddleware(...middlewares))
 );

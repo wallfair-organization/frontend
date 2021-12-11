@@ -109,36 +109,39 @@ const Game = ({
   }
 
   useEffect(() => {
-    getLastCashoutsMines(GAME_TYPE_ID)
-      .then(response => {
-        const lastCashouts = response?.data.lastCrashes;
-        setCashouts(lastCashouts.map((entry)=> {
-          const output = {};
-          if(entry.profit > 0) {
-            output.type = 'win';
-            output.value = '+' + entry.profit;
-          } else {
-            output.type = 'loss';
-            output.value = entry.profit;
-          }
+    if(userId) {
+      getLastCashoutsMines(GAME_TYPE_ID)
+        .then(response => {
+          const lastCashouts = response?.data.lastCrashes;
+          setCashouts(lastCashouts.map((entry) => {
+            const output = {};
+            if (entry.profit > 0) {
+              output.type = 'win';
+              output.value = '+' + entry.profit;
+            } else {
+              output.type = 'loss';
+              output.value = entry.profit;
+            }
 
-          output.gameHash = entry.gameHash;
+            output.gameHash = entry.gameHash;
 
-          return output;
-        }))
+            return output;
+          }))
 
-      })
-      .catch(error => {
-        dispatch(AlertActions.showError(error.message));
-      });
-
+        })
+        .catch(error => {
+          dispatch(AlertActions.showError(error.message));
+        });
+    }
   }, [user.isLoggedIn])
 
   useEffect(() => {
     (async () => {
       //this get route is for retrieving client / server seeds for the game, if its very first time,
       //casino_fairness record will be created automatically
-      await gameApi.getCurrentFairnessByGame(gameCfg.id);
+      if(userId) {
+        await gameApi.getCurrentFairnessByGame(gameCfg.id);
+      }
     })().catch(error => {
       dispatch(AlertActions.showError({
         message: `${GAME_NAME}: ${error.response?.data || error.message}`
