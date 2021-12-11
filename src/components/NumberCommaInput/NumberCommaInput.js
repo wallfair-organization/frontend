@@ -13,9 +13,10 @@ const NumberCommaInput = ({ value, onChange, min, max, ...rest }) => {
     const string = event.target.value;
     let stringNumber = string.replace(/,/, '.'); // replace comma with dot
 
-    if (stringNumber[0] === '.') stringNumber = '';
-    if (stringNumber[0] === '-' && stringNumber[1] === '.')
+    if (stringNumber[0] === '.') stringNumber = ''; // do not start with dot
+    if (stringNumber[0] === '-' && stringNumber[1] === '.') // do not has minus and then dot
       stringNumber = string[0];
+    if(stringNumber[stringNumber.length - 1] === '-' && stringNumber.length > 1) stringNumber = stringNumber.substr(0, stringNumber.length - 1); // do not have minus after number
 
     stringNumber = stringNumber.replace(/[^\d.-]/g, ''); // keep only numbers
 
@@ -42,9 +43,5 @@ const NumberCommaInput = ({ value, onChange, min, max, ...rest }) => {
     />
   );
 };
-
-NumberCommaInput.propTypes = {
-
-}
 
 export default NumberCommaInput

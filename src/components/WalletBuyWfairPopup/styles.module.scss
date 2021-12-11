@@ -407,7 +407,7 @@
       font-size: 16px;
       font-family: $fontOmnes;
       font-weight: bold;
-      &:focus-visible {
+      &:focus-visible, &:focus, &:focus-within {
         outline: none;
       }
       @media (max-width: $screen-md) {

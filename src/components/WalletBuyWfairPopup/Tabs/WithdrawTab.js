@@ -18,6 +18,7 @@ import EthereumLogoActive from '../../../data/icons/ethereum-logo-icon-active.sv
 import EthereumLogo from '../../../data/icons/ethereum-logo-icon.svg';
 import PolygonLogoActive from '../../../data/icons/polygon-logo-active.svg';
 import PolygonLogo from '../../../data/icons/polygon-logo.svg';
+import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
 
 const networkName = {
   polygon: 'MATIC',
@@ -68,9 +69,8 @@ const WithdrawTab = () => {
     setAddress(inputAddress);
   }, []);
 
-  const tokenAmountChange = useCallback(event => {
-    const inputAmount = event.target.value;
-    setTokenAmount(inputAmount);
+  const tokenAmountChange = useCallback(value => {
+    setTokenAmount(value);
   }, []);
 
   const addressLostFocus = useCallback(event => {
@@ -222,7 +222,7 @@ const WithdrawTab = () => {
             <div className={styles.labelContainer}>
               <span>Amount you wish to withdraw</span>
             </div>
-            <input 
+            <NumberCommaInput 
               value={tokenAmount} 
               onChange={tokenAmountChange}
               onBlur={tokenAmountLostFocus}

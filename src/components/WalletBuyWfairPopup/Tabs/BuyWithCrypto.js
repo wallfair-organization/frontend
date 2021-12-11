@@ -15,6 +15,7 @@ import ReferralLinkCopyInputBox from 'components/ReferralLinkCopyInputBox';
 import InputBoxTheme from 'components/InputBox/InputBoxTheme';
 import { addMetaMaskEthereum } from 'utils/helpers/ethereum';
 import QRCode from 'react-qr-code';
+import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
 
 const cryptoShortName = {
   bitcoin: 'BTC',
@@ -66,8 +67,8 @@ const BuyWithCrypto = () => {
     event.target.select();
   };
 
-  const currencyChange = event => {
-    const inputCurrency = event.target.value > 2000 ? 2000 : event.target.value;
+  const currencyChange = value => {
+    const inputCurrency = value > 2000 ? 2000 : value;
     setCurrency(inputCurrency);
   };
 
@@ -163,27 +164,25 @@ const cryptoAddressLostFocus = useCallback(event => {
           <div className={styles.cryptoCalculatorContainer}>
             {/* Crypto Address */}
             <div className={styles.addressInputContainer}>
-            <div className={styles.labelContainer}>
-              <span>
-                {activeTab} Wallet Address
-              </span>
+              <div className={styles.labelContainer}>
+                <span>{activeTab} Wallet Address</span>
+              </div>
+              <input
+                type="text"
+                value={cryptoAddress}
+                onChange={cryptoAddressChange}
+                onBlur={cryptoAddressLostFocus}
+                onClick={selectContent}
+                placeholder={`Add your ${cryptoShortName[activeTab]} wallet address`}
+              />
             </div>
-            <input
-              type="text"
-              value={cryptoAddress}
-              onChange={cryptoAddressChange}
-              onBlur={cryptoAddressLostFocus}
-              onClick={selectContent}
-              placeholder={`Add your ${cryptoShortName[activeTab]} wallet address`}
-            />
-          </div>
 
             {/* Currency */}
             <div className={styles.cryptoInputContiner}>
               <div className={styles.labelContainer}>
                 <span>You pay</span>
               </div>
-              <input
+              <NumberCommaInput
                 value={currency}
                 min={1}
                 max={2000}
