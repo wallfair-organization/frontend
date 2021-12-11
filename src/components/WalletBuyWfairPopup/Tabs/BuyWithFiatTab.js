@@ -14,6 +14,7 @@ import classNames from 'classnames';
 import { addMetaMaskEthereum } from 'utils/helpers/ethereum';
 import * as _ from 'lodash';
 import { TransactionActions } from 'store/actions/transaction';
+import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
 
 const BuyWithFiatTab = ({ hidePopup , showWalletBuyWfairPopup, showTransakSuccessPopup, user, fetchWalletTransactions }) => {
   const CURRENCY_OPTIONS = [
@@ -83,10 +84,11 @@ const BuyWithFiatTab = ({ hidePopup , showWalletBuyWfairPopup, showTransakSucces
     event.target.select();
   }
 
-  const currencyChange = event => {
-    const inputCurrency = event.target.value > 2000 ? 2000 : event.target.value;
+  const currencyChange = value => {
+    const inputCurrency = value > 2000 ? 2000 : value;
     setCurrency(inputCurrency);
-  }
+  };
+
 
   const currencyLostFocus = async (event) => {
     if (currency > 0) {
@@ -198,8 +200,7 @@ const BuyWithFiatTab = ({ hidePopup , showWalletBuyWfairPopup, showTransakSucces
           <div className={styles.labelContainer}>
             <span>You pay</span>
           </div>
-          <input
-            type="number"
+          <NumberCommaInput
             value={currency}
             min={1}
             max={2000}
@@ -207,6 +208,15 @@ const BuyWithFiatTab = ({ hidePopup , showWalletBuyWfairPopup, showTransakSucces
             onBlur={currencyLostFocus}
             onClick={selectContent}
           />
+          {/* <input
+            type="text"
+            value={currency}
+            min={1}
+            max={2000}
+            onChange={currencyChange}
+            onBlur={currencyLostFocus}
+            onClick={selectContent}
+          /> */}
           <div className={styles.inputRightContainer}>
             <div className={styles.innerContiner}>
               <Dropdown
@@ -230,16 +240,30 @@ const BuyWithFiatTab = ({ hidePopup , showWalletBuyWfairPopup, showTransakSucces
           <input disabled readOnly value={WFAIRToken} />
           <div className={styles.inputRightContainer}>
             <div className={styles.coinWrapper}>
-              <WfairIcon className={styles.wfairLogo} onClick={handleWFAIRClick} /><span>WFAIR</span>
+              <WfairIcon
+                className={styles.wfairLogo}
+                onClick={handleWFAIRClick}
+              />
+              <span>WFAIR</span>
             </div>
           </div>
         </div>
         <div className={styles.textContainer}>
-          <p>The value shown in WFAIR is an estimate. Transactions are subject to price fluctuations.</p>
-          <p>All transactions are processed via the external partner Transak.com. When you click the button below, you will be redirected to the partner page to complete the transaction.</p>
+          <p>
+            The value shown in WFAIR is an estimate. Transactions are subject to
+            price fluctuations.
+          </p>
+          <p>
+            All transactions are processed via the external partner Transak.com.
+            When you click the button below, you will be redirected to the
+            partner page to complete the transaction.
+          </p>
         </div>
         <button
-          className={classNames(styles.transankContineButton, currency === 0 ? styles.disabled : null)}
+          className={classNames(
+            styles.transankContineButton,
+            currency === 0 ? styles.disabled : null
+          )}
           onClick={OnClickTransakContinue}
           disabled={currency === 0}
         >
