@@ -223,6 +223,7 @@ const WithdrawTab = () => {
               <span>Amount you wish to withdraw</span>
             </div>
             <NumberCommaInput 
+              min={1}
               value={tokenAmount} 
               onChange={tokenAmountChange}
               onBlur={tokenAmountLostFocus}
