@@ -208,15 +208,6 @@ const BuyWithFiatTab = ({ hidePopup , showWalletBuyWfairPopup, showTransakSucces
             onBlur={currencyLostFocus}
             onClick={selectContent}
           />
-          {/* <input
-            type="text"
-            value={currency}
-            min={1}
-            max={2000}
-            onChange={currencyChange}
-            onBlur={currencyLostFocus}
-            onClick={selectContent}
-          /> */}
           <div className={styles.inputRightContainer}>
             <div className={styles.innerContiner}>
               <Dropdown
