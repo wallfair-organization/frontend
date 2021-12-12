@@ -284,7 +284,7 @@ const Home = ({
           <h1>Alpacasino</h1>
           <h2>
             Get your <span className={styles.highlight}>50 PFAIR bonus</span> and<br/>
-            create yoru <span className={styles.highlight}>alpaca</span>
+            create your <span className={styles.highlight}>alpaca</span>
           </h2>
 
           <Button

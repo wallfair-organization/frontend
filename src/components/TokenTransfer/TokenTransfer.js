@@ -95,7 +95,7 @@ const TokenTransfer = ({
         />
       )} */}
       <div className={styles.transferWrapper}>
-        <strong>{`You can transfer up to ${numberWithCommas(
+        <strong>{`You can deposit up to ${numberWithCommas(
           balance > 2000 ? 2000 : Number(balance).toFixed(2)
         )} WFAIR`}</strong>
         {formError && (
