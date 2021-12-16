@@ -35,7 +35,7 @@ const fetchWalletTransactions = function* () {
 
     const { data } = yield call(Api.getWalletTransactions);
 
-    const statuses = ['new', 'processing', 'completed'];
+    const statuses = ['in_review', 'review_rejected', 'new', 'processing', 'completed'];
 
     const transactions = data
       .reduce(
