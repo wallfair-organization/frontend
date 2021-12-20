@@ -60,13 +60,13 @@ const AmbassadorBanner = () => {
                   <ThreeStars />
                   <div className={styles.textContainer}>
                     <p>
-                      Galaxy Alpaca Badge /{' '}
+                      Galaxy Alpaca Badge<br />
                       <span className={styles.whiteText}>
                         First 150 registered players
                       </span>
                     </p>
                     <p className={styles.whiteSubText}>
-                      20% referral lifetime bonus up to 20 000 000 WFAIR / month
+                      20% referral lifetime bonus up to 20 000 000 WFAIRs / month
                     </p>
                   </div>
                 </div>
@@ -74,13 +74,13 @@ const AmbassadorBanner = () => {
                   <TwoStars />
                   <div className={styles.textContainer}>
                     <p>
-                      Galaxy Alpaca Badge /{' '}
+                      Star Alpaca Badge<br />
                       <span className={styles.whiteText}>
-                        First 150 registered players
+                        Players 151 - 300
                       </span>
                     </p>
                     <p className={styles.whiteSubText}>
-                      20% referral lifetime bonus up to 20 000 000 WFAIR / month
+                      20% referral lifetime bonus up to 10 000 000 WFAIRs / month
                     </p>
                   </div>
                 </div>
@@ -88,13 +88,13 @@ const AmbassadorBanner = () => {
                   <OneStar />
                   <div className={styles.textContainer}>
                     <p>
-                      Galaxy Alpaca Badge /{' '}
+                      Moon Alpaca Badge<br />
                       <span className={styles.whiteText}>
-                        First 150 registered players
+                        Players 301 - 500
                       </span>
                     </p>
                     <p className={styles.whiteSubText}>
-                      20% referral lifetime bonus up to 20 000 000 WFAIR / month
+                      15% GGR referral lifetime bonus up to 3 000 000 WFAIRs / month
                     </p>
                   </div>
                 </div>
