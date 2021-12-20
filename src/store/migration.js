@@ -1,4 +1,4 @@
-export const MIGRATION_VERSION = 9;
+export const MIGRATION_VERSION = 10;
 
 export const migrations = {
   0: state => {
@@ -160,4 +160,13 @@ export const migrations = {
       },
     };
   },
+  10: state => {
+    return {
+      ...state,
+      authentication: {
+        ...state.authentication,
+        shouldAcceptToS: false,
+      },
+    };
+  }
 };

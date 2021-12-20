@@ -74,7 +74,7 @@ const EvaluateEventPopup = ({ betQuestion, hidePopup }) => {
         disabledWithOverlay={false}
         withoutBackground={true}
       >
-        <span className={'buttonText'}>Send</span>
+        Send
       </Button>
     </div>
   );

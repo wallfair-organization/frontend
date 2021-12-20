@@ -1,0 +1,97 @@
+@import '../../styles/all';
+
+.successTransakContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding-top: 60px;
+  background-color: $colorWhite;
+  color: $colorPrimaryDark;
+  border-radius: 10px;
+  row-gap: 10px;
+  padding: 60px 25px 25px;
+
+  .successTransakHeadline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+    font-family: $fontOmnes;
+    font-weight: bold;
+
+    .logo {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .successText {
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    font-family: $fontOmnes;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .betButtonContainer {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: auto;
+    margin-top: 16px;
+
+    @media (min-width: $screen-sm) {
+      margin-bottom: 20px;
+      font-size: 23px;
+    }
+
+    .betButton {
+      background-color: transparent;
+      width: 100%;
+      max-width: 355px;
+      margin: 0 auto;
+
+      svg > * {
+        fill: $mainAction;
+      }
+
+      &.sellButton {
+        margin-left: 25%;
+        margin-bottom: 20px;
+        font-size: 16px;
+
+        @media (min-width: $screen-sm) {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .summary {
+    width: 100%;
+    border-top: 1px dashed $colorGrayLight2;
+    padding: 20px 30px 40px;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      @media (max-width: $screen-sm) {
+        margin-bottom: 10px;
+      }
+
+      .key {
+        opacity: 0.4;
+      }
+
+      .value {
+        color: $colorPrimary;
+      }
+    }
+  }
+}

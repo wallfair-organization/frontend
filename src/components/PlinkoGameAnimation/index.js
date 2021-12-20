@@ -2,112 +2,153 @@ import cn from 'classnames';
 import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector, connect } from 'react-redux';
-import { ROSI_GAME_AFTER_CRASH_DELAY } from 'constants/RosiGame';
-import {
-  selectHasStarted,
-  selectTimeStarted,
-  selectLastCrash,
-  selectCashedOut,
-  selectNextGameAt,
-} from 'store/selectors/rosi-game';
-//import Timer from './Timer';
-//import Counter from './Counter';
 import styles from './styles.module.scss';
-import { RosiGameActions } from '../../store/actions/rosi-game';
 import VolumeSlider from '../VolumeSlider';
-//import GameAudioControls from '../GameAudioControls';
-import AnimationController from './AnimationController';
+import { AudioController } from '../AudioController';
+import { AnimationController, BackgroundPlinko } from './AnimationController'
+import GameAudioControlsLocal from '../GameAudioControlsLocal';
+import { isMobile } from 'react-device-detect';
 
-/*
-const PreparingRound = ({ nextGameAt }) => (
-  <div className={styles.preparingRound}>
-    <div>
-      <h2 className={styles.title}>Preparing Round</h2>
-      <div className={styles.description}>
-        <span>
-          Starting in <Counter className={styles.counter} from={nextGameAt} />
-        </span>
-      </div>
-    </div>
-  </div>
-);
-
-const GameOffline = () => (
-  <div className={styles.preparingRound}>
-    <div>
-      <h2 className={styles.title}>Connecting to the game engine</h2>
-      <div className={styles.description}>
-        If this takes too long, try reloading the page
-      </div>
-    </div>
-  </div>
-);
+/*const colors = ["#d7393f", "#dd8549", "#e6e76a"]
+const backgroundString = (backg) =>`conic-gradient(from 90deg at 50% 50%, ${colors[backg]} 0%,
+  ${colors[backg]} 10%, ${colors[backg+1]} 10%,
+  ${colors[backg+1]} 15%, ${colors[backg+2]} 15%,
+  ${colors[backg+2]} 20%, ${colors[backg]} 20%,
+  ${colors[backg]} 25%, ${colors[backg+1]} 25%,
+  ${colors[backg+1]} 30%, ${colors[backg+2]} 30%,
+  ${colors[backg+2]} 35%, ${colors[backg]} 35%,
+  ${colors[backg]} 40%, ${colors[backg+1]} 40%,
+  ${colors[backg+1]} 45%, ${colors[backg+2]} 45%,
+  ${colors[backg+2]} 50%, ${colors[backg]} 50%,
+  ${colors[backg]} 55%, ${colors[backg+1]} 55%,
+  ${colors[backg+1]} 60%, ${colors[backg+2]} 60%,
+  ${colors[backg+2]} 65%, ${colors[backg]} 65%,
+  ${colors[backg]} 70%, ${colors[backg+1]} 70%,
+  ${colors[backg+1]} 75%, ${colors[backg+2]} 75%,
+  ${colors[backg+2]} 80%, ${colors[backg]} 80%,
+  ${colors[backg]} 85%, ${colors[backg+1]} 85%,
+  ${colors[backg+1]} 90%, ${colors[backg+2]} 90%,
+  ${colors[backg+2]} 95%, ${colors[backg]} 95%,
+  ${colors[backg]} 100%, ${colors[backg+1]} 100%)`
 */
-
-const RouletteGameAnimation = ({
+const PlinkoGameAnimation = ({
   connected,
-  muteButtonClick,
-  isMute,
-  setSpins,
-  isSynced,
-  isLosing,
-  volumeLevel,
-  musicIndex,
-  animationIndex,
+  amount,
+  activities,
   onInit,
+  risk,
+  setBet,
+  userId,
+  setSpins,
+  bet
 }) => {
   const dispatch = useDispatch();
-  const canvasRef = useRef(null);
   const backgroundRef = useRef(null);
-  const lastCrashValue = useSelector(selectLastCrash);
-  const cashedOut = useSelector(selectCashedOut);
-  const nextGameAtTimeStamp = useSelector(selectNextGameAt);
 
-  const [running, setRunning] = useState(false);
-  const [isAnimationReady, setAnimationReady] = useState(false);
   const [audio, setAudio] = useState(null);
+  const [width, setWidth] = useState(null);
+  const [height, setHeight] = useState(null);
+  const [backg, setBackg] = useState(0);
+  const [lastgame, setLastgame] = useState(null);
+  const [shadow, setShadow] = useState(null);
+  //const [backgr, setBackgr] = useState(backgroundString(0));
+  const [flag, setFlag] = useState(false);
+  const [ball, setBall] = useState(null);
+
+  useEffect(() => {
+    const lastnewgame = activities[activities.length-1]?.data
+    if(activities?.length > 0 && lastgame != lastnewgame.gameHash && lastnewgame.gameName == "GAME_PLINKO" && lastnewgame.userId != userId){
+      lastgame && setShadow(lastnewgame.path)
+      setLastgame(lastnewgame.gameHash)
+    }
+  }, [activities])
+
+  useEffect(() => {
+    if(backgroundRef) {
+      setWidth(backgroundRef.current.clientWidth)
+      setHeight(backgroundRef.current.clientHeight)
+    }
+    const aud = new AudioController(1)
+    setAudio(aud)
+    aud.startBgm();
+    onInit(aud)
+    return () => {
+      aud.stopBgm();
+    }
+  },[])
+
   /*
   useEffect(() => {
-    AnimationController.init(canvasRef.current, {
-      width: backgroundRef.current.clientWidth,
-      height: backgroundRef.current.clientHeight,
-    });
-    AnimationController.repaint(0);
-  }, []);
+    setBackgr(backgroundString(backg))
+  },[backg])
 */
+
+  useEffect(() => {
+    if(bet && !bet.ready && bet.path) spin(bet);
+  }, [bet]);
+
   const spin = async () => {
-    const newspin = await AnimationController.spinTo();
-    setSpins(newspin);
-  };
+    setBall({ path: bet.path, winMultiplier: bet.winMultiplier })
+    !bet.autobet && setBet((bet) => {return{ball: bet.ball, ready: true, amount: bet.amount, profit: bet.profit, reward: bet.reward, gameHash: bet.gameHash}});
+  }
+
+  const changeBackground = (count) => {
+    if(flag) return
+    else setFlag(true)
+    setBackg((backg) => backg === 2 ? 0 : backg + 1)
+    setTimeout(() => {
+      setBackg((backg) => backg === 2 ? 0 : backg + 1)
+      count < 30 ? changeBackground(count + 1) : setFlag(false)
+    }, 100)
+  }
+
+  const handleEnd = (win, demo) => {
+    if(demo) {
+      setBet((bet) => {return {...bet, ball: bet.ball-1}})
+      return
+    }
+    if(win) {
+      audio.playWinSound()
+      changeBackground(0)
+    } else audio.playLoseSound();
+
+    const newSpin = {};
+    if (bet.profit > 0) {
+      newSpin.type = 'win';
+      newSpin.value = '+' + bet.profit;
+    } else if(bet.profit === 0) {
+      newSpin.type = 'even';
+      newSpin.value = bet.profit;
+    } else {
+      newSpin.type = 'loss';
+      newSpin.value = bet.profit;
+    }
+
+    newSpin.gameHash = bet.gameHash;
+
+    setSpins((spins) => [newSpin].concat(spins))
+
+    bet.autobet ?
+     setBet((bet) => {return {...bet, ball: bet.ball-1, ready: true}}) :
+     setBet((bet) => {return {...bet, ball: bet.ball-1}})
+  }
+
   return (
     <div ref={backgroundRef} className={styles.animation}>
-      {/*<canvas className={styles.canvas} onClick={spin} ref={canvasRef}></canvas>
-       */}
+      {audio && <GameAudioControlsLocal game='plinko' audio={audio} />}
+      <img className={styles.trape} src="/images/casino-games/Trapezoid.png" alt="" />
+      <BackgroundPlinko state={backg} width={width} height={height} size={Math.sqrt(width*width+height*height)*1.1} />
+      {width && height && <AnimationController risk={risk} amount={bet.autobet ? bet.amount:amount} ballValue={ball} audio={audio} onEnd={handleEnd} setBall={setBall} shadow={shadow} setShadow={setShadow} />}
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    connected: state.websockets.connected,
-    isMute: state.rosiGame.volumeLevel == 0,
-    volumeLevel: state.rosiGame.volumeLevel,
-    musicIndex: state.rosiGame.musicIndex,
-    isSynced: state.rosiGame.timeStarted || state.rosiGame.nextGameAt,
-    animationIndex: state.rosiGame.animationIndex,
-    isLosing: state.rosiGame.userBet && !state.rosiGame.isCashedOut,
+    userId: state.authentication.userId,
+    activities: state.notification.activities,
+    connected: state.websockets.connected
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    muteButtonClick: () => {
-      dispatch(RouletteGameAnimation.muteButtonClick());
-    },
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RouletteGameAnimation);
+export default connect(mapStateToProps)(PlinkoGameAnimation);

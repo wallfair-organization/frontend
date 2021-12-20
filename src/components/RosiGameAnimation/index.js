@@ -68,7 +68,7 @@ const RosiGameAnimation = ({
       RosiGameAnimationController.load(() => {
         setAnimationReady(true);
         if (isPreparingRound) {
-          RosiGameAnimationController.preparingRound.show();
+          RosiGameAnimationController.preparingRound.show(animationIndex);
         }
       });
     }

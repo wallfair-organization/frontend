@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import React from 'react';
 import { Slider, useMediaQuery } from '@material-ui/core';
 
-function VolumeSlider({ level = 0.5, handleChange = () => {} }) {
+function VolumeSlider({ level = 0.5, handleChange = () => {}, color = '#7166c7' }) {
   const isMobile = useMediaQuery('(max-width: 768px)');
   return (
     <Slider
@@ -14,8 +14,9 @@ function VolumeSlider({ level = 0.5, handleChange = () => {} }) {
       orientation={isMobile ? 'vertical' : 'horizontal'}
       min={0}
       max={100}
+      style={{color: color}}
       sx={{
-        color: '#36344c',
+        color,
         width: 100,
       }}
     />

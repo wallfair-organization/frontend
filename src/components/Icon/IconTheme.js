@@ -5,4 +5,5 @@ export default {
   white: 'white',
   notification: 'notification',
   favorite: 'favorite',
+  transparent: 'transparent',
 };

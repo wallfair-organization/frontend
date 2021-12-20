@@ -4,51 +4,58 @@ const _ = require('lodash');
 // default routes, set meta values for static pages
 let meta = {
   '/': {
-    title: 'Wallfair.',
-    description: 'Betting Reimagined',
-    image: 'https://play.wallfair.io/logo192.png',
-    keywords: 'wallfair, casino, betting, esports, crypto',
+    title: 'Alpacasino',
+    description: 'Fair, Social, Decentralized',
+    image: 'https://alpacasino.io/logo_512.png?v=3',
+    keywords: 'alpacasino, casino, betting, esports, crypto',
   },
   '/live-events/all': {
-    title: 'Wallfair Live Events',
+    title: 'Alpacasino Live Events',
     description: 'High Energy, Live events',
-    image: 'https://play.wallfair.io/logo192.png',
-    keywords: 'wallfair, casino, live, events, betting, esports, gaming',
+    image: 'https://alpacasino.io/logo_512.png?v=3',
+    keywords: 'alpacasino, casino, live, events, betting, esports, gaming',
   },
   '/live-events': {
-    title: 'Wallfair Live Events',
+    title: 'Alpacasino Live Events',
     description: 'Fast Paced Live-Events',
-    image: 'https://play.wallfair.io/logo192.png',
+    image: 'https://alpacasino.io/logo_512.png?v=3',
     keywords:
-      'wallfair, casino, live, events, esports, crypto, gaming, sports, betting',
+      'alpacasino, casino, live, events, esports, crypto, gaming, sports, betting',
   },
   '/events/all': {
-    title: 'Wallfair Events',
+    title: 'Alpacasino Events',
     description: 'Intense, high-paced and hilarious events for everyone',
-    image: 'https://play.wallfair.io/logo192.png',
+    image: 'https://alpacasino.io/logo_512.png?v=3',
     keywords:
-      'wallfair, casino, events, politics, news, sports, esports, gaming, crypto',
+      'alpacasino, casino, events, politics, news, sports, esports, gaming, crypto',
   },
   '/events': {
-    title: 'Wallfair Events',
+    title: 'Alpacasino Events',
     description: 'Will Harris take the 2024 US Election?',
-    image: 'https://play.wallfair.io/logo192.png',
+    image: 'https://alpacasino.io/logo_512.png?v=3',
     keywords:
-      'Wallfair, Casino, Events, Harris, Biden, Trump, Crypto, Esports, Sports, Gaming',
+      'Alpacasino, Casino, Events, Harris, Biden, Trump, Crypto, Esports, Sports, Gaming',
   },
   '/games': {
-    title: 'Wallfair Games',
-    description: 'Earn more with Wallfair games, all day, everyday',
-    image: 'https://play.wallfair.io/logo192.png',
+    title: 'Alpacasino Games',
+    description: 'Earn more with Alpacasino games, all day, everyday',
+    image: 'https://alpacasino.io/logo_512.png?v=3',
     keywords:
-      'wallfair, casino, games betting, vegas, gambling, odds, roulette, crypto-casino',
+      'alpacasino, casino, games betting, vegas, gambling, odds, roulette, crypto-casino',
   },
   '/games/elon-game': {
-    title: 'Wallfair Elon Game',
+    title: 'Alpacasino Elon Game',
     description: 'To the Moon with Elon, big wins, tiny rocket',
-    image: 'https://play.wallfair.io/rosi-games-banner.png',
+    image: 'https://alpacasino.io/rosi-games-banner.png?v=3',
     keywords:
-      'Wallfair, Casino, Games, Elon, Moon, Rocket, Crypto, Casino, Betting',
+      'alpacasino, Casino, Games, Elon, Moon, Rocket, Crypto, Casino, Betting',
+  },
+  '/games/alpaca-wheel': {
+    title: 'Alpacasino Alpaca Wheel',
+    description: 'Earn more with Alpacasino games, all day, everyday',
+    image: 'https://alpacasino.io/logo_512.png?v=3',
+    keywords:
+      'alpacasino, Casino, Games, Wheel, Rocket, Crypto, Casino, Betting',
   },
 };
 
@@ -103,18 +110,18 @@ module.exports = {
     const response = await axios.get(apiPath);
     if (response && response.data) {
       let data = response.data;
-      const userName = data['username'] || 'wallfair';
+      const userName = data['username'] || 'alpaca';
       const aboutMe =
         data['aboutMe'] ||
         'This user has not provided an about info yet. How boring!';
       const photoUrl =
-        data['profilePicture'] || 'https://play.wallfair.io/logo192.png';
+        data['profilePicture'] || 'https://alpacasino.io/logo_192.png';
       const userTag = '/user/' + userId;
       meta[userTag] = {
         title: userName,
         description: aboutMe,
         image: photoUrl,
-        keywords: 'wallfair, casino, users, profile, social, gaming, crypto',
+        keywords: 'alpacasino, casino, users, profile, social, gaming, crypto',
       };
     }
     return meta;

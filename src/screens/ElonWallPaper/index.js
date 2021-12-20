@@ -12,7 +12,7 @@ const ElonWallPaper = () => {
           wallpapers={ELON_WALLPAPERS}
           category="Elon Wallpapers"
         />
-        <ContentFooter />
+        
       </div>
     </BaseContainerWithNavbar>
   );

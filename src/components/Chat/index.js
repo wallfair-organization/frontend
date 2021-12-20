@@ -214,25 +214,27 @@ const Chat = ({
       >
         {renderMessages()}
       </div>
-      <div
-        className={classNames(
-          styles.messageInput,
-          inputClassName,
-          hideInput ? styles.messageInputHidden : null,
-          !isLoggedIn() || !connected ? styles.disabled : null
-        )}
-      >
-        <Input
-          type={'text'}
-          placeholder={'Write here...'}
-          value={message}
-          disabled={!isLoggedIn()}
-          onChange={onMessageInputChange}
-          onSubmit={onMessageSend}
-        />
-        <button type={'submit'} onClick={onMessageSend}>
-          <Icon iconType={IconType.chat} iconTheme={IconTheme.primary} />
-        </button>
+      <div className={styles.messageInputWrapper}>
+        <div
+          className={classNames(
+            styles.messageInput,
+            inputClassName,
+            hideInput ? styles.messageInputHidden : null,
+            !isLoggedIn() || !connected ? styles.disabled : null
+          )}
+        >
+          <Input
+            type={'text'}
+            placeholder={'Write here...'}
+            value={message}
+            disabled={!isLoggedIn()}
+            onChange={onMessageInputChange}
+            onSubmit={onMessageSend}
+          />
+          <button type={'submit'} onClick={onMessageSend}>
+            <Icon iconType={IconType.chat} iconTheme={IconTheme.primary} />
+          </button>
+        </div>
       </div>
     </div>
   );

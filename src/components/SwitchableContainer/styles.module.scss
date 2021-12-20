@@ -1,106 +1,91 @@
 @import '../../styles/all';
 
-.switchableViewsContainer
-{
-    display:     flex;
-    align-items: center;
-    width:       100%;
-    padding-top: 2rem;
+.switchableViewsContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-top: 2rem;
 
-    &.withWhiteBackground
-    {
-        background-color: $colorWhite;
+  &.withWhiteBackground {
+    background-color: $colorWhite;
+  }
+
+  &.fullWidthSwitches {
+    justify-content: center;
+
+    .switchableViews {
+      width: 100%;
+      margin-right: 0 !important;
+    }
+  }
+
+  .switchableViews {
+    display: block;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.8rem;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-right: 30px;
+
+    &:last-child {
+      margin: 0;
     }
 
-    &.fullWidthSwitches
-    {
-        justify-content: center;
-
-        .switchableViews
-        {
-            width:        100%;
-            margin-right: 0 !important;
+    &.underlineInactive {
+      &:not(.selected) {
+        .line {
+          opacity: 0.1;
+          height: 1px;
+          background-color: $colorBlack;
         }
+      }
+
+      &.selected {
+        .line {
+          height: 2px;
+          background-color: $colorBlack;
+        }
+      }
     }
 
-    .switchableViews
-    {
-        display:             block;
-        text-align:          center;
-        position:            relative;
-        padding-bottom:      0.8rem;
-        cursor:              pointer;
-        font-size:           16px;
-        -webkit-user-select: none;
-        -moz-user-select:    none;
-        -ms-user-select:     none;
-        user-select:         none;
-        margin-right:        30px;
+    &.selected {
+      .line {
+        opacity: 1;
+      }
 
-        &:last-child {
-            margin: 0;
-        }
-
-        &.underlineInactive
-        {
-            &:not(.selected)
-            {
-                .line
-                {
-                    opacity:          0.1;
-                    height:           1px;
-                    background-color: $colorBlack;
-                }
-            }
-
-            &.selected
-            {
-                .line
-                {
-                    height:           2px;
-                    background-color: $colorBlack;
-                }
-            }
-        }
-
-        &.selected
-        {
-            .line
-            {
-                opacity: 1;
-            }
-
-            .text
-            {
-                font-family: $fontBold;
-                opacity:     1;
-            }
-        }
-
-        .text
-        {
-            display:         flex;
-            flex-direction:  row;
-            justify-content: center;
-            opacity:         0.2;
-            transition:      opacity 0.2s ease-in-out;
-
-        }
-
-        .line
-        {
-            position:         absolute;
-            bottom:           0;
-            left:             0;
-            height:           1px;
-            width:            100%;
-            background-color: $colorYellow;
-            opacity:          0;
-            transition:       opacity 0.2s ease-in-out;
-        }
-
-        .icon {
-            padding-right: 5px;
-        }
+      .text {
+        font-family: $fontOmnes;
+        font-weight: bold;
+        opacity: 1;
+      }
     }
+
+    .text {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      opacity: 0.2;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: $colorYellowLight;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .icon {
+      padding-right: 5px;
+    }
+  }
 }

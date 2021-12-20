@@ -1,67 +1,59 @@
 @import '../../styles/all';
 
-.stepBar
-{
-    position:        relative;
-    width:           60%;
-    height:          30px;
-    display:         flex;
-    justify-content: space-between;
-    align-items:     center;
-    background:      transparent;
+.stepBar {
+  position: relative;
+  width: 60%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
 
-    .stepBarLine
-    {
-        width:            100%;
-        height:           1px;
-        position:         absolute;
-        top:              50%;
-        left:             0;
-        z-index:          -1;
-        background-color: $colorGrayLight;
+  .stepBarLine {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+    background-color: $colorGrayLight;
+  }
+
+  .stepBarItemComplete {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .stepCompleteItem {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .stepBarItemIncomplete {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid $colorGrayLight;
+  }
+
+  .stepBarItem {
+    font-size: 16px;
+    line-height: 21px;
+    font-family: $fontOmnes;
+
+    &.stepBarActiveItem {
+      color: $colorPrimary;
     }
 
-    .stepBarItemComplete
-    {
-        width:           30px;
-        height:          30px;
-        display:         flex;
-        justify-content: center;
-        align-items:     center;
-
-        .stepCompleteItem
-        {
-            width:  100%;
-            height: 100%;
-        }
+    &.stepBarInactiveItem {
+      color: $colorGrayLight;
     }
-
-    .stepBarItemIncomplete
-    {
-        width:            30px;
-        height:           30px;
-        display:          flex;
-        justify-content:  center;
-        align-items:      center;
-        border-radius:    50%;
-        background-color: white;
-        border:           1px solid $colorGrayLight;
-    }
-
-    .stepBarItem
-    {
-        font-size:   16px;
-        line-height: 21px;
-        font-family: $fontRegular;
-
-        &.stepBarActiveItem
-        {
-            color: $colorPrimary;
-        }
-
-        &.stepBarInactiveItem
-        {
-            color: $colorGrayLight;
-        }
-    }
+  }
 }

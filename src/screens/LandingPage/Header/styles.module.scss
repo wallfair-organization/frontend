@@ -30,7 +30,7 @@
 
 .mainHeading {
   color: $colorWhite;
-  font-family: $fontBold;
+  font-family: $fontOmnes;
   font-size: 46px;
   font-weight: bold;
   line-height: 1.13;
@@ -45,11 +45,13 @@ div.slogan {
   color: $colorWhite;
   padding: 12px 0;
   font-size: 25px;
-  font-family: $fontMedium;
+  font-family: $fontOmnes;
+  font-weight: bold;
   margin-bottom: 30px;
 
   span {
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
     color: $colorYellowLight;
   }
 
@@ -64,7 +66,7 @@ div.howdoesitwork {
   color: $colorWhite;
   padding: 12px 0;
   font-size: 36px;
-  font-family: $fontMedium;
+  font-family: $fontOmnes;
   margin: 60px 0;
 
   @media (max-width: $screen-md) {

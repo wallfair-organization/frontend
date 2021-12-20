@@ -33,7 +33,7 @@ const Share = props => {
   const defaultSharing = ['facebook', 'twitter', 'telegram', 'reddit'];
   const shareButtonRef = useRef();
 
-  const [shortUrl, setShortUrl] = useState();
+  const [shortUrl, setShortUrl] = useState('');
   const [showPopover, setShowPopover] = useState(false);
   const isMounted = useIsMount();
   const location = useLocation();
@@ -81,7 +81,6 @@ const Share = props => {
 
   const handleShareClicked = useCallback(
     async event => {
-      /*
       const shareData = {
         title: dynamicTitle,
         text: dynamicText,
@@ -102,8 +101,8 @@ const Share = props => {
           setShowPopover(show => !show);
         }
       }
-      */
-      showPopup(PopupTheme.disableSharing);
+
+      // showPopup(PopupTheme.disableSharing);
     },
     [dynamicTitle, dynamicText, realUrl]
   );

@@ -1,0 +1,24 @@
+@import '../../styles/all';
+
+.modalHeaderDesc {
+  color: $colorBlack;
+  font-size: 14px;
+  font-family: $fontOmnes;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.modalHeaderTitle {
+  display: flex;
+  align-items: center;
+  h1 {
+    color: $colorBlack;
+    font-size: 28px;
+    font-family: $fontOmnes;
+    font-weight: bold;
+
+    @media (max-width: 600px) {
+      font-size: 20px;
+    }
+  }
+}

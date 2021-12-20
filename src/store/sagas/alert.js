@@ -20,6 +20,12 @@ const getFailMessage = action => {
     case AuthenticationTypes.FETCH_REFERRALS_FAILED:
       return 'An error occurred fetching referral list. Please try again!';
 
+    case AuthenticationTypes.LOGIN_EXTERNAL_FAIL:
+      return {
+        'UNKNOWN': 'An unknown error occurred',
+        'USER_NOT_OF_LEGAL_AGE': 'User must bet at least 18 years old',
+      }[action?.errorCode || 'UNKNOWN'];
+
     case EventTypes.FETCH_ALL_FAILED:
       return 'An error occurred fetching all events.';
 

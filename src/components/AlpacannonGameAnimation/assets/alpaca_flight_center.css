@@ -1,0 +1,19 @@
+/* -----------------------------------------------------
+   created with https://www.codeandweb.com/texturepacker 
+   -----------------------------------------------------
+   $TexturePacker:SmartUpdate:a45f568bd50f535e3128deee91e13d95:cd9d43325115c6541cbfb29da56af237:0bd7ed520e04609b66af901f136bf777$
+   -----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+
+.sprite {display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url(alpaca_flight_center.png);}
+
+.alpaca_fly_center_0001 {width:1024px; height:512px; background-position: -1px -1px}
+.alpaca_fly_center_0002 {width:1024px; height:512px; background-position: -1027px -1px}
+.alpaca_fly_center_0003 {width:1024px; height:512px; background-position: -2053px -1px}
+.alpaca_fly_center_0004 {width:1024px; height:512px; background-position: -3079px -1px}
+.alpaca_fly_center_0005 {width:1024px; height:512px; background-position: -4105px -1px}

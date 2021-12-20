@@ -1,9 +1,12 @@
 import classNames from 'classnames';
 import styles from './styles.module.scss';
 
-const FormGroup = ({ children, className }) => {
+const FormGroup = (props) => {
+  const {
+    children, className, rootRef = null
+  } = props;
   return (
-    <div className={classNames(styles.formGroup, className)}>{children}</div>
+    <div {...props} className={classNames(styles.formGroup, className)} ref={rootRef}>{children}</div>
   );
 };
 

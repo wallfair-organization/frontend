@@ -9,7 +9,7 @@ const { replaceMeta } = require('./utils/replaceMetaUtil');
 const PORT = process.env.PORT || 3000;
 // set API path
 const apiPath =
-  process.env.REACT_APP_BACKEND_URL || 'https://staging-api.wallfair.io/';
+  process.env.REACT_APP_BACKEND_URL || 'https://rm-api.alpacasino.io/';
 
 // set apiEndpoints which you want to get data from and make them dynamic
 const listPaths = ['api/event/list'];

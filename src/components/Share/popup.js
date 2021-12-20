@@ -31,7 +31,6 @@ const SharePopup = props => {
     dynamicHashtags,
   } = props;
   const [copied, setCopied] = useState(false);
-
   useEffect(() => {
     if (visible) {
     }

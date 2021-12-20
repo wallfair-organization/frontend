@@ -1,0 +1,67 @@
+@import '../../styles/all';
+
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  z-index: $zIndexPopup;
+
+  .modalContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    outline: 0;
+    z-index: 1041;
+    padding: 30px;
+
+    @media (max-width: 600px) {
+      max-width: calc(100vw - 30px);
+      padding: 15px;
+      border-radius: 15px;
+    }
+
+    .modalHeader {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      position: relative;
+
+      .modalClose {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        cursor: pointer;
+      }
+    }
+  }
+  .modalBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    //background-color: #000;
+    background-color: $colorPrimary50;
+    opacity: 1;
+
+    &.hidden {
+      display: none;
+    }
+  }
+}

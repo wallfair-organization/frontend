@@ -46,18 +46,6 @@ const AlphaPlatformPopup = ({ closed, hidePopup }) => {
           <span className={styles.explanationTextHeadlineUnderline}></span>
         </h3>
         <div className={styles.visualSteps}>{renderSteps()}</div>
-
-        <div className={styles.checkMore}>
-          For more information,{' '}
-          <a
-            href={
-              'https://wallfair.gitbook.io/wallfair/the-magical-leaderboard'
-            }
-            target={'_blank'}
-          >
-            check our gitbook !
-          </a>
-        </div>
       </div>
     );
   };
@@ -69,7 +57,7 @@ const AlphaPlatformPopup = ({ closed, hidePopup }) => {
         onClick={hidePopup}
         className={styles.ctaButton}
       >
-        Let's do it!
+      Let's do it!
       </Button>
     );
   };

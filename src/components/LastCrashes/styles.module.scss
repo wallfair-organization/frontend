@@ -1,17 +1,20 @@
 @import '../../styles/all';
 
 .container {
-  background: #1f1d38;
-  border: 1px solid rgba(255, 255, 255, 0.17);
+  background: $colorBlue80;
+  border: 1px solid $colorBlueBorder;
   border-radius: 10px;
   margin-bottom: 14px;
   padding: 7px 20px;
   margin-top: 0px;
+  font-weight: 600;
 
   .title {
     display: inline-block;
     color: $colorWhite;
     width: 30%;
+    font-size: 14px;
+    line-height: 20px;
 
     @media screen and (max-width: $screen-sm) {
       width: 30%;
@@ -43,13 +46,17 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(270deg, #1f1d38 0%, rgba(9, 9, 121, 0) 40%);
+    background: linear-gradient(
+      270deg,
+      rgba(253, 253, 253, 0.1) 0%,
+      rgba(255, 255, 255, 0) 40%
+    );
     z-index: 2;
     pointer-events: none;
   }
 
   .crash {
-    color: $colorYellow;
+    color: $colorLightYellow;
     margin-right: 25px;
 
     &:hover {

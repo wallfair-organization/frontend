@@ -19,6 +19,7 @@ import BetCard from '../../BetCard';
 import { EventActions } from '../../../store/actions/event';
 import StatusTabs from './StatusTabs';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
+import { OnboardingActions } from 'store/actions/onboarding';
 
 const NonStreamedEventsContent = ({
   categories,
@@ -29,6 +30,7 @@ const NonStreamedEventsContent = ({
   bookmarkEventCancel,
   events,
   filteredEvents,
+  startOnboarding,
 }) => {
   const eventType = 'non-streamed';
 
@@ -115,10 +117,7 @@ const NonStreamedEventsContent = ({
   }, []);
 
   const showJoinPopup = useCallback(event => {
-    showPopup(PopupTheme.auth, {
-      small: false,
-      authenticationType: AuthenticationType.register,
-    });
+    startOnboarding();
   }, []);
 
   return (
@@ -234,6 +233,9 @@ const mapDispatchToProps = dispatch => {
     bookmarkEventCancel: eventId => {
       dispatch(EventActions.bookmarkEventCancel({ eventId }));
     },
+    startOnboarding: () => {
+      dispatch(OnboardingActions.start());
+    }
   };
 };
 

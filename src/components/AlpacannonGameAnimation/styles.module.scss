@@ -1,0 +1,299 @@
+@import '../../styles/all';
+.animation {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid $colorBlueBorder;
+  height: fit-content;
+  position: relative;
+  .background {
+    width: 100%;
+    height: auto;
+  }
+  .chance {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 48.5%;
+    right: 66%;
+    width: 10.5%;
+    height: 5%;
+    span {
+      color: white;
+      font-weight: bold;
+      font-size: 19px;
+    }
+  }
+  .result {
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 48.8%;
+    right: 66%;
+    width: 10.5%;
+    height: 5%;
+    span {
+      color: white;
+      font-weight: bold;
+      font-size: 19px;
+    }
+  }
+  .slider {
+    position: absolute;
+    right: 11.5%;
+    width: 76.3%;
+    top: 32.3%;
+    -webkit-appearance: none;
+    height: 8px;
+    border-radius: 5px;
+    outline: none;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 20px;
+      width: 30px;
+      border: 0;
+      background-size: auto 100%;
+      background-image: url('./assets/slider.svg');
+      cursor: pointer;
+    }
+    &::-moz-range-thumb {
+      border: 0;
+      height: 20px;
+      width: 30px;
+      background-size: auto 100%;
+      background-image: url('./assets/slider.svg');
+      cursor: pointer;
+    }
+  }
+
+  .interpolateMultiplier {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 48.5%;
+    right: 24%;
+    width: 10.5%;
+    height: 5%;
+    span {
+      color: white;
+      font-weight: bold;
+      font-size: 19px;
+    }
+  }
+  .fullcannon {
+    height: 50%;
+    width: 140px;
+    bottom: -25%;
+    position: absolute;
+    pointer-events: none;
+    right: calc(50% - 70px);
+    transition: transform 1s;
+    .cannon {
+      height: auto;
+      width: 90%;
+      position: absolute;
+      z-index: 4;
+      margin: auto;
+      left: 0;
+      right: 0;
+    }
+    .alpacaInCannon {
+      width: 55%;
+      top: -23%;
+      position: absolute;
+      left: 29%;
+      z-index: -1;
+    }
+    .explotion {
+      width: 95%;
+      top: -22%;
+      position: absolute;
+      left: 6%;
+      z-index: 1;
+      -webkit-transition: opacity 0.3s ease-in-out;
+      -moz-transition: opacity 0.3s ease-in-out;
+      -ms-transition: opacity 0.3s ease-in-out;
+      -o-transition: opacity 0.3s ease-in-out;
+      transition: opacity 0.3 ease-in-out;
+    }
+  }
+  .alpacaCrash {
+    height: 50px;
+    position: absolute;
+    top: 26%;
+    z-index: 4;
+  }
+  @keyframes bounce {
+    0% {
+      transform: scale(0.9);
+    }
+    25% {
+      transform: scale(1.3);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(0.9);
+    }
+  }
+
+  .alpacaFlying {
+    width: 80px;
+    bottom: 30%;
+    //transform: scale(0.9, 0.9);
+    transition: bounce 1s ease-in-out, transform 7.2s, bottom 1s ease-out,
+      right 1s ease-out;
+    position: absolute;
+    right: 45%;
+    z-index: 4;
+    -webkit-transition: bounce 1s ease-in-out, transform 7.2s,
+      bottom 1s ease-out, right 1s ease-out;
+    -moz-transition: bounce 1s ease-in-out, transform 7.2s, bottom 1s ease-out,
+      right 1s ease-out;
+    -ms-transition: bounce 1s ease-in-out, transform 7.2s, bottom 1s ease-out,
+      right 1s ease-out;
+    -o-transition: bounce 1s ease-in-out, transform 7.2s, bottom 1s ease-out,
+      right 1s ease-out;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .alpaResult {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 6%;
+    right: 10%;
+    width: 80px;
+    height: 80px;
+    z-index: 5;
+    img {
+      position: absolute;
+      height: 100%;
+    }
+    span {
+      margin-top: -14px;
+      transform: rotate(-14deg);
+      color: black;
+      font-weight: bold;
+      font-size: 19px;
+    }
+  }
+}
+.animationMobile {
+  .slider {
+    right: 12.6%;
+    width: 74.8%;
+    top: 38.3%;
+    height: 1.3%;
+    &::-webkit-slider-thumb {
+      height: 15px;
+      width: 22.5px;
+    }
+    &::-moz-range-thumb {
+      height: 15px;
+      width: 22.5px;
+    }
+  }
+  .interpolateMultiplier {
+    top: 49.2%;
+    right: 30%;
+    span {
+      font-size: 13px;
+    }
+  }
+  .chance {
+    top: 49.2%;
+    right: 59%;
+    span {
+      font-size: 13px;
+    }
+  }
+  .alpaResult {
+    top: 14%;
+    height: 60px;
+  }
+  .alpacaCrash {
+    height: 50px;
+    top: 32%;
+  }
+  .alpacaFlying {
+    width: 85px;
+  }
+  .fullcannon {
+    //width: 100px;
+    //right: calc(50% - 50px);
+    .alpacaInCannon {
+      //    top: -28%;
+    }
+  }
+}
+.animationMobilePortrait {
+  .background {
+    width: 100%;
+    max-height: 64vh;
+    object-fit: cover;
+  }
+  .alpaResult {
+    top: 0%;
+    height: 35px;
+    span {
+      color: black;
+      font-weight: bold;
+      font-size: 12px;
+    }
+  }
+  .fullcannon {
+    width: 80px;
+    right: calc(50% - 40px);
+    .explotion {
+      top: -25px;
+    }
+  }
+  .slider {
+    top: 24.5%;
+    right: 11.6%;
+    width: 75.8%;
+    height: 5px;
+  }
+  .interpolateMultiplier {
+    right: 24%;
+  }
+  .chance {
+    right: 66%;
+  }
+  .alpacaCrash {
+    height: 51px;
+    top: 13%;
+  }
+  .alpacaFlying {
+    width: 70px;
+  }
+}
+
+.audioControls {
+  position: absolute;
+  z-index: 9;
+  left: 20px;
+  top: 10px;
+  svg {
+    fill: #f2ff53 !important;
+  }
+  @media (max-width: $screen-xs-max) {
+  }
+  @media screen and (max-width: 768px) {
+    top: 60px;
+    left: 5px !important;
+  }
+}

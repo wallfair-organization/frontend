@@ -1,68 +1,116 @@
-@import "../../styles/all";
+@import '../../styles/all';
 
-.leaderboardTable
-{
-    display:        flex;
-    flex-direction: column;
-    width:          100%;
-    flex:           auto;
-    overflow-y:     auto;
+.leaderboardTable {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: auto;
+  overflow-y: auto;
 
-    .tableHeadings
-    {
-        display:       flex;
-        width:         100%;
-        padding:       16px 24px;
-        background-color: rgba(14, 9, 39, 1);
-        position: sticky;
-        top: 0;
-        z-index: 1;
+  .tableHeadings {
+    display: flex;
+    width: 100%;
+    padding: 24px 24px;
+    background-color: $colorPrimaryLight;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
-        @media (max-width: $screen-md)
-        {
-            padding: 16px;
-        }
-
-        .rankingHeading
-        {
-            width:          60px;
-            margin-right:   77px;
-            font-weight:    normal;
-            font-size:      11px;
-            line-height:    14px;
-            letter-spacing: 1.64375px;
-            color:          #ffffff;
-            mix-blend-mode: normal;
-            opacity:        0.45;
-
-            @media (max-width: $screen-md)
-            {
-                margin-right: 30px;
-            }
-        }
-
-        .userHeading
-        {
-            font-weight:    normal;
-            font-size:      11px;
-            line-height:    14px;
-            letter-spacing: 1.64375px;
-            color:          #ffffff;
-            mix-blend-mode: normal;
-            opacity:        0.45;
-        }
-
-        .tokenHeading
-        {
-            width:          100%;
-            text-align:     end;
-            font-weight:    normal;
-            font-size:      11px;
-            line-height:    14px;
-            letter-spacing: 1.64375px;
-            color:          #ffffff;
-            mix-blend-mode: normal;
-            opacity:        0.45;
-        }
+    @media (max-width: $screen-md) {
+      padding: 16px;
     }
+
+    .rankingHeading {
+      width: 60px;
+      margin-right: 77px;
+      font-family: $fontOmnes;
+      font-weight: bold;
+      color: $colorLightYellow;
+      font-size: 14px;
+      line-height: 18px;
+      display: flex;
+      align-items: center;
+      padding: 4px 0;
+      span {
+        margin-right: 5px;
+      }
+
+      @media (max-width: $screen-md) {
+        font-weight: 600;
+        font-size: 12px;
+      }
+
+      @media (max-width: $screen-xs) {
+        margin-right: 30px;
+
+        svg {
+          display: none;
+        }
+      }
+    }
+
+    .userHeading {
+      font-family: $fontOmnes;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 18px;
+      color: $colorLightYellow;
+      display: flex;
+      align-items: center;
+      padding: 4px 0;
+      span {
+        margin-right: 5px;
+      }
+
+      @media (max-width: $screen-md) {
+        font-weight: 600;
+        font-size: 12px;
+      }
+
+      @media (max-width: $screen-xs) {
+        svg {
+          display: none;
+        }
+      }
+    }
+
+    .tokenHeading {
+      position: absolute;
+      right: 40px;
+      font-family: $fontOmnes;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 18px;
+      color: $colorLightYellow;
+      display: flex;
+      align-items: center;
+      padding: 4px 0;
+      span {
+        margin-right: 5px;
+      }
+
+      @media (max-width: $screen-md) {
+        right: 16px;
+        font-weight: 600;
+        font-size: 12px;
+      }
+
+      @media (max-width: $screen-xs) {
+        svg {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.leaderboardRanking {
+  > div {
+    &:nth-child(odd) {
+      background: $colorPrimary;
+    }
+    &:nth-child(even) {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
 }

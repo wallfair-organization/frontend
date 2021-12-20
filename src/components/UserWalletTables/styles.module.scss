@@ -1,0 +1,318 @@
+@import '../../styles/all';
+
+$tableMinWidth: 580px;
+
+.activitiesTrackerContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  min-width: $tableMinWidth;
+
+  .header {
+    display: flex;
+    padding-left: 8px;
+    padding-right: 8px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 24px 10px;
+    min-width: $tableMinWidth;
+    > div {
+      /* for grid container */
+      min-width: calc(#{$tableMinWidth} - 20px);
+    }
+
+    @media (max-width: $screen-sm) {
+      font-size: 12px;
+      padding: 16px 10px;
+    }
+
+    .title {
+      text-align: center;
+      color: $colorLightYellow;
+    }
+    .titleFirst {
+      text-align: left;
+      color: $colorLightYellow;
+    }
+    .titleLast {
+      text-align: right;
+      color: $colorLightYellow;
+    }
+  }
+
+  .messageItem {
+    position: relative;
+    display: inline-flex;
+    display: -ms-inline-flexbox;
+    display: -webkit-box;
+    margin-top: 0.5rem;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    hyphens: auto;
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+    width: 100%;
+    padding: 8px 10px;
+    min-width: $tableMinWidth;
+
+    > div {
+      /* for grid container */
+      min-width: calc(#{$tableMinWidth} - 20px);
+    }
+
+    @media (max-width: $screen-sm) {
+      font-size: 12px;
+    }
+
+    .messageFirst {
+      display: flex;
+    }
+    .messageCenter {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    .messageRight {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .messageTranform {
+      text-transform: capitalize;
+    }
+    .messageLast {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: right;
+    }
+    &.isVisible {
+      opacity: 0.3;
+
+      & ~ .isVisible {
+        opacity: 1;
+      }
+    }
+
+    img {
+      width: 20px !important;
+      height: 20px;
+      margin-left: 0.5rem;
+    }
+
+    span {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      font-family: $fontOmnes;
+
+      :first-child {
+        font-size: 12px;
+      }
+
+      :last-child {
+        font-size: 12px;
+        text-align: right;
+        color: $colorGray;
+        width: 60px;
+        margin-left: 10px;
+      }
+    }
+
+    .reward {
+      color: $colorGreen;
+    }
+
+    .rewardMulti {
+      color: $mainAction;
+    }
+  }
+
+  .box {
+    width: 60px;
+    height: 80px;
+    overflow: hidden;
+    border: $border;
+    border-radius: $radius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+      border: 2px solid $colorMint;
+    }
+  }
+
+  .boxIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    //width: 100px;
+    padding: 2px;
+    border: 1px solid transparent;
+    position: relative;
+    word-break: break-word;
+
+    &:hover,
+    &.categorySelected {
+      cursor: pointer;
+
+      .imageIcon {
+        opacity: initial;
+      }
+
+      .label {
+        opacity: initial;
+      }
+    }
+  }
+
+  //only with cats
+  .swiperElement {
+    padding: 15px 0;
+    width: 93%;
+  }
+
+  .label {
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: white;
+    opacity: 0.5;
+    margin-top: 10px;
+    transition: opacity 0.2s ease-in;
+
+    &.active {
+      opacity: initial;
+    }
+  }
+
+  .imageIcon {
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in;
+
+    &.active {
+      opacity: initial;
+    }
+  }
+
+  @media (max-width: $screen-md) {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .messageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-flow: column nowrap;
+    overflow-y: scroll;
+    margin-bottom: 0;
+    position: relative;
+    //height: 260px;
+    height: 100%;
+    padding: 0;
+    min-width: $tableMinWidth;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      background: transparent;
+    }
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .swiperNavContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .activitiesSwiperButtonNext,
+    .activitiesSwiperButtonPrev {
+      position: absolute;
+      top: -5px;
+      bottom: 0;
+      height: 100%;
+      z-index: 10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e6fe00;
+      width: 5%;
+
+      &:after {
+        font-family: swiper-icons;
+        font-size: 40px;
+        letter-spacing: 0;
+        text-transform: none;
+        font-variant: initial;
+        line-height: 1;
+      }
+    }
+
+    .activitiesSwiperButtonNext {
+      right: 0px;
+      &:after {
+        content: 'next';
+      }
+    }
+
+    .activitiesSwiperButtonPrev {
+      left: 0;
+      &:after {
+        content: 'prev';
+      }
+    }
+  }
+}
+
+.hideSecondaryColumns {
+  display: none;
+  @media (min-width: $screen-md) {
+    display: block;
+  }
+}
+
+.messageFirst,
+.messageCenter,
+.messageRight,
+.title,
+.titleFirst,
+.titleLast {
+  white-space: nowrap;
+  padding: 4px 10px;
+  overflow-x: hidden;
+  color: $colorWhite;
+
+  @media (max-width: $screen-xs) {
+    padding: 4px 0px;
+  }
+}
+
+.noEntries {
+  display: flex;
+  height: 200px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: $colorGrayLight9;
+}

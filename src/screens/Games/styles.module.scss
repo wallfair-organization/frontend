@@ -3,8 +3,9 @@
 .container {
   width: 100%;
   margin: 0 auto;
+  max-width: 1300px;
 
-  @media (min-width: $screen-lg) {
-    max-width: 80%;
+  @media (max-width: $screen-sm) {
+    padding: 0 15px;
   }
 }

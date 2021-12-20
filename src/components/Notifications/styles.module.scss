@@ -7,13 +7,13 @@
   padding: 90px 0 0 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(14, 9, 39, 0.86);
+  background-color: $colorWhite;
   backdrop-filter: blur(3px);
   z-index: 2;
 
   @media (min-width: $screen-sm) {
     width: 500px;
-    background-color: $colorPrimary90;
+    background-color: $colorWhite;
   }
 
   .notificationsHeader {
@@ -33,7 +33,7 @@
       font-size: 20px;
       line-height: 39px;
       letter-spacing: 0.75px;
-      color: #ffffff;
+      color: $colorPrimary;
       display: flex;
       flex-wrap: nowrap;
       align-items: center;
@@ -49,7 +49,7 @@
       border-radius: 20px;
       font-size: 13px;
       line-height: 18px;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
 
       @media screen and (min-width: $screen-xs) {
         font-size: 15px;
@@ -65,7 +65,8 @@
     line-height: 18px;
     letter-spacing: 0.5px;
     text-decoration-line: underline;
-    color: #ffffff;
+    color: $colorPrimary;
+    font-family: $fontOmnes;
     cursor: pointer;
 
     @media screen and (min-width: $screen-xs) {
@@ -96,7 +97,7 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        border: 3px dashed rgba(172, 196, 255, 0.1);
+        border: 3px dashed $colorGrayLight1;
         cursor: pointer;
         display: flex;
 
@@ -111,16 +112,15 @@
           }
 
           > .emptyListIcon {
-            fill: white;
+            fill: $colorGrayLight3;
           }
         }
       }
 
       .emptyListLabel {
         font-size: 12px;
-        opacity: 0.4;
         text-align: center;
-        color: $colorWhite;
+        color: $colorGrayLight1;
       }
     }
   }

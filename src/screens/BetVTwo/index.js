@@ -47,6 +47,7 @@ import { EventActions } from 'store/actions/event';
 import Favorite from 'components/Favorite';
 import SwitchButton from 'components/SwitchButton';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
+import { OnboardingActions } from 'store/actions/onboarding';
 // import { trackPageView } from 'config/gtm';
 
 const BET_ACTIONS = {
@@ -67,6 +68,7 @@ const BetVTwo = ({
   handleDislaimerHidden,
   bookmarkEvent = () => {},
   bookmarkEventCancel = () => {},
+  startOnboardingFlow,
 }) => {
   const { eventSlug, betSlug } = useParams();
   const isMounted = useIsMount();
@@ -421,10 +423,7 @@ const BetVTwo = ({
                       onBookmark={() => {
                         isLoggedIn()
                           ? bookmarkEvent(event?._id)
-                          : showPopup(PopupTheme.auth, {
-                              small: true,
-                              authenticationType: AuthenticationType.register,
-                            });
+                          : startOnboardingFlow()
                       }}
                       onBookmarkCancel={() => {
                         bookmarkEventCancel(event?._id);
@@ -525,9 +524,8 @@ const BetVTwo = ({
                       onBookmark={() => {
                         isLoggedIn()
                           ? bookmarkEvent(event?._id)
-                          : showPopup(PopupTheme.auth, {
-                              small: true,
-                              authenticationType: AuthenticationType.register,
+                          : showPopup(PopupTheme.alpacaBuilder, {
+                              small: false
                             });
                       }}
                       onBookmarkCancel={() => {
@@ -616,7 +614,7 @@ const BetVTwo = ({
             </div>
           </div>
         )}
-        <ContentFooter className={styles.betFooter} />
+
       </div>
     </BaseContainerWithNavbar>
   );
@@ -656,6 +654,9 @@ const mapDispatchToProps = dispatch => {
     },
     bookmarkEventCancel: eventId => {
       dispatch(EventActions.bookmarkEventCancel({ eventId }));
+    },
+    startOnboardingFlow: () =>{
+      dispatch(OnboardingActions.start());
     },
   };
 };

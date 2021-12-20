@@ -1,10 +1,10 @@
 @import '../../styles/all';
 
 :root {
-  --swiper-theme-color: #E6FE00;
+  --swiper-theme-color: #e6fe00;
 }
 
-.activities-tracker-swiper{
+.activities-tracker-swiper {
   .swiper-button-next {
     right: 0;
   }
@@ -14,10 +14,12 @@
   }
 
   .swiper-pagination-progressbar {
-    background-color: $colorDarkSlateGray;
+    background-color: transparent;
+    span {
+      background-color: transparent;
+    }
   }
 
   .swiper-container {
-
   }
 }

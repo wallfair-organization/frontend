@@ -4,6 +4,7 @@ import axios from 'axios';
 import ContentTypes from '../constants/ContentTypes';
 import Store from '../store';
 import { AuthenticationActions } from 'store/actions/authentication';
+import {SEND_BUY_WITH_CRYPTO} from '../constants/Api'
 
 const {
   store: { dispatch },
@@ -12,7 +13,7 @@ const {
 const createInstance = (host, apiPath) => {
   const axiosClient = axios.create({
     baseURL: `${host}${apiPath}`,
-    timeout: 30000,
+    timeout: 60000,
     headers: {
       'content-type': ContentTypes.applicationJSON,
       accept: ContentTypes.applicationJSON,
@@ -35,10 +36,13 @@ const createInstance = (host, apiPath) => {
 
 const Api = createInstance(ApiUrls.BACKEND_URL, '/');
 
+const WithdrawServiceApi = createInstance(ApiUrls.WITHDRAW_SERVICE_URL, '/');
+
 const setToken = token => {
   const authentication = 'Bearer ' + token;
 
   Api.defaults.headers.common['Authorization'] = authentication;
+  WithdrawServiceApi.defaults.headers.common['Authorization'] = authentication;
 };
 
 const requestSms = (phone, ref) => {
@@ -466,6 +470,12 @@ const signUp = payload => {
     .catch(error => ({ error: error.response.data }));
 };
 
+const loginExternal = ({ provider, body }) => {
+  return Api.post(ApiUrls.API_AUTH_LOGIN_EXTERNAL.replace(':provider', provider), body)
+    .then((response) => ({ response }))
+    .catch((error) => ({ error: error.response.data }));
+};
+
 const login = payload => {
   return Api.post(ApiUrls.API_AUTH_LOGIN, payload)
     .then(response => ({ response }))
@@ -504,6 +514,73 @@ const updateStatus = (userId, status) => {
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
+
+const convertCurrency = ({convertFrom, convertTo, amount}) => {
+  return Api.get(ApiUrls.CONVERT_CURRENCY, {
+    params: {
+      convertFrom,
+      convertTo,
+      amount
+    },
+  })
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response?.data }));
+};
+
+const generateCryptopayChannel = (body) => {
+  return Api.post(ApiUrls.GENERATE_CRYPTOPAY_CHANNEL, body)
+    .then(({ data }) => (data.data))
+    .catch((error) => ({ error: error.response?.data }));
+}
+
+const getWalletTransactions = () => {
+  return Api.get(ApiUrls.API_USER_WALLET_TRANSACTIONS).catch((error) => {
+    console.log('[API Error] called: getWalletTransactions', error);
+  });
+};
+
+const getWithdrawQuote = ({amount, network}) => {
+  return WithdrawServiceApi.post(ApiUrls.API_GETQUOTE, {amount, network})
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
+const processWithdraw = ({amount, network, toAddress}) => {
+  return WithdrawServiceApi.post(ApiUrls.API_WITHDRAW, {amount, network, 'to_address': toAddress})
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
+const getWithdrawStatus = (transactionId) => {
+  return WithdrawServiceApi.post(ApiUrls.API_WITHDRAW_STATUS.replace(':id', transactionId))
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
+const getUserKycData = (userId) => {
+  return Api.get(ApiUrls.KYC_DATA_FOR_USER.replace(':userId', userId))
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.message }));
+};
+
+const getRandomUsername = () => {
+  return Api.get(ApiUrls.RANDOM_USERNAME)
+    .catch(error => ({ error: error.message }));
+}
+
+const sendBuyWithCrypto = (data) => {
+  if (!Api.defaults.headers.common['Authorization']) return;
+  return Api.post(ApiUrls.SEND_BUY_WITH_CRYPTO, data)
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.message }))
+}
+
+const acceptToS = () => {
+  if (!Api.defaults.headers.common['Authorization']) return;
+  return Api.post(ApiUrls.ACCEPT_TOS)
+    .then((response) => ({ response }))
+    .catch((error) => ({ error: error.message }));
+}
 
 export {
   Api,
@@ -551,6 +628,7 @@ export {
   deleteBet,
   login,
   signUp,
+  loginExternal,
   forgotPassword,
   resetPassword,
   shortenerTinyUrl,
@@ -564,4 +642,14 @@ export {
   requestTokens,
   fetchChatMessagesByUser,
   setUserMessageRead,
+  convertCurrency,
+  getWalletTransactions,
+  getWithdrawQuote,
+  processWithdraw,
+  getWithdrawStatus,
+  getUserKycData,
+  getRandomUsername,
+  sendBuyWithCrypto,
+  generateCryptopayChannel,
+  acceptToS,
 };

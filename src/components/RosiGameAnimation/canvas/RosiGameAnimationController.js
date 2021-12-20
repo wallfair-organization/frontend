@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import * as PIXI from 'pixi.js-legacy';
 import '@pixi/math-extras';
 import '@pixi/sound';
 import * as Sound from '@pixi/sound';
@@ -156,6 +156,7 @@ function loadAssets(loader) {
     `/images/rosi-game/${deviceType}/@${resolution}x/${asset}`;
 
   loader
+    .add('background', constructPath('rosi-games-background.png'))
     .add('coin', constructPath('coin.png'))
     .add('elonmusk', constructPath('elonmusk.png'))
     .add('redPlanet', constructPath('redPlanet.png'))

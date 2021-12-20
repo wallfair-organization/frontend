@@ -1,5 +1,5 @@
 import { ROSI_GAME_MAX_DURATION_SEC } from 'constants/RosiGame';
-import * as PIXI from 'pixi.js';
+import * as PIXI from 'pixi.js-legacy';
 import * as particles from '@pixi/particle-emitter';
 import {
   calcPercent,

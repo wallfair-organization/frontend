@@ -1,13 +1,15 @@
 @import '../../styles/all';
 
 .chatMessage {
-  color: $colorWhite;
+  color: $colorBlack;
+  width: 100%;
   padding: 0rem 1rem;
   border-radius: 10px;
   display: inline-flex;
   align-items: center;
   margin-top: 0.5rem;
   font-size: 14px;
+  font-weight: 600;
   text-align: left;
   hyphens: auto;
   opacity: 0.3;
@@ -31,42 +33,27 @@
 
   .singleMessageTime {
     margin-right: 10px;
-    color: $colorGrayLight8;
+    color: $colorLightGray2;
     font-size: 12px;
     min-width: 36px;
   }
   .singleMessageUser {
-    font-family: $fontBold;
-    color: $colorYellow;
+    font-family: $fontOmnes;
+    font-weight: bold;
+    color: $colorLightYellow;
     text-decoration: underline;
     font-size: 12px;
 
     &.singleMessageCurrentUser {
-      color: $colorWhite;
+      color: $colorLightGray2;
     }
   }
   .singleMessage {
     margin-left: 5px;
-    color: $colorWhite70;
+    color: $colorWhite;
     font-size: 12px;
+    font-family: $fontOmnes;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
   }
-
-  // span {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   align-items: center;
-
-  //   :first-child {
-  //     font-size: 12px;
-  //     font-family: $fontBold;
-  //   }
-
-  //   :last-child {
-  //     font-size: 12px;
-  //     text-align: right;
-  //     color: $colorGray;
-  //     width: 60px;
-  //     margin-left: 10px;
-  //   }
-  // }
 }

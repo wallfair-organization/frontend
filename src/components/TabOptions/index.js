@@ -11,9 +11,13 @@ const TabOptions = ({ options, children, className = '' }) => {
       {options.map(option => (
         <div
           key={option.name}
-          className={classNames(styles.tab, {
-            [styles.tabActive]: option.isActive,
-          })}
+          className={classNames(
+            styles.tab,
+            { [styles.tabBackgroundActive]: option.isActive },
+            {
+              [styles.tabActive]: option.isActive,
+            }
+          )}
         >
           {children(option)}
         </div>

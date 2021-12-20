@@ -32,7 +32,8 @@
       .welcomeTitle {
         margin-top: 53px;
         font-size: 40px;
-        font-family: $fontBold;
+        font-family: $fontOmnes;
+        font-weight: bold;
         line-height: 46px;
         color: white;
 
@@ -50,7 +51,7 @@
         width: 100%;
         margin: 25px 0 36px 0;
         font-size: 13px;
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         line-height: 19.6px;
         letter-spacing: 0;
         color: white;

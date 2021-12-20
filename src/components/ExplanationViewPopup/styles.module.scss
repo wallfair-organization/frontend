@@ -14,27 +14,24 @@
   overflow: visible;
 
   .ctaButton {
-    background-color: $colorWhite;
-    width: 100%;
+    width: 40%;
     height: 60px;
     font-size: 20px;
-    background-image: url('../../data/images/signup-background-one.svg');
-    background-position: center;
-    background-repeat: no-repeat;
 
-    @media (min-width: $screen-sm) {
-      width: 70%;
+    @media (max-width: $screen-xs) {
+      width: 80%;
     }
   }
 
-  .explanationImageContainer, .explanationTextContainer {
+  .explanationImageContainer,
+  .explanationTextContainer {
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 0 20px;
 
     .explanationTextHeadline {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       font-size: 20px;
       margin-bottom: 10px;
       position: relative;
@@ -52,7 +49,7 @@
         left: 0;
         top: 40px;
         width: 100%;
-        border-bottom: 9px solid $colorYellowLight;
+        border-bottom: 9px solid $colorLightYellow;
         z-index: -1;
       }
     }
@@ -96,12 +93,12 @@
     }
   }
 
-  .swiper-pagination-progressbar, .swiper-pagination-progressbar-fill {
+  .swiper-pagination-progressbar,
+  .swiper-pagination-progressbar-fill {
     background-color: red;
   }
 
   .explanationTextContainer {
-
   }
 
   .visualSteps {
@@ -128,7 +125,6 @@
           margin-bottom: -55px;
         }
       }
-
     }
 
     @media (max-width: $screen-md) {
@@ -169,7 +165,8 @@
       width: 100%;
       height: 100%;
 
-      .activitiesSwiperButtonNext, .activitiesSwiperButtonPrev {
+      .activitiesSwiperButtonNext,
+      .activitiesSwiperButtonPrev {
         position: absolute;
         top: -5px;
         bottom: 0;
@@ -195,17 +192,16 @@
       .activitiesSwiperButtonNext {
         right: 0px;
         &:after {
-          content: "next";
+          content: 'next';
         }
       }
 
       .activitiesSwiperButtonPrev {
         left: 0;
         &:after {
-          content: "prev";
+          content: 'prev';
         }
       }
     }
-
   }
 }

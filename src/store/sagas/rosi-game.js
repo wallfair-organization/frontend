@@ -27,3 +27,12 @@ export const fetchHighData = function* (action) {
     yield put(RosiGameActions.fetchHighDataError(error));
   }
 };
+
+export const fetchMyBetsData = function* (action) {
+  try {
+    const { data } = yield call(Api.getUserBets, action.data);
+    yield put(RosiGameActions.fetchMyBetsDataComplete(data));
+  } catch (error) {
+    yield put(RosiGameActions.fetchMyBetsDataError(error));
+  }
+};

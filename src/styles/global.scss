@@ -1,8 +1,8 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px #f1f2f6 inset !important;
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #f1f2f6 inset !important;
 }
 
 .floatingCloseButton {
@@ -28,14 +28,13 @@ input:-webkit-autofill:active{
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(14, 9, 39, 0.86);
+  background-color: white;
   transition: right 0.5s ease-in-out;
+  //border: 1px solid lightgrey;
   @media (min-width: $screen-sm) {
     width: 500px;
   }
 }
-
-
 
 .drawerHidden {
   right: -105%;
@@ -78,8 +77,12 @@ $border: 1px solid $colorWhite30;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: #F2FF53;
-  color: black;
+  background: linear-gradient(
+    180deg,
+    $colorLightYellow 0%,
+    $colorLightYellow 97.4%
+  );
+  color: $colorWhite;
   font-size: 16px;
   border-radius: 25px;
   padding: 0 20px;
@@ -115,20 +118,21 @@ $border: 1px solid $colorWhite30;
 }
 
 .global-token-currency {
-  color: $colorYellow;
+  color: $colorPinkDark;
   font-weight: bold;
+  font-family: $fontBold;
   display: inline-block;
 }
 
 .global-game-crashfactor {
-  color: $colorYellow;
+  color: $colorPinkDark;
   font-weight: bold;
   display: inline-block;
 }
 
-.global-cashout-profit, .global-cashout-loss {
+.global-cashout-profit,
+.global-cashout-loss {
   color: $colorGreen;
-  font-weight: bold;
   display: inline-block;
 }
 
@@ -137,12 +141,13 @@ $border: 1px solid $colorWhite30;
 }
 
 .global-link-style {
+  color: $colorLightYellow;
   font-weight: bold;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .main-page-background {
-  background: $colorPrimaryDark;
   z-index: -1;
   position: fixed;
   top: 0;
@@ -151,36 +156,49 @@ $border: 1px solid $colorWhite30;
   height: 100%;
 
   &:before {
-    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    content: "";
+    content: '';
     opacity: 1;
     z-index: -2;
     position: absolute;
-    background: linear-gradient(
-        180deg, rgba(2, 0, 36, 0) 18%, rgb(18, 14, 39) 100%), linear-gradient(
-        360deg, rgba(2, 0, 36, 0) 10%, rgb(18, 14, 39) 100%);
-    max-height: 700px;
+    // background: linear-gradient(
+    //     180deg,
+    //     rgba(2, 0, 36, 0) 18%,
+    //     rgb(18, 14, 39) 100%
+    //   ),
+    //   linear-gradient(360deg, rgba(2, 0, 36, 0) 10%, rgb(18, 14, 39) 100%);
+    // max-height: 700px;
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: bottom;
   }
 
   &:after {
-    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    content: "";
-    opacity: 1;
+    content: '';
     z-index: -3;
     position: absolute;
-    max-height: 700px;
-    background-size: cover;
-    background-image: url('../data/backgrounds/main-page-bg.png');
+    // min-height: 700px;
     background-repeat: no-repeat;
-    background-position: top;
+    background-image: url('../data/backgrounds/alpaca-main-bg.png');
+    background-position: bottom;
   }
+}
 
+.copyButton {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: $fontOmnes;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: $colorWhite;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
 }

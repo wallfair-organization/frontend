@@ -3,11 +3,13 @@
 .walletBalance {
   display: flex;
   flex-direction: column;
-  color: $colorWhite;
+  color: $colorPrimary;
+  font-family: $fontOmnes;
   padding: 20px;
   height: 250px;
   border-radius: 4px;
-  background-color: rgba(172, 196, 255, 0.1);
+  background-color: $colorWhite;
+  border: 1px solid $colorGrayLight2;
   margin-bottom: 20px;
   overflow: hidden;
 
@@ -33,7 +35,7 @@
 
     .walletBalanceTitle {
       text-transform: uppercase;
-      opacity: 0.4;
+      // opacity: 0.4;
       font-size: 10px;
       letter-spacing: 1px;
       font-weight: bold;
@@ -46,7 +48,7 @@
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      border-bottom: 1px solid $colorWhite;
+      border-bottom: 1px solid $colorLightGray1;
       transition: transform 0.5s;
 
       .goToMyTradesIcon {
@@ -97,7 +99,8 @@
             position: absolute;
             font-weight: 500;
             font-size: 20px;
-            color: #ffffff;
+            font-family: $fontOmnes;
+            color: $colorPrimary;
             top: 45px;
           }
 
@@ -105,7 +108,7 @@
             position: absolute;
             top: 75px;
             font-size: 12px;
-            color: #ffffff;
+            color: $colorPinkLight;
           }
         }
       }
@@ -124,14 +127,14 @@
           font-size: 10px;
           letter-spacing: 1px;
           text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.4);
+          color: $colorGrayLight1;
           mix-blend-mode: normal;
 
           .availableWfairsDot {
             min-width: 6px;
             min-height: 6px;
             margin-right: 6px;
-            background-color: #69ffa5;
+            background-color: $colorYellowLight;
             border-radius: 50%;
           }
         }
@@ -145,13 +148,13 @@
           .availableWfairsTotal {
             font-size: 20px;
             line-height: 20px;
-            color: #ffffff;
+            color: $colorPrimary;
             margin-right: 8px;
           }
 
           .availableWfairsTitle {
             font-size: 10px;
-            color: #ffffff;
+            color: $colorPinkLight;
           }
         }
       }
@@ -171,14 +174,14 @@
           line-height: 22px;
           letter-spacing: 1px;
           text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.4);
+          color: $colorGrayLight1;
           mix-blend-mode: normal;
 
           .liquidFundsDot {
             min-width: 6px;
             min-height: 6px;
             margin-right: 6px;
-            background-color: #3570ff;
+            background-color: $colorYellowLight;
             border-radius: 50%;
           }
         }
@@ -191,13 +194,13 @@
           .liquidFundsTotal {
             font-size: 20px;
             line-height: 20px;
-            color: #ffffff;
+            color: $colorPrimary;
             margin-right: 8px;
           }
 
           .liquidFundsTitle {
             font-size: 10px;
-            color: #ffffff;
+            color: $colorPinkLight;
           }
         }
       }

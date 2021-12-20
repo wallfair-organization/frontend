@@ -78,6 +78,7 @@ const Highlight = ({
         SelectionHelper.get(highlightTheme, {
           [HighlightTheme.fillRed]: styles.highlightFillRed,
           [HighlightTheme.fillGray]: styles.highlightFillGray,
+          [HighlightTheme.fillPink]: styles.highlightFillPink,
         })
       )}
       onClick={onClick}

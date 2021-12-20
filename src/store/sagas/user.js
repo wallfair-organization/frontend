@@ -69,7 +69,8 @@ const fetchSucceeded = function* (action) {
       const preferences = user.preferences;
       const aboutMe = user.aboutMe;
       const notificationSettings = user.notificationSettings;
-
+      const alpacaBuilderProps = user.alpacaBuilderProps;
+      const kyc = user.kyc;
       yield put(
         AuthenticationActions.updateData({
           profilePicture,
@@ -85,6 +86,8 @@ const fetchSucceeded = function* (action) {
           preferences,
           aboutMe,
           notificationSettings,
+          alpacaBuilderProps,
+          kyc,
         })
       );
     }

@@ -7,6 +7,7 @@ export const betInQueue = state => state.rosiGame.placedBetInQueue;
 export const isCashedOut = state => state.rosiGame.isCashedOut;
 export const selectEndgame = state => state.rosiGame.isEndgame;
 export const selectHighData = state => state.rosiGame.highData;
+export const selectMyBetsData = state => state.rosiGame.myBetsData;
 export const selectLuckyData = state => state.rosiGame.luckyData;
 export const selectIsMute = state => state.rosiGame.volumeLevel == 0;
 export const selectVolumeLevel = state => state.rosiGame.volumeLevel;

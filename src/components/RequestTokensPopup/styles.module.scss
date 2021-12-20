@@ -15,16 +15,17 @@
   padding: 35px 60px;
   .info {
     font-size: 18px;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
+    font-weight: bold;
     line-height: 1.5;
     margin: 30px auto;
 
     span.amount {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
     }
 
     span.red {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       color: $colorRed;
     }
   }
@@ -33,7 +34,8 @@
     justify-content: space-between;
     align-items: center;
     width: 300px;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
     font-size: 16px;
     .accept {
       background: url('../../data/backgrounds/highlight-home-cta-bet.svg');

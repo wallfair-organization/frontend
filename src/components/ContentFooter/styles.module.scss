@@ -3,92 +3,107 @@
 .container {
   width: 100%;
   flex-direction: column;
+  padding: 40px 20px 10px 20px;
+  background-color: $colorBackground;
+
+  .footerDisclaimer {
+    color: $colorWhite;
+    font-size: 12px;
+    margin: 40px auto 10px;
+    max-width: 800px;
+    width: fit-content;
+    text-align: center;
+    padding: 0 20px;
+    opacity: 0.5;
+    text-align: justify;
+  }
 }
 
 .footer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   font-size: 12px;
-  color: $colorWhite;
+  color: $colorPrimary;
   margin: 0 auto;
-  margin-top: 80px;
   justify-content: space-between;
 
   @media (max-width: $screen-sm) {
-    font-size: 11px;
+    flex-direction: column;
     padding: 0 20px;
+    margin-bottom: 40px;
+    align-items: center;
   }
 
-  img {
-    margin-bottom: 40px;
+  .logoContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+      // padding: 0 0 20px 0;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+
+    img.footerLogo {
+      max-width: 300px;
+
+      @media (max-width: $screen-sm) {
+        margin-bottom: 20px;
+      }
+    }
+
+    .license {
+      border-radius: 8px;
+    }
   }
 
   .links {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    // max-width: 600px;
-    opacity: 0.45;
+    margin: 10px 0;
+    gap: 12px;
+    color: white;
 
     @media (max-width: $screen-sm) {
       display: flex;
       flex-direction: column;
+      align-items: center;
       margin: 0 auto;
-      row-gap: 10px;
+      row-gap: 16px;
     }
 
-    .column {
-      // width: 100%;
+    a,
+    button {
+      font-family: $fontOmnes;
+      font-size: 12px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      row-gap: 20px;
+      align-items: center;
+      text-decoration: none;
 
-      .firstRow,
-      .secondRow {
-        // max-width: 250px;
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        column-gap: 40px;
-        justify-content: center;
-
-        @media (max-width: $screen-sm) {
-          column-gap: 20px;
-        }
-
-        a,
-        button {
-          font-family: $fontRegular;
-          font-size: 12px;
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          column-gap: 5px;
-
-          &:hover {
-            opacity: 1;
-          }
-
-          img {
-            margin-bottom: 0;
-          }
-        }
-
-        button {
-          background: transparent;
-          border: 0;
-          color: $colorWhite;
-          cursor: pointer;
-        }
+      &:hover {
+        opacity: 1;
       }
+
+      img {
+        margin-bottom: 0;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+
+    button {
+      background: transparent;
+      border: 0;
+      color: white;
+      cursor: pointer;
     }
   }
 
   .socialIcons {
-    opacity: 0.45;
-    margin-top: 28px;
+    margin-top: 20px;
 
     @media (max-width: $screen-sm) {
       padding: 0px;
@@ -100,14 +115,21 @@
       }
     }
   }
+  p {
+    font-size: 10px;
+
+    @media (max-width: $screen-sm) {
+      font-size: 12px;
+    }
+  }
 }
 
 .iconsContainer {
   padding-top: 20px;
   width: 100%;
   display: flex;
-  color: #fff;
-  opacity: 0.45;
+  color: $colorPrimary;
+  //opacity: 0.45;
   margin: 0 auto;
   justify-content: space-between;
   max-width: 600px;

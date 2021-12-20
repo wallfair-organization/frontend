@@ -1,0 +1,452 @@
+@import '../../styles/all';
+
+.wfairLogo {
+  cursor: pointer;
+}
+
+.container {
+  height: 100%;
+  padding: 16px 0;
+  background-color: $colorWhite;
+  color: $colorPrimaryDark;
+  border-radius: 10px;
+}
+
+.activities {
+  .title {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      font-size: 20px;
+
+      @media (max-width: $screen-xs) {
+        font-size: 18px;
+      }
+    }
+
+    img {
+      margin-right: 30px;
+    }
+  }
+}
+
+.activityWrapper {
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 20px;
+  }
+
+  .activityContainer {
+    margin-top: 10px;
+    position: relative;
+    height: 700px;
+    min-height: 700px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.tabLayout {
+  display: flex;
+  align-items: flex-end;
+  color: $colorWhite;
+  font-family: $fontOmnes;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 24px;
+  // margin: 0 16px;
+  justify-content: center;
+
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+
+.tabItemSelected {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 1;
+  cursor: pointer;
+  border-bottom: 3px solid $mainAction;
+}
+
+.tabItem {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.withdrawContainer {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  // padding-top: 20px;
+  padding-bottom: 20px;
+  flex-direction: column;
+
+  h2 {
+    display: flex;
+    justify-content: center;
+    font-family: $fontOmnes;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .cryptoTabsContainer {
+    display: flex;
+    margin: 0 auto;
+    padding: 5px;
+    margin-top: 20px;
+    border-radius: 50px;
+    background-color: $colorLightYellow;
+    justify-content: center;
+
+    align-items: center;
+
+    @media (max-width: $screen-sm) {
+      margin-top: 8px;
+      width: 90%;
+    }
+
+    .cryptoTab {
+      width: 160px;
+      height: 46px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      cursor: pointer;
+
+      @media (max-width: $screen-sm) {
+        height: 40px;
+      }
+
+      .imageSizeEthereum {
+        height: 35px;
+      }
+
+      .imageSizePolygon {
+        height: 23px;
+      }
+
+      p {
+        margin-left: 10px;
+        font-size: 20px;
+        line-height: 25px;
+        font-family: $fontOmnes;
+        color: $colorWhite;
+
+        @media (max-width: $screen-sm) {
+          font-size: 12px;
+        }
+      }
+
+      p.fullName {
+        display: inline-block;
+
+        @media (max-width: $screen-sm) {
+          display: none;
+        }
+      }
+
+      p.shortName {
+        display: none;
+
+        @media (max-width: $screen-sm) {
+          display: inline-block;
+        }
+      }
+
+      svg {
+        @media (max-width: $screen-md) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .cryptoTabActive {
+      background-color: $colorWhite;
+
+      p {
+        color: $colorBlack;
+      }
+    }
+  }
+
+  .cryptoContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    margin: 0 auto;
+    margin-top: 25px;
+    text-align: justify;
+
+    p {
+      font-family: $fontOmnes;
+      font-size: 16px;
+      padding-bottom: 10px;
+    }
+
+    @media (max-width: $screen-md) {
+      padding: 0;
+      margin: 25px 0;
+    }
+  }
+
+  .inputFieldsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    position: relative;
+
+    @media (max-width: $screen-md) {
+      margin-top: 48px;
+      padding: 0 16px;
+    }
+
+    .stepsTooltipError {
+      // position: absolute;
+      // left: 20px;
+      // top: 40px;
+    }
+
+    .balanceContainer {
+      max-width: 500px;
+      width: 100%;
+      padding: 10px 0;
+      text-align: right;
+      font-family: $fontOmnes;
+      font-weight: bold;
+    }
+
+    .equivalentFiat {
+      max-width: 500px;
+      width: 100%;
+      padding-right: 2px;
+      text-align: right;
+      font-family: $fontLight;
+    }
+
+    .addressInputContainer {
+      position: relative;
+      max-width: 500px;
+      width: 100%;
+      height: 62px;
+      background: #f1f2f6;
+      border: 1px solid $colorLightGray2;
+      box-sizing: border-box;
+      border-radius: 8px;
+      margin-bottom: 11px;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: $screen-md) {
+        height: 40px;
+      }
+
+      .labelContainer {
+        position: absolute;
+        top: -26px;
+        width: 100%;
+      }
+
+      input {
+        background: #f1f2f6;
+        outline: none !important;
+        width: 100%;
+        height: 100%;
+        padding: 20px 5px;
+        margin: 0px 10px;
+        border: none;
+        font-size: large;
+        direction: ltr;
+        text-align: left;
+        font-size: 16px;
+        font-family: $fontOmnes;
+        font-weight: bold;
+
+        &:focus-visible,
+        &:focus,
+        &:focus-within {
+          outline: none;
+        }
+
+        @media (max-width: $screen-md) {
+          padding: 0 20px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .cryptoInputContainer {
+      position: relative;
+      max-width: 500px;
+      width: 100%;
+      height: 62px;
+      background: #f1f2f6;
+      border: 1px solid $colorLightGray2;
+      box-sizing: border-box;
+      border-radius: 8px;
+      margin-top: 26px;
+      margin-bottom: 11px;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: $screen-md) {
+        height: 40px;
+      }
+
+      .labelContainer {
+        position: absolute;
+        top: -26px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+
+        .gasFeeLabel {
+          font-family: $fontOmnes;
+          font-weight: bold;
+        }
+      }
+
+      input {
+        background: #f1f2f6;
+        width: 70%;
+        height: 100%;
+        padding: 20px;
+        margin: 0px 10px;
+        border: none;
+        direction: ltr;
+        text-align: right;
+        font-size: 24px;
+        font-family: $fontOmnes;
+        font-weight: bold;
+
+        &:focus-visible {
+          outline: none;
+        }
+
+        @media (max-width: $screen-md) {
+          padding: 0 20px;
+          font-size: 16px;
+        }
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .inputRightContainer {
+        width: 30%;
+        height: 60px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 15px;
+        column-gap: 10px;
+
+        @media (max-width: $screen-md) {
+          width: 40%;
+        }
+
+        .button {
+          cursor: pointer;
+        }
+
+        svg {
+          width: 30px;
+          height: 30px;
+
+          @media (max-width: $screen-md) {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .innerContiner {
+          width: 134px;
+          height: 60px;
+          //background-color: $colorBlueLight;
+
+          .dropdown {
+            margin-bottom: 0;
+          }
+
+          .innerContent {
+            p {
+              font-family: $fontOmnes;
+              font-weight: bold;
+              font-size: 18px;
+            }
+          }
+
+          .innerIcon {
+            svg {
+              fill: #3570ff;
+              stroke: none;
+            }
+          }
+        }
+
+        img {
+          height: 40px;
+          width: 80%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .InputLineSeparator {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 50px;
+      }
+    }
+
+    .confirmButton {
+      background: linear-gradient(
+        180deg,
+        $colorLightYellow 0%,
+        $colorLightDark2 97.4%
+      );
+      margin-top: 16px;
+      border-radius: 30px;
+      border: 1px solid $colorWhite;
+      width: 240px;
+      height: 45px;
+      font-family: $fontOmnes;
+      color: $colorWhite;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-size: 18px;
+
+      &.disabled {
+        opacity: 0.6;
+      }
+    }
+  }
+}

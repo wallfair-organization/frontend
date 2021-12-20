@@ -11,7 +11,9 @@ $largeMobileHeight: 700px;
   width: 500px;
   height: 100vh;
   top: 0;
-  background-color: rgba(14, 9, 39, 0.86);
+  background-color: $colorPrimary;
+  z-index: 1;
+
   right: -105%;
   transition: right 0.5s ease-in-out;
 
@@ -23,10 +25,13 @@ $largeMobileHeight: 700px;
 
   &.menuOpened {
     right: 0;
-    padding: 90px 24px 0;
-    background-color: rgba(14, 9, 39, 0.86);
+    padding: 0px 24px 0;
+    background-color: $colorPrimary;
     backdrop-filter: blur(6px);
     overflow: hidden;
+    box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18),
+      0px 2px 2px rgba(159, 162, 191, 0.32);
+    border-radius: 0 px 0 px 12 px 0 px;
   }
 
   .latestTradesContainer {
@@ -86,12 +91,13 @@ $largeMobileHeight: 700px;
 
   .profileHeading {
     display: flex;
-    margin: 0 0 50px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
     color: $colorWhite;
     font-size: 24px;
     padding-left: 30px;
     width: 95%;
-    text-decoration: underline;
+    font-family: $fontOmnes;
   }
 
   .profileErrorHandLing {
@@ -107,23 +113,33 @@ $largeMobileHeight: 700px;
     border-radius: 10px;
   }
 
-  .editProfileContent {
-    padding-bottom: 50px;
-    overflow-y: auto;
-
+  .submitButtonContainer {
+    display: flex;
+    justify-content: center;
     .profileSubmit {
-      width: 100%;
-      height: 55px;
-      border-radius: 4px;
+      padding: 0 12px;
+      height: 48px;
       line-height: 25px;
-      font-size: 16px;
       margin-top: 50px;
-      border: none;
+      background: #ffd31a;
+      border: 2px solid #ea9c00;
+      box-sizing: border-box;
+      border-radius: 25px;
+      color: $colorBlack;
+      text-transform: uppercase;
+      font-family: $fontOmnes;
+      font-weight: bold;
+      font-size: 16px;
 
       &:hover {
         cursor: pointer;
       }
     }
+  }
+
+  .editProfileContent {
+    padding-bottom: 50px;
+    overflow-y: auto;
 
     .profilePictureWrapper {
       width: 100%;
@@ -134,13 +150,14 @@ $largeMobileHeight: 700px;
       .profilePicture {
         display: flex;
         flex-direction: column;
+        align-items: center;
 
         .profilePictureUpload {
           margin-bottom: 20px;
           width: 100px;
           height: 100px;
           border-radius: 50%;
-          border: 3px dashed rgba(172, 196, 255, 0.1);
+          border: 3px dashed $colorGrayLight2;
           cursor: pointer;
           display: flex;
 
@@ -155,7 +172,7 @@ $largeMobileHeight: 700px;
             }
 
             > .uploadIcon {
-              fill: white;
+              fill: $colorGrayLight2;
             }
           }
 
@@ -170,8 +187,9 @@ $largeMobileHeight: 700px;
         }
 
         .profilePictureUploadLabel {
-          font-size: 12px;
-          opacity: 0.4;
+          font-size: 20px;
+          font-weight: normal;
+          // opacity: 0.4;
           text-align: center;
           color: $colorWhite;
         }
@@ -182,14 +200,15 @@ $largeMobileHeight: 700px;
       padding: 25px;
 
       .profileInputGroup {
-        color: $colorWhite;
+        color: $colorLightYellow;
 
         .profileInputLabel {
           display: block;
           height: 12px;
-          opacity: 0.3;
+          // opacity: 0.3;
           line-height: 12px;
-          font-size: 12px;
+          font-size: 16px;
+          font-weight: 600;
           margin: 14px 0;
         }
 
@@ -197,11 +216,12 @@ $largeMobileHeight: 700px;
           border-radius: 4px;
           width: 100%;
           height: 60px;
-          background-color: rgba(172, 196, 255, 0.1);
+          background-color: rgba(255, 255, 255, 0.1);
           margin-bottom: 24px;
           line-height: 24px;
           font-size: 16px;
-          font-family: $fontRegular;
+          font-family: $fontOmnes;
+          font-weight: 600;
           border: none;
           color: $colorWhite;
           text-indent: 20px;
@@ -239,6 +259,9 @@ $largeMobileHeight: 700px;
   display: flex;
   flex-flow: column;
   overflow-y: auto;
+  margin-top: 10px;
+  padding-top: 20px;
+  background-color: $colorPrimary;
 
   @supports (-webkit-touch-callout: none) {
     height: calc(100vh - 150px);
@@ -254,4 +277,9 @@ $largeMobileHeight: 700px;
 .panelHidden {
   opacity: 0;
   transform: translateX(110%);
+}
+
+.alpacaBuilderWrapper {
+  height: calc(100% - 40px);
+  margin: 0 20px;
 }

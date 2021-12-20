@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './styles.module.scss';
-import ElonInSpace from '../../data/backgrounds/elon/elon-in-space.png';
+import ElonInSpace from '../../data/backgrounds/games/elon-game-desktop-howto.jpg';
 import { ELON_GAME_STEPS } from 'constants/ElonGame';
 import Routes from 'constants/Routes';
 import { Link } from 'react-router-dom';
@@ -13,16 +13,14 @@ const ElonGame = props => {
       <div className={styles.headerTitle}>Elon Game</div>
       <Link data-tracking-id="games-play-elon" to={Routes.elonGame}>
         <div className={styles.elonGameContainer}>
-          <div className={styles.leftColumn}>
-            <div className={styles.imgWrapper}>
-              <img src={ElonInSpace} alt="elon" />
-            </div>
-            <div className={styles.buttonWrapper}>
+          {/* <div className={styles.leftColumn}> */}
+            
+            {/* <div className={styles.buttonWrapper}>
               <YellowButton>Play now</YellowButton>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
 
-          <div className={styles.rightColumn}>
+          {/* <div className={styles.rightColumn}>
             {ELON_GAME_STEPS.map(step => (
               <div className={styles.stepContainer} key={step.number}>
                 <div className={styles.numberStep}>{step.number}</div>
@@ -42,7 +40,7 @@ const ElonGame = props => {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </Link>
     </div>

@@ -33,7 +33,7 @@ const TradeDetailView = ({ trade, tradeCreator }) => {
   };
 
   const renderSummary = () => {
-    const creatorName = _.get(tradeCreator, 'name', 'Wallfair Admin');
+    const creatorName = _.get(tradeCreator, 'name', 'Alpacasino Admin');
     const marketQuestion = _.get(trade, 'marketQuestion');
     const tradeState = _.get(trade, 'status');
     const outcomes = _.get(trade, 'outcomes', []);

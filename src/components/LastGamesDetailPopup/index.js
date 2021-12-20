@@ -5,15 +5,8 @@ import { PopupActions } from 'store/actions/popup';
 import moment from 'moment';
 import { getGameDetailById } from '../../api/crash-game';
 import PopupTheme from '../Popup/PopupTheme';
-
-const roundToTwo = num => {
-  return +(Math.round(num + 'e+2') + 'e-2');
-};
-
-const getReadableAmount = amount => {
-  const one = 10000;
-  return roundToTwo(+amount / one);
-};
+import classNames from 'classnames';
+import {getReadableAmount, roundToTwo} from "../../helper/FormatNumbers";
 
 const BetsTable = props => {
   const { bets } = props;
@@ -61,26 +54,28 @@ const BetsTable = props => {
 };
 
 const LastGamesDetailsPopup = ({ hidePopup, showPopup, data }) => {
-  const { details } = data;
+  const { details, game } = data;
   const { match, bets } = details;
 
   const matchDate = match?.created_at;
+  const gameTypeId = match?.gameid;
 
   const date = matchDate
     ? moment(matchDate).format('HH:mm:ss | DD/MM/YYYY')
     : '---';
 
   const handleCrashFactorChange = async (gameHash, type) => {
-    const response = await getGameDetailById(gameHash, type).catch(err => {
+    const response = await getGameDetailById(gameHash, gameTypeId, type).catch(err => {
       console.error('getGameDetailById err', err);
     });
     const details = response?.data || null;
 
-    if (details.match) {
+    if (details?.match) {
       showPopup(PopupTheme.lastGamesDetail, {
         maxWidth: true,
         data: {
           details,
+          game
         },
       });
     } else {
@@ -115,9 +110,10 @@ const LastGamesDetailsPopup = ({ hidePopup, showPopup, data }) => {
         <span>{date}</span>
       </div>
       <div className={styles.content}>
+        <div className={classNames("global-link-style", styles.verificationTool)}><a href={game.verificationTool} target={"_blank"} rel="noreferrer"><b>{game.name} - Verification Tool</b></a></div>
         <div>
           <b>Crash factor:</b>{' '}
-          <span>{roundToTwo(match?.crashfactor).toFixed(2)}</span>
+          <span>{roundToTwo(match?.crashfactor)}</span>
         </div>
         <div>
           <b>Game ID:</b> <span>{match?.id}</span>

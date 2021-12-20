@@ -1,5 +1,7 @@
 import AllIcon from '../data/icons/events-all-icon.svg';
 import VegasIcon from '../data/icons/vegas.svg';
+import UserIcon from '../data/icons/user-activtiy-icon.svg';
+import GameIcon from '../data/icons/game-activity-icon.svg';
 
 export const UNIVERSAL_EVENTS_ROOM_ID =
   process.env.UNIVERSAL_EVENTS_ROOM_ID || 'UNIVERSAL_EVENTS_ROOM_ID';
@@ -30,7 +32,7 @@ export const ACTIVITIES_TO_TRACK = [
   {
     value: 'users',
     category: 'Users',
-    image: VegasIcon,
+    image: UserIcon,
     eventsCats: [
       `Notification/EVENT_USER_SIGNED_IN`,
       `Notification/EVENT_USER_SIGNED_UP`,
@@ -43,7 +45,7 @@ export const ACTIVITIES_TO_TRACK = [
   {
     value: 'game',
     category: 'Games',
-    image: VegasIcon,
+    image: GameIcon,
     eventsCats: [
       'Casino/CASINO_PLACE_BET',
       'Casino/CASINO_CASHOUT',

@@ -1,4 +1,4 @@
-@import "../../styles/all";
+@import '../../styles/all';
 
 .betItem {
   width: 100%;
@@ -10,112 +10,113 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 
   @media (max-width: $screen-sm) {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .eventImg {
-      border-radius: 5px;
-      width: 70px;
-      height: 70px;
-      margin-right: 15px;
-      object-fit: cover;
+    border-radius: 5px;
+    width: 70px;
+    height: 70px;
+    margin-right: 15px;
+    object-fit: cover;
 
-      @media (max-width: $screen-sm) {
-        margin-right: 0;
-        margin-bottom: 15px;
+    @media (max-width: $screen-sm) {
+      margin-right: 0;
+      margin-bottom: 15px;
     }
   }
 
   .betInfo {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex: 1 1;
-      width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1 1;
+    width: 100%;
   }
 
   .titleContainer {
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-      flex: 1 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex: 1 1;
 
-      .titleLink {
-        &:hover {
-            text-decoration: underline;
-        }
+    .titleLink {
+      &:hover {
+        text-decoration: underline;
       }
+    }
 
-      .title {
-          font-size: 16px;
-          color: $colorGrayLight3;
+    .title {
+      font-size: 16px;
+      color: $colorGrayLight3;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: $colorWhite;
+      opacity: 0.3;
+      padding: 5px 0;
+    }
+
+    .status {
+      padding: 0 0 0 5px;
+      height: 100%;
+      margin: 0;
+
+      span {
+        margin: 0;
       }
-
-      .subtitle {
-          font-size: 12px;
-          color: $colorWhite;
-          opacity: 0.3;
-          padding: 5px 0;
-      }
-
-      .status {
-          padding: 0 0 0 5px;
-          height: 100%;
-          margin: 0;
-
-          span {
-              margin: 0;
-          }
-      }
+    }
   }
 
   .numbersContainer {
-      display: flex;
-      align-items: flex-end;
-      flex-direction: column;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
 
-      .value {
-          color: $colorWhite;
-          font-size: 16px;
-          font-family: $fontBold;
+    .value {
+      color: $colorWhite;
+      font-size: 16px;
+      font-family: $fontOmnes;
 
-          .percentage {
-              color: $colorGreen;
-              padding-right: 5px;
+      .percentage {
+        color: $colorGreen;
+        padding-right: 5px;
 
-              &.negative {
-                  color: $colorRed;
-              }
+        &.negative {
+          color: $colorRed;
+        }
 
-              &.zeroPadding {
-                padding: 0;
-              }
-          }
+        &.zeroPadding {
+          padding: 0;
+        }
       }
+    }
 
-      .small {
-          font-size: 12px;
-          color: $colorWhite;
-          opacity: 0.3;
-          text-align: right;
-          padding: 5px 0;
-      }
+    .small {
+      font-size: 12px;
+      color: $colorWhite;
+      opacity: 0.3;
+      text-align: right;
+      padding: 5px 0;
+    }
   }
 
   .betCashoutButton {
-      background: transparent url('../../data/images/cashout-stroke.svg') no-repeat;
-      background-position: center;
-      height: 28px;
-      min-width: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 12px;
-      border: none;
-      cursor: pointer;
-      font-size: 12px;
-      letter-spacing: 0.2px;
-      font-weight: 700;
+    background: transparent url('../../data/images/cashout-stroke.svg')
+      no-repeat;
+    background-position: center;
+    height: 28px;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    font-weight: 700;
   }
 }

@@ -4,9 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: #1f1d38;
+  background: $colorBlue80;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.17);
+  border: 1px solid $colorBlueBorder;
   height: 543px;
   position: relative;
 
@@ -99,7 +99,7 @@
 
   .description {
     font-size: 16px;
-    color: $colorYellow;
+    color: $colorLightYellow;
     text-align: center;
   }
 
@@ -110,18 +110,17 @@
   }
 }
 
-.audioControls{
+.audioControls {
   position: absolute;
-  z-index: 999;
+  z-index: 9;
   left: 20px;
   top: 10px;
-  svg{
+  svg {
     fill: #f2ff53 !important;
   }
   @media (max-width: $screen-xs-max) {
-
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     top: 60px;
     left: 5px !important;
   }

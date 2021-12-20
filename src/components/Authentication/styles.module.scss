@@ -11,13 +11,13 @@
     position: absolute;
     bottom: 10px;
     left: 0;
-    top: 10px;
+    top: 12px;
     width: 100%;
-    border-bottom: 9px solid $colorYellowLight;
+    border-bottom: 9px solid $colorLightYellow;
     z-index: -1;
   }
 }
-.stepsTooltipError{
+.stepsTooltipError {
   position: absolute;
 }
 .authentication {
@@ -27,13 +27,13 @@
 .title {
   color: $colorPrimary;
   font-size: 36px;
-  font-family: $fontBold;
+  font-family: $fontOmnes;
   text-align: center;
 }
 
 .authenticationDescription {
   width: 100%;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0;
@@ -49,7 +49,27 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  font-family: $fontOmnes;
+  text-transform: uppercase;
 
+  &.forgotPassword {
+    padding: 50px 20px;
+  }
+  .rowContainer {
+    width: 100%;
+    display: flex;
+    column-gap: 40px;
+    > div {
+      width: 50%;
+      @media (max-width: $screen-sm) {
+        width: auto;
+      }
+    }
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+    }
+  }
   .formGroup {
     position: relative;
     width: 100%;
@@ -62,7 +82,7 @@
 
   .inputBox {
     position: relative;
-    margin-top: 10px;
+    // margin-top: 10px;
 
     @media (max-width: $screen-sm) {
       font-size: 14px;
@@ -71,6 +91,10 @@
 
   .inputLabel {
     font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    align-items: center;
+    color: black;
 
     @media (max-width: $screen-sm) {
       font-size: 12px;
@@ -80,9 +104,8 @@
   .birthInputBox {
     position: relative;
     margin-right: 12px;
-    &:last-child{
+    &:last-child {
       margin-right: 0px;
-
     }
 
     @media (max-width: $screen-sm) {
@@ -90,27 +113,11 @@
     }
   }
 
-  .submitButton {
-    overflow: hidden;
-    font-size: 16px;
-    border-radius: 10px;
-    margin: 20px 0 0;
-    width: 100%;
-    cursor: pointer;
-    @media (max-width: $screen-sm) {
-      height: 50px;
-      margin: 10px 0 0;
-    }
-
-    span > svg {
-      width: 100%;
-    }
-  }
-
   .forgotPasswordLink {
     align-self: flex-end;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     text-decoration: underline;
+    font-family: $fontOmnes;
     cursor: pointer;
 
     @media (max-width: $screen-sm) {
@@ -130,7 +137,7 @@
   width: (100% - $paddingHTotal);
   margin: 2rem $paddingPercent;
   font-size: 13px;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   line-height: 19.6px;
   letter-spacing: 0;
   color: rgba(2, 6, 30, 0.36);
@@ -143,23 +150,6 @@
 
   .termsLink {
     text-decoration: underline;
-  }
-}
-
-.authenticationLegalAuthorizationAgreementCheckBox {
-  align-self: flex-start;
-  width: 390px;
-  .authenticationLegalAuthorizationAgreementText {
-    font-size: 14px;
-
-    @media (max-width: $screen-sm) {
-      font-size: 12px;
-    }
-
-    a {
-      color: $colorBlue;
-      text-decoration: none;
-    }
   }
 }
 
@@ -178,9 +168,201 @@
 
 .errorText {
   margin: 10px 5px 11px 0;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-size: 14px;
   color: $colorRedLight;
   max-width: 390px;
   text-align: center;
+}
+
+.warningInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+
+  @media (max-width: $screen-sm) {
+    gap: 4px;
+  }
+}
+.signUpOptions {
+  height: auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  flex: auto;
+  padding-top: 20px;
+}
+
+.recaptchaInfo {
+  width: 100%;
+  font-size: 13px;
+  text-align: center;
+  padding-top: 10px;
+  opacity: 0.8;
+  text-transform: none;
+
+  a {
+    color: #ea9c00;
+    text-decoration: underline;
+  }
+}
+
+.submitButton,
+.signInButton {
+  margin: 30px 0 0;
+  padding: 10px 0;
+  width: 250px;
+
+  @media (max-width: $screen-sm) {
+    margin: 10px 0 0;
+  }
+
+  @media (max-width: $screen-xs) {
+    width: 200px;
+  }
+
+  span > svg {
+    overflow: hidden;
+  }
+
+  &[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &.mobile {
+    display: none;
+    @media (max-width: $screen-sm) {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &.desktop {
+    display: block;
+    @media (max-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  svg {
+    width: 24px;
+    max-width: 24px;
+    height: 24px;
+    max-height: 24px;
+    margin-right: 10px;
+  }
+}
+.signInButton {
+  margin-top: 5px;
+  & span {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  span svg {
+    overflow: visible;
+  }
+  .buttonIcon {
+    // margin-right: 12px;
+
+    &:not([data-icon-type='email']) {
+      width: 24px;
+      height: 24px;
+      svg * {
+        stroke-width: 0;
+      }
+    }
+    &[data-icon-type='email'] {
+      width: 20px;
+      svg * {
+        stroke-width: 17px;
+        fill: $colorWhite;
+        stroke: $colorWhite;
+      }
+    }
+  }
+}
+.unstyledButton {
+  background: transparent;
+  border: none;
+  font-family: $fontOmnes;
+  cursor: pointer;
+  font-size: 16px;
+}
+.backToSignupOptions {
+  @extend .unstyledButton;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  &:before {
+    content: '';
+    height: 10px;
+    width: 10px;
+    border: 2px solid $colorBlack;
+    border-top: 0;
+    border-right: 0;
+    display: block;
+    transform: rotate(45deg);
+  }
+}
+
+.alreadyHaveAnAccount,
+.dontHaveAnAccount {
+  margin-top: 25px;
+  font-size: 14px;
+  text-align: center;
+  @media (max-width: $screen-sm) {
+    position: static;
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  button {
+    @extend .unstyledButton;
+    text-decoration: underline;
+    font-size: 14px;
+    color: $colorPrimary;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: none;
+  }
+}
+
+.socialContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  margin: 20px 0;
+
+  &.verticalContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin: 32px 0 20px;
+    @media (max-width: $screen-sm) {
+      gap: 10px;
+      margin: 10px 0 0;
+    }
+  }
+  .socialCircleButton {
+    width: 60px;
+    height: 60px;
+    background: $colorButton;
+    border-radius: 30px;
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
 }

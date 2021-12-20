@@ -26,6 +26,11 @@ export const roundToTwo = (value, decimalPlaces = 2) => {
 };
 
 export const getReadableAmount = amount => {
-  const one = 10000;
-  return roundToTwo(+amount / one);
+  // const one = 1_000_000_000_000_000_000;
+  return roundToTwo(+amount);
 };
+
+export const displaySignedFormat = (value) => {
+  const float = parseFloat(value);
+  return float > 0 ? `+${float.toFixed(2)}` : float.toFixed(2)
+}

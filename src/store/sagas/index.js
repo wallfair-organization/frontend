@@ -7,13 +7,14 @@ import UserSagas from './user';
 import ChatSagas from './chat';
 import WebsocketsSagas from './websockets';
 import LeaderboardSagas from './leaderboard';
-import { all, select, takeLatest, takeEvery, put } from 'redux-saga/effects';
+import OnboardingSaga from './onboarding';
+import { all, select, takeLatest, takeEvery, put, delay } from 'redux-saga/effects';
 import { AuthenticationTypes } from '../actions/authentication';
 import { BetTypes } from '../actions/bet';
 import { EventActions } from '../actions/event';
 import { EventTypes } from '../actions/event';
 import { REHYDRATE } from 'redux-persist';
-import { TransactionTypes } from '../actions/transaction';
+import { TransactionActions, TransactionTypes } from '../actions/transaction';
 import { UserTypes } from '../actions/user';
 import { AlertTypes } from '../actions/alert';
 import { ChatActions, ChatTypes } from '../actions/chat';
@@ -26,6 +27,9 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 import { LeaderboardTypes } from '../actions/leaderboard';
 import { RosiGameTypes } from '../actions/rosi-game';
 import * as RosiGameSagas from './rosi-game';
+import { OnboardingTypes } from 'store/actions/onboarding';
+import { PopupActions } from 'store/actions/popup';
+import PopupTheme from 'components/Popup/PopupTheme';
 
 const root = function* () {
   yield all([
@@ -69,6 +73,7 @@ const root = function* () {
       AuthenticationSagas.authenticationSucceeded
     ),
     takeLatest([AuthenticationTypes.SIGN_UP], AuthenticationSagas.signUp),
+    takeLatest([AuthenticationTypes.LOGIN_EXTERNAL], AuthenticationSagas.loginExternal),
     takeLatest([AuthenticationTypes.LOGIN], AuthenticationSagas.login),
     takeLatest(
       [AuthenticationTypes.FORGOT_PASSWORD],
@@ -85,6 +90,7 @@ const root = function* () {
     takeEvery(
       [
         AuthenticationTypes.FETCH_REFERRALS_FAILED,
+        AuthenticationTypes.LOGIN_EXTERNAL_FAIL,
         EventTypes.CREATE_EVENT_FAILED,
         EventTypes.EDIT_EVENT_FAILED,
         EventTypes.FETCH_ALL_FAILED,
@@ -167,6 +173,10 @@ const root = function* () {
       AuthenticationSagas.updateUserData
     ),
     takeLatest(
+      [AuthenticationTypes.ACCEPT_TOS_CONSENT],
+      AuthenticationSagas.updateToSConsent
+    ),
+    takeLatest(
       [EventTypes.FETCH_HISTORY_CHART_DATA, EventTypes.UPDATE_CHART_PARAMS],
       EventSagas.fetchHistoryChartData
     ),
@@ -189,6 +199,20 @@ const root = function* () {
       [RosiGameTypes.FETCH_LUCKY_DATA_STARTED],
       RosiGameSagas.fetchLuckyData
     ),
+    takeLatest(
+      [RosiGameTypes.FETCH_MY_BETS_DATA_STARTED],
+      RosiGameSagas.fetchMyBetsData
+    ),
+    takeLatest(
+      [TransactionTypes.FETCH_WALLET_TRANSACTIONS],
+      TransactionSagas.fetchWalletTransactions
+    ),
+    takeLatest(
+      [OnboardingTypes.START, OnboardingTypes.NEXT],
+      OnboardingSaga.loadOnboardingStep
+    ),
+    takeEvery([OnboardingTypes.START], OnboardingSaga.getUsernameSuggestion),
+    takeEvery([OnboardingTypes.GET_USERNAME], OnboardingSaga.getUsernameSuggestion),
     // @formatter:on
   ]);
 };
@@ -198,10 +222,10 @@ const rehydrationDone = function* () {
 };
 
 const preLoading = function* () {
-  yield put(EventActions.fetchAll());
+  //related with disabled betting feature
+  // yield put(EventActions.fetchAll());
   yield put(WebsocketsActions.init());
-
-  const userId = yield select(state => state.authentication.userId);
+  const { userId, shouldAcceptToS } = yield select(state => state.authentication);
 
   if (userId) {
     yield put(
@@ -211,6 +235,19 @@ const preLoading = function* () {
       })
     );
     yield put(ChatActions.fetchByRoom({ roomId: UserMessageRoomId }));
+
+    if(shouldAcceptToS) {
+      yield delay(1 * 1000);
+
+      yield put(
+        PopupActions.show({
+          popupType: PopupTheme.acceptToS,
+          options: {
+            small: true,
+          },
+        })
+      );
+    }
   }
 };
 

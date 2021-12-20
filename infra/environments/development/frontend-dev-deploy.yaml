@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-dev
+  labels:
+    app: frontend-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-dev
+  template:
+    metadata:
+      labels:
+        app: frontend-dev
+    spec:
+      containers:
+        - image: registry.digitalocean.com/wallfair/frontend_k8s
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: 1000m
+            requests:
+              cpu: 400m
+              memory: 1024Mi
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 2
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 2
+            periodSeconds: 3
+          name: frontend-dev
+          envFrom:
+            - configMapRef:
+                name: frontend-dev-config
+            - configMapRef:
+                name: frontend-app-secrets
+          ports:
+            - containerPort: 3000

@@ -1,0 +1,143 @@
+@import '../../../styles/all';
+
+.withdrawalSuccess {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 35px;
+  background-color: $colorWhite;
+  border-radius: 12px;
+
+  .logo {
+    height: 60px;
+  }
+
+  .title {
+    font-family: $fontOmnes;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .subtitle {
+    font-family: $fontOmnes;
+    font-size: 14px;
+  }
+
+  .content {
+    margin: 100px 0;
+    text-align: center;
+    color: $colorBlack;
+
+    @media (max-width: $screen-sm) {
+      margin: 50px 0;
+    }
+
+    .message {
+      font-family: $fontOmnes;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .info {
+      font-size: 12px;
+      color: $colorPrimary;
+      opacity: 0.4;
+      padding-top: 10px;
+    }
+  }
+
+  .referralLinkContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    p {
+      width: 20%;
+      font-size: 14px;
+      font-family: $fontOmnes;
+      font-weight: bold;
+      @media (max-width: $screen-xs) {
+        font-size: 12px;
+        width: 30%;
+      }
+    }
+
+    .referralWrapper {
+      width: 80%;
+      @media (max-width: $screen-xs) {
+        width: 70%;
+      }
+      .referralLink {
+        border: 1px solid $colorLightGray2 !important;
+        box-sizing: border-box;
+        border-radius: 8px;
+      }
+    }
+    margin-top: 30px;
+  }
+
+  .keepGoing {
+    margin-top: 10px;
+    width: 240px;
+    font-family: $fontOmnes;
+  }
+
+  .summary {
+    width: 100%;
+    border-top: 1px dashed $colorGrayLight2;
+    padding: 20px 30px 40px;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      @media (max-width: $screen-sm) {
+        margin-bottom: 10px;
+      }
+
+      .key {
+        opacity: 0.4;
+      }
+
+      .value {
+        color: $colorPrimary;
+      }
+    }
+  }
+
+  .blockchainLink {
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    font-family: $fontOmnes;
+    font-weight: bold;
+
+    &:after {
+      content: '';
+      position: absolute;
+      background: url('../../../data/backgrounds/highlight-modal-button.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .text {
+      z-index: 1;
+
+      .underline {
+        text-decoration: underline;
+      }
+    }
+  }
+}

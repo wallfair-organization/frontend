@@ -1,0 +1,121 @@
+@import '../../styles/all';
+
+.transferButton {
+  margin-top: 10px;
+  width: 240px;
+  font-family: $fontOmnes;
+}
+
+.transferWrapper {
+  display: block;
+  margin: 0 auto 15px;
+  width: 100%;
+  max-width: 460px;
+  padding: 20px;
+  border-radius: 12px;
+
+  .tokenNumberInput {
+    height: 60px;
+    border-radius: 12px;
+    background: #f1f2f6;
+    border: 1px solid $colorLightGray2;
+    &:focus {
+      border: 1px solid $colorGrayLight;
+    }
+
+    & > * {
+      color: $colorBlack;
+    }
+  }
+
+  strong {
+    display: block;
+    text-align: center;
+    font-family: $fontOmnes;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .checkBoxContainer {
+    display: flex;
+    justify-content: flex-end;
+
+    p {
+      width: 20%;
+      display: block;
+      // text-align: center;
+      font-family: $fontOmnes;
+      font-weight: bold;
+      font-size: 12px;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    input {
+      // display: block;
+      height: 20px;
+      width: 20px;
+      border-radius: 12px;
+      padding: 0 15px;
+      font-family: $fontOmnes;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 1px solid $colorGrayLight;
+      &:focus {
+        border: 1px solid $colorGrayLight;
+      }
+    }
+  }
+
+  .buttonWrapper {
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      background: linear-gradient(
+        180deg,
+        $colorLightYellow 0%,
+        $colorLightDark2 97.4%
+      );
+      border-radius: 22.5px;
+      border: 1px solid $colorWhite;
+      width: 240px;
+      height: 45px;
+      font-family: $fontOmnes;
+      color: $colorWhite;
+      cursor: pointer;
+      font-size: 18px;
+
+      @media (max-width: $screen-md) {
+        width: 225px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      &.disabled {
+        cursor: default;
+        opacity: 0.6;
+      }
+    }
+
+    .cancelButton {
+      background-image: url('../../data/backgrounds/highlight-deposit-red.svg');
+      background: $colorPrimary;
+      color: $colorWhite;
+    }
+  }
+  .transferFormErrors {
+    margin-bottom: 15px;
+    em {
+      display: block;
+      color: $colorRed;
+    }
+  }
+}
+
+.transfer {
+  margin-top: 20px;
+}

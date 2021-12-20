@@ -1,26 +1,26 @@
 @import '../../styles/all';
 
-.canvas{
+.canvas {
   //width: 100%;
   //height: 100%;
 }
-.animationMobile{
-  max-height: 300px!important;
-  min-height: 300px!important;
-  background-image: url('../../data/backgrounds/games/Background_wheel_mob.png')!important;
+.animationMobile {
+  max-height: 300px !important;
+  min-height: 300px !important;
+  background-image: url('../../data/backgrounds/games/Background_wheel_mob2.png') !important;
 }
 .animation {
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.17);
+  border: 1px solid $colorBlueBorder;
   /*height: fit-content;*/
   max-height: 492px;
   min-height: 492px;
 
   position: relative;
-  background-image: url('../../data/backgrounds/games/Background_wheel_opt.png');
+  background-image: url('../../data/backgrounds/games/Background_wheel_opt2.png');
   background-size: cover;
   background-repeat: no-repeat;
   //background: #1f1d38;
@@ -125,19 +125,18 @@
   }
 }
 
-.audioControls{
+.audioControls {
   position: absolute;
-  z-index: 999;
+  z-index: 9;
   left: 20px;
-  top: 10px;
-  svg{
+  top: 30px;
+  svg {
     fill: #f2ff53 !important;
   }
   @media (max-width: $screen-xs-max) {
-
   }
-  @media screen and (max-width: 768px){
-    top: 60px;
+  @media screen and (max-width: 768px) {
+    top: 20px;
     left: 5px !important;
   }
 }

@@ -8,3 +8,48 @@ export const getNews = params =>
       ...params,
     },
   });
+
+export const isUserOwner = (payload, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return axios
+    .post(ApiUrls.ACCOUNT_MAPPING + '/isUserOwner', payload, config)
+    .then(response => {
+      return response.data?.owner;
+    });
+}
+
+export const mapAccount = (payload, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return axios
+    .post(ApiUrls.ACCOUNT_MAPPING + '/mapAccount', payload, config)
+    .then(response => {
+      return response.data;
+    });
+};
+
+export const accountMappingChallenge = (payload, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return axios
+    .post(ApiUrls.ACCOUNT_MAPPING + '/challenge', payload, config)
+    .then(response => {
+      return response.data;
+    });
+};

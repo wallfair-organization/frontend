@@ -1,40 +1,49 @@
 @mixin svgColor($color) {
-    @include svgColorFill($color);
-    @include svgColorStroke($color);
+  @include svgColorFill($color);
+  @include svgColorStroke($color);
 }
 
 @mixin svgSelectorColor($color) {
-    svg {
-        @include svgColor($color);
-    }
+  svg {
+    @include svgColor($color);
+  }
 }
 
 @mixin svgColorFill($color) {
-    * {
-        fill: $color;
-    }
+  * {
+    fill: $color;
+  }
 }
 
 @mixin svgColorFillImportant($color) {
-    * {
-        fill: $color !important;
-    }
+  * {
+    fill: $color !important;
+  }
 }
 
 @mixin svgColorStroke($color) {
-    * {
-        stroke: $color;
-    }
+  * {
+    stroke: $color;
+  }
 }
 
 @mixin svgColorStrokeImportant($color) {
-    * {
-        stroke: $color !important;
-    }
+  * {
+    stroke: $color !important;
+  }
 }
 
 @mixin ellipsis {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin simpleBorderedText($borderColor, $stroke: 1px, $color: #fff) {
+  color: $color;
+  -webkit-text-stroke-width: $stroke;
+  -webkit-text-stroke-color: $borderColor;
+  letter-spacing: -0.005em;
+  font-family: $fontOmnes;
+  font-variation-settings: 'wght' 800;
 }

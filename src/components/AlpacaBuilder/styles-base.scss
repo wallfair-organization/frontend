@@ -1,0 +1,199 @@
+@import '../../styles/all';
+@import './styles-variables';
+
+.alpacaBuilder {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 800px;
+  padding: 70px 40px;
+
+  @media (max-width: $screen-sm) {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    min-height: 980px;
+    padding: 70px 0 0px;
+    max-width: 500px;
+  }
+
+  .head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .svg {
+      max-height: 250px;
+      margin: auto;
+    }
+  }
+
+  .styleView {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tiles {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    .tile {
+      cursor: pointer;
+      margin: 10px;
+      height: 80px;
+      width: calc((100% / 4) - 20px);
+      padding: 2px;
+      border-radius: 20px;
+      background-color: $unselectedBg;
+      text-align: center;
+      display: flex;
+      border: 1px solid black;
+      // box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 0;
+
+      img,
+      svg {
+        max-width: 100%;
+        max-height: 100%;
+        padding: 3px;
+        flex: 1;
+      }
+    }
+    .tileSelected {
+      background-color: $selectedBg;
+      box-shadow: 0 1px 5px $colorPrimary;
+    }
+  }
+
+  .colors {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    .color {
+      cursor: pointer;
+      margin: 5px;
+      border-radius: 20px;
+      border-width: 20px;
+      border-style: solid;
+      height: 0px;
+      width: 0px;
+      font-size: 0px;
+      // box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 0;
+
+      @media (max-width: $screen-sm) {
+        margin: 5px;
+      }
+    }
+    .colorSelected {
+      box-shadow: 0 1px 3px $colorPrimary;
+    }
+  }
+
+  .categoriesRow {
+    display: flex;
+    overflow-x: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px 0;
+
+    .category {
+      cursor: pointer;
+      margin: 5px;
+      background-color: white;
+      text-transform: capitalize;
+      border-radius: 20px;
+      height: 50px;
+      width: 50px;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+      // box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 0;
+    }
+    .categorySelected {
+      background-color: $selectedBg;
+      box-shadow: 0 1px 3px $colorPrimary;
+    }
+  }
+
+  .toolbar {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.wide {
+    @media (min-width: $screen-sm) {
+      flex-direction: row;
+      display: flex;
+
+      .head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 220px;
+
+        .svg {
+          height: 195px;
+          max-height: 100%;
+        }
+      }
+      .categoriesRow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 15%;
+        .category {
+          margin-top: 8px;
+          border-radius: 20px;
+          height: 40px;
+          width: 80px;
+          font-size: 14px;
+          line-height: 40px;
+        }
+      }
+      .styleView {
+        width: 50%;
+      }
+      .head {
+        border: none;
+      }
+    }
+  }
+  .primaryAction {
+    font-size: 20px;
+    background: $colorButton;
+    color: $colorBlack;
+    font-weight: 600;
+    line-height: 40px;
+    cursor: pointer;
+    border-radius: 30px;
+    width: 150px;
+    border: none;
+  }
+  .secondaryAction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 0 16px;
+    @media (max-width: $screen-md) {
+      margin: 0 4px;
+      font-size: 14px;
+    }
+  }
+}

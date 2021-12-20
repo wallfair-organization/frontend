@@ -15,6 +15,8 @@ import { UNIVERSAL_EVENTS_ROOM_ID } from 'constants/Activities';
 import { EventActions } from '../actions/event';
 import trackedActivities from '../../components/ActivitiesTracker/trackedActivities';
 import { GAMES } from '../../constants/Games';
+import { UserActions } from '../actions/user';
+import { ObjectId } from '../../helper/Games';
 
 function createSocketChannel(socket) {
   return eventChannel(emit => {
@@ -275,12 +277,16 @@ export function* init() {
           case UserNotificationTypes.EVENT_RESOLVE:
           case UserNotificationTypes.EVENT_USER_REWARD:
           case UserNotificationTypes.USER_AWARD:
+          case UserNotificationTypes.EVENT_USER_KYC_UPDATE:
             yield put(
               AlertActions.showNotification({
                 notification: payload,
               })
             );
             yield put(ChatActions.fetchByRoom({ roomId: UserMessageRoomId }));
+            if(type === UserNotificationTypes.EVENT_USER_KYC_UPDATE){
+                yield put(UserActions.fetch({ forceFetch: true }));
+            }
             break;
           case notificationTypes.EVENT_BET_STARTED:
             yield put(EventActions.fetchAll());
@@ -315,6 +321,10 @@ const isHomePage = (currentAction, pathSlugs) =>
 const isGamePage = (currentAction, pathSlugs) =>
   (currentAction[0] === 'games' || pathSlugs[0] === 'games') &&
   (pathSlugs.length > 1 || currentAction.length > 1);
+  const isExternalPage = (currentAction, pathSlugs) =>
+    (currentAction[0] === 'external-game' || pathSlugs[0] === 'external-game') &&
+    (pathSlugs.length > 1 || currentAction.length > 1);
+
 
 export function* joinOrLeaveRoomOnRouteChange(action) {
   const ready = yield select(state => state.websockets.init);
@@ -356,6 +366,10 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
       newRoomsToJoin.push(game.id);
       newRoomsToJoin.push(UNIVERSAL_EVENTS_ROOM_ID);
     }
+  }
+  if(isExternalPage(currentAction, pathSlugs)){
+    newRoomsToJoin.push(ObjectId(pathSlugs[1]));
+    newRoomsToJoin.push(UNIVERSAL_EVENTS_ROOM_ID);
   }
 
   // leave all non active rooms except UserMessageRoomId

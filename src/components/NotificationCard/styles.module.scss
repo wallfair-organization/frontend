@@ -6,7 +6,7 @@
   display: block;
   margin: 5px 25px 15px 25px;
   padding: 15px 0px 0px 10px;
-  background-color: #27223f;
+  background-color: $colorGrayLight;
 
   .notificationCardContent {
     display: flex;
@@ -19,9 +19,10 @@
       margin-bottom: 15px;
       font-size: 14px;
       line-height: 20px;
-      color: #ffffff;
+      color: $colorPrimary;
       margin-right: 15px;
       margin-left: 10px;
+      font-family: $fontOmnes;
 
       em {
         font-size: 11px;
@@ -31,8 +32,8 @@
       }
 
       a {
-        color: #f2ff53;
-        font-family: $fontBold;
+        color: $colorYellowLight;
+        font-family: $fontOmnes;
       }
 
       p {
@@ -84,7 +85,7 @@
     line-height: 18px;
     text-align: right;
     letter-spacing: 0.5px;
-    color: #ffffff;
+    color: $colorPrimary;
     mix-blend-mode: normal;
     opacity: 0.3;
     cursor: pointer;

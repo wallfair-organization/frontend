@@ -1,8 +1,9 @@
 @import '../../styles/all';
 
 .container {
-  background: #1f1d38;
-  border: 1px solid rgba(255, 255, 255, 0.17);
+  background: $colorBlue80;
+  border: 1px solid $colorBlueBorder;
+
   border-radius: 10px;
   margin-bottom: 14px;
   padding: 7px 20px;
@@ -42,7 +43,11 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(270deg, #1f1d38 0%, rgba(9, 9, 121, 0) 40%);
+    background: linear-gradient(
+      270deg,
+      rgba(253, 253, 253, 0.1) 0%,
+      rgba(255, 255, 255, 0) 40%
+    );
     z-index: 2;
     pointer-events: none;
   }
@@ -60,9 +65,11 @@
       margin-right: 25px;
     }
   }
-
   .reward {
     color: $colorGreen;
+  }
+  .even {
+    color: gray;
   }
 
   .lost {

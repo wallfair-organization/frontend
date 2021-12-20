@@ -42,16 +42,9 @@ label.inputLabel {
 .submitButton {
   overflow: hidden;
   font-size: 16px;
-  border-radius: 10px;
   margin: 20px 0 0;
-  width: 100%;
-  background-color: transparent;
-  background-image: url('../../data/images/signup-background-one.svg');
-  background-position: center;
-  background-size: cover;
 
   @media (max-width: $screen-sm) {
-    height: 50px;
     margin: 10px 0 0;
   }
 

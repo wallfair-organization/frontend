@@ -1,4 +1,5 @@
 export default {
-  authenticationScreenButton: 'authenticationScreenButton',
-  welcomeScreenButton: 'welcomeScreenButton',
+  primaryButton: 'primaryButton',
+  secondaryButton: 'secondaryButton',
+  loginButton: 'loginButton',
 };

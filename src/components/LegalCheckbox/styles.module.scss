@@ -1,0 +1,15 @@
+@import '../../styles/all';
+
+.authenticationLegalAuthorizationAgreementCheckBox {
+  align-self: flex-start;
+  // width: 390px;
+  .authenticationLegalAuthorizationAgreementText {
+    flex: 1;
+    font-size: 15px;
+    text-transform: uppercase;
+
+    @media (max-width: $screen-sm) {
+      font-size: 12px;
+    }
+  }
+}

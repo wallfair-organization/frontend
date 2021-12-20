@@ -1,0 +1,377 @@
+{
+  "transfers": [
+    {
+      "name": "Wallfair Hot Sale Wallet",
+      "from": "0x6756766Ad3b2585e541a6f369AF05A31a3836724",
+      "to": "0x553A2f3732F20f308F2f9b03cd7234fBA421a5b1",
+      "amount": "95000000",
+      "timestamp": "1632584100939",
+      "txid": "0xabee15540776311818ab27efd78c4b76ba332536b16943fbcb90d193b651d263"
+    },
+    {
+      "name": "DEX Liquidity",
+      "from": "0x6756766Ad3b2585e541a6f369AF05A31a3836724",
+      "to": "0xC9AA194d782f42769800503A58C5463B54f9D766",
+      "amount": "2500000",
+      "timestamp": "1632584104847",
+      "txid": "0x32ed13553ffdf3ae085cd18bb894f104ab0480b3ee6b35df419f4296d1840ffe"
+    },
+    {
+      "name": "Fund TokenLock #2 in deployTokenLock",
+      "from": "0x6756766Ad3b2585e541a6f369AF05A31a3836724",
+      "to": "0x572Ae00A4f8C620f6d68c85533597eae067F26bF",
+      "amount": "18750000000000000000000000",
+      "timestamp": "1632844864986",
+      "txid": "0xbf598e7588c69c55c58ac973cd693c68065a3bfa6c441b98fd2e1e33c1a9b518"
+    },
+    {
+      "name": "Fund TokenLock #3 in deployTokenLock",
+      "from": "0x6756766Ad3b2585e541a6f369AF05A31a3836724",
+      "to": "0x1Fba9De958C1AC449745f064C9f3B40ddbC6cE2B",
+      "amount": "161250000000000000000000000",
+      "timestamp": "1632845045953",
+      "txid": "0x3b05821c288764ceefed59cb3b40ba09ad8f475a1ddbe9363cf3e02cdaab119a"
+    },
+    {
+      "name": "Fund TokenLock #4 in deployTokenLock",
+      "from": "0x6756766Ad3b2585e541a6f369AF05A31a3836724",
+      "to": "0x45Fc9d5D497Ee6ef63807Ef35569f15801d35162",
+      "amount": "333995000000000000000000000",
+      "timestamp": "1632845078633",
+      "txid": "0x8f716415098ec5bbfcdab72d50f7399402709a7100cec80d685ee878ee6d3d76"
+    },
+    {
+      "name": "Fund TokenLock #5 in deployTokenLock",
+      "from": "0x6756766Ad3b2585e541a6f369AF05A31a3836724",
+      "to": "0x8e8080C17dB930c21c642651aD98b5f43B004265",
+      "amount": "225367500000000000000000000",
+      "timestamp": "1632845107478",
+      "txid": "0x07b31a9ce28162290fffa2516ca3ec4fb06bc8beae1738c9f1fe96cccb203eac"
+    },
+    {
+      "name": "Fund TokenLock #0 in deployTeamLock",
+      "from": "0x6756766Ad3b2585e541a6f369AF05A31a3836724",
+      "to": "0x27130e63EEd884c543F115535d8b298f9A0bAdF4",
+      "amount": "100000000000000000000000000",
+      "timestamp": "1632845180197",
+      "txid": "0xfe8d0e9cc8bb4be99830132fc5b09f2fe4b9b7b109dce353f7235c96ce1e2820"
+    },
+    {
+      "name": "Private Sale #1",
+      "from": "0x6756766Ad3b2585e541a6f369AF05A31a3836724",
+      "to": "0xaf9CA53996C4cc00d5BC41966Ecc02E2A6fFB1fC",
+      "amount": "3450000000000000000000000",
+      "timestamp": "1633552245878",
+      "txid": "0x1bc7bc917fb36b9980a859fde167540b064924619de75637af886c2a2af1f362"
+    },
+    {
+      "name": "Private Sale #2",
+      "from": "0x6756766Ad3b2585e541a6f369AF05A31a3836724",
+      "to": "0x8C9f10AdD1353eD72E21Def2B0bA2876e4a7186c",
+      "amount": "2209590000000000000000000",
+      "timestamp": "1633629677341",
+      "txid": "0x576bb9a7677b2aba3adb533481638ffc90c8e8b7cbd78dff85973cda138c2d1c"
+    }
+  ],
+  "locks": [
+    {
+      "name": "TokenLock #0 in deployTokenLock",
+      "address": "0xe31B4C9245cB1d049f588E389cFc275b9b5a6cf0",
+      "parameters": [
+        "0x3D01B461c7231E7acB9DeaBDB03D7Ccba074B722",
+        "1628121600",
+        "2592000",
+        "0",
+        "1000000000000000000",
+        [
+          "0xcd3b766ccdd6ae721141f452c550ca635964ce71",
+          "0x882211ead91E800f56F97579B94e46269E0516DD"
+        ],
+        ["887500000000000000000000", "6000000000000000000000000"]
+      ],
+      "timestamp": "1632843508718",
+      "artifact": "TokenLock",
+      "wallets": [
+        "0xcd3b766ccdd6ae721141f452c550ca635964ce71",
+        "0x882211ead91E800f56F97579B94e46269E0516DD"
+      ],
+      "amounts": ["887500000000000000000000", "6000000000000000000000000"],
+      "lockConfigFile": "deployTokenLock"
+    },
+    {
+      "name": "TokenLock #1 in deployTokenLock",
+      "address": "0xe8AC3417aA4E00067fB5A1Fcc4853aF1D97bA58e",
+      "parameters": [
+        "0x3D01B461c7231E7acB9DeaBDB03D7Ccba074B722",
+        "1635897600",
+        "23328000",
+        "0",
+        "0",
+        [
+          "0xAD92DB27D2E4DB008164B3eA124Abe5648e8F7B1",
+          "0x9CFfcB609254d546118E9aD2d45eC21ea29d9eF5"
+        ],
+        ["2250000000000000000000000", "54000000000000000000000000"]
+      ],
+      "timestamp": "1632843511291",
+      "artifact": "TokenLock",
+      "wallets": [
+        "0xAD92DB27D2E4DB008164B3eA124Abe5648e8F7B1",
+        "0x9CFfcB609254d546118E9aD2d45eC21ea29d9eF5"
+      ],
+      "amounts": ["2250000000000000000000000", "54000000000000000000000000"],
+      "lockConfigFile": "deployTokenLock"
+    },
+    {
+      "name": "TokenLock #2 in deployTokenLock",
+      "address": "0x572Ae00A4f8C620f6d68c85533597eae067F26bF",
+      "parameters": [
+        "0x3D01B461c7231E7acB9DeaBDB03D7Ccba074B722",
+        "1659225600",
+        "7776000",
+        "0",
+        "0",
+        ["0xAD92DB27D2E4DB008164B3eA124Abe5648e8F7B1"],
+        ["18750000000000000000000000"]
+      ],
+      "timestamp": "1632843513846",
+      "artifact": "TokenLock",
+      "wallets": ["0xAD92DB27D2E4DB008164B3eA124Abe5648e8F7B1"],
+      "amounts": ["18750000000000000000000000"],
+      "lockConfigFile": "deployTokenLock"
+    },
+    {
+      "name": "TokenLock #3 in deployTokenLock",
+      "address": "0x1Fba9De958C1AC449745f064C9f3B40ddbC6cE2B",
+      "parameters": [
+        "0x3D01B461c7231E7acB9DeaBDB03D7Ccba074B722",
+        "1659225600",
+        "31104000",
+        "0",
+        "0",
+        [
+          "0x5765834c607AE048D8931D6c4bb7befD1c70F9f5",
+          "0x094A59b184dD2F1e609587DB7E4a443DA990FA91"
+        ],
+        ["37500000000000000000000000", "123750000000000000000000000"]
+      ],
+      "timestamp": "1632843516761",
+      "artifact": "TokenLock",
+      "wallets": [
+        "0x5765834c607AE048D8931D6c4bb7befD1c70F9f5",
+        "0x094A59b184dD2F1e609587DB7E4a443DA990FA91"
+      ],
+      "amounts": ["37500000000000000000000000", "123750000000000000000000000"],
+      "lockConfigFile": "deployTokenLock"
+    },
+    {
+      "name": "TokenLock #4 in deployTokenLock",
+      "address": "0x45Fc9d5D497Ee6ef63807Ef35569f15801d35162",
+      "parameters": [
+        "0x3D01B461c7231E7acB9DeaBDB03D7Ccba074B722",
+        "1628121600",
+        "31104000",
+        "0",
+        "0",
+        [
+          "0x5765834c607AE048D8931D6c4bb7befD1c70F9f5",
+          "0x094A59b184dD2F1e609587DB7E4a443DA990FA91",
+          "0xC6f729fECF9f26f01aBE7aC558678E55DaE226c8",
+          "0x9E17051D9Ab79069DCBDe85213c18A05C581e51E",
+          "0x791E1542Ce46852072A7Ca396f5D7F8931E15143"
+        ],
+        [
+          "60000000000000000000000000",
+          "63750000000000000000000000",
+          "60000000000000000000000000",
+          "30245000000000000000000000",
+          "120000000000000000000000000"
+        ]
+      ],
+      "timestamp": "1632843519311",
+      "artifact": "TokenLock",
+      "wallets": [
+        "0x5765834c607AE048D8931D6c4bb7befD1c70F9f5",
+        "0x094A59b184dD2F1e609587DB7E4a443DA990FA91",
+        "0xC6f729fECF9f26f01aBE7aC558678E55DaE226c8",
+        "0x9E17051D9Ab79069DCBDe85213c18A05C581e51E",
+        "0x791E1542Ce46852072A7Ca396f5D7F8931E15143"
+      ],
+      "amounts": [
+        "60000000000000000000000000",
+        "63750000000000000000000000",
+        "60000000000000000000000000",
+        "30245000000000000000000000",
+        "120000000000000000000000000"
+      ],
+      "lockConfigFile": "deployTokenLock"
+    },
+    {
+      "name": "TokenLock #5 in deployTokenLock",
+      "address": "0x8e8080C17dB930c21c642651aD98b5f43B004265",
+      "parameters": [
+        "0x3D01B461c7231E7acB9DeaBDB03D7Ccba074B722",
+        "1659225600",
+        "46656000",
+        "0",
+        "0",
+        ["0x9E17051D9Ab79069DCBDe85213c18A05C581e51E"],
+        ["225367500000000000000000000"]
+      ],
+      "timestamp": "1632843522021",
+      "artifact": "TokenLock",
+      "wallets": ["0x9E17051D9Ab79069DCBDe85213c18A05C581e51E"],
+      "amounts": ["225367500000000000000000000"],
+      "lockConfigFile": "deployTokenLock"
+    },
+    {
+      "name": "TokenLock #0 in deployTeamLock",
+      "address": "0x27130e63EEd884c543F115535d8b298f9A0bAdF4",
+      "parameters": [
+        "0x3D01B461c7231E7acB9DeaBDB03D7Ccba074B722",
+        "1659225600",
+        "31104000",
+        "0x508d90d8b93e36741904E71B4Cd40E53E06F495F",
+        [
+          "0x508d90d8b93e36741904E71B4Cd40E53E06F495F",
+          "0x2C8842C4C8dd6E36BD7289f1b9E8721D67BA353F",
+          "0xaED54FD0f08416Ee8535C166669f0C40417Db5E5",
+          "0x99CF7734c15207CB8e646092aE01ED7165ED5d9D"
+        ],
+        [
+          "98557616000000000000000000",
+          "1000000000000000000000000",
+          "250000000000000000000000",
+          "192384000000000000000000"
+        ]
+      ],
+      "timestamp": "1632843556621",
+      "artifact": "LeaverTokenLock",
+      "wallets": [
+        "0x508d90d8b93e36741904E71B4Cd40E53E06F495F",
+        "0x2C8842C4C8dd6E36BD7289f1b9E8721D67BA353F",
+        "0xaED54FD0f08416Ee8535C166669f0C40417Db5E5",
+        "0x99CF7734c15207CB8e646092aE01ED7165ED5d9D"
+      ],
+      "amounts": [
+        "98557616000000000000000000",
+        "1000000000000000000000000",
+        "250000000000000000000000",
+        "192384000000000000000000"
+      ],
+      "lockConfigFile": "deployTeamLock"
+    },
+    {
+      "name": "Private Sale #1",
+      "address": "0xaf9CA53996C4cc00d5BC41966Ecc02E2A6fFB1fC",
+      "parameters": [
+        "0x3D01B461c7231E7acB9DeaBDB03D7Ccba074B722",
+        "1628121600",
+        "15552000",
+        "0",
+        "0",
+        [
+          "0x679624F07a533e6C80e7a3f70fcAF3d456DA9fC8",
+          "0x508d90d8b93e36741904E71B4Cd40E53E06F495F",
+          "0x5844D09f207Fdbcd034Ca51a1D6f898b0e6225dc",
+          "0x6aeeBb32576165152A7998F2776B04873E085605"
+        ],
+        [
+          "250000000000000000000000",
+          "1200000000000000000000000",
+          "750000000000000000000000",
+          "1250000000000000000000000"
+        ]
+      ],
+      "timestamp": "1633551987392",
+      "artifact": "TokenLock",
+      "wallets": [
+        "0x679624F07a533e6C80e7a3f70fcAF3d456DA9fC8",
+        "0x508d90d8b93e36741904E71B4Cd40E53E06F495F",
+        "0x5844D09f207Fdbcd034Ca51a1D6f898b0e6225dc",
+        "0x6aeeBb32576165152A7998F2776B04873E085605"
+      ],
+      "amounts": [
+        "250000000000000000000000",
+        "1200000000000000000000000",
+        "750000000000000000000000",
+        "1250000000000000000000000"
+      ],
+      "lockConfigFile": "deploytest1Lock"
+    },
+    {
+      "name": "Private Sale #2",
+      "address": "0x8C9f10AdD1353eD72E21Def2B0bA2876e4a7186c",
+      "parameters": [
+        "0x3D01B461c7231E7acB9DeaBDB03D7Ccba074B722",
+        "1630800000",
+        "15552000",
+        "0",
+        "250000000000000000",
+        [
+          "0xB79D53cfce261ed04EECF39Dc5AA3Eca9e17e2a0",
+          "0xff446615c8A1e1E562742a82F1F2CFDDc968F956",
+          "0xa066E15a7843A281EBfcf685Cb30020b022b9B2D",
+          "0x0A7DE70d9E8B39d3A5F3d3F22Ccf87DFbC364813",
+          "0xC846bAAf7090c6D73CA62736cE49fbf2eADeb4aF",
+          "0x10126A436276D4b00fbe045741E46A7CC0B717a1",
+          "0x8E297013D033B4267728f4dfA92f9370DD2FA6f8",
+          "0xeF4C6766d75bbcAeB8ed24EFA6bf07af1Bb0DEB0"
+        ],
+        [
+          "350000000000000000000000",
+          "125000000000000000000000",
+          "781200000000000000000000",
+          "34100000000000000000000",
+          "23100000000000000000000",
+          "700000000000000000000000",
+          "76190000000000000000000",
+          "120000000000000000000000"
+        ]
+      ],
+      "timestamp": "1633628758793",
+      "artifact": "TokenLock",
+      "wallets": [
+        "0xB79D53cfce261ed04EECF39Dc5AA3Eca9e17e2a0",
+        "0xff446615c8A1e1E562742a82F1F2CFDDc968F956",
+        "0xa066E15a7843A281EBfcf685Cb30020b022b9B2D",
+        "0x0A7DE70d9E8B39d3A5F3d3F22Ccf87DFbC364813",
+        "0xC846bAAf7090c6D73CA62736cE49fbf2eADeb4aF",
+        "0x10126A436276D4b00fbe045741E46A7CC0B717a1",
+        "0x8E297013D033B4267728f4dfA92f9370DD2FA6f8",
+        "0xeF4C6766d75bbcAeB8ed24EFA6bf07af1Bb0DEB0"
+      ],
+      "amounts": [
+        "350000000000000000000000",
+        "125000000000000000000000",
+        "781200000000000000000000",
+        "34100000000000000000000",
+        "23100000000000000000000",
+        "700000000000000000000000",
+        "76190000000000000000000",
+        "120000000000000000000000"
+      ],
+      "lockConfigFile": "deployprivSale2Lock"
+    }
+  ],
+  "network": {
+    "name": "kovan",
+    "chainId": 42,
+    "gas": "auto",
+    "gasPrice": "auto"
+  },
+  "default": {
+    "production": {
+      "ethereum": "0xC6065B9fc8171Ad3D29bad510709249681758972",
+      "polygon": "0xb6B5CDF74606181a1b05bfC0B9F17fC2A64B0cD5"
+    },
+    "staging": {
+      "ethereum": "0xe31B4C9245cB1d049f588E389cFc275b9b5a6cf0",
+      "polygon": "0x96f9AFf5f850A46A8ab709f7fb8947C09E5bcc28"
+    },
+    "development": {
+      "ethereum": "0xe31B4C9245cB1d049f588E389cFc275b9b5a6cf0",
+      "polygon": "0x96f9AFf5f850A46A8ab709f7fb8947C09E5bcc28"
+    }
+  }
+}

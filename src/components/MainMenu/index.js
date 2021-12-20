@@ -8,6 +8,7 @@ import Routes from '../../constants/Routes';
 import styles from './styles.module.scss';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
+import { useWeb3React } from '@web3-react/core';
 import HomeSettings from '../HomeSettings';
 import MyTrades from '../MyTrades';
 import { AuthenticationActions } from 'store/actions/authentication';
@@ -16,14 +17,23 @@ import EmailNotifications from 'components/EmailNotifications';
 import Preferences from 'components/Preferences';
 import Referrals from 'components/Referrals';
 import Textarea from 'components/Textarea';
+import { LOGGED_IN } from 'constants/AuthState';
 import { Link } from 'react-router-dom';
 import { checkUsername } from '../../api';
+import { AlertActions } from 'store/actions/alert';
+import { useDispatch } from 'react-redux';
+import AlpacaBuilder from 'components/AlpacaBuilder';
+import { PopupActions } from 'store/actions/popup';
+import PopupTheme from '../Popup/PopupTheme';
+import AlpacaBuilderPopup from 'components/AlpacaBuilderPopup';
+import KycStatus from 'components/KycStatus';
 
 const MainMenu = ({
   opened,
   user,
   updateUser,
   setEditVisible,
+  setOpenDrawer,
   handleMyTradesVisible,
   handleEmailNotificationsVisible,
   handlePreferencesVisible,
@@ -36,15 +46,23 @@ const MainMenu = ({
   close,
   updateNotificationSettings,
   fetchReferrals,
+  alpacaBuilderVisible = false,
+  handleAlpacaBuilderVisible,
+  showPopup,
+  kycInfoVisible = false,
+  handleKycInfoVisible,
 }) => {
+  const dispatch = useDispatch();
   const [name, setName] = useState(user.name);
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [profilePic, setProfilePic] = useState(user.profilePicture);
   const [imageName, setImageName] = useState(null);
   const [aboutMe, setAboutMe] = useState(user.aboutMe);
+  const [alpacaBuilderProps, setAlpacaBuilderProps] = useState({...user.alpacaBuilderProps});
   const [profileSubmitActive, setProfileSubmitActive] = useState(true);
   const [profileErrorMessage, setProfileErrorMessage] = useState();
+  const { deactivate } = useWeb3React();
 
   const profilePictureRefName = useRef(null);
 
@@ -55,10 +73,11 @@ const MainMenu = ({
     setName(user.name);
     setEmail(user.email);
     setAboutMe(user.aboutMe);
+    setAlpacaBuilderProps({...user.alpacaBuilderProps});
   }, [user, editVisible]);
 
   const clickUploadProfilePicture = () => {
-    profilePictureRefName.current?.click();
+    handleAlpacaBuilderVisible(!alpacaBuilderVisible);
   };
 
   const history = useHistory();
@@ -67,18 +86,29 @@ const MainMenu = ({
     history.push(destinationRoute);
   };
 
+  const onGamesClick = () => {
+    onClickGoToRoute(Routes.games);
+  }
+
+  const onProfileClick = () => {
+    onClickGoToRoute(`/user/${user.userId}`);
+  }
+
+  const onActivitiesClick = () => {
+    onClickGoToRoute(Routes.activities);
+  }
+
+  const onLeaderboardClick = () => {
+    setOpenDrawer('leaderboard');
+  }
+
   const onClickShowEditProfile = () => {
     setProfilePic(user.profilePicture);
     setEditVisible(!editVisible);
   };
 
-  const onMyWalletClick = name => {
-    // fetchOpenBets();
-    // fetchTransactions();
-    // setOpenDrawer(name);
-    // handleMyTradesVisible(!myTradesVisible);
-    fetchReferrals();
-    // setOpenMenu(menus.referrals);
+  const onWalletClick = name => {
+    onClickGoToRoute(Routes.wallet);
   };
 
   const onEmailNotificationClick = () => {
@@ -93,8 +123,19 @@ const MainMenu = ({
     handleReferralsVisible(!referralsVisible);
   };
 
+  const onKycInfoClick = () => {
+    handleKycInfoVisible(!kycInfoVisible);
+  };
+
   const handleName = e => {
     setName(e.target.value);
+  };
+
+  const onAlpacaBuilderClick = () => {
+    showPopup(PopupTheme.alpacaBuilder, {
+      userId: user.userId,
+      alpacaBuilderProps: {...alpacaBuilderProps}
+    });
   };
 
   const handleUsernameDebounceAction = useMemo(() => {
@@ -120,11 +161,19 @@ const MainMenu = ({
   }, []);
 
   const handleUsername = e => {
-    setProfileSubmitActive(false);
-    setUsername(e.target.value);
+    if(e.target.value.length > 25) {
+      dispatch(
+        AlertActions.showError({
+          message: 'Username can have a maximum of 25 characters.',
+        })
+      );
+    }
+    else {
+      setProfileSubmitActive(false);
+      setUsername(e.target.value);
+      handleUsernameDebounceAction(e.target.value);
+    }
 
-    //debounce 300ms, to avoid unnecessary multiple calls
-    handleUsernameDebounceAction(e.target.value);
   };
 
   const handleEmail = e => {
@@ -133,21 +182,33 @@ const MainMenu = ({
 
   const handleSubmit = e => {
     e.preventDefault();
-    updateUser(name, username, email, imageName, aboutMe, profilePic);
+    updateUser(name, username, email, imageName, aboutMe, profilePic, alpacaBuilderProps);
     setEditVisible(false);
   };
 
-  const handleProfilePictureUpload = async e => {
-    if (!e.target.files.length) return;
-    const base64 = await convertToBase64(e.target.files[0]);
-    if (e.target.files[0].size / 1024 / 1024 > 1) {
+  const handleFileUpload = async blob => {
+    const base64 = await convertToBase64(blob);
+    if (blob.size / 1024 / 1024 > 1) {
       const newPicture = await resizePicture(base64);
       setProfilePic(newPicture);
-      setImageName(e.target.files[0].name);
+      setImageName(blob.name);
     } else {
       setProfilePic(base64);
-      setImageName(e.target.files[0].name);
+      setImageName(blob.name);
     }
+  }
+
+  const handleProfilePictureUpload = async e => {
+    if (!e.target.files.length) return;
+    await handleFileUpload(e.target.files[0]);
+  };
+
+  const handleAlpacaBuilderExport = async ({blob, props}) => {
+
+    if (!blob) return;
+    await handleFileUpload(blob);
+    handleAlpacaBuilderVisible(false);
+    setAlpacaBuilderProps({...props});
   };
 
   const resizePicture = base64 =>
@@ -265,6 +326,64 @@ const MainMenu = ({
     );
   };
 
+  const renderAlpacaBuilderDrawer = () => {
+    return (
+      <div
+        className={classNames(
+          styles.panel,
+          !alpacaBuilderVisible && styles.panelHidden
+        )}
+      >
+        <h2 className={styles.profileHeading}>
+          <Icon
+            className={styles.backButton}
+            iconType={'arrowTopRight'}
+            onClick={() => handleAlpacaBuilderVisible(!alpacaBuilderVisible)}
+          />
+          Alpacabuilder
+        </h2>
+        <div className={styles.alpacaBuilderWrapper}>
+          <AlpacaBuilder
+            onCancel={() => handleAlpacaBuilderVisible(!alpacaBuilderVisible)}
+            onExport={data => handleAlpacaBuilderExport(data)}
+            props={alpacaBuilderProps}/>
+        </div>
+      </div>
+    );
+  };
+
+  const renderKycInfoDrawer = () => {
+    return (
+      <div
+        className={classNames(
+          styles.panel,
+          !kycInfoVisible && styles.panelHidden
+        )}
+      >
+        <h2 className={styles.profileHeading}>
+          <Icon
+            className={styles.backButton}
+            iconType={'arrowTopRight'}
+            onClick={() => handleKycInfoVisible(!kycInfoVisible)}
+          />
+          KYC Info
+        </h2>
+        <div className={styles.alpacaBuilderWrapper}>
+          <KycStatus/>
+        </div>
+      </div>
+    );
+  };
+
+  const renderAlpacaBuilderPopup = () => {
+    return (
+        <AlpacaBuilderPopup
+          onCancel={() => handleAlpacaBuilderVisible(!alpacaBuilderVisible)}
+          onExport={data => handleAlpacaBuilderExport(data)}
+          props={alpacaBuilderProps}/>
+    );
+  };
+
   const renderReferralsDrawer = () => {
     return (
       <div
@@ -302,7 +421,7 @@ const MainMenu = ({
           Edit My Profile
         </h2>
         <div className={styles.editProfileContent}>
-          <div className={styles.profilePictureWrapper}>
+          {/* <div className={styles.profilePictureWrapper}>
             <div className={styles.profilePicture}>
               <div
                 className={styles.profilePictureUpload}
@@ -313,7 +432,7 @@ const MainMenu = ({
                     <Icon
                       className={styles.uploadIcon}
                       iconTheme={IconTheme.white}
-                      iconType={IconType.avatarUpload}
+                      iconType={IconType.buildAlpaca}
                     />
                   </div>
                 ) : (
@@ -331,12 +450,12 @@ const MainMenu = ({
                   onChange={handleProfilePictureUpload}
                 />
               </div>
-              <p className={styles.profilePictureUploadLabel}>Your avatar</p>
+              <p className={styles.profilePictureUploadLabel}>Build your alpaca</p>
             </div>
-          </div>
+          </div> */}
           <form onSubmit={handleSubmit}>
             <div className={styles.profileContent}>
-              <div className={styles.profileInputGroup}>
+              {/* <div className={styles.profileInputGroup}>
                 <label className={styles.profileInputLabel}>
                   My full name is...
                 </label>
@@ -345,7 +464,7 @@ const MainMenu = ({
                   value={name}
                   onChange={handleName}
                 />
-              </div>
+              </div> */}
               <div className={styles.profileInputGroup}>
                 <label className={styles.profileInputLabel}>
                   My username is...
@@ -380,17 +499,24 @@ const MainMenu = ({
                   {profileErrorMessage}
                 </div>
               )}
-              <input
-                disabled={profileSubmitActive ? false : true}
-                className={styles.profileSubmit}
-                type={'submit'}
-                value={'Save changes'}
-              />
+              <div className={styles.submitButtonContainer}>
+                <input
+                  disabled={profileSubmitActive ? false : true}
+                  className={styles.profileSubmit}
+                  type={'submit'}
+                  value={'Save changes'}
+                />
+              </div>
             </div>
           </form>
         </div>
       </div>
     );
+  };
+
+  const doLogout = () => {
+    deactivate();
+    onClickGoToRoute(Routes.logout);
   };
 
   return (
@@ -407,19 +533,29 @@ const MainMenu = ({
             styles.panelHidden
         )}
       >
-        <h2 className={styles.profileHeading}>
+        {/* <h2 className={styles.profileHeading}>
           <Link to={Routes.user.replace(':userId', user.userId)}>
             My Profile
           </Link>
-        </h2>
+        </h2> */}
         <div className={styles.mainContent}>
           <HomeSettings
+            user={user}
+            loggedIn={user.authState === LOGGED_IN}
+            profilePic={profilePic}
+            onWalletClick={onWalletClick}
+            onGamesClick={onGamesClick}
+            onActivitiesClick={onActivitiesClick}
+            onLeaderboardClick={onLeaderboardClick}
             onEditClick={() => onClickShowEditProfile()}
             onReferralsClick={() => onReferralsClick()}
             onEmailNotificationClick={() => onEmailNotificationClick()}
             onPreferencesClick={() => onPreferencesClick()}
-            onLogoutClick={() => onClickGoToRoute(Routes.logout)}
+            onLogoutClick={() => doLogout()}
             onCloseProfile={() => close()}
+            onAlpacaBuilderClick={() => onAlpacaBuilderClick()}
+            onKycInfoClick={() => onKycInfoClick()}
+            onProfileClick={onProfileClick}
           />
         </div>
       </div>
@@ -428,6 +564,8 @@ const MainMenu = ({
       {referralsVisible && renderReferralsDrawer()}
       {emailNotificationsVisible && renderEmailNotificationDrawer()}
       {preferencesVisible && renderPreferencesDrawer()}
+      {alpacaBuilderVisible && renderAlpacaBuilderDrawer()}
+      {kycInfoVisible && renderKycInfoDrawer()}
     </div>
   );
 };
@@ -440,15 +578,17 @@ const mapStateToProps = state => {
     emailNotificationsVisible: state.general.emailNotificationsVisible,
     preferencesVisible: state.general.preferencesVisible,
     referralsVisible: state.general.referralsVisible,
+    alpacaBuilderVisible: state.general.alpacaBuilderVisible,
+    kycInfoVisible: state.general.kycInfoVisible,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateUser: (name, username, email, imageName, aboutMe, profilePic) => {
+    updateUser: (name, username, email, imageName, aboutMe, profilePic, alpacaBuilderProps) => {
       dispatch(
         AuthenticationActions.initiateUpdateUserData({
-          user: { name, username, email, imageName, aboutMe, profilePic },
+          user: { name, username, email, imageName, aboutMe, profilePic, alpacaBuilderProps },
         })
       );
     },
@@ -458,6 +598,9 @@ const mapDispatchToProps = dispatch => {
           user: { notificationSettings },
         })
       );
+    },
+    setOpenDrawer: drawerName => {
+      dispatch(GeneralActions.setDrawer(drawerName));
     },
     setEditVisible: bool => {
       dispatch(GeneralActions.setEditProfileVisible(bool));
@@ -474,8 +617,22 @@ const mapDispatchToProps = dispatch => {
     handleReferralsVisible: bool => {
       dispatch(GeneralActions.setReferralsVisible(bool));
     },
+    handleKycInfoVisible: bool => {
+      dispatch(GeneralActions.setKycInfoVisible(bool));
+    },
     fetchReferrals: () => {
       dispatch(AuthenticationActions.fetchReferrals());
+    },
+    handleAlpacaBuilderVisible: bool => {
+      dispatch(GeneralActions.setAlpacaBuilderVisible(bool));
+    },
+    showPopup: (popupType, options) => {
+      dispatch(
+        PopupActions.show({
+          popupType,
+          options,
+        })
+      );
     },
   };
 };

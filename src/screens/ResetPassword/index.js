@@ -86,7 +86,7 @@ const ResetPassword = ({ loading, errorState, resetPassword }) => {
             disabled={loading}
             disabledWithOverlay={true}
           >
-            <span>Reset</span>
+            Reset
           </Button>
         </div>
       </div>

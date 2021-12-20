@@ -9,7 +9,7 @@
 
   .container {
     margin: 0 2rem;
-    max-width: 930px;
+    max-width: 1200px;
     width: 100%;
 
     @media (max-width: $screen-sm) {
@@ -24,8 +24,7 @@
       background-repeat: no-repeat;
       background-position: top;
       background-size: cover;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      border-radius: 8px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -39,9 +38,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-color: #21203C;
-      color: $colorWhite;
-      padding-top: 20px;      
+      color: $colorBlack;
+      padding-top: 20px;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
       @media (max-width: $screen-sm) {
@@ -83,7 +81,7 @@
         @media (max-width: $screen-sm) {
           flex-direction: column;
         }
-        .profileSection {          
+        .profileSection {
           padding-left: 250px;
           @media (max-width: $screen-sm) {
             padding-top: 56px;
@@ -92,11 +90,12 @@
           }
 
           h2 {
-            font-family: $fontBold;
+            font-family: $fontOmnes;
             font-style: normal;
             font-weight: bold;
             font-size: 30px;
             line-height: 39px;
+            color: $colorLightYellow;
             @media (max-width: $screen-sm) {
               font-size: 24px;
               line-height: 31px;
@@ -106,17 +105,17 @@
 
           p {
             margin-top: 8px;
-            font-family: $fontRegular;
+            font-family: $fontOmnes;
             font-style: normal;
-            font-weight: normal;
+            font-weight: 600;
             font-size: 14px;
             line-height: 24px;
-            opacity: 0.6;
+            color: $colorWhite;
+            opacity: 0.8;
           }
         }
         .suspendButton {
           min-width: 150px;
-          height: 40px;
           font-size: 16px;
           margin-right: 20px;
           @media (max-width: $screen-sm) {
@@ -130,17 +129,17 @@
     .tabLayout {
       display: flex;
       align-items: flex-end;
-      color: $colorWhite;
-      font-family: $fontRegular;
+      color: $colorBlack;
+      font-family: $fontOmnes;
       font-style: normal;
       font-weight: bold;
       font-size: 14px;
       line-height: 18px;
       padding-top: 24px;
       margin-left: 16px;
+      margin-bottom: 8px;
       @media (max-width: $screen-sm) {
         margin-left: 0px;
-        justify-content: space-between;
         font-size: 11px;
         line-height: 14px;
       }
@@ -150,14 +149,20 @@
         padding-bottom: 12px;
         opacity: 0.3;
         cursor: pointer;
+        @media (max-width: $screen-sm) {
+          padding: 12px 20px;
+        }
       }
 
       .tabItemSelected {
         text-align: center;
         padding-bottom: 12px;
-        border-bottom: 2px solid #F1FF54;
+        border-bottom: 2px solid $mainAction;
         opacity: 1;
         cursor: pointer;
+        @media (max-width: $screen-sm) {
+          padding: 12px 20px;
+        }
       }
     }
 
@@ -173,17 +178,27 @@
 
       .templateImage {
         width: 100%;
-        filter: blur(2px);
+        // filter: blur(2px);
+        filter: brightness(100);
+        border-radius: 12px;
       }
 
       .activityWrapper {
-        width: 75%
+        width: 75%;
       }
 
       .statistics {
-        width: 25%
+        width: 25%;
       }
+    }
 
+    .transactionHistory {
+      width: 100%;
+      min-height: 480px;
+      display: flex;
+      justify-content: center;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
       .inactivePlaceholder {
         position: absolute;
         top: 25%;
@@ -193,35 +208,46 @@
         align-items: center;
         justify-content: center;
         font-size: 24px;
-        font-family: $fontMedium;
-        color: #F2FF53;
+        font-family: $fontOmnes;
+        color: $colorLightYellow;
         font-weight: 700;
       }
     }
 
     .activities {
       width: 100%;
-      background-color: #21203C;
-      border-radius: 10px;
-      padding: 20px;
+      background-color: $colorPrimary;
+      border-radius: 12px;
+      @media (max-width: $screen-sm) {
+        border-radius: 0;
+        overflow-x: auto;
+      }
     }
 
     .leaderboard {
       width: 100%;
-      background-color: #21203C;
-      border-radius: 10px;
+      background-color: $colorPrimary;
+      border-radius: 12px;
 
-      .heading {
-        background-color: transparent;
+      .leaderboardTable {
+        overflow-y: hidden;
+      }
+    }
+
+    .heading {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      @media (max-width: $screen-sm) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
       }
     }
   }
 
-
   .contentBlock {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 8px;
     flex-grow: 0;
     flex-shrink: 0;
 
@@ -233,24 +259,31 @@
       margin-right: 15px;
       border-radius: 10px;
       width: 100%;
+      background: transparent;
     }
 
+    .sideContainer {
+      @media (max-width: $screen-sm) {
+        display: none;
+      }
+    }
     .sideContent {
       border-radius: 10px;
-      background-color: #21203C;
-      width: 300px;
-      color: white;
+      background-color: $colorPrimary;
+      width: 400px;
+      color: $colorWhite;
       padding: 15px;
 
       @media (max-width: $screen-sm) {
-        margin-top: 15px;
         width: 100%;
+        padding: 0px;
       }
 
       .header {
         font-size: 14px;
         font-weight: bold;
         margin-bottom: 15px;
+        color: $colorWhite;
       }
 
       .statsBlock {
@@ -259,37 +292,28 @@
         justify-content: space-between;
 
         .statItem {
-          background-color: #100D27;
-          border-radius: 20px;
-          width: 95px;
+          display: flex;
+          background-color: rgba(255, 255, 255, 0.1);
+          width: 100%;
           padding: 15px 10px;
           margin-bottom: 10px;
 
-          @media (max-width: $screen-md) {
-            width: 100%;
-          }
-
           .statItemHead {
+            width: 100px;
+            font-size: 16px;
             font-weight: bold;
             display: flex;
-            align-items: center;
-            font-size: 12px;
             justify-content: center;
             flex-wrap: wrap;
             flex-direction: column;
-
-            span {
-              font-size: 16px;
-              color: $colorYellow;
-            }
+            color: $mainAction;
           }
 
           .statItemHint {
             margin-top: 5px;
-            font-size: 10px;
-            line-height: 1.10;
-            text-align: center;
-            color: #5C5C6D;
+            font-size: 16px;
+            font-weight: 600;
+            color: $colorWhite;
           }
         }
       }

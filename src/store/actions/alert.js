@@ -15,6 +15,7 @@ export const UserNotificationTypes = {
   EVENT_USER_REWARD: 'Notification/EVENT_USER_REWARD',
   USER_AWARD: 'Notification/USER_AWARD',
   EVENT_CANCEL: 'Notification/EVENT_CANCEL',
+  EVENT_USER_KYC_UPDATE: 'Notification/EVENT_USER_KYC_UPDATE',
 };
 
 const removeAlert = makeActionCreator(AlertTypes.REMOVE, {

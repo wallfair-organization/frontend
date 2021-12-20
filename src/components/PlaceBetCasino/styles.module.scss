@@ -1,0 +1,562 @@
+@import '../../styles/all';
+
+.selector {
+  width: 100%; //314px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: $colorBlue80;
+  border: 1px solid $colorBlueBorder;
+  border-radius: 20px;
+  justify-content: flex-start;
+  position: relative;
+  .top {
+    width: 50%; //155px;
+    box-shadow: 0 3px 6px 0 rgba(71, 101, 107, 0.12);
+    border-radius: 18px;
+    background: $colorLightYellow;
+    height: 90%;
+    top: 5%;
+    left: 3px;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.5s ease;
+  }
+  .tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+    width: 50%; //208px;
+    img {
+      margin-right: 18px;
+    }
+    span {
+      font-weight: 600;
+      font-style: normal;
+      font-size: 16px;
+      letter-spacing: 0;
+      z-index: 10;
+    }
+    &.selected {
+      color: #000;
+      font-family: $fontOmnes;
+      font-weight: bold;
+    }
+    &.deselected {
+      color: #fff;
+      font-family: $fontOmnes;
+    }
+  }
+}
+
+.riskSelection {
+  display: flex;
+  width: 100%;
+  gap: 9px;
+  justify-content: space-around;
+  button {
+    width: 35px;
+    height: 35px;
+    border-radius: 17.5px;
+    cursor: pointer;
+    position: relative;
+    border: 1.2px solid $colorLightYellow;
+    background: $colorWhite;
+    margin-right: 2px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      background: $colorBlue80;
+      color: $colorWhite;
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+    &:before {
+      content: ''; /* needed for rendering */
+      position: absolute;
+      display: block; /* so we can set width and height */
+      border-radius: 50%;
+      height: 0%;
+      width: 0%;
+      margin: auto; /* center horizontally */
+      background: $colorLightYellow;
+      top: 50%; /* center vertically */
+      transform: translateY(-50%); /* center vertically */
+      transition: 0.3s;
+    }
+    span {
+      position: absolute;
+      z-index: 14;
+    }
+  }
+  .selected {
+    //background: #e72d89;
+    color: $colorBlack;
+    &:before {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+.spinsleft {
+  margin: 5px;
+  text-align: center;
+  color: $colorWhite;
+  .reward {
+    margin: 3px;
+    color: $colorGreen;
+    font-weight: bold;
+  }
+  .neutral {
+    margin: 3px;
+    font-weight: bold;
+  }
+  .lost {
+    margin: 3px;
+    color: $colorRed;
+    font-weight: bold;
+  }
+}
+.container {
+  position: relative;
+  background: $colorBlue80;
+  border: 1px solid $colorBlueBorder;
+  border-radius: 10px;
+  margin-bottom: 14px;
+
+  @media screen and (max-width: $screen-md) {
+    margin-top: 7px;
+  }
+}
+
+.label {
+  display: inline-block;
+  color: $colorWhite;
+  opacity: 0.8;
+  font-family: $fontOmnes;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-align: left;
+  line-height: 12px;
+  margin-top: 10px;
+  &.warning {
+    color: $colorRed;
+  }
+
+  @media (max-width: $screen-md) {
+    margin-top: 0;
+  }
+}
+.titlelabel {
+  display: block;
+  color: #1f1d38;
+  opacity: 0.8;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 12px;
+  margin-top: 10px;
+}
+.sliderContainer {
+  position: relative;
+  //bottom: -10px;
+  padding: 10px;
+  div {
+    margin-bottom: 0;
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 1rem;
+    }
+    div {
+      margin-bottom: 0;
+    }
+  }
+}
+.profit {
+  position: relative;
+  bottom: -18px;
+  @media screen and (max-width: $screen-sm) {
+    bottom: -10px;
+  }
+  margin: 15px auto;
+  font-size: 18pt;
+  color: $colorGreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace $fontOmnes;
+  .empty {
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+    color: $colorWhite !important;
+  }
+  .positive {
+    color: $colorGreen;
+  }
+  .zero {
+    color: $colorBlack;
+  }
+  .negative {
+    color: $colorRed;
+  }
+}
+
+.profitPlaceholder {
+  position: relative;
+  bottom: -18px;
+  @media screen and (max-width: $screen-sm) {
+    bottom: -10px;
+  }
+  margin: 15px auto;
+
+  font-size: 18pt;
+  color: $colorPrimary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace $fontOmnes;
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.inputBoxContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10.5px 25px;
+  height: 35px;
+  border-radius: 10px;
+  border: 1.2px solid rgba(14, 9, 39, 0.3);
+  background: none;
+  justify-content: center;
+
+  .input {
+    background-color: transparent !important;
+    flex: none;
+    text-align: right;
+    background-color: transparent !important;
+    border: none;
+    outline: none !important;
+    margin-right: 9px;
+    min-width: 10px !important;
+    width: 6ch !important;
+    font-family: $fontOmnes;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 24px;
+    input {
+      flex: none;
+      text-align: right;
+      background-color: transparent !important;
+      border: none;
+      outline: none !important;
+      margin-right: 9px;
+      min-width: 10px !important;
+      width: 6ch !important;
+      font-family: $fontOmnes;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 21px;
+      line-height: 24px;
+
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      -moz-appearance: textfield;
+    }
+  }
+}
+
+.inputContainer {
+  position: relative;
+  .placeBetContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    //justify-content: center;
+    border-bottom: 1px solid $colorBlueBorder;
+    .placebidTitle {
+      padding: 0;
+    }
+    @media screen and (max-width: 800px) {
+      // display: none;
+    }
+
+    @media (max-width: $screen-xs) {
+      display: none;
+    }
+  }
+}
+
+.actions {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  font-size: 14px;
+  font-family: Helvetica;
+  color: #02061e;
+
+  span {
+    margin-left: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.button {
+  user-select: none;
+  // position: absolute;
+  bottom: 6px;
+  margin: 0px auto;
+  outline: 0;
+  @media screen and (max-width: $screen-xs) {
+    margin-top: 10px;
+  }
+  font-family: $fontOmnes;
+  width: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 260px;
+}
+
+.buttonDisabled {
+  opacity: 0.5;
+
+  &:hover {
+    cursor: default;
+  }
+}
+.notConnected {
+  opacity: 0.5;
+}
+.buttonDisabled.notConnected {
+  @media screen and (max-width: $screen-xs) {
+    opacity: 1;
+  }
+}
+
+.header {
+  margin-bottom: 16px;
+}
+.placebidTitle {
+  color: #120e27;
+  text-align: center;
+  font-family: 'PlusJakarta-Bold';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  padding: 0 16%;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}
+.sliderContainer {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.cashedOutInputContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10.5px;
+  height: 35px;
+  border: 1.2px solid $colorBlueBorder;
+  background: $colorBlue80;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  @media (min-width: $screen-lg) {
+    padding: 1rem 120px 1rem 1rem;
+  }
+
+  @media (max-width: $screen-sm) {
+    padding-right: 120px;
+  }
+  .increase {
+    width: 45px !important;
+  }
+  .input {
+    flex: none;
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    outline: none !important;
+    margin-right: 9px;
+    min-width: 10px !important;
+    width: 6ch;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 24px;
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    -moz-appearance: textfield;
+  }
+  &.warning {
+    border: 2px solid $colorRed;
+  }
+
+  .eventTokenLabel {
+    color: $colorWhite;
+    font-family: $fontOmnes;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    span {
+      font-size: 30px;
+    }
+  }
+
+  .buttonWrapper {
+    margin-left: 0px;
+    color: $colorWhite;
+    @media (min-width: $screen-lg) {
+      margin-left: 30px;
+    }
+    :first-child {
+      font-size: 14px;
+    }
+    :nth-child(2) {
+      font-size: 14px;
+    }
+    :last-child {
+      font-size: 14px;
+    }
+    .buttonItem {
+      margin-left: 12px;
+      font-family: $fontOmnes;
+      cursor: pointer;
+    }
+  }
+  .toggleButton {
+    position: absolute;
+    left: 2px;
+    width: 120px;
+    height: 90%;
+    border-radius: 17px;
+    display: flex;
+    background-color: $colorWhite;
+    justify-content: center;
+    align-items: center;
+    .buttonItem {
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      min-width: 50px;
+      font-size: 12px;
+      color: $colorBlack;
+      padding: 5px;
+      z-index: 10;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+    .toggleLabel {
+      width: 50%;
+      box-shadow: 0 3px 6px 0 rgba(71, 101, 107, 0.12);
+      border-radius: 16px;
+      height: 90%;
+      top: 5%;
+      left: 0px;
+      position: absolute;
+      bottom: 0;
+      transition: all 0.5s ease;
+      background: $colorLightYellow;
+    }
+    .selected {
+      color: #000;
+      font-family: $fontOmnes;
+    }
+  }
+}
+
+.cashedOutInputContainer.demoInput {
+  padding-right: 1rem;
+  .eventTokenLabel {
+    span {
+      font-size: 16px;
+    }
+  }
+}
+
+.error {
+  padding-top: 10px;
+  font-size: 14px;
+  color: $colorRed;
+  .why {
+    text-decoration: underline;
+    cursor: default;
+  }
+}
+
+.tooltip {
+  font-family: $fontOmnes;
+  background-color: $colorPrimary45 !important;
+  text-align: left !important;
+}
+
+.betInfo {
+  font-size: 14px;
+  color: $colorGray;
+  margin: 0 auto;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.betInfo.guestInfo {
+  padding-top: 10px;
+  @media screen and (max-width: $screen-xs) {
+    font-size: 12px;
+    padding-top: 5px;
+  }
+}
+
+.buyTokenInfo {
+  font-size: 14px;
+  color: $colorGray;
+  margin: 0 auto 20px;
+  text-align: center;
+  overflow-wrap: anywhere;
+
+  p {
+    display: none;
+    margin-bottom: 20px;
+
+    &.visible {
+      display: block;
+    }
+  }
+
+  & span {
+    color: $mainAction;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

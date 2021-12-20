@@ -1,6 +1,6 @@
 {
-  "short_name": "Wallfair Play",
-  "name": "Wallfair Play",
+  "short_name": "Alpacasino",
+  "name": "Alpacasino",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,18 +8,18 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "logo_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "logo_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#00092B",
+  "background_color": "#00092B"
 }

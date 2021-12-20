@@ -1,155 +1,158 @@
 @import '../../styles/all';
 
 .wallet {
-    color: $colorWhite;
-    padding: 90px 24px 0;
-    height: 100vh;
+  color: $colorPrimary;
+  padding: 90px 24px 0;
+  height: 100vh;
+  display: flex;
+  flex-flow: nowrap column;
+
+  .walletHeading {
+    font-size: 24px;
+    margin: 0 0 50px;
     display: flex;
-    flex-flow: nowrap column;
-
-    .walletHeading {
-        font-size: 24px;
-        margin: 0 0 50px;
-        display: flex;
-        justify-content: space-between;
-        min-height: 41px;
-      .requestTokens{
-        font-weight: bolder;
-        position: relative;
-        background: url("../../data/backgrounds/highlight-request-tokens.svg") no-repeat;
-        background-size: contain;
-        min-width: 203px;
-        color: $colorBlack;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        cursor: pointer;
-        .party{
-          background-size: cover;
-          z-index: 3;
-          color: black;
-          min-width: 25px;
-          min-height: 25px;
-          width: 25px;
-          height: 25px;
-          padding-left: 25px;
-          display: none;
-        }
-        span{
-          font-family: $fontBold;
-          font-weight: bold;
-          font-size: 12px;
-          padding-left: 40px;
-          padding-bottom: 0;
-        }
+    justify-content: space-between;
+    min-height: 41px;
+    .requestTokens {
+      font-weight: bolder;
+      position: relative;
+      background: url('../../data/backgrounds/highlight-request-tokens.svg')
+        no-repeat;
+      background-size: contain;
+      min-width: 203px;
+      color: $colorBlack;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      cursor: pointer;
+      .party {
+        background-size: cover;
+        z-index: 3;
+        color: black;
+        min-width: 25px;
+        min-height: 25px;
+        width: 25px;
+        height: 25px;
+        padding-left: 25px;
+        display: none;
       }
-      .requestTokens.disabled{
-        background: url("../../data/backgrounds/highlight-request-tokens-disabled.svg") no-repeat;
-        color: rgba(0, 0, 0, 0.5);
-        cursor: wait;
+      span {
+        font-family: $fontOmnes;
+        font-weight: bold;
+        font-size: 12px;
+        padding-left: 40px;
+        padding-bottom: 0;
       }
     }
-    .walletContents {
-        overflow-y: auto;
-        padding-bottom: 30px;
+    .requestTokens.disabled {
+      background: url('../../data/backgrounds/highlight-request-tokens-disabled.svg')
+        no-repeat;
+      color: rgba(0, 0, 0, 0.5);
+      cursor: default;
     }
+  }
+  .walletContents {
+    overflow-y: auto;
+    padding-bottom: 30px;
+  }
 
-    .referrals {
-        .optionIcon {
-            transform: scale(0.8);
-        }
+  .referrals {
+    .optionIcon {
+      transform: scale(0.8);
     }
-    .transactionHistory {
-        .optionIcon {
-            svg rect {
-                fill: transparent;
-            }
-        }
+  }
+  .transactionHistory {
+    .optionIcon {
+      svg rect {
+        fill: transparent;
+      }
     }
+  }
 
-    .arrowIcon {
-        margin-left: auto;
-        width: auto;
+  .arrowIcon {
+    margin-left: auto;
+    width: auto;
+  }
+  .closeButton {
+    @extend .floatingCloseButton;
+    @media screen and (min-width: $screen-sm) {
+      display: none;
     }
-    .closeButton {
-        @extend .floatingCloseButton;
-        @media screen and (min-width: $screen-sm) {
-            display: none;
-        }
-    }
+  }
 
-    .buy {
-        color: #ff5858;
-        letter-spacing: 0.35px;
-        &::before {
-            content: '- ';
-        }
+  .buy {
+    color: #ff5858;
+    letter-spacing: 0.35px;
+    &::before {
+      content: '- ';
     }
-    .payout,
-    .refund,
-    .sell {
-        color: #acffce;
-        letter-spacing: 0.35px;
-        &::before {
-            content: '+ ';
-        }
+  }
+  .payout,
+  .refund,
+  .sell {
+    color: #acffce;
+    letter-spacing: 0.35px;
+    &::before {
+      content: '+ ';
     }
+  }
 
-    .referralLink {
-        background-color: rgba(172, 196, 255, 0.1)!important;
-        margin-bottom: 24px;
-    }
+  .referralLink {
+    background-color: rgba(172, 196, 255, 0.1) !important;
+    margin-bottom: 24px;
+  }
 
-    .menuContainer {
-        position: relative;
-        overflow: hidden;
-        height: 100%;
-    }
+  .menuContainer {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
 
-    .panel {
-        transition: 0.5s ease-in-out;
-        transition-property: transform, opacity;
-        position: absolute;
-        width: 100%;
-        opacity: 1;
-        height: calc(100vh - 90px);
-        display: flex;
-        flex-flow: column;
+  .panel {
+    transition: 0.5s ease-in-out;
+    transition-property: transform, opacity;
+    position: absolute;
+    width: 100%;
+    opacity: 1;
+    height: calc(100vh - 90px);
+    display: flex;
+    flex-flow: column;
 
-        @supports (-webkit-touch-callout: none) {
-            height: calc(100vh - 150px);
-        }
+    @supports (-webkit-touch-callout: none) {
+      height: calc(100vh - 150px);
     }
-    .panelHidden {
-        opacity: 0;
-        transform: translateX(110%);
+  }
+  .panelHidden {
+    opacity: 0;
+    transform: translateX(110%);
+  }
+  .firstPanel {
+    &.panelHidden {
+      transform: translateX(-110%);
     }
-    .firstPanel {
-        &.panelHidden {
-            transform: translateX(-110%);
-        }
-    }
+  }
 
-    .switchablePayment {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        padding: 0px 80px;
-        margin-top: 40px;
+  .switchablePayment {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    padding: 0px 80px;
+    margin-top: 40px;
 
-        @media (max-width: $screen-sm) {
-            padding: 0;
-        }
+    @media (max-width: $screen-sm) {
+      padding: 0;
     }
+  }
 
-    .myTradesContainer {
-        margin-top: 40px;
-        padding-bottom: 80px;
-    }
+  .myTradesContainer {
+    margin-top: 40px;
+    padding-bottom: 80px;
+  }
 }
 
 .tooltip {
-  font-family: $fontBold;
+  font-family: $fontOmnes;
+  font-weight: bold;
   background-color: $colorPrimary !important;
   text-align: left !important;
   z-index: 999;

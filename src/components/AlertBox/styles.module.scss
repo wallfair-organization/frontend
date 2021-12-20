@@ -19,8 +19,8 @@
   }
 
   .alertContainer {
-    color: $colorPrimary;
-    background: $colorYellow;
+    color: $colorWhite;
+    background: $colorLightYellow;
     border-radius: 10px;
     align-items: center;
   }
@@ -57,7 +57,8 @@
         margin-right: 0;
 
         * {
-          stroke: none;
+          stroke: $colorWhite;
+          fill: $colorWhite;
         }
       }
 
@@ -68,7 +69,7 @@
 
     .alertMessage {
       flex: 1;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       padding: 8px 12px;
       font-size: 14px;
     }

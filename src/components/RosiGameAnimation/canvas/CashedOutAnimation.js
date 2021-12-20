@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import * as PIXI from 'pixi.js-legacy';
 import TWEEN from '@tweenjs/tween.js';
 import { isMobileRosiGame, calcPercent, calcTotalDelayTime } from './utils';
 

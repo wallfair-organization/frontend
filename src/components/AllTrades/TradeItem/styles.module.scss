@@ -1,4 +1,4 @@
-@import "../../../styles/all";
+@import '../../../styles/all';
 
 .betItem {
   width: 100%;
@@ -78,7 +78,7 @@
     .value {
       color: $colorWhite;
       font-size: 16px;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
 
       .percentage {
         color: $colorGreen;
@@ -104,7 +104,8 @@
   }
 
   .betCashoutButton {
-    background: transparent url('../../data/images/cashout-stroke.svg') no-repeat;
+    background: transparent url('../../data/images/cashout-stroke.svg')
+      no-repeat;
     background-position: center;
     height: 28px;
     min-width: 120px;

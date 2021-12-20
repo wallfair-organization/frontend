@@ -143,7 +143,8 @@
         color: $colorGrayLight9;
       }
       strong {
-        font-family: $fontBold;
+        font-family: $fontOmnes;
+        font-weight: bold;
       }
       a {
         color: $colorYellow;
@@ -342,7 +343,8 @@
       align-items: center;
 
       h2 {
-        font-family: $fontBold;
+        font-family: $fontOmnes;
+        font-weight: bold;
         font-size: 20px;
         margin-right: 1rem;
       }
@@ -557,12 +559,13 @@
 
   .tradeDescTitle {
     font-size: 16px;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
     margin-bottom: 5px;
   }
 
   .tradeDesc {
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -635,7 +638,8 @@
 
 .timerLabel {
   color: $colorWhite;
-  font-family: $fontBold;
+  font-family: $fontOmnes;
+  font-weight: bold;
   font-size: 12px;
   @media (max-width: $screen-sm) {
     font-size: 10px;
@@ -665,7 +669,7 @@
 
   .timerLabel {
     color: $colorWhite;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-size: 20px;
     margin-bottom: 5px;
     width: 100%;

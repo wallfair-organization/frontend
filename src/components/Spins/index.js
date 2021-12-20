@@ -2,38 +2,46 @@ import styles from './styles.module.scss';
 import {PopupActions} from '../../store/actions/popup';
 import {connect} from 'react-redux';
 import PopupTheme from '../Popup/PopupTheme';
-import {getGameDetailById} from '../../api/crash-game';
 import _ from 'lodash';
+import {displaySignedFormat} from "../../helper/FormatNumbers";
+import {getSingleGameDetailById} from "../../api/casino-games";
 
-const Spins = ({spins, showPopup, text}) => {
-  const handleCrashFactorClick = async (crash, e) => {
+const Spins = ({spins, showPopup, text, game}) => {
+
+  const handleClick = async (crash, e) => {
     const gameHash = crash?.gameHash;
-    const response = await getGameDetailById(gameHash).catch(err => {
-      console.error("Can't get user by id:", err);
-    });
-    const details = response?.data || null;
 
-    if (details?.match) {
-      showPopup(PopupTheme.lastGamesDetail, {
-        maxWidth: true,
-        data: {
-          details,
-        },
+    if(gameHash) {
+      const response = await getSingleGameDetailById(gameHash, game.id).catch(err => {
+        console.error("Can't get user by id:", err);
       });
+      const resData = response?.data || null;
+
+      if (resData) {
+        showPopup(PopupTheme.singleGamesDetail, {
+          maxWidth: true,
+          data: {
+            resData,
+            game
+          },
+        });
+      }
     }
   };
-  //  onClick={e => handleCrashFactorClick(crash, e)}
+
+
   return (
     <div className={styles.container}>
       <span className={styles.title}>{text ? text : 'Last Crashes'}</span>
       <div className={styles.crashes}>
-        <div className={styles.overlay}></div>
         {spins?.map((spin, i) => {
          const spinType = spin?.type;
 
           return (
-            <span key={`${spin.value}${i}`} className={styles.crash}>
-              <span className={spinType === 'win' ? styles.reward : styles.lost}>{spin.value}</span>
+            <span key={`${spin.value}${i}`} className={styles.crash} onClick={(e) => {
+              handleClick(spin, e);
+            }}>
+              <span className={spinType === 'win' ? styles.reward :spinType === 'loss'? styles.lost : styles.even}>{displaySignedFormat(spin.value)}</span>
           </span>
           )
         })}

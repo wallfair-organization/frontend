@@ -3,10 +3,13 @@ $fontRegular: 'PlusJakarta-Regular';
 $fontBold: 'PlusJakarta-Bold';
 $fontMedium: 'PlusJakarta-Medium';
 $fontSans: 'PlusJakartaSans-Medium';
+$fontOmnes: 'omnes-pro';
 
 :export {
   fontLight: $fontLight;
   fontRegular: $fontRegular;
   fontBold: $fontBold;
   fontMedium: $fontMedium;
+  fontSans: $fontSans;
+  fontOmnes: $fontOmnes;
 }

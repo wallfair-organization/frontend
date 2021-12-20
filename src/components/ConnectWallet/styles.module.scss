@@ -1,0 +1,103 @@
+@import '../../styles/all';
+
+.walletsContainer {
+  padding: 50px;
+}
+.modalHeaderDesc {
+  color: $colorBlack;
+  font-size: 14px;
+  font-family: $fontOmnes;
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.modalHeaderTitle {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    color: $colorBlack;
+    font-size: 28px;
+    font-family: $fontOmnes;
+    margin-left: 15px;
+
+    @media (max-width: 600px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.optionsWrap {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .optionWrap {
+    flex: 0 0 45%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-radius: 50px;
+    padding: 0 25px;
+    cursor: pointer;
+
+    @media (max-width: 600px) {
+      flex: 0 0 100%;
+      justify-content: flex-start;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    &:hover {
+      background: $colorGrayLight;
+      box-shadow: 4px 4px 0 $colorGrayLight2;
+    }
+
+    img {
+      margin-right: 15px;
+      max-width: 40px;
+      max-height: 40px;
+    }
+
+    span {
+      color: $colorBlack;
+    }
+  }
+}
+.optionsWrap.optionsError {
+  display: block;
+  strong {
+    display: inline-block;
+    font-size: 24px;
+    font-family: $fontOmnes;
+    text-align: center;
+    position: relative;
+    align-self: center;
+    margin-bottom: 25px;
+    color: $colorBlack;
+
+    z-index: 2;
+    &::after {
+      content: '';
+      position: absolute;
+      width: calc(100% - 15px);
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 5px;
+      background-color: $colorRedLighter;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+
+  span {
+    display: block;
+    color: $colorRedLight !important;
+    font-family: $fontOmnes;
+  }
+}

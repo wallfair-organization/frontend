@@ -1,83 +1,134 @@
 @import '../../styles/all';
 
-.button
-{
-    display:          flex;
-    position:         relative;
-    align-items:      center;
-    justify-content:  center;
-    height:           60px;
-    border-radius:    10px;
-    background-color: $colorYellow;
-    color:            $colorPrimary;
-    font-size:        20px;
-    font-family:      $fontBold;
-    letter-spacing:   0;
-    user-select:      none;
+.primaryButton {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background: $colorButton;
+  color: $colorBlack;
+  box-sizing: border-box;
+  border-radius: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: $fontOmnes;
+  padding: 8px 30px;
+  text-transform: none;
+  user-select: none;
+  text-align: center;
+  @media (max-width: $screen-sm) {
+    font-size: 18px;
+  }
 
-    &:hover
-    {
-        cursor: pointer;
-    }
+  &:hover {
+    cursor: pointer;
+  }
 
-    &.buttonFixed
-    {
-        position: fixed;
-        bottom:   0;
-    }
-
-    &.withoutBackground
-    {
-        background-color: transparent;
-    }
-
-    &.disabled
-    {
-        cursor: default;
-    }
-
-    &.authenticationScreenButton
-    {
-        padding:       0 2rem;
-        width:         100%;
-        border-radius: 0;
-    }
-
-    &.welcomeScreenButton
-    {
-        width:      100%;
-        margin-top: auto;
-
-        @media (min-width: $screen-sm)
-        {
-            display: none;
-        }
-    }
-
-    .buttonDisabledOverlay
-    {
-        position:         absolute;
-        background-color: $colorPrimary66;
-        border-radius:    10px;
-        left:             0;
-        width:            100%;
-        height:           100%;
-        cursor:           not-allowed !important;
-    }
-
-    > *
-    {
-        &:not(.buttonDisabledOverlay):not(.highlight)
-        {
-            z-index: 1;
-        }
-    }
-    .buttonText{
-      &:not(.buttonDisabledOverlay):not(.highlight)
-      {
-        z-index: 2;
-      }
-    }
+  &.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 }
 
+.secondaryButton {
+  position: relative;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 5px;
+  background: #ff1a1a;
+  border: 4px solid #000000;
+  box-sizing: border-box;
+  border-radius: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: $fontOmnes;
+  line-height: 100%;
+  text-transform: none;
+  user-select: none;
+  text-align: center;
+  @media (max-width: $screen-sm) {
+    font-size: 20px;
+  }
+  .buttonPattern {
+    display: block;
+    position: absolute;
+    background: url('../../data/backgrounds/but-pattern-second.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    width: 100%;
+    height: 90%;
+  }
+  .buttonInnerBackground {
+    width: 100%;
+    background: linear-gradient(
+      0deg,
+      #ea0000 -92.86%,
+      rgba(234, 156, 0, 0) 171.43%
+    );
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    .butonSecondInnerBackground {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #000000;
+      z-index: 1;
+      box-sizing: border-box;
+      border-radius: 46px;
+      .buttonThirdInnerBackground {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #a00505;
+        box-sizing: border-box;
+        border-radius: 46px;
+        padding: 0px 30px;
+        padding-bottom: 2px;
+        color: $colorWhite;
+        @media (max-width: $screen-sm) {
+          padding: 0px 16px;
+        }
+        &.withoutPadding {
+          padding: 0;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
 
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.loginButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffd31a;
+  font-family: $fontOmnes;
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: none;
+  border: 2px solid #ffd31a;
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding: 6px 24px;
+  background: #080e33;
+  cursor: pointer;
+
+  @media (max-width: $screen-sm) {
+    font-size: 20px;
+  }
+}

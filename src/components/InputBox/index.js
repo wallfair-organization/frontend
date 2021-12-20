@@ -137,18 +137,18 @@ const InputBox = ({
           className={styles.inputDeleteIconContainer}
           onClick={copyToClipboard}
         >
-          <Icon iconTheme={IconTheme.black} iconType={IconType.copy} />
+          <Icon iconTheme={IconTheme.favorite} iconType={IconType.copy} />
         </div>
       );
     }
 
-    if (theme === InputBoxTheme.copyToClipboardInputWhite) {
+    if (theme === InputBoxTheme.copyToClipboardInputWhite || theme === InputBoxTheme.copyToClipboardInputTransparentWhite) {
       return (
         <div
           className={styles.inputDeleteIconContainer}
           onClick={copyToClipboard}
         >
-          <Icon iconTheme={IconTheme.white} iconType={IconType.copy} />
+          <Icon iconTheme={IconTheme.favorite} iconType={IconType.copy} />
         </div>
       );
     }
@@ -162,7 +162,7 @@ const InputBox = ({
           }}
         >
           <Icon
-            iconTheme={IconTheme.primaryLightTransparent}
+            iconTheme={IconTheme.black}
             iconType={IconType.deleteInput}
           />
         </div>
@@ -184,6 +184,8 @@ const InputBox = ({
               styles.copyToClipboardInputBox,
             [InputBoxTheme.copyToClipboardInputWhite]:
               styles.copyToClipboardInputBoxWhite,
+            [InputBoxTheme.copyToClipboardInputTransparentWhite]:
+              styles.copyToClipboardInputBoxTransparentWhite,
             [InputBoxTheme.coloredBorderMint]: styles.coloredBorderMint,
             [InputBoxTheme.coloredBorderLightPurple]:
               styles.coloredBorderLightPurple,

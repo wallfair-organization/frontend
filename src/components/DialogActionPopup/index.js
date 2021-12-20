@@ -53,7 +53,7 @@ const actionTypes = {
     ),
   },
   [actions.disableSharing]: {
-    title: 'Wallfair',
+    title: 'Alpacasino',
     text: 'Sharing is disabled during closed testing',
     acceptLabel: 'Ok',
     declineLabel: 'Disabled',

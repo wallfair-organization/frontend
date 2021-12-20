@@ -1,5 +1,5 @@
 import Icon from '../Icon';
-import LogoMini from '../../data/images/logo.png';
+import LogoMini from '../../data/images/alpaca-logo-mini.svg';
 import IconType from '../Icon/IconType';
 import React from 'react';
 import styles from './styles.module.scss';
@@ -11,8 +11,9 @@ import { TOKEN_NAME } from '../../constants/Token';
 import PopupTheme from '../Popup/PopupTheme';
 import AuthenticationType from '../Authentication/AuthenticationType';
 import { selectTotalUsers } from '../../store/selectors/leaderboard';
+import { OnboardingActions } from 'store/actions/onboarding';
 
-const SignUpPopup = ({ closed, user, hidePopup, showPopup, authState }) => {
+const SignUpPopup = ({ authState, startOnboarding }) => {
   const totalUsers = useSelector(selectTotalUsers);
 
   const renderWelcomeText = () => {
@@ -25,9 +26,10 @@ const SignUpPopup = ({ closed, user, hidePopup, showPopup, authState }) => {
           <span className={styles.welcomeTextHeadlineUnderline}></span>
         </span>
         <ul className={styles.featureList}>
-          <li>Only {totalUsers}/5000 slots available</li>
+          {/* <li>Only {totalUsers}/5000 slots available</li> */}
           <li>PFAIR = WFAIR playmoney</li>
           <li>No risk of losing any real money</li>
+          <li>100% free</li>
         </ul>
       </div>
     );
@@ -35,10 +37,7 @@ const SignUpPopup = ({ closed, user, hidePopup, showPopup, authState }) => {
 
   const goToJoinPage = () => {
     if (authState !== LOGGED_IN) {
-      showPopup(PopupTheme.auth, {
-        small: true,
-        authenticationType: AuthenticationType.register,
-      });
+      startOnboarding();
     }
   };
 
@@ -55,7 +54,7 @@ const SignUpPopup = ({ closed, user, hidePopup, showPopup, authState }) => {
   };
 
   return (
-    <div className={styles.welcomeContainer}>
+    <div className={styles.welcomeContainer} onClick={goToJoinPage}>
       <span className={styles.welcomeConfettiRight}>
         <Icon iconType={IconType.confettiRight} iconTheme={null} />
       </span>
@@ -74,17 +73,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    hidePopup: () => {
-      dispatch(PopupActions.hide());
-    },
-    showPopup: (popupType, options) => {
-      dispatch(
-        PopupActions.show({
-          popupType,
-          options,
-        })
-      );
-    },
+    startOnboarding: () => {
+      dispatch(OnboardingActions.start());
+    }
   };
 };
 

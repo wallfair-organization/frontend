@@ -1,0 +1,24 @@
+@import '../../styles/all';
+
+.transferButton {
+  display: block;
+  margin: 0 auto 15px;
+  width: 100%;
+  max-width: 460px;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: $fontOmnes;
+  font-weight: bold;
+  cursor: pointer;
+  background: transparent;
+  border: 2px solid #282f47;
+  color: $colorWhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    margin-right: 10px;
+  }
+}

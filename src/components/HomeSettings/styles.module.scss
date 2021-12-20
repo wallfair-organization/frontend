@@ -1,174 +1,153 @@
-@import "../../styles/all";
+@import '../../styles/all';
 
 $largeMobileHeight: 700px;
 
-.settings
-{
-    display:          flex;
-    flex-direction:   column;
-    width:            95%;
-    margin-bottom:    40px;
-    top:              0;
-    transition:       right 0.5s ease-in-out;
+.settings {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin-bottom: 40px;
+  top: 0;
+  transition: right 0.5s ease-in-out;
 
-    .headlineContainer
-    {
-        display: flex;
+  .headlineContainer {
+    display: flex;
 
-        .headlineText
-        {
-            font-style:     normal;
-            font-weight:    normal;
-            font-size:      30px;
-            line-height:    39px;
-            letter-spacing: 0.75px;
-            color:          $colorWhite;
-        }
-
-        .headlineIcon
-        {
-            color:        #ffffff;
-            margin-right: 20px;
-            cursor:       pointer;
-            transition:   transform 0.5s;
-
-            &:hover
-            {
-                transform: scale(1.25);
-            }
-        }
+    .headlineText {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 30px;
+      line-height: 39px;
+      letter-spacing: 0.75px;
+      color: $colorWhite;
     }
 
-    .settingContainer
-    {
-        width:          100%;
-        display:        flex;
-        flex-direction: column;
-        align-items:    flex-start;
+    .headlineIcon {
+      color: #ffffff;
+      margin-right: 20px;
+      cursor: pointer;
+      transition: transform 0.5s;
 
-        .singleSettingHolder
-        {
-            position:      relative;
-            width:         100%;
-            display:       flex;
-            align-items:   center;
-            height:        60px;
-            margin:        5px 0 5px 0;
-            background-color: rgba(172, 196, 255, 0.1);
-            box-shadow:    0px 2px 4px rgba(158, 158, 158, 0.16);
-            border-radius: 8px;
+      &:hover {
+        transform: scale(1.25);
+      }
+    }
+  }
 
-            &:hover {
-                background-color: rgba(255, 255, 255, 0.2);
-            }
+  .settingContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 80px;
 
-            @media (max-width: $screen-sm)
-            {
-                width: 100%;
-            }
+    @media (max-width: $screen-sm) {
+      margin-top: 30px;
+    }
 
-            .settingBackground
-            {
-                position: absolute;
-            }
+    .singleSettingHolder {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      margin: 5px 0 5px 0;
+      cursor: pointer;
 
-            .settingIcon
-            {
-                position: absolute;
-                left:     23px;
-
-                @media (max-width: $screen-sm)
-                {
-                    left: 15px;
-                }
-            }
-
-            .referralIcon
-            {
-                position: absolute;
-                left:     23px;
-                width:    30px;
-
-                @media (max-width: $screen-sm)
-                {
-                  left: 15px;
-                }
-            }
-
-            .settingTitle
-            {
-                position:    absolute;
-                left:        70px;
-                font-style:  normal;
-                font-weight: 500;
-                font-size:   16px;
-                line-height: 22px;
-                color:       #ffffff;
-                @media (max-width: $screen-sm)
-                {
-                    width: 60%;
-                    left:  50px;
-                }
-            }
-
-            .goIntoSettingIcon
-            {
-                position: absolute;
-                right:    20px;
-            }
-
-            .leftIcon {
-                margin-left: 30px;
-            }
-
-            .profilePicture
-            {
-                position:         absolute;
-                left:             23px;
-                width:            32px;
-                border-radius:    50%;
-                border:           1px solid #ffffff;
-                background-color: #ffffff;
-                z-index:          2;
-
-                @media (max-width: $screen-sm)
-                {
-                    left: 15px;
-                }
-            }
-        }
-
-        .settingActive
-        {
-            cursor:     pointer;
-            transition: background-color 0.25s ease-in-out;
-
-            &:hover
-            {
-                background-color: rgba(255, 255, 255, 0.2);
-            }
-        }
-
-        .settingDeactive
-        {
-            cursor: not-allowed;
-        }
-
-      .closeProfileContainer {
-        text-align: right;
-        justify-content: right;
+      @media (max-width: $screen-sm) {
         width: 100%;
-        display: flex;
-        margin-top: 35px;
+      }
 
-        @media (min-width: $screen-md) {
-          display: none;
+      .settingBackground {
+        position: absolute;
+      }
+
+      .settingIcon {
+        position: absolute;
+        left: 23px;
+
+        @media (max-width: $screen-sm) {
+          left: 15px;
         }
+      }
 
-        .closeProfile {
-          cursor: pointer;
-          width: 30px;
+      .referralIcon {
+        position: absolute;
+        left: 23px;
+        width: 30px;
+
+        @media (max-width: $screen-sm) {
+          left: 15px;
+        }
+      }
+
+      .settingTitle {
+        position: absolute;
+        left: 70px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 30px;
+        color: $colorWhite;
+        @media (max-width: $screen-sm) {
+          left: 70px;
+          font-size: 17px;
+          font-weight: 500;
+          line-height: 22px;
+        }
+      }
+
+      .goIntoSettingIcon {
+        position: absolute;
+        right: 20px;
+      }
+
+      .leftIcon {
+        margin-left: 30px;
+      }
+
+      .profilePicture {
+        position: absolute;
+        left: 23px;
+        width: 32px;
+        border-radius: 50%;
+        border: 1px solid $colorGrayLight;
+        background-color: $colorGrayLight3;
+
+        @media (max-width: $screen-sm) {
+          left: 15px;
         }
       }
     }
+
+    .settingActive {
+      cursor: pointer;
+      transition: background-color 0.25s ease-in-out;
+
+      &:hover {
+        background-color: $colorGrayLight3;
+      }
+    }
+
+    .settingDeactive {
+      cursor: not-allowed;
+    }
+
+    .closeProfileContainer {
+      text-align: right;
+      justify-content: right;
+      width: 100%;
+      display: flex;
+      margin-top: 35px;
+
+      @media (min-width: $screen-md) {
+        display: none;
+      }
+
+      .closeProfile {
+        cursor: pointer;
+        width: 30px;
+      }
+    }
+  }
 }

@@ -10,21 +10,12 @@ const Button = ({
   highlightType,
   highlightTheme,
   className,
-  theme,
+  theme = ButtonTheme.primaryButton,
   onClick,
-  withoutBackground = false,
   disabled,
-  disabledWithOverlay = true,
-  fixed,
+  withoutPadding = false,
   dataTrackingId,
 }) => {
-  const renderButtonDisabledOverlay = () => {
-    if (disabled && disabledWithOverlay) {
-      return <span className={style.buttonDisabledOverlay}></span>;
-    }
-
-    return null;
-  };
 
   const renderHighlight = () => {
     if (highlightType) {
@@ -39,27 +30,113 @@ const Button = ({
 
     return null;
   };
-  return (
+  const PrimaryButton = () => (
     <span
       className={classNames(
-        style.button,
         className,
-        fixed ? style.buttonFixed : null,
-        withoutBackground ? style.withoutBackground : null,
+        style.primaryButton,
         disabled ? style.disabled : null,
-        SelectionHelper.get(theme, {
-          [ButtonTheme.authenticationScreenButton]:
-            style.authenticationScreenButton,
-          [ButtonTheme.welcomeScreenButton]: style.welcomeScreenButton,
-        })
       )}
+      disabled={disabled}
+      onClick={disabled ? null : onClick}
+      data-tracking-id={dataTrackingId}
+    > 
+      <div className={style.buttonInnerBackground}>
+        {!withoutPadding && <div className={style.buttonPattern}/> }
+        <div className={style.butonSecondInnerBackground}>
+          <div className={classNames(style.buttonThirdInnerBackground, withoutPadding && style.withoutPadding)}>
+            <span>{children}</span>
+          </div>
+        </div>
+      </div>
+    </span>
+  );
+
+  const SecondaryButton = () => (
+    <span
+      className={classNames(
+        className,
+        style.secondaryButton,
+        disabled ? style.disabled : null,
+      )}
+      disabled={disabled}
+      onClick={disabled ? null : onClick}
+      data-tracking-id={dataTrackingId}
+    > 
+      <div className={style.buttonInnerBackground}>
+        {!withoutPadding && <div className={style.buttonPattern}/> }
+        <div className={style.butonSecondInnerBackground}>
+          <div className={classNames(style.buttonThirdInnerBackground, withoutPadding && style.withoutPadding)}>
+            <span>{children}</span>
+          </div>
+        </div>
+      </div>
+    </span>
+  );
+
+  const LoginButton = () => (
+    <span
+      className={classNames(
+        className,
+        style.loginButton,
+        disabled ? style.disabled : null,
+      )}
+      disabled={disabled}
       onClick={disabled ? null : onClick}
       data-tracking-id={dataTrackingId}
     >
-      {renderButtonDisabledOverlay()}
       {children}
-      {renderHighlight()}
     </span>
+  );
+
+  return (
+    <>
+      { theme === ButtonTheme.primaryButton ?
+        <span
+          className={classNames(
+            className,
+            style.primaryButton,
+            disabled ? style.disabled : null,
+          )}
+          disabled={disabled}
+          onClick={disabled ? null : onClick}
+          data-tracking-id={dataTrackingId}
+        > 
+          {children}
+        </span> : theme === ButtonTheme.secondaryButton ?
+        <span
+          className={classNames(
+            className,
+            style.secondaryButton,
+            disabled ? style.disabled : null,
+          )}
+          disabled={disabled}
+          onClick={disabled ? null : onClick}
+          data-tracking-id={dataTrackingId}
+        > 
+          {!withoutPadding && <div className={style.buttonPattern}/> }
+          <div className={style.buttonInnerBackground}>
+            <div className={style.butonSecondInnerBackground}>
+              <div className={classNames(style.buttonThirdInnerBackground, withoutPadding && style.withoutPadding)}>
+                <span>{children}</span>
+              </div>
+            </div>
+          </div>
+        </span> :
+        <span
+          className={classNames(
+            className,
+            style.loginButton,
+            disabled ? style.disabled : null,
+          )}
+          disabled={disabled}
+          onClick={disabled ? null : onClick}
+          data-tracking-id={dataTrackingId}
+        >
+          {children}
+        </span>
+      }
+    </>
   );
 };
 

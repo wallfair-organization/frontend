@@ -21,6 +21,7 @@ import EventsCarouselContainer from 'components/EventsCarouselContainer';
 
 import { EventActions } from '../../../store/actions/event';
 import SuggestEventButton from '../SuggestEventButton';
+import { OnboardingActions } from 'store/actions/onboarding';
 
 function EventsContent({
   eventType,
@@ -30,6 +31,7 @@ function EventsContent({
   userId,
   bookmarkEvent,
   bookmarkEventCancel,
+  startOnboarding,
 }) {
   const dispatch = useDispatch();
   const [coverStream, setCoverStream] = useState('');
@@ -139,9 +141,7 @@ function EventsContent({
   }, []);
 
   const showJoinPopup = useCallback(event => {
-    showPopup(PopupTheme.auth, {
-      small: false,
-    });
+    startOnboarding();
   }, []);
 
   return (
@@ -310,6 +310,9 @@ const mapDispatchToProps = dispatch => {
     bookmarkEventCancel: eventId => {
       dispatch(EventActions.bookmarkEventCancel({ eventId }));
     },
+    startOnboarding: () => {
+      dispatch(OnboardingActions.start());
+    }
   };
 };
 

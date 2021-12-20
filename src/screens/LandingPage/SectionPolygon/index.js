@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { PopupActions } from 'store/actions/popup';
 import PopupTheme from 'components/Popup/PopupTheme';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
+import { TOKEN_NAME } from 'constants/Token';
 
 const SectionPolygon = ({ classes }) => {
   const dispatch = useDispatch();
@@ -30,10 +31,10 @@ const SectionPolygon = ({ classes }) => {
           We are built on Blockchain Technology. Polygon to be precise. That
           means transparent betting for our players, no more greedy bookmakers,
           no more high fees and odds that are determined by the players, not the
-          house. Betting on Wallfair is as simple as searching for your
+          house. Betting on Alpacasino is as simple as searching for your
           favourite event, or why not even create one of your own, jumping right
           into the action and simply clicking the “place bet” button. Then sit
-          back and watch your $WFAIR tokens grow. The more you play, the more
+          back and watch your {TOKEN_NAME} tokens grow. The more you play, the more
           you earn.
         </p>
         {/* <br />

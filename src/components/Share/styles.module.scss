@@ -28,7 +28,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 2px solid $colorPrimary05;
+      border: 2px solid $colorPrimary;
       cursor: pointer;
       overflow: hidden;
       margin: 0;
@@ -61,7 +61,7 @@
           }
 
           > path {
-            fill: $colorGray;
+            fill: $colorPrimary;
           }
         }
       }
@@ -82,7 +82,7 @@
 
   .separator {
     height: 2px;
-    background: radial-gradient(circle, $colorGray 0%, transparent 90%);
+    background: radial-gradient(circle, $colorYellowLight 0%, transparent 90%);
     width: 100%;
     margin: 20px 0;
   }
@@ -120,8 +120,8 @@
   }
 
   .sharePopover {
-    background-color: #201d38;
-    color: white;
+    background-color: white;
+    color: #0e0927;
     position: absolute;
     right: 0px;
     top: 40px;
@@ -159,8 +159,8 @@
 
   .shareButton {
     display: flex;
-    color: $colorWhite;
-    background-color: #201d38;
+    color: $colorBlack;
+    background-color: $colorLightYellow;
     border: 1px solid $colorDarkSlateGray;
     text-align: center;
     padding: 4px 8px;

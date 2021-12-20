@@ -93,6 +93,7 @@ const ActivitiesTracker = ({
   userId,
   preselectedCategory,
   cleanUpActivities,
+  showBets
 }) => {
   const messageListRef = useRef();
 
@@ -262,7 +263,7 @@ const ActivitiesTracker = ({
             },
           }}
         >
-          {ACTIVITIES_TO_TRACK.map((activity, index) => (
+          {ACTIVITIES_TO_TRACK.filter(x => x.value !== 'bets' || showBets).map((activity, index) => (
             <SwiperSlide key={`swiper-slide-${index}`}>
               <div
                 className={classNames(styles.boxIcon, {

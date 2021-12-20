@@ -1,0 +1,99 @@
+@import '../../styles/all';
+
+.promoMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 35px;
+  background-color: $colorWhite;
+  border-radius: 12px;
+
+  .logo {
+    height: 60px;
+  }
+
+  .title {
+    font-family: $fontOmnes;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .subtitle {
+    font-family: $fontOmnes;
+    font-size: 14px;
+  }
+
+  .content {
+    margin: 100px 0;
+    text-align: center;
+    color: $colorBlack;
+
+    @media (max-width: $screen-sm) {
+      margin: 50px 0;
+    }
+
+    .message {
+      font-family: $fontOmnes;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .info {
+      font-size: 12px;
+      color: $colorPrimary;
+      opacity: 0.4;
+      padding-top: 10px;
+    }
+  }
+
+  p {
+    margin-bottom: 10px;
+    line-height: 1.75;
+    position: relative;
+    color: $colorBlack;
+    text-align: center;
+    z-index: 2;
+    strong {
+      font-family: $fontOmnes;
+      font-weight: bold;
+      border-bottom: 3px solid $colorLightYellow;
+      cursor: pointer;
+      word-break: break-all;
+    }
+  }
+  .prizeAmount {
+    font-size: 35px;
+    font-family: $fontOmnes;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    align-self: center;
+    margin-bottom: 40px;
+    color: $colorBlack;
+
+    z-index: 2;
+    @media screen and (min-width: $screen-md) {
+      font-size: 42px;
+    }
+  }
+
+  .keepGoing {
+    display: block;
+    margin: 0 auto 15px;
+    width: 100%;
+    max-width: 460px;
+    height: 60px;
+    border-radius: 30px;
+    border: 0;
+    font-size: 18px;
+    font-family: $fontOmnes;
+    font-weight: bold;
+    cursor: pointer;
+    background: $colorWhite;
+    border: 1px solid $colorWhite;
+    color: $colorWhite;
+    background-color: $colorPrimary;
+  }
+}

@@ -9,13 +9,14 @@ const ReferralLinkCopyInputBox = ({
   className,
   userId,
   inputTheme = InputBoxTheme.copyToClipboardInput,
+  forDeposit= false
 }) => {
   return (
     <InputBox
       className={className}
       type={'text'}
       setValue={_.noop}
-      value={generateReferralLink(userId)}
+      value={forDeposit ? forDeposit : generateReferralLink(userId)}
       theme={inputTheme}
     />
   );

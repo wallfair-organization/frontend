@@ -1,12 +1,13 @@
 @import '../../styles/all';
 
 .baseContainer {
+  position: relative;
   min-height: 100%;
-  padding-bottom: 8rem;
   overflow: hidden;
+  padding-bottom: 40px;
 
   &.baseContainerWithPaddingTop {
-    padding-top: 100px;
+    padding-top: 150px;
 
     @media (max-width: $screen-sm) {
       padding-top: 80px;
@@ -27,5 +28,67 @@
 
   &.baseContainerWithPaddingBottomZero {
     padding-bottom: 0;
+  }
+  .headerBackground {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -3;
+    position: absolute;
+    height: 100%;
+    .headerContianer {
+      position: relative;
+      height: 100vh;
+      .gradientLayer {
+        width: 100%;
+        height: 134px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        background: linear-gradient(
+          180deg,
+          #00092b 13.02%,
+          rgba(45, 76, 133, 0) 100%
+        );
+        transform: rotate(-180deg);
+      }
+
+      .aplacaHeader {
+        bottom: -150px;
+        left: calc(50% - 500px);
+        transform: translateX(-50%);
+        position: absolute;
+        width: 450px;
+        display: block;
+
+        @media (max-width: 1300px) {
+          bottom: -250px;
+          left: calc(50% - 500px);
+          transform: translateX(-50%);
+          position: absolute;
+          width: 300px;
+          display: block;
+        }
+      }
+
+      video {
+        object-fit: cover;
+        object-position: center center;
+        height: 100vh;
+        width: 100%;
+      }
+      // background-size: cover;
+      // background-repeat: no-repeat;
+      // background-position: top;
+      // background-image: url('../../data/backgrounds/alpaca-header-bg.png');
+    }
+    @media (max-width: $screen-sm) {
+      height: 100vh;
+    }
+  }
+  .withTransparent {
+    opacity: 0.2;
   }
 }

@@ -27,6 +27,9 @@ export const RosiGameTypes = {
   FETCH_HIGH_DATA_STARTED: 'RosiGame/FETCH_HIGH_DATA_STARTED',
   FETCH_HIGH_DATA_COMPLETE: 'RosiGame/FETCH_HIGH_DATA_COMPLETE',
   FETCH_HIGH_DATA_ERROR: 'RosiGame/FETCH_HIGH_DATA_ERROR',
+  FETCH_MY_BETS_DATA_STARTED: 'RosiGame/FETCH_MY_BETS_DATA_STARTED',
+  FETCH_MY_BETS_DATA_COMPLETE: 'RosiGame/FETCH_MY_BETS_DATA_COMPLETE',
+  FETCH_MY_BETS_DATA_ERROR: 'RosiGame/FETCH_MY_BETS_DATA_ERROR',
 };
 
 const initializeState = payload => ({
@@ -159,6 +162,21 @@ const fetchHighDataError = error => ({
   error,
 });
 
+const fetchMyBetsData = data => ({
+  type: RosiGameTypes.FETCH_MY_BETS_DATA_STARTED,
+  data,
+});
+
+const fetchMyBetsDataComplete = data => ({
+  type: RosiGameTypes.FETCH_MY_BETS_DATA_COMPLETE,
+  data,
+});
+
+const fetchMyBetsDataError = error => ({
+  type: RosiGameTypes.FETCH_MY_BETS_DATA_ERROR,
+  error,
+});
+
 export const RosiGameActions = {
   initializeState,
   setHasStarted,
@@ -187,4 +205,7 @@ export const RosiGameActions = {
   fetchHighData,
   fetchHighDataComplete,
   fetchHighDataError,
+  fetchMyBetsData,
+  fetchMyBetsDataComplete,
+  fetchMyBetsDataError,
 };

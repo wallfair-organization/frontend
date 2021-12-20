@@ -1,51 +1,50 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react'
 import styles from './styles.module.scss';
-import { ReactComponent as ConfettiLeft } from '../../data/icons/confetti-left.svg';
-import { ReactComponent as ConfettiRight } from '../../data/icons/confetti-right.svg';
 import InputBox from '../InputBox';
 import Button from '../Button';
-import HighlightType from '../Highlight/HighlightType';
-import { PopupActions } from '../../store/actions/popup';
-import { AuthenticationActions } from '../../store/actions/authentication';
-import PopupTheme from '../Popup/PopupTheme';
 import { connect } from 'react-redux';
-import authState from 'constants/AuthState';
 import _ from 'lodash';
 import { checkUsername } from '../../api';
+import { OnboardingActions } from 'store/actions/onboarding';
 
 const UsernamePopup = ({
-  hidePopup = () => {},
-  loading,
-  showWelcome,
-  updateUser,
-  user,
-  initialReward,
-}) => {
-  const [username, setUsername] = useState('');
+                         hidePopup = () => {
+                         },
+                         showOnboardingFlowNext,
+                         suggestion,
+                         getSuggestion
+                       }) => {
+  const [username, setUsername] = useState(suggestion || '');
   const [errorMessage, setErrorMessage] = useState();
-  const [profileErrorMessage, setProfileErrorMessage] = useState();
-
-  const isAuthenticated = () => user.authState === authState.LOGGED_IN;
-
+  useEffect(() => {
+    if(!suggestion) {
+      getSuggestion();
+    }
+    setUsername(suggestion)
+  }, [suggestion])
+  useEffect(() => {
+    const len = username.length
+    if(len < 3 || len > 25){
+      setErrorMessage('Username length should be from 3 to 25 characters long');
+    } else {
+      setErrorMessage('');
+    }
+  }, [username])
   const onConfirm = async () => {
-    if (!isAuthenticated()) return;
-
     //check unique username
-    const response = await checkUsername(username).catch(err => {
+    let response;
+    try {
+      response = await checkUsername(username);
+    } catch (err) {
       console.error('checkUsername err', err);
-    });
+    }
 
     const isUnique = _.get(response, 'data.isUnique', false);
 
     if (isUnique) {
       setErrorMessage('');
-      const payload = {
-        email: user.email,
-        name: user.name,
-        profilePicture: user.profilePicture,
-        username,
-      };
-      updateUser(payload, initialReward);
+      showOnboardingFlowNext(username)
+      hidePopup();
     } else {
       setErrorMessage(
         <div>
@@ -55,88 +54,70 @@ const UsernamePopup = ({
     }
   };
 
-  const skipUsername = () => {
-    hidePopup();
-    showWelcome(initialReward);
-  };
+  // const skipUsername = () => {
+  //   hidePopup();
+  //   showOnboardingFlowNext('');
+  // };
 
   return (
     <div className={styles.usernamePopup}>
-      <h2 className={styles.title}>Complete your profile</h2>
-      <div className={styles.description}>
-        How would you like others to see you? Please pick a username for
-        yourself
+      <h2 className={styles.title}>Choose your username</h2>
+      <div className={styles.container}>
+        <div className={styles.description}>
+          How would you like others to see you?
+          <br />
+          Please pick a username for
+          <br />
+          yourself or randomize.
+        </div>
+        <InputBox
+          className={styles.inputBox}
+          placeholder="Your Username..."
+          value={username}
+          setValue={setUsername}
+          onConfirm={onConfirm}
+        />
+        {!_.isEmpty(errorMessage) && (
+          <div className={styles.errorHandLing}>{errorMessage}</div>
+        )}
+        <div className={styles.buttons}>
+          <span onClick={getSuggestion} className={styles.skipButton}>
+            Randomize
+          </span>
+
+          <button
+            onClick={onConfirm}
+            withoutBackground={true}
+            className={styles.button}
+            disabledWithOverlay={false}
+            disabled={!!errorMessage}
+          >
+            Submit
+          </button>
+        </div>
       </div>
-      <InputBox
-        className={styles.inputBox}
-        placeholder="Your Username..."
-        value={username}
-        setValue={setUsername}
-        onConfirm={onConfirm}
-      />
-      {!_.isEmpty(errorMessage) && (
-        <div className={styles.errorHandLing}>{errorMessage}</div>
-      )}
-      <div className={styles.buttons}>
-        <Button
-          onClick={skipUsername}
-          withoutBackground={true}
-          highlightType={HighlightType.highlightModalButton2Disabled}
-          className={styles.button}
-        >
-          <span>Skip</span>
-        </Button>
-        <Button
-          onClick={onConfirm}
-          withoutBackground={true}
-          highlightType={
-            loading
-              ? HighlightType.highlightModalButton2Disabled
-              : HighlightType.highlightModalButton2
-          }
-          className={styles.button}
-          disabled={loading}
-          disabledWithOverlay={false}
-        >
-          <span>Submit</span>
-        </Button>
-      </div>
-      <ConfettiLeft className={styles.confettiLeft} />
-      <ConfettiRight className={styles.confettiRight} />
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    loading: state.authentication.loading,
-    user: state.authentication,
-  };
+    suggestion: state.onboarding.suggestion
+  }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    showWelcome: initialReward => {
+    showOnboardingFlowNext: username => {
       dispatch(
-        PopupActions.show({
-          popupType: PopupTheme.welcome,
-          options: {
-            initialReward: initialReward,
-          },
+        OnboardingActions.next({
+            payload: {username}
         })
       );
     },
-    updateUser: (payload, initialReward) => {
-      dispatch(
-        AuthenticationActions.initiateUpdateUserData(
-          {
-            user: payload,
-          },
-          true,
-          initialReward
-        )
-      );
-    },
+    getSuggestion: () => {
+      dispatch(OnboardingActions.getUsername())
+    }
   };
 };
 

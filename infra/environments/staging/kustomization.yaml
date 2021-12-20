@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- ../../application
+  - ../../application
 
 namespace: staging
 commonLabels:
@@ -13,4 +13,4 @@ configMapGenerator:
     envs:
       - environment
 patches:
-- priorityPatch.yaml
+  - priorityPatch.yaml

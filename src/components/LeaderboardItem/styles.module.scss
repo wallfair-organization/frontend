@@ -1,4 +1,4 @@
-@import "../../styles/all";
+@import '../../styles/all';
 
 .placeSeperate {
   width: 90%;
@@ -6,6 +6,7 @@
   margin: -1px 5% -1px 5%;
   background-color: #434466;
   z-index: 5;
+  display: none;
 }
 
 .tableFirst,
@@ -21,7 +22,6 @@
   width: 100%;
   height: 60px;
   padding: 0 50px 0 50px;
-  background-color: #343353;
 
   @media (max-width: $screen-md) {
     padding: 0 20px 0 20px;
@@ -34,20 +34,20 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
-    line-height: 44px;
+    font-weight: 600;
     letter-spacing: 0.5px;
-    color: #b6b3b3;
+    color: $colorWhite;
     opacity: 1;
 
     @media (max-width: $screen-md) {
       margin-right: 30px;
-      font-size: 14px;
-      line-height: 38px;
+      font-size: 12px;
     }
 
     img {
       height: 44px;
       margin-left: 16px;
+      display: none;
 
       @media (max-width: $screen-md) {
         height: 38px;
@@ -56,32 +56,29 @@
   }
 
   .firstName {
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.5px;
-    color: #ffffff;
+    font-family: $fontOmnes;
+    font-weight: 600;
+    font-size: 14px;
+
+    color: $colorWhite;
 
     @media (max-width: $screen-md) {
-      font-size: 14px;
-      line-height: 18px;
+      font-size: 12px;
     }
   }
 
   .firstBalance {
     position: absolute;
-    right: 50px;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
+    right: 40px;
     text-align: end;
-    letter-spacing: 0.625px;
-    color: #ffffff;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
+    font-weight: 600;
+    font-size: 14px;
 
     @media (max-width: $screen-md) {
-      right: 20px;
-      font-size: 16px;
-      line-height: 20px;
+      right: 16px;
+      font-size: 12px;
     }
   }
 }
@@ -92,7 +89,6 @@
   width: 100%;
   height: 60px;
   padding: 0 50px 0 50px;
-  background-color: #24203d;
 
   @media (max-width: $screen-md) {
     padding: 0 20px 0 20px;
@@ -105,20 +101,20 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
-    line-height: 44px;
+    font-weight: 600;
     letter-spacing: 0.5px;
-    color: #b6b3b3;
+    color: $colorWhite;
     opacity: 1;
 
     @media (max-width: $screen-md) {
       margin-right: 30px;
-      font-size: 14px;
-      line-height: 38px;
+      font-size: 12px;
     }
 
     img {
       height: 44px;
       margin-left: 14px;
+      display: none;
 
       @media (max-width: $screen-md) {
         height: 38px;
@@ -127,32 +123,28 @@
   }
 
   .secondName {
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.5px;
-    color: #ffffff;
+    font-family: $fontOmnes;
+    font-weight: 600;
+    font-size: 14px;
+    color: $colorWhite;
 
     @media (max-width: $screen-md) {
-      font-size: 14px;
-      line-height: 18px;
+      font-size: 12px;
     }
   }
 
   .secondBalance {
     position: absolute;
-    right: 50px;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
+    right: 40px;
     text-align: end;
-    letter-spacing: 0.625px;
-    color: #ffffff;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
+    font-weight: 600;
+    font-size: 14px;
 
     @media (max-width: $screen-md) {
-      right: 20px;
-      font-size: 16px;
-      line-height: 20px;
+      right: 16px;
+      font-size: 12px;
     }
   }
 }
@@ -163,7 +155,6 @@
   width: 100%;
   height: 60px;
   padding: 0 50px 0 50px;
-  background-color: #1a1534;
 
   @media (max-width: $screen-md) {
     padding: 0 20px 0 20px;
@@ -176,21 +167,21 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
-    line-height: 44px;
+    font-weight: 600;
     letter-spacing: 0.5px;
-    color: #b6b3b3;
+    color: $colorWhite;
     opacity: 1;
 
     @media (max-width: $screen-md) {
       margin-right: 30px;
-      font-size: 14px;
-      line-height: 38px;
+      font-size: 12px;
     }
 
     img {
       height: 44px;
       margin-left: 14px;
-      
+      display: none;
+
       @media (max-width: $screen-md) {
         height: 38px;
       }
@@ -198,32 +189,28 @@
   }
 
   .thirdName {
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.5px;
-    color: #ffffff;
+    font-family: $fontOmnes;
+    font-weight: 600;
+    font-size: 14px;
+    color: $colorWhite;
 
     @media (max-width: $screen-md) {
-      font-size: 14px;
-      line-height: 18px;
+      font-size: 12px;
     }
   }
 
   .thirdBalance {
     position: absolute;
-    right: 50px;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
+    right: 40px;
     text-align: end;
-    letter-spacing: 0.625px;
-    color: #ffffff;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
+    font-weight: 600;
+    font-size: 14px;
 
     @media (max-width: $screen-md) {
-      right: 20px;
-      font-size: 16px;
-      line-height: 20px;
+      right: 16px;
+      font-size: 12px;
     }
   }
 
@@ -234,21 +221,21 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
-    line-height: 20px;
+    font-weight: 600;
     letter-spacing: 0.5px;
-    color: #b6b3b3;
+    color: $colorWhite;
     opacity: 1;
 
     @media (max-width: $screen-md) {
       margin-right: 30px;
-      font-size: 14px;
-      line-height: 18px;
+      font-size: 12px;
     }
 
     img {
       height: 20px;
       margin-left: 26px;
-      
+      display: none;
+
       @media (max-width: $screen-md) {
         height: 17px;
       }
@@ -275,15 +262,13 @@
     justify-content: space-between;
     margin-right: 52px;
     font-size: 16px;
-    line-height: 24px;
     letter-spacing: 0.5px;
-    color: #b6b3b3;
+    color: $colorWhite;
     opacity: 1;
 
     @media (max-width: $screen-md) {
       margin-right: 30px;
-      font-size: 14px;
-      line-height: 18px;
+      font-size: 12px;
     }
 
     img {
@@ -299,72 +284,59 @@
   }
 
   .entryName {
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.5px;
-    color: #ffffff;
+    font-family: $fontOmnes;
+    font-weight: 500;
+    font-size: 14px;
+    color: $colorWhite;
 
     @media (max-width: $screen-md) {
-      font-size: 14px;
-      line-height: 18px;
+      font-size: 12px;
     }
   }
 
   .entryBalance {
     position: absolute;
-    right: 50px;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
+    right: 40px;
     text-align: end;
-    letter-spacing: 0.625px;
-    color: #ffffff;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
+    font-weight: 600;
+    font-size: 14px;
 
     @media (max-width: $screen-md) {
-      right: 20px;
-      font-size: 16px;
-      line-height: 20px;
+      right: 16px;
+      font-size: 12px;
     }
   }
 
   .loadButton {
-    width: 135px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding: 0 24px;
     margin: 0 auto;
-    background-color: #24203d;
-    border-radius: 5px;
-    padding: 10px 25px 10px 0;
-    height: 30px;
-    text-align: right;
-    color: white;
+    text-align: center;
+    color: $colorLightYellow;
     line-height: 1;
-    font-size: 12px;
+    font-family: $fontOmnes;
+    font-weight: 600;
+    font-size: 14px;
     position: relative;
     cursor: pointer;
-
-    &:hover {
-      background-color: #343353;
-    }
-
-    &::before {
-      content: '...';
-      position: absolute;
-      bottom: 37%;
-      left: 20px;
-      font-size: 32px;
-      letter-spacing: -2px;
-      height: 100%;
-    }
+    text-transform: uppercase;
+    text-decoration: underline;
   }
 }
 
 .tableCurrentUser {
-  border-left: 4px solid $colorYellow;
+  border-left: 4px solid $colorLightYellow;
   background-color: $colorPrimary45;
 }
 
 .rankingTooltip {
-  font-family: $fontBold;
+  font-family: $fontOmnes;
+  font-weight: 600;
   max-width: 180px;
   background-color: $colorPrimary45 !important;
 }

@@ -12,12 +12,10 @@
     position: relative;
     color: $colorWhite;
     padding: 1rem 20px;
-    border-radius: 10px;
-    background-color: $colorWhite10;
+    background-color: $colorPrimary;
     display: inline-flex;
     display: -ms-inline-flexbox;
     display: -webkit-box;
-    margin-top: 0.5rem;
     font-size: 14px;
     text-align: left;
     hyphens: auto;
@@ -47,7 +45,7 @@
 
       :first-child {
         font-size: 12px;
-        font-family: $fontBold;
+        font-family: $fontOmnes;
       }
 
       :last-child {
@@ -75,13 +73,17 @@
     width: 47px;
     justify-content: flex-end;
     text-align: right;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
   }
 
   .messageItem {
     opacity: 1;
     font-size: 14px;
+    font-weight: 600;
     align-items: center;
     //width: 100%;
+    background-color: $colorPrimary;
   }
 
   .categoryList {
@@ -91,7 +93,7 @@
     top: 0;
     width: 100%;
     margin: auto;
-
+    margin-top: -30px;
     //> :not(:last-child) {
     //  margin-right: 15px;
     //}
@@ -132,7 +134,7 @@
       }
 
       .label {
-        opacity: initial;
+        color: $colorWhite;
       }
     }
   }
@@ -144,17 +146,19 @@
   }
 
   .label {
-    font-size: 13px;
-    font-weight: normal;
+    font-size: 14px;
+    font-weight: 500;
     font-stretch: normal;
     font-style: normal;
     line-height: 1;
     letter-spacing: normal;
     text-align: center;
-    color: white;
-    opacity: 0.5;
-    margin-top: 10px;
+    color: $colorWhite;
+    margin-top: 16px;
     transition: opacity 0.2s ease-in;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: $fontOmnes;
 
     &.active {
       opacity: initial;
@@ -162,7 +166,8 @@
   }
 
   .imageIcon {
-    opacity: 0.5;
+    opacity: 1;
+    margin-top: -16px;
     transition: opacity 0.2s ease-in;
 
     &.active {
@@ -188,6 +193,10 @@
     height: 500px;
     margin-top: 0;
 
+    > :nth-child(odd) {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
     &::-webkit-scrollbar {
       width: 0;
       background: transparent;
@@ -200,10 +209,12 @@
 
   .swiperNavContainer {
     position: absolute;
+    top: 16px;
     width: 100%;
     height: 100%;
 
-    .activitiesSwiperButtonNext, .activitiesSwiperButtonPrev {
+    .activitiesSwiperButtonNext,
+    .activitiesSwiperButtonPrev {
       position: absolute;
       top: -5px;
       bottom: 0;
@@ -213,7 +224,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #E6FE00;
+      color: $colorGrayLight1;
       width: 5%;
 
       &:after {
@@ -229,14 +240,14 @@
     .activitiesSwiperButtonNext {
       right: 0px;
       &:after {
-        content: "next";
+        content: 'next';
       }
     }
 
     .activitiesSwiperButtonPrev {
       left: 0;
       &:after {
-        content: "prev";
+        content: 'prev';
       }
     }
   }

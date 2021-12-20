@@ -8,14 +8,15 @@ const Input = ({
   disabled = false,
   onSubmit = _.noop,
   reference,
+  min,
+  max,
   ...props
 }) => {
   const checkOnKeyPress = event => {
     if (event.key === 'Enter') {
       onSubmit();
     }
-  };
-
+  }
   return (
     <input
       className={classNames(style.input, className)}
@@ -24,7 +25,7 @@ const Input = ({
       ref={reference}
       {...props}
     />
-  );
-};
+  )
+}
 
 export default Input;

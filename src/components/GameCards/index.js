@@ -10,6 +10,7 @@ import Link from 'components/Link';
 import { PopupActions } from 'store/actions/popup';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { Grid } from '@material-ui/core';
 
 const GameCards = ({ games, category, showHowtoLink, showPopup }) => {
   const getGameItemSizeClass = () => {
@@ -23,60 +24,46 @@ const GameCards = ({ games, category, showHowtoLink, showPopup }) => {
     }
   };
 
+  const renderHouseGames = (game, index) => {
+    return (
+      <Grid
+        item
+        lg={3}
+        md={3}
+        xs={6}
+        key={`gamecard-${_.get(game, 'title')}-${index}-`}
+      >
+        <Link
+          className={classNames(
+            styles.gameLink,
+            !game.active ? styles.gameLinkInactive : null
+          )}
+          to={game.active ? game.linkTo : ''}
+        >
+          <div
+            key={index}
+            className={classNames(
+              styles.gameItem,
+              game.active ? null : styles.inactive,
+              getGameItemSizeClass()
+            )}
+          >
+            <img src={game.background} alt="game-background" />
+          </div>
+        </Link>
+      </Grid>
+    );
+  };
+
   return (
     <div className={styles.gamesContainer}>
       <div className={styles.gamesCategory}>
-        <span>{category}</span>
+        <h2>{category}</h2>
       </div>
       <div className={styles.games}>
-        {games.map((game, index) => {
-          return (
-            <div
-              className={styles.wrapper}
-              key={`gamecard-${_.get(game, 'title')}-${index}-`}
-            >
-              {/* {game?.infoIcon && (
-                <InfoBox
-                  iconType={game.infoIcon.iconType}
-                  position={`bottomLeft`}
-                  iconClassName={`infoIconGame`}
-                >
-                  {game.infoIcon.content}
-                </InfoBox>
-              )} */}
-              <Link
-                to={game.active ? game.linkTo : ''}
-                className={classNames(
-                  styles.gameLink,
-                  !game.active ? styles.gameLinkInactive : null
-                )}
-              >
-                <div
-                  key={index}
-                  className={classNames(
-                    styles.gameItem,
-                    game.active ? null : styles.inactive,
-                    getGameItemSizeClass()
-                  )}
-                >
-                  <img src={game.background} />
-                  {/* <div className={styles.gameInfo}>
-                    {game.subtitle && (
-                      <div className={styles.subtitle}>{game.subtitle}</div>
-                    )}
-                    <div className={styles.title}>{game.title}</div>
-                    <div className={styles.description}>{game.description}</div>
-                  </div> */}
-                  {!game.active && (
-                    <div className={styles.inactivePlaceholder}>
-                      <span className={styles.text}>Development in progress.<br/><br/>Stay tuned.</span>
-                    </div>
-                  )}
-                </div>
-              </Link>
-            </div>
-          );
-        })}
+        <Grid container spacing={1}>
+          {games.map((game, index) => renderHouseGames(game, index))}
+        </Grid>
       </div>
     </div>
   );

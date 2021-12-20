@@ -14,6 +14,7 @@ import PopupTheme from '../../components/Popup/PopupTheme';
 import { AlertActions } from 'store/actions/alert';
 import { RosiGameActions } from '../actions/rosi-game';
 import { ChatActions } from 'store/actions/chat';
+import { OnboardingActions } from 'store/actions/onboarding';
 
 const afterLoginRoute = Routes.home;
 
@@ -205,13 +206,13 @@ const fetchReferralsSucceeded = function* (action) {
 const registrationSucceeded = function* (action) {
   const authState = yield select(state => state.authentication.authState);
 
-  if (action.email && action.name && authState === AuthState.LOGGED_IN) {
-    yield put(
-      PopupActions.show({
-        popupType: PopupTheme.welcome,
-      })
-    );
-  }
+  // if (action.email && action.name && authState === AuthState.LOGGED_IN) {
+  //   yield put(
+  //     PopupActions.show({
+  //       popupType: PopupTheme.welcome,
+  //     })
+  //   );
+  // }
 };
 
 const authenticationSucceeded = function* (action) {
@@ -220,7 +221,7 @@ const authenticationSucceeded = function* (action) {
 
   if (authState === AuthState.LOGGED_IN) {
     yield put(UserActions.fetch({ userId, forceFetch: true }));
-    yield put(EventActions.fetchAll());
+    // yield put(EventActions.fetchAll());
     yield put(AuthenticationActions.fetchReferrals());
     yield put(WebsocketsActions.init());
     yield put(RosiGameActions.clearGuestData());
@@ -234,12 +235,37 @@ const authenticationSucceeded = function* (action) {
     );
     yield put(ChatActions.fetchByRoom({ roomId: UserMessageRoomId }));
 
+    if (action.user) {
+      yield put(AuthenticationActions.updateData(action.user));
+    }
+
     if (action.newUser) {
+      const alpacaBuilderData = yield select(state => state.authentication.alpacaBuilderData);
+      if(alpacaBuilderData){
+        const userWithAlpacaBuilderData = {
+          imageName: alpacaBuilderData.fileName,
+          profilePic: alpacaBuilderData.base64,
+          alpacaBuilderProps: alpacaBuilderData.alpacaBuilderProps
+        };
+        yield put(AuthenticationActions.initiateUpdateUserData({
+          user: userWithAlpacaBuilderData,
+          newUser: false //otherwise it triggers welcome popup
+        }));
+        yield put(AuthenticationActions.setAlpacaBuilderData(null));
+      }
       yield put(
-        PopupActions.show({
-          popupType: PopupTheme.username,
+        OnboardingActions.next({
           options: {
             initialReward: action?.initialReward,
+          },
+        })
+      );
+    } else if (action.shouldAcceptToS) {
+      yield put(
+        PopupActions.show({
+          popupType: PopupTheme.acceptToS,
+          options: {
+            small: true,
           },
         })
       );
@@ -307,7 +333,7 @@ const refreshImportantData = function* () {
 
   if (authState === AuthState.LOGGED_IN) {
     yield put(UserActions.fetch({ forceFetch: true }));
-    yield put(EventActions.fetchAll());
+    // yield put(EventActions.fetchAll());
 
     yield delay(10 * 1000);
     yield call(refreshImportantData);
@@ -324,13 +350,13 @@ const firstSignUpPopup = function* (options) {
     (popupType === PopupTheme.auth || popupType === PopupTheme.disclaimer);
 
   if (authState === AuthState.LOGGED_OUT && !skip) {
-    yield put(
-      PopupActions.show({
-        popupType: options.last
-          ? PopupTheme.signUpNotificationSecond
-          : PopupTheme.signUpNotificationFirst,
-      })
-    );
+    // yield put(
+    //   PopupActions.show({
+    //     popupType: options.last
+    //       ? PopupTheme.signUpNotificationSecond
+    //       : PopupTheme.signUpNotificationFirst,
+    //   })
+    // );
   }
 };
 
@@ -350,7 +376,6 @@ const updateUserData = function* (action) {
 
       userFiltered = _.omit(userFiltered, ['imageName', 'profilePic']);
     }
-
     const response = yield call(Api.updateUser, userId, userFiltered);
     if (response) {
       const stateUser = yield select(state => state.authentication);
@@ -364,8 +389,7 @@ const updateUserData = function* (action) {
 
       if (action.newUser) {
         yield put(
-          PopupActions.show({
-            popupType: PopupTheme.welcome,
+          OnboardingActions.next({
             options: {
               initialReward: action?.initialReward,
             },
@@ -380,13 +404,14 @@ const updateUserData = function* (action) {
 
 const signUp = function* (action) {
   const payload = {
+    username: action.username,
     email: action.email,
     country: action.country,
     birth: action.birth,
     password: action.password,
     passwordConfirm: action.passwordConfirm,
     ref: action.ref,
-    recaptchaToken: action.recaptchaToken,
+    recaptchaToken: action.recaptchaToken
   };
   const { response, error } = yield call(Api.signUp, payload);
   if (response) {
@@ -396,7 +421,7 @@ const signUp = function* (action) {
         email: action.email,
         password: action.password,
         newUser: true,
-        initialReward,
+        initialReward
       })
     );
     localStorage.removeItem('urlParam_ref');
@@ -404,6 +429,39 @@ const signUp = function* (action) {
     yield put(
       AuthenticationActions.signUpFail({
         message: error.message,
+      })
+    );
+  }
+};
+
+const loginExternal = function* ({ code, provider, ref, tosAccepted }) {
+  yield put(push('/'));
+  const { response, error } = yield call(Api.loginExternal, { provider, body: { code, ref } });
+  if (response) {
+    const data = response?.data;
+
+    Api.setToken(data.session);
+    crashGameApi.setToken(data.session);
+
+    yield put(
+      AuthenticationActions.loginSuccess({
+        userId: data.userId,
+        session: data.session,
+        newUser: data.newUser,
+        initialReward: data?.initialReward,
+        user: data?.user,
+        shouldAcceptToS: data?.shouldAcceptToS,
+      })
+    );
+    console.log(tosAccepted);
+    if(data.newUser && tosAccepted) {
+      yield put(AuthenticationActions.acceptToSConsent());
+    }
+    localStorage.removeItem('urlParam_ref');
+  } else {
+    yield put(
+      AuthenticationActions.loginExternalFail({
+        errorCode: error.errorCode,
       })
     );
   }
@@ -429,6 +487,7 @@ const login = function* (action) {
         session: data.session,
         newUser: action.newUser,
         initialReward: action?.initialReward,
+        shouldAcceptToS: data?.shouldAcceptToS,
       })
     );
   } else {
@@ -509,6 +568,25 @@ const updateStatus = function* (action) {
   }
 };
 
+const updateToSConsent = function* ({ isOnboarding }) {
+  yield put(PopupActions.hide())
+  const { error } = yield call(Api.acceptToS);
+
+  if(error) {
+    yield put(AuthenticationActions.failedToSConsent())
+    yield put(PopupActions.show({
+      popupType: PopupTheme.acceptToS,
+      options: {
+        small: true,
+      },
+    }))
+  } else {
+    if(isOnboarding) {
+      yield put(OnboardingActions.next())
+    }
+  }
+}
+
 export default {
   authenticationSucceeded,
   fetchReferrals,
@@ -525,8 +603,10 @@ export default {
   firstSignUpPopup,
   updateUserData,
   signUp,
+  loginExternal,
   login,
   forgotPassword,
   resetPassword,
   updateStatus,
+  updateToSConsent,
 };

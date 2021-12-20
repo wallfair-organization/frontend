@@ -1,64 +1,54 @@
 @import '../../styles/all';
 
-.legalText
-{
-    padding:    0 30px 30px;
-    background: $colorWhite;
+.legalText {
+  padding: 0 30px 30px;
+  background: $colorWhite;
 
-    strong
-    {
-        display:     block;
-        font-family: $fontBold;
-        margin:      25px 0 20px;
+  strong {
+    display: block;
+    font-family: $fontOmnes;
+    font-weight: bold;
+    margin: 25px 0 20px;
 
-        &:first-child
-        {
-            margin-top: 0;
-        }
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  ol,
+  ul {
+    display: block;
+    padding: 0 40px 40px 40px;
+
+    li:first-child {
+      margin-top: 0;
     }
 
-    ol, ul
-    {
+    li {
+      margin-top: 20px;
+      list-style-type: lower-alpha;
 
+      strong {
+        margin-bottom: 10px;
         display: block;
-        padding: 0 40px 40px 40px;
-
-        li:first-child
-        {
-            margin-top: 0;
-        }
-
-        li
-        {
-            margin-top:      20px;
-            list-style-type: lower-alpha;
-
-            strong
-            {
-                margin-bottom: 10px;
-                display:       block;
-            }
-        }
+      }
     }
+  }
 
-    ul li
-    {
-        list-style-type: disc;
+  ul li {
+    list-style-type: disc;
+  }
+
+  section ol li {
+    list-style-type: decimal;
+
+    ul li {
+      list-style-type: lower-alpha;
     }
+  }
 
-    section ol li
-    {
-        list-style-type: decimal;
-
-        ul li
-        {
-            list-style-type: lower-alpha;
-        }
-    }
-
-    p
-    {
-        display:       block;
-        margin-bottom: 20px;
-    }
+  p {
+    display: block;
+    margin-bottom: 20px;
+  }
 }

@@ -1,18 +1,10 @@
 @import '../../styles/all';
 
 .gamesContainer {
-  padding: 30px;
-
-  @media (max-width: $screen-md) {
-    padding: 0 150px 15px;
-  }
-
-  @media (max-width: $screen-sm) {
-    padding: 0 100px 15px;
-  }
+  padding: 30px 0px;
 
   @media (max-width: $screen-xs) {
-    padding: 0 15px 15px;
+    padding: 0;
   }
 }
 
@@ -20,16 +12,29 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: $colorWhite;
-  font-family: $fontRegular;
+  color: $colorBlack;
+  font-family: $fontOmnes;
   font-size: 24px;
   font-weight: 700;
   padding-bottom: 20px;
 
+  @media (max-width: $screen-lg) {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 33px;
+    color: $colorWhite;
+
+    @media (max-width: $screen-xs) {
+      font-size: 28px;
+    }
+  }
+
   .howtoLink {
     cursor: pointer;
     font-size: 11px;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     text-decoration: underline;
     color: $colorYellow;
 
@@ -60,39 +65,46 @@
 }
 
 .games {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+  // display: flex;
+  // flex-wrap: wrap;
+  // width: 100%;
+  // row-gap: 15px;
+  // column-gap: 15px;
 
-  @media (max-width: $screen-md) {
-    flex-direction: column;
+  text-align: center;
+  margin-top: 20px;
+  img {
+    border-radius: 12px;
+    width: 96%;
   }
+
+  // @media (max-width: $screen-xs) {
+  //   //flex-direction: column;
+  //   column-gap: 0px;
+  // }
 
   .wrapper {
     position: relative;
-    height: 350px;
-    width: 350px;
-    margin-right: 10px;
+    height: 491px;
+    // width: 22%;
 
     @media (max-width: $screen-md) {
-      padding: 10px 0;
+      width: 32%;
+      height: auto;
+      margin: 0 auto;
     }
 
-    &:last-child {
-      padding-right: 0;
-      margin-right: 0;
+    @media (max-width: $screen-sm) {
+      width: 43%;
+      height: auto;
+      margin: 0 auto;
     }
 
     .gameItem {
       height: 100%;
-
-      &.inactive {
-        img,
-        .gameInfo {
-          filter: opacity(0.4) blur(2px);
-        }
+      @media (max-width: $screen-md) {
+        height: auto;
       }
-
       &.gameItemLg {
         .gameInfo {
           .title {
@@ -161,9 +173,11 @@
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        @media (max-width: $screen-md) {
+          height: auto;
+        }
+        // object-fit: contain;
         border-radius: 20px;
-        border: 2px solid rgba(255, 255, 255, 0.1);
       }
 
       .gameInfo {
@@ -171,7 +185,7 @@
         bottom: 0;
         left: 0;
         color: $colorWhite;
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         padding: 30px;
 
         .title {
@@ -202,7 +216,7 @@
         align-items: center;
         justify-content: center;
         font-size: 24px;
-        font-family: $fontMedium;
+        font-family: $fontOmnes;
         color: #f2ff53;
         text-align: center;
         font-weight: 700;

@@ -29,13 +29,13 @@
 
   &.iconFavorite {
     > svg {
-      @include svgColorFill($colorYellow);
+      @include svgColorStroke($colorLightYellow);
     }
   }
 
   &.iconPrimaryLightTransparent {
     > svg {
-      @include svgColorStroke($colorPrimaryLight20);
+      @include svgColorStroke($mainAction);
     }
   }
 

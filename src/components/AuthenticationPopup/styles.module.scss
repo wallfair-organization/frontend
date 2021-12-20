@@ -1,20 +1,137 @@
 @import '../../styles/all';
 
 .registration {
-  padding: 50px 20px;
+  width: 1000px;
+  height: 800px;
   display: flex;
-  max-width: 500px;
-  width: 100vw;
-  @media screen and (min-width: $screen-sm) {
-    padding: 50px;
+  align-items: center;
+  flex-direction: column;
+  background: url('../../data/backgrounds/popup/popup-wide-bg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  @media (max-width: $screen-sm) {
+    background: url('../../data/backgrounds/popup/popup-bg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 115%;
+    width: 700px;
+    height: 740px;
+  }
+
+  @media (max-width: $screen-xs) {
+    background-size: 120% 120%;
+    margin-left: -8%;
+    margin-right: -4%;
+  }
+
+  &.portraitBg {
+    // width: 800px;
+    background: url('../../data/backgrounds/popup/popup-bg-login.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    @media (max-width: $screen-sm) {
+      background: url('../../data/backgrounds/popup/popup-bg.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 700px;
+      // height: 670px;
+    }
+
+    @media (max-width: $screen-xs) {
+      background-size: 110% 105%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    // @media (max-width: $screen-sm) {
+    //   width: 100%;
+    //   border-radius: 30% 30% 15% 15%;
+    //   background: #31a1df;
+    // }
+  }
+
+  .popupTop {
+    position: absolute;
+    top: -5px;
+    width: 100%;
+    height: 157px;
+    z-index: 1;
+
+    @media (min-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  .popupLeft {
+    position: absolute;
+    width: 13px;
+    height: calc(100% - 128px - 50px);
+    left: 0;
+    top: 128px;
+
+    @media (min-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  .popupRight {
+    position: absolute;
+    width: 13px;
+    height: calc(100% - 140px - 50px);
+    right: 0;
+    top: 140px;
+
+    @media (min-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  .popupBottom {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    height: 76px;
+    z-index: 1;
+
+    @media (min-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  .title {
+    z-index: 1;
+    position: absolute;
+    top: -28px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 100%;
+    color: #ffd31a;
+    text-shadow: 0px 4px 8px rgba(5, 44, 146, 0.46);
+
+    @media (min-width: $screen-sm) {
+      top: 50px;
+      font-size: 50px;
+    }
+
+    &.portrait {
+      @media (min-width: $screen-sm) {
+        top: 0px;
+      }
+    }
   }
 
   &.registrationWithPromo {
     max-width: 800px;
     flex-flow: column;
+
     @media screen and (min-width: $screen-md) {
       flex-flow: row;
     }
+
     .form {
       h2 {
         font-size: 25px;
@@ -49,6 +166,7 @@
       display: flex;
       justify-content: center;
       z-index: 2;
+
       @media screen and (min-width: $screen-md) {
         margin-bottom: 20px;
       }
@@ -59,22 +177,26 @@
       line-height: 1.75;
       position: relative;
       z-index: 2;
+
       strong {
-        font-family: $fontBold;
+        font-family: $fontOmnes;
         border-bottom: 3px solid $colorYellow;
       }
+
       @media screen and (min-width: $screen-md) {
         margin: 30px 0;
       }
     }
+
     .prizeAmount {
       font-size: 35px;
-      font-family: $fontBold;
+      font-family: $fontOmnes;
       text-align: center;
       position: relative;
       align-self: center;
       margin-bottom: 40px;
       z-index: 2;
+
       &::after {
         content: '';
         position: absolute;
@@ -87,33 +209,40 @@
         border-top-left-radius: 10px;
         border-bottom-right-radius: 10px;
       }
+
       @media screen and (min-width: $screen-md) {
         font-size: 42px;
       }
     }
+
     .confettiRight,
     .confettiLeft {
       position: absolute;
       z-index: 1;
     }
+
     .confettiLeft {
       left: -60px;
       top: 10px;
     }
+
     .confettiRight {
       right: -64px;
       bottom: -70px;
       height: 220px;
     }
+
     @media screen and (min-width: $screen-md) {
       .confettiRight,
       .confettiLeft {
         transform: scale(1.1);
       }
+
       .confettiLeft {
         left: -60px;
         top: 10px;
       }
+
       .confettiRight {
         right: -20px;
         bottom: -70px;
@@ -121,105 +250,159 @@
       }
     }
   }
+
   .form {
-    flex-basis: 50%;
-    max-width: 100%;
-    flex-grow: 1;
+    position: relative;
+    display: flex;
+    max-width: 800px;
+    padding: 170px 55px 80px 50px;
+    column-gap: 20px;
+
+    @media (max-width: $screen-md) {
+      padding: 190px 110px 80px 120px;
+    }
+
+    @media (max-width: $screen-sm) {
+      width: 100%;
+      flex-direction: column;
+      padding: 130px 25% 20px 24%;
+    }
+
+    @media (max-width: $screen-xs) {
+      padding: 135px 10% 20px 30%;
+    }
+
+    &.loginForm {
+      // padding: 120px 50px 80px 50px;
+      // width: 400px;
+      padding-top: 120px;
+      padding-left: 48px;
+      flex-direction: column;
+
+      @media (max-width: $screen-md) {
+        padding-right: 50px;
+      }
+
+      @media (max-width: $screen-sm) {
+        // width: 100%;
+        // min-height: fit-content;
+        // padding: 100px 0 20px;
+        padding: 135px 25% 20px 24%;
+      }
+
+      @media (max-width: $screen-xs) {
+        padding: 135px 18% 20px 27%;
+      }
+    }
   }
 }
-.promoMessage.raffle{
+
+.promoMessage.raffle {
   justify-content: normal;
   text-align: left;
   flex-basis: 50%;
-  ul{
-    font-family: $fontRegular;
+
+  ul {
+    font-family: $fontOmnes;
     z-index: 2;
     line-height: 1.75;
     position: relative;
     z-index: 2;
+
     strong {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
       border-bottom: 3px solid $colorYellow;
     }
+
     align-self: center;
   }
-  ul.hidden{
+
+  ul.hidden {
     display: none;
   }
+
   .confettiRight {
     right: -20px;
     bottom: -90px;
     height: 200px;
   }
+
   @media screen and (max-width: $screen-xs) {
     .confettiRight,
     .confettiLeft {
       transform: scale(0.8);
     }
+
     .confettiLeft {
       left: -60px;
       top: -40px;
     }
+
     .confettiRight {
       right: -70px;
       bottom: -100px;
       height: 220px;
     }
   }
-
 }
-.raffleContent{
+
+.raffleContent {
   display: flex;
   align-self: center;
   margin-top: 2rem;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   z-index: 1;
   line-height: 1.75;
   position: relative;
+
   strong {
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
     border-bottom: 3px solid $colorYellow;
   }
+
   @media screen and (max-width: $screen-xs) {
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
-    .iphone{
+
+  .iphone {
     width: 120px;
     margin-right: 30px;
-    ;
   }
-
 }
-.criteria{
+
+.criteria {
   text-align: center;
   position: relative;
   z-index: 1;
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: bold;
-  .underline{
+
+  .underline {
     position: absolute;
     bottom: 10px;
     left: 0;
     top: 10px;
     width: 100%;
-    border-bottom: 9px solid $colorYellowLight;
+    border-bottom: 9px solid $colorLightYellow;
     z-index: -1;
   }
 }
 
-.giveaway{
+.giveaway {
   color: $colorPrimary;
   font-size: 28px;
-  font-family: $fontBold;
+  font-family: $fontOmnes;
+  font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
   z-index: 2;
 }
 
-
-.buttonContainer{
+.buttonContainer {
   text-align: center;
   position: relative;
   z-index: 2;
@@ -228,11 +411,14 @@
   font-weight: bold;
   align-self: center;
   padding: 0 100px;
+
   .button {
     outline: 0;
+
     @media screen and (max-width: $screen-xs) {
       margin-top: 10px;
     }
+
     color: $colorBlack;
     width: 10em;
     height: 50px;
@@ -241,7 +427,7 @@
     font-weight: bolder;
     display: flex;
     align-items: center;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     justify-content: space-around;
     background-image: url('../../data/backgrounds/games/games-highlight.png');
     background-repeat: no-repeat;

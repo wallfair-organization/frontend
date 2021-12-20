@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import * as PIXI from 'pixi.js-legacy';
 import { isMobileRosiGame } from './utils';
 import {
   ROSI_GAME_PLAYGROUND_ROCKET,
@@ -110,7 +110,7 @@ class PreparingRound {
     this.backdrop.endFill();
   }
 
-  show(animationIndex) {
+  show(animationIndex = 0) {
     this.animationIndex = animationIndex;
     this.initAnimation(animationIndex);
     this.container.visible = true;

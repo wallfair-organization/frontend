@@ -1,0 +1,676 @@
+@import '../../styles/all';
+
+.containerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 100px auto 0;
+  max-width: 1300px;
+
+  @media (max-width: $screen-sm) {
+    margin: 0 15px;
+  }
+}
+
+.container {
+  width: 100%;
+
+  @media (min-width: $screen-lg) {
+    max-width: 1300px;
+  }
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 15px;
+  }
+  h3 {
+    padding-bottom: 10px;
+  }
+}
+
+.mainHeadline {
+  color: $colorWhite;
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto;
+  margin-top: 143px;
+  padding: 0 20px;
+
+  @media (max-width: $screen-sm) {
+    margin-top: 90px;
+  }
+
+  h1 {
+    font-family: $fontOmnes;
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 1.13;
+    letter-spacing: 1px;
+
+    @media (max-width: $screen-md) {
+      font-size: 38px;
+    }
+  }
+
+  ul {
+    margin: 0 auto;
+    list-style: none;
+    margin-left: 20px;
+    text-align: left;
+    padding-top: 30px;
+
+    & li {
+      position: relative;
+      margin-bottom: 5px;
+      opacity: 0.6;
+      margin-left: 10px;
+    }
+
+    & li:before {
+      content: '';
+      position: absolute;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      width: 5px;
+      height: 5px;
+      top: 11px;
+      left: -15px;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+
+  div.slogan {
+    padding: 12px 0;
+    font-size: 25px;
+    font-family: $fontOmnes;
+
+    span {
+      font-family: $fontOmnes;
+      font-weight: bold;
+      color: $colorYellowLight;
+    }
+
+    @media (max-width: $screen-md) {
+      font-size: 24px;
+      padding: 12px 15px 0;
+    }
+  }
+
+  .socialIcons {
+    padding-bottom: 0px;
+  }
+}
+
+.bottomWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 80px;
+
+  @media (max-width: $screen-md) {
+    flex-direction: column;
+  }
+
+  .categories {
+    width: 100%;
+    padding: 0 10px;
+
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 40px;
+    }
+  }
+
+  .leaderboard {
+    width: 100%;
+    padding: 0 10px;
+
+    @media (max-width: $screen-sm) {
+      padding: 0;
+    }
+  }
+
+  .headline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $colorWhite;
+    font-family: $fontOmnes;
+    font-size: 24px;
+    margin-bottom: 20px;
+
+    .leaderboardLink {
+      font-size: 14px;
+      color: $colorWhite;
+      line-height: 12px;
+      letter-spacing: 0.6px;
+      font-family: $fontLight;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+.lightboxWrapper {
+  margin-top: 48px;
+}
+
+.tags {
+  display: flex;
+  flex-flow: wrap;
+  margin: 20px 0;
+
+  .tag {
+    background-color: rgba(172, 196, 255, 0.1);
+    padding: 10px;
+    font-size: 12px;
+    color: $colorWhite;
+    cursor: pointer;
+    border-radius: 2px;
+    margin: 5px;
+    opacity: 0.8;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      opacity: 1;
+    }
+  }
+}
+
+.seeAllActivities {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: $colorWhite;
+  line-height: 12px;
+  letter-spacing: 0.6px;
+  font-family: $fontLight;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.howTokenWorks {
+  padding: 20px 0;
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    justify-content: flex-start;
+
+    h2 {
+      font-size: 33px;
+
+      @media (max-width: $screen-xs) {
+        font-size: 28px;
+      }
+    }
+
+    img {
+      margin-right: 10px;
+      width: 80px;
+    }
+  }
+  .tokenDetail {
+    background: #ff0095;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 15px 0;
+    .token {
+      padding-right: 10px;
+      display: flex;
+      .thumbnail {
+        padding-right: 10px;
+        img {
+          width: 90px;
+        }
+      }
+      .detail {
+        padding-top: 30px;
+        color: #fff;
+        h3 {
+          font-weight: bolder;
+          font-size: 22px;
+          margin-bottom: 6px;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.whoWeAre {
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    justify-content: flex-start;
+    img {
+      margin-right: 40px;
+      // width: 80px;
+    }
+    h2 {
+      font-size: 33px;
+
+      @media (max-width: $screen-xs) {
+        font-size: 28px;
+      }
+
+      img {
+        margin-left: 5px;
+      }
+    }
+  }
+  .cardBox {
+    padding-top: 70px;
+    .card {
+      background: #ffffff;
+      border: 1px solid #ededed;
+      width: 96%;
+      margin: 20px auto;
+      padding-bottom: 30px;
+      box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18),
+        0px 2px 2px rgba(159, 162, 191, 0.32);
+      border-radius: 12px;
+      height: 100%;
+      @media screen and (max-width: 763px) {
+        margin-top: 20px;
+        height: auto;
+      }
+      .thumbnail {
+        text-align: center;
+        margin-top: -50px;
+        @media screen and (max-width: 763px) {
+          margin-top: 10px !important;
+        }
+      }
+      .detail {
+        text-align: center;
+        padding-top: 30px;
+        h3 {
+          font-size: 24px;
+          color: #0e0927;
+          margin-bottom: 6px;
+          img {
+            max-width: 160px;
+            margin-left: 5px;
+          }
+        }
+        p {
+          font-weight: 700;
+          width: 90%;
+          margin: auto;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+/* ACTIVITY TRACKER */
+.activityWrapper {
+  margin-top: 32px;
+  background: $colorPrimary;
+
+  .headerTables {
+    @media screen and (max-width: $screen-xs) {
+      padding: 4px 5px;
+      font-size: 10px;
+    }
+    &:not([data-item-count='0'])::after {
+      content: attr(data-item-count);
+      display: inline-block;
+      padding: 1px 4px;
+      border-radius: 6px;
+      font-family: $fontRegular;
+      background-color: $mainAction;
+      font-size: 9px;
+      padding: 1px 4px;
+      line-height: 1;
+      color: $colorPrimary;
+      margin-left: 4px;
+    }
+  }
+
+  @media screen and (max-width: $screen-xs) {
+    overflow: hidden;
+  }
+  border-radius: 12px;
+
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 20px;
+  }
+  .activityContainer {
+    position: relative;
+    height: 324px;
+
+    @media screen and (max-width: $screen-sm) {
+      overflow-x: auto;
+    }
+  }
+}
+.tabItem {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.tabItemSelected {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 1;
+  cursor: pointer;
+  border-bottom: 3px solid $mainAction;
+}
+.tabLayout {
+  display: flex;
+  align-items: flex-end;
+  color: $colorWhite;
+  font-family: $fontOmnes;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 24px;
+  margin-left: 16px;
+
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+.tabOptionsContainer {
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+/* ACTIVITY TRACKER */
+.activities {
+  margin-top: 40px;
+  padding: 0 10px;
+  position: relative;
+
+  @media (max-width: $screen-xs) {
+    padding: 0;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    background-image: url('../../data/images/wallet-left-image.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    bottom: 320px;
+    transform: rotate(-20deg);
+    left: -70px;
+    background-position: bottom left;
+    z-index: -1;
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    background-image: url('../../data/images/wallet-right-image.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 80%;
+    bottom: 50px;
+    right: -50px;
+    background-position: bottom right;
+    z-index: -1;
+  }
+
+  @media (max-width: $screen-md) {
+    &::after {
+      display: none;
+    }
+    &::before {
+      display: none;
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      font-size: 33px;
+
+      @media (max-width: $screen-xs) {
+        font-size: 28px;
+      }
+    }
+
+    img {
+      margin-right: 30px;
+    }
+  }
+}
+.gameCards {
+  margin: 20px 0;
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    justify-content: flex-start;
+
+    h2 {
+      font-size: 33px;
+
+      @media (max-width: $screen-xs) {
+        font-size: 28px;
+      }
+    }
+
+    img {
+      margin-right: 5px;
+    }
+  }
+  .cardBox {
+    text-align: center;
+    img {
+      margin: 20px 0;
+      width: 96%;
+    }
+  }
+}
+
+.currentBalanceSection {
+  margin: 30px auto 0;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: rgba($colorBlue80, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 10px;
+
+  @media (max-width: $screen-xs) {
+    justify-content: center;
+    margin: 80px 0 0;
+  }
+
+  .currentBlanceCard {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 20px 0;
+
+    // @media (max-width: $screen-lg) {
+    //   padding: 140px 20px 0;
+    // }
+
+    @media (max-width: $screen-md) {
+      padding: 140px 20px 0;
+    }
+
+    @media (max-width: $screen-xs) {
+      padding: 40px 20px 0;
+    }
+
+    h2 {
+      color: $colorWhite;
+      text-align: center;
+    }
+
+    p.welcome {
+      padding-top: 10px;
+      color: $colorWhite;
+      font-weight: 700;
+      padding: 10px 20px 20px;
+      line-height: 26px;
+      text-align: justify;
+
+      span {
+        color: $mainAction;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    svg {
+      width: 490px;
+      height: 200px;
+      margin-bottom: 20px;
+
+      @media (max-width: $screen-lg) {
+        width: 370px;
+        // height: 200px;
+      }
+      @media (max-width: $screen-md) {
+        width: 400px;
+        height: 190px;
+      }
+      @media (max-width: $screen-xs) {
+        width: 300px;
+        height: 140px;
+      }
+    }
+
+    .currentbalanceHeading {
+      font-family: $fontOmnes;
+      color: $colorWhite;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    .currentbalanceWFair {
+      // margin-bottom: 20px;
+      max-height: 70px;
+      width: 90%;
+      box-sizing: border-box;
+      font-family: $fontOmnes;
+      font-size: 50px;
+      font-weight: 600;
+      text-align: center;
+      color: $colorLightYellow;
+      line-height: 50px;
+
+      &.font30 {
+        font-size: 30px;
+      }
+      &.font50 {
+        font-size: 50px;
+      }
+      &.font20 {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .currentBlanceDiscription {
+    width: 100%;
+    background: rgba($colorBlue80, 0.8);
+    padding: 40px 0px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      background-image: url('../../data/images/balance-coins.svg');
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      bottom: 0px;
+      left: 300px;
+      background-position: bottom;
+      pointer-events: none;
+    }
+
+    @media (max-width: $screen-md) {
+      padding: 10px;
+    }
+
+    @media (max-width: $screen-xs) {
+      &::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: $screen-lg) {
+      &::after {
+        position: absolute;
+        content: '';
+        background-image: url('../../data/images/balance-coins.svg');
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        bottom: 0px;
+        left: 47%;
+        background-position: bottom;
+      }
+    }
+
+    .buttonContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+
+      .label {
+        text-align: justify;
+        line-height: 24px;
+        padding: 0 40px 10px;
+        margin: 0 auto;
+        font-family: $fontOmnes;
+        font-size: 16px;
+        font-weight: 700;
+        color: $colorWhite;
+
+        span {
+          color: $mainAction;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+
+      .button {
+        margin-top: 0px;
+        margin-bottom: 20px;
+        width: 240px;
+        font-family: $fontOmnes;
+      }
+    }
+  }
+}

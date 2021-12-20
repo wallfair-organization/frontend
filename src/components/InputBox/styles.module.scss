@@ -1,166 +1,156 @@
 @import '../../styles/all';
 
-.inputBoxContainer
-{
-    display:        flex;
-    flex-direction: column;
-    width:          100%;
+.inputBoxContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-    &:first-child {
-        margin-bottom: 24px;
+  &:first-child {
+    margin-bottom: 24px;
+  }
+
+  > *:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  span {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .inputBox {
+    width: 100%;
+    height: 56px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 3px solid transparent;
+
+    &.defaultInputBox {
+      background-color: $colorGrayLight;
     }
 
-    > *:not(:last-child)
-    {
-        margin-bottom: 12px;
+    &.copyToClipboardInputBox {
+      background-color: $colorGrayLight;
+
+      .input {
+        caret-color: transparent;
+        margin-right: 40px;
+        color: $colorBlack;
+        &:after {
+          content: '...';
+        }
+      }
     }
 
-    span {
-        font-size: 16px;
-        line-height: 24px;
+    &.copyToClipboardInputBoxWhite {
+      background-color: $colorGrayLight;
+
+      .input {
+        caret-color: transparent;
+        margin-right: 40px;
+        color: $colorPrimary;
+        &:after {
+          content: '...';
+        }
+      }
     }
 
-    .inputBox
-    {
-        width:         100%;
-        height:        56px;
-        position:      relative;
-        display:       flex;
-        align-items:   center;
-        padding:       15px 20px;
-        border-radius: 8px;
-        border:        3px solid transparent;
-
-        &.defaultInputBox
-        {
-            background-color: $colorGrayLight;
+    &.copyToClipboardInputBoxTransparentWhite {
+      .input {
+        caret-color: transparent;
+        margin-right: 40px;
+        color: $colorWhite;
+        &:after {
+          content: '...';
         }
-
-        &.copyToClipboardInputBox
-        {
-            background-color: $colorGrayLight;
-
-            .input
-            {
-                caret-color: transparent;
-                margin-right: 40px;
-                color: $colorBlack;
-                &:after {
-                    content: '...'
-                }
-            }
-        }
-
-        &.copyToClipboardInputBoxWhite
-        {
-            background-color: rgba(172, 196, 255, 0.1);
-
-            .input
-            {
-                caret-color: transparent;
-                margin-right: 40px;
-                color: $colorWhite;
-                &:after {
-                    content: '...'
-                }
-            }
-        }
-
-        &.coloredBorderMint
-        {
-            border-color: $colorMint;
-        }
-
-        &.coloredBorderLightPurple
-        {
-            border-color: $colorLightPurple;
-        }
-
-        &.dashedBorderTransparent {
-            background: transparent;
-            border: 2px dashed rgba(255,255,255,.3);
-
-            input {
-                color: $colorWhite;
-                pointer-events: none;
-            }
-        }
-
-        &.modalInput {
-            background-color: $colorGrayLight7;
-            border-color: $colorGrayLight2;
-            border-width: 1px;
-
-            input {
-                &::placeholder {
-                    color: $colorGrayLight2;
-                }
-            }
-
-            .inputDeleteIconContainer {
-                display: none;
-            }
-        }
-
-        .inputDeleteIconContainer
-        {
-            cursor:   pointer;
-            position: absolute;
-            width:    25px;
-            height:   25px;
-            right:    17px;
-        }
+      }
     }
+
+    &.coloredBorderMint {
+      border-color: $colorMint;
+    }
+
+    &.coloredBorderLightPurple {
+      border-color: $colorLightPurple;
+    }
+
+    &.dashedBorderTransparent {
+      background: transparent;
+      border: 2px dashed rgba(255, 255, 255, 0.3);
+
+      input {
+        color: $colorWhite;
+        pointer-events: none;
+      }
+    }
+
+    &.modalInput {
+      background-color: $colorGrayLight7;
+      border-color: $colorGrayLight2;
+      border-width: 1px;
+
+      input {
+        &::placeholder {
+          color: $colorGrayLight2;
+        }
+      }
+
+      .inputDeleteIconContainer {
+        display: none;
+      }
+    }
+
+    .inputDeleteIconContainer {
+      cursor: pointer;
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: 17px;
+    }
+  }
 }
 
-:global
-{
-    .MuiPopover-root,
-    .MuiDialog-root
-    {
-        z-index: $zIndexMuiRoot !important;
-    }
+:global {
+  .MuiPopover-root,
+  .MuiDialog-root {
+    z-index: $zIndexMuiRoot !important;
+  }
 
-    .MuiTextField-root
-    {
-        width: 100%;
-    }
+  .MuiTextField-root {
+    width: 100%;
+  }
 
-    .MuiInput-underline
-    {
-        &:after,
-        &:before
-        {
-            display: none !important;
-        }
+  .MuiInput-underline {
+    &:after,
+    &:before {
+      display: none !important;
     }
+  }
 
-    .MuiInputBase-input
-    {
-        font-family: $fontRegular !important;
+  .MuiInputBase-input {
+    font-family: $fontOmnes !important;
+  }
+
+  .MuiPickersToolbar-toolbar,
+  .MuiPickersClockPointer-pointer,
+  .MuiPickersClockPointer-noPoint,
+  .MuiPickersDay-daySelected,
+  .MuiPickersClock-pin {
+    background-color: $colorPrimary !important;
+
+    &.MuiPickersClockPointer-noPoint {
+      border-color: $colorPrimary !important;
     }
+  }
 
-    .MuiPickersToolbar-toolbar,
-    .MuiPickersClockPointer-pointer,
-    .MuiPickersClockPointer-noPoint,
-    .MuiPickersDay-daySelected,
-    .MuiPickersClock-pin
-    {
-        background-color: $colorPrimary !important;
+  .MuiPickersClockPointer-thumb {
+    border-color: $colorPrimary !important;
+  }
 
-        &.MuiPickersClockPointer-noPoint
-        {
-            border-color: $colorPrimary !important;
-        }
-    }
-
-    .MuiPickersClockPointer-thumb
-    {
-        border-color: $colorPrimary !important;
-    }
-
-    .MuiButton-textPrimary
-    {
-        color: $colorPrimary !important;
-    }
+  .MuiButton-textPrimary {
+    color: $colorPrimary !important;
+  }
 }

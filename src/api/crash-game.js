@@ -1,7 +1,6 @@
 import * as ApiUrls from '../constants/Api';
 import axios from 'axios';
 import ContentTypes from '../constants/ContentTypes';
-import { CRASH_GAME_GET_VOLUME_BETS } from '../constants/Api';
 
 const createInstance = (host, apiPath) => {
   return axios.create({
@@ -15,10 +14,11 @@ const createInstance = (host, apiPath) => {
 };
 
 class GameApi {
-  constructor(host, token) {
+  constructor(host, token, gameId) {
     this.host = host;
     this.api = createInstance(host, '/');
     this.setToken(token);
+    this.gameId = gameId
   }
   setToken = token => {
     if (!token) return;
@@ -28,38 +28,27 @@ class GameApi {
   };
 
   createTrade = payload => {
-    return this.api.post(ApiUrls.API_TRADE_CREATE, payload).catch(error => {
+    return this.api.post(ApiUrls.API_TRADE_CREATE_ELON + `/${this.gameId}`, payload).catch(error => {
       console.log('[API Error] called: createTrade', error);
       throw error;
     });
   };
 
   cancelBet = () =>
-    this.api.delete(ApiUrls.API_TRADE_CREATE).catch(error => {
+    this.api.delete(ApiUrls.API_TRADE_CREATE_ELON + `/${this.gameId}`).catch(error => {
       throw error;
     });
 
   getCurrentGameInfo = () => {
-    return this.api.get(ApiUrls.API_CURRENT).catch(error => {
+    return this.api.get(ApiUrls.API_CURRENT_ELON + `/${this.gameId}`).catch(error => {
       console.log('[API Error] called: getCurrentGameInfo', error);
     });
   };
 
   cashOut = () => {
-    return this.api.post(ApiUrls.API_CASH_OUT, {}).catch(error => {
+    return this.api.post(ApiUrls.API_CASH_OUT_ELON + `/${this.gameId}`, {}).catch(error => {
       console.log('[API Error] called: Cash Out', error);
       throw error;
-    });
-  };
-
-  getGameDetailById = (gameId, type) => {
-    const gameUrl = ApiUrls.CRASH_GAME_API_GET_GAME_DETAILS.replace(
-      ':gameId',
-      gameId
-    );
-
-    return this.api.get(gameUrl + (type ? `/${type}` : '')).catch(error => {
-      console.log('[API Error] called: getGameDetailById', error);
     });
   };
 
@@ -73,10 +62,11 @@ class GameApi {
     state: 2,
     userId: user.id,
     rewardAmount: user.crashfactor * user.stakedamount,
-  });
+  })
 
   getLuckyUsers = gameId => {
-    return Api.get(ApiUrls.API_TRADES_LUCKY.replace(':gameId', gameId)).then(
+    const url = gameId ? ApiUrls.API_TRADES_LUCKY.replace(':gameId', gameId) : ApiUrls.API_TRADES_LUCKY.replace('/:gameId', '');
+    return Api.get(url).then(
       response => ({
         data: response.data.map(transformUser),
       })
@@ -84,7 +74,8 @@ class GameApi {
   };
 
   getHighUsers = gameId => {
-    return Api.get(ApiUrls.API_TRADES_HIGH.replace(':gameId', gameId)).then(
+    const url = gameId ? ApiUrls.API_TRADES_HIGH.replace(':gameId', gameId) : ApiUrls.API_TRADES_HIGH.replace('/:gameId', '');
+    return Api.get(url).then(
       response => ({
         data: response.data.map(transformUser),
       })
@@ -101,37 +92,37 @@ const setToken = token => {
 };
 
 const createTrade = payload => {
-  return Api.post(ApiUrls.API_TRADE_CREATE, payload).catch(error => {
+  return Api.post(ApiUrls.API_TRADE_CREATE_ELON, payload).catch(error => {
     console.log('[API Error] called: createTrade', error);
     throw error;
   });
 };
 
 const cancelBet = () =>
-  Api.delete(ApiUrls.API_TRADE_CREATE).catch(error => {
+  Api.delete(ApiUrls.API_TRADE_CREATE_ELON).catch(error => {
     throw error;
   });
 
 const getCurrentGameInfo = () => {
-  return Api.get(ApiUrls.API_CURRENT).catch(error => {
+  return Api.get(ApiUrls.API_CURRENT_ELON).catch(error => {
     console.log('[API Error] called: getCurrentGameInfo', error);
   });
 };
 
 const cashOut = () => {
-  return Api.post(ApiUrls.API_CASH_OUT, {}).catch(error => {
+  return Api.post(ApiUrls.API_CASH_OUT_ELON, {}).catch(error => {
     console.log('[API Error] called: Cash Out', error);
     throw error;
   });
 };
 
-const getGameDetailById = (gameId, type) => {
+const getGameDetailById = (gameHash, gameTypeId, type) => {
   const gameUrl = ApiUrls.CRASH_GAME_API_GET_GAME_DETAILS.replace(
-    ':gameId',
-    gameId
+    ':gameHash',
+    gameHash
   );
 
-  return Api.get(gameUrl + (type ? `/${type}` : '')).catch(error => {
+  return Api.get(gameUrl + (type ? `/${type}` : '') + `?gameId=${gameTypeId}`).catch(error => {
     console.log('[API Error] called: getGameDetailById', error);
   });
 };
@@ -146,13 +137,13 @@ const transformUser = user => ({
   state: 2,
   userId: user.userid,
   username: user.username,
-  rewardAmount: user.crashfactor * user.stakedamount,
-});
+  rewardAmount: user.profit ? user.profit + parseFloat(user.stakedamount) : user.crashfactor * user.stakedamount,
+  });
 
 const getLuckyUsers = data => {
-  const { gameId } = data;
-
-  return Api.get(ApiUrls.API_TRADES_LUCKY.replace(':gameId', gameId)).then(
+  const { gameId } = data || {};
+  const url = gameId ? ApiUrls.API_TRADES_LUCKY.replace(':gameId', gameId) : ApiUrls.API_TRADES_LUCKY.replace('/:gameId', '');
+  return Api.get(url).then(
     response => ({
       data: response.data.map(transformUser),
     })
@@ -160,9 +151,20 @@ const getLuckyUsers = data => {
 };
 
 const getHighUsers = data => {
-  const { gameId } = data;
+  const { gameId } = data || {};
+  const url = gameId ? ApiUrls.API_TRADES_HIGH.replace(':gameId', gameId) : ApiUrls.API_TRADES_HIGH.replace('/:gameId', '');
+  return Api.get(url).then(
+    response => ({
+      data: response.data.map(transformUser),
+    })
+  );
+};
 
-  return Api.get(ApiUrls.API_TRADES_HIGH.replace(':gameId', gameId)).then(
+const getUserBets = data => {
+  const { userId, gameId } = data || {};
+  let url = ApiUrls.API_TRADES_PER_USER.replace(':userId', userId);
+  if(gameId) url += `/${gameId}`;
+  return Api.get(url).then(
     response => ({
       data: response.data.map(transformUser),
     })
@@ -186,4 +188,5 @@ export {
   getLuckyUsers,
   getHighUsers,
   getTotalBetsVolumeByRange,
+  getUserBets,
 };

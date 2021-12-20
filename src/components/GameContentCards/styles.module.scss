@@ -1,0 +1,83 @@
+@import '../../styles/all';
+
+.cardBox {
+  padding-top: 30px;
+  max-width: 1350px;
+  margin: 0 auto;
+
+  .card {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid $colorBlueBorder;
+    box-sizing: border-box;
+    margin: 20px auto;
+    padding-right: 20px;
+    padding-bottom: 28px;
+    min-height: 208px;
+    border-radius: 12px;
+
+    @media screen and (max-width: $screen-md) {
+      flex-direction: column;
+      padding-right: 0;
+    }
+
+    @media screen and (max-width: 763px) {
+      margin-top: 20px;
+      height: auto;
+    }
+
+    .thumbnail {
+      text-align: center;
+      margin-top: -20px;
+
+      @media screen and (max-width: 763px) {
+        margin-top: 10px !important;
+      }
+    }
+
+    .thumbnailLast {
+      margin: auto;
+
+      @media screen and (max-width: 763px) {
+        margin-top: 10px !important;
+      }
+    }
+
+    .detail {
+      padding: 30px 12px 0 12px;
+
+      @media screen and (max-width: $screen-md) {
+        text-align: center;
+      }
+
+      h3 {
+        font-family: $fontOmnes;
+        font-size: 22px;
+        color: $colorWhite;
+        margin-bottom: 6px;
+
+        img {
+          max-width: 160px;
+          margin-left: 5px;
+        }
+      }
+
+      p {
+        font-weight: 400;
+        line-height: 20px;
+        font-size: 14px;
+        color: $colorWhite;
+      }
+
+      button {
+        margin-top: 16px;
+        background: transparent;
+        border: 0;
+        font-family: $fontOmnes;
+        font-size: 14px;
+        color: $colorWhite;
+        cursor: pointer;
+      }
+    }
+  }
+}

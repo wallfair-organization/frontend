@@ -22,14 +22,14 @@
   .headlineWrapper {
     display: flex;
     align-items: center;
+    position: relative;
 
     .howtoLink {
-      padding-bottom: 20px;
       cursor: pointer;
       font-size: 11px;
-      font-family: $fontRegular;
+      font-family: $fontOmnes;
       text-decoration: underline;
-      color: $colorYellow;
+      color: $colorLightYellow;
 
       @media (max-width: $screen-xs) {
         display: none;
@@ -38,8 +38,8 @@
         padding: 0 15px 15px;
       }
     }
+
     .shareButton {
-      padding-bottom: 15px;
       padding-right: 10px;
     }
 
@@ -64,6 +64,10 @@
     }
   }
 
+  .hideElon::before {
+    background-image: none;
+  }
+
   @media screen and (max-width: $screen-xs) {
     padding-left: 0px;
     padding-right: 0px;
@@ -72,50 +76,43 @@
       display: none;
     }
   }
+
   .mainContainer {
     display: flex;
+
     @media (max-width: $screen-md) {
       flex-direction: column;
     }
-    .leftContainer {      
+
+    .leftContainer {
       width: calc(100% - 370px);
+
       @media (max-width: $screen-md) {
         width: 100%;
       }
     }
+
     .rightContainer {
       width: 370px;
       padding-left: 14px;
+
       @media (max-width: $screen-md) {
         padding-left: 0px;
         width: 100%;
         margin-top: 7px;
       }
+
       .placeContainer {
         display: flex;
         flex-direction: column;
-        height: 596px;        
-        @media (max-width: $screen-md) {          
+        /*height: 596px;*/
+        height: fit-content;
+
+        @media (max-width: $screen-md) {
           height: 100%;
         }
       }
-    }    
-  }
-
-  .banner {
-    margin-top: 50px;
-    background-image: url('../../data/backgrounds/games/wallpaper-banner.png');    
-    min-height: 208px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    @media (max-width: $screen-md) {
-      background-image: url('../../data/backgrounds/games/wallpaper-banner-mobile.png');
-      height: 100%;
-      background-position: center;
     }
-
   }
 }
 
@@ -129,11 +126,15 @@
 
 .bottomWrapper {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
 }
+
 .chatWrapper {
   margin-top: 32px;
-  padding-right: 7px;
+  background: $colorBlue80;
+  border-radius: 10px;
+  margin-right: 25px;
+  border: 1px solid $colorBlueBorder;
 
   @media screen and (max-width: $screen-xs) {
     margin-bottom: 20px;
@@ -142,11 +143,9 @@
 
 .chatContainer {
   height: 312px;
-  background: rgba(34, 35, 62, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.17);
+  background: transparent;
   border-radius: 10px;
   margin: 0px;
-  padding: 10px;
   margin-top: 12px;
 
   .chatMessageContainer {
@@ -158,20 +157,17 @@
 
 .activityWrapper {
   margin-top: 32px;
-  padding-left: 7px;
-  
+  background: $colorWhite;
+  border: 1px solid $colorLightGray;
+  border-radius: 10px;
+
   @media screen and (max-width: $screen-xs) {
     margin-bottom: 20px;
   }
+
   .activityContainer {
     position: relative;
-    height: 312px;
-    background: rgba(34, 35, 62, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.17);
-    border-radius: 10px;
-    margin: 0px;
-    padding: 10px;
-    margin-top: 12px;
+    height: 324px;
 
     .chatMessageContainer {
       @media (max-width: $screen-sm) {
@@ -181,15 +177,15 @@
 
     .inactivePlaceholder {
       position: absolute;
-      top: 45%;      
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 24px;
-      font-family: $fontMedium;
-      color: #F2FF53;
+      font-family: $fontOmnes;
+      color: #f2ff53;
       font-weight: 700;
     }
   }
@@ -200,35 +196,154 @@
 }
 
 .tabLayout {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
+  color: $colorWhite;
+  font-family: $fontOmnes;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 24px;
+  border-bottom: 1px solid $colorBlueBorder;
+
+  @media (max-width: $screen-sm) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .tabItem {
+    text-align: center;
+    padding-bottom: 12px;
+    opacity: 0.3;
+    cursor: pointer;
+  }
+
+  .tabItemSelected {
+    text-align: center;
+    padding-bottom: 12px;
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
+.gameContent {
+  max-width: 1300px;
+  margin: 100px auto 30px;
+  padding: 0px 30px;
+  .title {
     color: $colorWhite;
-    font-family: $fontRegular;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 18px;
-    padding-top: 24px;
-    margin-left: 16px;
-    @media (max-width: $screen-sm) {
-      margin-left: 0px;
-      justify-content: space-between;
-      font-size: 11px;
-      line-height: 14px;
-    }
-
-    .tabItem {
+    @media (max-width: $screen-md) {
       text-align: center;
-      padding-bottom: 12px;
-      opacity: 0.3;
-      cursor: pointer;
-    }
-
-    .tabItemSelected {
-      text-align: center;
-      padding-bottom: 12px;
-      border-bottom: 2px solid #F1FF54;
-      opacity: 1;
-      cursor: pointer;
     }
   }
+  .content {
+    padding: 30px 30px;
+
+    @media (max-width: $screen-md) {
+      padding: 0;
+      margin: 40px auto 20px;
+    }
+    .topContainer {
+      font-size: 20px;
+      color: $colorWhite;
+      p {
+        padding-top: 20px;
+      }
+    }
+    .descriptionContainer {
+      margin-top: 130px;
+      display: flex;
+      @media (max-width: $screen-md) {
+        flex-direction: column;
+      }
+      .firstWrapper {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        @media (max-width: $screen-md) {
+          width: 100%;
+        }
+        img {
+          width: auto;
+          object-fit: contain;
+          @media (max-width: $screen-md) {
+            width: 100%;
+          }
+        }
+      }
+      .secondWrapper {
+        width: 50%;
+        font-size: 20px;
+        color: $colorWhite;
+        margin-top: 40px;
+        @media (max-width: $screen-md) {
+          width: 100%;
+        }
+        p {
+          padding-top: 20px;
+        }
+        .importantTip {
+          color: $colorLightYellow;
+        }
+      }
+    }
+  }
+
+  .elonWrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 7%;
+  }
+
+  .banner {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    background-image: url('../../data/backgrounds/games/alpaca-wallpaper-banner.png');
+    min-height: 208px;
+    max-width: 1350px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+
+    @media (max-width: $screen-md) {
+      background-image: url('../../data/backgrounds/games/wallpaper-banner-mobile.png');
+      height: 100%;
+      background-position: center;
+    }
+  }
+  .wrapperCards {
+    @media (max-width: $screen-xl) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @media (max-width: $screen-md) {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+}
+
+.fairnessContainer {
+  text-align: right;
+  font-size: 14.5px;
+  color: $colorWhite;
+  line-height: 1;
+  margin-bottom: 10px;
+
+  .balanceIcon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .fairnessOpenPopup {
+    cursor: pointer;
+  }
+}

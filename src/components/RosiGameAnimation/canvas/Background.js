@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import * as PIXI from 'pixi.js-legacy';
 import {
   isMobileRosiGame,
   calcPercent,
@@ -17,9 +17,12 @@ class RosiAnimationBackground {
     this.container = new PIXI.Container();
 
     // dark circle shade on the background
-    this.circle = new PIXI.Graphics();
-    this.drawCircle();
-    this.container.addChild(this.circle);
+    //this.circle = new PIXI.Graphics();
+    //this.drawCircle();
+    //this.container.addChild(this.circle);
+
+    // draw background
+    this.drawBackground();
 
     this.planets = [];
     this.visiblePlanets = [];
@@ -199,6 +202,13 @@ class RosiAnimationBackground {
       })
       .easing(TWEEN.Easing.Back.Out)
       .start();
+  }
+
+  drawBackground() {
+    this.background = new PIXI.Sprite(this.app.loader.resources.background.texture);
+    this.background.width = this.app.renderer.width;
+    this.background.height = this.app.renderer.height;
+    this.container.addChild(this.background);
   }
 
   drawCircle() {

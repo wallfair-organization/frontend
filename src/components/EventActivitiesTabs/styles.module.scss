@@ -1,0 +1,61 @@
+@import '../../styles/all';
+
+/* ACTIVITY TRACKER */
+.activityWrapper {
+  margin-top: 32px;
+  background: $colorBlue80;
+  border: 1px solid $colorBlueBorder;
+
+  box-sizing: border-box;
+  border-radius: 6px;
+
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 20px;
+  }
+  .activityContainer {
+    position: relative;
+    height: 324px;
+  }
+}
+.tabItem {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.tabItemSelected {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 1;
+  cursor: pointer;
+  border-bottom: 3px solid $colorLightYellow;
+}
+.tabLayout {
+  display: flex;
+  align-items: flex-end;
+  color: $colorWhite;
+  font-family: $fontOmnes;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 24px;
+  margin-left: 16px;
+
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+.tabOptionsContainer {
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+/* ACTIVITY TRACKER */

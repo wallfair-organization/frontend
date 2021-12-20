@@ -1,0 +1,303 @@
+@import '../../styles/all';
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (max-width: $screen-xs) {
+    display: block;
+    padding: 0 20px;
+  }
+
+  @media (min-width: $screen-lg) {
+    max-width: 1300px;
+  }
+}
+
+.content {
+  padding-left: 20px;
+  padding-right: 20px;
+  flex: 1;
+
+  .headlineWrapper {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    .howtoLink {
+      padding-bottom: 20px;
+      cursor: pointer;
+      font-size: 11px;
+      font-family: $fontOmnes;
+      text-decoration: underline;
+      color: $colorYellow;
+
+      @media (max-width: $screen-xs) {
+        display: none;
+        margin: 0;
+        width: 100%;
+        padding: 0 15px 15px;
+      }
+    }
+    .shareButton {
+      padding-right: 10px;
+    }
+
+    .questionIcon {
+      cursor: pointer;
+      display: none;
+      margin-bottom: 20px;
+      width: 25px;
+      height: 25px;
+
+      svg {
+        g,
+        path,
+        circle {
+          fill: $colorYellow;
+        }
+      }
+
+      @media (max-width: $screen-xs) {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: $screen-xs) {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    & .betFooter {
+      display: none;
+    }
+  }
+  .mainContainer {
+    display: flex;
+    @media (max-width: $screen-md) {
+      flex-direction: column;
+    }
+    .leftContainer {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% - 370px);
+      @media (max-width: $screen-md) {
+        width: 100%;
+        flex-direction: column-reverse;
+      }
+    }
+    .rightContainer {
+      width: 370px;
+      padding-left: 14px;
+      @media (max-width: $screen-md) {
+        padding-left: 0px;
+        width: 100%;
+        margin-top: 7px;
+      }
+      .placeContainer {
+        display: flex;
+        flex-direction: column;
+        @media (max-width: $screen-md) {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+.gameContent {
+  max-width: 1300px;
+  margin: 100px auto 30px;
+  padding: 0px 30px;
+  .title {
+    color: $colorWhite;
+    @media (max-width: $screen-md) {
+      text-align: center;
+    }
+  }
+  .content {
+    padding: 30px 30px;
+
+    @media (max-width: $screen-md) {
+      padding: 0;
+      margin: 40px auto 20px;
+    }
+    .topContainer {
+      font-size: 20px;
+      color: $colorWhite;
+      p {
+        padding-top: 20px;
+      }
+    }
+    .descriptionContainer {
+      margin-top: 130px;
+      display: flex;
+      @media (max-width: $screen-md) {
+        flex-direction: column;
+      }
+      .firstWrapper {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        @media (max-width: $screen-md) {
+          width: 100%;
+        }
+        img {
+          width: auto;
+          object-fit: contain;
+          @media (max-width: $screen-md) {
+            width: 100%;
+          }
+        }
+      }
+      .secondWrapper {
+        width: 50%;
+        font-size: 20px;
+        color: $colorWhite;
+        margin-top: 40px;
+        @media (max-width: $screen-md) {
+          width: 100%;
+        }
+        p {
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+.sidebar {
+  width: 320px;
+
+  @media screen and (max-width: $screen-xs) {
+    width: 100%;
+  }
+}
+
+.bottomWrapper {
+  display: flex;
+  flex-direction: row;
+}
+.chatWrapper {
+  margin-top: 32px;
+  width: 96%;
+  // padding-right: 7px;
+  background: $colorBlue80;
+  border-radius: 10px;
+  color: $colorWhite;
+  border: 1px solid $colorBlueBorder;
+
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 20px;
+  }
+}
+
+.chatContainer {
+  height: 312px;
+  border-radius: 10px;
+  margin: 0px;
+  margin-top: 12px;
+
+  .chatMessageContainer {
+    @media (max-width: $screen-sm) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.activityWrapper {
+  margin: auto;
+  margin-top: 32px;
+  width: 97%;
+  border-radius: 10px;
+  // padding-left: 7px;
+  background: #fff;
+  border: 1px solid #ededed;
+
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 20px;
+  }
+  .activityContainer {
+    position: relative;
+    color: #000;
+    height: 312px;
+    border-radius: 10px;
+    margin: 0px;
+    // padding: 10px;
+
+    .chatMessageContainer {
+      @media (max-width: $screen-sm) {
+        margin-bottom: 0;
+      }
+    }
+
+    .inactivePlaceholder {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-family: $fontOmnes;
+      color: #f2ff53;
+      font-weight: 700;
+    }
+  }
+}
+
+.activitiesTrackerGamesBlock {
+  height: 100%;
+}
+
+.tabLayout {
+  display: flex;
+  align-items: flex-end;
+  color: $colorWhite;
+  font-family: $fontOmnes;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 24px;
+  // margin-left: 16px;
+  border-bottom: 1px solid $colorBlueBorder;
+  @media (max-width: $screen-sm) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .tabItem {
+    text-align: center;
+    padding-bottom: 10px;
+    opacity: 0.3;
+    cursor: pointer;
+  }
+
+  .tabItemSelected {
+    text-align: center;
+    padding-bottom: 10px;
+    // border-bottom: 2px solid #f1ff54;
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
+.fairnessContainer {
+  text-align: right;
+  font-size: 14.5px;
+  color: $colorWhite;
+  line-height: 1;
+
+  .balanceIcon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .fairnessOpenPopup {
+    cursor: pointer;
+  }
+}

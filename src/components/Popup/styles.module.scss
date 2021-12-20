@@ -19,7 +19,7 @@
     }
 
     @media (orientation: portrait) {
-      overflow-y: hidden;
+      overflow-y: auto;
     }
   }
 
@@ -29,10 +29,7 @@
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
-    background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
     outline: 0;
   }
 
@@ -46,12 +43,24 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: auto;
+    // overflow: auto;
     pointer-events: none;
+    @media (max-width: $screen-sm) {
+      max-width: calc(100% - 20px);
+    }
+
+    &.walletBuyWfair {
+      max-width: 700px;
+
+      .modalContent {
+        min-height: 650px;
+      }
+    }
 
     &.signUpNotificationPopupContainer,
     &.welcomeContainer,
-    &.usernamePopup {
+    &.usernamePopup,
+    &.alpacaBuilderPopup {
       overflow: visible;
     }
 
@@ -80,6 +89,9 @@
       width: auto;
       max-width: max-content;
       overflow: visible;
+      @media (max-width: $screen-md) {
+        max-width: calc(100vw - 15px);
+      }
     }
 
     &.explanationPopupVisual {
@@ -102,6 +114,15 @@
       @media (max-width: $screen-sm) {
         padding: 0 15px;
       }
+    }
+
+    &.alpacaBuilderPopup {
+      max-width: 1000px;
+      width: 1000px;
+    }
+
+    &.usernamePopup {
+      max-width: 700px;
     }
 
     @media (max-width: $screen-sm) {
@@ -129,12 +150,18 @@
 
   .closeButtonContainer {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 20px;
+    right: 20px;
 
     .closeButton {
       z-index: $zIndexPopup + 1;
       cursor: pointer;
+
+      svg > path {
+        opacity: 1;
+        stroke: $mainAction;
+        stroke-opacity: 1;
+      }
     }
   }
 }

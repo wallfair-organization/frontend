@@ -90,6 +90,7 @@ export const trackElonChangeAutoCashout = ({
 export const trackElonPlaceBet = ({
   amount,
   multiplier,
+  autobet,
   ...dataLayerProps
 }) => {
   const tagManagerArgs = {
@@ -97,6 +98,7 @@ export const trackElonPlaceBet = ({
       ...dataLayerProps,
       amount,
       multiplier,
+      autobet,
       event: 'elongamePlaceBet',
     },
   };
@@ -121,12 +123,14 @@ export const trackElonPlaceBetGuest = ({
   TagManager.dataLayer(tagManagerArgs);
 };
 
-export const trackElonCashout = ({ amount, multiplier, ...dataLayerProps }) => {
+export const trackElonCashout = ({ amount, multiplier, autobet, accumulated, ...dataLayerProps }) => {
   const tagManagerArgs = {
     dataLayer: {
       ...dataLayerProps,
       amount,
       multiplier,
+      autobet,
+      accumulated,
       event: 'elongameCashout',
     },
   };
@@ -146,12 +150,50 @@ export const trackElonCancelBet = ({ amount, ...dataLayerProps }) => {
   TagManager.dataLayer(tagManagerArgs);
 };
 
+export const trackElonStartAutobet = ({ amount, multiplier, autobet, profit, loss, wincrease, lincrease, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount, //bet amount
+      multiplier, //attemp auto cashout at
+      autobet, //autobet true/false
+      profit, //stop on profit
+      loss, //stop on loss
+      wincrease, //on win inscrease
+      lincrease, //on loss increase
+      event: 'elongameStartAutobet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackElonStopAutobet = ({ amount, multiplier, autobet, profit, loss, wincrease, lincrease, accumulated, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount, //bet amount
+      multiplier, //attemp auto cashout at
+      autobet, //autobet true/false
+      profit, //stop on profit
+      loss, //stop on loss
+      wincrease, //on win inscrease
+      lincrease, //on loss increase
+      accumulated,
+      event: 'elongameStopAutobet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
 
 /* ALPACAWHEEL GAME CUSTOM EVENTS TRACKING */
 
 export const trackAlpacaWheelPlaceBet = ({
   amount,
   multiplier,
+  autobet,
   ...dataLayerProps
 }) => {
   const tagManagerArgs = {
@@ -159,6 +201,7 @@ export const trackAlpacaWheelPlaceBet = ({
       ...dataLayerProps,
       amount,
       multiplier,
+      autobet,
       event: 'alpacawheelPlaceBet',
     },
   };
@@ -183,13 +226,263 @@ export const trackAlpacaWheelPlaceBetGuest = ({
   TagManager.dataLayer(tagManagerArgs);
 };
 
-export const trackAlpacaWheelCashout = ({ amount, multiplier, ...dataLayerProps }) => {
+export const trackAlpacaWheelCashout = ({ amount, multiplier, accumulated, autobet, ...dataLayerProps }) => {
   const tagManagerArgs = {
     dataLayer: {
       ...dataLayerProps,
       amount,
       multiplier,
+      autobet,
+      accumulated,
       event: 'alpacawheelCashout',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackAlpacaWheelStartAutobet = ({ amount, multiplier, autobet, profit, loss, wincrease, lincrease, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount, //bet amount
+      multiplier, //attemp auto cashout at
+      autobet, //autobet true/false
+      profit, //stop on profit
+      loss, //stop on loss
+      wincrease, //on win inscrease
+      lincrease, //on loss increase
+      event: 'alpacawheelStartAutobet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackAlpacaWheelStopAutobet = ({ amount, multiplier, autobet, profit, loss, wincrease, lincrease, accumulated, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount, //bet amount
+      multiplier, //attemp auto cashout at
+      autobet, //autobet true/false
+      profit, //stop on profit
+      loss, //stop on loss
+      wincrease, //on win inscrease
+      lincrease, //on loss increase
+      accumulated,
+      event: 'alpacawheelStopAutobet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+
+// PLINKO
+
+export const trackPlinkoPlaceBet = ({
+  amount,
+  multiplier,
+  autobet,
+  ...dataLayerProps
+}) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      multiplier,
+      autobet,
+      event: 'plinkoPlaceBet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackPlinkoCashout = ({ amount, multiplier, accumulated, autobet, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      multiplier,
+      autobet,
+      accumulated,
+      event: 'plinkoCashout',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+// MINES
+
+export const trackMinesPlaceBet = ({
+  amount,
+  mines,
+  autobet,
+  ...dataLayerProps
+}) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      mines,
+      autobet,
+      event: 'minesPlaceBet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackMinesPlaceBetGuest = ({
+  amount,
+  mines,
+  autobet,
+  ...dataLayerProps
+}) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      mines,
+      autobet,
+      event: 'minesPlaceBetGuest',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackMinesCashout = ({ amount, multiplier, accumulated, autobet, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      multiplier,
+      autobet,
+      accumulated,
+      event: 'minesCashout',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+// PUMP AND DUMP
+
+export const trackPumpDumpPlaceBet = ({
+  amount,
+  multiplier,
+  autobet,
+  ...dataLayerProps
+}) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      multiplier,
+      autobet,
+      event: 'pumpdumpPlaceBet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackPumpDumpPlaceBetGuest = ({
+  amount,
+  multiplier,
+  autobet,
+  ...dataLayerProps
+}) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      multiplier,
+      autobet,
+      event: 'pumpdumpPlaceBetGuest',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackPumpDumpCashout = ({ amount, multiplier, accumulated, autobet, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      multiplier,
+      autobet,
+      accumulated,
+      event: 'pumpdumpCashout',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackPumpDumpCancelBet = ({ amount, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount,
+      event: 'pumpdumpCancelBet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackPumpDumpStartAutobet = ({ amount, multiplier, autobet, profit, loss, wincrease, lincrease, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount, //bet amount
+      multiplier, //attemp auto cashout at
+      autobet, //autobet true/false
+      profit, //stop on profit
+      loss, //stop on loss
+      wincrease, //on win inscrease
+      lincrease, //on loss increase
+      event: 'pumpdumpStartAutobet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackPumpDumpStopAutobet = ({ amount, multiplier, autobet, profit, loss, wincrease, lincrease, accumulated, ...dataLayerProps }) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      amount, //bet amount
+      multiplier, //attemp auto cashout at
+      autobet, //autobet true/false
+      profit, //stop on profit
+      loss, //stop on loss
+      wincrease, //on win inscrease
+      lincrease, //on loss increase
+      accumulated,
+      event: 'pumpdumpStopAutobet',
+    },
+  };
+
+  TagManager.dataLayer(tagManagerArgs);
+};
+
+export const trackPumpDumpChangeAutoCashout = ({
+  multiplier,
+  ...dataLayerProps
+}) => {
+  const tagManagerArgs = {
+    dataLayer: {
+      ...dataLayerProps,
+      multiplier,
+      event: 'pumpdumpChangeAutoCashout',
     },
   };
 

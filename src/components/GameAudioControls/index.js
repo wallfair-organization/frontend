@@ -18,7 +18,7 @@ function GameAudioControls({ audio, muteButtonClick }) {
         })}
         onClick={() => {
           muteButtonClick();
-          audio.volume === 0.0 ? audio.setVolume(1.0) : audio.mute();
+          audio.volume === 0 ? audio.setVolume(1) : audio.mute();
         }}
       />
     </div>

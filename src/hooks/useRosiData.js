@@ -16,6 +16,7 @@ import {
   selectIsSynced,
   selectAnimationIndex,
   selectIsConnected,
+  selectMyBetsData,
 } from 'store/selectors/rosi-game';
 
 const useRosiData = () => {
@@ -35,6 +36,7 @@ const useRosiData = () => {
   const isSynced = useSelector(selectIsSynced);
   const animationIndex = useSelector(selectAnimationIndex);
   const isConnected = useSelector(selectIsConnected);
+  const myBetsData = useSelector(selectMyBetsData);
 
   return {
     lastCrashes,
@@ -53,6 +55,7 @@ const useRosiData = () => {
     isSynced,
     animationIndex,
     isConnected,
+    myBetsData,
   };
 };
 

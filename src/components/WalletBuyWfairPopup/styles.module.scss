@@ -1,0 +1,938 @@
+@import '../../styles/all';
+
+.wfairLogo {
+  cursor: pointer;
+}
+
+.container {
+  height: 100%;
+  padding: 16px 0;
+  background-color: $colorWhite;
+  color: $colorPrimaryDark;
+  border-radius: 10px;
+}
+
+.button {
+  margin-top: 10px;
+  // margin-bottom: 20px;
+  font-family: $fontOmnes;
+}
+
+.activities {
+  .title {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      font-size: 20px;
+
+      @media (max-width: $screen-xs) {
+        font-size: 18px;
+      }
+    }
+
+    img {
+      margin-right: 30px;
+    }
+  }
+}
+.activityWrapper {
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 20px;
+  }
+  .activityContainer {
+    margin-top: 10px;
+    position: relative;
+    height: 700px;
+    min-height: 700px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.tabLayout {
+  display: flex;
+  align-items: flex-end;
+  color: $colorWhite;
+  font-family: $fontOmnes;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 24px;
+  // margin: 0 16px;
+  justify-content: center;
+
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+
+.tabItemSelected {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 1;
+  cursor: pointer;
+  color: $colorBlack;
+  border-bottom: 3px solid $mainAction;
+}
+
+.tabItem {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 0.3;
+  cursor: pointer;
+  color: $colorBlack;
+}
+
+.buyWithFiatTabContainer {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 24px 30px;
+  @media (max-width: $screen-md) {
+    padding: 0 16px;
+  }
+
+  .buyWithFiatTabIframe {
+    display: block;
+    width: 100%;
+  }
+
+  .textContainer {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    @media (max-width: $screen-md) {
+      margin-top: 30px;
+    }
+
+    p {
+      font-family: $fontOmnes;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: justify;
+      margin-bottom: 25px;
+
+      span {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      @media (max-width: $screen-md) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .wfairCalculatorContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: $screen-md) {
+      margin-top: 0;
+    }
+    .inputContiner {
+      position: relative;
+      max-width: 500px;
+      width: 100%;
+      height: 62px;
+      background: #f1f2f6;
+      border: 1px solid $colorLightGray2;
+      box-sizing: border-box;
+      border-radius: 8px;
+      margin-bottom: 11px;
+      display: flex;
+      align-items: center;
+      @media (max-width: $screen-md) {
+        height: 40px;
+      }
+      .labelContainer {
+        position: absolute;
+        top: -26px;
+        width: 100%;
+        font-weight: 700;
+      }
+      input {
+        background: #f1f2f6;
+        outline: none !important;
+        width: 70%;
+        height: 60px;
+        padding: 20px;
+        margin: 0px 10px;
+        border: none;
+        font-size: large;
+        direction: ltr;
+        text-align: right;
+        font-size: 24px;
+        font-family: $fontOmnes;
+        font-weight: bold;
+        &:focus-visible {
+          outline: none;
+        }
+        @media (max-width: $screen-md) {
+          height: 100%;
+          font-size: 16px;
+          padding: 0 20px;
+        }
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .inputRightContainer {
+        width: 30%;
+        height: 60px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        column-gap: 10px;
+
+        @media (max-width: $screen-md) {
+          height: 100%;
+          font-size: 16px;
+        }
+
+        span {
+          @media (max-width: $screen-sm) {
+            font-size: 12px;
+          }
+        }
+
+        svg {
+          width: 30px;
+          height: 30px;
+
+          @media (max-width: $screen-sm) {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        .coinWrapper {
+          padding: 0 15px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          column-gap: 10px;
+        }
+        .innerContiner {
+          width: 134px;
+          height: 60px;
+          //background-color: $colorBlueLight;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          @media (max-width: $screen-md) {
+            height: 100%;
+            font-size: 16px;
+          }
+
+          .dropdown {
+            margin-bottom: 0;
+          }
+
+          .innerContent {
+            p {
+              font-family: $fontOmnes;
+              font-weight: bold;
+              font-size: 18px;
+            }
+          }
+          .innerIcon {
+            svg {
+              fill: #3570ff;
+              stroke: none;
+            }
+          }
+        }
+
+        img {
+          height: 40px;
+          width: 80%;
+          object-fit: contain;
+        }
+      }
+    }
+    .InputLineSeparator {
+      height: 50px;
+      width: 100%;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 50px;
+      }
+    }
+
+    .transankContineButton {
+      background: linear-gradient(
+        180deg,
+        $colorLightYellow 0%,
+        $colorLightDark2 97.4%
+      );
+      border-radius: 22.5px;
+      border: 1px solid $colorWhite;
+      width: 240px;
+      height: 45px;
+      font-family: $fontOmnes;
+      color: $colorWhite;
+      margin-top: 25px;
+      margin-bottom: 36px;
+      cursor: pointer;
+      font-size: 18px;
+
+      @media (max-width: $screen-md) {
+        width: 225px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      &.disabled {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.buyWithCryptoContainer {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  // padding-top: 20px;
+  padding-bottom: 20px;
+  flex-direction: column;
+
+  .cryptoTabsContianer {
+    display: flex;
+    margin: 0 auto;
+    padding: 5px;
+    margin-top: 20px;
+    border-radius: 50px;
+    background-color: $colorLightYellow;
+    justify-content: center;
+
+    align-items: center;
+    @media (max-width: $screen-sm) {
+      margin-top: 8px;
+      width: 90%;
+    }
+
+    .cryptoTab {
+      width: 160px;
+      height: 46px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      cursor: pointer;
+      @media (max-width: $screen-sm) {
+        height: 40px;
+      }
+
+      p {
+        margin-left: 10px;
+        font-size: 20px;
+        line-height: 25px;
+        font-family: $fontOmnes;
+        color: $colorWhite;
+        @media (max-width: $screen-sm) {
+          font-size: 12px;
+        }
+      }
+      p.fullName {
+        display: inline-block;
+
+        @media (max-width: $screen-sm) {
+          display: none;
+        }
+      }
+      p.shortName {
+        display: none;
+        @media (max-width: $screen-sm) {
+          display: inline-block;
+        }
+      }
+      svg {
+        @media (max-width: $screen-md) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    .cryptoTabActive {
+      background-color: $colorWhite;
+      p {
+        color: $colorBlack;
+      }
+    }
+  }
+
+  .addressInputContainer {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    height: 62px;
+    background: #f1f2f6;
+    border: 1px solid $colorLightGray2;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    @media (max-width: $screen-md) {
+      height: 40px;
+    }
+    .labelContainer {
+      position: absolute;
+      top: -26px;
+      width: 100%;
+      text-transform: capitalize;
+
+      span {
+        font-weight: 700;
+      }
+    }
+
+    input {
+      background: #f1f2f6;
+      outline: none !important;
+      width: 100%;
+      height: 100%;
+      padding: 20px 5px;
+      margin: 0px 10px;
+      border: none;
+      direction: ltr;
+      text-align: left;
+      font-size: 16px;
+      font-family: $fontOmnes;
+      font-weight: bold;
+      &:focus-visible {
+        outline: none;
+      }
+      @media (max-width: $screen-md) {
+        padding: 0 20px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .cryptoContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 25px;
+    margin: 0 auto;
+    margin-top: 25px;
+    text-align: justify;
+    width: 100%;
+    p {
+      font-family: $fontOmnes;
+      font-size: 16px;
+      padding-bottom: 10px;
+    }
+    @media (max-width: $screen-md) {
+      padding: 0;
+      margin: 25px auto;
+    }
+  }
+
+  .cryptoCalculatorContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    @media (max-width: $screen-md) {
+      margin-top: 15px;
+      padding: 0 16px;
+    }
+
+    .cryptoInputContiner {
+      position: relative;
+      max-width: 500px;
+      width: 100%;
+      height: 50px;
+      background: #f1f2f6;
+      border: 1px solid $colorLightGray2;
+      box-sizing: border-box;
+      border-radius: 8px;
+      margin-bottom: 11px;
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      @media (max-width: $screen-md) {
+        margin-top: 0;
+        height: 40px;
+      }
+      .labelContainer {
+        position: absolute;
+        top: -26px;
+        width: 100%;
+        font-weight: 700;
+      }
+      input {
+        background: #f1f2f6;
+        outline: none !important;
+        width: 70%;
+        height: 100%;
+        padding: 20px;
+        margin: 0px 10px;
+        border: none;
+        direction: ltr;
+        text-align: right;
+        font-size: 24px;
+        font-family: $fontOmnes;
+        font-weight: bold;
+        &:focus-visible {
+          outline: none;
+        }
+        @media (max-width: $screen-md) {
+          padding: 0 20px;
+          font-size: 16px;
+        }
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .inputRightContainer {
+        width: 30%;
+        height: 60px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 15px;
+        column-gap: 10px;
+
+        svg {
+          width: 30px;
+          height: 30px;
+          @media (max-width: $screen-md) {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .innerContiner {
+          width: 134px;
+          height: 60px;
+          //background-color: $colorBlueLight;
+
+          .dropdown {
+            margin-bottom: 0;
+          }
+
+          .innerContent {
+            p {
+              font-family: $fontOmnes;
+              font-weight: bold;
+              font-size: 18px;
+            }
+          }
+          .innerIcon {
+            svg {
+              fill: #3570ff;
+              stroke: none;
+            }
+          }
+        }
+
+        img {
+          height: 40px;
+          width: 80%;
+          object-fit: contain;
+        }
+      }
+    }
+    .InputLineSeparator {
+      height: 50px;
+      width: 100%;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 50px;
+      }
+    }
+
+    .transankContineButton {
+      background: linear-gradient(
+        180deg,
+        $colorLightYellow 0%,
+        $colorLightDark2 97.4%
+      );
+      border-radius: 22.5px;
+      border: 1px solid $colorWhite;
+      width: 240px;
+      height: 45px;
+      font-family: $fontOmnes;
+      color: $colorWhite;
+      margin-top: 10px;
+      margin-bottom: 25px;
+      cursor: pointer;
+      font-size: 18px;
+      @media (max-width: $screen-md) {
+        width: 225px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      &.disabled {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .transactionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    @media (max-width: $screen-md) {
+      padding: 0 16px;
+    }
+    .transferSection {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 0 auto;
+      flex-direction: column;
+      p {
+        font-family: $fontOmnes;
+        font-size: small;
+        margin-bottom: 22px;
+        text-align: justify;
+        font-size: 16px;
+
+        span {
+          font-family: $fontOmnes;
+          font-weight: bold;
+        }
+      }
+      .backBtn {
+        text-align: left;
+        align-self: flex-start;
+        margin-bottom: 25px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .referralLink {
+        border: 1px solid $colorLightGray2 !important;
+        box-sizing: border-box;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      .transferSectionCopy {
+        margin: 25px 0;
+        width: 100%;
+        text-align: center;
+        p {
+          margin-bottom: 5px;
+        }
+        .cryptoUrlContiner {
+          width: 100%;
+          height: 40px;
+          background: #f1f2f6;
+          border: 1px solid $colorLightGray2;
+          box-sizing: border-box;
+          border-radius: 8px;
+          margin-bottom: 11px;
+          display: flex;
+          align-items: center;
+
+          input {
+            background: #f1f2f6;
+            outline: none !important;
+            width: 100%;
+            height: 100%;
+            // padding: 20px;
+            margin: 0px 10px;
+            border: none;
+            direction: ltr;
+            text-align: left;
+            font-size: 16px;
+            font-family: $fontOmnes;
+            font-weight: bold;
+            &:focus-visible {
+              outline: none;
+            }
+          }
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+      }
+
+      .sendUrlBtn {
+        background: linear-gradient(
+          180deg,
+          $colorLightYellow 0%,
+          $colorLightDark2 97.4%
+        );
+        border-radius: 22.5px;
+        border: 1px solid $colorWhite;
+        width: 240px;
+        height: 45px;
+        font-family: $fontOmnes;
+        color: $colorWhite;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+/*************************/
+/* DEPOSIT TAB CONTAINER */
+/*************************/
+
+.depositTabContainer {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .balanceContainer {
+    margin-top: 20px;
+    max-width: 500px;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    font-family: $fontOmnes;
+    font-weight: bold;
+  }
+
+  .depositHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $colorWhite;
+    background-color: $colorLightYellow;
+    border-radius: 50px;
+    padding: 10px 8px;
+    width: 318px;
+    height: 64px;
+    margin-top: 10px;
+
+    .imageSizeEther {
+      height: 35px;
+    }
+    .imageSizePolygon {
+      height: 23px;
+    }
+
+    .activeButton {
+      border: 1px solid $colorWhite;
+      height: 50px;
+      width: 100%;
+      align-items: center;
+      display: flex;
+      background-color: $colorWhite;
+      border-radius: 50px;
+      padding: 8px 3px;
+      display: flex;
+      cursor: not-allowed;
+      justify-content: center;
+    }
+    .inactiveButton {
+      height: 50px;
+      width: 100%;
+      align-items: center;
+      display: flex;
+      padding: 10px;
+      display: flex;
+      cursor: pointer;
+      justify-content: center;
+    }
+  }
+
+  .copyhash {
+    width: 331px;
+    height: 34px;
+    padding: 10px 23px 8px 25px;
+    margin-top: 40px;
+    border-radius: 14.5px;
+    background-color: #e82e89;
+    display: flex;
+
+    .copyhashText {
+      width: 255px;
+      height: 16px;
+      margin: 0 14px 0 0;
+      font-family: $fontOmnes;
+      font-size: 12.6px;
+      font-weight: 500;
+      color: $colorWhite;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  .qrCodeImg {
+    margin-top: 40px;
+    border-radius: 35.4px;
+    background-color: #fff;
+  }
+
+  .firstDiscription {
+    width: 443.9px;
+    height: 32px;
+    margin-top: 40px;
+    font-family: $fontOmnes;
+    font-size: 12.6px;
+    font-weight: 500;
+    text-align: center;
+    color: $colorBlack;
+  }
+
+  .copyButton {
+    border: none;
+    background: transparent;
+    padding: 0;
+    position: relative;
+    .confirmation {
+      position: absolute;
+      bottom: calc(100% + 15px);
+      right: -15px;
+      width: max-content;
+      border-radius: 6px;
+      background-color: rgba(232, 46, 137, 0.6);
+      color: $colorWhite;
+      padding: 6px;
+      @media screen and (min-width: $screen-xs) {
+        right: unset;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .connectWalletContainer {
+    margin-top: 20px;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    @media (max-width: $screen-md) {
+      margin-top: 0px;
+    }
+    p {
+      text-align: center;
+    }
+    .connectWalletButton {
+      background: linear-gradient(
+        180deg,
+        $colorLightYellow 0%,
+        $colorLightDark2 97.4%
+      );
+      margin-top: 16px;
+      border-radius: 30px;
+      border: 1px solid $colorWhite;
+      width: 240px;
+      height: 45px;
+      font-family: $fontOmnes;
+      color: $colorWhite;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  }
+}
+
+.transferInformation {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+
+  .addressCopy {
+    width: calc(100% - 125px - 100px);
+    padding-top: 25px;
+    margin-left: 20px;
+  }
+
+  @media screen and (max-width: $screen-xs) {
+    flex-direction: column;
+
+    .addressCopy {
+      margin: 10px 0;
+      width: 100%;
+    }
+  }
+  @media screen and (min-width: $screen-md) {
+    margin-top: 20px;
+  }
+}
+
+.cryptoInputsWrapper {
+  display: flex;
+  grid-gap: 10px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  width: 100%;
+  padding: 0;
+  @media screen and (max-width: $screen-xs) {
+    flex-direction: column;
+    grid-gap: 20px;
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: $screen-md) {
+    padding: 0 25px;
+  }
+}
+
+.qrCodeImg {
+  height: 125px;
+}
+
+.channelFetchError {
+  width: 100%;
+  text-align: center;
+  color: #e82e89;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

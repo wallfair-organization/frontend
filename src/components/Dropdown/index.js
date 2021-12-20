@@ -1,6 +1,7 @@
 import ErrorHint from '../ErrorHint';
 import React from 'react';
 import ReactDropdown from 'react-dropdown';
+import classNames from 'classnames';
 import styles from './styles.module.scss';
 import 'react-dropdown/style.css';
 
@@ -10,6 +11,7 @@ const Dropdown = ({
   errorText,
   setValue,
   placeholder,
+  style,
   ...rest
 }) => {
   const onChange = ({ value }) => {
@@ -22,7 +24,7 @@ const Dropdown = ({
     <>
       <div className={styles.dropdownContainer}>
         <ReactDropdown
-          className={styles.dropdown}
+          className={classNames(styles.dropdown, style)}
           menuClassName={styles.dropdownMenu}
           controlClassName={styles.dropdownControl}
           placeholderClassName={styles.dropdownPlaceholder}

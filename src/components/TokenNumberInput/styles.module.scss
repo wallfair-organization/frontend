@@ -1,89 +1,89 @@
 @import '../../styles/all';
 
-.tokenNumberInputContainer
-{
-    display:          flex;
-    width:            100%;
-    align-items:      center;
-    padding:          10.5px;
-    height:           45px;
-    margin-bottom:    24px;
-    border-radius:    10px;
-    border:           1.2px solid rgba(14, 9, 39, 0.3);
-    background:       none;
-    justify-content:  flex-end;
+.tokenNumberInputContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10.5px;
+  height: 45px;
+  margin-bottom: 24px;
+  border: 1.2px solid $colorBlueBorder;
+  background: $colorBlue80;
+  justify-content: flex-end;
 
-    @media (min-width: $screen-lg)
-    {
-        padding: 1rem 1rem;
+  @media (min-width: $screen-lg) {
+    padding: 1rem 1rem;
+  }
+
+  .input {
+    flex: none;
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    outline: none !important;
+    margin-right: 9px;
+    min-width: 10px !important;
+    width: 6ch;
+    color: $colorLightYellow;
+    font-family: $fontOmnes;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
 
-    .input
-    {
-        flex:             none;
-        text-align:       right;
-        background-color: transparent;
-        border:           none;
-        outline:          none !important;
-        margin-right:     9px;
-        min-width:        10px !important;
-        width:            6ch;
-        font-family:      $fontBold;
-        font-style:       normal;
-        font-weight:      bold;
-        font-size:        24px;
-        line-height:      24px;
+    -moz-appearance: textfield;
+  }
 
-        &::-webkit-inner-spin-button
-        {
-            -webkit-appearance: none;
-            margin:             0;
-        }
+  .eventTokenLabel {
+    color: $colorWhite;
+    font-family: $fontOmnes;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
 
-        -moz-appearance:  textfield;
+  .buttonWrapper {
+    margin-left: 0px;
+    color: $colorWhite;
+
+    .button:hover {
+      background: #e72d8910;
     }
 
-    .eventTokenLabel
-    {
-        color:          $colorGrayLight1;
-        font-family:    $fontRegular;        
-        font-size:      20px;
-        font-style:     normal;
-        font-weight:    400;
-        line-height:    24px;
-        letter-spacing: 0px;
-        text-align:     left;
-
+    @media (min-width: $screen-lg) {
+      margin-left: 30px;
     }
 
-    .buttonWrapper 
-    {
-        margin-left:    0px;
-        @media (min-width: $screen-lg)
-        {
-            margin-left:    30px;
-        }
-        :first-child {
-            font-size:      20px;            
-        }
-
-        :nth-child(2) {
-            font-size:      16px;
-        }
-
-        :last-child {
-            font-size:      14px;
-        }
-        .button
-        {
-            margin-left:    12px;
-            font-family:    $fontMedium;
-            cursor:         pointer;
-        }
+    :first-child {
+      font-size: 14px;
     }
+
+    :nth-child(2) {
+      font-size: 14px;
+    }
+
+    :last-child {
+      font-size: 14px;
+    }
+
+    .button {
+      margin-left: 4px;
+      font-family: $fontOmnes;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 4px;
+    }
+  }
 }
 
-.tokenNumberErrorHint
-{
-    margin-top: 10px;
+.tokenNumberErrorHint {
+  margin-top: 10px;
 }

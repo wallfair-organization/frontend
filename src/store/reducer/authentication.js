@@ -28,6 +28,9 @@ const initialState = {
   totalOpenTradesAmount: 0,
   preferences: {},
   notificationSettings: {},
+  alpacaBuilderData: null,
+  kyc: {},
+  shouldAcceptToS: false,
 };
 
 const requestSmsSucceeded = (action, state) => {
@@ -245,6 +248,12 @@ const updateData = (action, state) => {
     notificationSettings: {
       $set: action.notificationSettings,
     },
+    alpacaBuilderProps: {
+      $set: action.alpacaBuilderProps,
+    },
+    kyc: {
+      $set: action.kyc,
+    },
   });
 };
 
@@ -342,6 +351,9 @@ const loginSuccess = (action, state) => {
     error: {
       $set: null,
     },
+    shouldAcceptToS: {
+      $set: action.shouldAcceptToS,
+    },
   });
 };
 
@@ -429,6 +441,20 @@ const onVerify = (action, state) => {
   };
 };
 
+const setAlpacaBuilderData = (action, state) => {
+  return {
+    ...state,
+    alpacaBuilderData: {...action}
+  };
+};
+
+const updateShowToSConsent = (newStatus, state) => {
+  return {
+    ...state,
+    shouldAcceptToS: newStatus,
+  }
+}
+
 export default function (state = initialState, action) {
   switch (action.type) {
     // @formatter:off
@@ -494,6 +520,12 @@ export default function (state = initialState, action) {
       return forgotPasswordFail(action, state);
     case AuthenticationTypes.RESET_PASSWORD_FAIL:
       return resetPasswordFail(action, state);
+    case AuthenticationTypes.SET_ALPACA_BUILDER_DATA:
+      return setAlpacaBuilderData(action, state);
+    case AuthenticationTypes.ACCEPT_TOS_CONSENT:
+      return updateShowToSConsent(false, state);
+    case AuthenticationTypes.FAILED_TOS_CONSENT:
+      return updateShowToSConsent(true, state);
     default:
       return cleanErrors(action, state);
     // @formatter:on

@@ -1,5 +1,8 @@
-REACT_APP_BACKEND_URL=https://production-api.wallfair.io/
-REACT_APP_CRASH_GAME_BACKEND_URL=https://production-elon-api.wallfair.io/
+REACT_APP_BACKEND_URL=https://rm-api.alpacasino.io/
+REACT_APP_CASINO_GAMES_BACKEND_URL=https://rm-casino-api.alpacasino.io/
+REACT_APP_ACCOUNT_MAPPER_URL=https://rm-account-mapper.alpacasino.io
+REACT_APP_SOCKET_URL=https://rm-comm-api.alpacasino.io/
 REACT_APP_SHOW_UPCOMING_FEATURES=false
-REACT_APP_URL=https://play.wallfair.io
+REACT_APP_URL=https://alpacasino.io
 ENABLE_SITE_MAP=true
+REACT_APP_DEPOSIT_WALLET=0xAA9e0AA096c55A9E1553a7a17Ea7415E4B4E4c66

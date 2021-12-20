@@ -1,20 +1,14 @@
 import { memo } from 'react';
 import { connect } from 'react-redux';
 import styles from './styles.module.scss';
-import LogoDemo from '../../data/images/logo-demo.svg';
-import GitHubLogo from '../../data/icons/github.svg';
-import FairTradeIcon from '../../data/icons/fair-trade.svg';
-import BlockchainIcon from '../../data/icons/blockchain.svg';
-import NoMiddleMan from '../../data/icons/no-middle-man.svg';
-import OpenSourceIcon from '../../data/icons/open-source.svg';
-import PrivacyDoc from '../../data/docs/wallfair-privacy.pdf';
+import LogoFooter from '../../data/icons/wfair-logo-footer.svg';
 
-import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import SocialIcons from 'components/SocialIcons';
 import { LeaderboardActions } from 'store/actions/leaderboard';
 import { useCallback } from 'react';
 import { GeneralActions } from 'store/actions/general';
+import { Link } from 'react-router-dom';
+import Routes from '../../constants/Routes';
 
 const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
   const openLeaderboard = useCallback(event => {
@@ -25,101 +19,92 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
   return (
     <div className={styles.container}>
       <div className={classNames(styles.footer, className)}>
-        <img src={LogoDemo} width={150} alt={'Wallfair'} />
-
+        <div className={styles.logoContainer}>
+          <a
+            href="https://wallfair.io/"
+            target="_blank"
+            rel="noreferrer"
+            data-tracking-id="footer-wfair-logo"
+          >
+            <img src={LogoFooter} className={styles.footerLogo} alt={'Powered-by-Wallfair'} />
+          </a>
+          
+          <iframe className={styles.license} title="license" src="https://licensing.gaming-curacao.com/validator/?lh=58e4868441e3bb0ff2fe2230d82a8091&amp;template=seal" width={125} height={50} style={{border:'none'}} />
+        </div>
         <div className={styles.links}>
-          <div className={styles.column}>
-            <div className={styles.firstRow}>
-              <button
-                data-tracking-id="footer-leaderboard"
-                onClick={openLeaderboard}
-                href="#"
-              >
-                Leaderboard
-              </button>
+          <Link
+            data-tracking-id="footer-provablyfair"
+            to={Routes.provablyfair}
+          >
+            <p>{'Provably Fair'}</p>
+          </Link>
+          <a
+            href="https://wallfair.medium.com"
+            target="_blank"
+            rel="noreferrer"
+            data-tracking-id="footer-buy-wfair"
+          >
+            <p>Blog</p>
+          </a>
+          <a
+            href="https://wallfair.io/career"
+            target="_blank"
+            rel="noreferrer"
+            data-tracking-id="footer-career"
+          >
+            <p>Career</p>
+          </a>
+          <a
+            href="https://github.com/wallfair-organization"
+            target="_blank"
+            rel="noreferrer"
+            data-tracking-id="footer-source-code"
+          >
+            <p>Source Code</p>
+          </a>
 
-              <a
-                href="https://wallfair.io/career"
-                target="_blank"
-                rel="noreferrer"
-                data-tracking-id="footer-career"
-              >
-                Career
-              </a>
-            </div>
+          <Link
+            data-tracking-id="footer-terms"
+            to={Routes.terms}
+          >
+            <p>{'Terms & Conditions'}</p>
+          </Link>
 
-            <div className={styles.firstRow}>
-              <a
-                href="https://wallfair.io/buy-wfair"
-                target="_blank"
-                rel="noreferrer"
-                data-tracking-id="footer-buy-wfair"
-              >
-                Buy WFAIR real tokens
-              </a>
+          <Link
+            data-tracking-id="footer-kyc"
+            to={Routes.kyc}
+          >
+            <p>{'KYC Policy'}</p>
+          </Link>
 
-              <a
-                href="https://github.com/wallfair-organization"
-                target="_blank"
-                rel="noreferrer"
-                data-tracking-id="footer-source-code"
-              >
-                <img src={GitHubLogo} width={18} alt={'Github Logo'} />
-                Source Code
-              </a>
-            </div>
+          <Link
+            data-tracking-id="footer-responsible-gambling"
+            to={Routes.responsibleGambling}
+          >
+            <p>{'Responsible Gambling'}</p>
+          </Link>
 
-            <div className={styles.secondRow}>
-              <Link data-tracking-id="footer-imprint" to={'/privacy-policy'}>
-                Imprint
-              </Link>
+          <Link
+            data-tracking-id="footer-privacy"
+            to={Routes.privacy}
+          >
+            <p>Privacy Policy</p>
+          </Link>
 
-              <Link
-                data-tracking-id="footer-terms"
-                to={'/terms-and-conditions'}
-              >
-                {'Terms & Conditions'}
-              </Link>
+          <Link
+            data-tracking-id="footer-imprint"
+            to={Routes.imprint}
+          >
+            <p>Imprint</p>
+          </Link>
 
-              <Link
-                data-tracking-id="footer-privacy"
-                to={PrivacyDoc}
-                target="_blank"
-              >
-                {'Privacy Policy'}
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <SocialIcons
-          className={styles.socialIcons}
-          dataTrackingIds={{
-            telegram: 'footer-telegram-click',
-            instagram: 'footer-instagram-click',
-            twitter: 'footer-twitter-click',
-          }}
-        />
-      </div>
-
-      <div className={classNames(styles.iconsContainer, className)}>
-        <div className={styles.icon}>
-          <img src={FairTradeIcon} alt="Fair trade icon" />
-          <span>100% fair</span>
-        </div>
-        <div className={styles.icon}>
-          <img src={OpenSourceIcon} alt="Open source icon" />
-          <span>Open source</span>
-        </div>
-        <div className={styles.icon}>
-          <img src={BlockchainIcon} alt="Blockchain icon" />
-          <span>Blockchain</span>
-        </div>
-        <div className={styles.icon}>
-          <img src={NoMiddleMan} alt="No middle man icon" />
-          <span>No middle man</span>
+          <div id="lang-switcher" />
         </div>
       </div>
+      <p className={styles.footerDisclaimer}>
+        This website offers gaming with risk experience. To be a user of our site you must be over 18 y.o. We are not responsible for the violation of your local laws related to i-gaming. Play responsibly and have fun on Alpacasino.
+        <br/ >
+        The platform providing the services is owned by Wallfair N.V, a limited liability company registered in Curacao with company registration number 159041, with its registered office at Zuikertuintjeweg Z/N (Zuikertuin Tower), Curacao (“Company”), licensed in Curaçao under the Licence no. 365/JAZ Sub-License GLH-OCCHKTW0712022021  issued by Gaming Services Provider N.V. for the provision of online games of chance.</p>
     </div>
   );
 };

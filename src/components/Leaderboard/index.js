@@ -8,6 +8,9 @@ import { LOGGED_IN } from 'constants/AuthState';
 import { selectLeaderboard } from 'store/selectors/leaderboard';
 import { selectUser } from 'store/selectors/authentication';
 import classNames from 'classnames';
+import Icon from 'components/Icon';
+import IconTheme from 'components/Icon/IconTheme';
+import IconType from 'components/Icon/IconType';
 
 const Leaderboard = ({
   fetchLeaderboard,
@@ -17,6 +20,7 @@ const Leaderboard = ({
   small = false,
   headingClass,
   userRef,
+  className,
 }) => {
   const LIMIT = small ? 5 : 10;
   const SKIP_FOR_CURRENT = small ? 1 : 3;
@@ -34,7 +38,7 @@ const Leaderboard = ({
   const isLoggedIn = () => user.authState === LOGGED_IN;
 
   useEffect(() => {
-    if (fetch && !fetched && !userRef) {
+    if (fetch && !userRef) {
       fetchLeaderboard(
         0,
         LIMIT,
@@ -45,7 +49,9 @@ const Leaderboard = ({
       setMissingAmount(getMissingWinnerAmount());
       setFetched(true);
     }
-  }, [fetch, fetched]);
+  }, [fetch]);
+
+
 
   useEffect(() => {
     if (userRef) {
@@ -96,11 +102,17 @@ const Leaderboard = ({
   };
 
   return (
-    <div className={style.leaderboardTable}>
+    <div className={classNames(style.leaderboardTable, className)}>
       <div className={classNames(style.tableHeadings, headingClass)}>
-        <p className={style.rankingHeading}>RANKING</p>
-        <p className={style.userHeading}>USER</p>
-        <p className={style.tokenHeading}>TOKENS WON</p>
+        <p className={style.rankingHeading}>
+          RANKING
+        </p>
+        <p className={style.userHeading}>
+          USER
+        </p>
+        <p className={style.tokenHeading}>
+          TOKENS WON
+        </p>
       </div>
       <div className={style.leaderboardRanking}>
         {!userRef &&

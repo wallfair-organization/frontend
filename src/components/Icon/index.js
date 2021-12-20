@@ -4,6 +4,7 @@ import IconType from './IconType';
 import React from 'react';
 import SelectionHelper from '../../helper/SelectionHelper';
 import styles from './styles.module.scss';
+import { ReactComponent as IconAlpaca } from '../../data/icons/alpaca-icon.svg';
 import { ReactComponent as IconActivities } from '../../data/icons/activities.svg';
 import { ReactComponent as IconAddBet } from '../../data/icons/add-bet.svg';
 import { ReactComponent as IconAddYellow } from '../../data/icons/add-yellow.svg';
@@ -20,11 +21,13 @@ import { ReactComponent as IconAvatarUpload } from '../../data/icons/avatar-uplo
 import { ReactComponent as IconBell } from '../../data/icons/bell.svg';
 import { ReactComponent as IconBet } from '../../data/icons/bet.svg';
 import { ReactComponent as IconBet2 } from '../../data/icons/bet-2.svg';
+import { ReactComponent as IconBuildAlpaca } from '../../data/icons/build-alpaca.svg';
 import { ReactComponent as IconCalendar } from '../../data/icons/calendar.svg';
 import { ReactComponent as IconCamera } from '../../data/icons/camera.svg';
 import { ReactComponent as IconChat } from '../../data/icons/chat.svg';
 import { ReactComponent as IconChat2 } from '../../data/icons/chat2.svg';
 import { ReactComponent as IconChecked } from '../../data/icons/checked.svg';
+import { ReactComponent as IconClose } from '../../data/icons/close.svg';
 import { ReactComponent as IconCollapseSidebar } from '../../data/icons/collapse-sidebar.svg';
 import { ReactComponent as IconConfettiLeft } from '../../data/icons/confetti-left.svg';
 import { ReactComponent as IconConfettiRight } from '../../data/icons/confetti-right.svg';
@@ -33,6 +36,8 @@ import { ReactComponent as IconCross } from '../../data/icons/cross.svg';
 import { ReactComponent as IconDeleteInput } from '../../data/icons/delete-input.svg';
 import { ReactComponent as IconDeposit } from '../../data/icons/deposit.svg';
 import { ReactComponent as IconEdit } from '../../data/icons/edit.svg';
+import { ReactComponent as IconGame } from '../../data/icons/game.svg';
+import { ReactComponent as IconHamburgerMenu } from '../../data/icons/hamburger-menu.svg';
 import { ReactComponent as IconHome } from '../../data/icons/home.svg';
 import { ReactComponent as IconHourglass } from '../../data/icons/hourglass.svg';
 import { ReactComponent as IconInfo } from '../../data/icons/info.svg';
@@ -44,6 +49,8 @@ import { ReactComponent as IconMainMenu } from '../../data/icons/main-menu.svg';
 import { ReactComponent as IconMenu } from '../../data/icons/menu.svg';
 import { ReactComponent as IconNotification } from '../../data/icons/notification.svg';
 import { ReactComponent as IconPhoneNumber } from '../../data/icons/phone-number.svg';
+import { ReactComponent as IconProfile } from '../../data/icons/profile.svg';
+import { ReactComponent as IconReferral } from '../../data/icons/referral.svg';
 import { ReactComponent as IconRefresh } from '../../data/icons/refresh.svg';
 import { ReactComponent as IconSearch } from '../../data/icons/search.svg';
 import { ReactComponent as IconSettings } from '../../data/icons/settings.svg';
@@ -64,11 +71,22 @@ import { ReactComponent as ShareIcon } from '../../data/icons/share-solid-fa.svg
 import { ReactComponent as IconTrash } from '../../data/icons/trash.svg';
 import { ReactComponent as IconStar } from '../../data/icons/star-1.svg';
 import { ReactComponent as IconStarFull } from '../../data/icons/star-2.svg';
+import { ReactComponent as IconPToken } from '../../data/icons/p-token-icon.svg';
+import { ReactComponent as IconLeaderBoard } from '../../data/icons/leaderboard.svg';
+import { ReactComponent as IconLeaderBoardRanking } from '../../data/icons/leaderboard-ranking.svg';
+import { ReactComponent as IconLeaderBoardUser } from '../../data/icons/leaderboard-user.svg';
+import { ReactComponent as IconLeaderBoardToken } from '../../data/icons/leaderboard-token.svg';
+import { ReactComponent as IconFacebook } from '../../data/icons/facebook.svg';
+import { ReactComponent as IconGoogle } from '../../data/icons/google-color-icon.svg';
+import { ReactComponent as IconEmail } from '../../data/icons/email.svg';
+import { ReactComponent as IconUserProfile } from '../../data/icons/user-profile.svg';
+import { ReactComponent as BalanceScaleSolid } from '../../data/icons/balance-scale-solid.svg';
+import { ReactComponent as IconDiscord } from '../../data/icons/discord.svg';
 
 const Icon = ({
   className,
   iconType,
-  iconTheme = IconTheme.white,
+  iconTheme = IconTheme.transparent,
   circle,
   width,
   height,
@@ -79,6 +97,7 @@ const Icon = ({
 }) => {
   const renderIcon = () => {
     return SelectionHelper.get(iconType, {
+      [IconType.alpaca]: <IconAlpaca />,
       [IconType.activities]: <IconActivities />,
       [IconType.addBet]: <IconAddBet />,
       [IconType.addYellow]: <IconAddYellow />,
@@ -98,11 +117,13 @@ const Icon = ({
       [IconType.bell]: <IconBell />,
       [IconType.bet]: <IconBet />,
       [IconType.bet2]: <IconBet2 />,
+      [IconType.buildAlpaca] : <IconBuildAlpaca />,
       [IconType.calendar]: <IconCalendar />,
       [IconType.camera]: <IconCamera style={{ transform: 'rotate(-10deg)' }} />,
       [IconType.chat]: <IconChat />,
       [IconType.chat2]: <IconChat2 />,
       [IconType.checked]: <IconChecked />,
+      [IconType.close]: <IconClose />,
       [IconType.collapseSidebar]: <IconCollapseSidebar />,
       [IconType.confettiLeft]: <IconConfettiLeft />,
       [IconType.confettiRight]: <IconConfettiRight />,
@@ -110,6 +131,7 @@ const Icon = ({
       [IconType.cross]: <IconCross />,
       [IconType.deleteInput]: <IconDeleteInput />,
       [IconType.deposit]: <IconDeposit />,
+      [IconType.hamburgerMenu]: <IconHamburgerMenu />,
       [IconType.home]: <IconHome />,
       [IconType.logoSmall]: <IconLogoSmall />,
       [IconType.logout]: <IconLogout />,
@@ -118,6 +140,8 @@ const Icon = ({
       [IconType.menu]: <IconMenu />,
       [IconType.notification]: <IconNotification />,
       [IconType.phoneNumber]: <IconPhoneNumber />,
+      [IconType.profile]: <IconProfile />,
+      [IconType.referral]: <IconReferral />,
       [IconType.refresh]: <IconRefresh />,
       [IconType.search]: <IconSearch />,
       [IconType.settings]: <IconSettings />,
@@ -138,10 +162,22 @@ const Icon = ({
       [IconType.newsIcon]: <NewsIcon />,
       [IconType.shareLink]: <ShareIcon />,
       [IconType.edit]: <IconEdit />,
+      [IconType.game]: <IconGame />,
       [IconType.hourglass]: <IconHourglass />,
       [IconType.trash]: <IconTrash />,
       [IconType.star]: <IconStar />,
       [IconType.starFull]: <IconStarFull />,
+      [IconType.pToken]: <IconPToken />,
+      [IconType.leaderboard]: <IconLeaderBoard />,
+      [IconType.leaderboardRanking] : <IconLeaderBoardRanking />,
+      [IconType.leaderboardUser] : <IconLeaderBoardUser />,
+      [IconType.leaderboardToken] : <IconLeaderBoardToken />,
+      [IconType.facebook]: <IconFacebook />,
+      [IconType.google]: <IconGoogle />,
+      [IconType.email]: <IconEmail />,
+      [IconType.balanceScaleSolid]: <BalanceScaleSolid />,
+      [IconType.userProfile]: <IconUserProfile />,
+      [IconType.discord]: <IconDiscord />
     });
   };
 
@@ -172,6 +208,7 @@ const Icon = ({
       )}
       onClick={onClick}
       data-tracking-id={dataTrackingId}
+      data-icon-type={iconType}
     >
       {renderIcon()}
       {children}

@@ -7,7 +7,7 @@ const AlphaPlatformCards = ({ alphaplatforms, showHowtoLink, showPopup }) => {
     <div className={styles.alphaplatformsContainer}>
       <div className={styles.alphaplatformsCategory}>
         <span className={styles.title}>
-          Welcome to Wallfair Alpha! Check out how it works:
+          Welcome to Alpacasino Alpha! Check out how it works:
         </span>
         <span className={styles.subtitle}>
           For more detailed information,

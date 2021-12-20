@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import classNames from 'classnames';
-import medalCoin from '../../data/icons/medal-coin.png';
+import CoinIcon from '../../data/icons/coin.png';
 import LogoDemo from '../../data/images/logo-demo.svg';
 import style from './styles.module.scss';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
@@ -14,9 +14,8 @@ import Notifications from '../Notifications';
 import { connect } from 'react-redux';
 import { NotificationActions } from 'store/actions/notification';
 import { LOGGED_IN } from 'constants/AuthState';
-import Button from '../Button';
 import Wallet from '../Wallet';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { matchPath } from 'react-router-dom';
 import { LeaderboardActions } from '../../store/actions/leaderboard';
 import { GeneralActions } from '../../store/actions/general';
@@ -30,7 +29,14 @@ import AuthenticationType from '../Authentication/AuthenticationType';
 import TimeLeftCounter from '../TimeLeftCounter';
 import { UserMessageRoomId } from '../../store/actions/websockets';
 import { ChatActions } from 'store/actions/chat';
+import IconHeaderLogo from '../../data/images/alpaca-logo.svg';
+
 import moment from 'moment';
+import Link from 'components/Link';
+import { OnboardingActions } from 'store/actions/onboarding';
+import Button from 'components/Button';
+import ButtonTheme from 'components/Button/ButtonTheme';
+
 
 const Navbar = ({
   user,
@@ -45,6 +51,7 @@ const Navbar = ({
   showPopup,
   userMessages,
   setMessageRead,
+  startOnboardingFlow,
 }) => {
   const [leaderboardWeeklyDate, setLeaderboardWeeklyDate] = useState(
     new Date()
@@ -57,6 +64,8 @@ const Navbar = ({
   });
 
   const { balance, currency, toNextRank } = useSelector(selectUser);
+
+  const history = useHistory();
 
   useEffect(() => {
     let nextSunday = moment().day(7).startOf('day').toDate();
@@ -114,6 +123,10 @@ const Navbar = ({
     setEditProfileVisible(false);
   };
 
+  const handleLeaderboard = () => {
+    toggleOpenDrawer(drawers.leaderboard);
+  }
+
   const getProfileStyle = () => {
     const profilePicture = getProfilePictureUrl(_.get(user, 'profilePicture'));
 
@@ -137,11 +150,16 @@ const Navbar = ({
 
   const hasOpenDrawer = !isOpen('');
 
-  const showPopupForUnauthenticated = authenticationType => {
+  const showPopupForRegister = () => {
     if (!isLoggedIn()) {
-      showPopup(PopupTheme.auth, { small: true, authenticationType });
+      startOnboardingFlow();
     }
-  };
+  }
+  const showPopupForLogin = () => {
+    if (!isLoggedIn()) {
+      showPopup(PopupTheme.auth, { small: true, authenticationType:AuthenticationType.login });
+    }
+  }
 
   const showAlphaPlatformPopup = () => {
     showPopup(PopupTheme.alphaPlatform);
@@ -151,23 +169,42 @@ const Navbar = ({
     return authState === LOGGED_IN;
   };
 
+  const renderWalletButton = () => {
+    const walletBtn = (
+      <span
+        className={classNames(
+          style.balanceOverview,
+          style.walletButton,
+          style.leaderboardValues,
+          isOpen(drawers.wallet) ? style.pillButtonActive : null
+        )}
+        data-tracking-id="menu-wallet-icon"
+        onClick={() => history.push(Routes.wallet)}
+      >
+        <img src={CoinIcon} alt="medal" className={style.medal} />
+        <p>{formatToFixed(balance, 0, true)} {currency}</p>
+        <span 
+          className={style.plusButton}>+</span>
+      </span>
+    );
+    return (
+      <div className={style.centerContainer}>
+        {isLoggedIn() && walletBtn}
+      </div>
+    )
+  }
   const renderNavButtons = () => {
     const leaderboardBtn = (
-      <div
-        className={classNames(
-          style.ranking,
-          style.pillButton,
-          !isLoggedIn() ? style.hiddenMobile : null,
-          isOpen(drawers.leaderboard) ? style.pillButtonActive : null
-        )}
+      <span
+        className={classNames(style.ranking, style.pillButton, style.hiddenMobile)}
         onClick={() => toggleOpenDrawer(drawers.leaderboard)}
         data-tracking-id="menu-leaderboard"
       >
-        <img src={medalCoin} alt="medal" className={style.medal} />
+        <img src={CoinIcon} alt="medal" className={style.medal} />
         <p className={style.rankingText}>
           {isLoggedIn() ? `# ${user.rank}` : 'Leaderboard'}
         </p>
-      </div>
+      </span>
     );
 
     const notificationsBtn = (
@@ -181,21 +218,6 @@ const Navbar = ({
             <p className={style.notificationNewText}>{userMessages.total}</p>
           </div>
         )}
-      </div>
-    );
-
-    const walletBtn = (
-      <div
-        className={classNames(
-          style.balanceOverview,
-          style.pillButton,
-          isOpen(drawers.wallet) ? style.pillButtonActive : null
-        )}
-        onClick={() => toggleOpenDrawer(drawers.wallet)}
-        data-tracking-id="menu-wallet-icon"
-      >
-        <Icon iconType={'wallet'} />
-        {formatToFixed(balance, 0, true)} {currency}
       </div>
     );
 
@@ -221,23 +243,29 @@ const Navbar = ({
       </div>
     );
 
+    const hamburgerMenuBtn = (
+      <div
+        role="button"
+        className={classNames(
+          style.menuContainer
+        )}
+        onClick={() => toggleOpenDrawer(drawers.profile)}
+      >
+        <Icon
+          className={style.menu}
+          iconType={isOpen(drawers.profile) || isOpen(drawers.leaderboard) ? 'close' : 'hamburgerMenu'}
+        />
+      </div>
+    );
+
     const joinBtn = (
       <div className={style.navbarItems}>
         <Button
           className={style.loginButton}
-          withoutBackground={true}
-          onClick={() => showPopupForUnauthenticated(AuthenticationType.login)}
+          theme={ButtonTheme.loginButton}
+          onClick={() => showPopupForLogin()}
         >
           Login
-        </Button>
-        <Button
-          className={style.signUpButton}
-          withoutBackground={true}
-          onClick={() =>
-            showPopupForUnauthenticated(AuthenticationType.register)
-          }
-        >
-          Sign Up
         </Button>
       </div>
     );
@@ -245,17 +273,17 @@ const Navbar = ({
     if (isLoggedIn()) {
       return (
         <div className={style.navbarItems}>
-          {leaderboardBtn}
-          {walletBtn}
-          {notificationsBtn}
-          {profileBtn}
+          {/* {leaderboardBtn} */}
+          {/* {notificationsBtn} */}
+          {/* {profileBtn} */}
+          {hamburgerMenuBtn}
         </div>
       );
     } else {
       return (
         <div className={style.navbarItems}>
-          {leaderboardBtn}
           {joinBtn}
+          {hamburgerMenuBtn}
         </div>
       );
     }
@@ -283,15 +311,13 @@ const Navbar = ({
         )}
       >
         <div className={classNames(style.drawerContent)}>
-          <Icon
-            iconType={'cross'}
-            onClick={closeDrawers}
-            className={style.closeLeaderboard}
-          />
           <div className={style.leaderboardHeadingWrapper}>
+            <Icon
+              iconType={'leaderboard'}
+              className={style.leaderboardIcon}
+            />
             <p className={style.leaderboardHeading}>
               Community
-              <br />
               Leaderboard
             </p>
             {isLoggedIn() && (
@@ -309,24 +335,6 @@ const Navbar = ({
               {renderLeaderboardInfo('MISSING TO NEXT RANK', toNextRank)}
             </div>
           )}
-
-          <div className={style.leaderboardCountdownBlock}>
-            <div className={style.leaderboardInfoItem}>
-              <div className={style.timerSide}>
-                <span>Next draft at: </span>
-                <TimeLeftCounter
-                  endDate={leaderboardWeeklyDate}
-                  containerClass={style.leaderboardTimerComponent}
-                />
-              </div>
-              <div
-                className={style.linkSide}
-                onClick={() => showAlphaPlatformPopup()}
-              >
-                Learn more
-              </div>
-            </div>
-          </div>
 
           <Leaderboard
             fetch={openDrawer === drawers.leaderboard}
@@ -399,36 +407,27 @@ const Navbar = ({
       <div className={classNames(style.navbarItems, style.hideOnMobile)}>
         {renderNavbarLink(
           Routes.home,
-          <img src={LogoDemo} width={200} alt={'Wallfair'} />,
+          <div className={style.logoContainer}>
+            <img
+              src={IconHeaderLogo}
+              alt="Header Logo"
+              className={style.logoImg}
+            />
+            <span className={style.logoText}>
+              Alpacasino
+            </span>
+          </div>,          
           true
         )}
-
-        <div className={style.linkWrapper}>
-          {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
-          {renderNavbarLink(
-            `/activities`,
-            'Activities',
-            null,
-            'menu-activities'
-          )}
-          {renderNavbarLink(`/events`, 'Events', null, 'menu-events')}
-          {/*{renderNavbarLink(*/}
-          {/*  `/live-events/all`,*/}
-          {/*  'Live Events',*/}
-          {/*  null,*/}
-          {/*  'menu-live-events'*/}
-          {/*)}*/}
-          {/* {isLoggedIn() && renderNavbarLink(`/rewards`, 'Earn', null, 'menu-earn')} */}
-        </div>
       </div>
-
+      {renderWalletButton()}
       <div ref={drawerWrapper} className={style.drawerWrapper}>
         {renderNavButtons()}
         {renderLeaderboardDrawer()}
+        {renderMenuDrawer()}
         {isLoggedIn() && (
           <>
             {renderNotificationsDrawer()}
-            {renderMenuDrawer()}
             {renderWalletDrawer()}
             {renderEmailNotificationDrawer()}
           </>
@@ -469,6 +468,9 @@ const mapDispatchToProps = dispatch => {
     },
     setEditProfileVisible: bool => {
       dispatch(GeneralActions.setEditProfileVisible(bool));
+    },
+    startOnboardingFlow: () =>{
+      dispatch(OnboardingActions.start());
     },
     showPopup: (popupType, options) => {
       dispatch(

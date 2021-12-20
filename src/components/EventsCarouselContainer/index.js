@@ -12,6 +12,7 @@ import BetState from 'constants/BetState';
 import { PopupActions } from '../../store/actions/popup';
 import PopupTheme from '../Popup/PopupTheme';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
+import { OnboardingActions } from 'store/actions/onboarding';
 
 const EventsCarouselContainer = ({
   events,
@@ -28,6 +29,7 @@ const EventsCarouselContainer = ({
   bookmarkEvent,
   bookmarkEventCancel,
   showPopup,
+  startOnboarding,
 }) => {
   const showUpcoming = process.env.REACT_APP_SHOW_UPCOMING_FEATURES || 'false';
   const location = useLocation();
@@ -98,10 +100,7 @@ const EventsCarouselContainer = ({
   };
 
   const showJoinPopup = useCallback(event => {
-    showPopup(PopupTheme.auth, {
-      small: false,
-      authenticationType: AuthenticationType.register,
-    });
+    startOnboarding();
   }, []);
 
   const renderLiveEvents = () => {
@@ -283,6 +282,9 @@ const mapDispatchToProps = dispatch => {
     bookmarkEventCancel: eventId => {
       dispatch(EventActions.bookmarkEventCancel({ eventId }));
     },
+    startOnboarding: () => {
+      dispatch(OnboardingActions.start());
+    }
   };
 };
 

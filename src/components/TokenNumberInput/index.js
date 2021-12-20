@@ -1,9 +1,9 @@
 import TokenSlider from '../TokenSlider';
 import styles from './styles.module.scss';
-import Input from '../Input';
 import classNames from 'classnames';
 import _ from 'lodash';
 import ErrorHint from '../ErrorHint';
+import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
 
 const TokenNumberInput = ({
   value,
@@ -15,29 +15,19 @@ const TokenNumberInput = ({
   errorText,
   className,
   dataTrackingIds,
+  halfIcon = true,
+  doubleIcon = true,
+  maxIcon = true,
   ...props
 }) => {
-  const onChange = event => {
-    const value = _.get(event, 'target.value', 0);
+  const onChange = value => {
     // @TODO: this needs refactoring imo, a validation function, a base form component that this could based upon or render and may be even refactor the parent forms to a lib like react-final-form or similar
-    // remove leading zero(s) and cast to number
-    const regex = new RegExp('^0+(?!$)', 'g');
-    let targetValue = _.toNumber(value.replaceAll(regex, ''));
+    let targetValue = value;
 
     // make sure value is not above maxValue (if given)
     if (maxValue && targetValue > _.toNumber(maxValue)) {
       targetValue = maxValue;
     }
-
-    // if (decimalPlaces || decimalPlaces === 0) {
-    // targetValue = _.floor(targetValue, decimalPlaces);
-    // }
-
-    // force no decimal
-    targetValue = _.floor(targetValue, 0);
-
-    // TODO: do we want to prevent the unlikely case somebody deliberately or accidentally puts an 'e' for an exponential number?!
-    event.target.value = targetValue;
 
     setValue(targetValue);
   };
@@ -46,8 +36,8 @@ const TokenNumberInput = ({
     const changedValue = _.floor(value * multiplier, 0);
     if (changedValue > maxValue) {
       setValue(_.floor(maxValue, 0));
-    } else if (changedValue < 1) {
-      setValue(1);
+    } else if (changedValue < 0) {
+      setValue(0);
     } else {
       setValue(changedValue);
     }
@@ -60,37 +50,44 @@ const TokenNumberInput = ({
   return (
     <>
       <div className={classNames(styles.tokenNumberInputContainer, className)}>
-        <Input
+        <NumberCommaInput
+          min={minValue}
+          max={_.floor(maxValue, 0)}
           className={styles.input}
-          type={'number'}
           value={value}
           onChange={onChange}
-          step={0.1}
+          withoutDecimals
           {...props}
         />
         <span className={styles.eventTokenLabel}>{currency}</span>
         <div className={styles.buttonWrapper}>
-          <span
-            className={styles.button}
-            onClick={() => onBetAmountChanged(0.5)}
-            data-tracking-id={dataTrackingIds.inputFieldHalf}
-          >
-            ½
-          </span>
-          <span
-            className={styles.button}
-            onClick={() => onBetAmountChanged(2)}
-            data-tracking-id={dataTrackingIds.inputFieldDouble}
-          >
-            2x
-          </span>
-          <span
-            className={styles.button}
-            onClick={() => onBetAmountMax()}
-            data-tracking-id={dataTrackingIds.inputFieldAllIn}
-          >
-            Max
-          </span>
+          {halfIcon && (
+            <span
+              className={styles.button}
+              onClick={() => onBetAmountChanged(0.5)}
+              data-tracking-id={dataTrackingIds?.inputFieldHalf}
+            >
+              ½
+            </span>
+          )}
+          {doubleIcon && (
+            <span
+              className={styles.button}
+              onClick={() => onBetAmountChanged(2)}
+              data-tracking-id={dataTrackingIds?.inputFieldDouble}
+            >
+              2x
+            </span>
+          )}
+          {maxIcon && (
+            <span
+              className={styles.button}
+              onClick={() => onBetAmountMax()}
+              data-tracking-id={dataTrackingIds?.inputFieldAllIn}
+            >
+              Max
+            </span>
+          )}
         </div>
       </div>
       <ErrorHint

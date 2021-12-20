@@ -356,7 +356,7 @@ const Rewards = ({ user, showPopup }) => {
         <div>
           <LotteryGame user={user} showPopup={showPopup} />
         </div>
-        <ContentFooter />
+        
       </div>
     </BaseContainerWithNavbar>
   );

@@ -7,6 +7,7 @@ import medalBronze from '../../data/icons/medal-third.png';
 import medalCoin from '../../data/icons/medal-coin.png';
 import { formatToFixed } from 'helper/FormatNumbers';
 import classNames from 'classnames';
+import Button from 'components/Button';
 
 const LeaderboardItem = ({
   user,
@@ -18,11 +19,11 @@ const LeaderboardItem = ({
   const renderLoadButton = () => {
     return (
       <>
-        <div className={style.placeSeperate} />
+        {/* <div className={style.placeSeperate} /> */}
         <div className={style.tableEntryHolder}>
-          <div className={style.loadButton} onClick={onLoad}>
+          <span className={style.loadButton} onClick={onLoad}>
             Load more
-          </div>
+          </span>
         </div>
       </>
     );
@@ -64,7 +65,7 @@ const LeaderboardItem = ({
         </>
       ) : user.rank === 2 ? (
         <>
-          <div className={style.placeSeperate} />
+          {/* <div className={style.placeSeperate} /> */}
           <div
             className={classNames(
               style.tableSecond,
@@ -84,7 +85,7 @@ const LeaderboardItem = ({
         </>
       ) : user.rank === 3 ? (
         <>
-          <div className={style.placeSeperate} />
+          {/* <div className={style.placeSeperate} /> */}
           <div
             className={classNames(
               style.tableThird,
@@ -104,7 +105,7 @@ const LeaderboardItem = ({
         </>
       ) : user.rank <= 9 ? (
         <>
-          <div className={style.placeSeperate} />
+          {/* <div className={style.placeSeperate} /> */}
           <div
             className={classNames(
               style.tableThird,
@@ -125,7 +126,7 @@ const LeaderboardItem = ({
         </>
       ) : (
         <>
-          <div className={style.placeSeperate} />
+          {/* <div className={style.placeSeperate} /> */}
           <div
             className={classNames(
               style.tableEntryHolder,

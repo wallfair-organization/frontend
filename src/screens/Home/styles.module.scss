@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0 3rem;
+  margin: 0;
+  margin-top: 100px;
 
   @media (max-width: $screen-sm) {
     margin: 0 15px;
@@ -17,6 +18,17 @@
 
   @media (min-width: $screen-lg) {
     max-width: 1300px;
+  }
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 15px;
+  }
+  h3 {
+    padding-bottom: 10px;
   }
 }
 
@@ -33,7 +45,7 @@
   }
 
   h1 {
-    font-family: $fontBold;
+    font-family: $fontOmnes;
     font-size: 46px;
     font-weight: bold;
     line-height: 1.13;
@@ -74,10 +86,11 @@
   div.slogan {
     padding: 12px 0;
     font-size: 25px;
-    font-family: $fontMedium;
+    font-family: $fontOmnes;
 
     span {
-      font-family: $fontBold;
+      font-family: $fontOmnes;
+      font-weight: bold;
       color: $colorYellowLight;
     }
 
@@ -89,63 +102,6 @@
 
   .socialIcons {
     padding-bottom: 0px;
-  }
-}
-
-.banner {
-  margin-top: 50px;
-  background-image: url('../../data/backgrounds/games/rosi-games-banner-lg.jpg');
-  border-radius: 12px;
-  min-height: 252px;
-  width: 100%;
-  padding: 50px 30px 20px 30px;
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  @media (max-width: $screen-lg) {
-    padding: 20px;
-    min-height: unset;
-    height: 200px;
-  }
-
-  @media (max-width: $screen-md) {
-    padding: 20px;
-    min-height: unset;
-    height: 150px;
-  }
-
-  @media (max-width: $screen-sm) {
-    background-image: url('../../data/backgrounds/games/rosi-games-banner-mobile.png');
-    height: 100%;
-    background-position: center;
-    padding: 80px;
-  }
-
-  @media (max-width: $screen-xs) {
-    padding: 40px;
-  }
-
-  .title {
-    font-family: $fontBold;
-    font-size: 30px;
-    color: $colorWhite;
-
-    @media (max-width: $screen-md) {
-      font-size: 22px;
-    }
-
-    @media (max-width: $screen-sm) {
-      font-size: 36px;
-      margin-top: 100%;
-    }
-
-    @media (max-width: $screen-xs) {
-      font-size: 30px;
-    }
-  }
-
-  .button {
-    margin-top: 10px;
   }
 }
 
@@ -182,7 +138,7 @@
     align-items: center;
     justify-content: space-between;
     color: $colorWhite;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     font-size: 24px;
     margin-bottom: 20px;
 
@@ -202,28 +158,6 @@
   margin-top: 48px;
 }
 
-.tags {
-  display: flex;
-  flex-flow: wrap;
-  margin: 20px 0;
-
-  .tag {
-    background-color: rgba(172, 196, 255, 0.1);
-    padding: 10px;
-    font-size: 12px;
-    color: $colorWhite;
-    cursor: pointer;
-    border-radius: 2px;
-    margin: 5px;
-    opacity: 0.8;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      opacity: 1;
-    }
-  }
-}
-
 .seeAllActivities {
   display: flex;
   align-items: center;
@@ -234,4 +168,674 @@
   font-family: $fontLight;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.howTokenWorks {
+  padding: 20px 0 0;
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    justify-content: flex-start;
+
+    h2 {
+      font-size: 33px;
+
+      @media (max-width: $screen-xs) {
+        font-size: 28px;
+      }
+    }
+
+    img {
+      margin-right: 10px;
+      width: 80px;
+    }
+  }
+  .tokenDetail {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr 0.2fr;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    filter: drop-shadow(0px 9px 16px rgba(159, 162, 191, 0.18))
+      drop-shadow(0px 2px 2px rgba(159, 162, 191, 0.32));
+    padding: 0 10px 0px 20px;
+    margin: 15px 0 0;
+    @media (max-width: $screen-md) {
+      grid-template-columns: auto;
+    }
+    .token {
+      padding: 20px 8px 0;
+      display: flex;
+      @media (max-width: $screen-md) {
+        flex-direction: column;
+        align-items: center;
+      }
+      .thumbnail {
+        padding-right: 10px;
+        img {
+          width: 90px;
+        }
+      }
+      .thumbnails {
+        display: flex;
+        padding-right: 10px;
+        .second {
+          margin: 18px 0 0 -34px;
+        }
+        img {
+          width: 90px;
+          height: 90px;
+        }
+      }
+      .detail {
+        padding-top: 20px;
+        color: #fff;
+        h3 {
+          font-weight: bolder;
+          font-size: 22px;
+          margin-bottom: 6px;
+        }
+        p {
+          font-size: 14px;
+
+          a {
+            text-decoration: underline;
+          }
+        }
+        @media (max-width: $screen-md) {
+          text-align: center;
+        }
+      }
+    }
+    .elonImg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.welcomeContainer {
+  margin-top: 200px;
+  margin-bottom: calc(100vh - 668px);
+  // margin-bottom: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: $screen-sm) {
+    margin: 80px 0 0;
+  }
+  .cardContainer {
+    position: relative;
+    height: 568px;
+    width: 402px;
+    background: linear-gradient(163.46deg, #ffffff -21.15%, #f1dbd2 100.59%);
+    padding: 15px;
+    border-radius: 20px;
+    .cardBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid $colorPopBorder;
+      border-radius: 20px;
+      height: 538px;
+
+      // padding: 80px 16px 0 0;
+      font-family: $fontOmnes;
+      @media (max-width: $screen-sm) {
+        width: 100%;
+        height: 538px;
+        padding: 60px 10px 0 0;
+      }
+      .topFront {
+        position: absolute;
+        width: 150px;
+        height: 190px;
+        left: -60px;
+        top: -19px;
+        z-index: 1;
+      }
+
+      .topBack {
+        position: absolute;
+        width: 330px;
+        left: -110px;
+        top: -120px;
+        z-index: -1;
+      }
+
+      .bottomFront {
+        position: absolute;
+        width: 150px;
+        right: -35px;
+        bottom: 84px;
+        z-index: 1;
+      }
+      .bottomBack {
+        position: absolute;
+        width: 420px;
+        right: -114px;
+        bottom: -105px;
+        z-index: -1;
+      }
+
+      .aplacaHeader {
+        bottom: -170px;
+        left: -510px;
+        position: absolute;
+        width: 450px;
+        display: block;
+      }
+      svg {
+        margin-left: 40%;
+      }
+      p {
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 40px;
+        font-family: $fontOmnes;
+        color: $colorBlack;
+        text-align: center;
+        span {
+          font-size: 50px;
+          line-height: 1;
+        }
+        @media (max-width: $screen-sm) {
+          font-size: 30px;
+          line-height: 24px;
+        }
+      }
+      .limitedOfferDescription {
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 40px;
+        text-align: center;
+        font-family: $fontOmnes;
+        color: $colorBlack;
+        margin-bottom: 10px;
+
+        p {
+          margin-top: 60px;
+          margin-bottom: 10px;
+        }
+
+        @media (max-width: $screen-sm) {
+          font-size: 25px;
+          line-height: 30px;
+        }
+
+        .highlighted {
+          font-size: 90px;
+          line-height: 50px;
+        }
+      }
+
+      .startButton {
+        width: 240px;
+        height: 45px;
+        text-align: center;
+        font-weight: 700;
+        font-family: $fontOmnes;
+        background: $colorButton;
+        color: $colorBlack;
+        font-size: 20px;
+        border-radius: 30px;
+        border: 1px solid $colorButton;
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 5px;
+      }
+    }
+  }
+}
+
+.aboutDescritpion {
+  position: relative;
+  margin: 80px auto 80px;
+  padding: 300px 0;
+  background: url('../../data/images/home/about-background.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  @media (max-width: $screen-lg) {
+    margin-bottom: 140px;
+  }
+  @media (max-width: $screen-xs) {
+    margin-bottom: 180px;
+    padding: 300px 0 0;
+  }
+  .topImage {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+  .parentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .descriptionCardContainer {
+      position: relative;
+      width: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: linear-gradient(180deg, #ffffff 0%, #f1dbd2 51.56%);
+      border-radius: 20px;
+      padding: 10px;
+      position: relative;
+
+      .aboutFirst {
+        position: absolute;
+        top: -59px;
+        left: 130px;
+        width: 130px;
+      }
+
+      .aboutTopAlpaca {
+        position: absolute;
+        bottom: 281px;
+        left: 65px;
+        width: 250px;
+
+        z-index: -1;
+      }
+      .aboutSecond {
+        position: absolute;
+        top: -35px;
+        left: 130px;
+        width: 110px;
+      }
+      .aboutThird {
+        position: absolute;
+        top: -123px;
+        left: 120px;
+        width: 116px;
+
+        z-index: -1;
+      }
+
+      .descriptionCard {
+        width: 100%;
+        border: 3px solid #fbb2a5;
+        box-sizing: border-box;
+        border-radius: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+        height: 300px;
+
+        h1 {
+          margin: 20px 0px;
+          font-family: $fontOmnes;
+          font-weight: 600;
+          font-size: 30px;
+          line-height: 20px;
+          /* identical to box height, or 67% */
+
+          text-align: center;
+        }
+        p {
+          margin-bottom: 20px;
+          font-family: $fontOmnes;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 20px;
+
+          text-align: center;
+        }
+      }
+      .thumbnail {
+        position: absolute;
+        bottom: calc(100% - 50px);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .thumbnailBack {
+        position: absolute;
+        bottom: calc(100% - 50px);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+      }
+    }
+  }
+}
+
+.nftBannerWrapper {
+  margin-top: 300px;
+  margin-bottom: 200px;
+  @media (max-width: $screen-xl) {
+    margin-top: 200px;
+    margin-top: 150px;
+  }
+
+  @media (max-width: $screen-md) {
+    margin-bottom: 100px;
+  }
+  @media (max-width: $screen-xs) {
+    display: none;
+  }
+}
+
+.alpacadopter {
+  margin: 40px 0;
+  .title {
+    display: flex;
+    align-items: center;
+    font-family: $fontOmnes;
+    font-size: 30px;
+    font-weight: 700;
+    justify-content: flex-start;
+    h2 {
+      font-size: 30px;
+      color: $colorWhite;
+      @media (max-width: $screen-xs) {
+        font-size: 28px;
+        text-align: center;
+      }
+    }
+    .pink {
+      color: $colorWhite;
+    }
+  }
+  .cardBox {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid $colorBlueBorder;
+    box-sizing: border-box;
+    border-radius: 12px;
+    @media screen and (max-width: $screen-md) {
+      border-radius: 12px 12px 0 0;
+    }
+    .card {
+      display: flex;
+      height: 100%;
+      @media screen and (max-width: $screen-md) {
+        flex-direction: column;
+        padding-right: 0;
+      }
+      @media screen and (max-width: 763px) {
+        margin-top: 20px;
+        height: auto;
+      }
+      .thumbnailMagenta {
+        display: flex;
+        margin: 0 auto auto;
+        :first-child {
+          z-index: 1;
+        }
+        :last-child {
+          width: 100px;
+          height: 100px;
+          margin-left: -52px;
+          margin-top: 12px;
+        }
+        @media screen and (max-width: 763px) {
+          margin-top: 10px !important;
+        }
+      }
+      .thumbnailBlue {
+        display: flex;
+        margin: 0 auto auto;
+        :first-child {
+          z-index: 1;
+        }
+        :last-child {
+          width: 100px;
+          height: 100px;
+          margin-left: -82px;
+          margin-top: 12px;
+        }
+        @media screen and (max-width: 763px) {
+          margin-top: 10px !important;
+        }
+      }
+      .thumbnailYellow {
+        display: flex;
+        margin: 0 auto auto;
+        :first-child {
+          z-index: 1;
+        }
+        :last-child {
+          width: 100px;
+          height: 100px;
+          margin-left: -32px;
+          margin-top: 12px;
+        }
+        @media screen and (max-width: 763px) {
+          margin-top: 10px !important;
+        }
+      }
+      .detail {
+        padding: 30px 12px 0 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @media screen and (max-width: $screen-md) {
+          text-align: center;
+        }
+        .title {
+          display: flex;
+          align-items: flex-start;
+          gap: 4px;
+          @media screen and (max-width: $screen-md) {
+            justify-content: center;
+          }
+        }
+        h3 {
+          font-family: $fontOmnes;
+          font-size: 22px;
+          color: $colorWhite;
+          margin-bottom: 6px;
+          img {
+            max-width: 160px;
+            margin-left: 5px;
+          }
+        }
+        p {
+          font-weight: 400;
+          line-height: 20px;
+          font-size: 14px;
+          color: $colorWhite;
+        }
+        .thumbnail {
+          display: flex;
+          margin: 0 auto 14px;
+
+          img {
+            height: 80px;
+          }
+
+          &.cactusJack {
+            @media screen and (max-width: $screen-md) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottomContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .bottomBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0e0927;
+      border-radius: 0px 0px 12px 12px;
+      font-family: $fontOmnes;
+      font-size: 24px;
+      padding: 12px 120px;
+      @media screen and (max-width: $screen-md) {
+        width: 100%;
+        padding: 8px 0;
+        font-size: 16px;
+      }
+      p {
+        color: $colorWhite;
+        text-align: center;
+      }
+      .pink {
+        color: $colorWhite;
+      }
+    }
+  }
+}
+
+.alpacaverse {
+  margin: 40px 0 20px;
+  .title {
+    display: flex;
+    align-items: center;
+    font-family: $fontOmnes;
+    font-size: 30px;
+    font-weight: 700;
+    justify-content: flex-start;
+    h2 {
+      font-size: 30px;
+      color: $colorWhite;
+      @media (max-width: $screen-xs) {
+        font-size: 28px;
+        text-align: center;
+      }
+    }
+    .pink {
+      color: $colorWhite;
+    }
+  }
+}
+
+/* ACTIVITY TRACKER */
+.activityWrapper {
+  margin-top: 32px;
+  background: $colorWhite;
+  border: 1px solid $colorLightGray;
+
+  box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18),
+    0px 2px 2px rgba(159, 162, 191, 0.32);
+  border-radius: 12px;
+
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 20px;
+  }
+  .activityContainer {
+    position: relative;
+    height: 324px;
+  }
+}
+.tabItem {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.tabItemSelected {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 1;
+  cursor: pointer;
+  border-bottom: 3px solid $mainAction;
+}
+.tabLayout {
+  display: flex;
+  align-items: flex-end;
+  color: $colorWhite;
+  font-family: $fontOmnes;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 24px;
+  margin-left: 16px;
+
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+.tabOptionsContainer {
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+/* ACTIVITY TRACKER */
+.activities {
+  margin-top: 40px;
+  .title {
+    display: flex;
+    align-items: center;
+    color: $colorWhite;
+
+    h2 {
+      font-size: 33px;
+
+      @media (max-width: $screen-xs) {
+        font-size: 28px;
+      }
+    }
+
+    img {
+      margin-right: 30px;
+    }
+  }
+}
+.gameCards {
+  margin-top: 70px;
+
+  @media (max-width: $screen-sm) {
+    margin-top: 320px;
+  }
+  .title {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    h2 {
+      color: $colorHeading;
+      font-weight: 800;
+      font-size: 50px;
+      line-height: 20px;
+      font-family: $fontOmnes;
+      @media (max-width: $screen-xs) {
+        font-size: 28px;
+      }
+    }
+
+    p {
+      margin-top: 10px;
+      font-family: $fontOmnes;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 2;
+      color: $colorWhite;
+    }
+
+    img {
+      margin-right: 5px;
+    }
+  }
+  .cardBox {
+    text-align: center;
+    margin-top: 20px;
+    img {
+      border-radius: 12px;
+      width: 96%;
+    }
+  }
 }

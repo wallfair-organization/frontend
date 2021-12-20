@@ -3,7 +3,6 @@
 .chatContainer {
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
   height: 400px;
   position: relative;
 
@@ -18,7 +17,6 @@
     align-items: flex-start;
     flex-flow: column nowrap;
     overflow-y: scroll;
-    margin-bottom: 1rem;
     position: relative;
 
     @media (min-width: $screen-md) {
@@ -44,23 +42,41 @@
     }
   }
 
+  .messageInputWrapper {
+    position: relative;
+    padding: 10px;
+    z-index: 1;
+
+    &::before {
+      position: absolute;
+      content: '';
+      //background-image: url('../../data/images/alpaca-icon-chat.svg');
+      width: 120px;
+      height: 160px;
+      bottom: -12px;
+      right: -37px;
+      z-index: -1;
+    }
+  }
   .messageInput {
-    background-color: $colorWhite;
+    background: rgba(255, 255, 255, 0.3);
     color: $colorPrimaryDark;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0.5rem 1rem;
     border-radius: 10px;
+    position: relative;
+    // z-index: 1;
 
     @media (max-width: $screen-sm) {
       position: fixed;
       bottom: 58px;
       left: 0;
-      z-index: 1001;
+      z-index: 49;
       width: 100vw;
       height: 70px;
-      background-color: $colorWhite;
+      background: rgba(255, 255, 255, 0.3);
       padding: 0px 15px;
       border-radius: 0;
       color: $colorPrimary;
@@ -73,7 +89,6 @@
 
     &.disabled {
       pointer-events: none;
-      opacity: 0.8;
     }
 
     input {
@@ -81,14 +96,19 @@
       width: 100%;
       display: inline-block;
       font-size: 12px;
+      color: $colorWhite;
 
       @media (max-width: $screen-sm) {
-        background-color: $colorGrayLight5;
+        background-color: transparent;
         min-height: 45px;
         padding-left: 10px;
         border-radius: 5px;
         font-size: 12px;
       }
+    }
+
+    ::placeholder {
+      color: $colorWhite;
     }
 
     button {

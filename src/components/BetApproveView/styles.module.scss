@@ -87,7 +87,8 @@
     align-items: center;
     font-size: 20px;
     text-align: center;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
 
     .logo {
       height: 60px;
@@ -99,7 +100,8 @@
     font-size: 30px;
     line-height: 36px;
     text-align: center;
-    font-family: $fontBold;
+    font-family: $fontOmnes;
+    font-weight: bold;
     margin-top: 20px;
   }
 

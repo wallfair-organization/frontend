@@ -21,7 +21,7 @@
   flex-direction: row;
   align-items: center;
   color: $colorWhite;
-  font-family: $fontRegular;
+  font-family: $fontOmnes;
   font-size: 24px;
   font-weight: 700;
   padding-bottom: 20px;
@@ -29,7 +29,7 @@
   .howtoLink {
     cursor: pointer;
     font-size: 11px;
-    font-family: $fontRegular;
+    font-family: $fontOmnes;
     text-decoration: underline;
     color: $colorYellow;
 
@@ -46,7 +46,6 @@
     display: none;
 
     svg {
-
       g,
       path,
       circle {
@@ -164,7 +163,7 @@
         bottom: 0;
         left: 0;
         color: $colorWhite;
-        font-family: $fontRegular;
+        font-family: $fontOmnes;
         padding: 30px;
 
         .title {
@@ -195,8 +194,8 @@
         align-items: center;
         justify-content: center;
         font-size: 24px;
-        font-family: $fontMedium;
-        color: #F2FF53;
+        font-family: $fontOmnes;
+        color: #f2ff53;
         text-align: center;
         font-weight: 700;
       }
@@ -204,7 +203,6 @@
       @media (max-width: $screen-md) {
         padding: 0 16px;
       }
-      
     }
 
     .cardLink {

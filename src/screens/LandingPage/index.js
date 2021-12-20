@@ -32,7 +32,7 @@ const LandingPage = () => {
         <SectionFive classes={classes} />
       </div>
       <SignUp />
-      <ContentFooter />
+      
     </BaseContainerWithNavbar>
   );
 };

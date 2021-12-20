@@ -1,61 +1,56 @@
 @import '../../styles/all';
 
-.fixedIconButtonContainer
-{
-    position:         fixed;
-    display:          flex;
-    align-items:      center;
-    justify-content:  center;
-    z-index:          1;
-    bottom:           30px;
-    right:            30px;
-    width:            60px;
-    height:           60px;
-    background-color: $colorWhite;
-    border-radius:    100%;
-    cursor:           pointer;
-    box-shadow:       0 2px 4px 0 $colorPrimary05;
-    border:           solid 2px $colorPrimary10;
-    overflow:         hidden;
+.fixedIconButtonContainer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: $colorWhite;
+  border-radius: 100%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 $colorPrimary05;
+  border: solid 2px $colorPrimary10;
+  overflow: hidden;
 
-    .fixedIconButtonText
-    {
-        $outlineColor:          $colorYellowLight;
+  .fixedIconButtonText {
+    $outlineColor: $colorYellowLight;
 
-        position:               fixed;
-        right:                  125px;
-        font-size:              20px;
-        font-family:            $fontBold;
-        color:                  $colorWhite;
-        -webkit-text-stroke:    1px $colorPrimary;
-        text-shadow:            $outlineColor 0 0 10px;
-        -webkit-font-smoothing: antialiased;
+    position: fixed;
+    right: 125px;
+    font-size: 20px;
+    font-family: $fontOmnes;
+    color: $colorWhite;
+    -webkit-text-stroke: 1px $colorPrimary;
+    text-shadow: $outlineColor 0 0 10px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (min-width: $screen-sm) {
+    bottom: 55px;
+    right: 55px;
+  }
+
+  &.alignedLeft {
+    left: 30px;
+
+    @media (min-width: $screen-sm) {
+      left: 55px;
     }
+  }
 
-    @media(min-width: $screen-sm)
-    {
-        bottom: 55px;
-        right:  55px;
+  .fixedIconHighlight {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    & > svg {
+      width: 100%;
+      height: 100%;
     }
-
-    &.alignedLeft
-    {
-        left: 30px;
-
-        @media(min-width: $screen-sm)
-        {
-            left: 55px;
-        }
-    }
-
-    .fixedIconHighlight {
-        display: block;
-        width: 100%;
-        height: 100%;
-
-        & > svg {
-            width: 100%;
-            height: 100%;
-        }
-    }
+  }
 }

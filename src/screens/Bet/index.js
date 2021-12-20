@@ -851,7 +851,6 @@ const Bet = ({
             </div>
           </div>
         )}
-        <ContentFooter className={styles.betFooter} />
       </div>
     </BaseContainerWithNavbar>
   );

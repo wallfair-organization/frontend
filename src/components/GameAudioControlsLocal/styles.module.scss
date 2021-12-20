@@ -1,0 +1,42 @@
+.muteButton {
+  min-width: 30px;
+  min-height: 30px;
+  -webkit-mask-image: url('../../data/icons/volume_up_white_24dp.svg');
+  mask-image: url('../../data/icons/volume_up_white_24dp.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  cursor: pointer;
+}
+
+.muteButton.mute {
+  -webkit-mask-image: url('../../data/icons/volume_off_white_24dp.svg');
+  mask-image: url('../../data/icons/volume_off_white_24dp.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.muteButton.low {
+  -webkit-mask-image: url('../../data/icons/volume_down_white_24dp.svg');
+  mask-image: url('../../data/icons/volume_down_white_24dp.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.container{
+  width: 140px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  @media screen and (max-width: 768px){
+    flex-direction: column;
+    height: 140px;
+    width: 40px;
+  }
+}
+.plinko{
+  position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 8;
+}

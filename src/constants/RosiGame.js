@@ -3,6 +3,7 @@ import { GAMES } from './Games';
 export const ROSI_GAME_EVENT_ID = GAMES.elonGame.id;
 export const PLINKO_GAME_EVENT_ID = GAMES.plinko.id;
 export const ROSI_GAME_AFTER_CRASH_DELAY = 2000;
+export const PUMPDUMP_GAME_AFTER_CRASH_DELAY = 3000;
 export const ROSI_GAME_MOBILE_BREAKPOINT = 480; // in pixels
 
 export const ROSI_GAME_PLAYGROUND_ROCKET = 0;
