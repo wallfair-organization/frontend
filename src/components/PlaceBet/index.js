@@ -78,7 +78,9 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
   const [betted, setBetted] = useState(false);
   const { slug } = useParams();
 
-  const userUnableToBet = amount < 1 || !canBet || gameOffline;
+  const isNotDemo = user.isLoggedIn && amount > 0;
+
+  const userUnableToBet = !canBet || gameOffline;
   const numberOfDemoPlays =
     Number(localStorage.getItem('numberOfElonGameDemoPlays')) || 0;
 
@@ -165,7 +167,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
       const autoCashoutAt = parseFloat(crashFactor);
       const factor = calcCrashFactorFromElapsedTime(diff < 1 ? 1 : diff);
       if (factor >= autoCashoutAt) {
-        if (user.isLoggedIn) {
+        if (isNotDemo) {
           cashOut();
         } else {
           cashOutGuest();
@@ -234,6 +236,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
     e.stopPropagation();
     if (userUnableToBet) return;
     if (amount > userBalance) return;
+    if (amount === 0) return;
 
     const payload = {
       amount,
@@ -283,7 +286,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
   };
 
   const placeGuestBet = () => {
-    if (numberOfDemoPlays === 3) {
+    if (!user.isLoggedIn && numberOfDemoPlays === 3) {
       showLoginPopup();
       return;
     }
@@ -363,23 +366,23 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
             className={classNames(styles.button, styles.cancel)}
             onClick={stopAutobet}
             data-tracking-id={
-              user.isLoggedIn ? null : 'elongame-showloginpopup'
+              isNotDemo ? null : 'elongame-showloginpopup'
             }
           >
-            {user.isLoggedIn ? 'Stop Auto Bet' : 'Stop Auto Bet'}
+            {isNotDemo ? 'Stop Auto Bet' : 'Stop Auto Bet'}
           </Button>
         </>
       );
     } else if (displayBetButton) {
-      let buttonEnable = false;
+      let buttonDisable = false;
 
       if (
         !connected ||
         userUnableToBet ||
         isBetInQueue ||
         (amount > userBalance && user.isLoggedIn)
-      ) buttonEnable = true;
-      if(amount === 0) buttonEnable = false;
+      ) buttonDisable = true;
+      if(amount === 0) buttonDisable = false;
 
 
         //  else{
@@ -388,9 +391,9 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
             role="button"
             tabIndex="0"
             className={classNames(styles.button)}
-            disabled={buttonEnable}
+            disabled={buttonDisable}
             onClick={
-              user.isLoggedIn && amount > 0
+              isNotDemo
                 ? selector === 'manual'
                   ? placeABet
                   : placeAutoBet
@@ -400,11 +403,12 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
               user.isLoggedIn ? 'elongame-place-bet' : 'elongame-play-demo'
             }
           >
-            {user.isLoggedIn && amount > 0
+            {isNotDemo
               ? selector === 'manual'
-                ? 'Place Bet (Next Round)'
+                ? <>Place Bet <br /><span>(Next Round)</span></>
                 : 'Start Auto Bet'
-              : 'Play Demo'}
+              : <>Place Bet <br /> <span>(Next Round)</span></>
+            }
           </Button>
         );
       //  }
@@ -416,12 +420,12 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
             tabIndex="0"
             className={styles.button}
             theme={ButtonTheme.secondaryButton}
-            onClick={user.isLoggedIn ? cancelBet : cancelGuestBet}
+            onClick={isNotDemo ? cancelBet : cancelGuestBet}
             data-tracking-id={
-              user.isLoggedIn ? null : 'elongame-showloginpopup'
+              isNotDemo ? null : 'elongame-cancelbetbutton'
             }
           >
-            {user.isLoggedIn ? 'Cancel Bet' : 'Cancel Bet'}
+            Cancel Bet
           </Button>
         </>
       );
@@ -437,20 +441,20 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
               !isGameRunning,
             [styles.notConnected]: !connected,
           })}
-          onClick={user.isLoggedIn ? cashOut : cashOutGuest}
+          onClick={isNotDemo ? cashOut : cashOutGuest}
           data-tracking-id={
-            user.isLoggedIn ? 'elongame-cashout' : 'elongame-cashout-guest'
+            isNotDemo ? 'elongame-cashout' : 'elongame-cashout-guest'
           }
         >
-          {user.isLoggedIn ? 'Cash Out' : 'Cash Out'}
+          Cash Out
         </Button>
       );
     }
   };
 
-  const renderBuyWFAIRMessage = () => {
+  const renderWarningMessage = () => {
     return (
-      <div className={styles.buyTokenInfo}>
+      <div className={styles.warningInfo}>
         <p
           className={classNames([
             user.isLoggedIn && amount > userBalance ? styles.visible : null,
@@ -458,6 +462,22 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
         >
           Insufficient balance to place this bet.{' '}
           <span onClick={() => history.push(Routes.wallet)}>Add funds</span>
+        </p>
+        <p
+          className={classNames([
+            user.isLoggedIn && amount === 0 ? styles.visible : null,
+            styles.demo
+          ])}
+        >
+          Betting 0 {TOKEN_NAME} will start DEMO mode{' '}
+        </p>
+        <p
+          className={classNames([
+            !user.isLoggedIn ? styles.visible : null,
+            styles.demo
+          ])}
+        >
+          Playing the DEMO mode{' '}
         </p>
       </div>
     );
@@ -971,7 +991,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
       )}
       {renderProfit()}
       {renderButton()}
-      {renderBuyWFAIRMessage()}
+      {renderWarningMessage()}
       {renderMessage()}
     </div>
   );

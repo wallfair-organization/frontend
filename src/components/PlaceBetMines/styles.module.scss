@@ -313,6 +313,12 @@
   align-items: center;
   justify-content: space-around;
   width: 260px;
+
+  flex-direction: column;
+
+  span {
+    font-size: 14px;
+  }
 }
 
 .button.cancel {
@@ -535,7 +541,8 @@
   text-align: center;
 }
 
-.currentMultiplier, .currentProfit {
+.currentMultiplier,
+.currentProfit {
   width: 100%;
   padding: 0 10px;
   color: $colorWhite;
@@ -554,7 +561,7 @@
   -ms-user-select: none;
   user-select: none;
 }
-.buyTokenInfo {
+.warningInfo {
   font-size: 14px;
   color: $colorGray;
   margin: 0 auto 20px;
@@ -567,6 +574,11 @@
 
     &.visible {
       display: block;
+    }
+
+    &.demo {
+      color: $colorRedLight;
+      font-weight: 600;
     }
   }
 

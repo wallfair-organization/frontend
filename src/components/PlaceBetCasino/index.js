@@ -111,7 +111,7 @@ const PlaceBetCasino = ({
 
 
   const placeGuestBet = () => {
-    if (numberOfDemoPlays === 3) {
+    if (!user.isLoggedIn && numberOfDemoPlays === 3) {
       showLoginPopup();
       return;
     }
@@ -180,11 +180,11 @@ const PlaceBetCasino = ({
             user.isLoggedIn ? 'alpacawheel-place-bet' : 'alpacawheel-play-demo'
           }
         >
-          {user.isLoggedIn && amount > 0
-              ? selector === 'manual'
-                ? 'Place Bet'
-                : 'Start Auto Bet'
-              : 'Play Demo'}
+          {
+            selector === 'manual'
+              ? 'Place Bet'
+              : 'Start Auto Bet'
+          }
         </Button>
       );
     } else {
@@ -207,9 +207,9 @@ const PlaceBetCasino = ({
     }
   };
 
-  const renderBuyWFAIRMessage = () => {
+  const renderWarningMessage = () => {
     return (
-      <div className={styles.buyTokenInfo}>
+      <div className={styles.warningInfo}>
         <p
           className={classNames([
             user.isLoggedIn && amount > userBalance ? styles.visible : null,
@@ -217,6 +217,22 @@ const PlaceBetCasino = ({
         >
           Insufficient balance to place this bet.{' '}
           <span onClick={() => history.push(Routes.wallet)}>Add funds</span>
+        </p>
+        <p
+          className={classNames([
+            user.isLoggedIn && amount === 0 ? styles.visible : null,
+            styles.demo
+          ])}
+        >
+          Betting 0 {TOKEN_NAME} will start DEMO mode{' '}
+        </p>
+        <p
+          className={classNames([
+            !user.isLoggedIn ? styles.visible : null,
+            styles.demo
+          ])}
+        >
+          Playing the DEMO mode{' '}
         </p>
       </div>
     );
@@ -433,7 +449,7 @@ const PlaceBetCasino = ({
         className={styles.tooltip}
       />
       {renderButton()}
-      {renderBuyWFAIRMessage()}
+      {renderWarningMessage()}
       {renderMessage()}
     </div>
   );

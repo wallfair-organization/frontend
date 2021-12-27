@@ -243,7 +243,7 @@ const PlaceBetMines = ({
           disabled={buttonEnable}
           onClick={bet?.pending ? null : (user.isLoggedIn && amount > 0) ? (selector === 'manual' ? placeABet : placeAutoBet) : placeGuestBet }
         >
-          {(user.isLoggedIn && amount > 0) ? (selector === 'manual' ? 'Place Bet' : 'Start Auto Bet') : 'Play Demo'}
+          {(user.isLoggedIn && amount > 0) ? (selector === 'manual' ? 'Place Bet' : 'Start Auto Bet') : 'Place Bet'}
         </Button>
       );
     } else {
@@ -302,9 +302,9 @@ const PlaceBetMines = ({
       );
     }
   };
-  const renderBuyWFAIRMessage = () => {
+  const renderWarningMessage = () => {
   return (
-    <div className={styles.buyTokenInfo}>
+    <div className={styles.warningInfo}>
       <p
         className={classNames([
           user.isLoggedIn && amount > userBalance ? styles.visible : null,
@@ -313,6 +313,22 @@ const PlaceBetMines = ({
         Insufficient balance to place this bet.{' '}
         <span onClick={() => history.push(Routes.wallet)}>Add funds</span>
       </p>
+      <p
+          className={classNames([
+            user.isLoggedIn && amount === 0 ? styles.visible : null,
+            styles.demo
+          ])}
+        >
+          Betting 0 {TOKEN_NAME} will start DEMO mode{' '}
+        </p>
+        <p
+          className={classNames([
+            !user.isLoggedIn ? styles.visible : null,
+            styles.demo
+          ])}
+        >
+          Playing the DEMO mode{' '}
+        </p>
     </div>
   );
 };
@@ -561,7 +577,7 @@ const PlaceBetMines = ({
         className={styles.tooltip}
       />
       {renderButton()}
-      {renderBuyWFAIRMessage()}
+      {renderWarningMessage()}
       {renderMessage()}
     </div>
   );
