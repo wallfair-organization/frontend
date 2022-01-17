@@ -156,13 +156,7 @@ const UserWallet = ({
         <Grid item xs={12}>
           <div className={styles.activityWrapper}>
             <TabOptions
-              options={
-                activityTabOptions
-                  ? activityTabOptions.filter(
-                      ({ name }) => (name !== 'FIAT DEPOSITS') //when fiat on ramp is activated, remove the second condition part
-                    )
-                  : []
-              }
+              options={activityTabOptions}
               className={styles.tabLayout}
             >
               {(option) => {
