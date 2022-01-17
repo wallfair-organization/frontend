@@ -604,6 +604,13 @@ const sendBuyWithFiat = (data) => {
     .catch(error => ({ error: error.message }))
 }
 
+const generateMoonpayUrl = (data) => {
+  if (!Api.defaults.headers.common['Authorization']) return;
+  return Api.post(ApiUrls.GENERATE_MOONPAY_URL, data)
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.message }));
+}
+
 const acceptToS = () => {
   if (!Api.defaults.headers.common['Authorization']) return;
   return Api.post(ApiUrls.ACCEPT_TOS)
@@ -696,5 +703,6 @@ export {
   acceptToS,
   getUserCount,
   getBonusCount,
-  refreshKycStatus
+  refreshKycStatus,
+  generateMoonpayUrl,
 };

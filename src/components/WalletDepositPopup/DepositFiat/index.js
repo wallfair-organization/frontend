@@ -1,12 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styles from './styles.module.scss';
-import {ReactComponent as LeftArrow} from '../../../data/icons/deposit/left-arrow.svg';
+import { ReactComponent as LeftArrow } from '../../../data/icons/deposit/left-arrow.svg';
 import Button from 'components/Button';
 import PopupTheme from 'components/Popup/PopupTheme';
 import { connect } from 'react-redux';
 import { PopupActions } from 'store/actions/popup';
-import { trackWalletBuywithfiatRequest, trackWalletFiatProceedPartner } from 'config/gtm';
-import { convertCurrency, generateCryptopayChannel, sendBuyWithFiat } from 'api';
+import {
+  trackWalletBuywithfiatRequest,
+  trackWalletFiatProceedPartner,
+} from 'config/gtm';
+import {
+  convertCurrency,
+  generateCryptopayChannel,
+  sendBuyWithFiat,
+  generateMoonpayUrl,
+} from 'api';
 import { numberWithCommas } from 'utils/common';
 import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
 import Dropdown from 'components/Dropdown';
@@ -16,10 +24,9 @@ import useDepositsCounter from 'hooks/useDepositsCounter';
 import { LIMIT_BONUS } from 'constants/Bonus';
 import { TransactionActions } from 'store/actions/transaction';
 
-
 // const stagingGoerliRampURL = "https://ri-widget-staging-goerli2.firebaseapp.com/";
-const productionRampURL = "https://buy.ramp.network/";
-const cryptoTransaction = "BTC";
+const productionRampURL = 'https://buy.ramp.network/';
+const cryptoTransaction = 'BTC';
 
 const CURRENCY_OPTIONS = [
   {
@@ -32,8 +39,11 @@ const CURRENCY_OPTIONS = [
   },
 ];
 
-const DepositFiat = ({user, showWalletDepositPopup, fetchWalletTransactions}) => {
-
+const DepositFiat = ({
+  user,
+  showWalletDepositPopup,
+  fetchWalletTransactions,
+}) => {
   const [selectedCurrency, setSelectedCurrency] = useState(CURRENCY_OPTIONS[0]);
   const [currency, setCurrency] = useState(100);
   const [WFAIRToken, setWFAIRToken] = useState(0);
@@ -42,28 +52,28 @@ const DepositFiat = ({user, showWalletDepositPopup, fetchWalletTransactions}) =>
   const [address, setAddress] = useState('');
   const [errorFetchingChannel, setErrorFetchingChannel] = useState(false);
   const depositCount = useDepositsCounter();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchWalletTransactions();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const selectContent = event => {
     event.target.select();
-  }
+  };
 
   const currencyChange = value => {
     const inputCurrency = value > 2000 ? 2000 : value;
     setCurrency(inputCurrency);
-  }
+  };
 
-  const onInputAmountChange = async (event) => {
+  const onInputAmountChange = async event => {
     if (currency > 0) {
-
       const convertCurrencyPayload = {
         convertFrom: selectedCurrency.label.toLocaleUpperCase(),
         convertTo: 'WFAIR',
-        amount: currency
+        amount: currency,
       };
 
       const { response } = await convertCurrency(convertCurrencyPayload);
@@ -76,36 +86,34 @@ const DepositFiat = ({user, showWalletDepositPopup, fetchWalletTransactions}) =>
 
       setWFAIRToken(WfairTokenValue);
 
-      const expectedBonus = depositCount > 0 ? 0 : Math.min(LIMIT_BONUS, WfairTokenValue);
+      const expectedBonus =
+        depositCount > 0 ? 0 : Math.min(LIMIT_BONUS, WfairTokenValue);
       setBonus(expectedBonus);
     }
-  }
+  };
 
   useEffect(() => {
     onChangeAmount();
-  }, [selectedCurrency, currency])
+  }, [selectedCurrency, currency]);
 
-  
+  // const fetchReceiverAddress = useCallback(async (tab) => {
+  //   const channel = await generateCryptopayChannel({ currency: cryptoTransaction });
 
-  const fetchReceiverAddress = useCallback(async (tab) => {
-    const channel = await generateCryptopayChannel({ currency: cryptoTransaction });
-    
-    if(channel.error) {
-      return setErrorFetchingChannel(true);
-    }
+  //   if(channel.error) {
+  //     return setErrorFetchingChannel(true);
+  //   }
 
-    setErrorFetchingChannel(false);
-    setAddress(channel.address);
-  }, []);
+  //   setErrorFetchingChannel(false);
+  //   setAddress(channel.address);
+  // }, []);
 
-  useEffect(() => {
-    fetchReceiverAddress();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   fetchReceiverAddress();
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   const OnClickContinue = async () => {
-    if(currency && WFAIRToken) {
-
+    if (currency && WFAIRToken) {
       try {
         trackWalletBuywithfiatRequest();
         sendBuyWithFiat({
@@ -113,8 +121,8 @@ const DepositFiat = ({user, showWalletDepositPopup, fetchWalletTransactions}) =>
           userId: user.userId,
           email: user.email,
           amount: currency,
-          estimate: WFAIRToken
-        })
+          estimate: WFAIRToken,
+        });
 
         setRequestSent(true);
       } catch (err) {
@@ -134,12 +142,29 @@ const DepositFiat = ({user, showWalletDepositPopup, fetchWalletTransactions}) =>
 
   const renderBackButton = () => {
     return (
-      <div className={styles.chooseOtherMethod} onClick={showWalletDepositPopup}>
+      <div
+        className={styles.chooseOtherMethod}
+        onClick={showWalletDepositPopup}
+      >
         <LeftArrow />
         <span>Other payment methods</span>
       </div>
-    )
-  }
+    );
+  };
+
+  const getMoonpayUrl = async () => {
+    setLoading(true);
+    const res = await generateMoonpayUrl({
+      amount: currency,
+      currency: selectedCurrency.label,
+    });
+
+    if (res.response.data.url) {
+      window.open(res.response.data.url, '_blank');
+    }
+
+    setLoading(false);
+  };
 
   return (
     <div className={styles.depositFiat}>
@@ -152,12 +177,8 @@ const DepositFiat = ({user, showWalletDepositPopup, fetchWalletTransactions}) =>
 
       {renderBackButton()}
 
-      <p className={styles.title}>
-        Buy with EUR / USD
-      </p>
-      <p>
-        Deposit EUR or USD to start playing in a few hours.
-      </p>
+      <p className={styles.title}>Buy with EUR / USD</p>
+      <p>Deposit EUR or USD to start playing in a few hours.</p>
 
       {/* Currency */}
       <div className={styles.formGroupContainer}>
@@ -198,37 +219,46 @@ const DepositFiat = ({user, showWalletDepositPopup, fetchWalletTransactions}) =>
         </div>
       </div>
 
-      
       <div className={styles.overview}>
-        <p className={styles.title}>
-          Deposit Overview
-        </p>
+        <p className={styles.title}>Deposit Overview</p>
         <div className={styles.overviewItem}>
-          <span>Estimate</span><span>{numberWithCommas(WFAIRToken)} {TOKEN_NAME}</span>
+          <span>Estimate</span>
+          <span>
+            {numberWithCommas(WFAIRToken)} {TOKEN_NAME}
+          </span>
         </div>
-        <hr/>
+        <hr />
         <div className={styles.overviewItem}>
-          <span>Bonus</span><span className={styles.bonus}>{numberWithCommas(bonus)} {TOKEN_NAME}</span>
+          <span>Bonus</span>
+          <span className={styles.bonus}>
+            {numberWithCommas(bonus)} {TOKEN_NAME}
+          </span>
         </div>
-        <hr/>
+        <hr />
         <div className={styles.overviewItem}>
-          <span className={styles.total}>Total</span><span className={styles.total}>{numberWithCommas(parseFloat(WFAIRToken) + parseFloat(bonus))} {TOKEN_NAME}</span>
+          <span className={styles.total}>Total</span>
+          <span className={styles.total}>
+            {numberWithCommas(parseFloat(WFAIRToken) + parseFloat(bonus))}{' '}
+            {TOKEN_NAME}
+          </span>
         </div>
-        <hr/>
+        <hr />
       </div>
 
       <div className={styles.summary}>
-        <span>For your safety and convenience, we process money payments via an external provider. Please click the button below to continue. <b>Important</b>: DO NOT change the BTC wallet address provided.</span>
+        <span>
+          For your safety and convenience, we process money payments via an
+          external provider. Please click the button below to continue.{' '}
+          <b>Important</b>: DO NOT change the Wallet address provided.
+        </span>
         {/* <span>Your {cryptoTransaction} Deposit Address: {address}</span> */}
       </div>
 
-      {currency > 0 && user.email && address ?
-        <a onClick={() => trackWalletFiatProceedPartner()} target="_blank" rel="noreferrer" href={`${productionRampURL}?swapAsset=${cryptoTransaction}&fiatValue=${currency}&fiatCurrency=${selectedCurrency.label}&userEmailAddress=${user.email}&userAddress=${address}`}>
-          <Button>Proceed with partner</Button>
-        </a>
-        :
+      {currency > 0 && user.email && !loading ? (
+        <Button onClick={() => getMoonpayUrl()}>Proceed with partner</Button>
+      ) : (
         <Button disabled>Proceed with partner</Button>
-      }
+      )}
     </div>
   );
 };
@@ -241,17 +271,15 @@ const mapStateToProps = state => {
   };
 };
 
-
 const mapDispatchToProps = dispatch => {
-  return { 
-    showWalletDepositPopup: () => { 
+  return {
+    showWalletDepositPopup: () => {
       dispatch(PopupActions.show({ popupType: PopupTheme.walletDeposit }));
     },
     fetchWalletTransactions: () => {
       dispatch(TransactionActions.fetchWalletTransactions());
     },
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DepositFiat);
-
