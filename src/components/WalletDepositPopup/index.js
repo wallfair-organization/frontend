@@ -7,6 +7,7 @@ import DepositSelection from './DepositSelection';
 import { PopupActions } from 'store/actions/popup';
 import DepositCrypto from './DepositCrypto';
 import DepositFiat from './DepositFiat';
+import DepositMoonpay from './DepositMoonpay';
 import DepositToken from './DepositToken';
 import WithdrawTab from 'components/WalletBuyWfairPopup/Tabs/WithdrawTab';
 
@@ -18,7 +19,7 @@ const WalletDepositPopup = ({visible, type}) => {
       case PopupTheme.walletDepositCrypto:
         return <DepositCrypto />;
       case PopupTheme.walletDepositFiat:
-        return <DepositFiat />;
+        return process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' ? <DepositMoonpay /> : <DepositFiat />;
       case PopupTheme.walletConnectWallet:
         return <DepositToken />;
       case PopupTheme.walletWithdraw:

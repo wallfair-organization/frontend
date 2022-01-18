@@ -1,0 +1,32 @@
+@import '../../../styles/all';
+
+.depositFiat {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 17px;
+  min-height: 550px;
+
+  iframe {
+    border-radius: 4px;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .chooseOtherMethod {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    span {
+      padding-bottom: 3px;
+      color: $colorButton;
+      font-size: 14px;
+    }
+  }
+}

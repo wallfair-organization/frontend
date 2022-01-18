@@ -283,7 +283,7 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             type === PopupTheme.walletBuyWfair ? styles.walletBuyWfair : null,
             type === PopupTheme.walletDeposit ? styles.walletDeposit : null,
             type === PopupTheme.walletDepositCrypto ? classNames(styles.walletDeposit, styles.depositWider) : null,
-            type === PopupTheme.walletDepositFiat ? classNames(styles.walletDeposit, styles.depositWider) : null,
+            type === PopupTheme.walletDepositFiat ? classNames(styles.walletDeposit, styles.depositWider, process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' ? styles.depositMoonpay : null) : null,
             type === PopupTheme.walletWithdraw ? classNames(styles.walletDeposit, styles.depositWider) : null,
             type === PopupTheme.walletConnectWallet ? styles.walletDeposit : null,
             type === PopupTheme.disclaimer ? styles.disclaimerContainer : null,

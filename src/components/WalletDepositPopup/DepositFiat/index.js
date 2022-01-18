@@ -11,7 +11,6 @@ import {
 import {
   convertCurrency,
   generateCryptopayChannel,
-  generateMoonpayUrl,
 } from 'api';
 import { numberWithCommas } from 'utils/common';
 import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
@@ -143,20 +142,6 @@ const DepositFiat = ({
     );
   };
 
-  const getMoonpayUrl = async () => {
-    setLoading(true);
-    const res = await generateMoonpayUrl({
-      amount: currency,
-      currency: selectedCurrency.label,
-    });
-
-    if (res.response.data.url) {
-      window.open(res.response.data.url, '_blank');
-    }
-
-    setLoading(false);
-  };
-
   const getRampUrl = () => {
     if (address) {
       const rampUrl = `${productionRampURL}?swapAsset=${cryptoTransaction}&fiatValue=${currency}&fiatCurrency=${selectedCurrency.label}&userEmailAddress=${user.email}&userAddress=${address}`;
@@ -165,12 +150,7 @@ const DepositFiat = ({
   }
 
   const handlePartnerClick = () => {
-    if (process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true') {
-      getMoonpayUrl();
-    } else {
-      getRampUrl();
-    }
-
+    getRampUrl();
     trackWalletFiatProceedPartner();
   }
 
