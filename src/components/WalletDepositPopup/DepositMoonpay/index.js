@@ -5,16 +5,16 @@ import PopupTheme from 'components/Popup/PopupTheme';
 import { connect } from 'react-redux';
 import { PopupActions } from 'store/actions/popup';
 import { trackWalletFiatProceedPartner } from 'config/gtm';
-import {
-  generateMoonpayUrl,
-} from 'api';
+import { generateMoonpayUrl } from 'api';
 import { TransactionActions } from 'store/actions/transaction';
 import Loader from '../../Loader/Loader';
+import moonPayLogo from '../../../data/icons/footer/moon-pay-logo.png';
 
 const DepositMoonpay = ({
-  user,
   showWalletDepositPopup,
   fetchWalletTransactions,
+  amount,
+  currency,
 }) => {
   const [loading, setLoading] = useState(false);
   const [widgetUrl, setWidgetUrl] = useState(false);
@@ -33,14 +33,17 @@ const DepositMoonpay = ({
         onClick={showWalletDepositPopup}
       >
         <LeftArrow />
-        <span>Other payment methods</span>
+        <span>Back</span>
       </div>
     );
   };
 
   const getMoonpayUrl = async () => {
     setLoading(true);
-    const res = await generateMoonpayUrl();
+    const res = await generateMoonpayUrl({
+      amount: amount,
+      currency: currency,
+    });
 
     if (res.response.data.url) {
       setWidgetUrl(res.response.data.url);
@@ -55,14 +58,25 @@ const DepositMoonpay = ({
       {loading && !widgetUrl ? (
         <Loader />
       ) : (
-        <iframe
-          allow="accelerometer; autoplay; camera; gyroscope; payment"
-          title="moonpay"
-          src={widgetUrl}
-          width="100%"
-          height="100%"
-          frameborder="0"
-        ></iframe>
+        <>
+          <iframe
+            allow="accelerometer; autoplay; camera; gyroscope; payment"
+            title="moonpay"
+            src={widgetUrl}
+            width="100%"
+            height="650"
+            frameborder="0"
+          ></iframe>
+
+          <div className={styles.widgetFooter}>
+            <p>Powered by</p>
+            <img
+              src={moonPayLogo}
+              className={styles.moonpayLogo}
+              alt={'MoonPay logo'}
+            />
+          </div>
+        </>
       )}
     </div>
   );
@@ -71,7 +85,7 @@ const DepositMoonpay = ({
 const mapDispatchToProps = dispatch => {
   return {
     showWalletDepositPopup: () => {
-      dispatch(PopupActions.show({ popupType: PopupTheme.walletDeposit }));
+      dispatch(PopupActions.show({ popupType: PopupTheme.walletDepositFiat }));
     },
     fetchWalletTransactions: () => {
       dispatch(TransactionActions.fetchWalletTransactions());

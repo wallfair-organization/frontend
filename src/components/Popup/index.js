@@ -242,7 +242,7 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
       case PopupTheme.requestTokens:
         return <RequestTokensPopup />;
       case PopupTheme.alpacaBuilder:
-        return <AlpacaBuilderPopup {...options}/>;
+        return <AlpacaBuilderPopup {...options} />;
 
       case PopupTheme.walletDeposit:
         return <WalletDepositPopup />;
@@ -250,10 +250,12 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <WalletDepositPopup type={PopupTheme.walletDepositCrypto} />;
       case PopupTheme.walletDepositFiat:
         return <WalletDepositPopup type={PopupTheme.walletDepositFiat} />;
+      case PopupTheme.walletDepositMoonpay:
+        return <WalletDepositPopup type={PopupTheme.walletDepositMoonpay} amount={options.amount} currency={options.currency} />;
       case PopupTheme.walletConnectWallet:
         return <WalletDepositPopup type={PopupTheme.walletConnectWallet} />;
       case PopupTheme.walletWithdraw:
-        return <WalletDepositPopup type={PopupTheme.walletWithdraw}/>;
+        return <WalletDepositPopup type={PopupTheme.walletWithdraw} />;
       case PopupTheme.transakSuccess:
         return <TransakSuccess options={options} />;
       case PopupTheme.txModal:
@@ -283,7 +285,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             type === PopupTheme.walletBuyWfair ? styles.walletBuyWfair : null,
             type === PopupTheme.walletDeposit ? styles.walletDeposit : null,
             type === PopupTheme.walletDepositCrypto ? classNames(styles.walletDeposit, styles.depositWider) : null,
-            type === PopupTheme.walletDepositFiat ? classNames(styles.walletDeposit, styles.depositWider, process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' ? styles.depositMoonpay : null) : null,
+            type === PopupTheme.walletDepositFiat ? classNames(styles.walletDeposit, styles.depositWider) : null,
+            type === PopupTheme.walletDepositMoonpay ? classNames(styles.walletDeposit, styles.depositWider, styles.depositMoonpay) : null,
             type === PopupTheme.walletWithdraw ? classNames(styles.walletDeposit, styles.depositWider) : null,
             type === PopupTheme.walletConnectWallet ? styles.walletDeposit : null,
             type === PopupTheme.disclaimer ? styles.disclaimerContainer : null,
@@ -321,6 +324,7 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
                 type !== PopupTheme.walletDeposit &&
                 type !== PopupTheme.walletDepositCrypto &&
                 type !== PopupTheme.walletDepositFiat &&
+                type !== PopupTheme.walletDepositMoonpay &&
                 type !== PopupTheme.walletConnectWallet &&
                 type !== PopupTheme.walletWithdraw
               ) && <>

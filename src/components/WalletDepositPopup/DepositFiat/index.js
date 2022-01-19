@@ -40,6 +40,7 @@ const DepositFiat = ({
   user,
   showWalletDepositPopup,
   fetchWalletTransactions,
+  openMoonpayWidget,
 }) => {
   const [selectedCurrency, setSelectedCurrency] = useState(CURRENCY_OPTIONS[0]);
   const [currency, setCurrency] = useState(100);
@@ -48,7 +49,6 @@ const DepositFiat = ({
   const [address, setAddress] = useState();
   const [errorFetchingChannel, setErrorFetchingChannel] = useState(false);
   const depositCount = useDepositsCounter();
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchWalletTransactions();
@@ -86,10 +86,12 @@ const DepositFiat = ({
     onChangeAmount();
   }, [selectedCurrency, currency]);
 
-  const fetchReceiverAddress = useCallback(async (tab) => {
-    const channel = await generateCryptopayChannel({ currency: cryptoTransaction });
-    
-    if(channel.error) {
+  const fetchReceiverAddress = useCallback(async tab => {
+    const channel = await generateCryptopayChannel({
+      currency: cryptoTransaction,
+    });
+
+    if (channel.error) {
       return setErrorFetchingChannel(true);
     }
 
@@ -99,7 +101,7 @@ const DepositFiat = ({
 
   useEffect(() => {
     fetchReceiverAddress();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // const OnClickContinue = async () => {
@@ -147,12 +149,17 @@ const DepositFiat = ({
       const rampUrl = `${productionRampURL}?swapAsset=${cryptoTransaction}&fiatValue=${currency}&fiatCurrency=${selectedCurrency.label}&userEmailAddress=${user.email}&userAddress=${address}`;
       window.open(rampUrl);
     }
-  }
+  };
 
   const handlePartnerClick = () => {
-    getRampUrl();
+    if (process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true') {
+      openMoonpayWidget(currency, selectedCurrency.label);
+    } else {
+      getRampUrl();
+    }
+
     trackWalletFiatProceedPartner();
-  }
+  };
 
   return (
     <div className={styles.depositFiat}>
@@ -242,8 +249,10 @@ const DepositFiat = ({
         {/* <span>Your {cryptoTransaction} Deposit Address: {address}</span> */}
       </div>
 
-      {currency > 0 && user.email && !loading ? (
-        <Button onClick={() => handlePartnerClick()}>Proceed with partner</Button>
+      {currency > 0 && user.email ? (
+        <Button onClick={() => handlePartnerClick()}>
+          Proceed with partner
+        </Button>
       ) : (
         <Button disabled>Proceed with partner</Button>
       )}
@@ -267,6 +276,9 @@ const mapDispatchToProps = dispatch => {
     fetchWalletTransactions: () => {
       dispatch(TransactionActions.fetchWalletTransactions());
     },
+    openMoonpayWidget: (amount, currency) => {
+      dispatch(PopupActions.show({ popupType: PopupTheme.walletDepositMoonpay, options: {amount: amount, currency: currency }} ));
+    }
   };
 };
 
