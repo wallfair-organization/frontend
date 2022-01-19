@@ -241,11 +241,19 @@ const DepositFiat = ({
       </div>
 
       <div className={styles.summary}>
-        <span>
-          For your safety and convenience, we process money payments via an
-          external provider. Please click the button below to continue.{' '}
-          <b>Important</b>: DO NOT change the Wallet address provided.
-        </span>
+        {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' ? (
+          <span>
+            Incoming transactions are processed with <b>MATIC</b> via our
+            supplier Moonpay. The value will be automatically converted to{' '}
+            <b>WFAIR</b> once the transaction is completed.
+          </span>
+        ) : (
+          <span>
+            For your safety and convenience, we process money payments via an
+            external provider. Please click the button below to continue.{' '}
+            <b>Important</b>: DO NOT change the Wallet address provided.
+          </span>
+        )}
         {/* <span>Your {cryptoTransaction} Deposit Address: {address}</span> */}
       </div>
 
