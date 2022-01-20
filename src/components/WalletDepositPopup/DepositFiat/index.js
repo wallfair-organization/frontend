@@ -11,6 +11,7 @@ import {
 import {
   convertCurrency,
   generateCryptopayChannel,
+  generateMoonpayUrl,
 } from 'api';
 import { numberWithCommas } from 'utils/common';
 import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
@@ -40,7 +41,7 @@ const DepositFiat = ({
   user,
   showWalletDepositPopup,
   fetchWalletTransactions,
-  openMoonpayWidget,
+  hidePopup,
 }) => {
   const [selectedCurrency, setSelectedCurrency] = useState(CURRENCY_OPTIONS[0]);
   const [currency, setCurrency] = useState(100);
@@ -48,6 +49,7 @@ const DepositFiat = ({
   const [bonus, setBonus] = useState(0);
   const [address, setAddress] = useState();
   const [errorFetchingChannel, setErrorFetchingChannel] = useState(false);
+  const [loading, setLoading] = useState(false);
   const depositCount = useDepositsCounter();
 
   useEffect(() => {
@@ -151,9 +153,24 @@ const DepositFiat = ({
     }
   };
 
+  const proceedWithMoonpay = async () => {
+    setLoading(true);
+    const res = await generateMoonpayUrl({
+      amount: currency,
+      currency: selectedCurrency.label,
+    });
+
+    if (res.response.data.url) {
+      window.open(res.response.data.url, '_blank');
+      setTimeout(() => hidePopup(), 1000);
+    }
+
+    setLoading(false);
+  };
+
   const handlePartnerClick = () => {
     if (process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true') {
-      openMoonpayWidget(currency, selectedCurrency.label);
+      proceedWithMoonpay();
     } else {
       getRampUrl();
     }
@@ -257,7 +274,7 @@ const DepositFiat = ({
         {/* <span>Your {cryptoTransaction} Deposit Address: {address}</span> */}
       </div>
 
-      {currency > 0 && user.email ? (
+      {currency > 0 && user.email && !loading ? (
         <Button onClick={() => handlePartnerClick()}>
           Proceed with partner
         </Button>
@@ -284,9 +301,9 @@ const mapDispatchToProps = dispatch => {
     fetchWalletTransactions: () => {
       dispatch(TransactionActions.fetchWalletTransactions());
     },
-    openMoonpayWidget: (amount, currency) => {
-      dispatch(PopupActions.show({ popupType: PopupTheme.walletDepositMoonpay, options: {amount: amount, currency: currency }} ));
-    }
+    hidePopup: () => {
+      dispatch(PopupActions.hide());
+    },
   };
 };
 

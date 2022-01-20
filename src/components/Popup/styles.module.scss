@@ -118,16 +118,6 @@
       }
     }
 
-    &.depositMoonpay {
-      max-width: 600px !important;
-      .modalContent {
-        padding: 20px;
-        &::after {
-          inset: 0;
-        }
-      }
-    }
-
     &.signUpNotificationPopupContainer,
     &.welcomeContainer,
     &.usernamePopup,

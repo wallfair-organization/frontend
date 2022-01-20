@@ -7,7 +7,6 @@ import DepositSelection from './DepositSelection';
 import DepositCrypto from './DepositCrypto';
 import DepositFiat from './DepositFiat';
 import DepositToken from './DepositToken';
-import DepositMoonpay from './DepositMoonpay';
 import WithdrawTab from 'components/WalletBuyWfairPopup/Tabs/WithdrawTab';
 
 const WalletDepositPopup = ({visible, type, amount, currency}) => {
@@ -18,8 +17,6 @@ const WalletDepositPopup = ({visible, type, amount, currency}) => {
         return <DepositCrypto />;
       case PopupTheme.walletDepositFiat:
         return <DepositFiat />;
-      case PopupTheme.walletDepositMoonpay:
-        return <DepositMoonpay amount={amount} currency={currency} />;
       case PopupTheme.walletConnectWallet:
         return <DepositToken />;
       case PopupTheme.walletWithdraw:
