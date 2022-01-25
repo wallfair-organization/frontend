@@ -26,7 +26,6 @@ import { ReactComponent as WfairIcon } from '../../data/icons/wfair-symbol.svg';
 import { ReactComponent as BitcoinIcon } from '../../data/icons/wallet/bitcoin.svg';
 import { ReactComponent as EuroIcon } from '../../data/icons/wallet/euro.svg';
 import { ReactComponent as WalletIcon } from '../../data/icons/wallet/wallet.svg';
-import { ReactComponent as GreenPathIcon } from '../../data/icons/wallet/green-path.svg';
 import { ReactComponent as RightArrow } from '../../data/icons/wallet/right-arrow.svg';
 
 import * as ApiUrls from 'constants/Api';
@@ -42,7 +41,7 @@ import {
 import Bonus100kDesktop from '../../data/images/deposit/bonus100k-desktop.png';
 import Bonus100kMobile from '../../data/images/deposit/bonus100k-mobile.png';
 import ButtonTheme from 'components/Button/ButtonTheme';
-import { AVAILABLE_GAMES_CURRENCY, CURRENCIES } from '../../constants/Currency';
+import { AVAILABLE_GAMES_CURRENCY } from '../../constants/Currency';
 import { TOKEN_NAME } from '../../constants/Token';
 
 const UserWallet = ({
@@ -76,9 +75,8 @@ const UserWallet = ({
     process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true';
   const { active, library, account, chainId } = useWeb3React();
 
-  const { balance, gamesCurrency } = useSelector(selectUser);
-  const [selectedGamesCurrency, setSelectedGamesCurrency] =
-    useState(gamesCurrency);
+  const { balance, balances, gamesCurrency } = useSelector(selectUser);
+  const [selectedGamesCurrency, setSelectedGamesCurrency] = useState(gamesCurrency);
 
   const signer = library?.getSigner();
   const [stakesLoading, setStakesLoading] = useState(true);
@@ -219,26 +217,32 @@ const UserWallet = ({
   };
 
   const renderCurrentBalanceSection = () => {
-    const balanceFixed = formatToFixed(balance, 0, true);
-
     return (
       <div className={styles.currentBalanceSection}>
         <div className={styles.currentBalanceDescription}>
           <div className={styles.currentBalanceCard}>
             <div className={styles.balanceContainer}>
               <div className={styles.leftCard}>
-                <WfairIcon className={styles.wfairLogo} />
-                <div className={styles.balanceTextContainer}>
-                  <p className={styles.currentbalanceHeading}>
-                    Current balance:
-                  </p>
-                  <div className={styles.balanceBottomContainer}>
-                    <p className={styles.currentbalanceWFair}>
-                      <span>{balanceFixed}</span>
-                    </p>
-                    <p className={styles.symbolContainer}>{TOKEN_NAME}</p>
-                  </div>
-                </div>
+                <WfairIcon
+                  className={styles.wfairLogo}
+                />
+                {
+                  balances && balances.map(b => {
+                    return (
+                      <div className={styles.balanceTextContainer}>
+                        <p className={styles.currentbalanceHeading}>
+                          {b.symbol === TOKEN_NAME ? 'Current balance:' : 'Bonus balance:'}
+                        </p>
+                        <div className={styles.balanceBottomContainer}>
+                          <p className={styles.currentbalanceWFair}>
+                            <span>{formatToFixed(b.balance, 0, true)}</span>
+                          </p>
+                          <p className={styles.symbolContainer}>{b.symbol}</p>
+                        </div>
+                      </div>
+                    );
+                  })
+                }
               </div>
               <div className={styles.rightCard}>
                 <Button
@@ -259,8 +263,6 @@ const UserWallet = ({
   };
 
   const renderWalletPreferencesSection = () => {
-    const balanceFixed = formatToFixed(balance, 0, true);
-
     const generateOptions = () => {
       return AVAILABLE_GAMES_CURRENCY.map(item => {
         const currencyCode = item.toUpperCase();
