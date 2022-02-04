@@ -154,6 +154,8 @@ const DepositFiat = ({
   };
 
   const proceedWithMoonpay = async () => {
+    const windowRef = window.open();
+
     setLoading(true);
     const res = await generateMoonpayUrl({
       amount: currency,
@@ -161,7 +163,7 @@ const DepositFiat = ({
     });
 
     if (res.response.data.url) {
-      window.open(res.response.data.url, '_blank');
+      windowRef.location = res.response.data.url;
       setTimeout(() => hidePopup(), 1000);
     }
 
