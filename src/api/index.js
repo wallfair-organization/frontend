@@ -716,7 +716,7 @@ const getOutcomesHistoryForChart = (betId, params = {}) => {
 };
 
 const editEventBet = (betId, payload) => {
-  return EventsServiceApi.put(`/bets/bet/${betId}`, payload)
+  return EventsServiceApi.put(`/admin/bet/${betId}`, payload)
     .then(res => res.data)
     .catch(err => {
       console.log('[API-Error]: editEventBet ', err);
