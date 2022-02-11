@@ -4,12 +4,10 @@ import _ from 'lodash';
 import Button from '../Button';
 import ChoiceSelector from '../ChoiceSelector';
 import classNames from 'classnames';
-import { useRouteMatch } from 'react-router-dom';
 import HighlightType from '../../components/Highlight/HighlightType';
 import moment from 'moment';
 import { useCallback } from 'react';
 import styles from './styles.module.scss';
-import TimeCounter from '../../components/TimeCounter';
 import TokenNumberInput from '../TokenNumberInput';
 import { BetActions } from '../../store/actions/bet';
 import { connect, useSelector } from 'react-redux';
@@ -17,21 +15,18 @@ import { useEffect } from 'react';
 import { useHasMounted } from '../hoc/useHasMounted';
 import { useState } from 'react';
 import ChoiceSelectorList from '../ChoiceSelectorList';
-import Icon from '../Icon';
 import LoadingAnimation from '../../data/animations/wcoin.gif';
 import IconType from '../Icon/IconType';
-import IconTheme from '../Icon/IconTheme';
-import SummaryRowContainer from '../SummaryRowContainer';
 import TextHelper from '../../helper/Text';
 import BetState from '../../constants/BetState';
-import { PopupActions, PopupTypes } from '../../store/actions/popup';
+import { PopupActions } from '../../store/actions/popup';
 import PopupTheme from '../Popup/PopupTheme';
 import ErrorHint from '../ErrorHint';
 import { formatToFixed } from '../../helper/FormatNumbers';
 import { TOKEN_NAME } from '../../constants/Token';
 import { GeneralActions } from 'store/actions/general';
 import ReactTooltip from 'react-tooltip';
-import { selectOutcomes, selectSellOutcomes } from 'store/selectors/bet';
+import { selectSellOutcomes } from 'store/selectors/bet';
 import { selectUser } from 'store/selectors/authentication';
 import { convert } from 'helper/Currency';
 import DateText from 'helper/DateText';
@@ -41,11 +36,10 @@ import AuthedOnly from 'components/AuthedOnly';
 import ButtonSmall from 'components/ButtonSmall';
 import ButtonSmallTheme from 'components/ButtonSmall/ButtonSmallTheme';
 import InfoBox from 'components/InfoBox';
-import EventTypes from 'constants/EventTypes';
 import BetActionsMenu from 'components/BetActionsMenu';
 import { trackNonstreamedEventPlaceTrade } from '../../config/gtm';
 import { OnboardingActions } from 'store/actions/onboarding';
-import { calculateBuyOutcome } from 'api';
+import { calculateBuyOutcome, placeBet } from 'api';
 import { calculateGain } from 'helper/Calculation';
 
 const BetView = ({
@@ -56,28 +50,16 @@ const BetView = ({
   isPopup = false,
   forceSellView,
   // disableSwitcher = false,
-  showEventEnd,
-  placeBet,
   // pullOutBet,
   showPopup,
   isTradeViewPopup,
   // handleChartDirectionFilter,
-  setOpenDrawer,
-  resetOutcomes,
   startOnboarding,
 }) => {
   // Static balance amount to simulate for non-logged users
   // Slider is also using 2800 as max value
   const BALANCE_NOT_LOGGED = 2800;
   const { currency, balance } = useSelector(selectUser);
-
-  const wfairBalance = formatToFixed(
-    _.get(
-      useSelector(state => state.authentication),
-      'balance',
-      0
-    )
-  );
   const defaultBetValue = 50;
   const bet = event.bet;
   const state = _.get(bet, 'status');
@@ -124,7 +106,7 @@ const BetView = ({
 
     if (
       userLoggedIn &&
-      _.toNumber(commitment) > _.toNumber(wfairBalance) &&
+      _.toNumber(commitment) > _.toNumber(balance) &&
       !isSell
     ) {
       valid = false;
@@ -141,12 +123,6 @@ const BetView = ({
 
     return valid;
   };
-
-  useEffect(() => {
-    return () => {
-      resetOutcomes();
-    };
-  }, []);
 
   useEffect(
     () => {
@@ -199,14 +175,23 @@ const BetView = ({
   };
 
   const getFinalOutcome = () => {
-    return _.get(bet, 'finalOutcome', false);
+    return _.get(bet, 'final_outcome', false);
   };
 
   const onTradeButtonConfirm = () => {
     const validInput = validateInput();
 
     if (validInput) {
-      placeBet(bet.id, commitment, choice);
+      placeBet(bet.id, commitment, choice).then((res) => {
+        showPopup(PopupTheme.betApprove,
+        {
+          data: {
+            ...res.data,
+            event,
+          },
+          hideShare: true,
+        })
+      });
     }
   };
 
@@ -565,10 +550,10 @@ const BetView = ({
       const outcomeNames = _.map(bet.outcomes, 'name') || [];
       const finalOutcome = _.get(bet, [
         'outcomes',
-        _.get(bet, 'finalOutcome'),
+        _.get(bet, 'final_outcome'),
         'name',
       ]);
-      const evidence = _.get(bet, 'evidenceActual');
+      const evidence = _.get(bet, 'evidence_actual');
 
       const data = (label, value, opts = {}) => (
         <div className={styles.resolutionData}>
@@ -591,7 +576,7 @@ const BetView = ({
           <div className={styles.summaryRowContainer}>
             {data(
               `Bet ${isClosed ? 'closed' : 'resolved'} at`,
-              DateText.formatDate(endDate)
+              DateText.formatDate(bet.end_date)
             )}
             {isClosed &&
               data(
@@ -632,8 +617,6 @@ const BetView = ({
   if (!event || !bet) {
     return null;
   }
-
-  const endDate = _.get(bet, 'endDate');
 
   return (
     <>
@@ -680,12 +663,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSellOutcomes: (amount, betId) => {
-      dispatch(BetActions.fetchSellOutcomes({ amount, betId }));
-    },
-    placeBet: (betId, amount, outcome) => {
-      dispatch(BetActions.place({ betId, amount, outcome }));
-    },
     pullOutBet: (betId, outcome, amount) => {
       dispatch(BetActions.pullOutBet({ betId, outcome, amount }));
     },
@@ -699,10 +676,6 @@ const mapDispatchToProps = dispatch => {
     },
     setOpenDrawer: drawer => {
       dispatch(GeneralActions.setDrawer(drawer));
-    },
-    resetOutcomes: () => {
-      dispatch(BetActions.setOutcomes());
-      dispatch(BetActions.setSellOutcomes());
     },
     startOnboarding: () => {
       dispatch(OnboardingActions.start());

@@ -25,25 +25,22 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
 
   const trade = _.get(options, 'data.trade');
   const bet = _.get(options, 'data.bet');
+  const event = _.get(options, 'data.event');
 
-  const amountPlaced = convert(_.get(trade, 'investmentAmount', 0), currency);
-  const potentialOutcome = convert(_.get(trade, 'outcomeTokens', 0), currency);
+  const amountPlaced = convert(_.get(trade, 'investment_amount', 0), currency);
+  const potentialOutcome = convert(_.get(trade, 'outcome_tokens', 0), currency);
   const potentialPercent = calculateGain(amountPlaced, potentialOutcome);
   const potentialPercentGain = _.get(potentialPercent, 'value');
   const potentialPercentType = _.get(potentialPercent, 'negative', false);
   const gainTypeClass = potentialPercentType ? 'negative' : 'positive';
-  const outcomeIndex = _.get(trade, 'outcomeIndex');
+  const outcomeIndex = _.get(trade, 'outcome_index');
   const outcomeValue = _.get(bet, ['outcomes', outcomeIndex, 'name']);
 
   //for later - share button logic
-  const tradeId = _.get(trade, '_id');
-  const eventId = _.get(bet, 'event');
-  const betId = _.get(trade, 'betId._id');
-
   const buildDirectLink = routes.betApproveDirect
-    .replace(':eventId', eventId)
-    .replace(':tradeId', tradeId)
-    .replace(':betId', betId);
+    .replace(':eventId', event.id)
+    .replace(':tradeId', trade.id)
+    .replace(':betId', bet.id);
 
   const urlOrigin = window.location.origin;
 
@@ -70,7 +67,7 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
         <div className={classNames(styles.entry)}>
           <div className={styles.label}>Potential outcome</div>
           <div className={styles.value}>
-            {toNumericString(potentialOutcome.toFixed(2))}{' '}
+            {toNumericString(potentialOutcome)}{' '}
             <span>{currency}</span>
           </div>
         </div>

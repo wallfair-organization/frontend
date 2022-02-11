@@ -270,7 +270,7 @@ const getTransactions = () => {
 };
 
 const placeBet = (betId, amount, outcome) => {
-  return Api.post(_.replace(ApiUrls.API_BET_PLACE, ':id', betId), {
+  return EventsServiceApi.post(`/bets/bet/${betId}/place`, {
     amount,
     outcome,
   }).catch(error => {
