@@ -408,7 +408,7 @@ const getCoverStream = () => {
 };
 
 const resolveBet = (betId, data) => {
-  return Api.post(ApiUrls.API_BET_RESOLVE.replace(':id', betId), data)
+  return EventsServiceApi.post(`/bets/bet/${betId}/resolve`, data)
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };

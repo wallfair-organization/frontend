@@ -3,7 +3,7 @@ import Icon from 'components/Icon';
 import BetState from 'constants/BetState';
 import _ from 'lodash';
 import { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../store/actions/popup';
 import IconTheme from '../Icon/IconTheme';
 import IconType from '../Icon/IconType';
@@ -17,6 +17,7 @@ import styles from './styles.module.scss';
 const BetActionsMenu = ({ event, bet, showPopup }) => {
   const [menuOpened, setMenuOpened] = useState(false);
 
+  const userCreator = useSelector(state => state.authentication.userId === bet.creator);
   const canEdit = ![BetState.canceled, BetState.resolved].includes(bet?.status);
   const canResolve = [BetState.active, BetState.closed].includes(bet?.status);
   const canCancel = [BetState.active, BetState.closed].includes(bet?.status);
@@ -29,8 +30,9 @@ const BetActionsMenu = ({ event, bet, showPopup }) => {
       case 'edit':
         return showPopup(PopupTheme.editBet, { event, bet });
       case 'resolve':
+        console.log(event, bet);
         return showPopup(PopupTheme.resolveBet, {
-          event: event,
+          bet,
         });
       case 'cancel':
         return showPopup(PopupTheme.cancelBet, { bet });
@@ -58,7 +60,7 @@ const BetActionsMenu = ({ event, bet, showPopup }) => {
   );
 
   // dont render anything if no actions are available
-  if (!canEdit && !canResolve && !canCancel && !canDelete) {
+  if (!userCreator || (!canEdit && !canResolve && !canCancel && !canDelete)) {
     return null;
   }
 

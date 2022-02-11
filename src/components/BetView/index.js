@@ -55,6 +55,7 @@ const BetView = ({
   isTradeViewPopup,
   // handleChartDirectionFilter,
   startOnboarding,
+  fetchChartHistory,
 }) => {
   // Static balance amount to simulate for non-logged users
   // Slider is also using 2800 as max value
@@ -190,7 +191,8 @@ const BetView = ({
             event,
           },
           hideShare: true,
-        })
+        });
+        fetchChartHistory(bet.id);
       });
     }
   };

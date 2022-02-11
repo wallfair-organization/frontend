@@ -204,7 +204,7 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <ViewImagePopup imageURL={options.imageURL} />;
       case PopupTheme.resolveBet:
         return (
-          <ResolveBetPopup event={options.event} />
+          <ResolveBetPopup bet={options.bet} />
         );
       case PopupTheme.cancelBet:
         return (
