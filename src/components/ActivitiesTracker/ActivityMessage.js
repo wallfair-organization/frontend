@@ -141,13 +141,13 @@ const ActivityMessage = ({ activity, date, users, events }) => {
           </div>
         ); //EDITED
       case 'Notification/EVENT_BET_PLACED':
-        const outcomeIndex = _.get(data, 'trade.outcomeIndex');
+        const outcomeIndex = _.get(data, 'trade.outcome_index');
         const outcomesName = _.get(data, `bet.outcomes[${outcomeIndex}].name`);
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has bet{' '}
             <div className={'global-token-currency'}>
-              {formatToFixed(_.get(data, 'trade.investmentAmount'), 0, true)}{' '}
+              {formatToFixed(_.get(data, 'trade.investment_amount'), 0, true)}{' '}
               {TOKEN_NAME}
             </div>{' '}
             on{' '}
@@ -161,7 +161,7 @@ const ActivityMessage = ({ activity, date, users, events }) => {
                 )}/${_.get(data, 'bet.slug')}`}
                 rel="noreferrer"
               >
-                <b>{_.get(data, 'bet.marketQuestion')}</b>
+                <b>{_.get(data, 'bet.market_question')}</b>
               </a>
             }{' '}
             with <b>{outcomesName}</b>.
@@ -210,7 +210,7 @@ const ActivityMessage = ({ activity, date, users, events }) => {
         const event = _.get(data, 'event');
         const eventSlug = _.get(event, 'slug');
         const bet = _.get(data, 'bet', []);
-        const outcomeIndex = _.get(bet, 'finalOutcome');
+        const outcomeIndex = _.get(bet, 'final_outcome');
         const outcomesName = _.get(bet, `outcomes[${outcomeIndex}].name`);
 
         const ResolveLink = () => (
@@ -223,7 +223,7 @@ const ActivityMessage = ({ activity, date, users, events }) => {
             )}`}
             rel="noreferrer"
           >
-            {_.get(bet, 'marketQuestion')}
+            {_.get(bet, 'market_question')}
           </a>
         );
 
