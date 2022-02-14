@@ -25,10 +25,7 @@ import PulloutApprovePopup from '../PulloutApprovePopup';
 import DialogActionPopup from '../DialogActionPopup';
 import DialogActions from 'components/DialogActionPopup/DialogActions';
 import LotteryGamePopup from '../LotteryGamePopup';
-import NewEventPopup from '../NewEventPopup';
-import EditEventPopup from '../EditEventPopup';
-import NewBetPopup from '../NewBetPopup';
-import EditBetPopup from '../EditBetPopup';
+import EventForms from '../EventForms';
 import AuthenticationPopup from '../AuthenticationPopup';
 import ViewImagePopup from 'components/ViewImagePopup';
 import ResolveBetPopup from 'components/ResolveBetPopup';
@@ -183,10 +180,10 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return (
           <LotteryGamePopup hidePopup={hidePopup} rewardId={options.rewardId} />
         );
-      case PopupTheme.newEvent:
-        return <NewEventPopup eventType={options.eventType} />;
-      case PopupTheme.editEvent:
-        return <EditEventPopup />;
+      case PopupTheme.eventForms:
+        return (
+          <EventForms event={options?.event} bet={options?.bet} step={options?.step} />
+        );
       case PopupTheme.deleteEvent:
         return (
           <DialogActionPopup
@@ -196,10 +193,6 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         );
       case PopupTheme.disableSharing:
         return <DialogActionPopup actionType={DialogActions.disableSharing} />;
-      case PopupTheme.newBet:
-        return <NewBetPopup />;
-      case PopupTheme.editBet:
-        return <EditBetPopup />;
       case PopupTheme.viewImage:
         return <ViewImagePopup imageURL={options.imageURL} />;
       case PopupTheme.resolveBet:
@@ -287,6 +280,9 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             type === PopupTheme.walletWithdraw ? classNames(styles.walletDeposit, styles.depositWider) : null,
             type === PopupTheme.walletConnectWallet ? styles.walletDeposit : null,
             type === PopupTheme.disclaimer ? styles.disclaimerContainer : null,
+            type === PopupTheme.disclaimer ? styles.disclaimerContainer : null,
+            type === PopupTheme.disclaimer ? styles.disclaimerContainer : null,
+            type === PopupTheme.eventForms ? styles.eventForms : null,
             type === PopupTheme.explanation
               ? styles.explanationPopupVisual
               : null,

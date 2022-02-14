@@ -142,7 +142,7 @@ const NonStreamedEventsContent = ({
             {authState === LOGGED_IN && (
               <Button 
                 theme={ButtonTheme.primaryButtonS} 
-                onClick={() => showPopup(PopupTheme.newEvent, { eventType })} 
+                onClick={() => showPopup(PopupTheme.eventForms, {})} 
                 className={styles.createButton}
               >
                 <PlusIcon />

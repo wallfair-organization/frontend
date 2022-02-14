@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { ReactComponent as AddTagIcon } from './add-icon.svg';
 import Input from '../Input';
 import styles from './styles.module.scss';
@@ -10,6 +11,7 @@ const Tags = ({
   max = 0,
   preventAdd = false,
   preventRemove = false,
+  customTagInput = null,
 }) => {
   const isAddTagVisible =
     !preventAdd && (isNaN(max) || max <= 0 || tags.length < max);
@@ -22,7 +24,7 @@ const Tags = ({
             type="text"
             value={tags[index].name}
             onChange={value => onTagChange(value, tag.id)}
-            className={styles.tagInput}
+            className={classNames(styles.tagInput, customTagInput)}
           />
           {!preventRemove && (
             <span

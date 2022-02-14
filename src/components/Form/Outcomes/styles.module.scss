@@ -4,19 +4,38 @@
   display: flex;
   flex-flow: wrap;
   grid-gap: 10px;
+  flex-direction: column;
+  padding: 15px;
   .outcomeCard {
     flex-basis: calc(50% - 5px);
     padding: 10px;
-    border: 1px solid $colorGrayLight6;
-    background-color: $colorGrayLight3;
+    border: 2px solid;
     border-radius: 6px;
     position: relative;
     display: flex;
     justify-content: space-between;
     flex-flow: wrap;
+
+    &:nth-child(1) {
+      border-color: $colorOrangeLight;
+    }
+
+    &:nth-child(2) {
+      border-color: $colorGreen;
+    }
+
+    &:nth-child(3) {
+      border-color: $colorPinkLight;
+    }
+
+    &:nth-child(4) {
+      border-color: $colorFlamingo;
+    }
+
     .index {
-      font-size: 10px;
-      color: $colorGrayLight2;
+      font-size: 12px;
+      // color: $colorGrayLight2;
+      font-weight: bold;
       height: 16px;
     }
     .removeButton {
@@ -37,6 +56,15 @@
       padding: 4px;
       font-size: 13px;
       height: auto;
+      background-color: #f1f2f6;
+      width: 100%;
+      height: 56px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      border-radius: 8px;
+      border: 3px solid transparent;
     }
   }
   .addButton {
@@ -44,16 +72,17 @@
     margin: auto;
     cursor: pointer;
     padding: 15px 20px;
-    border: 1px solid $colorGrayLight6;
-    background-color: $colorGrayLight3;
-    color: $colorGray;
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
   }
 }
 .outcomeForm {
   flex-basis: 100%;
+  margin-top: 15px;
   label {
-    font-size: 13px;
-    margin-bottom: 4px;
+    font-size: 12px;
+    margin: 4px 0;
     display: block;
   }
 }

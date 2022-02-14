@@ -28,7 +28,7 @@ const BetActionsMenu = ({ event, bet, showPopup }) => {
     setMenuOpened(false);
     switch (name) {
       case 'edit':
-        return showPopup(PopupTheme.editBet, { event, bet });
+        return showPopup(PopupTheme.eventForms, { event, bet, step: 1 });
       case 'resolve':
         return showPopup(PopupTheme.resolveBet, {
           bet,

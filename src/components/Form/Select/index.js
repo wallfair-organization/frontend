@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { ReactComponent as ChevronDownIcon } from './chevron-down-icon.svg';
 import { useOutsideClick } from 'hooks/useOutsideClick';
 
-function Select({ value, handleSelect, placeholder, options = [], className }) {
+function Select({ value, handleSelect, placeholder, options = [], className, fieldClass = null }) {
   const [isOpen, setIsOpen] = useState(false);
   const element = useOutsideClick(() => {
     setIsOpen(false);
@@ -29,7 +29,7 @@ function Select({ value, handleSelect, placeholder, options = [], className }) {
       ref={element}
     >
       <div
-        className={classNames(styles.selectField, {
+        className={classNames(styles.selectField, fieldClass, {
           [styles.open]: isOpen,
         })}
         onClick={handleSelectOpen}

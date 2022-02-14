@@ -200,7 +200,7 @@ const MarketEvent = ({
               <div className={styles.eventAdminActionsContainer}>
                 <span
                   className={styles.editEventLink}
-                  onClick={() => showPopup(PopupTheme.editEvent, event)}
+                  onClick={() => showPopup(PopupTheme.eventForms, { event })}
                 >
                   <Icon
                     className={styles.icon}
@@ -241,12 +241,20 @@ const MarketEvent = ({
             <div className={styles.topContainer}>
               <div className={styles.eventTopContainer}>
                 <div className={styles.backButtonTitle}>
-                  <button onClick={() => history.push(Routes.getRouteWithParameters(Routes.events, {category:'all'}))}>
+                  <button
+                    onClick={() =>
+                      history.push(
+                        Routes.getRouteWithParameters(Routes.events, {
+                          category: 'all',
+                        })
+                      )
+                    }
+                  >
                     <ArrowLeft />
                   </button>
                   <h2>{event.name}</h2>
                 </div>
-                
+
                 <div className={styles.timerShareContainer}>
                   {renderTimer()}
                   {renderFavoriteShare()}
@@ -261,11 +269,7 @@ const MarketEvent = ({
                 {renderBetSidebarContent()}
               </div>
               <div className={styles.columnRight}>
-                <div
-                  className={classNames(
-                    styles.chartMainWrapper,
-                  )}
-                >
+                <div className={classNames(styles.chartMainWrapper)}>
                   <div className={styles.chart}>
                     {((matchMediaMobile && showChart) || !matchMediaMobile) &&
                       chartData && (
@@ -288,7 +292,6 @@ const MarketEvent = ({
                   </div>
                 )}
               </div>
-              
             </div>
             <div className={styles.row}>
               <div className={styles.columnFull}>

@@ -1,0 +1,85 @@
+@import '../../styles/all';
+
+.modalContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+
+  .formColumn {
+    padding: 40px;
+    width: 100%;
+  }
+
+  // .previewColumn {
+  //   width: 40%;
+  //   height: 100%;
+  //   background-color: #f1f2f6;
+  // }
+}
+
+.inputBox {
+  position: relative;
+
+  @media (max-width: $screen-sm) {
+    font-size: 14px;
+  }
+}
+
+.inputLabel {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  align-items: center;
+  color: $colorPrimary;
+  margin-bottom: 8px !important;
+
+  @media (max-width: $screen-sm) {
+    font-size: 12px;
+  }
+}
+
+.formHeader {
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.backIcon {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 20px;
+  width: auto;
+}
+
+.datePickerInput {
+  width: 100%;
+  height: 56px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background-color: #f1f2f6;
+
+  input {
+    background-color: #f1f2f6;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    color: #000;
+  }
+}
+
+.fieldClass {
+  background-color: #f1f2f6;
+  color: #000;
+}
+
+.customTagInput {
+  background-color: #f1f2f6;
+}
+
+.confirmButton {
+  margin-top: 30px;
+}

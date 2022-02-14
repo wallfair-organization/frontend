@@ -95,6 +95,18 @@
       overflow: visible;
     }
 
+    &.eventForms {
+      .modalContent {
+        min-width: 550px;
+        width: 550px;
+        padding: 0;
+
+        @media screen and (max-width: $screen-md) {
+          min-width: 0;
+        }
+      }
+    }
+
     //here specific popup sizes per type, if needed
     &.small {
       max-width: 500px;
@@ -163,6 +175,7 @@
     position: absolute;
     top: 5px;
     right: 5px;
+    z-index: 10;
 
     .closeButton {
       z-index: $zIndexPopup + 1;
