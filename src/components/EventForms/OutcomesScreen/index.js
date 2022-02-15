@@ -50,7 +50,7 @@ const OutcomesScreen = ({
         iconType={IconType.arrowLeft}
         onClick={goStepBack}
       />
-      <h2 className={styles.formHeader}>Bet Settings</h2>
+      <h2 className={styles.formHeader}>Outcome Options</h2>
       <FormGroup className={fgClasses({}, styles.fullWidthContainer)}>
         <Outcomes
           value={outcomes}

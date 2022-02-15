@@ -14,9 +14,6 @@ import IconType from 'components/Icon/IconType';
 
 const BetScreen = ({ bet = null, proceedBet, isNew }) => {
   const [formValid, setFormValid] = useState(true);
-
-  const [marketQuestion, setMarketQuestion, marketQuestionErrors] =
-    useValidatedState(bet?.market_question, [Validators.required]);
   const [
     evidenceDescription,
     setEvidenceDescription,
@@ -26,6 +23,10 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
     useValidatedState(bet?.evidence_source, [Validators.required]);
   const [description, setDescription, descriptionErrors] = useValidatedState(
     bet?.description,
+    [Validators.required]
+  );
+  const [startDate, setStartDate, startDateErrors] = useValidatedState(
+    bet?.start_date || new Moment(),
     [Validators.required]
   );
   const [endDate, setEndDate, endDateErrors] = useValidatedState(
@@ -51,10 +52,10 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
   const handleForm = () => {
     const valid =
       [
-        marketQuestionErrors,
         evidenceDescriptionErrors,
         evidenceSourceErrors,
         descriptionErrors,
+        startDateErrors,
         endDateErrors,
         liquidityErrors,
       ]
@@ -64,10 +65,10 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
 
     if (valid) {
       proceedBet({
-        market_question: marketQuestion,
         evidence_description: evidenceDescription,
         evidence_source: evidenceSource,
         description,
+        start_date: startDate,
         end_date: endDate,
         liquidity,
         slug: 'bet',
@@ -76,41 +77,29 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
   };
 
   const saveAndBack = () => {
-    proceedBet({
-      market_question: marketQuestion,
-      evidence_description: evidenceDescription,
-      evidence_source: evidenceSource,
-      description,
-      end_date: endDate,
-      liquidity,
-      slug: 'bet',
-    }, true);
+    proceedBet(
+      {
+        evidence_description: evidenceDescription,
+        evidence_source: evidenceSource,
+        description,
+        start_date: startDate,
+        end_date: endDate,
+        liquidity,
+        slug: 'bet',
+      },
+      true
+    );
   }
 
   return (
     <>
-      {isNew && (
-        <Icon
-          className={styles.backIcon}
-          iconTheme={IconTheme.primary}
-          iconType={IconType.arrowLeft}
-          onClick={saveAndBack}
-        />
-      )}
+      <Icon
+        className={styles.backIcon}
+        iconTheme={IconTheme.primary}
+        iconType={IconType.arrowLeft}
+        onClick={saveAndBack}
+      />
       <h2 className={styles.formHeader}>Bet Settings</h2>
-      <FormGroup className={fgClasses(marketQuestionErrors)}>
-        <InputLabel className={styles.inputLabel}>Market Question</InputLabel>
-        <InputBox
-          type="text"
-          className={styles.inputBox}
-          placeholder="Is it yes or no?"
-          value={marketQuestion}
-          setValue={e => {
-            setMarketQuestion(e);
-          }}
-        />
-        {!formValid && <InputError errors={marketQuestionErrors} />}
-      </FormGroup>
 
       <FormGroup className={fgClasses(descriptionErrors)}>
         <InputLabel className={styles.inputLabel}>Bet Description</InputLabel>
@@ -124,6 +113,17 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
           }}
         />
         {!formValid && <InputError errors={descriptionErrors} />}
+      </FormGroup>
+
+      <FormGroup className={fgClasses(startDateErrors)}>
+        <InputLabel>Start Date & Time</InputLabel>
+        <DateTimePicker
+          value={startDate}
+          className={styles.datePickerInput}
+          onChange={startDate => setStartDate(startDate)}
+          ampm={false}
+        />
+        {!formValid && <InputError errors={startDateErrors} />}
       </FormGroup>
 
       <FormGroup className={fgClasses(endDateErrors)}>
@@ -190,7 +190,7 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
         disabledWithOverlay={false}
         onClick={handleForm}
       >
-        Next Step
+        Next
       </Button>
     </>
   );

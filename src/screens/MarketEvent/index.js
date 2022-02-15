@@ -15,7 +15,6 @@ import classNames from 'classnames';
 import PopupTheme from '../../components/Popup/PopupTheme';
 import IconType from 'components/Icon/IconType';
 import IconTheme from 'components/Icon/IconTheme';
-import AdminOnly from 'components/AdminOnly';
 import Icon from '../../components/Icon';
 import { EVENT_CATEGORIES } from 'constants/EventCategories';
 import { LOGGED_IN } from 'constants/AuthState';
@@ -31,10 +30,9 @@ import { useChartData } from './hooks/useChartData';
 import BetView from '../../components/BetView';
 import ActivitiesTracker from '../../components/ActivitiesTracker';
 import { getEventBySlug, getOutcomesHistoryForChart } from 'api';
-import {ReactComponent as ArrowLeft} from 'data/icons/arrow-left.svg';
+import { ReactComponent as ArrowLeft } from 'data/icons/arrow-left.svg';
 import Routes from 'constants/Routes';
 import EventShareWidget from 'components/EventShareWidget';
-
 
 const MarketEvent = ({
   showPopup,
@@ -48,6 +46,7 @@ const MarketEvent = ({
   bookmarkEvent = () => {},
   bookmarkEventCancel = () => {},
   startOnboardingFlow,
+  isAdmin,
 }) => {
   const { eventSlug, betSlug } = useParams();
   const [event, setEvent] = useState(null);
@@ -56,29 +55,31 @@ const MarketEvent = ({
   const [showChart, setShowChart] = useState(false);
   const [chartData, setChartData] = useState(null);
   const history = useHistory();
+  const userCreator = userId === event?.bet?.creator;
 
-  const {
-    filterActive,
-    handleChartPeriodFilter,
-  } = useChartData(event?.bet?.id);
+  const { filterActive, handleChartPeriodFilter } = useChartData(
+    event?.bet?.id
+  );
 
   const ref = useRef(null);
 
   window.onresize = () => ref.current && setIsMobile(window.innerWidth < 992);
 
   useEffect(() => {
-    getEventBySlug(eventSlug).then(res => {
-      if (!_.isEqual(res, event)) {
-        setEvent(res);
-        setCanDeleteEvent(res.bet.status === BetState.canceled);
-        fetchChatMessages(res.id);
-        fetchChartHistory(res.bet.id);
-      }
-    }).catch(() => {
-      history.push(
-        Routes.getRouteWithParameters(Routes.events, { category: 'all' })
-      );
-    });
+    getEventBySlug(eventSlug)
+      .then(res => {
+        if (!_.isEqual(res, event)) {
+          setEvent(res);
+          setCanDeleteEvent(res.bet.status === BetState.canceled);
+          fetchChatMessages(res.id);
+          fetchChartHistory(res.bet.id);
+        }
+      })
+      .catch(() => {
+        history.push(
+          Routes.getRouteWithParameters(Routes.events, { category: 'all' })
+        );
+      });
   }, [eventSlug, betSlug]);
 
   const fetchChartHistory = betId => {
@@ -163,29 +164,34 @@ const MarketEvent = ({
         <Share />
       </div>
     );
-  }
+  };
 
   const renderTimer = () => {
-    return <div
-      className={classNames(
-        styles.timeLeftCounterContainer,
-        // styles.fixedTimer,
-        // styles.timerOnlyDesktop
-      )}
-    >
-      {![BetState.resolved, BetState.closed].includes(
-        _.get(event.bet, 'status')
-      ) && (
-        <>
-          <div className={styles.timerLabel}>Event ends in:</div>
+    return (
+      <div
+        className={classNames(
+          styles.timeLeftCounterContainer
+          // styles.fixedTimer,
+          // styles.timerOnlyDesktop
+        )}
+      >
+        {![BetState.resolved, BetState.closed].includes(
+          _.get(event.bet, 'status')
+        ) && (
+          <>
+            <div className={styles.timerLabel}>Event ends in:</div>
 
-          <div className={styles.timerParts}>
-            <TimeCounterVTwo externalStyles={styles} endDate={event.bet?.end_date} />
-          </div>
-        </>
-      )}
-    </div>;
-  }
+            <div className={styles.timerParts}>
+              <TimeCounterVTwo
+                externalStyles={styles}
+                endDate={event.bet?.end_date}
+              />
+            </div>
+          </>
+        )}
+      </div>
+    );
+  };
 
   let matchMediaMobile = window.matchMedia(`(max-width: ${768}px)`).matches;
 
@@ -194,11 +200,13 @@ const MarketEvent = ({
       <div className={styles.bet}>
         {event ? (
           <>
-            <AdminOnly>
+            {isLoggedIn && (userCreator || isAdmin) && (
               <div className={styles.eventAdminActionsContainer}>
                 <span
                   className={styles.editEventLink}
-                  onClick={() => showPopup(PopupTheme.eventForms, { event })}
+                  onClick={() =>
+                    showPopup(PopupTheme.eventForms, { event, bet: event.bet })
+                  }
                 >
                   <Icon
                     className={styles.icon}
@@ -235,7 +243,7 @@ const MarketEvent = ({
                   )}
                 </span>
               </div>
-            </AdminOnly>
+            )}
             <div className={styles.topContainer}>
               <div className={styles.eventTopContainer}>
                 <div className={styles.backButtonTitle}>
@@ -363,6 +371,7 @@ const mapStateToProps = state => {
   return {
     authState: state.authentication.authState,
     userId: state.authentication.userId,
+    isAdmin: state.authentication.admin,
     chartParams: state.chartParams,
   };
 };

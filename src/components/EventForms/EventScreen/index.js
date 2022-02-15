@@ -46,9 +46,6 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
     event?.tags || [{ id: uuid.v4(), name: '' }],
     [Validators.minLength(1), Validators.requiredTags]
   );
-  const [date, setDate, dateErrors] = useValidatedState(
-    event?.date || new Moment()
-  );
 
   const handleTagChange = (name, id) => {
     setTags(prevTags =>
@@ -79,7 +76,6 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
         preview_image_url_errors,
         categoryErrors,
         tagsErrors,
-        dateErrors,
       ]
         .map(isValid)
         .filter(valid => !valid).length === 0;
@@ -92,7 +88,6 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
         category,
         preview_image_url,
         tags,
-        date,
       });
     }
   };
@@ -109,7 +104,7 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
     <>
       <h2 className={styles.formHeader}>Event Settings</h2>
       <FormGroup className={fgClasses(nameErrors)}>
-        <InputLabel className={styles.inputLabel}>Event Name</InputLabel>
+        <InputLabel className={styles.inputLabel}>Market Question</InputLabel>
         <InputBox
           type="text"
           className={styles.inputBox}
@@ -139,7 +134,7 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
       </FormGroup>
 
       <FormGroup className={fgClasses(preview_image_url_errors)}>
-        <InputLabel className={styles.inputLabel}>Event Image URL</InputLabel>
+        <InputLabel className={styles.inputLabel}>Bet Image URL</InputLabel>
         <InputBox
           type="text"
           className={styles.inputBox}
@@ -185,17 +180,6 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
         )}
       </FormGroup>
 
-      <FormGroup className={fgClasses(dateErrors)}>
-        <InputLabel>Date</InputLabel>
-        <DateTimePicker
-          value={date}
-          className={styles.datePickerInput}
-          onChange={date => setDate(date)}
-          ampm={false}
-        />
-        {!formValid && <InputError errors={dateErrors} />}
-      </FormGroup>
-
       <Button
         className={classNames(styles.button, styles.confirmButton)}
         highlightType={HighlightType.highlightModalButton2}
@@ -203,7 +187,7 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
         disabledWithOverlay={false}
         onClick={handleForm}
       >
-        {!isNew ? 'Save' : 'Next Step'}
+        Next
       </Button>
     </>
   );

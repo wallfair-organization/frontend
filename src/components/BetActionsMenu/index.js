@@ -18,17 +18,14 @@ const BetActionsMenu = ({ event, bet, showPopup }) => {
   const [menuOpened, setMenuOpened] = useState(false);
 
   const userCreator = useSelector(state => state.authentication.userId === bet.creator);
-  const canEdit = ![BetState.canceled, BetState.resolved].includes(bet?.status);
+  const isAdmin = useSelector(state => state.authentication.admin);
   const canResolve = [BetState.active, BetState.closed].includes(bet?.status);
   const canCancel = [BetState.active, BetState.closed].includes(bet?.status);
-  const canDelete = [BetState.canceled].includes(bet?.status);
 
   /** @param {BetManagementActions} name */
   const action = name => () => {
     setMenuOpened(false);
     switch (name) {
-      case 'edit':
-        return showPopup(PopupTheme.eventForms, { event, bet, step: 1 });
       case 'resolve':
         return showPopup(PopupTheme.resolveBet, {
           bet,
@@ -36,8 +33,6 @@ const BetActionsMenu = ({ event, bet, showPopup }) => {
         });
       case 'cancel':
         return showPopup(PopupTheme.cancelBet, { bet, event });
-      case 'delete':
-        return showPopup(PopupTheme.deleteBet, { bet });
     }
   };
 
@@ -60,7 +55,7 @@ const BetActionsMenu = ({ event, bet, showPopup }) => {
   );
 
   // dont render anything if no actions are available
-  if (!userCreator || (!canEdit && !canResolve && !canCancel && !canDelete)) {
+  if (!userCreator && !isAdmin) {
     return null;
   }
 
@@ -84,12 +79,10 @@ const BetActionsMenu = ({ event, bet, showPopup }) => {
           menuOpened ? styles.menuBoxOpened : null
         )}
       >
-        {canEdit && menuItem('Edit', action('edit'), IconType.edit)}
         {canResolve &&
           menuItem('Resolve', action('resolve'), IconType.hourglass)}
         {canCancel &&
           menuItem('Cancel', action('cancel'), IconType.cross, 14, 14)}
-        {canDelete && menuItem('Delete', action('delete'), IconType.trash)}
       </div>
     </div>
   );

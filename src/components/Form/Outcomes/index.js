@@ -98,7 +98,7 @@ const Outcomes = ({
           <span className={styles.index}>Option #0{index + 1}</span>
           {(!betEdit && showRemove) && (
             <button
-              title="Remove outcome"
+              title="Remove option"
               type="button"
               className={styles.removeButton}
               onClick={() => removeOutcome(outcome.id)}
@@ -118,7 +118,7 @@ const Outcomes = ({
 
       {(!betEdit && showAdd) && (
         <button className={styles.addButton} onClick={addOutcome} type="button">
-          + Add outcome
+          + Add option
         </button>
       )}
 
@@ -126,7 +126,7 @@ const Outcomes = ({
         classes={styles.outcomesErrors}
         errors={outcomesErrors}
         errorMessages={{
-          duplicateOutcomeNames: 'All outcomes must have a unique name.',
+          duplicateOutcomeNames: 'All options must have a unique name.',
           incorrectProbabilitiesSum: 'The sum of all probabilities must be 1.',
         }}
       />

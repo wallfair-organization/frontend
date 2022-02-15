@@ -23,17 +23,40 @@ const EventForms = ({
   const history = useHistory();
 
   const isNew = !(event || bet);
-  const [betData, setBetData] = useState({});
-  const [eventData, setEventData] = useState({});
+  const [betData, setBetData] = useState(null);
+  const [eventData, setEventData] = useState(null);
   const [formStep, setFormStep] = useState(step);
 
   const proceedEvent = ev => {
     setEventData(ev);
+    setFormStep(1);
+  };
 
-    if (event) {
+  const proceedBet = (ev, back = false) => {
+    setBetData(ev);
+    setFormStep(back ? 0 : 2);
+  };
+
+  const proceedOutcomes = ev => {
+    const betSummary = {
+      description: betData.description,
+      start_date: betData.start_date,
+      end_date: betData.end_date,
+      evidence_description: betData.evidence_description,
+      evidence_source: betData.evidence_source,
+      market_question: eventData.name,
+      outcomes: ev.outcomes,
+      slug: betData.slug,
+    };
+
+    if (bet && event) {
       const payload = {
         ...event,
-        ...ev,
+        ...eventData,
+        bet: {
+          ...bet,
+          ...betSummary,
+        },
       };
 
       editMarketEvent(event.id, payload)
@@ -49,34 +72,10 @@ const EventForms = ({
           editEventFail();
         });
     } else {
-      setFormStep(1);
-    }
-  };
-
-  const proceedBet = (ev, back = false) => {
-    setBetData(ev);
-    setFormStep(back ? 0 : 2);
-  };
-
-  const proceedOutcomes = ev => {
-    const payload = {
-      description: betData.description,
-      end_date: betData.end_date,
-      evidence_description: betData.evidence_description,
-      evidence_source: betData.evidence_source,
-      market_question: betData.market_question,
-      outcomes: ev.outcomes,
-      slug: betData.slug,
-    };
-
-    if (bet) {
-      editBet({ betId: bet.id, bet: payload });
-    } else {
       const req = {
         ...eventData,
         bet: {
-          ...payload,
-          start_date: eventData.date,
+          ...betSummary,
           liquidity: betData.liquidity,
         },
       };
@@ -104,25 +103,25 @@ const EventForms = ({
     switch (formStep) {
       case 0:
         return (
-            <EventScreen
-              event={event || eventData}
-              isNew={isNew}
-              proceedEvent={proceedEvent}
-            />
+          <EventScreen
+            event={eventData || event}
+            isNew={isNew}
+            proceedEvent={proceedEvent}
+          />
         );
       case 1:
         return (
-            <BetScreen
-              bet={bet || betData}
-              isNew={isNew}
-              proceedBet={proceedBet}
-              goStepBack={goStepBack}
-            />
+          <BetScreen
+            bet={betData || bet}
+            isNew={isNew}
+            proceedBet={proceedBet}
+            goStepBack={goStepBack}
+          />
         );
       case 2:
         return (
           <OutcomesScreen
-            outcomesData={bet?.outcomes || betData.outcomes}
+            outcomesData={betData.outcomes || bet?.outcomes}
             isNew={isNew}
             proceedOutcomes={proceedOutcomes}
             goStepBack={goStepBack}
@@ -140,12 +139,6 @@ const EventForms = ({
       </div>
     </>
   );
-};
-
-const mapStateToProps = state => {
-  return {
-    eventSlugs: state.event.events.map(({ slug }) => slug).filter(Boolean),
-  };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -168,4 +161,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EventForms);
+export default connect(null, mapDispatchToProps)(EventForms);

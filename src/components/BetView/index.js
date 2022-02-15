@@ -580,7 +580,7 @@ const BetView = ({
           )}
         >
           {renderLoadingAnimation()}
-          <AdminOnly>{renderMenuContainerWithCurrentBalance()}</AdminOnly>
+          {renderMenuContainerWithCurrentBalance()}
           
           {renderImage()}
           
