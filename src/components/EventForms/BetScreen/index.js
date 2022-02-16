@@ -33,14 +33,6 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
     bet?.end_date || new Moment().add(1, 'hour'),
     [Validators.required, Validators.dateAfter(new Moment())]
   );
-  const [liquidity, setLiquidity, liquidityErrors] = useValidatedState(
-    bet?.liquidity || 10000,
-    [
-      Validators.required,
-      Validators.integer,
-      Validators.numberLimit(0, 'floor'),
-    ]
-  );
 
   const fgClasses = (err, ...args) =>
     classNames(
@@ -57,7 +49,6 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
         descriptionErrors,
         startDateErrors,
         endDateErrors,
-        liquidityErrors,
       ]
         .map(isValid)
         .filter(valid => !valid).length === 0;
@@ -70,7 +61,6 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
         description,
         start_date: startDate,
         end_date: endDate,
-        liquidity,
         slug: 'bet',
       });
     }
@@ -84,7 +74,6 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
         description,
         start_date: startDate,
         end_date: endDate,
-        liquidity,
         slug: 'bet',
       },
       true
@@ -166,22 +155,6 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
         />
         {!formValid && <InputError errors={evidenceDescriptionErrors} />}
       </FormGroup>
-
-      {isNew && (
-        <FormGroup className={fgClasses(liquidityErrors)}>
-          <InputLabel className={styles.inputLabel}>Liquidity</InputLabel>
-          <InputBox
-            type="number"
-            className={styles.inputBox}
-            placeholder="50000"
-            value={liquidity}
-            setValue={e => {
-              setLiquidity(e.trim());
-            }}
-          />
-          {!formValid && <InputError errors={liquidityErrors} />}
-        </FormGroup>
-      )}
 
       <Button
         className={classNames(styles.button, styles.confirmButton)}

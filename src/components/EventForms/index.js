@@ -75,8 +75,7 @@ const EventForms = ({
       const req = {
         ...eventData,
         bet: {
-          ...betSummary,
-          liquidity: betData.liquidity,
+          ...betSummary
         },
       };
 

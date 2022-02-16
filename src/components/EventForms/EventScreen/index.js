@@ -1,6 +1,4 @@
-import Moment from 'moment';
 import {
-  DateTimePicker,
   FormGroup,
   InputLabel,
   Select,
@@ -31,9 +29,7 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
   const [name, setName, nameErrors] = useValidatedState(event?.name, [
     Validators.required,
   ]);
-  const [slug, setSlug, slugErrors] = useValidatedState(event?.slug, [
-    Validators.required,
-  ]);
+  const [slug, setSlug] = useValidatedState(event?.slug);
   const [preview_image_url, set_preview_image_url, preview_image_url_errors] =
     useValidatedState(event?.preview_image_url, [
       Validators.required,
@@ -72,7 +68,6 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
     const valid =
       [
         nameErrors,
-        slugErrors,
         preview_image_url_errors,
         categoryErrors,
         tagsErrors,
@@ -117,22 +112,6 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
         {!formValid && <InputError errors={nameErrors} />}
       </FormGroup>
 
-      <FormGroup className={fgClasses(slugErrors)}>
-        <InputLabel className={styles.inputLabel}>
-          SEO-Optimized URL Piece
-        </InputLabel>
-        <InputBox
-          type="text"
-          className={styles.inputBox}
-          placeholder="q2324556"
-          value={slug}
-          setValue={e => {
-            setSlug(e.trim());
-          }}
-        />
-        {!formValid && <InputError errors={slugErrors} />}
-      </FormGroup>
-
       <FormGroup className={fgClasses(preview_image_url_errors)}>
         <InputLabel className={styles.inputLabel}>Bet Image URL</InputLabel>
         <InputBox
@@ -166,7 +145,7 @@ const EventScreen = ({ event = null, proceedEvent, isNew, eventSlugs }) => {
           onTagChange={handleTagChange}
           addTag={addTag}
           removeTag={removeTag}
-          max={4}
+          max={10}
           customTagInput={styles.customTagInput}
         />
         {!formValid && (
