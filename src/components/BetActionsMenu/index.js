@@ -17,10 +17,20 @@ import styles from './styles.module.scss';
 const BetActionsMenu = ({ event, bet, showPopup }) => {
   const [menuOpened, setMenuOpened] = useState(false);
 
-  const userCreator = useSelector(state => state.authentication.userId === bet.creator);
+  const userCreator = useSelector(
+    state => state.authentication.userId === bet.creator
+  );
   const isAdmin = useSelector(state => state.authentication.admin);
-  const canResolve = [BetState.active, BetState.closed].includes(bet?.status);
-  const canCancel = [BetState.active, BetState.closed].includes(bet?.status);
+  const canResolve = [
+    BetState.active,
+    BetState.closed,
+    BetState.waitingResolution,
+  ].includes(bet?.status);
+  const canCancel = [
+    BetState.active,
+    BetState.closed,
+    BetState.waitingResolution,
+  ].includes(bet?.status);
 
   /** @param {BetManagementActions} name */
   const action = name => () => {
