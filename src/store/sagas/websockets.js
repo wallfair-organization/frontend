@@ -267,17 +267,12 @@ export function* init() {
             );
             break;
           case ChatMessageType.placeBet:
-            const events = yield select(state => state.event.events);
-            const event = events.find(e => e._id === payload.roomId);
-
-            if (event?.type === 'non-streamed') {
-              const chartParams = yield select(
-                state => state.event.chartParams
-              );
-              yield put(
-                EventActions.initiateFetchChartData(payload.betId, chartParams)
-              );
-            }
+            const chartParams = yield select(
+              state => state.chartParams
+            );
+            yield put(
+              EventActions.initiateFetchChartData(payload.betId, chartParams)
+            );
             yield put(
               ChatActions.addMessage({
                 roomId: payload.roomId,

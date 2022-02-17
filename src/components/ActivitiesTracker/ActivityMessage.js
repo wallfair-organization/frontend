@@ -147,26 +147,31 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
           <div>
             <b>{getUserProfileUrl(data)}</b> has bet{' '}
             <div className={'global-token-currency'}>
-              {formatToFixed(_.get(data, 'trade.investment_amount'), 0, true)}{' '}
+              {formatToFixed(
+                _.get(data, 'trade.investment_amount'),
+                0,
+                true
+              )}{' '}
               {TOKEN_NAME}
             </div>{' '}
-            {showBetName && <>
-              on{' '}
-              {
-                <a
-                  className={'global-link-style'}
-                  target={'_blank'}
-                  href={`${window.location.origin}/trade/${_.get(
-                    event,
-                    'slug'
-                  )}/${_.get(data, 'bet.slug')}`}
-                  rel="noreferrer"
-                >
-                  <b>{_.get(data, 'bet.market_question')}</b>
-                </a>
-              }{' '}
+            {showBetName && (
+              <>
+                on{' '}
+                {
+                  <a
+                    className={'global-link-style'}
+                    target={'_blank'}
+                    href={`${window.location.origin}/trade/${_.get(
+                      event,
+                      'slug'
+                    )}/${_.get(data, 'bet.slug')}`}
+                    rel="noreferrer"
+                  >
+                    <b>{_.get(data, 'bet.market_question')}</b>
+                  </a>
+                }{' '}
               </>
-            }
+            )}
             on <b>{outcomesName}</b>.
           </div>
         );
