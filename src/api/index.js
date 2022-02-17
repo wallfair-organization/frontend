@@ -656,7 +656,7 @@ const createMarketEvent = payload => {
 };
 
 const editMarketEvent = (id, payload) => {
-  return EventsServiceApi.patch(`/admin/market-events/${id}`, payload)
+  return EventsServiceApi.patch(`/events/market-events/${id}`, payload)
     .then(res => res.data)
     .catch(err => {
       console.log('[API-Error]: editMarketEvent ', err);
