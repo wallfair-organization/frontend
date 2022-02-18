@@ -245,7 +245,9 @@ const getSellOutcomes = (betId, amount) => {
 const pullOutBet = (betId, outcome) => {
   return EventsServiceApi.post(`/bets/${betId}/sell`, {
     outcome,
-  }).catch(error => {
+  })
+  .then(res => res.data)
+  .catch(error => {
     console.log('[API Error] called: pullOutBet', error);
     throw error;
   });
