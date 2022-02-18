@@ -22,7 +22,7 @@ import { OnboardingActions } from 'store/actions/onboarding';
 import Button from 'components/Button';
 import ButtonTheme from 'components/Button/ButtonTheme';
 
-import {ReactComponent as PlusIcon} from 'data/icons/plus-icon.svg';
+import { ReactComponent as PlusIcon } from 'data/icons/plus-icon.svg';
 import Search from 'components/Search';
 import BuyWFAIRWidget from 'components/BuyWFAIRWidget';
 import EventActivitiesTabs from 'components/EventActivitiesTabs';
@@ -46,7 +46,9 @@ const NonStreamedEventsContent = ({
   const category = decodeURIComponent(encodedCategory);
 
   const [status, setStatus] = useState('current');
-  const [searchTerm, setSearchTerm] = useState();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [page, setPage] = useState(0);
+  const [limit, setLimit] = useState(10);
 
   // const { fetchFilteredEvents, resetDefaultParamsValues } =
   //   useMappedActions(eventType);
@@ -60,14 +62,20 @@ const NonStreamedEventsContent = ({
       }));
 
       setCategories(updatedCats);
+      setPage(0);
     },
     [setCategories]
   );
 
+   const changeStatus = useCallback((value) => {
+     setPage(0);
+     setStatus(value);
+   }, [status, page]);
+
   const onConfirmSearch = useCallback(() => {
-    //SEARCH
-    console.log(`search ${searchTerm}`);
-  }, [searchTerm]);
+    setPage(0);
+    getEvents(searchTerm);
+  }, [searchTerm, page]);
 
   const mappedTags = id =>
     events.find(event => event._id === id)?.tags.map(tag => tag.name) || [];
@@ -85,17 +93,49 @@ const NonStreamedEventsContent = ({
     };
   });
 
+  const getEvents = useCallback(
+    (search = '') => {
+      getMarketEvents(
+        category,
+        status === 'current'
+          ? ['ACTIVE']
+          : [
+              'RESOLVED',
+              'CANCELLED',
+              'CLOSED',
+              'WAITING_RESOLUTION',
+              'DISPUTED',
+            ],
+        page,
+        limit,
+        search
+      ).then(res => {
+        setEvents(res);
+      });
+    },
+    [status, page, category, searchTerm]
+  );
+
   useEffect(() => {
     handleSelectCategory(category);
+    getEvents();
+  }, [category, status]);
+
+  const loadMoreEvents = useCallback(() => {
+    setPage(page+1);
+
     getMarketEvents(
       category,
       status === 'current'
         ? ['ACTIVE']
-        : ['RESOLVED', 'CANCELLED', 'CLOSED', 'WAITING_RESOLUTION', 'DISPUTED']
+        : ['RESOLVED', 'CANCELLED', 'CLOSED', 'WAITING_RESOLUTION', 'DISPUTED'],
+      page + 1,
+      limit,
+      searchTerm
     ).then(res => {
-      setEvents(res);
+      setEvents([...events, ...res]);
     });
-  }, [category, status]);
+  }, [page, events, status]);
 
   const handleHelpClick = useCallback(event => {
     showPopup(PopupTheme.explanation, {
@@ -139,9 +179,9 @@ const NonStreamedEventsContent = ({
               handleConfirm={onConfirmSearch}
             />
             {authState === LOGGED_IN && (
-              <Button 
-                theme={ButtonTheme.primaryButtonS} 
-                onClick={() => showPopup(PopupTheme.eventForms, {})} 
+              <Button
+                theme={ButtonTheme.primaryButtonS}
+                onClick={() => showPopup(PopupTheme.eventForms, {})}
                 className={styles.createButton}
               >
                 <PlusIcon />
@@ -153,53 +193,60 @@ const NonStreamedEventsContent = ({
       </section>
 
       <section className={classNames([styles.main, styles.notStreamed])}>
-        <StatusTabs onSelect={setStatus} />
-        
-        {(events.length === 0) && <span className={styles.notFound}>No events found in this category</span>}
-        
+        <StatusTabs onSelect={changeStatus} />
+
+        {events.length === 0 && (
+          <span className={styles.notFound}>
+            No events found in this category
+          </span>
+        )}
+
         <div className={styles.nonStreamed}>
-          {events && events.map(item => (
-            <Link
-              className={styles.betLinkWrapper}
-              to={{
-                // pathname: `/trade/${item.slug}/${item.bet.slug}`,
-                pathname: `/trade/${item.slug}`,
-                state: { fromLocation: location },
-              }}
-              key={item.bet.id}
-            >
-              <BetCard
-                item={item.bet}
-                key={item.id}
-                betId={item.bet.id}
-                title={item.bet.market_question}
-                organizer={''}
-                viewers={12345}
-                state={item.bet.status}
-                tags={item.tags}
-                image={item.preview_image_url}
-                eventEnd={item.bet.end_date}
-                category={item.category}
-                isBookmarked={!!item?.bookmarks?.includes(userId)}
-                onBookmark={e => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  if (!userId) {
-                    return showJoinPopup(e);
-                  }
-                  bookmarkEvent(item.id);
+          {events &&
+            events.map(item => (
+              <Link
+                className={styles.betLinkWrapper}
+                to={{
+                  // pathname: `/trade/${item.slug}/${item.bet.slug}`,
+                  pathname: `/trade/${item.slug}`,
+                  state: { fromLocation: location },
                 }}
-                onBookmarkCancel={e => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  bookmarkEventCancel(item.id);
-                }}
-              />
-            </Link>
-          ))}
+                key={item.bet.id}
+              >
+                <BetCard
+                  item={item.bet}
+                  key={item.id}
+                  betId={item.bet.id}
+                  title={item.bet.market_question}
+                  organizer={''}
+                  viewers={12345}
+                  state={item.bet.status}
+                  tags={item.tags}
+                  image={item.preview_image_url}
+                  eventEnd={item.bet.end_date}
+                  category={item.category}
+                  isBookmarked={!!item?.bookmarks?.includes(userId)}
+                  onBookmark={e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (!userId) {
+                      return showJoinPopup(e);
+                    }
+                    bookmarkEvent(item.id);
+                  }}
+                  onBookmarkCancel={e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    bookmarkEventCancel(item.id);
+                  }}
+                />
+              </Link>
+            ))}
         </div>
-        
-        <Button theme={ButtonTheme.secondaryButton}>Load more</Button>
+
+        <Button onClick={loadMoreEvents} theme={ButtonTheme.secondaryButton}>
+          Load more
+        </Button>
 
         <BuyWFAIRWidget />
 
@@ -210,7 +257,6 @@ const NonStreamedEventsContent = ({
           hideSecondaryColumns={true}
           layout="wide"
         />
-
       </section>
     </>
   );
