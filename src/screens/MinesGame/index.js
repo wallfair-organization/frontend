@@ -293,7 +293,9 @@ const Game = ({
         activitiesLimit={50}
         className={styles.activitiesTrackerGamesBlock}
         preselectedCategory={'game'}
-        gameId={GAME_TYPE_ID}></EventActivitiesTabs>
+        gameId={GAME_TYPE_ID}
+        gameScreen={true}
+      />
     </Grid>
   );
 

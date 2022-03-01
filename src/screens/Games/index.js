@@ -8,7 +8,9 @@ import {
   EXTERNAL_GAMES,
   EVOPLAY_GAMES,
   SOFTSWISS_GAMES,
-  TOP_PICKS_GAMES
+  TOP_PICKS_GAMES,
+  GAMES,
+  GAME_CATEGORIES
 } from '../../constants/Games';
 import GameCards from '../../components/GameCards';
 
@@ -26,6 +28,8 @@ import { connect } from 'react-redux';
 import { ReactComponent as DiscordMarker } from '../../data/images/home/discord-mark.svg';
 import EventActivitiesTabs from 'components/EventActivitiesTabs';
 import CustomCarousel from 'components/CustomCarousel/CustomCarousel';
+import CategoryList from 'components/CategoryList';
+import Search from 'components/Search';
 
 const Games = (
   authState,
@@ -179,9 +183,27 @@ const Games = (
       <CustomCarousel carouselType={'landingpage'} />
       <div className={styles.container}>
 
+        <section className={styles.header}>
+          <div className={styles.categories}>
+            <CategoryList
+              className={styles.categoryList}
+              categories={GAME_CATEGORIES}
+              // handleSelect={handleSelectCategory}
+            />
+            <div className={styles.containerOptions}>
+              <Search
+                className={styles.searchInput}
+                // value={searchTerm}
+                // handleChange={setSearchTerm}
+                // handleConfirm={onConfirmSearch}
+              />
+            </div>
+          </div>
+        </section>
+
         <DisplaySection selectedGamesLabel={TOP_PICKS_GAMES.header} selectedGamesNames={TOP_PICKS_GAMES.names} smartsoftGames={EXTERNAL_GAMES} evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)} softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}/>
 
-        <SearchSection
+        {/* <SearchSection
           setGames={setGames}
           alpacaGames={showUpcoming ? NEW_SLOTS_GAMES : SLOTS_GAMES}
           setAlpacaGame={setAlpacaGame}
@@ -191,7 +213,7 @@ const Games = (
           externalGamesSoftswiss={externalGamesSoftswiss}
           setExternalGamesSoftswiss={setExternalGamesSoftswiss}
           setExternalGames={setExternalGames}
-        />
+        /> */}
 
         {alpacaGames.length > 0 && <GameCards games={alpacaGames} category="House Games" />}
 

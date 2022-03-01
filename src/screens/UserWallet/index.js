@@ -234,7 +234,7 @@ const UserWallet = ({
                     return (
                       <div className={styles.balanceTextContainer} key={b.symbol}>
                         <p className={styles.currentbalanceHeading}>
-                          {b.symbol === TOKEN_NAME ? 'Current balance:' : 'Bonus balance:'}
+                          {b.symbol === TOKEN_NAME ? 'Current balance:' : 'Casino Bonus:'}
                         </p>
                         <div className={styles.balanceBottomContainer}>
                           <p className={styles.currentbalanceWFair}>
