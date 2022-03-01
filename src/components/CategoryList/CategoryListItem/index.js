@@ -12,55 +12,35 @@ function CategoryListItem({ categoryItem, eventType }) {
   return (
     <>
       <section className={styles.categoryListItem}>
-        <Link
-          to={Routes.getRouteWithParameters(
-            {
-              [EventTypes.streamed]: Routes.liveEvents,
-              [EventTypes.nonStreamed]: Routes.events,
-            }[eventType] || Routes.home,
-            {
-              category: encodeURIComponent(categoryItem.value),
-            }
-          )}
-          className={categoryItem.disabled ? styles.linkDisabled : null}
-        >
+        {eventType ? 
+          <Link
+            to={Routes.getRouteWithParameters(
+              {
+                [EventTypes.streamed]: Routes.liveEvents,
+                [EventTypes.nonStreamed]: Routes.events,
+              }[eventType] || Routes.home,
+              {
+                category: encodeURIComponent(categoryItem.value),
+              }
+            )}
+            className={categoryItem.disabled ? styles.linkDisabled : null}
+          >
+            <Button className={classNames(styles.categoryButton, categoryItem.isActive && styles.active)} theme={ButtonTheme.secondaryButton}>
+              <img
+                src={categoryItem.image}
+                alt={`category ${categoryItem.value}`}/>
+              {categoryItem.label ?? categoryItem.value}
+            </Button>
+          </Link>
+        :
+        
           <Button className={classNames(styles.categoryButton, categoryItem.isActive && styles.active)} theme={ButtonTheme.secondaryButton}>
             <img
               src={categoryItem.image}
               alt={`category ${categoryItem.value}`}/>
             {categoryItem.label ?? categoryItem.value}
-          </Button>
-          {/* <div
-            className={classNames({
-              [styles.box]: categoryItem.type === 'image',
-              [styles.boxIcon]: categoryItem.type === 'icon',
-              [styles.active]: categoryItem.isActive,
-            })}
-            role="button"
-            tabIndex="0"
-            title={categoryItem.value}
-          >
-            <img
-              src={categoryItem.image}
-              alt={`category ${categoryItem.value}`}
-              className={classNames({
-                [styles.image]: categoryItem.type === 'image',
-                [styles.imageIcon]: categoryItem.type === 'icon',
-                [styles.active]: categoryItem.isActive,
-                [styles.disabled]: categoryItem.disabled,
-              })}
-            />
-            {categoryItem.type === 'icon' && (
-              <label
-                className={classNames(styles.label, {
-                  [styles.active]: categoryItem.isActive,
-                })}
-              >
-                {categoryItem.label ?? categoryItem.value}
-              </label>
-            )}
-          </div> */}
-        </Link>
+          </Button> 
+        }
       </section>
     </>
   );

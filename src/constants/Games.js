@@ -18,7 +18,13 @@ import gameCardPlinko from '../data/images/house-games/card-plinko.png';
 import gameCardMines from '../data/images/house-games/card-mines.png';
 import gameCardAlpacannon from '../data/images/house-games/card-alpacannon.png';
 
-//
+import IconGameAll from '../data/icons/games/all-icon.svg';
+import IconGameCard from '../data/icons/games/card-icon.svg';
+import IconGameCasino from '../data/icons/games/casino-icon.svg';
+import IconGameInstant from '../data/icons/games/instant-win.svg';
+import IconGameKeno from '../data/icons/games/keno-icon.svg';
+import IconGameRoulette from '../data/icons/games/roulette-icon.svg';
+import IconGameSlot from '../data/icons/games/slot-icon.svg';
 
 const softswissAcceptanceTests = [
   {
@@ -4732,3 +4738,70 @@ export const TOP_PICKS_GAMES = {
   header: 'Top picks',
   names: ['JetX', 'PlingoBall', 'Mine Field', 'Tree Of Light', 'Unlimited Wishes', 'FunFruit']
 }
+
+export const GAME_CATEGORIES = [
+  {
+    value: 'all',
+    label: 'All',
+    image: IconGameAll,
+    isActive: true,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'House Games',
+    label: 'House Games',
+    image: IconGameAll,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'Casino',
+    label: 'Casino',
+    image: IconGameCasino,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'Slot',
+    label: 'Slot',
+    image: IconGameSlot,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'Roulette',
+    label: 'Roulette',
+    image: IconGameRoulette,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'Card Games',
+    label: 'Card Games',
+    image: IconGameCard,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'Instant Win',
+    label: 'Instant Win',
+    image: IconGameInstant,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'Keno',
+    label: 'Keno',
+    image: IconGameKeno,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+];

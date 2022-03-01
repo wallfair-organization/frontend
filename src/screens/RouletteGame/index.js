@@ -168,7 +168,9 @@ const RouletteGame = ({
         activitiesLimit={50}
         className={styles.activitiesTrackerGamesBlock}
         preselectedCategory={'game'}
-        gameId={ALPACA_WHEEL_GAME_EVENT_ID}></EventActivitiesTabs>
+        gameId={ALPACA_WHEEL_GAME_EVENT_ID}
+        gameScreen={true}
+      />
     </Grid>
   );
 

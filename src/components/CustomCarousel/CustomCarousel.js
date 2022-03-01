@@ -28,6 +28,8 @@ import { useNotificationFilter } from 'components/Events/hooks/useNotificationFi
 import { TOKEN_NAME } from 'constants/Token';
 import { currencyDisplay } from 'helper/Currency';
 
+const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
+
 const BottomBanner = ({title, price}) => {
   return (
     <div className={styles.bottomBanner}>
@@ -198,7 +200,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
     )
   }
 
-  const renderSlides = () => {
+  const renderSlidesPlayMoney = () => {
     return (
       <Carousel
         className={styles.carousel}
@@ -285,6 +287,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
           </div> */}
         </div>
       </div>
+
       <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
@@ -324,11 +327,105 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
     )
   }
 
-  return <>
+  const renderSlidesRealMoney = () => {
+    return (
+      <Carousel
+        className={styles.carousel}
+        autoPlay={true}
+        interval={6500}
+        transitionTime={800}
+        infiniteLoop={true}
+        preventMovementUntilSwipeScrollTolerance={true}
+        swipeable={false}
+        stopOnHover={true}
+        showArrows={true}
+        showStatus={false}
+        showIndicators={false}
+        showThumbs={false}
+        
+      >
+      <div className={styles.container}>
+        <div className={styles.topContainer}>
+          <img
+            className={styles.backgroundImg}
+            alt=""
+            src={BackgroundFirst}
+          />
+          <div className={styles.firstContainer}>
+            <div>
+              <h2>CREATE YOUR<br/>OWN EVENT AND<br/><span className={styles.secondTitle}>MAKE MONEY!</span></h2>
+              <p className={styles.description}>
+                Create events within 2 minutes, share them<br />with 
+                your friends and earn real money.
+              </p>
+              <div className={styles.buttonWrapper}>
+                <Button className={styles.button} onClick={onClickItemFirstBanner}>Create an event</Button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.secondContainer}>
+            {renderBetCard()}
+            <img src={Coins} className={styles.coins} alt="coins" />
+          </div>
+          <div className={styles.bottomBannerContainner}>
+            {notifications && notifications.slice(0, 5).map(activity => {
+              return (
+                <BottomBanner
+                  title={`${activity.data?.user?.username}`}
+                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+      
+
+
+      <div className={styles.container}>
+        <div className={styles.topContainer}>
+          <img
+            className={styles.backgroundImg}
+            alt=""
+            src={BackgroundSecond}
+          />
+          <div className={styles.firstContainer}>
+            <div>
+              <h2>TRADE ON<br/><span className={styles.secondTitle}>FUN EVENTS!</span></h2>
+              <p className={styles.description}>
+                Share the events with your friends or community. <br/>
+                The best and most interesting events will be rewarded.
+              </p>
+              <div className={styles.buttonWrapper}>
+                <Button className={styles.button} theme={ButtonTheme.secondaryButton} onClick={onClickItemSecondBanner}>Discover all Events</Button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.secondContainer}>
+            {render3BetCards()}
+          </div>
+          <div className={styles.bottomBannerContainner}>
+            {notifications && notifications.slice(0, 5).map(activity => {
+              return (
+                <BottomBanner
+                  title={`${activity.data?.user?.username}`}
+                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                />
+              )
+            })}
+          </div>
+        </div>
+        
+      </div>
+    </Carousel>
+    )
+  }
+
+  return (
     <div className={classNames(styles.carouselContainer)}>
-      {renderSlides()}
+      {isPlayMoney ? renderSlidesPlayMoney() : renderSlidesRealMoney()}
     </div>
-  </>;
+  )
 };
 
 const mapStateToProps = state => {

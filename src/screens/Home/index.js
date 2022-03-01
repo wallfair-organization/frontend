@@ -34,6 +34,11 @@ import DiscordWidget from 'components/DiscordWidget';
 import PopupTheme from 'components/Popup/PopupTheme';
 import { dataLayerPush } from 'config/gtm';
 import ActivitiesTracker from 'components/ActivitiesTracker';
+import DisplaySection from './DisplaySection';
+import { EVOPLAY_GAMES, EXTERNAL_GAMES, SOFTSWISS_GAMES, TOP_PICKS_GAMES } from 'constants/Games';
+import { prepareEvoplayGames, prepareSoftSwissGames } from 'helper/Games';
+
+const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
 const Home = (
   authState,
@@ -124,7 +129,7 @@ const Home = (
         </div>
         <Grid item xs={12}>
           <ActivitiesTracker
-            preselectedCategory='bets'
+            preselectedCategory={isPlayMoney ? 'bets' : 'all'}
             showCategories={false}
             activitiesLimit={30}
             className={
@@ -176,13 +181,19 @@ const Home = (
           titleLinkTo={Routes.getRouteWithParameters(Routes.events, {category: 'all'})}
         />
 
-        <GainBanner
-          isLoggedIn={isLoggedIn}
-          handleClickSignUp={handleClickSignUp}
-          handleClickCreateEvent={handleClickCreateEvent}
-        />
+        {isPlayMoney &&
+          <GainBanner
+            isLoggedIn={isLoggedIn}
+            handleClickSignUp={handleClickSignUp}
+            handleClickCreateEvent={handleClickCreateEvent}
+          />
+        }
 
         {renderGamesBanner()}
+
+        {!isPlayMoney &&
+          <DisplaySection selectedGamesLabel={TOP_PICKS_GAMES.header} selectedGamesNames={TOP_PICKS_GAMES.names} smartsoftGames={EXTERNAL_GAMES} evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)} softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}/>
+        }
 
         {renderActivities()}
 

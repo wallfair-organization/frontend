@@ -741,3 +741,61 @@
     }
   }
 }
+
+//GAME CATEGORIES
+.header {
+  width: 100%;
+  max-width: 1288px;
+  // padding: 0 22px;
+  color: white;
+  // margin: 32px auto 0;
+
+  @media (min-width: $screen-lg) {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  @media (max-width: $screen-sm) {
+    margin: 0;
+    width: 100%;
+    padding: 25px 5px 0;
+  }
+}
+
+.categories {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media (max-width: $screen-sm) {
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 20px;
+  }
+
+  .categoryList {
+    display: inline-flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    @media (max-width: $screen-sm) {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+
+  .containerOptions {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    justify-content: flex-start;
+
+    .searchInput {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+}
