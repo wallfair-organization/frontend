@@ -107,7 +107,9 @@ const EvoplayGame = ({
         activitiesLimit={50}
         className={styles.activitiesTrackerGamesBlock}
         preselectedCategory={'game'}
-        gameId={EXTERNAL_GAME_EVENT_ID}></EventActivitiesTabs>
+        gameId={EXTERNAL_GAME_EVENT_ID} 
+        gameScreen={true}
+      />
     </Grid>
   );
 
