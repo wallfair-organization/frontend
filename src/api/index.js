@@ -66,7 +66,7 @@ const setToken = token => {
   EventsServiceApi.defaults.headers.common['Authorization'] = authentication;
 };
 
-const sendSms = (phone) => {
+const sendSms = phone => {
   return Api.post(ApiUrls.API_AUTHENTICATION_SEND_SMS, {
     phone,
   })
@@ -246,11 +246,11 @@ const pullOutBet = (betId, outcome) => {
   return EventsServiceApi.post(`/bets/${betId}/sell`, {
     outcome,
   })
-  .then(res => res.data)
-  .catch(error => {
-    console.log('[API Error] called: pullOutBet', error);
-    throw error;
-  });
+    .then(res => res.data)
+    .catch(error => {
+      console.log('[API Error] called: pullOutBet', error);
+      throw error;
+    });
 };
 
 const getOpenBets = () => {
@@ -681,10 +681,19 @@ const deleteMarketEvent = id => {
     });
 };
 
-const getMarketEvents = (category, statuses, page = null, limit, name = '', orderBy = 'created_at', order = 'DESC') => {
+const getMarketEvents = ({
+  category,
+  statuses,
+  page = null,
+  limit,
+  name = '',
+  orderBy = 'created_at',
+  order = 'DESC',
+  creator = false,
+}) => {
   // additionaly provide params for status, search by name sorting, pagination etc
   return EventsServiceApi.get(
-    `/events/market-events?categories=${category}&statuses=${statuses.join(
+    `/events/market-events${creator ? '/all/creator' : ''}?categories=${category}&statuses=${statuses.join(
       ','
     )}&name=${name}&limit=${limit}&page=${page}&orderBy=${orderBy}&order=${order}`
   )
@@ -744,7 +753,7 @@ const openDispute = (betId, payload) => {
     });
 };
 
-const getDisputes = (betId) => {
+const getDisputes = betId => {
   return EventsServiceApi.get(`/bets/${betId}/disputes`)
     .then(res => res.data)
     .catch(err => {
@@ -755,14 +764,14 @@ const getDisputes = (betId) => {
 
 const claimTokens = () => {
   return Api.post('/api/user/tokens')
-    .then((res) => res.data)
-    .catch((e) => {
+    .then(res => res.data)
+    .catch(e => {
       console.log('[API-Error]: claimTokens ', e);
       throw e;
     });
-}
+};
 
-const uploadImage = (payload) => {
+const uploadImage = payload => {
   return Api.post('/api/user/upload-image', payload)
     .then(res => res.data)
     .catch(e => {

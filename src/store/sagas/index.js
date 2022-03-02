@@ -19,6 +19,7 @@ import {
 import { AuthenticationTypes } from '../actions/authentication';
 import { BetTypes } from '../actions/bet';
 import { EventTypes } from '../actions/event';
+import { ChartTypes } from '../actions/chart-params';
 import { REHYDRATE } from 'redux-persist';
 import { TransactionTypes } from '../actions/transaction';
 import { UserTypes } from '../actions/user';
@@ -178,10 +179,6 @@ const root = function* () {
       [AuthenticationTypes.ACCEPT_TOS_CONSENT],
       AuthenticationSagas.updateToSConsent
     ),
-    // takeLatest(
-    //   [EventTypes.FETCH_HISTORY_CHART_DATA, EventTypes.UPDATE_CHART_PARAMS],
-    //   EventSagas.fetchHistoryChartData
-    // ),
     takeLatest([EventTypes.FETCH_NEWS_DATA], EventSagas.fetchNewsData),
     takeLatest([EventTypes.CREATE_EVENT], EventSagas.createEvent),
     takeLatest([EventTypes.EDIT_EVENT], EventSagas.editEvent),

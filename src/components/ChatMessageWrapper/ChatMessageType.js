@@ -1,6 +1,6 @@
 export default {
   createBet: 'BET_CREATE',
-  placeBet: 'BET_PLACE',
+  placeBet: 'Notification/EVENT_BET_PLACED',
   pulloutBet: 'BET_PULLOUT',
   casinoStart: 'CASINO_START',
   casinoEnd: 'CASINO_END',

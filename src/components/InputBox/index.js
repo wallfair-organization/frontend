@@ -96,6 +96,27 @@ const InputBox = ({
           />
         </MuiPickersUtilsProvider>
       );
+    } else if(type === 'textarea') {
+      return (
+        <textarea
+          className={styles.textarea}
+          placeholder={placeholder}
+          type={type}
+          value={value}
+          min={min}
+          max={max}
+          onChange={event => setValue(event.target.value)}
+          onBlur={onBlur}
+          onKeyDown={onKeyDown}
+          onSubmit={onConfirm}
+          reference={inputRef}
+          disabled={disabled}
+          autoFocus={type === 'email'}
+          maxLength={maxlength}
+          rows="5"
+          cols="33"
+        />
+      );
     }
 
     return (
@@ -195,6 +216,7 @@ const InputBox = ({
               styles.dashedBorderTransparent,
             [InputBoxTheme.modalInput]: styles.modalInput,
             [InputBoxTheme.copyToClipboardInputBoxSmall]: styles.copyToClipboardInputBoxSmall,
+            [InputBoxTheme.areaInput]: styles.areaInput,
           }),
           className
         )}

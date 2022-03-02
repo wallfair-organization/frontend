@@ -14,10 +14,16 @@ import Routes from 'constants/Routes';
 
 const actionTypes = {
   [actions.cancelBet]: {
-    title: 'Cancel Bet',
-    text: 'Are you sure you want to cancel the bet?',
-    acceptLabel: 'Cancel Bet',
+    title: 'Cancel Event',
+    text: 'Are you sure you want to cancel the event?',
+    acceptLabel: 'Cancel Event',
     declineLabel: "Don't Cancel",
+    getBody: e => (
+      <p className={styles.text}>
+        Are you sure you want to cancel the event?
+        <strong>{e?.event?.name}</strong>
+      </p>
+    ),
     onAccept: ({ bet, event }, _actions, data, history) =>
       Api.cancelBet(bet.id, data).then(() =>
         history.push(

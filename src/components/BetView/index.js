@@ -48,8 +48,8 @@ const BetView = ({
   showPopup,
   isTradeViewPopup,
   startOnboarding,
-  fetchChartHistory,
   showError,
+  chartParams,
 }) => {
   // Static balance amount to simulate for non-logged users
   // Slider is also using 2800 as max value
@@ -127,6 +127,12 @@ const BetView = ({
   };
 
   useEffect(() => {
+    if (bet.id) {
+      fetchOutcomes();
+    }
+  }, [chartParams]);
+
+  useEffect(() => {
     if (bet.status === BetState.disputed) {
       getDisputes(bet.id).then(res => setDisputes(res));
     }
@@ -166,7 +172,6 @@ const BetView = ({
             },
             hideShare: true,
           });
-          fetchChartHistory(bet.id);
         })
         .catch(() => {
           showError('Failed to place a bet');
@@ -365,7 +370,11 @@ const BetView = ({
           <span
             data-for="tool-tip"
             data-tip={
-              userLoggedIn && !isCreator ? 'You need to select an option first' : null
+              userLoggedIn && !isCreator
+                ? 'You need to select an option first'
+                : userLoggedIn && isCreator
+                ? `Event creator can't bet on their own events`
+                : null
             }
           >
             <Button
@@ -432,14 +441,14 @@ const BetView = ({
                   you want to put into this bet by typing in the amount.
                 </p>
                 <p>
-                  - After that, select the outcome you
-                  think will become true. The potential gains in{' '}
-                  {currencyDisplay(TOKEN_NAME)} and percent will automatically
-                  adjust according to your placed bet amount.
+                  - After that, select the outcome you think will become true.
+                  The potential gains in {currencyDisplay(TOKEN_NAME)} and
+                  percent will automatically adjust according to your placed bet
+                  amount.
                 </p>
                 <p>
-                  - To finalize your bet, click on the "Place Trade" button and enjoy
-                  the thrill.
+                  - To finalize your bet, click on the "Place Trade" button and
+                  enjoy the thrill.
                 </p>
               </InfoBox>
             </div>
@@ -496,7 +505,7 @@ const BetView = ({
         </>
       );
     } else if (
-      [BetState.resolved, BetState.disputed, BetState.closed].includes(state)
+      [BetState.resolved, BetState.disputed, BetState.closed, BetState.waitingResolution].includes(state)
     ) {
       const isResolved = [BetState.resolved, BetState.disputed].includes(state);
       const outcomeNames = _.map(bet.outcomes, 'name') || [];
@@ -528,7 +537,7 @@ const BetView = ({
           <div className={styles.summaryRowContainer}>
             {data(
               `Bet ${isResolved ? 'resolved' : 'closed'} at`,
-              DateText.formatDate(bet.end_date)
+              DateText.formatDate(bet.end_date) + ' GMT'
             )}
             {isResolved &&
               data(
@@ -539,29 +548,32 @@ const BetView = ({
                   ))}
                 </ul>
               )}
-            {data(
-              'Outcome',
-              isResolved
-                ? 'This bet is awaiting resolution, see details below'
-                : finalOutcome
-            )}
+            {finalOutcome &&
+              data(
+                'Outcome',
+                isResolved
+                  ? 'This bet is awaiting final resolution, see details below'
+                  : finalOutcome
+              )}
             {data('Evidence', renderTradeDesc(false))}
-            {data('Final Evidence', evidence, { smallText: true })}
+            {evidence && data('Final Evidence', evidence, { smallText: true })}
           </div>
           {isResolved && (
             <AuthedOnly>
               <div className={styles.disputeButtonContainer}>
-                {!disputes.find(d => d.user_id === auth.userId) && !isAdmin && !isCreator && (
-                  <ButtonSmall
-                    text="Dispute"
-                    butonTheme={ButtonSmallTheme.red}
-                    onClick={() =>
-                      showPopup(PopupTheme.reportEvent, {
-                        betId: bet.id,
-                      })
-                    }
-                  />
-                )}
+                {!disputes.find(d => d.user_id === auth.userId) &&
+                  !isAdmin &&
+                  !isCreator && (
+                    <ButtonSmall
+                      text="Dispute"
+                      butonTheme={ButtonSmallTheme.red}
+                      onClick={() =>
+                        showPopup(PopupTheme.reportEvent, {
+                          betId: bet.id,
+                        })
+                      }
+                    />
+                  )}
                 {isAdmin && (
                   <ButtonSmall
                     text="Disputes"
@@ -641,6 +653,7 @@ const BetView = ({
 const mapStateToProps = state => {
   return {
     actionIsInProgress: state.bet.actionIsInProgress,
+    chartParams: state.chartParams,
   };
 };
 

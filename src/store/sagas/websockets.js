@@ -11,9 +11,16 @@ import { createSocket, websocket } from '../../api/websockets';
 import { createMatchSelector } from 'connected-react-router';
 import Routes from '../../constants/Routes';
 import { matchPath } from 'react-router';
-import { UNIVERSAL_EVENTS_ROOM_ID, API_INFO_CHANNEL } from 'constants/Activities';
+import {
+  UNIVERSAL_EVENTS_ROOM_ID,
+  API_INFO_CHANNEL,
+} from 'constants/Activities';
 import { EventActions } from '../actions/event';
-import {InfoChannelActions, infoChannelActions} from '../actions/info-channel';
+import { ChartParamsActions } from '../actions/chart-params';
+import {
+  InfoChannelActions,
+  infoChannelActions,
+} from '../actions/info-channel';
 import trackedActivities from '../../components/ActivitiesTracker/trackedActivities';
 import { GAMES } from '../../constants/Games';
 import { UserActions } from '../actions/user';
@@ -126,7 +133,7 @@ function createSocketChannel(socket) {
       emit(message);
     };
 
-    const infoChannelHandler = (data) => {
+    const infoChannelHandler = data => {
       const message = {
         type: 'INFO_CHANNEL',
         eventName: data.type,
@@ -266,20 +273,6 @@ export function* init() {
               })
             );
             break;
-          case ChatMessageType.placeBet:
-            const chartParams = yield select(
-              state => state.chartParams
-            );
-            yield put(
-              EventActions.initiateFetchChartData(payload.betId, chartParams)
-            );
-            yield put(
-              ChatActions.addMessage({
-                roomId: payload.roomId,
-                message: payload,
-              })
-            );
-            break;
           case 'notification':
           case UserNotificationTypes.BET_RESOLVED:
           case UserNotificationTypes.BET_CLOSED:
@@ -303,7 +296,7 @@ export function* init() {
             yield put(EventActions.fetchAll());
             break;
           case 'INFO_CHANNEL':
-            yield put(InfoChannelActions.setPrices(payload.data))
+            yield put(InfoChannelActions.setPrices(payload.data));
             break;
           case 'any':
             if (trackedActivities.indexOf(payload.eventName) > -1) {
@@ -311,6 +304,16 @@ export function* init() {
                 NotificationActions.addActivity({
                   activity: payload.data,
                   eventName: payload.eventName,
+                })
+              );
+            }
+
+            if (payload.eventName === ChatMessageType.placeBet) {
+              const chartParams = yield select(state => state.chartParams);
+              yield put(
+                ChartParamsActions.updateChartParams({
+                  ...chartParams,
+                  reload: new Date(),
                 })
               );
             }
@@ -343,7 +346,7 @@ const isEvoplayPage = (currentAction, pathSlugs) =>
   (currentAction[0] === 'evoplay-game' || pathSlugs[0] === 'evoplay-game') &&
   (pathSlugs.length > 2 || currentAction.length > 2);
 const isSoftswissPage = (currentAction, pathSlugs) =>
-  (currentAction[0] === 'softswiss-game' || pathSlugs[0] === 'softswiss-game');
+  currentAction[0] === 'softswiss-game' || pathSlugs[0] === 'softswiss-game';
 
 export function* joinOrLeaveRoomOnRouteChange(action) {
   const ready = yield select(state => state.websockets.init);
@@ -363,7 +366,10 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
 
   if (currentAction[0] === 'trade' || pathSlugs[0] === 'trade') {
     const eventSlug = pathSlugs[1];
-    const event = yield call(Api.getEventBySlug, !!currentAction[1] ? currentAction[1] : eventSlug);
+    const event = yield call(
+      Api.getEventBySlug,
+      !!currentAction[1] ? currentAction[1] : eventSlug
+    );
     if (event) newRoomsToJoin.push(event.id);
   }
 
@@ -383,7 +389,7 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
       newRoomsToJoin.push(UNIVERSAL_EVENTS_ROOM_ID);
     }
   }
-  if(isEvoplayPage(currentAction, pathSlugs)){
+  if (isEvoplayPage(currentAction, pathSlugs)) {
     newRoomsToJoin.push(ObjectId(pathSlugs[3]));
     newRoomsToJoin.push(UNIVERSAL_EVENTS_ROOM_ID);
   }

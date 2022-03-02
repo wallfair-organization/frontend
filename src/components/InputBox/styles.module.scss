@@ -32,6 +32,27 @@
       background-color: $colorGrayLight;
     }
 
+    &.areaInput {
+      background-color: $colorGrayLight;
+      min-height: 150px;
+
+      .textarea {
+        outline: none;
+        resize: none;
+        border: none;
+        height: 100%;
+        background-color: transparent;
+        min-width: 100px !important;
+        flex: 1 1;
+        margin-right: 20px;
+        font-family: 'DM Sans';
+        font-size: 16px;
+        line-height: 24px;
+        color: #0e0927;
+        background-color: transparent;
+      }
+    }
+
     &.copyToClipboardInputBox {
       background-color: $colorGrayLight;
 
@@ -123,7 +144,8 @@
       border-color: $colorGrayLight2;
       border-width: 1px;
 
-      input {
+      input,
+      textarea {
         &::placeholder {
           color: $colorGrayLight2;
         }

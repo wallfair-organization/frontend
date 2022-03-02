@@ -35,7 +35,7 @@ export function useChartData(betId) {
       currentParams.current.rangeType = filterMap[filterName].rangeType;
       currentParams.current.rangeValue = filterMap[filterName].rangeValue;
       dispatch(
-        EventActions.updateChartParams(betId, { ...currentParams.current })
+        EventActions.updateChartParams({ ...currentParams.current })
       );
     }
   };

@@ -42,19 +42,9 @@
     justify-content: center;
   }
 
-  .acceptButton {
-    background-color: $colorWhite;
-    width: 100px;
-    height: 60px;
-    font-size: 20px;
-    background-image: url('../../data/images/signup-background-one.svg');
-    background-size: 80%;
-    background-position: center;
-    background-repeat: no-repeat;
-    white-space: nowrap;
-  }
+  // .acceptButton {
+  // }
   .declineButton {
-    font-size: 15px;
-    margin-right: 100px;
+    margin-right: 50px;
   }
 }
