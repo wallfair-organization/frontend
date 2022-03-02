@@ -40,7 +40,7 @@ const CashoutPopupView = ({ authentication, visible, hidePopup, options }) => {
   useEffect(() => {
     (async () => {
       if (isMounted) {
-        let realUrl = new URL(`${urlOrigin}${urlPath}${userId ? `&ref=${userId}` : ``}`);
+        let realUrl = new URL(`${urlOrigin}${urlPath}${userId ? `?ref=${userId}` : ``}`);
         
         const shorterUrl = await shortenerTinyUrl(realUrl.toString()).catch(
           err => {
