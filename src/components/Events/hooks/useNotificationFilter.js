@@ -12,7 +12,7 @@ export function useNotificationFilter(category) {
   useEffect(() => {
     (async () => {
       const initialActivities = await getNotificationEvents({
-        limit: 50,
+        limit: 200,
         category: 'bets',
       }).catch(err => {
         console.error("Can't get trade by id:", err);
