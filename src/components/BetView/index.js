@@ -500,7 +500,7 @@ const BetView = ({
         </>
       );
     } else if (
-      [BetState.resolved, BetState.disputed, BetState.closed].includes(state)
+      [BetState.resolved, BetState.disputed, BetState.closed, BetState.waitingResolution].includes(state)
     ) {
       const isResolved = [BetState.resolved, BetState.disputed].includes(state);
       const outcomeNames = _.map(bet.outcomes, 'name') || [];
@@ -532,7 +532,7 @@ const BetView = ({
           <div className={styles.summaryRowContainer}>
             {data(
               `Bet ${isResolved ? 'resolved' : 'closed'} at`,
-              DateText.formatDate(bet.end_date)
+              DateText.formatDate(bet.end_date) + ' GMT'
             )}
             {isResolved &&
               data(
@@ -543,14 +543,15 @@ const BetView = ({
                   ))}
                 </ul>
               )}
-            {data(
-              'Outcome',
-              isResolved
-                ? 'This bet is awaiting resolution, see details below'
-                : finalOutcome
-            )}
+            {finalOutcome &&
+              data(
+                'Outcome',
+                isResolved
+                  ? 'This bet is awaiting final resolution, see details below'
+                  : finalOutcome
+              )}
             {data('Evidence', renderTradeDesc(false))}
-            {data('Final Evidence', evidence, { smallText: true })}
+            {evidence && data('Final Evidence', evidence, { smallText: true })}
           </div>
           {isResolved && (
             <AuthedOnly>

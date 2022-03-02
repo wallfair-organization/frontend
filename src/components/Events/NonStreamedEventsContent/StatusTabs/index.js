@@ -1,17 +1,21 @@
-import _ from 'lodash';
 import React, { useState } from 'react';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
-
-import SuggestEventButton from 'components/Events/SuggestEventButton';
+import { useSelector } from 'react-redux';
+import authState from 'constants/AuthState';
 
 const TABS = {
   current: 'current',
   past: 'past',
+  myEvents: 'myEvents',
 };
 
 const StatusTabs = ({ onSelect = () => {}, preselected = TABS.current }) => {
   const [activeTab, setActiveTab] = useState(preselected);
+
+  const isLoggedIn = useSelector(
+    state => state.authentication.authState === authState.LOGGED_IN
+  );
 
   const setSelection = selection => {
     setActiveTab(selection);
@@ -21,11 +25,18 @@ const StatusTabs = ({ onSelect = () => {}, preselected = TABS.current }) => {
   const tabLabels = {
     [TABS.current]: 'Current Events',
     [TABS.past]: 'Past Events',
+    [TABS.myEvents]: 'My Events',
+  };
+
+  const tabActive = {
+    [TABS.current]: true,
+    [TABS.past]: true,
+    [TABS.myEvents]: isLoggedIn,
   };
 
   return (
     <div className={styles.statusPicker}>
-      {Object.keys(TABS).map((tabName, index) => (
+      {Object.keys(TABS).map((tabName, index) => tabActive[tabName] && (
         <button
           type="button"
           className={classNames(
