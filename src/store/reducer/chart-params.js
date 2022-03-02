@@ -1,5 +1,5 @@
 import update from 'immutability-helper';
-import EventTypes from 'constants/EventTypes';
+import { ChartTypes } from '../actions/chart-params';
 
 const initialState = {
   rangeType: 'hour',
@@ -14,7 +14,7 @@ const updateChartParams = (state, action) => {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case EventTypes.UPDATE_CHART_PARAMS:
+    case ChartTypes.UPDATE_CHART_PARAMS:
       return updateChartParams(state, action);
     default:
       return state;

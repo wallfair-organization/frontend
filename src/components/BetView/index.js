@@ -48,8 +48,8 @@ const BetView = ({
   showPopup,
   isTradeViewPopup,
   startOnboarding,
-  fetchChartHistory,
   showError,
+  chartParams,
 }) => {
   // Static balance amount to simulate for non-logged users
   // Slider is also using 2800 as max value
@@ -127,6 +127,12 @@ const BetView = ({
   };
 
   useEffect(() => {
+    if (bet.id) {
+      fetchOutcomes();
+    }
+  }, [chartParams]);
+
+  useEffect(() => {
     if (bet.status === BetState.disputed) {
       getDisputes(bet.id).then(res => setDisputes(res));
     }
@@ -166,7 +172,6 @@ const BetView = ({
             },
             hideShare: true,
           });
-          fetchChartHistory(bet.id);
         })
         .catch(() => {
           showError('Failed to place a bet');
@@ -648,6 +653,7 @@ const BetView = ({
 const mapStateToProps = state => {
   return {
     actionIsInProgress: state.bet.actionIsInProgress,
+    chartParams: state.chartParams,
   };
 };
 

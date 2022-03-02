@@ -12,9 +12,6 @@ import { GeneralActions } from 'store/actions/general';
 import { OnboardingActions } from 'store/actions/onboarding';
 import classNames from 'classnames';
 import PopupTheme from '../../components/Popup/PopupTheme';
-import IconType from 'components/Icon/IconType';
-import IconTheme from 'components/Icon/IconTheme';
-import Icon from '../../components/Icon';
 import { LOGGED_IN } from 'constants/AuthState';
 import Favorite from 'components/Favorite';
 import Share from '../../components/Share';
@@ -32,7 +29,6 @@ import { ReactComponent as ArrowLeft } from 'data/icons/arrow-left.svg';
 import Routes from 'constants/Routes';
 import EventShareWidget from 'components/EventShareWidget';
 import BetActionsMenu from 'components/BetActionsMenu';
-import bet from 'store/reducer/bet';
 
 const MarketEvent = ({
   showPopup,
@@ -78,6 +74,12 @@ const MarketEvent = ({
     });
   };
 
+  useEffect(() => {
+    if(event) {
+      fetchChartHistory(event.bet.id);
+    }
+  }, [chartParams]);
+
   const isLoggedIn = () => {
     return authState === LOGGED_IN;
   };
@@ -90,7 +92,6 @@ const MarketEvent = ({
             event={event}
             closed={false}
             showEventEnd={true}
-            fetchChartHistory={fetchChartHistory}
           />
         </div>
       </div>
