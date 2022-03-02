@@ -11,6 +11,7 @@ import { useState } from 'react';
 import Icon from 'components/Icon';
 import IconTheme from 'components/Icon/IconTheme';
 import IconType from 'components/Icon/IconType';
+import InputBoxTheme from 'components/InputBox/InputBoxTheme';
 
 const BetScreen = ({ bet = null, proceedBet, isNew }) => {
   const [formValid, setFormValid] = useState(true);
@@ -168,7 +169,8 @@ const BetScreen = ({ bet = null, proceedBet, isNew }) => {
           Evidence Description
         </InputLabel>
         <InputBox
-          type="text"
+          type="textarea"
+          theme={InputBoxTheme.areaInput}
           className={styles.inputBox}
           placeholder="Evidence description"
           value={evidenceDescription}
