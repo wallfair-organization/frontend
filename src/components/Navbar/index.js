@@ -220,14 +220,18 @@ const Navbar = ({
               {formatToFixed(balance, 0, true)} {currencyDisplay(TOKEN_NAME)}
             </div>
             <RealMoneyOnly>
-              <span
-                className={classNames(style.infoTooltip, style.hideOnMobile)}
-              >
-                &asymp; {convertAmount(balance, prices[gamesCurrency])}{' '}
-                <span className={style.walletEquivalentCurrency}>
-                  {gamesCurrency}
+              {gamesCurrency !== TOKEN_NAME ?
+                <span
+                  className={classNames(style.infoTooltip, style.hideOnMobile)}
+                >
+                  &asymp; {convertAmount(balance, prices[gamesCurrency])}{' '}
+                  <span className={style.walletEquivalentCurrency}>
+                    {gamesCurrency}
+                  </span>
                 </span>
-              </span>
+              :
+                null
+              }
             </RealMoneyOnly>
           </div>
         </span>
