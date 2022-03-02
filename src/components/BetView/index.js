@@ -365,7 +365,11 @@ const BetView = ({
           <span
             data-for="tool-tip"
             data-tip={
-              userLoggedIn && !isCreator ? 'You need to select an option first' : null
+              userLoggedIn && !isCreator
+                ? 'You need to select an option first'
+                : userLoggedIn && isCreator
+                ? `Event creator can't bet on their own events`
+                : null
             }
           >
             <Button
@@ -432,14 +436,14 @@ const BetView = ({
                   you want to put into this bet by typing in the amount.
                 </p>
                 <p>
-                  - After that, select the outcome you
-                  think will become true. The potential gains in{' '}
-                  {currencyDisplay(TOKEN_NAME)} and percent will automatically
-                  adjust according to your placed bet amount.
+                  - After that, select the outcome you think will become true.
+                  The potential gains in {currencyDisplay(TOKEN_NAME)} and
+                  percent will automatically adjust according to your placed bet
+                  amount.
                 </p>
                 <p>
-                  - To finalize your bet, click on the "Place Trade" button and enjoy
-                  the thrill.
+                  - To finalize your bet, click on the "Place Trade" button and
+                  enjoy the thrill.
                 </p>
               </InfoBox>
             </div>
@@ -551,17 +555,19 @@ const BetView = ({
           {isResolved && (
             <AuthedOnly>
               <div className={styles.disputeButtonContainer}>
-                {!disputes.find(d => d.user_id === auth.userId) && !isAdmin && !isCreator && (
-                  <ButtonSmall
-                    text="Dispute"
-                    butonTheme={ButtonSmallTheme.red}
-                    onClick={() =>
-                      showPopup(PopupTheme.reportEvent, {
-                        betId: bet.id,
-                      })
-                    }
-                  />
-                )}
+                {!disputes.find(d => d.user_id === auth.userId) &&
+                  !isAdmin &&
+                  !isCreator && (
+                    <ButtonSmall
+                      text="Dispute"
+                      butonTheme={ButtonSmallTheme.red}
+                      onClick={() =>
+                        showPopup(PopupTheme.reportEvent, {
+                          betId: bet.id,
+                        })
+                      }
+                    />
+                  )}
                 {isAdmin && (
                   <ButtonSmall
                     text="Disputes"
