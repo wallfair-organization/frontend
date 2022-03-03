@@ -183,11 +183,11 @@ const DepositToken = ({ user, resetState, setNotSelectedNetwork, showWalletDepos
                     notSelectedNetworkId
                       ? NETWORK_TYPES.POLY ===
                         SWITCH_NETWORKS[notSelectedNetworkId]
-                        ? PolygonLogo
+                        ? PolygonLogoActive
                         : PolygonLogoActive
                       : activeNetwork === NETWORK_TYPES.POLY
                       ? PolygonLogoActive
-                      : PolygonLogo
+                      : PolygonLogoActive
                   }
                   alt="Polygon-logo"
                 />
@@ -218,11 +218,11 @@ const DepositToken = ({ user, resetState, setNotSelectedNetwork, showWalletDepos
                     notSelectedNetworkId
                       ? NETWORK_TYPES.ETH ===
                         SWITCH_NETWORKS[notSelectedNetworkId]
-                        ? EthereumLogo
+                        ? EthereumLogoActive
                         : EthereumLogoActive
                       : activeNetwork === NETWORK_TYPES.ETH
                       ? EthereumLogoActive
-                      : EthereumLogo
+                      : EthereumLogoActive
                   }
                   alt="Ethereum-logo"
                 />
