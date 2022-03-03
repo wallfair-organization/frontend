@@ -16,9 +16,9 @@
 
   .tokenNumberInput {
     height: 60px;
-    border-radius: 40px;
-    background: #f1f2f6;
-    border: 1px solid $colorGray;
+    border-radius: 6px;
+    background: $colorGrayLight;
+    border: none;
     &:focus {
       border: 1px solid $colorGrayLight;
     }
@@ -40,8 +40,8 @@
     hr {
       border: none;
       height: 1px;
-      color: $colorPopBorder;
-      background-color: $colorPopBorder;
+      color: $colorGrayLight10;
+      background-color: $colorGrayLight10;
       margin: 15px 0;
       opacity: 0.6;
     }
@@ -59,7 +59,7 @@
         font-size: 14px;
 
         &.bonus {
-          color: $colorButton;
+          color: $colorLightPurple;
         }
 
         &.total {
