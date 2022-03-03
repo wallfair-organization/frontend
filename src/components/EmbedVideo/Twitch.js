@@ -38,21 +38,13 @@ const TwitchVideo = props => {
 
   const urlObj = new URL('https://embed.twitch.tv');
 
-  if (muted) {
-    urlObj.searchParams.set('muted', 'true');
-  }
-
+  urlObj.searchParams.set('muted', muted ? 'true': 'false');
   urlObj.searchParams.set('autoplay', autoPlay ? 'true' : 'false');
+  urlObj.searchParams.set('controls', controls ? 'true' : 'false');
   urlObj.searchParams.set('video', video);
   urlObj.searchParams.set('allowfullscreen', 'true');
   urlObj.searchParams.set('channel', getStreamChannel());
   urlObj.searchParams.set('layout', 'video');
-
-  urlObj.searchParams.set('controls', 'false');
-
-  if (controls) {
-    urlObj.searchParams.set('controls', 'true');
-  }
 
   let urlParamParent = '';
 
