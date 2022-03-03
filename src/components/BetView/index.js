@@ -31,7 +31,6 @@ import AuthedOnly from 'components/AuthedOnly';
 import ButtonSmall from 'components/ButtonSmall';
 import ButtonSmallTheme from 'components/ButtonSmall/ButtonSmallTheme';
 import InfoBox from 'components/InfoBox';
-import BetActionsMenu from 'components/BetActionsMenu';
 import { trackNonstreamedEventPlaceTrade } from '../../config/gtm';
 import { OnboardingActions } from 'store/actions/onboarding';
 import { calculateBuyOutcome, getDisputes, placeBet } from 'api';
@@ -39,6 +38,7 @@ import { calculateGain } from 'helper/Calculation';
 import ButtonTheme from 'components/Button/ButtonTheme';
 import { EVENT_CATEGORIES } from 'constants/EventCategories';
 import { AlertActions } from 'store/actions/alert';
+import EmbedVideo from 'components/EmbedVideo';
 
 const BetView = ({
   event,
@@ -237,19 +237,25 @@ const BetView = ({
   };
 
   const renderImage = () => {
-    const key = 'preview_image_url';
-    const imgUrl = _.get(event, key);
-    return (
-      <div className={styles.imageContainer}>
-        <div className={styles.imgWrapper}>
-          <img src={imgUrl} alt={`trade`} />
+    const imgUrl = _.get(event, 'preview_image_url');
+    const urlObj = new URL(imgUrl);
+    const host = _.get(urlObj, 'host');
+    //workaround
+    if (host.indexOf('twitch') > -1) {
+      return <EmbedVideo video={imgUrl} autoPlay={true} controls={true} />;
+    } else {
+      return (
+        <div className={styles.imageContainer}>
+          <div className={styles.imgWrapper}>
+            <img src={imgUrl} alt={`trade`} />
+          </div>
+          <div
+            className={classNames([styles.categorySticker])}
+            style={getStickerStyle(event.category)}
+          />
         </div>
-        <div
-          className={classNames([styles.categorySticker])}
-          style={getStickerStyle(event.category)}
-        />
-      </div>
-    );
+      );
+    }
   };
 
   const renderTokenSelection = () => {
