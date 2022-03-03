@@ -136,7 +136,7 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
       case 'Notification/EVENT_BET_PLACED':
         const outcomeIndex = _.get(data, 'trade.outcome_index');
         const outcomesName = _.get(data, `bet.outcomes[${outcomeIndex}].name`);
-        console.log('EVENT_BET_PLACED', data);
+
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has bet{' '}

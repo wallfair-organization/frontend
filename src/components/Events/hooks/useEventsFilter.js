@@ -17,15 +17,15 @@ export function useEventsFilter(
 
   useEffect(() => {
     if (getMarketEvents) {
-      getMarketEvents(
+      getMarketEvents({
         category,
-        !statuses ? [BetState.active] : statuses,
+        statuses: !statuses ? [BetState.active] : statuses,
         page,
         limit,
         name,
         orderBy,
         order
-      ).then(res => {
+      }).then(res => {
 
         const filteredEvents = res.events.filter(event => event.category !== 'Politics');
 

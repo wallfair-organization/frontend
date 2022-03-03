@@ -24,8 +24,8 @@
   hr {
     border: none;
     height: 1px;
-    color: $colorPopBorder;
-    background-color: $colorPopBorder;
+    color: $colorGrayLight10;
+    background-color: $colorGrayLight10;
     margin: 15px 0;
     opacity: 0.6;
   }
@@ -47,7 +47,7 @@
         font-size: 14px;
 
         &.bonus {
-          color: $colorButton;
+          color: $colorLightPurple;
         }
 
         &.total {
@@ -64,8 +64,11 @@
     cursor: pointer;
     span {
       padding-bottom: 3px;
-      color: $colorButton;
+      color: $colorPrimary;
       font-size: 14px;
+    }
+    & > svg path {
+      fill: $colorPrimary;
     }
   }
 
@@ -76,14 +79,14 @@
     }
 
     .inputContainer {
+      height: 60px;
+      border-radius: 6px;
+      background: $colorGrayLight;
+      border: none;
       position: relative;
       max-width: 500px;
       width: 100%;
-      height: 50px;
-      background: #f1f2f6;
-      border: 1px solid $colorLightGray2;
       box-sizing: border-box;
-      border-radius: 40px;
       margin-bottom: 11px;
       display: flex;
       align-items: center;

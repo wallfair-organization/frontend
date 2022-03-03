@@ -7,5 +7,6 @@ export default {
   coloredBorderLightPurple: 'coloredBorderLightPurple',
   dashedBorderTransparent: 'dashedBorderTransparent',
   modalInput: 'modalInput',
+  areaInput: 'areaInput',
   copyToClipboardInputBoxSmall: 'copyToClipboardInputBoxSmall',
 };

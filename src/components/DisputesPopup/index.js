@@ -22,7 +22,7 @@ const DisputesPopup = ({ disputes }) => {
       <div className={styles.messageContainer}>
         {disputes?.map((dispute, index) => (
           <div className={styles.messageItem}>
-            <Grid container key={index}>
+            <Grid container alignItems='center' key={index}>
               <Grid item xs>
                 <Link to={`/user/${dispute.user_id}`}>
                   <p

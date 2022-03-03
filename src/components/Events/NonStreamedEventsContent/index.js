@@ -57,6 +57,12 @@ const NonStreamedEventsContent = ({
   //   useMappedActions(eventType);
   const [events, setEvents] = useState([]);
 
+  const statuses = {
+    current: ['ACTIVE'],
+    past: ['RESOLVED', 'CANCELLED', 'CLOSED', 'WAITING_RESOLUTION', 'DISPUTED'],
+    myEvents: [], // all
+  };
+
   const handleSelectCategory = useCallback(
     value => {
       const updatedCats = categories.map(cat => ({
@@ -98,21 +104,14 @@ const NonStreamedEventsContent = ({
 
   const getEvents = useCallback(
     (search = '') => {
-      getMarketEvents(
+      getMarketEvents({
         category,
-        status === 'current'
-          ? ['ACTIVE']
-          : [
-              'RESOLVED',
-              'CANCELLED',
-              'CLOSED',
-              'WAITING_RESOLUTION',
-              'DISPUTED',
-            ],
+        statuses: statuses[status],
         page,
         limit,
-        search
-      ).then(res => {
+        name: search,
+        creator: status === 'myEvents',
+      }).then(res => {
         const filteredEvents = res.events.filter(event => event.category !== 'Politics');
         setEvents(filteredEvents);
       });
@@ -128,17 +127,16 @@ const NonStreamedEventsContent = ({
   const loadMoreEvents = useCallback(() => {
     setPage(page+1);
 
-    getMarketEvents(
+    getMarketEvents({
       category,
-      status === 'current'
-        ? ['ACTIVE']
-        : ['RESOLVED', 'CANCELLED', 'CLOSED', 'WAITING_RESOLUTION', 'DISPUTED'],
-      page + 1,
+      statuses: statuses[status],
+      page: page + 1,
       limit,
-      searchTerm
-    ).then(res => {
-
-      const filteredEvents = res.events.filter(event => event.category !== 'Politics');
+      name: searchTerm,
+    }).then(res => {
+      const filteredEvents = res.events.filter(
+        event => event.category !== 'Politics'
+      );
 
       setEvents([...events, ...filteredEvents]);
     });
@@ -259,11 +257,16 @@ const NonStreamedEventsContent = ({
             ))}
         </div>
 
-        <div className={styles.loadMore}>
-          <Button onClick={loadMoreEvents} theme={ButtonTheme.secondaryButton}>
-            Load more
-          </Button>
-        </div>
+        {events.length > 0 && (
+          <div className={styles.loadMore}>
+            <Button
+              onClick={loadMoreEvents}
+              theme={ButtonTheme.secondaryButton}
+            >
+              Load more
+            </Button>
+          </div>
+        )}
 
         <BuyWFAIRWidget />
 

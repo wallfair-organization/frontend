@@ -7,33 +7,49 @@
   justify-content: center;
   flex-direction: column;
   row-gap: 17px;
+  align-items: center;
 }
 
 .selectorButton {
   display: flex;
-  width: 262px;
-  height: 113px;
-  border-radius: 25px;
-  border: 1px solid $colorBlack;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 1px solid $colorBorder;
   align-items: center;
   padding: 0 20px 0 11px;
   column-gap: 15px;
   background: $colorWhite;
   cursor: pointer;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: $colorLightPurple16;
+  }
+
+  svg.arrowRight {
+    height: 15px;
+
+    & > path {
+      fill: $colorPrimary;
+    }
+  }
 
   .buttonText {
-    width: 160px;
+    width: 100%;
 
     .title {
       font-size: 16px;
       font-weight: 700;
       text-align: left;
+      color: $colorPrimary;
     }
     p {
       font-size: 12px;
       font-weight: 500;
       line-height: 20px;
       text-align: left;
+      color: $colorPrimary;
     }
   }
 }
