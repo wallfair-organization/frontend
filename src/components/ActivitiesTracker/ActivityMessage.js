@@ -116,10 +116,21 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
       case 'Notification/EVENT_OFFLINE':
         return `Stream ${_.get(data, 'event.name')} has become offline.`; //EDITED
       case 'Notification/EVENT_NEW':
+        const creator = data.creator;
         return (
           <div>
-            New event has been created{' '}
-            <ActivityLink path={'/trade/' + data.slug} text={data.name} />.
+            {creator ? (
+              <>
+                <ActivityLink
+                  path={'/user/' + creator.id}
+                  text={creator.username || 'User'}
+                />{' '}
+                created a new event:{' '}
+              </>
+            ) : (
+              <>New event has been created: </>
+            )}
+            <ActivityLink path={'/trade/' + data.slug} text={data.name} />
           </div>
         );
       case 'Notification/EVENT_NEW_BET':
