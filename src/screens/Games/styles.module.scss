@@ -7,45 +7,114 @@
   background: rgba($colorPrimary, 0.7);
   border-radius: 12px;
   padding: 50px;
-  margin-top: calc(50vh - 50px);
+  // margin-top: 70vh;
   position: relative;
 
-  @media (max-width: $screen-sm) {
-    margin-top: calc(35vh - 50px);
-  }
-
-  @media (max-width: $screen-xs) {
-    margin-top: calc(45vh - 50px);
-  }
+  // @media (max-width: $screen-sm) {
+  //   margin-top: calc(55vh - 20px);
+  // }
+  // @media (max-width: $screen-xs) {
+  //   margin-top: calc(65vh - 20px);
+  // }
+  // @media (max-width: 375px) {
+  //   margin-top: calc(65vh - 40px);
+  // }
+  // @media (max-width: 320px) {
+  //   margin-top: calc(70vh - 20px);
+  // }
 
   @media (max-width: $screen-sm) {
     padding: 0 20px;
+  }
+
+  /* ACTIVITY TRACKER */
+  .activities {
+    margin-top: 40px;
+    .title {
+      display: flex;
+      align-items: center;
+      color: $colorWhite;
+
+      h2 {
+        color: $colorWhite;
+        font-size: 33px;
+
+        @media (max-width: $screen-xs) {
+          font-size: 28px;
+        }
+      }
+
+      img {
+        margin-right: 30px;
+      }
+    }
   }
 }
 
 .searchContainer {
   width: 100%;
-  margin-bottom: 50px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
 
-  .search {
+  .searchWrapper {
+    margin: 0 auto;
+    display: flex;
+    max-width: 500px;
+    gap: 10px;
+    margin-bottom: 15px;
+    @media (max-width: $screen-xs) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: $screen-xs) {
+    margin-top: 20px;
+  }
+
+  .search,
+  .searchMobile {
     border-radius: 30px;
-    border: 1px solid $colorButton;
+    border: 2px solid $colorWhite50;
     height: 40px;
     display: flex;
     justify-content: center;
     background: $colorPrimary;
-    margin-right: 10px;
+
+    &.searchMobile {
+      margin-bottom: 10px;
+      @media (min-width: $screen-xs) {
+        display: none;
+      }
+    }
+
+    &.search {
+      @media (max-width: $screen-xs) {
+        width: 100%;
+      }
+    }
+
+    & svg {
+      margin: 3px 10px;
+      width: 34px;
+      height: 30px;
+      opacity: 0.5;
+    }
 
     input {
+      // padding-left: 20px;
       background: transparent;
       width: 90%;
       border: none;
       color: $colorWhite;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-weight: 600;
       font-size: 20px;
       line-height: 20px;
-      text-align: center;
+      text-align: left;
+      padding-right: 10px;
 
       &::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -57,30 +126,111 @@
         outline: none;
       }
       &::placeholder {
-        color: $colorWhite;
+        color: $colorWhite30;
       }
     }
   }
-  .searchItem {
-    font-family: $fontOmnes;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 20px;
-    min-width: 150px;
 
-    text-align: center;
-    color: $colorWhite;
-    padding: 10px;
+  .categoryGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 150px repeat(auto-fit, minmax(120px, 5fr));
+
+    gap: 5px;
+
+    @media (max-width: $screen-xs) {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 2fr));
+    }
+  }
+
+  .searchButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     background-color: $colorPrimary;
-    border: 1px solid $colorButton;
+    border: 2px solid $colorButton;
     box-sizing: border-box;
     border-radius: 30px;
     cursor: pointer;
+    user-select: none;
+    // width: 50px;
+    height: 40px;
+    color: $colorWhite;
+
+    color: $colorWhite;
+    background-color: $colorPrimary;
+    border: 2px solid $colorButton;
+    box-sizing: border-box;
+    border-radius: 30px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+
+    & svg {
+      margin: 2px 12px 2px 10px;
+      width: 30px;
+      height: 30px;
+    }
+
+    @media (max-width: $screen-xs) {
+      display: none;
+    }
+  }
+
+  .searchItem {
+    font-family: $fontDMSans;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    // min-width: 155px;
+    height: 40px;
+
+    text-align: center;
+    color: $colorWhite;
+    padding: 8px 10px;
+    background-color: $colorPrimary;
+    border: 2px solid $colorButton;
+    box-sizing: border-box;
+    border-radius: 30px;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+
+    &:hover {
+      font-weight: 700;
+    }
+
+    &.active {
+      background-color: $colorButton;
+      // border: 2px solid $colorButton;
+      font-weight: 700;
+      color: $colorBlack;
+    }
+
+    &.selectAllDesktop {
+      @media (max-width: $screen-xs) {
+        display: none;
+      }
+    }
+
+    &.selectAllMobile {
+      display: none;
+      @media (max-width: $screen-xs) {
+        display: block;
+      }
+    }
 
     @media (max-width: $screen-md) {
       font-size: 14px;
-      padding: 5px;
-      min-width: 100px;
+      padding: 8px;
+      // min-width: 100px;
+      // min-width: 158px;
+    }
+
+    @media (max-width: $screen-xs) {
+      font-size: 14px;
+      padding: 8px;
+      // min-width: 120px;
     }
   }
 }
@@ -102,10 +252,10 @@
 
     h2 {
       color: $colorHeading;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 50px;
       line-height: 20px;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       @media (max-width: $screen-xs) {
         font-size: 28px;
       }
@@ -114,8 +264,8 @@
     p {
       margin-top: 10px;
       margin-bottom: 20px;
-      font-family: $fontOmnes;
-      font-weight: 800;
+      font-family: $fontDMSans;
+      font-weight: 700;
       font-size: 22px;
       line-height: 2;
       color: $colorWhite;
@@ -127,12 +277,16 @@
   }
 }
 
+.gamesCategorySelected {
+  margin-bottom: 30px;
+}
+
 .gamesCategory {
   display: flex;
   flex-direction: row;
   align-items: center;
   color: $colorBlack;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-size: 24px;
   font-weight: 700;
   padding-bottom: 20px;
@@ -147,7 +301,7 @@
     font-weight: 600;
     font-size: 30px;
     line-height: 20px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     @media (max-width: $screen-xs) {
       font-size: 28px;
     }
@@ -156,7 +310,7 @@
   .howtoLink {
     cursor: pointer;
     font-size: 11px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     text-decoration: underline;
     color: $colorYellow;
 
@@ -211,6 +365,10 @@
     overflow: hidden;
     border-radius: 20px;
     width: 185px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     @media (max-width: $screen-sm) {
       width: 40vw;
       height: 30vw;
@@ -343,7 +501,7 @@
         bottom: 0;
         left: 0;
         color: $colorWhite;
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         padding: 30px;
 
         .title {
@@ -374,7 +532,7 @@
         align-items: center;
         justify-content: center;
         font-size: 24px;
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         color: #f2ff53;
         text-align: center;
         font-weight: 700;
@@ -387,6 +545,257 @@
       &.gameLinkInactive {
         cursor: not-allowed;
       }
+    }
+  }
+}
+
+.discordBanner {
+  width: 100%;
+  height: 130px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  @media (max-width: $screen-sm) {
+    display: none;
+  }
+  &.withPadding {
+    margin-top: 40px;
+  }
+
+  .backgroundWrapper {
+    position: absolute;
+    height: 100px;
+    left: 0;
+    right: 0;
+    background: #f7a800;
+    display: flex;
+
+    .bodyContainer {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 36px;
+      color: $colorBlack;
+
+      @media (max-width: 1366px) {
+        font-size: 32px;
+      }
+
+      p {
+        // margin-left: 20px;
+        padding: 0 30px 0 20px;
+
+        @media (max-width: $screen-md) {
+          font-size: 26px;
+        }
+
+        a {
+          text-decoration: underline;
+        }
+      }
+      .closeButton {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+      }
+    }
+    .whiteWrapper {
+      max-width: 500px;
+      position: relative;
+      margin-right: 50px;
+      margin-top: 0px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: -60px;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-top: 0px solid transparent;
+        border-left: 60px solid #fff;
+        border-bottom: 127px solid transparent;
+
+        @media (max-width: $screen-sm) {
+          border: none;
+        }
+      }
+
+      .whiteContainer {
+        background: white;
+        padding: 6px 30px;
+        box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        svg {
+          width: 300px;
+          height: 110px;
+        }
+      }
+    }
+  }
+}
+
+.aboutDescritpion {
+  position: relative;
+  margin: 80px auto 80px;
+  @media (max-width: $screen-lg) {
+    margin-bottom: 140px;
+  }
+  @media (max-width: $screen-xs) {
+    margin-bottom: 180px;
+    padding: 300px 0 0;
+  }
+  .topImage {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+  .parentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .descriptionCardContainer {
+      position: relative;
+      width: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: linear-gradient(180deg, #ffffff 0%, #f1dbd2 51.56%);
+      border-radius: 20px;
+      padding: 10px;
+      position: relative;
+
+      .aboutFirst {
+        position: absolute;
+        top: -59px;
+        left: 130px;
+        width: 130px;
+      }
+
+      .aboutSecond {
+        position: absolute;
+        top: -35px;
+        left: 130px;
+        width: 110px;
+      }
+      .aboutThird {
+        position: absolute;
+        top: -123px;
+        left: 120px;
+        width: 116px;
+
+        z-index: -1;
+      }
+
+      .descriptionCard {
+        width: 100%;
+        border: 3px solid #fbb2a5;
+        box-sizing: border-box;
+        border-radius: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+        height: 300px;
+
+        h1 {
+          margin: 20px 0px;
+          font-family: $fontDMSans;
+          font-weight: 600;
+          font-size: 30px;
+          line-height: 20px;
+          /* identical to box height, or 67% */
+
+          text-align: center;
+        }
+        p {
+          margin-bottom: 20px;
+          font-family: $fontDMSans;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 20px;
+
+          text-align: center;
+        }
+      }
+      .thumbnail {
+        position: absolute;
+        bottom: calc(100% - 50px);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .thumbnailBack {
+        position: absolute;
+        bottom: calc(100% - 50px);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+      }
+    }
+  }
+}
+
+//GAME CATEGORIES
+.header {
+  width: 100%;
+  max-width: 1288px;
+  // padding: 0 22px;
+  color: white;
+  // margin: 32px auto 0;
+
+  @media (min-width: $screen-lg) {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  @media (max-width: $screen-sm) {
+    margin: 0;
+    width: 100%;
+    padding: 25px 5px 0;
+  }
+}
+
+.categories {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media (max-width: $screen-sm) {
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 20px;
+  }
+
+  .categoryList {
+    display: inline-flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    @media (max-width: $screen-sm) {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+
+  .containerOptions {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    justify-content: flex-start;
+
+    .searchInput {
+      width: 100%;
+      max-width: 250px;
     }
   }
 }

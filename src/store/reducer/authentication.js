@@ -32,98 +32,23 @@ const initialState = {
   shouldAcceptToS: false,
 };
 
-const requestSmsSucceeded = (action, state) => {
-  return update(state, {
-    loading: {
-      $set: false,
-    },
-    phone: {
-      $set: action.phone,
-    },
-    authState: {
-      $set: AuthState.SMS_SENT,
-    },
-    existing: {
-      $set: action.existing,
-    },
-    error: {
-      $set: null,
-    },
-  });
-};
-
-const requestSmsFailed = (action, state) => {
-  return update(state, {
-    loading: {
-      $set: false,
-    },
-    existing: {
-      $set: null,
-    },
-    error: {
-      $set: action.error?.message,
-    },
-  });
-};
-
-const requestSmsVerifyFailed = (action, state) => {
-  return update(state, {
-    loading: {
-      $set: false,
-    },
-    error: {
-      $set: action?.message,
-    },
-  });
-};
-
-const requestSmsVerified = (action, state) => {
-  let authState = AuthState.LOGGED_IN;
-  const name = action.name;
-  const email = action.email;
-
-  if (!email) {
-    authState = AuthState.SET_EMAIL;
-  }
-
-  if (!name) {
-    authState = AuthState.SET_NAME;
-  }
-
-  return update(state, {
-    loading: {
-      $set: false,
-    },
-    userId: {
-      $set: action.userId,
-    },
-    name: {
-      $set: name,
-    },
-    email: {
-      $set: email,
-    },
-    token: {
-      $set: action.session,
-    },
-    authState: {
-      $set: authState,
-    },
-    existing: {
-      $set: null,
-    },
-    error: {
-      $set: null,
-    },
-  });
-};
-
 const requestEmailVerified = (action, state) => {
   return update(state, {
     emailVerificationState: {
       $set: true,
     },
     emailConfirmed: {
+      $set: true,
+    }
+  });
+};
+
+const requestPhoneConfirmed = (action, state) => {
+  return update(state, {
+    phoneConfirmedState: {
+      $set: true,
+    },
+    phoneConfirmed: {
       $set: true,
     }
   });
@@ -258,6 +183,9 @@ const updateData = (action, state) => {
     },
     emailConfirmed: {
       $set: action.emailConfirmed,
+    },
+    phoneConfirmed: {
+      $set: action.phoneConfirmed,
     }
   });
 };
@@ -361,6 +289,9 @@ const loginSuccess = (action, state) => {
     },
     emailConfirmed: {
       $set: action.emailConfirmed,
+    },
+    phoneConfirmed: {
+      $set: action.phoneConfirmed,
     }
   });
 };
@@ -470,14 +401,6 @@ export default function (state = initialState, action) {
       return setPhone(action, state);
     case AuthenticationTypes.SET_COUNTRY_CODE:
       return setCountryCode(action, state);
-    case AuthenticationTypes.REQUEST_SMS_SUCCEEDED:
-      return requestSmsSucceeded(action, state);
-    case AuthenticationTypes.REQUEST_SMS_FAILED:
-      return requestSmsFailed(action, state);
-    case AuthenticationTypes.VERIFY_SMS_SUCCEEDED:
-      return requestSmsVerified(action, state);
-    case AuthenticationTypes.VERIFY_SMS_FAILED:
-      return requestSmsVerifyFailed(action, state);
     case AuthenticationTypes.VERIFY_EMAIL:
       return onVerify(action, state);
     case AuthenticationTypes.VERIFY_EMAIL_SUCCEEDED:

@@ -4,11 +4,11 @@ import { useState } from 'react';
 import Textarea from '../Textarea';
 import Button from 'components/Button';
 import HighlightType from 'components/Highlight/HighlightType';
-import InputBox from 'components/InputBox';
-import InputBoxTheme from 'components/InputBox/InputBoxTheme';
 import { FormGroup, InputLabel, Select } from 'components/Form';
 import { connect } from 'react-redux';
 import { PopupActions } from 'store/actions/popup';
+import { AlertActions } from 'store/actions/alert';
+import { openDispute } from 'api';
 
 const disputeReasonOptions = [
   { label: 'Outcome', value: 'OUTCOME' },
@@ -17,7 +17,7 @@ const disputeReasonOptions = [
   { label: 'Other', value: 'OTHER' },
 ];
 
-const ReportEventPopup = ({ hidePopup }) => {
+const ReportEventPopup = ({ hidePopup, betId, showSuccess, showError }) => {
   const [reason, setReason] = useState(null);
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,15 +33,22 @@ const ReportEventPopup = ({ hidePopup }) => {
 
   const handleSend = () => {
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      hidePopup();
-    }, 400);
+    openDispute(betId, {
+      reason,
+      explanation: message,
+    }).then(() => {
+      showSuccess('Dispute submitted successfully');
+      window.location.reload(false);
+    }).catch(() => {
+      showError('Failed to submit the dispute');
+    });
+    hidePopup();
+    setIsSubmitting(false);
   };
 
   return (
     <div className={styles.reportEvent}>
-      <img src={LogoSplash} className={styles.logo} />
+      <img src={LogoSplash} className={styles.logo} alt="logo" />
       <div className={styles.title}>Got a problem?</div>
       <div className={styles.subtitle}>Let us know how can we help you</div>
 
@@ -84,6 +91,12 @@ const mapDispatchToProps = dispatch => {
   return {
     hidePopup: () => {
       dispatch(PopupActions.hide());
+    },
+    showSuccess: message => {
+      dispatch(AlertActions.showSuccess({ message }));
+    },
+    showError: message => {
+      dispatch(AlertActions.showError({ message }));
     },
   };
 };

@@ -25,7 +25,7 @@ const create = function* ({ bet }) {
       state.event.events.find(({ _id }) => _id === bet.event)
     );
 
-    const route = Routes.getRouteWithParameters(Routes.bet, {
+    const route = Routes.getRouteWithParameters(Routes.event, {
       eventSlug: event.slug,
       betSlug: bet.slug,
     });
@@ -43,30 +43,13 @@ const create = function* ({ bet }) {
 const edit = function* (action) {
   yield put(PopupActions.hide());
 
-  const { response } = yield call(Api.editEventBet, action.betId, action.bet);
+  const response = yield call(Api.editEventBet, action.betId, action.bet);
 
   try {
     if (!response) {
       throw new Error('No edit bet response.');
     }
-
-    const bet = response.data;
-
-    const event = yield select(state =>
-      state.event.events.find(({ _id }) => _id === bet.event)
-    );
-    const oldBet = event.bets.find(({ _id }) => _id === bet._id);
-
-    yield put(EventActions.fetchAll());
-
-    if (oldBet.slug !== bet.slug) {
-      const route = Routes.getRouteWithParameters(Routes.bet, {
-        eventSlug: event.slug,
-        betSlug: bet.slug,
-      });
-
-      yield put(push(route));
-    }
+    const bet = response;
 
     yield delay(1 * 1000);
     yield put(BetActions.editSucceeded({ bet }));
@@ -196,10 +179,9 @@ const fetchOpenBetsSucceeded = function* (action) {
 
 const pullOut = function* (action) {
   const betId = action.betId;
-  const amount = action.amount;
   const outcome = action.outcome;
 
-  const response = yield call(Api.pullOutBet, betId, amount, outcome);
+  const response = yield call(Api.pullOutBet, betId, outcome);
 
   if (response) {
     yield put(BetActions.pullOutBetSucceeded());

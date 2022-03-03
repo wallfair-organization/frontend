@@ -13,9 +13,12 @@ export const useSocialLogins = () => {
     () => new URLSearchParams(location.search),
     [location]
   );
-  const ref = params.get('ref');
-  const sid = params.get('sid');
-  const cid = params.get('cid');
+  const ref = localStorage.getItem('urlParam_ref') || params.get('ref');
+  const sid = localStorage.getItem('urlParam_sid') || params.get('sid');
+  const cid = localStorage.getItem('urlParam_cid') || params.get('cid');
+
+  console.log(`social login: ${{ref, sid, cid}}`);
+
   const init = (provider, payload) => initOAuthFlow({
     ...payload,
     redirectUri: redirectFactory(provider),

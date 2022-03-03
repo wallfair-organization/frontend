@@ -238,9 +238,8 @@ const Bet = ({
       const eventSlug = _.get(event, 'slug', null);
 
       history.replace(
-        Routes.getRouteWithParameters(Routes.bet, {
+        Routes.getRouteWithParameters(Routes.event, {
           eventSlug,
-          betSlug: '',
         })
       );
 
@@ -276,9 +275,8 @@ const Bet = ({
 
   const selectBet = (betId, betSlug) => {
     history.replace(
-      Routes.getRouteWithParameters(Routes.bet, {
+      Routes.getRouteWithParameters(Routes.event, {
         eventSlug,
-        betSlug,
       })
     );
     setBetId(betId);

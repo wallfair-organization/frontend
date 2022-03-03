@@ -26,6 +26,7 @@ import { ReactComponent as IconChat } from '../../data/icons/chat.svg';
 import { ReactComponent as IconChat2 } from '../../data/icons/chat2.svg';
 import { ReactComponent as IconChecked } from '../../data/icons/checked.svg';
 import { ReactComponent as IconClose } from '../../data/icons/close.svg';
+import { ReactComponent as IconCloseCoin } from '../../data/icons/close-coin.svg';
 import { ReactComponent as IconCollapseSidebar } from '../../data/icons/collapse-sidebar.svg';
 import { ReactComponent as IconConfettiLeft } from '../../data/icons/confetti-left.svg';
 import { ReactComponent as IconConfettiRight } from '../../data/icons/confetti-right.svg';
@@ -81,6 +82,7 @@ import { ReactComponent as IconEmail } from '../../data/icons/email.svg';
 import { ReactComponent as IconUserProfile } from '../../data/icons/user-profile.svg';
 import { ReactComponent as BalanceScaleSolid } from '../../data/icons/balance-scale-solid.svg';
 import { ReactComponent as IconDiscord } from '../../data/icons/discord.svg';
+import { ReactComponent as GiftIcon } from '../../data/icons/gift-icon.svg';
 
 const Icon = ({
   className,
@@ -121,6 +123,7 @@ const Icon = ({
       [IconType.chat2]: <IconChat2 />,
       [IconType.checked]: <IconChecked />,
       [IconType.close]: <IconClose />,
+      [IconType.closeCoin]: <IconCloseCoin />,
       [IconType.collapseSidebar]: <IconCollapseSidebar />,
       [IconType.confettiLeft]: <IconConfettiLeft />,
       [IconType.confettiRight]: <IconConfettiRight />,
@@ -175,7 +178,8 @@ const Icon = ({
       [IconType.email]: <IconEmail />,
       [IconType.balanceScaleSolid]: <BalanceScaleSolid />,
       [IconType.userProfile]: <IconUserProfile />,
-      [IconType.discord]: <IconDiscord />
+      [IconType.discord]: <IconDiscord />,
+      [IconType.gift]: <GiftIcon />
     });
   };
 

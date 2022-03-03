@@ -11,8 +11,9 @@ import medalCoin from '../../data/icons/medal-coin.png';
 import ActivityTableRow from './ActivityTableRow';
 import { roundToTwo } from '../../helper/FormatNumbers';
 import { getGameById } from '../../helper/Games';
+import { currencyDisplay } from 'helper/Currency';
 
-const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout }) => {
+const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout, date, gameScreen = false }) => {
   const getUserProfileUrl = data => {
     let user = _.get(data, 'user');
     let userId = _.get(user, '_id');
@@ -48,17 +49,21 @@ const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout }) => {
   };
 
   const prepareMessageByType = (activity, user) => {
+
+    const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
+
     const data = activity.data;
     const userName = getUserProfileUrl(data);
-    const rewardAmountFormatted = formatToFixed(data?.reward ?? 0, 0, false);
+    const initialRewardAmount = isPlayMoney ? data?.reward : data?.rewardWfair;
+    const rewardAmountFormatted = formatToFixed(initialRewardAmount ?? 0, 0, false);
     const rewardAmount = toNumericString(rewardAmountFormatted);
     const gameName = data?.gameName;
     const gameTypeId = data?.gameTypeId;
     const gameLabel = getGameById(gameTypeId)?.name || gameName;
     const multiplier = (_.has(data, 'crashFactor') ? data.crashFactor : data?.winMultiplier) || 0;
-    const stakedAmount = data?.stakedAmount;
+    const stakedAmount = isPlayMoney ? data?.stakedAmountWfair : data?.stakedAmount;
     const crashFactor = roundToTwo(multiplier);
-    const gamesCurrency = data?.gamesCurrency || TOKEN_NAME;
+    const gamesCurrency = currencyDisplay(data?.gamesCurrency);
 
     switch (activity.type) {
       case 'Casino/CASINO_CASHOUT':
@@ -68,7 +73,8 @@ const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout }) => {
           stakedAmount,
           crashFactor,
           gameLabel,
-          gamesCurrency
+          gamesCurrency,
+          date
         };
         return (
           <ActivityTableRow
@@ -77,6 +83,7 @@ const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout }) => {
             gameLabel={gameLabel}
             hideSecondaryColumns={hideSecondaryColumns}
             layout={layout}
+            gameScreen={gameScreen}
           />
         );
       case 'Casino/EVENT_CASINO_LOST': {
@@ -86,7 +93,8 @@ const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout }) => {
           stakedAmount,
           crashFactor,
           gameLabel,
-          gamesCurrency
+          gamesCurrency,
+          date
         };
         return (
           <ActivityTableRow
@@ -95,6 +103,7 @@ const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout }) => {
             gameLabel={gameLabel}
             hideSecondaryColumns={hideSecondaryColumns}
             layout={layout}
+            gameScreen={gameScreen}
           />
         );
       }

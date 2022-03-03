@@ -10,6 +10,7 @@ import ReactCanvasConfetti from 'react-canvas-confetti';
 import useConfettiAnimation from '../../hooks/useConfettiAnimation';
 import PopupTheme from 'components/Popup/PopupTheme';
 import { formatToFixed } from '../../helper/FormatNumbers';
+import { currencyDisplay } from 'helper/Currency';
 
 const WelcomeView = ({ hidePopup, visible, initialReward }) => {
   const [readMore, setReadMore] = useState(false);
@@ -35,7 +36,7 @@ const WelcomeView = ({ hidePopup, visible, initialReward }) => {
     return (
       <div className={styles.welcomeTextContainer}>
         <span className={styles.welcomeTextHeadline}>
-          {formatToFixed(initialReward, 0, true)} {TOKEN_NAME}
+          {formatToFixed(initialReward, 0, true)} {currencyDisplay(TOKEN_NAME)}
           <span>*</span>
           <span className={styles.welcomeTextHeadlineUnderline}></span>
         </span>
@@ -43,7 +44,7 @@ const WelcomeView = ({ hidePopup, visible, initialReward }) => {
           to get you started on the full Wallfair experience!
         </span>
         <span className={styles.welcomeTextText}>
-          Refer a friend and get additional 500 {TOKEN_NAME}.
+          Refer a friend and get additional 500 {currencyDisplay(TOKEN_NAME)}.
         </span>
       </div>
     );
@@ -54,7 +55,7 @@ const WelcomeView = ({ hidePopup, visible, initialReward }) => {
       <div className={styles.welcomeTextContainer}>
         <span className={styles.disclaimer}>
           * Please be aware that the platform you are currently using is based
-          on the virtual {TOKEN_NAME} tokens that have been implemented with the
+          on the virtual {currencyDisplay(TOKEN_NAME)} tokens that have been implemented with the
           purpose to provide a full impression of the Wallfair gaming
           experience.{' '}
           {!readMore && (

@@ -15,7 +15,7 @@
 
   .title {
     position: relative;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 20px;
     margin-top: 20px;
   }
@@ -43,7 +43,7 @@
   }
 
   .subtitle {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 14px;
     padding-top: 5px;
   }
@@ -174,7 +174,7 @@
     @media screen and (max-width: $screen-xs) {
       margin-top: 10px;
     }
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     width: 15em;
     height: 60px;
     font-size: 16px;

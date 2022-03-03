@@ -15,21 +15,23 @@ const StepBar = ({ size, step }) => {
 
   const renderStepBarItemIncomplete = (index, step) => {
     return (
-      <div className={style.stepBarItemIncomplete}>
-        {index === step ? (
+      index === step ? (
+        <div className={classNames(style.stepBarItemIncomplete, style.stepBarItemActive)}>
           <span
             className={classNames(style.stepBarItem, style.stepBarActiveItem)}
           >
             {index + 1}
           </span>
-        ) : (
-          <span
-            className={classNames(style.stepBarItem, style.stepBarInactiveItem)}
-          >
-            {index + 1}
-          </span>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className={style.stepBarItemIncomplete}>
+        <span
+          className={classNames(style.stepBarItem, style.stepBarInactiveItem)}
+        >
+          {index + 1}
+        </span>
+        </div>
+      )
     );
   };
 

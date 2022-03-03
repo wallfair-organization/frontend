@@ -1,17 +1,17 @@
 @import '../../styles/all';
 
 .chartContainer {
-  background-color: rgba(34, 35, 62, 1);
+  background-color: $colorLightPurple9;
   border-radius: 10px;
   padding: 10px 20px;
   position: relative;
-  height: 400px;
+  height: 300px;
 }
 .labelContainer {
   position: absolute;
   top: 15px;
   left: 20px;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-size: 16px;
   font-weight: 500;
   color: $colorWhite;

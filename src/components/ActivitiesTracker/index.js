@@ -25,6 +25,7 @@ import {
   getNotificationEventsByUser,
 } from '../../api';
 
+import TabOptions from '../TabOptions';
 import { ACTIVITIES_TO_TRACK } from '../../constants/Activities';
 import { NotificationActions } from '../../store/actions/notification';
 
@@ -93,7 +94,8 @@ const ActivitiesTracker = ({
   userId,
   preselectedCategory,
   cleanUpActivities,
-  showBets
+  showBets,
+  showBetName,
 }) => {
   const messageListRef = useRef();
 
@@ -104,6 +106,8 @@ const ActivitiesTracker = ({
       )
     : ACTIVITIES_TO_TRACK[0].value;
 
+  const [tabIndex, setTabIndex] = useState(0);
+  const [tabOptions, setTabOptions] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(preselectCategory);
 
   const [initialLoaded, setInitialLoaded] = useState(false);
@@ -111,6 +115,14 @@ const ActivitiesTracker = ({
   const [initialApiActivities, setInitialApiActivities] = useState([]);
 
   const isMount = useIsMount();
+
+  useEffect(() => {
+    const categories = [];
+    ACTIVITIES_TO_TRACK.filter(x => x.value !== 'bets' || showBets).map((activity, index) => {
+      categories.push({ name: activity.category, index, value: activity.value});
+    });
+    setTabOptions(categories);
+  }, []);
 
   useEffect(() => {
     if (isMount) {
@@ -165,7 +177,7 @@ const ActivitiesTracker = ({
       const newFiltered = activities.filter(item => {
         if (selectedCategoryLower === 'all') {
           if (betId) {
-            return item?.data?.bet?._id === betId;
+            return item?.data?.bet?.id === betId;
           }
 
           if (userId) {
@@ -197,7 +209,7 @@ const ActivitiesTracker = ({
 
       //try to get bet updatedAt date
       if (!date) {
-        date = _.get(activityMessage, 'data.bet.date');
+        date = _.get(activityMessage, 'data.date');
       }
 
       //try to get event updatedAt date
@@ -210,86 +222,107 @@ const ActivitiesTracker = ({
       }
 
       return (
-        <ActivityMessage key={index} activity={activityMessage} date={date} />
+        <ActivityMessage key={index} activity={activityMessage} showBetName={showBetName} date={date} />
       );
     });
   };
 
   const categorySelectHandler = (activity, e) => {
     setSelectedCategory(activity.value);
+    setTabIndex(activity.index);
   };
+
+  // const renderCategories = () => {
+  //   return (
+  //     <div className={styles.categoryList}>
+  //       <div className={styles.swiperNavContainer}>
+  //         <div className={styles.activitiesSwiperButtonNext}></div>
+  //         <div className={styles.activitiesSwiperButtonPrev}></div>
+  //       </div>
+  //       <Swiper
+  //         navigation={true}
+  //         slidesPerView={8}
+  //         spaceBetween={0}
+  //         pagination={{
+  //           clickable: true,
+  //           type: 'progressbar',
+  //         }}
+  //         navigation={{
+  //           nextEl: '.' + styles.activitiesSwiperButtonNext,
+  //           prevEl: '.' + styles.activitiesSwiperButtonPrev,
+  //         }}
+  //         autoHeight={true}
+  //         className={showCategories && classNames(styles.swiperElement)}
+  //         // Responsive breakpoints
+  //         breakpoints={{
+  //           320: {
+  //             slidesPerView: 2,
+  //             spaceBetween: 20,
+  //           },
+  //           // when window width is >= 320px
+  //           480: {
+  //             slidesPerView: 3,
+  //             spaceBetween: 20,
+  //           },
+  //           // when window width is >= 480px
+  //           992: {
+  //             slidesPerView: 4,
+  //             spaceBetween: 30,
+  //           },
+  //           // when window width is >= 480px
+  //           1200: {
+  //             slidesPerView: 4,
+  //             spaceBetween: 30,
+  //           },
+  //         }}
+  //       >
+  //         {ACTIVITIES_TO_TRACK.filter(x => x.value !== 'bets' || showBets).map((activity, index) => (
+  //           <SwiperSlide key={`swiper-slide-${index}`}>
+  //             <div
+  //               className={classNames(styles.boxIcon, {
+  //                 [styles.categorySelected]:
+  //                   selectedCategory === activity.value,
+  //               })}
+  //               role="button"
+  //               tabIndex="0"
+  //               onClick={e => {
+  //                 categorySelectHandler(activity, e);
+  //               }}
+  //             >
+  //               <img
+  //                 src={activity.image}
+  //                 alt={`category ${activity.value}`}
+  //                 className={classNames(styles.imageIcon)}
+  //               />
+  //               <label className={classNames(styles.label)}>
+  //                 {activity.category}
+  //               </label>
+  //             </div>
+  //           </SwiperSlide>
+  //         ))}
+  //       </Swiper>
+  //     </div>
+  //   );
+  // };
 
   const renderCategories = () => {
     return (
-      <div className={styles.categoryList}>
-        <div className={styles.swiperNavContainer}>
-          <div className={styles.activitiesSwiperButtonNext}></div>
-          <div className={styles.activitiesSwiperButtonPrev}></div>
-        </div>
-        <Swiper
-          navigation={true}
-          slidesPerView={8}
-          spaceBetween={0}
-          pagination={{
-            clickable: true,
-            type: 'progressbar',
-          }}
-          navigation={{
-            nextEl: '.' + styles.activitiesSwiperButtonNext,
-            prevEl: '.' + styles.activitiesSwiperButtonPrev,
-          }}
-          autoHeight={true}
-          className={showCategories && classNames(styles.swiperElement)}
-          // Responsive breakpoints
-          breakpoints={{
-            320: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            // when window width is >= 320px
-            480: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            // when window width is >= 480px
-            992: {
-              slidesPerView: 4,
-              spaceBetween: 30,
-            },
-            // when window width is >= 480px
-            1200: {
-              slidesPerView: 4,
-              spaceBetween: 30,
-            },
-          }}
-        >
-          {ACTIVITIES_TO_TRACK.filter(x => x.value !== 'bets' || showBets).map((activity, index) => (
-            <SwiperSlide key={`swiper-slide-${index}`}>
-              <div
-                className={classNames(styles.boxIcon, {
-                  [styles.categorySelected]:
-                    selectedCategory === activity.value,
-                })}
-                role="button"
-                tabIndex="0"
-                onClick={e => {
-                  categorySelectHandler(activity, e);
-                }}
-              >
-                <img
-                  src={activity.image}
-                  alt={`category ${activity.value}`}
-                  className={classNames(styles.imageIcon)}
-                />
-                <label className={classNames(styles.label)}>
-                  {activity.category}
-                </label>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    );
+      <TabOptions options={tabOptions} className={styles.tabLayout}>
+        {option => (
+          <div
+            className={
+              option.index === tabIndex
+                ? styles.tabItemSelected
+                : styles.tabItem
+            }
+            onClick={e => categorySelectHandler(option, e)}
+          >
+            {option.name}
+          </div>
+        )}
+      </TabOptions>
+    )
+
   };
 
   const messageListScrollToBottom = (behavior = 'smooth') => {

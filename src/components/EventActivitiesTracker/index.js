@@ -84,6 +84,7 @@ const EventActivitiesTracker = ({
   preselectedCategory,
   gameId,
   hideSecondaryColumns = false,
+  gameScreen = false,
   layout='compact'
 }) => {
   const layoutCss = layout === 'compact' ? styles.compact : null;
@@ -188,7 +189,7 @@ const EventActivitiesTracker = ({
       }
 
       return (
-        <ActivityMessage key={index} activity={activityMessage} date={date} hideSecondaryColumns={hideSecondaryColumns} layout={layout}/>
+        <ActivityMessage key={index} activity={activityMessage} date={date} hideSecondaryColumns={hideSecondaryColumns} gameScreen={gameScreen} layout={layout}/>
       );
     });
   };
@@ -213,12 +214,19 @@ const EventActivitiesTracker = ({
     <div className={classNames(styles.activitiesTrackerContainer, className)}>
       <div className={styles.header}>
         <Grid container className={layoutCss}>
-          <Grid item xs>
-            <p className={styles.titleLeft}>GAME</p>
-          </Grid>
+          {!gameScreen && 
+            <Grid item xs>
+              <p className={styles.titleLeft}>GAME</p>
+            </Grid>
+          }
           <Grid item xs className={hideSecondaryColumns ? styles.hideSecondaryColumns : null}>
             <p className={styles.titleLeft}>USER</p>
           </Grid>
+          {!gameScreen && 
+            <Grid item xs className={hideSecondaryColumns ? styles.hideSecondaryColumns : null}>
+              <p className={styles.titleLeft}>TIME</p>
+            </Grid>
+          }
           <Grid item xs className={hideSecondaryColumns ? styles.hideSecondaryColumns : null}>
             <p className={styles.titleRight}>TRADE</p>
           </Grid>

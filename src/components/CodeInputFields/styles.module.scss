@@ -1,47 +1,41 @@
 @import '../../styles/all';
 
-.codeInput
-{
-    > div
-    {
-        display:         flex;
-        justify-content: center;
-        align-items:     center;
-        width:           100%;
+.codeInput {
+  width: 100% !important;
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 
-        > input
-        {
-            font-family:      $fontLight;
-            background-color: $colorGrayLight;
-            height:           72px !important;
-            width:            100% !important;
-            margin:           0 4px;
-            font-size:        36px;
-            border:           2px solid $colorWhite !important;
-            border-radius:    10px !important;
-            color:            black;
-            caret-color:      transparent !important;
+    > input {
+      font-family: $fontLight;
+      background-color: $colorGrayLight;
+      height: 72px !important;
+      width: 100% !important;
+      margin: 0 4px;
+      font-size: 36px;
+      border: 2px solid $colorWhite !important;
+      border-radius: 10px !important;
+      color: black;
+      caret-color: transparent !important;
 
-            @media (min-width: $screen-sm)
-            {
-                width: 66px !important;
-            }
+      @media (min-width: $screen-sm) {
+        width: 66px !important;
+      }
 
-            &:focus
-            {
-                border:           2px solid $colorYellow !important;
-                background-color: white;
-            }
+      &:focus {
+        border: 2px solid $colorYellow !important;
+        background-color: white;
+      }
 
-            &:first-child
-            {
-                margin-left: 0;
-            }
+      &:first-child {
+        margin-left: 0;
+      }
 
-            &:last-child
-            {
-                margin-right: 0;
-            }
-        }
+      &:last-child {
+        margin-right: 0;
+      }
     }
+  }
 }

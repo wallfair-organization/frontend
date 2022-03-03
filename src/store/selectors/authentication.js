@@ -2,15 +2,21 @@ import { TOKEN_NAME } from 'constants/Token';
 import { convert } from '../../helper/Currency';
 
 export const selectCurrency = ({ authentication }) => {
-  const currency = authentication.preferences?.currency;
-  return currency || TOKEN_NAME;
-  // return TOKEN_NAME;
+  if (process.env.REACT_APP_PLAYMONEY !== 'true') {
+    const currency = authentication.preferences?.currency;
+    return currency || TOKEN_NAME;
+  }
+  
+  return TOKEN_NAME;
 };
 
 export const selectGamesCurrency = ({ authentication }) => {
-  const currency = authentication.preferences?.gamesCurrency || 'USD';
-  return currency;
-  // return TOKEN_NAME;
+  // if (process.env.REACT_APP_PLAYMONEY !== 'true') {
+    const currency = authentication.preferences?.gamesCurrency || 'USD';
+    return currency;
+  // }
+
+  return TOKEN_NAME;
 };
 
 export const selectUserId = state => state.authentication.userId;
@@ -33,6 +39,7 @@ export const selectUser = state => {
     ...user,
     isLoggedIn: state.authentication.authState === 'LOGGED_IN',
     balance: state.authentication.balance,
+    balances: state.authentication.balances,
     // balance: convert(state.authentication.balance, currency),
     amountWon: state.authentication.amountWon,
     // amountWon: convert(state.authentication.amountWon, currency),
@@ -51,5 +58,6 @@ export const selectUser = state => {
     currency,
     gamesCurrency,
     tokensRequestedAt,
+    phoneConfirmed: state.authentication.phoneConfirmed,
   };
 };

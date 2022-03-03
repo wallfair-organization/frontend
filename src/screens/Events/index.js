@@ -1,10 +1,10 @@
 import { useState, memo } from 'react';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import NonStreamedEventsContent from 'components/Events/NonStreamedEventsContent';
-import { EVENT_CATEGORIES } from '../../constants/EventCategories';
+import { EVENT_CATEGORIES_SECOND } from '../../constants/EventCategories';
 
 const Events = () => {
-  const [categories, setCategories] = useState(EVENT_CATEGORIES);
+  const [categories, setCategories] = useState(EVENT_CATEGORIES_SECOND);
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true} backgroundVideo={false}>

@@ -1,15 +1,7 @@
 $fontLight: 'PlusJakarta-Light';
-$fontRegular: 'PlusJakarta-Regular';
-$fontBold: 'PlusJakarta-Bold';
-$fontMedium: 'PlusJakarta-Medium';
-$fontSans: 'PlusJakartaSans-Medium';
-$fontOmnes: 'omnes-pro';
+$fontDMSans: 'DM Sans'; /* Regular 400, Medium 500, Bold 700 */
 
 :export {
   fontLight: $fontLight;
-  fontRegular: $fontRegular;
-  fontBold: $fontBold;
-  fontMedium: $fontMedium;
-  fontSans: $fontSans;
-  fontOmnes: $fontOmnes;
+  fontDMSans: $fontDMSans;
 }

@@ -29,7 +29,7 @@ import { ReactComponent as WalletIcon } from '../../data/icons/wallet/wallet.svg
 import { ReactComponent as RightArrow } from '../../data/icons/wallet/right-arrow.svg';
 
 import * as ApiUrls from 'constants/Api';
-import { resendEmailVerification } from 'api';
+import { getOpenBets, getTradeHistory, resendEmailVerification } from 'api';
 import {
   trackWalletAddWfair,
   trackWalletBuyWfair,
@@ -45,21 +45,10 @@ import { AVAILABLE_GAMES_CURRENCY } from '../../constants/Currency';
 import { TOKEN_NAME } from '../../constants/Token';
 
 const UserWallet = ({
-  tags,
-  setOpenDrawer,
-  fetchTags,
-  showPopup,
-  events,
-  refreshHighData,
-  refreshLuckyData,
   connected,
   user,
   refreshMyBetsData,
-  showWalletBuyWfairPopup,
-  showRequestTokenPopup,
   resetState,
-  setStakes,
-  setHistory,
   fetchWalletTransactions,
   isTransactionsFetchLoading,
   isTransactionsFetchError,
@@ -85,6 +74,8 @@ const UserWallet = ({
   const [userKyc, setUserKyc] = useState({ ...user?.kyc });
 
   const [emailSent, setEmailSent] = useState(false);
+  const [openTrades, setOpenTrades] = useState([]);
+  const [tradeHistory, setTradeHistory] = useState([]);
 
   const depositCount = useDepositsCounter();
 
@@ -94,6 +85,8 @@ const UserWallet = ({
     ONRAMP: transactions.onramp || [],
     CRYPTO: transactions.crypto || [],
     BETS: myBetsData ? myBetsData : [],
+    OPEN_TRADES: openTrades,
+    TRADE_HISTORY: tradeHistory,
   };
 
   const activityDataMap = {
@@ -102,19 +95,23 @@ const UserWallet = ({
     WITHDRAWALS: 'WITHDRAWALS',
     BETS: 'BETS',
     'CRYPTO DEPOSITS': 'CRYPTO',
+    'OPEN TRADES': 'OPEN_TRADES',
+    'TRADE HISTORY': 'TRADE_HISTORY',
   };
+
+  const tabOptions = [
+    { name: 'FIAT DEPOSITS', index: 0 },
+    { name: 'WFAIR DEPOSITS', index: 1 },
+    { name: 'CRYPTO DEPOSITS', index: 2 },
+    { name: 'WITHDRAWALS', index: 3 },
+  ];
 
   const [activityTab, setActivityTab] = useState({
     name: 'FIAT DEPOSITS',
     index: 0,
   });
 
-  const [activityTabOptions, setActivityTabOptions] = useState([
-    { name: 'FIAT DEPOSITS', index: 0 },
-    { name: 'WFAIR DEPOSITS', index: 1 },
-    { name: 'CRYPTO DEPOSITS', index: 2 },
-    { name: 'WITHDRAWALS', index: 3 },
-  ]);
+  const [activityTabOptions, setActivityTabOptions] = useState(tabOptions);
 
   const handleActivitySwitchTab = ({ index }) => {
     setActivityTab(activityTabOptions[index]);
@@ -128,6 +125,11 @@ const UserWallet = ({
     setEmailSent(resultOk);
   };
 
+  const fetchTrades = () => {
+    getOpenBets().then(res => setOpenTrades(res.data));
+    getTradeHistory().then(res => setTradeHistory(res.data));
+  }
+
   useEffect(() => {
     resetState();
   }, [account, active, resetState]);
@@ -136,11 +138,10 @@ const UserWallet = ({
     refreshMyBetsData({ userId: user.userId });
     if (user.userId) {
       setActivityTabOptions([
-        { name: 'FIAT DEPOSITS', index: 0 },
-        { name: 'WFAIR DEPOSITS', index: 1 },
-        { name: 'CRYPTO DEPOSITS', index: 2 },
-        { name: 'WITHDRAWALS', index: 3 },
+        ...tabOptions,
         { name: 'BETS', index: 4 },
+        { name: 'OPEN TRADES', index: 5, refresh: fetchTrades },
+        { name: 'TRADE HISTORY', index: 6 },
       ]);
     }
     setUserKyc(user?.kyc);
@@ -148,6 +149,7 @@ const UserWallet = ({
 
   useEffect(() => {
     fetchWalletTransactions();
+    fetchTrades();
   }, [fetchWalletTransactions, balance]);
 
   useEffect(() => {
@@ -170,7 +172,7 @@ const UserWallet = ({
     window.open(kycUrl, 'fractal', 'width=480,height=700,top=150,left=150');
   };
 
-  const renderCategoriesAndLeaderboard = () => {
+  const renderStats = () => {
     return (
       <div className={styles.activities}>
         <Grid item xs={12}>
@@ -207,6 +209,7 @@ const UserWallet = ({
                   type={activityDataMap[activityTab.name]}
                   rowData={activityData}
                   isError={isTransactionsFetchError}
+                  refresh={activityTab.refresh}
                 />
               )}
             </div>
@@ -229,9 +232,9 @@ const UserWallet = ({
                 {
                   balances && balances.map(b => {
                     return (
-                      <div className={styles.balanceTextContainer}>
+                      <div className={styles.balanceTextContainer} key={b.symbol}>
                         <p className={styles.currentbalanceHeading}>
-                          {b.symbol === TOKEN_NAME ? 'Current balance:' : 'Bonus balance:'}
+                          {b.symbol === TOKEN_NAME ? 'Current balance:' : 'Casino Bonus:'}
                         </p>
                         <div className={styles.balanceBottomContainer}>
                           <p className={styles.currentbalanceWFair}>
@@ -317,7 +320,6 @@ const UserWallet = ({
           <Grid
             className={styles.balanceCard}
             item
-            justifyContent="flex-start"
             lg={12}
             md={12}
           >
@@ -340,7 +342,6 @@ const UserWallet = ({
           <Grid
             className={styles.balanceCard}
             item
-            justifyContent="flex-start"
             lg={12}
             md={12}
             style={{ width: '100%' }}
@@ -381,7 +382,6 @@ const UserWallet = ({
           <Grid
             className={styles.balanceCard}
             item
-            justifyContent="flex-start"
             lg={12}
             md={12}
             style={{ width: '100%' }}
@@ -418,7 +418,12 @@ const UserWallet = ({
             </div>
           </Grid>
         )}
-        <Grid container alignContent="center" spacing={1}>
+        <Grid
+          container
+          justifyContent="flex-start"
+          alignContent="center"
+          spacing={1}
+        >
           <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
             <div
               className={classNames(
@@ -453,7 +458,6 @@ const UserWallet = ({
           <Grid
             className={styles.balanceCard}
             item
-            justifyContent="flex-start"
             lg={4}
             md={4}
             xs={12}
@@ -487,14 +491,7 @@ const UserWallet = ({
             </div>
           </Grid>
 
-          <Grid
-            className={styles.balanceCard}
-            item
-            justifyContent="flex-start"
-            lg={4}
-            md={4}
-            xs={12}
-          >
+          <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
             <div
               className={classNames(
                 styles.currentBalanceDescription,
@@ -525,65 +522,13 @@ const UserWallet = ({
             </div>
           </Grid>
         </Grid>
-        <Grid container alignContent="center" spacing={1}>
-          {/* <Grid
-            className={styles.balanceCard}
-            item
-            lg={4}
-            md={4}
-            xs={12}
-          >
-            <div className={classNames(styles.currentBalanceDescription, styles.smallCurrentBalanceDescription)}>
-              <div className={classNames(styles.currentBalanceCard, styles.smallCard)}>
-                <div className={styles.buttonContainer}>
-                  <h2>Buy WFAIR</h2>
-                  <p className={styles.label}>
-                    You can buy WFAIR using cryptocurrencies (BTC, ETH, LTC) and regular currencies (EUR, USD, etc.).
-                    Your WFAIR is automatically credited in your account.
-                  </p>
-                  <Button
-                    className={styles.button}
-                    onClick={showWalletDepositCrypto}
-                  >
-                    Buy WFAIR
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </Grid>
-
-          <Grid
-            className={styles.balanceCard}
-            item
-            justifyContent="flex-start"
-            lg={4}
-            md={4}
-            xs={12}
-          >
-            <div className={classNames(styles.currentBalanceDescription, styles.smallCurrentBalanceDescription)}>
-              <div className={classNames(styles.currentBalanceCard, styles.smallCard)}>
-                <div className={styles.buttonContainer}>
-                  <h2>Deposit WFAIR</h2>
-                  <p className={styles.label}>If you already own WFAIR in your wallet, you can connect your wallet and make a direct deposit on the casino.</p>
-                  <Button
-                    className={styles.button}
-                    onClick={showWalletConnectWallet}
-                  >
-                    Deposit WFAIR
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </Grid> */}
-
-          <Grid
-            className={styles.balanceCard}
-            item
-            justifyContent="flex-start"
-            lg={4}
-            md={4}
-            xs={12}
-          >
+        <Grid
+          container
+          alignContent="center"
+          justifyContent="flex-start"
+          spacing={1}
+        >
+          <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
             <div
               className={classNames(
                 styles.currentBalanceDescription,
@@ -604,10 +549,6 @@ const UserWallet = ({
                     cryptocurrencies or hold it to have early access to the
                     upcoming utilities.
                   </p>
-                  {/* <p className={styles.label}>
-                    You can withdraw your funds in the casino directly to your wallet. You can then convert your WFAIR to other cryptocurrencies or stake it to increase your gains.
-                    Learn more
-                  </p> */}
                   <Button
                     className={styles.button}
                     disabled={!isKycVerified() || !user.emailConfirmed}
@@ -618,23 +559,6 @@ const UserWallet = ({
                   >
                     Withdraw
                   </Button>
-
-                  {/* {
-                  showStartButton() && (
-                    <div className={styles.buttonContainer}>
-                    <p className={styles.title}>KYC Verification</p>
-                    <p className={styles.label}>
-                      Enable the full functionality of your account in 30 seconds! Complete our verification process now, and you will be able to withdraw your funds and add an unlimited amount of WFAIR.
-                    </p>
-                    <Button
-                      className={styles.button}
-                      onClick={openFractal}
-                    >
-                      Complete Verification!
-                    </Button>
-                  </div>
-                  )
-                } */}
                 </div>
               </div>
             </div>
@@ -643,7 +567,6 @@ const UserWallet = ({
       </div>
     );
   };
-  const renderStatusTableSection = () => {};
 
   return (
     <BaseContainerWithNavbar>
@@ -651,16 +574,11 @@ const UserWallet = ({
         <div className={styles.container}>
           <div className={styles.titleSection}>
             <h1>Your Wallet</h1>
-            {/* <div className={styles.depositeNumber}>
-              <GreenPathIcon />
-              <p>1,245,894 WFAIR Deposites today</p>
-            </div> */}
           </div>
           {renderWalletPreferencesSection()}
           {renderCurrentBalanceSection()}
           {renderDepositBonusSection()}
-          {renderStatusTableSection()}
-          {renderCategoriesAndLeaderboard()}
+          {renderStats()}
         </div>
       </div>
     </BaseContainerWithNavbar>
@@ -685,35 +603,14 @@ const mapDispatchToProps = dispatch => {
       dispatch(UserActions.updatePreferences({ userId, preferences }));
     },
     resetState: () => dispatch(WallfairActions.resetState()),
-    setHistory: (lockAddress, dataArray) =>
-      dispatch(
-        WallfairActions.setHistory({
-          lock: lockAddress,
-          data: dataArray,
-        })
-      ),
-    setStakes: (lockAddress, amounts, timestamps) =>
-      dispatch(
-        WallfairActions.setStakes({
-          lock: lockAddress,
-          data: [...amounts, ...timestamps],
-        })
-      ),
     refreshMyBetsData: data => dispatch(RosiGameActions.fetchMyBetsData(data)),
     showWithdrawPopup: () => {
       trackWalletWithdraw();
       dispatch(PopupActions.show({ popupType: PopupTheme.walletWithdraw }));
     },
-    showWalletBuyWfairPopup: () => {
-      // trackWalletAddWfair();
-      dispatch(PopupActions.show({ popupType: PopupTheme.walletBuyWfair }));
-    },
     showWalletDepositPopup: () => {
       trackWalletAddWfair();
       dispatch(PopupActions.show({ popupType: PopupTheme.walletDeposit }));
-    },
-    showRequestTokenPopup: () => {
-      dispatch(PopupActions.show({ popupType: PopupTheme.requestTokens }));
     },
     fetchWalletTransactions: () => {
       dispatch(TransactionActions.fetchWalletTransactions());

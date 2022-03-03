@@ -40,6 +40,7 @@ import {
 import Button from 'components/Button';
 import Routes from 'constants/Routes';
 import { useHistory } from 'react-router';
+import { currencyDisplay } from 'helper/Currency';
 
 const PlaceBetMines = ({
   connected,
@@ -265,7 +266,7 @@ const PlaceBetMines = ({
             tabIndex="0"
             style={{display: bet.autobet ? 'auto':'none'}}
             className={styles.button}
-            theme={ButtonTheme.secondaryButton}
+            theme={ButtonTheme.redButton}
             onClick={() => setBet({...bet, autobet: false, stopped: true})}
             data-tracking-id={
               user.isLoggedIn ? null : 'alpacawheel-showloginpopup'
@@ -404,7 +405,7 @@ const PlaceBetMines = ({
                   max={GAMES_CURRENCY_MAX_BET}
                 />
                 <span className={styles.eventTokenLabel}>
-                  <span>{gamesCurrency}</span>
+                  <span>{currencyDisplay(gamesCurrency)}</span>
                 </span>
                 <div className={styles.buttonWrapper}>
                   <span
@@ -480,7 +481,7 @@ const PlaceBetMines = ({
                   max={GAMES_CURRENCY_MAX_BET}
                 />
                 <span className={styles.eventTokenLabel}>
-                  <span>{gamesCurrency}</span>
+                  <span>{currencyDisplay(gamesCurrency)}</span>
                 </span>
                 <div className={styles.buttonWrapper}>
                   <span
@@ -538,7 +539,7 @@ const PlaceBetMines = ({
             {bet.autobet &&
               <div className={styles.spinsleft}>
                 <span className={accumulated > 0 ? styles.reward : styles.lost}>
-                {Math.floor(accumulated)} {gamesCurrency}
+                {Math.floor(accumulated)} {currencyDisplay(gamesCurrency)}
                 </span>
                 accumulated
               </div>
@@ -547,7 +548,7 @@ const PlaceBetMines = ({
               <div className={styles.spinsleft}>
                 Current bet:
                 <span className={styles.neutral}>
-                {Math.floor(bet.amount)} {gamesCurrency}
+                {Math.floor(bet.amount)} {currencyDisplay(gamesCurrency)}
                 </span>
               </div>
             }

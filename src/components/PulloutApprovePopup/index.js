@@ -2,23 +2,37 @@ import styles from './styles.module.scss';
 import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../store/actions/popup';
 import Button from '../Button';
-import { BetActions } from 'store/actions/bet';
 import LikeIcon from '../../data/icons/like-icon.svg';
 import HighlightType from 'components/Highlight/HighlightType';
 import { selectUser } from 'store/selectors/authentication';
 import { trackApproveCashout } from '../../config/gtm';
+import { pullOutBet } from 'api';
+import { AlertActions } from 'store/actions/alert';
+import { currencyDisplay } from 'helper/Currency';
 
 const PulloutApprovePopup = ({
   hidePopup,
-  pullOutBet,
+  showSuccess,
+  showError,
   betData: { betId, amount, outcome, outcomeName },
+  onApprove,
 }) => {
   const { currency } = useSelector(selectUser);
 
-  const onApprovePulloutClick = () => {
-    pullOutBet(betId, outcome, amount);
-    hidePopup();
-    trackApproveCashout({ eventTitle: outcomeName });
+  const onApprovePulloutClick = async () => {
+    pullOutBet(betId, outcome)
+      .then(_ => {
+        hidePopup();
+        showSuccess(
+          `Successfully cashed out ${amount} ${currencyDisplay(currency)}`
+        );
+        onApprove(betId, outcome);
+        trackApproveCashout({ eventTitle: outcomeName });
+      })
+      .catch(_ => {
+        hidePopup();
+        showError('Failed to cash out.');
+      });
   };
 
   const onCancelPulloutClick = () => {
@@ -34,7 +48,7 @@ const PulloutApprovePopup = ({
       <p className={styles.pulloutText}>
         Are you sure you want to cash out&nbsp;
         <strong>
-          {amount} {currency}
+          {amount} {currencyDisplay(currency)}
         </strong>
         ?
       </p>
@@ -63,11 +77,14 @@ const PulloutApprovePopup = ({
 
 const mapDispatchToProps = dispatch => {
   return {
+    showSuccess: message => {
+      dispatch(AlertActions.showSuccess({ message }));
+    },
+    showError: message => {
+      dispatch(AlertActions.showError({ message }));
+    },
     hidePopup: () => {
       dispatch(PopupActions.hide());
-    },
-    pullOutBet: (betId, outcome, amount, gain) => {
-      dispatch(BetActions.pullOutBet({ betId, outcome, amount, gain }));
     },
   };
 };

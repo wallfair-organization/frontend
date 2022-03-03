@@ -4,7 +4,7 @@
   width: 100%;
   flex-direction: column;
   padding: 40px 20px 10px 20px;
-  background-color: $colorBackground;
+  background-color: $colorPrimary;
 
   .footerDisclaimer {
     color: $colorWhite;
@@ -93,7 +93,7 @@
 
     a,
     button {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-size: 12px;
       display: flex;
       align-items: center;

@@ -5,17 +5,22 @@ import { Validators, isValid } from '../../utils/validators';
 import styles from '../styles.module.scss';
 import { InputError } from '../../';
 
-const OutcomeInput = ({ outcome, onChange, setIsValid }) => {
+const OutcomeInput = ({ outcome, onChange, setIsValid, betEdit }) => {
   const [name, setName, nameErrors] = useValidatedState(outcome.name, [
     Validators.required,
   ]);
+
+  const probabilityValidators = betEdit
+    ? []
+    : [
+        Validators.required,
+        Validators.numberLimit(0, 'floor'),
+        Validators.numberLimit(1, 'ceiling'),
+      ];
+
   const [probability, setProbability, probabilityErrors] = useValidatedState(
     outcome.probability,
-    [
-      Validators.required,
-      Validators.numberLimit(0, 'floor'),
-      Validators.numberLimit(1, 'ceiling'),
-    ]
+    probabilityValidators
   );
 
   useEffect(() => {
@@ -50,22 +55,31 @@ const OutcomeInput = ({ outcome, onChange, setIsValid }) => {
   return (
     <div className={styles.outcomeForm}>
       <label htmlFor={getId('name')}>Name</label>
-      <Input id={getId('name')} value={name} onChange={update('name')} />
-      <InputError errors={nameErrors} />
-      <label htmlFor={getId('probability')}>Probability</label>
       <Input
-        id={getId('probability')}
-        value={probability}
-        onChange={update('probability')}
-        maxlength={4}
+        id={getId('name')}
+        value={name}
+        onChange={update('name')}
+        maxLength={30}
       />
-      <InputError
-        errors={probabilityErrors}
-        placeholderValues={{ tooHigh: [1], tooLow: [0] }}
-        errorMessages={{
-          invalidNumber: 'Must be a valid decimal between 0 and 1.',
-        }}
-      />
+      <InputError errors={nameErrors} />
+      {!betEdit && (
+        <>
+          <label htmlFor={getId('probability')}>Probability</label>
+          <Input
+            id={getId('probability')}
+            value={probability}
+            onChange={update('probability')}
+            maxLength={4}
+          />
+          <InputError
+            errors={probabilityErrors}
+            placeholderValues={{ tooHigh: [1], tooLow: [0] }}
+            errorMessages={{
+              invalidNumber: 'Must be a valid decimal between 0 and 1.',
+            }}
+          />
+        </>
+      )}
     </div>
   );
 };

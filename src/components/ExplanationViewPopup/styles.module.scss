@@ -31,7 +31,7 @@
     padding: 0 20px;
 
     .explanationTextHeadline {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-size: 20px;
       margin-bottom: 10px;
       position: relative;
@@ -96,9 +96,6 @@
   .swiper-pagination-progressbar,
   .swiper-pagination-progressbar-fill {
     background-color: red;
-  }
-
-  .explanationTextContainer {
   }
 
   .visualSteps {

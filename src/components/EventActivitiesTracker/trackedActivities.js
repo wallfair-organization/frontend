@@ -12,6 +12,7 @@ export default [
   'Notification/EVENT_BET_PLACED',
   'Notification/EVENT_BET_CASHED_OUT',
   'Notification/EVENT_BET_RESOLVED',
+  'Notification/EVENT_BET_CLOSED',
   'Notification/EVENT_BET_CANCELED',
   'Notification/EVENT_BET_EVALUATED',
   'Casino/CASINO_PLACE_BET',

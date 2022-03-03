@@ -1,34 +1,9 @@
 @import 'styles/all';
 
-// Global Style
-@font-face {
-  font-family: $fontBold;
-  src: url('/fonts/webfonts/PlusJakartaSans-Bold.woff2') format('woff2'),
-    url('/fonts/webfonts/PlusJakartaSans-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: $fontRegular;
-  src: url('/fonts/webfonts/PlusJakartaSans-Regular.woff2') format('woff2'),
-    url('/fonts/webfonts/PlusJakartaSans-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 @font-face {
   font-family: $fontLight;
   src: url('/fonts/webfonts/PlusJakartaSans-Light.woff2') format('woff2'),
     url('/fonts/webfonts/PlusJakartaSans-Light.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: $fontMedium;
-  src: url('/fonts/webfonts/PlusJakartaSans-Medium.woff2') format('woff2'),
-    url('/fonts/webfonts/PlusJakartaSans-Medium.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -41,27 +16,36 @@
 }
 
 body {
-  background: $colorBackground;
+  background: $colorPrimary;
 }
 
 body,
 html {
   height: 100%;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans, sans-serif;
 
-  > div {
-    width: 100%;
-    height: 100%;
+  // > div {
+  //   width: 100%;
+  //   height: 100%;
 
-    > div {
-      width: 100%;
-      height: 100%;
-      // overflow: auto;
-      position: relative;
-    }
-  }
+  //   > div {
+  //     width: 100%;
+  //     height: 100%;
+  //     // overflow: auto;
+  //     position: relative;
+  //   }
+  // }
 }
 
 a {
   color: inherit;
+}
+
+b {
+  font-weight: 700;
+  font-family: $fontDMSans;
+}
+
+* {
+  font-family: $fontDMSans;
 }

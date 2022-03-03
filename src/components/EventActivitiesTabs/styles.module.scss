@@ -2,9 +2,10 @@
 
 /* ACTIVITY TRACKER */
 .activityWrapper {
-  margin-top: 32px;
+  width: 100%;
+  margin-top: 0;
   background: $colorBlue80;
-  border: 1px solid $colorBlueBorder;
+  // border: 1px solid $colorBlueBorder;
 
   box-sizing: border-box;
   border-radius: 6px;
@@ -29,19 +30,20 @@
   padding-bottom: 12px;
   opacity: 1;
   cursor: pointer;
-  border-bottom: 3px solid $colorLightYellow;
+  border-bottom: 3px solid $colorYellow;
 }
 .tabLayout {
   display: flex;
   align-items: flex-end;
   color: $colorWhite;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 18px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
   padding-top: 24px;
-  margin-left: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid $colorWhite20;
 
   @media (max-width: $screen-md) {
     margin-left: 0px;

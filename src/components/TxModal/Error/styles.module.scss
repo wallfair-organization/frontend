@@ -14,14 +14,14 @@
   }
 
   .title {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
     font-size: 20px;
     margin-top: 20px;
   }
 
   .subtitle {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 14px;
   }
 
@@ -35,7 +35,7 @@
     }
 
     .message {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-weight: bold;
       font-size: 24px;
     }
@@ -56,7 +56,7 @@
     text-align: center;
     z-index: 2;
     strong {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-weight: bold;
       border-bottom: 3px solid $colorLightYellow;
       cursor: pointer;
@@ -65,7 +65,7 @@
   }
   .prizeAmount {
     font-size: 35px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
     text-align: center;
     position: relative;
@@ -88,7 +88,7 @@
     border-radius: 30px;
     border: 0;
     font-size: 18px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
     cursor: pointer;
     background: $colorWhite;

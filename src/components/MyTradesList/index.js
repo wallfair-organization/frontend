@@ -59,7 +59,8 @@ const MyTradesList = ({
           <div className={styles.betInfo}>
             <div className={styles.titleContainer}>
               <Link
-                to={`/trade/${item.eventSlug}/${item.betSlug}`}
+                // to={`/trade/${item.eventSlug}/${item.betSlug}`}
+                to={`/trade/${item.eventSlug}`}
                 className={styles.titleLink}
                 onClick={closeDrawer}
               >

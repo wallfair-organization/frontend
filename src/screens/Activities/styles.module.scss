@@ -10,14 +10,15 @@
     max-width: 1270px;
   }
 
+  & > h1 {
+    color: $colorWhite;
+    padding-bottom: 30px;
+  }
+
   .activitiesTrackerContainerFull {
     margin-top: 24px;
     height: auto;
     background: $colorPrimary;
-    border: 1px solid $colorGrayLight;
-    border-radius: 12px;
-    box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18),
-      0px 2px 2px rgba(159, 162, 191, 0.32);
   }
 
   .globalStats {
@@ -26,10 +27,9 @@
     column-gap: 10px;
     align-items: center;
     color: $colorWhite;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 24px;
     font-weight: 700;
-    padding-bottom: 30px;
   }
 
   .statsBlock {
@@ -37,22 +37,21 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
+    // column-gap: 10px;
 
     .statItem {
-      border-radius: 50px;
-      border: 2px solid $colorLightYellow;
       width: 16%;
-      padding: 8px 10px;
+      padding: 16px 0 16px 20px;
       margin-bottom: 10px;
-      box-shadow: 0px 2px 3px rgba(159, 162, 191, 0.18),
-        0px 1px 1px rgba(159, 162, 191, 0.32);
+      background: rgba(172, 196, 255, 0.10077);
+      border-radius: 12px;
 
       @media (max-width: $screen-lg) {
         width: 33%;
       }
 
       @media (max-width: $screen-md) {
-        width: 50%;
+        width: 49%;
       }
 
       @media (max-width: $screen-xs) {
@@ -60,21 +59,23 @@
       }
 
       .statItemHead {
-        font-weight: bold;
         display: flex;
-        align-items: center;
-        font-family: $fontOmnes;
-        font-size: 16px;
+        flex-direction: column;
         justify-content: center;
         flex-wrap: wrap;
-        flex-direction: column;
         color: $colorWhite;
 
+        .title {
+          font-family: $fontDMSans;
+          font-size: 12px;
+          font-weight: normal;
+          opacity: 0.6;
+        }
+
         span {
-          font-size: 16px;
-          color: $colorLightYellow;
-          font-family: $fontOmnes;
-          font-weight: bold;
+          font-family: $fontDMSans;
+          font-size: 24px;
+          font-weight: normal;
         }
       }
 

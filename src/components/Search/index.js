@@ -7,10 +7,11 @@ import Input from '../Input';
 import Icon from '../Icon';
 import IconType from '../Icon/IconType';
 import { ReactComponent as IconSearch } from '../../data/icons/search.svg';
+import classNames from 'classnames';
 
-function Search({ value, handleConfirm, handleChange }) {
+function Search({ value, handleConfirm, handleChange, className }) {
   return (
-    <div className={styles.searchContainer}>
+    <div className={classNames(styles.searchContainer, className)}>
       <Input
         onSubmit={() => handleConfirm(value)}
         className={styles.input}

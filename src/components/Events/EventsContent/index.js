@@ -249,7 +249,8 @@ function EventsContent({
               .map(item => (
                 <Link
                   to={{
-                    pathname: `/trade/${item.eventSlug}/${item.slug}`,
+                    // pathname: `/trade/${item.eventSlug}/${item.slug}`,
+                    pathname: `/trade/${item.eventSlug}`,
                     state: { fromLocation: location },
                   }}
                   key={item._id}

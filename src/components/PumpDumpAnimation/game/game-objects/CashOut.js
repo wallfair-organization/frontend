@@ -3,7 +3,7 @@ import { Text } from "@pixi/text";
 import TWEEN from '@tweenjs/tween.js';
 
 
-const LABEL_FONT_FAMILY = 'PlusJakarta-Bold';
+const LABEL_FONT_FAMILY = 'DM Sans';
 const LABEL_FONT_SIZE = 8;
 const REWARD_LABEL_COLOR = 0xe2ff54;
 const FACTOR_LABEL_COLOR = 0x999999;

@@ -9,14 +9,15 @@
 .timerColon {
   padding: 0 5px;
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 700;
   color: $colorWhite;
   opacity: 0.8;
 }
 
 .timePartValue {
   font-size: 14px;
-  font-family: 'PlusJakarta-Bold';
+  font-family: $fontDMSans;
+  font-weight: bold;
   color: $colorWhite;
   @media (max-width: $screen-sm) {
     font-size: 10px;

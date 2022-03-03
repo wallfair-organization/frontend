@@ -6,20 +6,17 @@ import PopupTheme from 'components/Popup/PopupTheme';
 import _ from 'lodash';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { PopupActions } from 'store/actions/popup';
 import styles from './styles.module.scss';
 
-const ResolveBetPopup = ({ events, betId, eventId, hidePopup, visible }) => {
-  const event = _.find(events, { _id: eventId });
-  const bet = _.find(_.get(event, 'bets', []), { _id: betId });
+const ResolveBetPopup = ({ bet, event, visible, action }) => {
   const betOutcomes = _.get(bet, 'outcomes').map(({ index, name }) => ({
     value: String(index),
     label: name,
   }));
 
   const [outcome, setOutcome] = useState(null);
-  const [evidenceActual, setEvidenceActual] = useState('');
-  const [evidenceDescription, setEvidenceDescription] = useState('');
+  const [evidenceActual, setEvidenceActual] = useState(bet.evidence_actual);
+  const [evidenceDescription, setEvidenceDescription] = useState(bet.evidence_description);
 
   const [isResolving, setIsResolving] = useState(false);
 
@@ -38,20 +35,28 @@ const ResolveBetPopup = ({ events, betId, eventId, hidePopup, visible }) => {
       setEvidenceDescription('');
       setIsResolving(false);
     } else {
-      setEvidenceDescription(_.get(bet, 'evidenceDescription', null));
+      setEvidenceDescription(_.get(bet, 'evidence_description', null));
+      setOutcome(bet.final_outcome?.toString());
     }
-  }, [visible, betId]);
+  }, [visible, bet]);
 
   const resolveBet = () => {
     setIsResolving(true);
 
-    Api.resolveBet(betId, {
+    const payload = {
       evidenceActual: evidenceActual,
       evidenceDescription: evidenceDescription,
-      outcomeIndex: +outcome,
-    }).then(() => {
+      outcome: +outcome,
+    };
+
+    const response =
+      action === 'close'
+        ? Api.closeBet(bet.id, payload)
+        : Api.resolveBet(bet.id, payload);
+    
+    response.then(() => {
       setIsResolving(false);
-      hidePopup();
+      window.location.reload(false);
     });
   };
 
@@ -93,18 +98,9 @@ const ResolveBetPopup = ({ events, betId, eventId, hidePopup, visible }) => {
 
 const mapStateToProps = state => {
   return {
-    events: state.event.events,
     visible:
       state.popup.visible && PopupTheme.resolveBet === state.popup.popupType,
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    hidePopup: () => {
-      dispatch(PopupActions.hide());
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ResolveBetPopup);
+export default connect(mapStateToProps, null)(ResolveBetPopup);

@@ -6,7 +6,6 @@ import styles from './styles.module.scss';
 import CategoryList from '../../CategoryList';
 import { useMappedActions } from '../hooks/useMappedActions';
 import { useRouteHandling } from '../hooks/useRouteHandling';
-import ContentFooter from 'components/ContentFooter';
 import AdminOnly from 'components/AdminOnly';
 import { PopupActions } from 'store/actions/popup';
 import PopupTheme from 'components/Popup/PopupTheme';
@@ -20,17 +19,29 @@ import { EventActions } from '../../../store/actions/event';
 import StatusTabs from './StatusTabs';
 import AuthenticationType from 'components/Authentication/AuthenticationType';
 import { OnboardingActions } from 'store/actions/onboarding';
+import Button from 'components/Button';
+import ButtonTheme from 'components/Button/ButtonTheme';
+
+import { ReactComponent as PlusIcon } from 'data/icons/plus-icon.svg';
+import Search from 'components/Search';
+import BuyWFAIRWidget from 'components/BuyWFAIRWidget';
+import EventActivitiesTabs from 'components/EventActivitiesTabs';
+import { LOGGED_IN } from 'constants/AuthState';
+import { getMarketEvents } from 'api';
+import { isMobileOnly } from 'react-device-detect';
 
 const NonStreamedEventsContent = ({
   categories,
   setCategories,
   showPopup,
   userId,
+  token,
   bookmarkEvent,
   bookmarkEventCancel,
-  events,
-  filteredEvents,
   startOnboarding,
+  authState,
+  phoneConfirmed,
+  requirePhoneNumberVerification,
 }) => {
   const eventType = 'non-streamed';
 
@@ -38,21 +49,42 @@ const NonStreamedEventsContent = ({
   const category = decodeURIComponent(encodedCategory);
 
   const [status, setStatus] = useState('current');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [page, setPage] = useState(0);
+  const [limit, setLimit] = useState(isMobileOnly ? 10 : 40);
 
-  const { fetchFilteredEvents, resetDefaultParamsValues } =
-    useMappedActions(eventType);
+  // const { fetchFilteredEvents, resetDefaultParamsValues } =
+  //   useMappedActions(eventType);
+  const [events, setEvents] = useState([]);
+
+  const statuses = {
+    current: ['ACTIVE'],
+    past: ['RESOLVED', 'CANCELLED', 'CLOSED', 'WAITING_RESOLUTION', 'DISPUTED'],
+    myEvents: [], // all
+  };
 
   const handleSelectCategory = useCallback(
     value => {
       const updatedCats = categories.map(cat => ({
         ...cat,
-        isActive: value !== cat.value,
+        isActive: value === cat.value,
       }));
 
       setCategories(updatedCats);
+      setPage(0);
     },
     [setCategories]
   );
+
+   const changeStatus = useCallback((value) => {
+     setPage(0);
+     setStatus(value);
+   }, [status, page]);
+
+  const onConfirmSearch = useCallback(() => {
+    setPage(0);
+    getEvents(searchTerm);
+  }, [searchTerm, page]);
 
   const mappedTags = id =>
     events.find(event => event._id === id)?.tags.map(tag => tag.name) || [];
@@ -66,49 +98,49 @@ const NonStreamedEventsContent = ({
   const mappedCategories = _.map(categories, c => {
     return {
       ...c,
-      disabled:
-        c.value !== 'all' &&
-        !events.some(e => {
-          return (
-            e.type === eventType &&
-            e.category === c.value &&
-            e.bets?.some(
-              b => b.published && ['closed', 'active'].includes(b.status)
-            )
-          );
-        }),
+      disabled: false,
     };
   });
 
-  const allBets = filteredEvents.reduce((acc, current) => {
-    const bets = current.bets.map(bet => ({
-      ...bet,
-      eventSlug: current.slug,
-      previewImageUrl: current.previewImageUrl,
-      tags: mappedTags(current._id),
-      category: current.category,
-      eventId: current._id,
-      bookmarks: current.bookmarks,
-    }));
-    const concat = [...acc, ...bets];
-    return concat;
-  }, []);
-
-  const filteredBets = allBets.filter(bet => {
-    return bet.published && statusWhitelist.includes(bet.status);
-  });
+  const getEvents = useCallback(
+    (search = '') => {
+      getMarketEvents({
+        category,
+        statuses: statuses[status],
+        page,
+        limit,
+        name: search,
+        creator: status === 'myEvents',
+      }).then(res => {
+        const filteredEvents = res.events.filter(event => event.category !== 'Politics');
+        setEvents(filteredEvents);
+      });
+    },
+    [status, page, category, searchTerm]
+  );
 
   useEffect(() => {
     handleSelectCategory(category);
+    getEvents();
+  }, [category, status]);
 
-    fetchFilteredEvents({
-      category: encodedCategory,
-      sortBy: 'date',
-      count: 0,
+  const loadMoreEvents = useCallback(() => {
+    setPage(page+1);
+
+    getMarketEvents({
+      category,
+      statuses: statuses[status],
+      page: page + 1,
+      limit,
+      name: searchTerm,
+    }).then(res => {
+      const filteredEvents = res.events.filter(
+        event => event.category !== 'Politics'
+      );
+
+      setEvents([...events, ...filteredEvents]);
     });
-  }, [category]);
-
-  useEffect(() => () => resetDefaultParamsValues(), []);
+  }, [page, events, status]);
 
   const handleHelpClick = useCallback(event => {
     showPopup(PopupTheme.explanation, {
@@ -119,6 +151,14 @@ const NonStreamedEventsContent = ({
   const showJoinPopup = useCallback(event => {
     startOnboarding();
   }, []);
+
+  const handleEventCreation = useCallback(() => {
+    if (phoneConfirmed) {
+      showPopup(PopupTheme.eventForms, {})
+    } else {
+      requirePhoneNumberVerification();
+    }
+  }, [phoneConfirmed])
 
   return (
     <>
@@ -139,58 +179,64 @@ const NonStreamedEventsContent = ({
       <section className={styles.header}>
         <div className={styles.categories}>
           <CategoryList
+            className={styles.categoryList}
             eventType={eventType}
             categories={mappedCategories}
             handleSelect={handleSelectCategory}
           />
+          <div className={styles.containerOptions}>
+            <Search
+              className={styles.searchInput}
+              value={searchTerm}
+              handleChange={setSearchTerm}
+              handleConfirm={onConfirmSearch}
+            />
+            {authState === LOGGED_IN && (
+              <Button
+                theme={ButtonTheme.primaryButtonS}
+                onClick={handleEventCreation}
+                className={styles.createButton}
+              >
+                <PlusIcon />
+                <span>Create an event</span>
+              </Button>
+            )}
+          </div>
         </div>
       </section>
 
       <section className={classNames([styles.main, styles.notStreamed])}>
-        <StatusTabs onSelect={setStatus} />
+        <StatusTabs onSelect={changeStatus} />
 
-          <AdminOnly>
-            <div
-              className={styles.newEventLink}
-              onClick={() => showPopup(PopupTheme.newEvent, { eventType })}
-            >
-              <Icon
-                className={styles.newEventIcon}
-                iconType={IconType.addYellow}
-                iconTheme={IconTheme.white}
-                height={25}
-                width={25}
-              />
-              <span>New Event</span>
-            </div>
-          </AdminOnly>
+        {events.length === 0 && (
+          <span className={styles.notFound}>
+            No events found in this category
+          </span>
+        )}
 
         <div className={styles.nonStreamed}>
-          
-
-          {filteredBets
-            .filter(item => item.eventSlug && item.slug)
-            .map(item => (
+          {events &&
+            events.map(item => (
               <Link
                 className={styles.betLinkWrapper}
                 to={{
-                  pathname: `/trade/${item.eventSlug}/${item.slug}`,
+                  // pathname: `/trade/${item.slug}/${item.bet.slug}`,
+                  pathname: `/trade/${item.slug}`,
                   state: { fromLocation: location },
                 }}
-                key={item._id}
+                key={item.bet.id}
               >
                 <BetCard
-                  item={item}
-                  key={item._id}
-                  betId={item._id}
-                  title={item.marketQuestion}
+                  item={item.bet}
+                  key={item.id}
+                  betId={item.bet.id}
+                  title={item.bet.market_question}
                   organizer={''}
                   viewers={12345}
-                  state={item.status}
+                  state={item.bet.status}
                   tags={item.tags}
-                  image={item.previewImageUrl}
-                  eventEnd={item.endDate}
-                  // outcomes={item.outcomes}
+                  image={item.preview_image_url}
+                  eventEnd={item.bet.end_date}
                   category={item.category}
                   isBookmarked={!!item?.bookmarks?.includes(userId)}
                   onBookmark={e => {
@@ -199,19 +245,39 @@ const NonStreamedEventsContent = ({
                     if (!userId) {
                       return showJoinPopup(e);
                     }
-                    bookmarkEvent(item.eventId);
+                    bookmarkEvent(item.id);
                   }}
                   onBookmarkCancel={e => {
                     e.preventDefault();
                     e.stopPropagation();
-                    bookmarkEventCancel(item.eventId);
+                    bookmarkEventCancel(item.id);
                   }}
                 />
               </Link>
             ))}
         </div>
+
+        {events.length > 0 && (
+          <div className={styles.loadMore}>
+            <Button
+              onClick={loadMoreEvents}
+              theme={ButtonTheme.secondaryButton}
+            >
+              Load more
+            </Button>
+          </div>
+        )}
+
+        <BuyWFAIRWidget />
+
+        <EventActivitiesTabs
+          activitiesLimit={50}
+          className={styles.activities}
+          preselectedCategory={'game'}
+          hideSecondaryColumns={true}
+          layout="wide"
+        />
       </section>
-      <ContentFooter />
     </>
   );
 };
@@ -237,15 +303,18 @@ const mapDispatchToProps = dispatch => {
     },
     startOnboarding: () => {
       dispatch(OnboardingActions.start());
-    }
+    },
+    requirePhoneNumberVerification: () => {
+      dispatch(OnboardingActions.addPhoneNumber({initialOnboarding: false}));
+    },
   };
 };
 
 function mapStateToProps(state) {
   return {
+    authState: state.authentication.authState,
     userId: state.authentication.userId,
-    events: state.event.events,
-    filteredEvents: state.event.filteredEvents,
+    phoneConfirmed: state.authentication.phoneConfirmed,
   };
 }
 

@@ -31,6 +31,7 @@ import eventsStep4 from '../../data/images/explanations-popups/events_step4.png'
 import classNames from 'classnames';
 import { ACTIVITIES_TO_TRACK } from '../../constants/Activities';
 import React from 'react';
+import { currencyDisplay } from 'helper/Currency';
 
 const ExplanationViewPopup = ({ closed, hidePopup }) => {
   const { pathname } = useLocation();
@@ -53,7 +54,7 @@ const ExplanationViewPopup = ({ closed, hidePopup }) => {
 
           <p>
             To participate, simply choose an event that has an active live
-            stream, enter an amount of {TOKEN_NAME} you'd like to wager and finally
+            stream, enter an amount of {currencyDisplay(TOKEN_NAME)} you'd like to wager and finally
             choose your desired outcome(s)!
           </p>
 

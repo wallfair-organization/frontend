@@ -51,7 +51,7 @@
   display: flex;
   align-items: flex-end;
   color: $colorWhite;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -95,7 +95,7 @@
   h2 {
     display: flex;
     justify-content: center;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     text-transform: uppercase;
     font-size: 14px;
   }
@@ -141,7 +141,7 @@
         margin-left: 10px;
         font-size: 20px;
         line-height: 25px;
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         color: $colorWhite;
 
         @media (max-width: $screen-sm) {
@@ -193,7 +193,7 @@
     text-align: justify;
 
     p {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-size: 16px;
       padding-bottom: 10px;
     }
@@ -229,7 +229,7 @@
       width: 100%;
       padding: 10px 0;
       text-align: right;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-weight: bold;
     }
 
@@ -276,7 +276,7 @@
         direction: ltr;
         text-align: left;
         font-size: 16px;
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-weight: bold;
 
         &:focus-visible,
@@ -320,7 +320,7 @@
         flex-direction: row;
 
         .gasFeeLabel {
-          font-family: $fontOmnes;
+          font-family: $fontDMSans;
           font-weight: bold;
 
           @media (max-width: $screen-md) {
@@ -339,7 +339,7 @@
         direction: ltr;
         text-align: right;
         font-size: 24px;
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-weight: bold;
 
         &:focus-visible {
@@ -397,7 +397,7 @@
 
           .innerContent {
             p {
-              font-family: $fontOmnes;
+              font-family: $fontDMSans;
               font-weight: bold;
               font-size: 18px;
             }
@@ -442,7 +442,7 @@
       border: 1px solid $colorWhite;
       width: 240px;
       height: 45px;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       color: $colorWhite;
       margin-top: 10px;
       margin-bottom: 10px;

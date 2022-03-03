@@ -23,6 +23,7 @@ export default {
   chat2: 'chat2',
   checked: 'checked',
   close: 'close',
+  closeCoin: 'closeCoin',
   collapseSidebar: 'collapseSidebar',
   confettiLeft: 'confettiLeft',
   confettiRight: 'confettiRight',
@@ -78,4 +79,5 @@ export default {
   balanceScaleSolid: 'balanceScaleSolid',
   userProfile: 'userProfile',
   discord: 'discord',
+  gift: 'gift',
 };

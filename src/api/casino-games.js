@@ -2,6 +2,7 @@ import * as ApiUrls from '../constants/Api';
 import axios from 'axios';
 import ContentTypes from '../constants/ContentTypes';
 import {TOKEN_NAME} from "../constants/Token";
+import { currencyDisplay } from 'helper/Currency';
 
 const createInstance = (host, apiPath) => {
   return axios.create({
@@ -159,18 +160,22 @@ const createTrade = payload => {
 };
 
 const transformUser = user => {
+
+  const selectedStakedAmount = process.env.REACT_APP_PLAYMONEY === 'true' ? user.stakedamount :  user.stakedamountWfair;
+  const selectedCurrency = currencyDisplay(user.gamescurrency);
+
   return {
     crashFactor: user.crashfactor,
     createdAt: user.created_at,
     gameMatch: user.game_match,
     gameHash: user.gamehash,
     gameId: user.gameid,
-    stakedAmount: user.stakedamount,
+    stakedAmount: selectedStakedAmount,
     state: 2,
     userId: user.userid,
     username: user.username,
-    rewardAmount: user.profit ? user.profit + parseFloat(user.stakedamount) : user.crashfactor * user.stakedamount,
-    gamesCurrency: user.gamescurrency || TOKEN_NAME
+    rewardAmount: user.profit ? user.profit + parseFloat(selectedStakedAmount) : user.crashfactor * parseFloat(selectedStakedAmount),
+    gamesCurrency: selectedCurrency
   };
 }
 

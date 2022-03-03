@@ -1,6 +1,6 @@
 export default {
-  colorOrangeLight: 'colorOrangeLight',
-  colorGreen: 'colorGreen',
-  colorPinkLight: 'colorPinkLight',
-  colorFlamingo: 'colorFlamingo',
+  choiceColorOne: 'choiceColorOne',
+  choiceColorTwo: 'choiceColorTwo',
+  choiceColorThree: 'choiceColorThree',
+  choiceColorFour: 'choiceColorFour',
 };

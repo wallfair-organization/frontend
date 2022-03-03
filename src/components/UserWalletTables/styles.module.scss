@@ -111,7 +111,7 @@ $tableMinWidth: 580px;
       justify-content: space-between;
       align-items: center;
       font-weight: bold;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
 
       :first-child {
         font-size: 12px;
@@ -316,3 +316,47 @@ $tableMinWidth: 580px;
   align-items: center;
   color: $colorGrayLight9;
 }
+
+.gain {
+  color: $colorGreen;
+  padding-right: 5px;
+
+  &.negative {
+    color: $colorRed;
+  }
+}
+
+.titleWithBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1;
+
+  .status {
+    padding: 0 0 0 10px;
+    height: 100%;
+    margin: 0;
+
+    span:last-child {
+      margin: 0;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+.styledButton {
+    background: transparent url('../../data/images/cashout-stroke.svg')
+      no-repeat;
+    background-position: center;
+    height: 28px;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    font-weight: 700;
+  }

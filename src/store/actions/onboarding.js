@@ -5,6 +5,7 @@ export const OnboardingTypes = {
   NEXT: 'Onboarding/NEXT',
   GET_USERNAME: 'Onboarding/GET_USERNAME',
   ADD_USERNAME_SUGGESTION: 'Onboarding/ADD_USERNAME_SUGGESTION',
+  ADD_PHONE: 'Onboarding/ADD_PHONE',
   RESET: 'Onboarding/RESET',
 };
 
@@ -12,6 +13,8 @@ export const OnboardingSteps = {
   // buildAvatar: "buildAvatar",
   registerEmail: "registerEmail",
   setUsername: "setUsername",
+  setPhoneNumber: "setPhoneNumber",
+  phoneVerification: "phoneVerification",
   // welcomeScreen: "welcomeScreen",
   wallet: "wallet",
 };
@@ -22,6 +25,7 @@ const next = makeActionCreator(OnboardingTypes.NEXT, {});
 const getUsername = makeActionCreator(OnboardingTypes.GET_USERNAME, {});
 const addUsernameSuggestion = makeActionCreator(OnboardingTypes.ADD_USERNAME_SUGGESTION,
   {username: null});
+const addPhoneNumber = makeActionCreator(OnboardingTypes.ADD_PHONE, {});
 const reset = makeActionCreator(OnboardingTypes.RESET, {});
 
 export const OnboardingActions = {
@@ -29,5 +33,6 @@ export const OnboardingActions = {
   next,
   getUsername,
   addUsernameSuggestion,
+  addPhoneNumber,
   reset,
 };

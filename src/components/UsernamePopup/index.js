@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import { checkUsername } from '../../api';
 import { OnboardingActions } from 'store/actions/onboarding';
+import ButtonTheme from 'components/Button/ButtonTheme';
+import StepBar from 'components/StepBar';
+import Routes from 'constants/Routes';
 
 const UsernamePopup = ({
                          hidePopup = () => {
@@ -61,14 +64,11 @@ const UsernamePopup = ({
 
   return (
     <div className={styles.usernamePopup}>
-      <h2 className={styles.title}>Choose your username</h2>
+      <StepBar step={0} size={4} />
+      <h2 className={styles.title}>How should we call you?</h2>
       <div className={styles.container}>
         <div className={styles.description}>
-          How would you like others to see you?
-          <br />
-          Please pick a username for
-          <br />
-          yourself or randomize.
+          Enter your username or <span onClick={getSuggestion} className={styles.randomizeButton}>randomize</span> it.
         </div>
         <InputBox
           className={styles.inputBox}
@@ -81,20 +81,19 @@ const UsernamePopup = ({
           <div className={styles.errorHandLing}>{errorMessage}</div>
         )}
         <div className={styles.buttons}>
-          <span onClick={getSuggestion} className={styles.skipButton}>
-            Randomize
-          </span>
 
-          <button
+          <Button
             onClick={onConfirm}
             withoutBackground={true}
             className={styles.button}
             disabledWithOverlay={false}
             disabled={!!errorMessage}
+            theme={ButtonTheme.primaryButtonXL}
           >
-            Submit
-          </button>
+            Next Step
+          </Button>
         </div>
+        <span className={styles.terms}>By continuing I accept the <a href={Routes.terms} target="_blank" rel="noreferrer">Terms and Conditions</a> and <a href={Routes.privacy} target="_blank" rel="noreferrer">Privacy Policy</a>. Also I confirm that I am over 18 years old.</span>
       </div>
     </div>
   );

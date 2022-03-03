@@ -1,13 +1,12 @@
-import 'swiper/swiper.min.css';
-import React, { useRef } from 'react';
 import classNames from 'classnames';
 import styles from './styles.module.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { useState } from 'react';
 import IconType from '../Icon/IconType';
 import IconTheme from '../Icon/IconTheme';
 import Icon from '../Icon';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Button from 'components/Button';
+import ButtonTheme from 'components/Button/ButtonTheme';
+import { isMobile } from 'react-device-detect';
 
 const CarouselContainer = ({
   children,
@@ -20,6 +19,7 @@ const CarouselContainer = ({
   onPrevious,
   withComingSoonBanner,
 }) => {
+
   return (
     <div className={classNames(styles.carouselContainer)}>
       {withComingSoonBanner && (
@@ -37,13 +37,20 @@ const CarouselContainer = ({
             <div className={styles.comingSoonContainer} />
           )}
           {titleLink && (
-            <Link to={titleLinkTo} className={styles.titleLink}>
-              {titleLink}
+            <Link
+              to={titleLinkTo}
+            >
+              <Button
+                theme={ButtonTheme.secondaryButton} 
+                className={styles.titleLink}>
+                {titleLink}
+              </Button>
             </Link>
           )}
 
           <div className={styles.buttons}>
-            <button
+            {!isMobile && <Button
+              theme={ButtonTheme.secondaryButton} 
               className={classNames(
                 styles.arrowPrev,
                 prevArrowInactive ? styles.inactive : null
@@ -52,8 +59,9 @@ const CarouselContainer = ({
               disabled={prevArrowInactive}
             >
               <Icon iconType={IconType.arrowLeft} iconTheme={IconTheme.white} />
-            </button>
-            <button
+            </Button>}
+            {!isMobile && <Button
+              theme={ButtonTheme.secondaryButton} 
               className={classNames(
                 styles.arrowNext,
                 nextArrowInactive ? styles.inactive : null
@@ -65,7 +73,7 @@ const CarouselContainer = ({
                 iconType={IconType.arrowSmallRight}
                 iconTheme={IconTheme.white}
               />
-            </button>
+            </Button>}
           </div>
         </div>
       </div>

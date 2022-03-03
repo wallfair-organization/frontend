@@ -1,7 +1,9 @@
 export default {
-  active: 'active',
-  canceled: 'canceled',
-  closed: 'closed',
-  resolved: 'resolved',
-  upcoming: 'upcoming',
+  active: 'ACTIVE',
+  canceled: 'CANCELLED',
+  closed: 'CLOSED',
+  resolved: 'RESOLVED',
+  upcoming: 'UPCOMING',
+  disputed: 'DISPUTED',
+  waitingResolution: 'WAITING_RESOLUTION',
 };

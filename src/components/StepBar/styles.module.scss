@@ -16,7 +16,7 @@
     top: 50%;
     left: 0;
     z-index: -1;
-    background-color: $colorGrayLight;
+    background-color: $colorGrayLight10;
   }
 
   .stepBarItemComplete {
@@ -40,20 +40,24 @@
     align-items: center;
     border-radius: 50%;
     background-color: white;
-    border: 1px solid $colorGrayLight;
+    border: 1px solid $colorGrayLight10;
+
+    &.stepBarItemActive {
+      border: 1px solid $colorPrimary;
+    }
   }
 
   .stepBarItem {
     font-size: 16px;
     line-height: 21px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
 
     &.stepBarActiveItem {
       color: $colorPrimary;
     }
 
     &.stepBarInactiveItem {
-      color: $colorGrayLight;
+      color: $colorGrayLight10;
     }
   }
 }

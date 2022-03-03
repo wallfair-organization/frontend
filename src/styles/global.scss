@@ -118,9 +118,9 @@ $border: 1px solid $colorWhite30;
 }
 
 .global-token-currency {
-  color: $mainAction;
+  color: $colorYellow;
   font-weight: bold;
-  font-family: $fontBold;
+  font-family: $fontDMSans;
   display: inline-block;
 }
 
@@ -141,8 +141,8 @@ $border: 1px solid $colorWhite30;
 }
 
 .global-link-style {
-  color: $colorLightYellow;
-  font-weight: bold;
+  color: inherit;
+  font-weight: 500;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -179,7 +179,7 @@ $border: 1px solid $colorWhite30;
   background: none;
   border: none;
   padding: 0;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;

@@ -2,7 +2,7 @@
 
 .menu {
   position: relative;
-  margin-left: 20px;
+  margin-left: 15px;
   cursor: pointer;
   .underlay {
     position: fixed;
@@ -15,12 +15,21 @@
     z-index: 1;
     cursor: default;
   }
+  .menuButton {
+    padding: 0;
+    width: 36px;
+    height: 36px;
+  }
 
   .menuIcon {
-    opacity: 0.3;
-    padding: 5px 15px;
-    margin: -5px -15px 0 0;
-    width: 40px;
+    // opacity: 0.3;
+    // padding: 5px 15px;
+    // margin: -5px -15px 0 0;
+    // width: 40px;
+
+    path {
+      fill: white;
+    }
   }
 
   .menuBox {
@@ -55,7 +64,7 @@
       }
 
       strong {
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-weight: bold;
       }
 

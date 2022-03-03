@@ -1,14 +1,12 @@
-import { Grid } from '@material-ui/core';
-import classNames from 'classnames';
-import { connect } from 'react-redux';
 import styles from './styles.module.scss';
 import BetTable from './tables/BetTable';
 import DepositTable from './tables/DepositTable';
 import WithDrawalsTable from './tables/WithDrawalsTable';
 import OnRampTable from './tables/OnRampTable';
 import CryptosTable from './tables/CryptosTable';
+import TradesTable from './tables/TradesTable';
 
-const UserWalletTables = ({ className, type = 'DEPOSITS', rowData, isError }) => {
+const UserWalletTables = ({ type = 'DEPOSITS', rowData, isError, refresh }) => {
 
   if(isError) {
       return (
@@ -33,6 +31,15 @@ const UserWalletTables = ({ className, type = 'DEPOSITS', rowData, isError }) =>
   const renderCryptosTableRows = (cryptosRows) => {
     return <CryptosTable renderRow={cryptosRows} />;
   };
+  const renderTradeRows = (tradeRows) => {
+    return (
+      <TradesTable
+        tradeRows={tradeRows}
+        allowCashout={type !== 'TRADE_HISTORY'}
+        refresh={refresh}
+      />
+    );
+  }
 
   const renderTableRows = (type) => {
     switch (type) {
@@ -46,6 +53,9 @@ const UserWalletTables = ({ className, type = 'DEPOSITS', rowData, isError }) =>
         return renderOnRampTableRows(rowData[type]);
       case 'CRYPTO':
         return renderCryptosTableRows(rowData[type]);
+      case 'OPEN_TRADES':
+      case 'TRADE_HISTORY':
+        return renderTradeRows(rowData[type]);
       default:
         return renderDepositTableRows(rowData[type]);
     }

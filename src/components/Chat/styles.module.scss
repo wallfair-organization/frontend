@@ -6,6 +6,17 @@
   height: 400px;
   position: relative;
 
+  .labelContainer {
+    // position: absolute;
+    // top: 15px;
+    // left: 20px;
+    padding-left: 6px;
+    font-family: $fontDMSans;
+    font-size: 16px;
+    font-weight: 500;
+    color: $colorWhite;
+  }
+
   @media (max-width: $screen-md) {
     padding-top: 0;
     margin-top: 0;
@@ -68,19 +79,19 @@
     position: relative;
     // z-index: 1;
 
-    @media (max-width: $screen-sm) {
-      position: fixed;
-      bottom: 58px;
-      left: 0;
-      z-index: 49;
-      width: 100vw;
-      height: 70px;
-      background: rgba(255, 255, 255, 0.3);
-      padding: 0px 15px;
-      border-radius: 0;
-      color: $colorPrimary;
-      overflow: hidden;
-    }
+    // @media (max-width: $screen-sm) {
+    //   position: fixed;
+    //   bottom: 58px;
+    //   left: 0;
+    //   z-index: 49;
+    //   width: 100vw;
+    //   height: 70px;
+    //   background: rgba(255, 255, 255, 0.3);
+    //   padding: 0px 15px;
+    //   border-radius: 0;
+    //   color: $colorPrimary;
+    //   overflow: hidden;
+    // }
 
     &Hidden {
       display: none;
@@ -125,23 +136,23 @@
         height: 100%;
       }
 
-      &:after {
-        content: '';
-        position: absolute;
-        background: url('../../data/backgrounds/highlight-settings-support.svg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        left: -10px;
-        top: 0;
-        width: 100px;
-        height: 100%;
-        z-index: -1;
+      // &:after {
+      //   content: '';
+      //   position: absolute;
+      //   background: url('../../data/backgrounds/highlight-settings-support.svg');
+      //   background-size: cover;
+      //   background-repeat: no-repeat;
+      //   background-position: center;
+      //   left: -10px;
+      //   top: 0;
+      //   width: 100px;
+      //   height: 100%;
+      //   z-index: -1;
 
-        @media (min-width: $screen-sm) {
-          display: none;
-        }
-      }
+      //   @media (min-width: $screen-sm) {
+      //     display: none;
+      //   }
+      // }
 
       & span > svg {
         @media (max-width: $screen-sm) {

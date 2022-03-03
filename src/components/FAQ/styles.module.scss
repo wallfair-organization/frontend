@@ -1,0 +1,26 @@
+@import '../../styles/all';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    padding: 60px 0 20px 0;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: $fontDMSans;
+    color: $colorWhite;
+
+    @media (max-width: $screen-md) {
+      font-size: 40px;
+      padding: 20px 0;
+    }
+  }
+
+  .faqContainer {
+    padding: 0;
+    width: 100%;
+    max-width: 920px;
+  }
+}

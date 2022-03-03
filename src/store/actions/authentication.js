@@ -61,23 +61,6 @@ const fetchReferralsSucceeded = makeActionCreator(
 const logout = makeActionCreator(AuthenticationTypes.LOGOUT);
 const forcedLogout = makeActionCreator(AuthenticationTypes.FORCED_LOGOUT);
 
-const requestSms = makeActionCreator(AuthenticationTypes.REQUEST_SMS);
-
-const requestSmsFailed = makeActionCreator(
-  AuthenticationTypes.REQUEST_SMS_FAILED,
-  {
-    phone: null,
-  }
-);
-
-const requestSmsSucceeded = makeActionCreator(
-  AuthenticationTypes.REQUEST_SMS_SUCCEEDED,
-  {
-    phone: null,
-    smsStatus: null,
-  }
-);
-
 const downgradeState = makeActionCreator(
   AuthenticationTypes.DOWNGRADE_AUTH_STATE
 );
@@ -128,6 +111,7 @@ const updateData = makeActionCreator(AuthenticationTypes.UPDATE_DATA, {
   preferences: null,
   aboutMe: null,
   emailConfirmed: null,
+  phoneConfirmed: null
 });
 
 const verifySms = makeActionCreator(AuthenticationTypes.VERIFY_SMS, {
@@ -260,6 +244,7 @@ const loginExternal = makeActionCreator(AuthenticationTypes.LOGIN_EXTERNAL, {
   sid: null,
   cid: null,
   emailConfirmed: false,
+  phoneConfirmed: false,
 });
 
 
@@ -288,9 +273,6 @@ export const AuthenticationActions = {
   fetchReferralsSucceeded,
   logout,
   forcedLogout,
-  requestSms,
-  requestSmsFailed,
-  requestSmsSucceeded,
   saveAdditionalInfoFailed,
   saveAdditionalInfoSucceeded,
   setEmail,

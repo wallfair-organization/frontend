@@ -45,9 +45,8 @@ const BetActionChatMessage = ({
 
   const onClick = () => {
     history.push(
-      Routes.getRouteWithParameters(Routes.bet, {
+      Routes.getRouteWithParameters(Routes.event, {
         eventSlug: event?.slug,
-        betSlug: bet?.slug,
       })
     );
   };

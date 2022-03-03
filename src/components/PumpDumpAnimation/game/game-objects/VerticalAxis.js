@@ -5,7 +5,7 @@ import { Container } from "pixi.js";
 import { PumpDumpGameMananger } from "../PumpDumpGameManager";
 
 
-const AXIS_LABEL_FONT_FAMILY = 'PlusJakarta-Bold';
+const AXIS_LABEL_FONT_FAMILY = 'DM Sans';
 // const AXIS_LABEL_COLOR = 0x605c8d;
 const AXIS_LABEL_COLOR = 0x999999;
 const AXIS_LABEL_FONT_SIZE = 10;
@@ -73,6 +73,7 @@ export class VerticalAxis extends Container {
             this.multiplierLabels[i] = new Text('1.00x', {
                 fontFamily: AXIS_LABEL_FONT_FAMILY,
                 fontSize: AXIS_LABEL_FONT_SIZE,
+                fontWeight: 'bold',
                 fill: AXIS_LABEL_COLOR,
             });
             this.multiplierLabels[i].position.set(this.axisLines[i].x + AXIS_LABEL_GAP, this.axisLines[i].y);
@@ -82,6 +83,7 @@ export class VerticalAxis extends Container {
             this.miniMultiplierLabels[i] = new Text('1.10x', {
                 fontFamily: AXIS_LABEL_FONT_FAMILY,
                 fontSize: AXIS_LABEL_MINI_FONT_SIZE,
+                fontWeight: 'bold',
                 fill: AXIS_LABEL_COLOR,
             });
             this.miniMultiplierLabels[i].position.set(this.axisLines[i].x + AXIS_LABEL_GAP, this.axisLines[i].y - this.axisGap * 0.5);

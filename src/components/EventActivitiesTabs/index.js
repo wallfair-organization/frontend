@@ -7,9 +7,10 @@ import TabOptions from 'components/TabOptions';
 import ActivityTable from 'components/EventActivitiesTracker/ActivityTable';
 import { RosiGameActions } from 'store/actions/rosi-game';
 import useRosiData from 'hooks/useRosiData';
+import classNames from 'classnames';
 
 const EventActivitiesTabs = ({ refreshHighData, refreshLuckyData, connected, userId, refreshMyBetsData, activitiesLimit, className,
-  preselectedCategory, hideSecondaryColumns, layout, gameId}) => {
+  preselectedCategory, hideSecondaryColumns, layout, gameId, gameScreen = false}) => {
 
   const dispatch = useDispatch();
   const {
@@ -19,12 +20,12 @@ const EventActivitiesTabs = ({ refreshHighData, refreshLuckyData, connected, use
   } = useRosiData();
   const [activityTabIndex, setActivityTabIndex] = useState(0);
   let activityTabOptions = [
-    { name: 'ALL', index: 0 },
-    { name: 'HIGH WINS', index: 1 },
-    { name: 'LUCKY WINS', index: 2 },
+    { name: 'All', index: 0 },
+    { name: 'High Wins', index: 1 },
+    { name: 'Lucky Wins', index: 2 },
   ];
 
-  if(userId) activityTabOptions.push({name: 'MY BETS', index: 3});
+  if(userId) activityTabOptions.push({name: 'My Bets', index: 3});
 
   const handleActivitySwitchTab = ({ index }) => {
     switch (index) {
@@ -58,7 +59,7 @@ const EventActivitiesTabs = ({ refreshHighData, refreshLuckyData, connected, use
   }, [dispatch, connected]);
 
   return (
-    <div className={styles.activityWrapper}>
+    <div className={classNames(styles.activityWrapper, className)}>
       <TabOptions options={activityTabOptions} className={styles.tabLayout}>
         {option => (
           <div
@@ -80,6 +81,7 @@ const EventActivitiesTabs = ({ refreshHighData, refreshLuckyData, connected, use
             className={className}
             preselectedCategory={preselectedCategory}
             hideSecondaryColumns={hideSecondaryColumns}
+            gameScreen={gameScreen}
             layout={layout}
             gameId={gameId}
           />
@@ -87,6 +89,7 @@ const EventActivitiesTabs = ({ refreshHighData, refreshLuckyData, connected, use
         {activityTabIndex !== 0 && (
           <ActivityTable
             hideSecondaryColumns={hideSecondaryColumns}
+            gameScreen={gameScreen}
             rowData={getActivityTableData()}
             layout={layout}
             gameId={gameId}

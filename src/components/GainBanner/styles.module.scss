@@ -1,0 +1,113 @@
+@import '../../styles/all';
+
+.howToGainBannerContainer {
+  margin-bottom: 30px;
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .tip {
+      margin-bottom: 12px;
+      align-self: center;
+      font-size: 12px;
+      color: $colorWhite;
+      opacity: 0.5;
+    }
+    h2 {
+      text-align: center;
+      font-size: 30px;
+      letter-spacing: 0.545455px;
+      color: $colorWhite;
+    }
+    .underline {
+      margin-top: 2px;
+      width: 224px;
+      height: 3px;
+      background: $colorYellow;
+      border: 2px solid #daff0c;
+    }
+  }
+
+  .gainCards {
+    display: flex;
+    gap: 13px;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    overflow: auto;
+    @media (max-width: $screen-lg) {
+      justify-content: flex-start;
+    }
+
+    .gainCard {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 330px;
+      min-width: 330px;
+      height: 340px;
+      background: rgba(64, 68, 104, 0.24);
+      border-radius: 6px;
+
+      @media (max-width: $screen-xs) {
+        align-items: center;
+      }
+      .topBanner {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 160px;
+        align-items: center;
+        padding-left: 16px;
+        background: linear-gradient(
+          270deg,
+          rgba(14, 9, 39, 0.211114) 13.39%,
+          rgba(14, 9, 39, 0.683514) 49.41%,
+          rgba(14, 9, 39, 0.733042) 100%
+        );
+        border-radius: 6px 6px 0px 0px;
+
+        .bannerTitle {
+          font-size: 24px;
+          letter-spacing: 0.88px;
+          text-transform: uppercase;
+          color: $colorWhite;
+          .second {
+            text-align: left;
+            color: $colorYellow;
+          }
+        }
+        & > img {
+          position: absolute;
+          right: 0;
+          height: 100%;
+          object-fit: cover;
+          z-index: -1;
+          border-top-right-radius: 6px;
+          clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+        }
+      }
+      .bottomBanner {
+        padding: 20px;
+        h3 {
+          font-size: 18px;
+          color: $colorWhite;
+        }
+        p {
+          margin-top: 14px;
+          font-size: 12px;
+          color: $colorWhite;
+          opacity: 0.6;
+        }
+        .bannerButton {
+          position: absolute;
+          right: 20px;
+          bottom: 20px;
+          color: $colorPrimary;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

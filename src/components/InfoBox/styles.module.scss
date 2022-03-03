@@ -14,6 +14,10 @@
     * {
       stroke: $colorPrimary;
     }
+
+    path {
+      fill: $colorLightPurple;
+    }
   }
 
   .infoIconGame {
@@ -24,6 +28,7 @@
     height: 24px;
     margin: 0 10px;
     cursor: pointer;
+    font-family: $fontDMSans;
     background: $colorWhite;
     border-radius: 100%;
     display: inline-block;
@@ -40,11 +45,13 @@
 
   .infoBoxContentContainer {
     position: absolute;
-    background: rgba(14, 9, 39, 0.95);
+    background: $colorLightPurple;
     border-radius: 5px;
-    color: $colorWhite;
+    font-family: $fontDMSans;
+    color: $colorPrimary;
     width: 500px;
     z-index: 10;
+    text-align: left;
 
     &.autoWidth {
       min-width: 250px;
@@ -83,7 +90,7 @@
       padding: 20px;
 
       & p {
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         line-height: 20px;
         font-size: 15px;
         text-align: left;

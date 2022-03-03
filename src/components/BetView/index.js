@@ -4,141 +4,105 @@ import _ from 'lodash';
 import Button from '../Button';
 import ChoiceSelector from '../ChoiceSelector';
 import classNames from 'classnames';
-import { useRouteMatch } from 'react-router-dom';
 import HighlightType from '../../components/Highlight/HighlightType';
 import moment from 'moment';
 import { useCallback } from 'react';
 import styles from './styles.module.scss';
-import TimeCounter from '../../components/TimeCounter';
 import TokenNumberInput from '../TokenNumberInput';
-import { BetActions } from '../../store/actions/bet';
 import { connect, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { useHasMounted } from '../hoc/useHasMounted';
 import { useState } from 'react';
 import ChoiceSelectorList from '../ChoiceSelectorList';
-import Icon from '../Icon';
 import LoadingAnimation from '../../data/animations/wcoin.gif';
 import IconType from '../Icon/IconType';
-import IconTheme from '../Icon/IconTheme';
-import SummaryRowContainer from '../SummaryRowContainer';
 import TextHelper from '../../helper/Text';
 import BetState from '../../constants/BetState';
-import { PopupActions, PopupTypes } from '../../store/actions/popup';
+import { PopupActions } from '../../store/actions/popup';
 import PopupTheme from '../Popup/PopupTheme';
 import ErrorHint from '../ErrorHint';
 import { formatToFixed } from '../../helper/FormatNumbers';
 import { TOKEN_NAME } from '../../constants/Token';
-import { GeneralActions } from 'store/actions/general';
 import ReactTooltip from 'react-tooltip';
-import { selectOutcomes, selectSellOutcomes } from 'store/selectors/bet';
 import { selectUser } from 'store/selectors/authentication';
-import { convert } from 'helper/Currency';
+import { currencyDisplay } from 'helper/Currency';
 import DateText from 'helper/DateText';
-import AdminOnly from 'components/AdminOnly';
 import StateBadge from 'components/StateBadge';
 import AuthedOnly from 'components/AuthedOnly';
 import ButtonSmall from 'components/ButtonSmall';
 import ButtonSmallTheme from 'components/ButtonSmall/ButtonSmallTheme';
 import InfoBox from 'components/InfoBox';
-import EventTypes from 'constants/EventTypes';
-import BetActionsMenu from 'components/BetActionsMenu';
 import { trackNonstreamedEventPlaceTrade } from '../../config/gtm';
 import { OnboardingActions } from 'store/actions/onboarding';
+import { calculateBuyOutcome, getDisputes, placeBet } from 'api';
+import { calculateGain } from 'helper/Calculation';
+import ButtonTheme from 'components/Button/ButtonTheme';
+import { EVENT_CATEGORIES } from 'constants/EventCategories';
+import { AlertActions } from 'store/actions/alert';
+import EmbedVideo from 'components/EmbedVideo';
 
 const BetView = ({
-  betId,
-  eventId,
-  openBets,
+  event,
   actionIsInProgress,
   closed,
   isPopup = false,
-  forceSellView,
-  // disableSwitcher = false,
-  showEventEnd,
-  events,
-  placeBet,
-  // pullOutBet,
   showPopup,
   isTradeViewPopup,
-  handleChartDirectionFilter,
-  setOpenDrawer,
-  fetchOutcomes,
-  // fetchSellOutcomes,
-  resetOutcomes,
   startOnboarding,
+  showError,
+  chartParams,
 }) => {
   // Static balance amount to simulate for non-logged users
   // Slider is also using 2800 as max value
   const BALANCE_NOT_LOGGED = 2800;
   const { currency, balance } = useSelector(selectUser);
-
-  const wfairBalance = formatToFixed(
-    _.get(
-      useSelector(state => state.authentication),
-      'balance',
-      0
-    )
-  );
-  const defaultBetValue = 50;
-  const event = _.find(events, {
-    _id: eventId,
-  });
-  const bet = _.find(_.get(event, 'bets', []), {
-    _id: betId,
-  });
+  const defaultBetValue = 10;
+  const bet = event.bet;
   const state = _.get(bet, 'status');
-  const outcomes = _.get(useSelector(selectOutcomes), 'outcomes', {});
-  const sellOutcomes = _.get(useSelector(selectSellOutcomes), 'outcomes', {});
-  const userLoggedIn = useSelector(
-    state => state.authentication.authState === 'LOGGED_IN'
-  );
+  const auth = useSelector(state => state.authentication);
+  const userLoggedIn = auth.authState === 'LOGGED_IN';
+  const isAdmin = auth.admin;
+  const isCreator = auth.userId === bet.creator;
 
   // LOCAL
-  const [currentTradeView, setCurrentTradeView] = useState(
-    forceSellView ? 1 : 0
-  );
   const [validInput, setValidInput] = useState(false);
   const [showLoadingAnimation, setShowLoadingAnimation] = useState(false);
   const [commitmentErrorText, setCommitmentErrorText] = useState('');
   const [showAllEvidence, setShowAllEvidence] = useState(false);
   const [choice, setChoice] = useState(null);
   const [commitment, setCommitment] = useState(defaultBetValue);
-  const [convertedCommitment, setConvertedCommitment] = useState(
-    convert(commitment, currency)
-  );
-
-  const hasMounted = useHasMounted();
+  const [convertedCommitment, setConvertedCommitment] = useState(commitment);
+  const [outcomes, setOutcomes] = useState({});
+  const [disputes, setDisputes] = useState([]);
 
   const validateInput = () => {
-    const betEndDate = _.get(bet, 'endDate');
+    const betEndDate = _.get(bet, 'end_date');
     const current = moment(new Date());
-    const isSell = hasSellView();
     let valid = true;
 
     if (current.isAfter(betEndDate)) {
       // TODO valid = false;
     }
 
+    if (isCreator) {
+      valid = false;
+    }
+
     if (choice === null) {
       valid = false;
     }
 
-    if (!commitment && !isSell) {
+    if (!commitment) {
       valid = false;
     }
 
-    if (
-      userLoggedIn &&
-      _.toNumber(commitment) > _.toNumber(wfairBalance) &&
-      !isSell
-    ) {
+    if (userLoggedIn && _.toNumber(commitment) > _.toNumber(balance)) {
       valid = false;
 
-      setCommitmentErrorText('Not enough balance.');
+      // setCommitmentErrorText('');
     } else if (!userLoggedIn) {
       valid = false;
-      setCommitmentErrorText('Sign in to start trading.');
+      // setCommitmentErrorText('Sign in to start trading.');
+      setCommitmentErrorText('');
     } else {
       setCommitmentErrorText('');
     }
@@ -148,33 +112,40 @@ const BetView = ({
     return valid;
   };
 
-  useEffect(() => {
-    return () => {
-      resetOutcomes();
-    };
-  }, []);
-
-  useEffect(
-    () => {
-      if (hasMounted) {
-        setCurrentTradeView(forceSellView ? 1 : 0);
-
-        // loadAfterMount();
-      }
-    },
-    // @TODO: this possibly needs refactoring and or adding remaining deps,
-    // the functions that do not depend on state or props should move out of the component.
-    // for the other functions useCallback() would make sense to prevent unnecessary rerenders
-    [hasMounted, closed]
-  );
+  const fetchOutcomes = () => {
+    calculateBuyOutcome(bet.id, commitment).then(res => {
+      setOutcomes(
+        res.reduce((map, b) => {
+          map[b.index] = {
+            outcome: b.outcome,
+            gain: calculateGain(commitment, b.outcome),
+          };
+          return map;
+        }, {})
+      );
+    });
+  };
 
   useEffect(() => {
-    if (!closed && !!betId) {
-      validateInput();
-      fetchOutcomes(commitment, betId);
-      setConvertedCommitment(convert(commitment, currency));
+    if (bet.id) {
+      fetchOutcomes();
     }
-  }, [commitment, currency, betId]);
+  }, [chartParams]);
+
+  useEffect(() => {
+    if (bet.status === BetState.disputed) {
+      getDisputes(bet.id).then(res => setDisputes(res));
+    }
+  }, [bet]);
+
+  useEffect(() => {
+    if (!closed && !!bet?.id) {
+      validateInput();
+      fetchOutcomes();
+      // setConvertedCommitment(convert(commitment, currency));
+      setConvertedCommitment(commitment);
+    }
+  }, [commitment, currency, bet]);
 
   useEffect(() => {
     validateInput();
@@ -188,19 +159,23 @@ const BetView = ({
     }
   }, [actionIsInProgress]);
 
-  const hasSellView = () => {
-    return (currentTradeView === 1 || forceSellView) && _.size(openBets);
-  };
-
-  const getFinalOutcome = () => {
-    return _.get(bet, 'finalOutcome', false);
-  };
-
   const onTradeButtonConfirm = () => {
     const validInput = validateInput();
 
     if (validInput) {
-      placeBet(betId, commitment, choice);
+      placeBet(bet.id, commitment, choice)
+        .then(res => {
+          showPopup(PopupTheme.betApprove, {
+            data: {
+              ...res.data,
+              event,
+            },
+            hideShare: true,
+          });
+        })
+        .catch(() => {
+          showError('Failed to place a bet');
+        });
     }
   };
 
@@ -218,10 +193,11 @@ const BetView = ({
 
   const debouncedSetCommitment = useCallback(
     _.debounce((number, toCurrency) => {
-      const newCommitment =
-        toCurrency !== TOKEN_NAME
-          ? convert(number, TOKEN_NAME, toCurrency)
-          : number;
+      // const newCommitment =
+      //   toCurrency !== TOKEN_NAME
+      //     ? convert(number, TOKEN_NAME, toCurrency)
+      //     : number;
+      const newCommitment = number;
       setCommitment(newCommitment);
     }, 300),
     []
@@ -232,33 +208,6 @@ const BetView = ({
     debouncedSetCommitment(number, currency);
   };
 
-  const getOpenBet = index => {
-    return _.find(openBets, {
-      outcome: index,
-    });
-  };
-
-  const getOpenBetsValue = index => {
-    const openBet = getOpenBet(index);
-
-    if (openBet) {
-      return _.get(openBet, 'outcomeAmount');
-    }
-
-    return 0;
-  };
-
-  const getOutcome = index => {
-    return _.get(hasSellView() ? sellOutcomes : outcomes, [index]);
-  };
-
-  const isChoiceSelectorEnabled = index => {
-    if (state !== BetState.active) {
-      return false;
-    }
-    return !hasSellView() || getOpenBetsValue(index) > 0;
-  };
-
   const renderChoiceSelector = (
     index,
     name,
@@ -267,8 +216,8 @@ const BetView = ({
     resolved = false,
     forceSelect = false
   ) => {
-    const enabled = isChoiceSelectorEnabled(index);
-    const outcome = getOutcome(index);
+    const enabled = state === BetState.active;
+    const outcome = _.get(outcomes, [index]);
 
     return (
       <ChoiceSelector
@@ -287,28 +236,46 @@ const BetView = ({
     );
   };
 
-  const renderTokenSelection = () => {
-    const isSell = hasSellView();
-
-    if (isSell) {
-      return null;
+  const renderImage = () => {
+    const imgUrl = _.get(event, 'preview_image_url');
+    const urlObj = new URL(imgUrl);
+    const host = _.get(urlObj, 'host');
+    //workaround
+    if (host.indexOf('twitch') > -1) {
+      return <EmbedVideo video={imgUrl} autoPlay={true} controls={true} />;
+    } else {
+      return (
+        <div className={styles.imageContainer}>
+          <div className={styles.imgWrapper}>
+            <img src={imgUrl} alt={`trade`} />
+          </div>
+          <div
+            className={classNames([styles.categorySticker])}
+            style={getStickerStyle(event.category)}
+          />
+        </div>
+      );
     }
+  };
 
+  const renderTokenSelection = () => {
     return (
       <>
         <div className={styles.labelWrapper}>
           <label className={styles.label}>You trade:</label>
           <InfoBox
+            position="topRight"
             autoWidth={true}
             iconType={IconType.question}
             dataTrackingId="nonstreamed-event-trade-help"
           >
-            You need to have a sufficient amount of {TOKEN_NAME} tokens to
-            participate in events
+            You need to have a sufficient amount of{' '}
+            {currencyDisplay(TOKEN_NAME)} tokens to participate in events
             {/* How to buy {TOKEN_NAME} token? */}
           </InfoBox>
         </div>
         <TokenNumberInput
+          className={styles.tokenNumberInput}
           value={convertedCommitment}
           setValue={onTokenNumberChange}
           currency={currency}
@@ -325,21 +292,21 @@ const BetView = ({
   };
 
   const renderTradeDesc = (withTitle = true) => {
-    const evidenceSource = bet.evidenceSource;
+    const evidenceSource = bet.evidence_source;
 
     const shortLength = 200;
     const evidenceDescription = TextHelper.linkifyIntextURLS(
-      bet.evidenceDescription
+      bet.evidence_description
     );
     const plainEvidenceDescription = TextHelper.linkifyIntextURLS(
-      bet.evidenceDescription,
+      bet.evidence_description,
       true
     );
     const desc = evidenceSource
-      ? TextHelper.linkifyIntextURLS(bet.evidenceSource)
+      ? TextHelper.linkifyIntextURLS(bet.evidence_source)
       : evidenceDescription;
     const plainDesc = evidenceSource
-      ? TextHelper.linkifyIntextURLS(bet.evidenceSource, true)
+      ? TextHelper.linkifyIntextURLS(bet.evidence_source, true)
       : plainEvidenceDescription;
 
     const isDescShort =
@@ -352,7 +319,7 @@ const BetView = ({
         {evidenceSource && withTitle && (
           <h4 className={styles.tradeDescTitle}>Evidence Source</h4>
         )}
-        <p
+        <div
           className={classNames(
             styles.tradeDesc,
             !isDescShort && !showAllEvidence && styles.hidden,
@@ -361,9 +328,11 @@ const BetView = ({
         >
           {desc}
           {evidenceSource && evidenceDescription && showAllEvidence && (
-            <p className={styles.evidenceDescription}>{evidenceDescription}</p>
+            <div className={styles.evidenceDescription}>
+              {evidenceDescription}
+            </div>
           )}
-        </p>
+        </div>
 
         {((desc && !isDescShort) ||
           (evidenceSource && plainEvidenceDescription)) && (
@@ -379,10 +348,9 @@ const BetView = ({
   };
 
   const renderTradeButton = () => {
-    const isSell = hasSellView();
-    const finalOutcome = getFinalOutcome();
+    const finalOutcome = _.get(bet, 'final_outcome', false);
 
-    if (!isSell && !finalOutcome) {
+    if (!finalOutcome) {
       const tradeButtonDisabled =
         !(validInput && state === BetState.active) || !userLoggedIn;
       let tradeButtonTheme = null;
@@ -392,9 +360,9 @@ const BetView = ({
           showJoinPopup();
         } else if (!tradeButtonDisabled) {
           onTradeButtonConfirm();
-          fetchOutcomes(commitment, betId);
+          fetchOutcomes();
           trackNonstreamedEventPlaceTrade({
-            eventTitle: bet?.marketQuestion,
+            eventTitle: bet?.market_question,
             amount: commitment,
           });
         } else {
@@ -404,15 +372,20 @@ const BetView = ({
 
       return (
         <>
-          {/*{renderTradeDesc()}*/}
+          {/* {renderTradeDesc()} */}
           <span
             data-for="tool-tip"
             data-tip={
-              userLoggedIn ? 'You Need To Select An Option First' : null
+              userLoggedIn && !isCreator
+                ? 'You need to select an option first'
+                : userLoggedIn && isCreator
+                ? `Event creator can't bet on their own events`
+                : null
             }
           >
             <Button
-              className={classNames(styles.betButton)}
+              theme={ButtonTheme.primaryButtonXL}
+              className={styles.betButton}
               onClick={handleClick}
               highlightType={HighlightType.highlightHomeCtaBet}
               highlightTheme={tradeButtonTheme}
@@ -444,11 +417,9 @@ const BetView = ({
   };
 
   const renderChoiceSelectors = (resolved = false, forceSelect) => {
-    const outcomes = bet.outcomes;
-
     return (
       <ChoiceSelectorList
-        outcomes={outcomes}
+        outcomes={bet.outcomes}
         resolved={resolved}
         forceSelect={forceSelect}
         renderChoiceSelector={renderChoiceSelector}
@@ -462,33 +433,28 @@ const BetView = ({
         {/* {renderSwitchableView()} */}
         <div className={styles.placeBetContentContainer}>
           {renderTokenSelection()}
-          <div
-            className={classNames(
-              styles.buttonContainer,
-              hasSellView() ? styles.sellButtonContainer : null
-            )}
-          >
+          <div className={styles.buttonContainer}>
             <div className={styles.pickOutcomeContainer}>
               <label className={styles.label}>Pick outcome</label>
               <InfoBox
+                position="topRight"
                 iconType={IconType.question}
                 dataTrackingId="nonstreamed-event-outcome-help"
               >
                 <p>How to place a bet?</p>
                 <p>
-                  - First select the amount (in {TOKEN_NAME}) you want to put
-                  into this bet by tapping on the desired percentage of your
-                  portfolio or by typing in the amount you want to trade with.
+                  - First enter the amount (in {currencyDisplay(TOKEN_NAME)})
+                  you want to put into this bet by typing in the amount.
                 </p>
                 <p>
-                  - After that pick your outcome by tapping on the outcome you
-                  think will come true. The potential gains in {TOKEN_NAME} and
+                  - After that, select the outcome you think will become true.
+                  The potential gains in {currencyDisplay(TOKEN_NAME)} and
                   percent will automatically adjust according to your placed bet
                   amount.
                 </p>
                 <p>
-                  - To finalize your bet click on the Place bet Button and enjoy
-                  the thrill
+                  - To finalize your bet, click on the "Place Trade" button and
+                  enjoy the thrill.
                 </p>
               </InfoBox>
             </div>
@@ -497,14 +463,6 @@ const BetView = ({
             </div>
           </div>
         </div>
-        {state === BetState.canceled && (
-          <div className={styles.canceledErrorContainer}>
-            <ErrorHint
-              className={styles.canceledErrorText}
-              errorText={'All participants will be refunded.'}
-            />
-          </div>
-        )}
       </>
     );
   };
@@ -531,47 +489,49 @@ const BetView = ({
     return null;
   };
 
-  const renderMenuContainerWithCurrentBalance = () => {
-    return (
-      <div
-        className={classNames(
-          styles.menuContainer,
-          isPopup ? styles.popupMenuContainer : null
-        )}
-      >
-        <BetActionsMenu event={event} bet={bet} />
-      </div>
-    );
-  };
+  // const renderMenuContainerWithCurrentBalance = () => {
+  //   return (
+  //     <div
+  //       className={classNames(
+  //         styles.menuContainer,
+  //         isPopup ? styles.popupMenuContainer : null
+  //       )}
+  //     >
+  //       <BetActionsMenu event={event} bet={bet} />
+  //     </div>
+  //   );
+  // };
 
   const renderStateConditionalContent = () => {
-    if (state === BetState.active || state === BetState.canceled) {
+    if (state === BetState.active || state === BetState.published) {
       return (
         <>
           {renderPlaceBetContentContainer()}
           <div className={styles.betButtonContainer}>{renderTradeButton()}</div>
         </>
       );
-    } else if (state === BetState.resolved || state === BetState.closed) {
-      const isClosed = state === BetState.closed;
+    } else if (
+      [BetState.resolved, BetState.disputed, BetState.closed, BetState.waitingResolution].includes(state)
+    ) {
+      const isResolved = [BetState.resolved, BetState.disputed].includes(state);
       const outcomeNames = _.map(bet.outcomes, 'name') || [];
       const finalOutcome = _.get(bet, [
         'outcomes',
-        _.get(bet, 'finalOutcome'),
+        _.get(bet, 'final_outcome'),
         'name',
       ]);
-      const evidence = _.get(bet, 'evidenceActual');
+      const evidence = _.get(bet, 'evidence_actual');
 
       const data = (label, value, opts = {}) => (
         <div className={styles.resolutionData}>
           <h3>{label}</h3>
-          <p
-            className={classNames({
+          <div
+            className={classNames(styles.value, {
               [styles.smallText]: opts.smallText,
             })}
           >
             {value}
-          </p>
+          </div>
         </div>
       );
 
@@ -582,50 +542,83 @@ const BetView = ({
           </div>
           <div className={styles.summaryRowContainer}>
             {data(
-              `Bet ${isClosed ? 'closed' : 'resolved'} at`,
-              DateText.formatDate(endDate)
+              `Bet ${isResolved ? 'resolved' : 'closed'} at`,
+              DateText.formatDate(bet.end_date) + ' GMT'
             )}
-            {isClosed &&
+            {isResolved &&
               data(
                 'Outcomes',
                 <ul>
-                  {outcomeNames.map(outcome => (
-                    <li>{outcome}</li>
+                  {outcomeNames.map((outcome, index) => (
+                    <li key={index}>{outcome}</li>
                   ))}
                 </ul>
               )}
-            {data(
-              'Outcome',
-              isClosed
-                ? 'This bet is awaiting resolution, see details below'
-                : finalOutcome
-            )}
+            {finalOutcome &&
+              data(
+                'Outcome',
+                isResolved
+                  ? 'This bet is awaiting final resolution, see details below'
+                  : finalOutcome
+              )}
             {data('Evidence', renderTradeDesc(false))}
-            {!isClosed && data('Final Evidence', evidence, { smallText: true })}
+            {evidence && data('Final Evidence', evidence, { smallText: true })}
           </div>
-          {!isClosed && (
+          {isResolved && (
             <AuthedOnly>
               <div className={styles.disputeButtonContainer}>
-                <ButtonSmall
-                  text="Dispute"
-                  butonTheme={ButtonSmallTheme.red}
-                  onClick={() =>
-                    showPopup(PopupTheme.reportEvent, { small: true })
-                  }
-                />
+                {!disputes.find(d => d.user_id === auth.userId) &&
+                  !isAdmin &&
+                  !isCreator && (
+                    <ButtonSmall
+                      text="Dispute"
+                      butonTheme={ButtonSmallTheme.red}
+                      onClick={() =>
+                        showPopup(PopupTheme.reportEvent, {
+                          betId: bet.id,
+                        })
+                      }
+                    />
+                  )}
+                {isAdmin && (
+                  <ButtonSmall
+                    text="Disputes"
+                    butonTheme={ButtonSmallTheme.grey}
+                    onClick={() =>
+                      showPopup(PopupTheme.disputes, {
+                        disputes,
+                      })
+                    }
+                  />
+                )}
               </div>
             </AuthedOnly>
           )}
         </div>
       );
+    } else if (state === BetState.canceled) {
+      return (
+        <div className={styles.canceledErrorContainer}>
+          <ErrorHint
+            className={styles.canceledErrorText}
+            errorText={'All participants will be refunded.'}
+          />
+        </div>
+      );
     }
+  };
+
+  const getStickerStyle = category => {
+    const cat = EVENT_CATEGORIES.find(c => c.value === category);
+    if (!cat) return {};
+    return {
+      backgroundImage: 'url("' + cat.image + '")',
+    };
   };
 
   if (!event || !bet) {
     return null;
   }
-
-  const endDate = _.get(bet, 'endDate');
 
   return (
     <>
@@ -643,35 +636,19 @@ const BetView = ({
           )}
         >
           {renderLoadingAnimation()}
-          <AdminOnly>{renderMenuContainerWithCurrentBalance()}</AdminOnly>
+          {/* {renderMenuContainerWithCurrentBalance()} */}
+
+          {renderImage()}
+
           <div
             className={classNames(
-              styles.betMarketQuestion,
-              _.get(event, 'type') === EventTypes.nonStreamed &&
-                styles.nonStreamedQuestion
+              styles.betMarketQuestion
+              // styles.nonStreamedQuestion
             )}
           >
-            <span>{bet.marketQuestion}</span>
-            {bet.description && (
-              <span className={styles.info}>
-                <InfoBox>{bet.description}</InfoBox>
-              </span>
-            )}
+            <span className={styles.eventTitle}>{bet.market_question}</span>
+            <div className={styles.betDescription}>{bet.description}</div>
           </div>
-          {/*{showEventEnd &&*/}
-          {/*  ![BetState.resolved, BetState.closed].includes(state) && (*/}
-          {/*    <>*/}
-          {/*      <span className={styles.timerLabel}>Event ends in:</span>*/}
-          {/*      <div*/}
-          {/*        className={classNames(*/}
-          {/*          styles.timeLeftCounterContainer,*/}
-          {/*          isTradeViewPopup && styles.fixedTimer*/}
-          {/*        )}*/}
-          {/*      >*/}
-          {/*        <TimeCounter endDate={endDate} />*/}
-          {/*      </div>*/}
-          {/*    </>*/}
-          {/*  )}*/}
           {renderStateConditionalContent()}
         </div>
       </div>
@@ -682,24 +659,12 @@ const BetView = ({
 const mapStateToProps = state => {
   return {
     actionIsInProgress: state.bet.actionIsInProgress,
-    events: state.event.events,
+    chartParams: state.chartParams,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchOutcomes: (amount, betId) => {
-      dispatch(BetActions.fetchOutcomes({ amount, betId }));
-    },
-    fetchSellOutcomes: (amount, betId) => {
-      dispatch(BetActions.fetchSellOutcomes({ amount, betId }));
-    },
-    placeBet: (betId, amount, outcome) => {
-      dispatch(BetActions.place({ betId, amount, outcome }));
-    },
-    pullOutBet: (betId, outcome, amount) => {
-      dispatch(BetActions.pullOutBet({ betId, outcome, amount }));
-    },
     showPopup: (popupType, options) => {
       dispatch(
         PopupActions.show({
@@ -708,16 +673,12 @@ const mapDispatchToProps = dispatch => {
         })
       );
     },
-    setOpenDrawer: drawer => {
-      dispatch(GeneralActions.setDrawer(drawer));
-    },
-    resetOutcomes: () => {
-      dispatch(BetActions.setOutcomes());
-      dispatch(BetActions.setSellOutcomes());
+    showError: message => {
+      dispatch(AlertActions.showError({ message }));
     },
     startOnboarding: () => {
       dispatch(OnboardingActions.start());
-    }
+    },
   };
 };
 

@@ -2,6 +2,7 @@ import styles from './styles.module.scss';
 import classNames from 'classnames';
 import Input from '../Input';
 import { TOKEN_NAME } from 'constants/Token';
+import { currencyDisplay } from 'helper/Currency';
 
 
 export const RiskInput = ({risk, setRisk, number, disable}) => {
@@ -112,7 +113,7 @@ export const StandardInput = ({setValue, value, title, currency = TOKEN_NAME}) =
           max={'100'}
         />
         <span className={styles.eventTokenLabel}>
-          <span>{currency}</span>
+          <span>{currencyDisplay(currency)}</span>
         </span>
       </div>
     </div>

@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   color: $colorPrimary;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   padding: 20px;
   height: 250px;
   border-radius: 4px;
@@ -99,7 +99,7 @@
             position: absolute;
             font-weight: 500;
             font-size: 20px;
-            font-family: $fontOmnes;
+            font-family: $fontDMSans;
             color: $colorPrimary;
             top: 45px;
           }

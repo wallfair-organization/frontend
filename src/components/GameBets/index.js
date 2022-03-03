@@ -4,6 +4,7 @@ import { TOKEN_NAME } from '../../constants/Token';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
 import { toNumericString } from 'helper/FormatNumbers';
+import { currencyDisplay } from 'helper/Currency';
 
 const formatAmount = amount =>
   amount ? toNumericString(amount.toFixed(0)) : '-'; // TODO: temp solution (sometimes amount is undefined)
@@ -44,7 +45,7 @@ const renderValue = (bet, gameRunning, endGame) => {
 };
 
 const Bet = ({ cashedOut, bet, gameRunning, endGame }) => {
-  const gamesCurrency = bet?.gamesCurrency || TOKEN_NAME;
+  const gamesCurrency = currencyDisplay(bet?.gamesCurrency);
   return (
     <div
       className={classNames({

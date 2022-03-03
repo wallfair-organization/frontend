@@ -1,0 +1,603 @@
+@import '../../styles/all';
+
+.containerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 80px auto 0;
+  max-width: 1300px;
+
+  @media (max-width: $screen-sm) {
+    margin: 0 15px;
+  }
+}
+
+.container {
+  width: 100%;
+
+  @media (min-width: $screen-lg) {
+    max-width: 1300px;
+  }
+  .titleSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px auto 0;
+    padding: 0 16px;
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+    }
+    h1 {
+      font-family: $fontDMSans;
+      font-size: 30px;
+      color: $colorWhite;
+    }
+    .depositeNumber {
+      display: flex;
+      align-items: center;
+      p {
+        margin-left: 8px;
+        font-family: $fontDMSans;
+        font-size: 12px;
+        color: $colorWhite;
+      }
+    }
+  }
+}
+
+.bottomWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 80px;
+
+  @media (max-width: $screen-md) {
+    flex-direction: column;
+  }
+
+  .categories {
+    width: 100%;
+    padding: 0 10px;
+
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 40px;
+    }
+  }
+
+  .leaderboard {
+    width: 100%;
+    padding: 0 10px;
+
+    @media (max-width: $screen-sm) {
+      padding: 0;
+    }
+  }
+
+  .headline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $colorWhite;
+    font-family: $fontDMSans;
+    font-size: 24px;
+    margin-bottom: 20px;
+
+    .leaderboardLink {
+      font-size: 14px;
+      color: $colorWhite;
+      line-height: 12px;
+      letter-spacing: 0.6px;
+      font-family: $fontLight;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+.lightboxWrapper {
+  margin-top: 48px;
+}
+
+.tags {
+  display: flex;
+  flex-flow: wrap;
+  margin: 20px 0;
+
+  .tag {
+    background-color: rgba(172, 196, 255, 0.1);
+    padding: 10px;
+    font-size: 12px;
+    color: $colorWhite;
+    cursor: pointer;
+    border-radius: 2px;
+    margin: 5px;
+    opacity: 0.8;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      opacity: 1;
+    }
+  }
+}
+
+.seeAllActivities {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: $colorWhite;
+  line-height: 12px;
+  letter-spacing: 0.6px;
+  font-family: $fontLight;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ACTIVITY TRACKER */
+.activityWrapper {
+  // margin-top: 32px;
+  background: $colorPrimary;
+  border: 1px solid $colorBlueBorder;
+
+  .headerTables {
+    @media screen and (max-width: $screen-xs) {
+      padding: 4px 5px;
+      font-size: 10px;
+    }
+    &:not([data-item-count='0'])::after {
+      content: attr(data-item-count);
+      display: inline-block;
+      padding: 1px 4px;
+      border-radius: 6px;
+      font-family: $fontDMSans;
+      background-color: $mainAction;
+      font-size: 9px;
+      padding: 1px 4px;
+      line-height: 1;
+      color: $colorPrimary;
+      margin-left: 4px;
+    }
+  }
+
+  @media screen and (max-width: $screen-xs) {
+    overflow: hidden;
+  }
+  border-radius: 12px;
+
+  @media screen and (max-width: $screen-xs) {
+    margin-bottom: 20px;
+  }
+  .activityContainer {
+    position: relative;
+    height: 324px;
+
+    @media screen and (max-width: $screen-sm) {
+      overflow-x: auto;
+    }
+  }
+}
+.tabItem {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.tabItemSelected {
+  text-align: center;
+  padding-bottom: 12px;
+  opacity: 1;
+  cursor: pointer;
+  border-bottom: 3px solid $mainAction;
+}
+.tabLayout {
+  display: flex;
+  align-items: flex-end;
+  color: $colorWhite;
+  font-family: $fontDMSans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 24px;
+  margin-left: 16px;
+
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+.tabOptionsContainer {
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+/* ACTIVITY TRACKER */
+.activities {
+  margin-top: 4px;
+  padding: 0 10px;
+  position: relative;
+
+  @media (max-width: $screen-xs) {
+    padding: 0;
+  }
+
+  @media (max-width: $screen-md) {
+    &::after {
+      display: none;
+    }
+    &::before {
+      display: none;
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      font-size: 33px;
+
+      @media (max-width: $screen-xs) {
+        font-size: 28px;
+      }
+    }
+
+    img {
+      margin-right: 30px;
+    }
+  }
+}
+
+.currentBalanceSection {
+  margin: 12px auto 0;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @media (max-width: $screen-sm) {
+    justify-content: center;
+    margin: 12px 0 0;
+  }
+
+  .currentBalanceCard {
+    background: rgba($colorBlue80, 0.6);
+    border: 1px solid $colorBlueBorder;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    justify-content: space-around;
+
+    &.rowBalanceCard {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &.smallCard {
+      background: $colorPrimary;
+    }
+
+    & h2 {
+      color: $mainAction;
+      text-align: center;
+    }
+
+    p.welcome {
+      // max-width: 460px;
+      padding-top: 10px;
+      color: $colorWhite;
+      font-weight: 600;
+      padding: 20px;
+      line-height: 26px;
+      text-align: justify;
+      font-size: 24px;
+
+      @media (max-width: $screen-xs) {
+        padding: 20px 0;
+        font-size: 20px;
+      }
+
+      span {
+        color: $mainAction;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    .balanceContainer {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 50px 50px;
+      @media (max-width: $screen-sm) {
+        flex-direction: column;
+        padding: 30px 0px;
+      }
+      .leftCard {
+        display: flex;
+        @media (max-width: $screen-sm) {
+          justify-content: center;
+        }
+        .wfairLogo {
+          width: 64px;
+          height: 64px;
+        }
+        .balanceTextContainer {
+          margin-left: 25px;
+          .currentbalanceHeading {
+            font-family: $fontDMSans;
+            color: $colorWhite;
+            font-weight: 600;
+            font-size: 11px;
+            opacity: 0.41;
+          }
+          .balanceBottomContainer {
+            margin-top: 7px;
+            display: flex;
+            .currentbalanceWFair {
+              display: flex;
+
+              box-sizing: border-box;
+              font-family: $fontDMSans;
+              font-size: 44px;
+              font-weight: 600;
+              text-align: center;
+              color: $colorWhite;
+              line-height: 40px;
+
+              gap: 10px;
+
+              &.font30 {
+                font-size: 30px;
+              }
+              &.font50 {
+                font-size: 50px;
+              }
+              &.font20 {
+                font-size: 20px;
+              }
+            }
+            .symbolContainer {
+              font-family: $fontDMSans;
+              font-size: 16px;
+              font-weight: 600;
+              text-align: center;
+              color: $colorWhite;
+            }
+          }
+        }
+      }
+      .rightCard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: $screen-sm) {
+          margin-top: 20px;
+        }
+
+        .buttonDeposit {
+          width: 240px;
+        }
+        .presentText {
+          margin-top: 10px;
+          font-size: 11px;
+          font-weight: 500;
+          color: #696e82;
+          text-align: center;
+        }
+      }
+    }
+    .depositCardContainer {
+      width: 100%;
+      cursor: pointer;
+      .depositTitle {
+        font-family: $fontDMSans;
+        font-size: 20px;
+        font-weight: 600;
+        color: $colorWhite;
+      }
+      .depositDescriptionSection {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .depositDescription {
+        font-family: $fontDMSans;
+        font-size: 12px;
+        font-weight: 600;
+        color: #dbe0ff;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  & .bonusDesktop {
+    display: block;
+    width: 100%;
+
+    border: 1px solid $colorBlueBorder;
+    border-radius: 12px;
+
+    object-fit: cover;
+    margin: 0 auto;
+    margin-right: 8px;
+    border-radius: 12px;
+
+    @media (max-width: $screen-xs) {
+      display: none;
+    }
+  }
+
+  & .bonusMobile {
+    display: none;
+    width: 100%;
+    object-fit: cover;
+
+    border: 1px solid $colorBlueBorder;
+    border-radius: 12px;
+
+    @media (max-width: $screen-xs) {
+      display: block;
+    }
+  }
+
+  .currentBalanceDescription {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    min-height: 180px;
+    padding: 10px;
+
+    @media (max-width: $screen-md) {
+      padding: 0 0 10px;
+    }
+
+    &.smallCurrentBalanceDescription {
+      border-radius: 12px;
+    }
+
+    // @media (max-width: $screen-md) {
+    //   padding: 10px;
+    // }
+
+    @media (max-width: $screen-xs) {
+      &::after {
+        display: none;
+      }
+    }
+
+    .buttonContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 230px;
+      justify-content: space-around;
+      // margin-bottom: 40px;
+
+      &.rowContainer {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 20px;
+        min-height: 130px;
+
+        @media (max-width: $screen-sm) {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        h2 {
+          text-align: left;
+        }
+
+        .label {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .title {
+        font-size: 16px;
+        font-weight: 600;
+        color: $colorWhite;
+      }
+
+      .label {
+        text-align: justify;
+        line-height: 24px;
+        padding: 0 40px 10px;
+        margin: 0 auto;
+        font-family: $fontDMSans;
+        font-size: 14px;
+        font-weight: 500;
+        color: $colorWhite;
+
+        @media (max-width: $screen-xs) {
+          padding: 0 0 10px;
+        }
+
+        span {
+          color: $mainAction;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      .button {
+        margin-top: 0px;
+        // margin-bottom: 20px;
+        width: 240px;
+        font-family: $fontDMSans;
+
+        &.buttonDeposit {
+          margin-top: 10px;
+        }
+
+        &.buttonBanner {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.walletPreferencesSection {
+  position: relative;
+  //color: white;
+  z-index: 5;
+  padding: 14px;
+
+  .boxContainer {
+    background: rgba($colorBlue80, 0.6);
+    border: 1px solid $colorBlueBorder;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+
+  .inputSelect {
+    width: 200px;
+  }
+
+  .settingsLabel {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .settingsMainHeader {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: $screen-sm) {
+  }
+}

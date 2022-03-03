@@ -8,38 +8,46 @@ const { replaceMeta } = require('./utils/replaceMetaUtil');
 // set main PORT
 const PORT = process.env.PORT || 3000;
 // set API path
-const apiPath =
-  process.env.REACT_APP_BACKEND_URL || 'https://rm-api.alpacasino.io/';
+const apiEventsPath = process.env.REACT_APP_EVENTS_SERVICE_URL || 'https://events-staging.wallfair.io/';
+const apiBackendPath = process.env.REACT_APP_BACKEND_URL || 'https://staging-api.alpacasino.io/';
 
 // set apiEndpoints which you want to get data from and make them dynamic
-const listPaths = ['api/event/list'];
+//ACTIVE,RESOLVED,CANCELLED,CLOSED,WAITING_RESOLUTION,DISPUTED;
+const listPaths = [
+  'events/market-events?categories=all&statuses=ACTIVE&limit=200',
+  'events/market-events?categories=all&statuses=RESOLVED,CANCELLED,CLOSED,WAITING_RESOLUTION,DISPUTED&limit=200',
+];
 const listPathForUser = 'api/user/';
 
 const indexPath = path.resolve(__dirname, '..', 'build', 'index.html');
 
-appendRoutes(apiPath, listPaths).then(meta => {
+appendRoutes(apiEventsPath, listPaths).then(meta => {
   const routes = Object.keys(meta);
   routes.forEach(route => {
     app.get(route, (req, res) => {
+       
       const indexFile = fs.readFileSync(indexPath, 'utf8');
-      let data = route in meta ? meta[route] : meta['/'];
+      let data = route in meta ? meta[route] : meta['/']; 
       res.send(replaceMeta(indexFile, data));
     });
   });
 
   // in case of new events
   app.get('/trade/:eventSlug?/:betSlug?', (req, res) => {
-    appendRoutes(apiPath, listPaths).then(updatedMeta => {
+    appendRoutes(apiEventsPath, listPaths).then(updatedMeta => {
       const indexFile = fs.readFileSync(indexPath, 'utf8');
+      console.log(updatedMeta);
       let data = updatedMeta[req.path] ? updatedMeta[req.path] : meta['/'];
       res.send(replaceMeta(indexFile, data));
+    }).catch(err => {
+      console.error(err);
     });
   });
 
   // in case of users
   app.get('/user/:userId?', (req, res) => {
     let userId = req.params.userId;
-    let userApiPath = `${apiPath}${listPathForUser}${userId}/info`;
+    let userApiPath = `${apiBackendPath}${listPathForUser}${userId}/info`;
     appendRoutesForUser(userApiPath, userId).then(updatedMeta => {
       const indexFile = fs.readFileSync(indexPath, 'utf8');
       let data = updatedMeta[req.path] ? updatedMeta[req.path] : meta['/'];

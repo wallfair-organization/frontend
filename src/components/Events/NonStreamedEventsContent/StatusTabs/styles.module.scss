@@ -3,12 +3,7 @@
 .statusPicker {
   border-bottom: 1px solid $colorGrayLight1;
   width: 100%;
-  margin-bottom: 70px;
   position: relative;
-
-  @media screen and (min-width: $screen-md) {
-    margin-bottom: 20px;
-  }
 
   .tabButton {
     padding: 8px 4px;
@@ -29,7 +24,7 @@
 
   .tabButtonActive {
     color: $colorWhite;
-    font-weight: 900;
+    font-weight: 700;
 
     &:after {
       content: '';

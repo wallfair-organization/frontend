@@ -5,6 +5,111 @@
   position: relative;
   align-items: center;
   justify-content: center;
+  color: $colorBlack;
+  box-sizing: border-box;
+  border-radius: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: $fontDMSans;
+  padding: 8px 30px;
+  text-transform: none;
+  user-select: none;
+  text-align: center;
+  position: relative;
+
+  @media (max-width: $screen-sm) {
+    font-size: 18px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &.primaryButtonS {
+    font-size: 14px;
+  }
+
+  .buttonContent {
+    width: fit-content;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+    align-items: center;
+  }
+
+  & > svg {
+    width: 100%;
+    z-index: 0;
+    position: absolute;
+  }
+}
+
+.secondaryButtonLight,
+.secondaryButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $colorWhite;
+  background: $colorPrimary;
+  box-sizing: border-box;
+  border: 2px solid $colorLightPurple16;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: $fontDMSans;
+  padding: 8px 30px;
+  text-transform: none;
+  user-select: none;
+  text-align: center;
+
+  &.secondaryButtonLight {
+    color: $colorPrimary;
+    border: 2px solid $colorLightPurple;
+    background: transparent;
+  }
+
+  @media (max-width: $screen-sm) {
+    font-size: 18px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .buttonContent {
+    width: fit-content;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+    align-items: center;
+  }
+
+  & > svg {
+    width: 100%;
+    z-index: 0;
+    position: absolute;
+  }
+}
+
+.primaryButtonOld {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
   // background: $colorButton;
   background: $mainAction;
   color: $colorBlack;
@@ -12,7 +117,7 @@
   border-radius: 60px;
   font-size: 20px;
   font-weight: bold;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   padding: 8px 30px;
   text-transform: none;
   user-select: none;
@@ -42,7 +147,7 @@
   border-radius: 60px;
   font-size: 20px;
   font-weight: bold;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   padding: 8px 30px;
   text-transform: none;
   user-select: none;
@@ -61,7 +166,7 @@
   }
 }
 
-.secondaryButton {
+.redButton {
   position: relative;
   display: flex;
   position: relative;
@@ -74,7 +179,7 @@
   border-radius: 60px;
   font-size: 24px;
   font-weight: bold;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   line-height: 100%;
   text-transform: none;
   user-select: none;
@@ -148,8 +253,8 @@
   justify-content: center;
   align-items: center;
   color: #ffd31a;
-  font-family: $fontOmnes;
-  font-weight: 600;
+  font-family: $fontDMSans;
+  font-weight: 500;
   font-size: 24px;
   text-transform: none;
   border: 2px solid #ffd31a;

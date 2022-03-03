@@ -8,40 +8,40 @@
   flex-direction: column;
 
   .title {
-    text-align: center;
+    padding: 90px 0 40px;
+    text-align: left;
     font-style: normal;
     font-weight: bold;
     font-size: 34px;
-    color: black;
+    color: $colorPrimary;
     line-height: 30px;
   }
 
   .container {
-    padding: 25px 0 16px;
-    max-width: 380px;
+    max-width: 452px;
 
     .description {
-      font-size: 18px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 40px;
-      color: black;
-      line-height: 36px;
+      font-size: 16px;
+      font-weight: 400;
+      color: $colorPrimary;
       white-space: nowrap;
-
-      @media (max-width: $screen-sm) {
-        font-size: 16px;
-      }
+      padding-bottom: 20px;
 
       @media (max-width: $screen-xs) {
         white-space: normal;
       }
+
+      .randomizeButton {
+        font-weight: 400;
+        color: $colorPrimary;
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
 
     .inputBox {
-      width: 250px;
-      margin: 0 auto 40px;
-      background: white;
+      width: 100%;
+      margin: 0 auto;
 
       @media (max-width: $screen-sm) {
         width: 100%;
@@ -53,43 +53,22 @@
       align-items: center;
       flex-direction: column;
       width: 100%;
-      column-gap: 20px;
 
-      .skipButton {
-        font-size: 20px;
-        font-weight: 600;
-        color: #ea9c00;
-        padding: 0 30px;
-        text-decoration: underline;
-        cursor: pointer;
-
-        @media (max-width: $screen-sm) {
-          font-size: 16px;
-        }
-      }
+      padding-bottom: 30px;
 
       .button {
-        font-size: 20px;
-        background: $colorButton;
-        font-family: $fontOmnes;
-        color: $colorBlack;
-        font-weight: 700;
-        line-height: 40px;
-        cursor: pointer;
-        border-radius: 30px;
-        width: 150px;
+        width: 100%;
         border: none;
         margin-top: 50px;
+      }
+    }
 
-        @media (max-width: $screen-sm) {
-          font-size: 20px;
-        }
+    .terms {
+      font-size: 14px;
+      color: $colorGrayLight1;
 
-        & > span > svg {
-          @media (max-width: $screen-sm) {
-            width: 140px;
-          }
-        }
+      a {
+        text-decoration: underline;
       }
     }
 
@@ -105,40 +84,6 @@
       color: $colorWhite;
       border-radius: 10px;
       margin-bottom: 20px;
-    }
-  }
-
-  .confettiRight,
-  .confettiLeft {
-    position: absolute;
-    z-index: 1;
-  }
-
-  .confettiLeft {
-    left: -60px;
-    top: -20px;
-  }
-
-  .confettiRight {
-    right: -55px;
-    bottom: 200px;
-    height: 220px;
-
-    @media (max-width: $screen-sm) {
-      bottom: 220px;
-    }
-  }
-
-  .randomize {
-    font-size: 20px;
-    font-weight: 600;
-    color: $colorLightYellow;
-    padding: 0 30px;
-    text-decoration: underline;
-    cursor: pointer;
-
-    @media (max-width: $screen-sm) {
-      font-size: 16px;
     }
   }
 }

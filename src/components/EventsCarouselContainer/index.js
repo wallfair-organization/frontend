@@ -1,45 +1,30 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import _ from 'lodash';
 import CarouselContainer from '../CarouselContainer';
-import EventCard from '../EventCard';
 import { EventActions } from '../../store/actions/event';
 import styles from './styles.module.scss';
 import BetCard from 'components/BetCard';
 import BetState from 'constants/BetState';
 import { PopupActions } from '../../store/actions/popup';
-import PopupTheme from '../Popup/PopupTheme';
-import AuthenticationType from 'components/Authentication/AuthenticationType';
 import { OnboardingActions } from 'store/actions/onboarding';
+import { useEventsFilter } from 'components/Events/hooks/useEventsFilter';
+import { isMobile } from 'react-device-detect';
 
 const EventsCarouselContainer = ({
-  events,
-  eventType,
-  state = 'all',
+  eventType = 'non-streamed',
+  statuses = [BetState.active],
   category = 'all',
-  deactivated = false,
-  upcoming = false,
+  orderBy = 'created_at',
+  order = 'DESC',
   title,
   titleLink,
+  titleLinkTo,
   noEventsMessage = 'No events',
-  fetchEvents,
   userId,
-  bookmarkEvent,
-  bookmarkEventCancel,
-  showPopup,
-  startOnboarding,
 }) => {
-  const showUpcoming = process.env.REACT_APP_SHOW_UPCOMING_FEATURES || 'false';
   const location = useLocation();
-  const [page, setPage] = useState(1);
-  const [currentEvents, setCurrentEvents] = useState([]);
-  const [allLoaded, setAllLoaded] = useState(false);
-
-  const allEvents = useSelector(state => state.event.events);
-
-  const COUNT = 4;
   const carouselProps = {
     streamed: {
       title: 'Live Events',
@@ -48,156 +33,85 @@ const EventsCarouselContainer = ({
     },
     'non-streamed': {
       title: 'Events',
-      titleLink: 'Discover more',
+      titleLink: 'Show all',
       titleLinkTo: '/events',
     },
   };
 
-  let params = {
-    eventType,
-    state,
-    category,
-    deactivated,
-    upcoming,
-    page,
-    count: COUNT,
-  };
+  const { events } = useEventsFilter(statuses, category, undefined, false, undefined, undefined, orderBy, order);
 
-  const getEvents = params => {
-    fetchEvents(params);
-    setCurrentEvents(events[eventType][state]);
-    setAllLoaded(events[eventType][state]?.length <= COUNT);
-  };
+  const [page, setPage] = useState(1);
+  const COUNT = 4;
 
-  useEffect(() => {
-    getEvents(params);
-  }, [category]);
+  // const [currentEvents, setCurrentEvents] = useState([]);
+  // const [allLoaded, setAllLoaded] = useState(false);
+  
+  // let params = {
+  //   eventType,
+  //   statuses,
+  //   category,
+  //   deactivated,
+  //   page,
+  //   count: COUNT,
+  // };
 
-  useEffect(() => {
-    const stateEvents = events[eventType][state];
-    setCurrentEvents(stateEvents);
+  // const getEvents = params => {
+  //   fetchEvents(params);
+  //   setCurrentEvents(events[eventType][state]);
+  //   setAllLoaded(events[eventType][state]?.length <= COUNT);
+  // };
 
-    if (stateEvents?.length !== 0) {
-      setAllLoaded(stateEvents?.length < COUNT);
-    } else if (page !== 1) {
-      setAllLoaded(true);
-      setPage(page - 1);
-    }
-  }, [events, eventType, page, state]);
+  // useEffect(() => {
+  //   getEvents(params);
+  // }, [category]);
 
-  const nextPage = () => {
-    const next = page + 1;
-    const query = { ...params, page: next };
-    fetchEvents(query);
-    setPage(next);
-  };
+  // useEffect(() => {
+  //   const stateEvents = events[eventType][state];
+  //   setCurrentEvents(stateEvents);
 
-  const previousPage = () => {
-    const previous = page - 1;
-    const query = { ...params, page: previous };
-    fetchEvents(query);
-    setPage(previous);
-  };
+  //   if (stateEvents?.length !== 0) {
+  //     setAllLoaded(stateEvents?.length < COUNT);
+  //   } else if (page !== 1) {
+  //     setAllLoaded(true);
+  //     setPage(page - 1);
+  //   }
+  // }, [events, eventType, page, state]);
 
-  const showJoinPopup = useCallback(event => {
-    startOnboarding();
-  }, []);
+  // const nextPage = () => {
+  //   const next = page + 1;
+  //   const query = { ...params, page: next };
+  //   fetchEvents(query);
+  //   setPage(next);
+  // };
 
-  const renderLiveEvents = () => {
-    return _.map(currentEvents, event => {
-      const eventId = _.get(event, '_id');
-      const eventSlug = _.get(event, 'slug');
-      const mappedTags = _.map(event.tags, tag => tag.name);
+  // const previousPage = () => {
+  //   const previous = page - 1;
+  //   const query = { ...params, page: previous };
+  //   fetchEvents(query);
+  //   setPage(previous);
+  // };
 
-      return (
-        <Link
-          key={eventId}
-          to={{
-            pathname: `/trade/${eventSlug}`,
-            state: { fromLocation: location },
-          }}
-          className={styles.eventLink}
-        >
-          <EventCard
-            key={eventId}
-            title={event.name}
-            organizer={''}
-            viewers={12345}
-            live={eventType === 'streamed'}
-            tags={mappedTags}
-            image={event.previewImageUrl}
-            eventEnd={event.date}
-            eventCardClass={styles.eventCardHome}
-            streamUrl={event.streamUrl}
-            state={event.state}
-          />
-        </Link>
-      );
-    });
-  };
+  // const showJoinPopup = useCallback(event => {
+  //   startOnboarding();
+  // }, []);
+
 
   const renderBetCards = () => {
-    //Improvement: use API endpoint /event/bets/... to list and filter bets
-
-    const allValidBets = allEvents.reduce((acc, current) => {
-      if (current.type === 'streamed') {
-        return acc;
-      }
-
-      const bets = current.bets
-        .map(bet => ({
-          ...bet,
-          eventSlug: current.slug,
-          previewImageUrl: current.previewImageUrl,
-          tags: _.map(current.tags, tag => tag.name),
-          category: current.category,
-          bookmarks: current.bookmarks,
-          eventId: current._id,
-        }))
-        .filter(bet => {
-          return (
-            bet.published &&
-            [BetState.active, BetState.upcoming].includes(bet.status)
-          );
-        });
-
-      const concat = [...acc, ...bets];
-      return concat;
-    }, []);
-
-    // const betIdsFromCurrentEvents = currentEvents?.reduce((acc, current) => {
-    //   const concat = [...acc, ...current.bets];
-    //   return concat;
-    // }, []);
-
-    // const filteredBets = betIdsFromCurrentEvents
-    //   ? allBets.filter(bet => {
-    //       return (
-    //         betIdsFromCurrentEvents.includes(bet._id) &&
-    //         bet.published &&
-    //         [BetState.active, BetState.upcoming].includes(bet.status)
-    //       );
-    //     })
-    //   : [];
-
-    // MUST CHANGE THAT TO READ FROM BETS ENDPOINT
-    const currentItem = (page - 1) * COUNT;
-    const lastItem = currentItem + COUNT;
-    const filteredBets = allValidBets.slice(currentItem, lastItem);
-
-    return _.map(filteredBets, bet => {
-      const betId = _.get(bet, '_id');
-      const eventSlug = _.get(bet, 'eventSlug');
+    return _.map(events, (event) => {
+      const bet = event.bet;
+      const betId = _.get(event.bet, 'id');
+      const eventSlug = _.get(event, 'slug');
       const betSlug = _.get(bet, 'slug');
-      // const mappedTags = _.map(bet.tags, tag => tag.name);
-      const marketQuestion = _.get(bet, 'marketQuestion');
+      const tags = _.get(event, 'tags');
+      const marketQuestion = _.get(bet, 'market_question');
       const outcomes = _.get(bet, 'outcomes');
 
       return (
         <Link
           key={betId}
           to={{
-            pathname: `/trade/${eventSlug}/${betSlug}`,
+            // pathname: `/trade/${eventSlug}/${betSlug}`,
+            pathname: `/trade/${eventSlug}`,
             state: { fromLocation: location },
           }}
           className={styles.eventLink}
@@ -207,24 +121,25 @@ const EventsCarouselContainer = ({
             betId={betId}
             title={marketQuestion}
             organizer={''}
-            image={bet.previewImageUrl}
-            eventEnd={bet.endDate}
+            image={event.preview_image_url}
+            eventEnd={bet.end_date}
             outcomes={outcomes}
             eventCardClass={styles.eventCardHome}
-            category={bet?.category ? bet.category : 'all'}
+            category={event?.category ? event.category : 'all'}
             isBookmarked={!!bet?.bookmarks?.includes(userId)}
+            tags={tags}
             onBookmark={e => {
               e.preventDefault();
               e.stopPropagation();
-              if (!userId) {
-                return showJoinPopup(e);
-              }
-              bookmarkEvent(bet.eventId);
+              // if (!userId) {
+              //   return showJoinPopup(e);
+              // }
+              // bookmarkEvent(bet.eventId);
             }}
             onBookmarkCancel={e => {
               e.preventDefault();
               e.stopPropagation();
-              bookmarkEventCancel(bet.eventId);
+              // bookmarkEventCancel(bet.eventId);
             }}
           />
         </Link>
@@ -234,22 +149,20 @@ const EventsCarouselContainer = ({
 
   return (
     <CarouselContainer
-      key={eventType}
       title={title ?? carouselProps[eventType].title}
-      titleLink={titleLink ?? carouselProps[eventType].titleLink}
-      titleLinkTo={carouselProps[eventType].titleLinkTo}
+      titleLink={!isMobile && titleLink ? titleLink : carouselProps[eventType].titleLink}
+      titleLinkTo={titleLinkTo ?? carouselProps[eventType].titleLinkTo}
       prevArrowInactive={page === 1}
-      nextArrowInactive={allLoaded}
-      onNext={nextPage}
-      onPrevious={previousPage}
-      withComingSoonBanner={
-        eventType === 'streamed' && showUpcoming === 'false'
-      }
+      nextArrowInactive={events.length <= COUNT}
+      // onNext={nextPage}
+      // onPrevious={previousPage}
+      onNext={() => {}}
+      onPrevious={() => {}}
     >
-      {eventType === 'streamed' && currentEvents?.length > 0
-        ? renderLiveEvents()
-        : renderBetCards()}
-      {currentEvents?.length === 0 && (
+      {eventType === 'non-streamed' && events?.length > 0 &&
+        renderBetCards()
+      }
+      {events?.length === 0 && (
         <div className={styles.noEventsBox}>{noEventsMessage}</div>
       )}
     </CarouselContainer>
@@ -258,16 +171,12 @@ const EventsCarouselContainer = ({
 
 const mapStateToProps = state => {
   return {
-    events: _.get(state.event, 'homeEvents', []),
     userId: state.authentication.userId,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchEvents: params => {
-      dispatch(EventActions.fetchHomeEvents(params));
-    },
     showPopup: (popupType, options) => {
       dispatch(
         PopupActions.show({

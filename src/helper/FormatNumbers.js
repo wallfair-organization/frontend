@@ -16,7 +16,7 @@ export const formatToFixed = (
 export const toNumericString = number => {
   return number == null || Number.isNaN(number) === true
     ? ''
-    : Number(number).toLocaleString('en-US');
+    : Number(number).toLocaleString('en-US', {maximumFractionDigits: 2});
 };
 
 export const roundToTwo = (value, decimalPlaces = 2) => {

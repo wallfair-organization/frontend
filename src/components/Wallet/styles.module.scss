@@ -37,7 +37,7 @@
         display: none;
       }
       span {
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-weight: bold;
         font-size: 12px;
         padding-left: 40px;
@@ -151,7 +151,7 @@
 }
 
 .tooltip {
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-weight: bold;
   background-color: $colorPrimary !important;
   text-align: left !important;

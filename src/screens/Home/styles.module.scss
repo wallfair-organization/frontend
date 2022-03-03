@@ -1,608 +1,125 @@
 @import '../../styles/all';
 
-.containerWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 0;
-  margin-top: 100px;
-
-  @media (max-width: $screen-sm) {
-    margin: 100px 15px;
-  }
-}
-
 .container {
+  margin: 0 auto;
   width: 100%;
+  max-width: 1288px;
+  padding: 50px 22px;
+  background: rgba($colorPrimary, 0.7);
+  border-radius: 12px;
+  position: relative;
 
-  @media (min-width: $screen-lg) {
-    max-width: 1300px;
-  }
-}
-
-.sectionHeading {
-  display: flex;
-  align-items: center;
-  img {
-    margin-right: 15px;
-  }
-  h3 {
-    padding-bottom: 10px;
-  }
-}
-
-.bottomWrapper {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-top: 80px;
-
-  @media (max-width: $screen-md) {
-    flex-direction: column;
-  }
-
-  .categories {
-    width: 100%;
-    padding: 0 10px;
-
-    @media (max-width: $screen-xs-max) {
-      margin-bottom: 40px;
-    }
-  }
-
-  .leaderboard {
-    width: 100%;
-    padding: 0 10px;
-
-    @media (max-width: $screen-sm) {
-      padding: 0;
-    }
-  }
-
-  .headline {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: $colorWhite;
-    font-family: $fontOmnes;
-    font-size: 24px;
-    margin-bottom: 20px;
-
-    .leaderboardLink {
-      font-size: 14px;
-      color: $colorWhite;
-      line-height: 12px;
-      letter-spacing: 0.6px;
-      font-family: $fontLight;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-  }
-}
-
-.lightboxWrapper {
-  margin-top: 48px;
-}
-
-.seeAllActivities {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: $colorWhite;
-  line-height: 12px;
-  letter-spacing: 0.6px;
-  font-family: $fontLight;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.howTokenWorks {
-  padding: 20px 0 0;
-  .title {
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    font-weight: 700;
-    justify-content: flex-start;
-
-    h2 {
-      font-size: 33px;
-
-      @media (max-width: $screen-xs) {
-        font-size: 28px;
-      }
-    }
-
-    img {
-      margin-right: 10px;
-      width: 80px;
-    }
-  }
-  .tokenDetail {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.2fr 0.2fr;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    filter: drop-shadow(0px 9px 16px rgba(159, 162, 191, 0.18))
-      drop-shadow(0px 2px 2px rgba(159, 162, 191, 0.32));
-    padding: 0 10px 0px 20px;
-    margin: 15px 0 0;
-    @media (max-width: $screen-md) {
-      grid-template-columns: auto;
-    }
-    .token {
-      padding: 20px 8px 0;
-      display: flex;
-      @media (max-width: $screen-md) {
-        flex-direction: column;
-        align-items: center;
-      }
-      .thumbnail {
-        padding-right: 10px;
-        img {
-          width: 90px;
-        }
-      }
-      .thumbnails {
-        display: flex;
-        padding-right: 10px;
-        .second {
-          margin: 18px 0 0 -34px;
-        }
-        img {
-          width: 90px;
-          height: 90px;
-        }
-      }
-      .detail {
-        padding-top: 20px;
-        color: #fff;
-        h3 {
-          font-weight: bolder;
-          font-size: 22px;
-          margin-bottom: 6px;
-        }
-        p {
-          font-size: 14px;
-
-          a {
-            text-decoration: underline;
-          }
-        }
-        @media (max-width: $screen-md) {
-          text-align: center;
-        }
-      }
-    }
-    .elonImg {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-}
-
-.welcomeContainer {
-  margin-top: 100px;
-  margin-bottom: calc(100vh - 538px);
-  // margin-bottom: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   @media (max-width: $screen-sm) {
-    margin: 130px 0 0;
+    padding: 0 20px;
   }
-  .cardContainer {
-    position: relative;
-    height: 580px;
-    width: 402px;
-    background: linear-gradient(163.46deg, #ffffff -21.15%, #f1dbd2 100.59%);
-    padding: 15px;
-    border-radius: 20px;
-    .cardBox {
+
+  /* ACTIVITY TRACKER */
+  .activities {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-top: 30px;
+
+    .title {
       display: flex;
-      flex-direction: column;
-      row-gap: 10px;
       align-items: center;
-      border: 1px solid $colorPopBorder;
-      border-radius: 20px;
-      height: 550px;
+      color: $colorWhite;
 
-      padding-top: 20px;
-      font-family: $fontOmnes;
-      @media (max-width: $screen-sm) {
-        width: 100%;
-        height: 550px;
-        padding-top: 40px;
-      }
+      h2 {
+        color: $colorWhite;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 0;
 
-      .terms {
-        font-size: 12px;
-        margin-bottom: 10px;
-
-        a {
-          text-decoration: underline;
-        }
-      }
-
-      .topFront {
-        position: absolute;
-        width: 150px;
-        height: 190px;
-        left: -60px;
-        top: -19px;
-        z-index: 1;
-      }
-
-      .topBack {
-        position: absolute;
-        width: 330px;
-        left: -110px;
-        top: -120px;
-        z-index: -1;
-      }
-
-      .bottomFront {
-        position: absolute;
-        width: 120px;
-        right: -35px;
-        bottom: 84px;
-        z-index: 1;
-      }
-      .bottomBack {
-        position: absolute;
-        width: 420px;
-        right: -114px;
-        bottom: -105px;
-        z-index: -1;
-      }
-
-      .aplacaHeader {
-        bottom: -170px;
-        left: -510px;
-        position: absolute;
-        width: 450px;
-        display: block;
-      }
-      svg {
-        margin-left: 40%;
-      }
-      p {
-        font-weight: 700;
-        font-size: 35px;
-        line-height: 40px;
-        font-family: $fontOmnes;
-        color: $colorBlack;
-        text-align: center;
-        span {
-          font-size: 50px;
-          line-height: 1;
-        }
-        @media (max-width: $screen-sm) {
-          font-size: 30px;
-          line-height: 24px;
-        }
-      }
-      .limitedOfferDescription {
-        font-weight: 700;
-        font-size: 30px;
-        // line-height: 40px;
-        text-align: center;
-        font-family: $fontOmnes;
-        color: $colorBlack;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        @media (max-width: $screen-sm) {
-          font-size: 25px;
-          line-height: 30px;
-        }
-
-        span {
+        @media (max-width: $screen-xs) {
           font-size: 20px;
         }
-
-        p {
-          font-size: 30px;
-          margin-bottom: 0px;
-
-          sup {
-            font-size: 20px;
-          }
-        }
-
-        .red {
-          font-size: inherit;
-          color: $colorDarkerRed;
-        }
-
-        .conditionsWrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          margin: 20px auto 10px;
-          text-align: left;
-          padding: 0 0 0 30px;
-          width: fit-content;
-
-          .conditions {
-            font-size: 20px;
-            list-style-type: square;
-            list-style-position: outside;
-          }
-        }
-
-        .highlighted {
-          font-size: 90px;
-          line-height: 60px;
-
-          @media (max-width: $screen-xs) {
-            font-size: 70px;
-            line-height: 60px;
-          }
-        }
       }
 
-      .startButton {
-        width: 240px;
-        height: 45px;
-        text-align: center;
-        font-weight: 700;
-        font-family: $fontOmnes;
-        background: $colorButton;
-        color: $colorBlack;
-        font-size: 20px;
-        border-radius: 30px;
-        border: 1px solid $colorButton;
-        cursor: pointer;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 5px;
-        // margin-bottom: 20px;
+      img {
+        margin-right: 30px;
       }
     }
   }
 }
 
-.aboutDescritpion {
-  position: relative;
-  margin: 80px auto 80px;
-  @media (max-width: $screen-lg) {
-    margin-bottom: 140px;
-  }
-  @media (max-width: $screen-xs) {
-    margin-bottom: 180px;
-    padding: 300px 0 0;
-  }
-  .topImage {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-  }
-  .parentContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .descriptionCardContainer {
-      position: relative;
-      width: 320px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      background: linear-gradient(180deg, #ffffff 0%, #f1dbd2 51.56%);
-      border-radius: 20px;
-      padding: 10px;
-      position: relative;
-
-      .aboutFirst {
-        position: absolute;
-        top: -59px;
-        left: 130px;
-        width: 130px;
-      }
-
-      .aboutSecond {
-        position: absolute;
-        top: -35px;
-        left: 130px;
-        width: 110px;
-      }
-      .aboutThird {
-        position: absolute;
-        top: -123px;
-        left: 120px;
-        width: 116px;
-
-        z-index: -1;
-      }
-
-      .descriptionCard {
-        width: 100%;
-        border: 3px solid #fbb2a5;
-        box-sizing: border-box;
-        border-radius: 20px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 10px;
-        height: 300px;
-
-        h1 {
-          margin: 20px 0px;
-          font-family: $fontOmnes;
-          font-weight: 600;
-          font-size: 30px;
-          line-height: 20px;
-          /* identical to box height, or 67% */
-
-          text-align: center;
-        }
-        p {
-          margin-bottom: 20px;
-          font-family: $fontOmnes;
-          font-weight: 600;
-          font-size: 16px;
-          line-height: 20px;
-
-          text-align: center;
-        }
-      }
-      .thumbnail {
-        position: absolute;
-        bottom: calc(100% - 50px);
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .thumbnailBack {
-        position: absolute;
-        bottom: calc(100% - 50px);
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
-      }
-    }
-  }
-}
-
-.nftBannerWrapper {
-  margin-top: 200px;
-  margin-bottom: 200px;
-  @media (max-width: $screen-xl) {
-    margin-top: 200px;
-    margin-top: 150px;
-  }
-
-  @media (max-width: $screen-md) {
-    margin-bottom: 100px;
-  }
-  @media (max-width: $screen-xs) {
-    display: none;
-  }
-}
-
-/* ACTIVITY TRACKER */
-.activityWrapper {
-  margin-top: 32px;
-  background: $colorWhite;
-  border: 1px solid $colorLightGray;
-
-  box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18),
-    0px 2px 2px rgba(159, 162, 191, 0.32);
-  border-radius: 12px;
-
-  @media screen and (max-width: $screen-xs) {
-    margin-bottom: 20px;
-  }
-  .activityContainer {
-    position: relative;
-    height: 324px;
-  }
-}
-.tabItem {
-  text-align: center;
-  padding-bottom: 12px;
-  opacity: 0.3;
-  cursor: pointer;
-}
-
-.tabItemSelected {
-  text-align: center;
-  padding-bottom: 12px;
-  opacity: 1;
-  cursor: pointer;
-  border-bottom: 3px solid $mainAction;
-}
-.tabLayout {
-  display: flex;
-  align-items: flex-end;
-  color: $colorWhite;
-  font-family: $fontOmnes;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 18px;
-  padding-top: 24px;
-  margin-left: 16px;
-
-  @media (max-width: $screen-md) {
-    margin-left: 0px;
-    justify-content: space-between;
-    font-size: 11px;
-    line-height: 14px;
-  }
-}
-.tabOptionsContainer {
-  @media (max-width: $screen-md) {
-    margin-left: 0px;
-    justify-content: space-between;
-    font-size: 11px;
-    line-height: 14px;
-  }
-}
-/* ACTIVITY TRACKER */
-.activities {
-  margin-top: 40px;
+.gameBannerContainer {
   .title {
-    display: flex;
-    align-items: center;
-    color: $colorWhite;
-
+    padding-bottom: 30px;
     h2 {
-      font-size: 33px;
+      font-size: 20px;
+      color: $colorWhite;
+    }
+  }
+
+  .games {
+    display: flex;
+    gap: 13px;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+
+    .gameBanner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 614px;
+      height: 220px;
+      justify-content: center;
+      cursor: pointer;
 
       @media (max-width: $screen-xs) {
-        font-size: 28px;
+        align-items: center;
+      }
+
+      .bannerTitle {
+        font-size: 30px;
+        z-index: 2;
+        color: $colorWhite;
+        width: 100%;
+        max-width: 250px;
+        margin-left: 40px;
+        text-transform: uppercase;
+        line-height: 30px;
+        padding-bottom: 10px;
+        font-style: italic;
+        font-family: $fontDMSans;
+
+        @media (max-width: $screen-xs) {
+          max-width: 150px;
+          font-size: 20px;
+          line-height: 20px;
+          margin-left: 10px;
+        }
+      }
+
+      .bannerButton {
+        max-width: 150px;
+        height: 40px;
+        color: $colorPrimary;
+        margin-left: 40px;
+        @media (max-width: $screen-xs) {
+          margin-left: 0;
+        }
+      }
+
+      & > img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        border-radius: 12px;
       }
     }
-
-    img {
-      margin-right: 30px;
-    }
-  }
-}
-.gameCards {
-  margin-top: 220px;
-
-  @media (max-width: $screen-sm) {
-    margin-top: 220px;
-  }
-}
-
-.allGamesContiner {
-  margin-top: 50px;
-
-  @media (max-width: $screen-sm) {
-    margin-top: 50px;
-  }
-
-  .allGames {
-    font-family: $fontOmnes;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 20px;
-    align-items: center;
-    text-align: center;
-    text-decoration-line: underline;
-    color: $colorLightYellow;
-    margin-top: 50px;
-    margin-bottom: 100px;
-    cursor: pointer;
   }
 }
 
 .discordBanner {
   width: 100%;
   height: 130px;
-  margin-top: -100px;
+  margin-top: 40px;
   margin-bottom: 40px;
   @media (max-width: $screen-sm) {
     display: none;

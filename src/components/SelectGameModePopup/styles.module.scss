@@ -6,7 +6,7 @@
   align-items: center;
   flex-direction: column;
   padding: 35px;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 12px;
   width: 100%;
 
@@ -16,14 +16,14 @@
 
   .title {
     position: relative;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 20px;
     margin-top: 20px;
   }
 }
 
 .subtitle {
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-size: 14px;
   padding-top: 5px;
 }
@@ -37,49 +37,49 @@
 }
 
 .button {
-  box-shadow:inset 0px 1px 0px 0px #fff6af;
-  background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-  background-color:#ffec64;
-  border-radius:6px;
-  border:1px solid #ffaa22;
-  display:inline-block;
-  cursor:pointer;
-  color:#333333;
-  font-size:15px;
-  font-weight:bold;
-  padding:12px 24px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #ffee66;
+  box-shadow: inset 0px 1px 0px 0px #fff6af;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  background-color: #ffec64;
+  border-radius: 6px;
+  border: 1px solid #ffaa22;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 12px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffee66;
   width: 200px;
 }
 
 .button:active {
-  position:relative;
-  top:1px;
+  position: relative;
+  top: 1px;
 }
 
 .buttonFunPlay {
-  box-shadow:inset 0px 1px 0px 0px #fff6af;
-  background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-  background-color:#ffec64;
-  border:1px solid #ffaa22;
-  text-shadow:0px 1px 0px #ffee66;
+  box-shadow: inset 0px 1px 0px 0px #fff6af;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  background-color: #ffec64;
+  border: 1px solid #ffaa22;
+  text-shadow: 0px 1px 0px #ffee66;
 }
 .buttonFunPlay:hover {
-  background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-  background-color:#ffab23;
+  background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+  background-color: #ffab23;
 }
 
 .buttonRealPlay {
-  box-shadow:inset 0px 1px 0px 0px #caefab;
-  background:linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
-  background-color:#77d42a;
-  border:1px solid #268a16;
-  text-shadow:0px 1px 0px #aade7c;
+  box-shadow: inset 0px 1px 0px 0px #caefab;
+  background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+  background-color: #77d42a;
+  border: 1px solid #268a16;
+  text-shadow: 0px 1px 0px #aade7c;
 }
 .buttonRealPlay:hover {
-  background:linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
-  background-color:#5cb811;
+  background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+  background-color: #5cb811;
 }
 
 .content {

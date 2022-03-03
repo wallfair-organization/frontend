@@ -7,6 +7,7 @@ export const CRASH_GAMES_BACKEND_URL = process.env.REACT_APP_CASINO_GAMES_BACKEN
 export const SECOND_CRASH_GAME_BACKEND_URL = process.env.REACT_APP_SECOND_CRASH_GAME_BACKEND_URL;
 export const ACCOUNT_MAPPING = process.env.REACT_APP_ACCOUNT_MAPPER_URL;
 export const WITHDRAW_SERVICE_URL = process.env.REACT_APP_WITHDRAW_SERVICE_URL;
+export const EVENTS_SERVICE_URL = process.env.REACT_APP_EVENTS_SERVICE_URL;
 
 export const NEWS_API_URL = 'https://gnews.io/api/v4/search';
 export const NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY;
@@ -14,10 +15,10 @@ export const NEWS_API_SSL_MODE = process.env.REACT_APP_NEWS_API_SSL_MODE === 'tr
 export const RECAPTCHA_KEY = process.env.REACT_APP_RECAPTCHA_KEY;
 
 // Services
-export const API_AUTHENTICATION_REQUEST_SMS_URL = 'api/user/login';
+export const API_AUTHENTICATION_SEND_SMS = 'api/user/send-sms';
+export const API_AUTHENTICATION_VERIFY_SMS = 'api/user/verify-sms';
 export const API_AUTHENTICATION_SAVE_ADD_INFO_URL =
   'api/user/saveAdditionalInformation';
-export const API_AUTHENTICATION_VERIFY_SMS_URL = 'api/user/verifyLogin';
 export const API_AUTHENTICATION_VERIFY_EMAIL =
   'api/user/confirm-email/?userId=:userId&code=:code';
 export const API_AUTHENTICATION_RESEND_EMAIL_VERIFICATION =

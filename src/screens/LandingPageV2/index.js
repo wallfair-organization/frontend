@@ -295,7 +295,7 @@ const LandingPageV2 = (
           setExternalGames={setExternalGames}
         />
 
-        {alpacaGames.length > 0 && <GameCards games={alpacaGames} category="Wallfair Games" />}
+        {alpacaGames.length > 0 && <GameCards games={alpacaGames} category="House Games" />}
 
         <DisplaySection smartsoftGames={externalGames} evoplayGames={externalGamesEvoplay} softswissGames={process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' ? externalGamesSoftswiss : []} />
         {showDiscordBanner && renderDiscordBanner()}

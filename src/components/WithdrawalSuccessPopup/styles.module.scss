@@ -12,14 +12,14 @@
   }
 
   .title {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
     font-size: 20px;
     margin-top: 20px;
   }
 
   .subtitle {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 14px;
   }
 
@@ -33,7 +33,7 @@
     }
 
     .message {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-weight: bold;
       font-size: 24px;
     }
@@ -77,7 +77,7 @@
     display: flex;
     align-items: center;
     padding: 0 40px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
 
     &:after {

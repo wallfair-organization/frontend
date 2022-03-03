@@ -141,7 +141,7 @@
       z-index: 2;
 
       strong {
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         border-bottom: 3px solid $colorYellow;
       }
 
@@ -152,7 +152,7 @@
 
     .prizeAmount {
       font-size: 35px;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       text-align: center;
       position: relative;
       align-self: center;
@@ -231,14 +231,14 @@
   flex-basis: 50%;
 
   ul {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     z-index: 2;
     line-height: 1.75;
     position: relative;
     z-index: 2;
 
     strong {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-weight: bold;
       border-bottom: 3px solid $colorYellow;
     }
@@ -279,13 +279,13 @@
   display: flex;
   align-self: center;
   margin-top: 2rem;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   z-index: 1;
   line-height: 1.75;
   position: relative;
 
   strong {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
     border-bottom: 3px solid $colorYellow;
   }
@@ -323,7 +323,7 @@
 .giveaway {
   color: $colorPrimary;
   font-size: 28px;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
@@ -355,7 +355,7 @@
     font-weight: bolder;
     display: flex;
     align-items: center;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     justify-content: space-around;
     background-image: url('../../data/backgrounds/games/games-highlight.png');
     background-repeat: no-repeat;

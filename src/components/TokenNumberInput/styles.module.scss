@@ -25,7 +25,7 @@
     min-width: 10px !important;
     width: 6ch;
     color: $colorLightYellow;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
@@ -41,7 +41,7 @@
 
   .eventTokenLabel {
     color: $colorWhite;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -72,7 +72,7 @@
 
     .button {
       margin-left: 4px;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       cursor: pointer;
       border-radius: 5px;
       padding: 4px;

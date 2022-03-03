@@ -10,7 +10,7 @@ const StateBadge = ({
   className,
 }) => {
   const getStateText = () => {
-    return _.capitalize(state);
+    return _.startCase(state);
   };
 
   return (

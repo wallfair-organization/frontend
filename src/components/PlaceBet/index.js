@@ -46,6 +46,7 @@ import { GAMES_CURRENCY_DEFAULT_BET } from '../../constants/Currency';
 import Button from 'components/Button';
 import ButtonTheme from 'components/Button/ButtonTheme';
 import Routes from 'constants/Routes';
+import { currencyDisplay } from 'helper/Currency';
 
 const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
   const dispatch = useDispatch();
@@ -375,7 +376,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
             role="button"
             tabIndex="0"
             className={styles.button}
-            theme={ButtonTheme.secondaryButton}
+            theme={ButtonTheme.redButton}
             onClick={stopAutobet}
           >
             Stop Autobet
@@ -427,7 +428,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
             role="button"
             tabIndex="0"
             className={styles.button}
-            theme={ButtonTheme.secondaryButton}
+            theme={ButtonTheme.redButton}
             onClick={user.isLoggedIn ? cancelBet : cancelGuestBet}
             data-tracking-id={
               user.isLoggedIn ? null : 'elongame-showloginpopup'
@@ -524,7 +525,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
     } else {
       return (
         <div className={styles.profitPlaceholder} data-wg-notranslate>
-          <span>+0 {gamesCurrency}</span>
+          <span>+0 {currencyDisplay(gamesCurrency)}</span>
         </div>
       );
     }
@@ -659,7 +660,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                   max={'10000'}
                 />
                 <span className={styles.eventTokenLabel}>
-                  <span>{gamesCurrency}</span>
+                  <span>{currencyDisplay(gamesCurrency)}</span>
                 </span>
                 <div className={styles.buttonWrapper}>
                   <span
@@ -749,7 +750,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                   max={'10000'}
                 />
                 <span className={styles.eventTokenLabel}>
-                  <span>{gamesCurrency}</span>
+                  <span>{currencyDisplay(gamesCurrency)}</span>
                 </span>
                 <div className={styles.buttonWrapper}>
                   <span
@@ -820,7 +821,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                   max={'100'}
                 />
                 <span className={styles.eventTokenLabel}>
-                  <span>{gamesCurrency}</span>
+                  <span>{currencyDisplay(gamesCurrency)}</span>
                 </span>
               </div>
             </div>
@@ -841,7 +842,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                 max={'100'}
               />
               <span className={styles.eventTokenLabel}>
-                <span>{gamesCurrency}</span>
+                <span>{currencyDisplay(gamesCurrency)}</span>
               </span>
             </div>
             <label className={classNames(styles.label)}>On Win</label>
@@ -970,14 +971,14 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
               className={autobet.accumulated > 0 ? styles.reward : styles.lost}
               data-wg-notranslate
             >
-              {Math.floor(autobet.accumulated)} {gamesCurrency}
+              {Math.floor(autobet.accumulated)} {currencyDisplay(gamesCurrency)}
             </span>
             accumulated
           </div>
           <div className={styles.spinsleft}>
             Current bet:
             <span className={styles.neutral} data-wg-notranslate>
-              {Math.floor(autobet.amount)} {gamesCurrency}
+              {Math.floor(autobet.amount)} {currencyDisplay(gamesCurrency)}
             </span>
           </div>
         </>

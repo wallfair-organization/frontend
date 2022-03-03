@@ -1,0 +1,74 @@
+@import '../../styles/all';
+
+.eventShareContainer {
+  width: 100%;
+  min-height: 58px;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, #1c124a 0%, #150e39 100%);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  margin-bottom: 20px;
+  color: $colorWhite;
+
+  &.closed {
+    display: none;
+  }
+
+  @media (max-width: $screen-sm) {
+    margin-top: 20px;
+    padding: 10px 10px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .labelContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .leftContainer {
+    width: fit-content;
+    display: flex;
+    gap: 15px;
+
+    svg {
+      margin-bottom: -5px;
+      // width: 60px;
+      fill: $colorWhite;
+    }
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    span {
+      padding-top: 2px;
+      font-family: $fontDMSans;
+      font-weight: 700;
+      font-style: italic;
+      text-transform: uppercase;
+      text-align: center;
+
+      &.yellow {
+        color: $colorYellow;
+      }
+    }
+  }
+
+  .rightContainer {
+    // width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    @media (max-width: $screen-sm) {
+      flex-direction: column;
+    }
+  }
+}

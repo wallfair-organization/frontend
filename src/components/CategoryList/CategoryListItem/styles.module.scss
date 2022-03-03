@@ -71,6 +71,16 @@
   }
 }
 
+.categoryButton {
+  font-size: 12px;
+  padding: 11px 16px;
+  max-height: 44px;
+  &.active {
+    background: rgba(172, 196, 255, 0.16);
+    border: 2px solid #dbe0ff;
+  }
+}
+
 .linkDisabled {
   pointer-events: none;
   cursor: not-allowed;

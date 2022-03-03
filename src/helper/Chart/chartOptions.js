@@ -75,11 +75,13 @@ export const dohnutChartOptions = (type, data) => {
     },
     options: {
       animation: false,
+      hover: false,
       maintainAspectRatio: false,
       layout: {
         padding: 60,
       },
       plugins: {
+        tooltip: false,
         legend: {
           display: false,
         },

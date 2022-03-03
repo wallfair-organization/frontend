@@ -10,11 +10,12 @@ import PopupTheme from '../Popup/PopupTheme';
 import { connect, useSelector } from 'react-redux';
 import { calculateGain } from 'helper/Calculation';
 import { selectUser } from 'store/selectors/authentication';
-import { convert } from '../../helper/Currency';
+import { convert, currencyDisplay } from '../../helper/Currency';
 import Share from '../../components/Share';
 import routes from '../../constants/Routes';
 import useConfettiAnimation from 'hooks/useConfettiAnimation';
 import { toNumericString } from 'helper/FormatNumbers';
+import ButtonTheme from 'components/Button/ButtonTheme';
 
 const BetApproveView = ({ visible, hidePopup, options }) => {
   const { currency } = useSelector(selectUser);
@@ -25,25 +26,22 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
 
   const trade = _.get(options, 'data.trade');
   const bet = _.get(options, 'data.bet');
+  const event = _.get(options, 'data.event');
 
-  const amountPlaced = convert(_.get(trade, 'investmentAmount', 0), currency);
-  const potentialOutcome = convert(_.get(trade, 'outcomeTokens', 0), currency);
+  const amountPlaced = convert(_.get(trade, 'investment_amount', 0), currency);
+  const potentialOutcome = convert(_.get(trade, 'outcome_tokens', 0), currency);
   const potentialPercent = calculateGain(amountPlaced, potentialOutcome);
   const potentialPercentGain = _.get(potentialPercent, 'value');
   const potentialPercentType = _.get(potentialPercent, 'negative', false);
   const gainTypeClass = potentialPercentType ? 'negative' : 'positive';
-  const outcomeIndex = _.get(trade, 'outcomeIndex');
+  const outcomeIndex = _.get(trade, 'outcome_index');
   const outcomeValue = _.get(bet, ['outcomes', outcomeIndex, 'name']);
 
   //for later - share button logic
-  const tradeId = _.get(trade, '_id');
-  const eventId = _.get(bet, 'event');
-  const betId = _.get(trade, 'betId._id');
-
   const buildDirectLink = routes.betApproveDirect
-    .replace(':eventId', eventId)
-    .replace(':tradeId', tradeId)
-    .replace(':betId', betId);
+    .replace(':eventId', event.id)
+    .replace(':tradeId', trade.id)
+    .replace(':betId', bet.id);
 
   const urlOrigin = window.location.origin;
 
@@ -56,22 +54,22 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
         Congratulations!
       </span>
       <span className={styles.betPostedHeadline}>
-        Your Bet Has Been <br />
-        Posted
+        Your bet has been <br />
+        posted
       </span>
 
       <div className={styles.betOverview}>
         <div className={classNames(styles.entry)}>
           <div className={styles.label}>Amount placed</div>
-          <div className={styles.value}>
-            {toNumericString(amountPlaced)} <span>{currency}</span>
+          <div className={classNames(styles.value, styles.alignRight)}>
+            {toNumericString(amountPlaced)} <span>{currencyDisplay(currency)}</span>
           </div>
         </div>
         <div className={classNames(styles.entry)}>
           <div className={styles.label}>Potential outcome</div>
-          <div className={styles.value}>
-            {toNumericString(potentialOutcome.toFixed(2))}{' '}
-            <span>{currency}</span>
+          <div className={classNames(styles.value, styles.alignRight)}>
+            {toNumericString(potentialOutcome)}{' '}
+            <span>{currencyDisplay(currency)}</span>
           </div>
         </div>
         <div className={classNames(styles.entry, styles.alignRight)}>
@@ -88,7 +86,7 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
       <div className={styles.betButtonContainer}>
         <Button
           className={classNames(styles.betButton)}
-          highlightType={HighlightType.highlightHomeCtaBet}
+          theme={ButtonTheme.primaryButtonL}
           disabledWithOverlay={false}
           onClick={hidePopup}
         >

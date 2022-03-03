@@ -3,9 +3,9 @@ import TWEEN from '@tweenjs/tween.js';
 import { isMobileRosiGame, calcPercent, calcTotalDelayTime } from './utils';
 
 const AMOUNT_TEXT_FILL_COLOR = 0xefff54;
-const AMOUN_FONT_FAMILY = 'PlusJakarta-Bold';
+const AMOUN_FONT_FAMILY = 'DM Sans';
 const CRASH_FACTOR_FILL_COLOR = 0xffffff;
-const CRASH_FACTOR_FONT_FAMILY = 'PlusJakarta-Regular';
+const CRASH_FACTOR_FONT_FAMILY = 'DM Sans';
 const FONT_SIZE = 12;
 const COIN_DEFAULT_SCALE = isMobileRosiGame ? 0.5 : 0.3;
 
@@ -34,6 +34,7 @@ class Animation {
     const amountText = new PIXI.Text('0', {
       fontFamily: AMOUN_FONT_FAMILY,
       fontSize: FONT_SIZE,
+      fontStyle: 'bold',
       fill: AMOUNT_TEXT_FILL_COLOR,
     });
 

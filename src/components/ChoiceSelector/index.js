@@ -4,6 +4,7 @@ import SelectionHelper from '../../helper/SelectionHelper';
 import ChoiceSelectorTheme from './ChoiceSelectorTheme';
 import _ from 'lodash';
 import { formatToFixed } from '../../helper/FormatNumbers';
+import { currencyDisplay } from 'helper/Currency';
 
 const ChoiceSelector = ({
   name,
@@ -37,7 +38,7 @@ const ChoiceSelector = ({
         <div className={styles.choiceWinAmountContainer}>
           <div className={styles.choiceWinAmount}>{winAmountString}</div>
           <div className={styles.choiceWinAmountUnitContainer}>
-            <div className={styles.choiceWinAmountUnit}>{currency}</div>
+            <div className={styles.choiceWinAmountUnit}>{currencyDisplay(currency)}</div>
             <div className={styles.choiceWinAmountCash}>
               <span
                 className={classNames(
@@ -63,10 +64,10 @@ const ChoiceSelector = ({
         selected ? styles.choiceButtonSelected : null,
         disabled ? styles.choiceButtonDisabled : null,
         SelectionHelper.get(theme, {
-          [ChoiceSelectorTheme.colorOrangeLight]: styles.choiceColorOrangeLight,
-          [ChoiceSelectorTheme.colorGreen]: styles.choiceColorGreen,
-          [ChoiceSelectorTheme.colorPinkLight]: styles.choiceColorPinkLight,
-          [ChoiceSelectorTheme.colorFlamingo]: styles.choiceColorFlamingo,
+          [ChoiceSelectorTheme.choiceColorOne]: styles.choiceColorOne,
+          [ChoiceSelectorTheme.choiceColorTwo]: styles.choiceColorTwo,
+          [ChoiceSelectorTheme.choiceColorThree]: styles.choiceColorThree,
+          [ChoiceSelectorTheme.choiceColorFour]: styles.choiceColorFour,
         }),
         className
       )}

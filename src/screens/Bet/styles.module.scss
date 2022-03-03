@@ -280,7 +280,7 @@
       align-items: center;
 
       h2 {
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-weight: bold;
         font-size: 20px;
         margin-right: 1rem;
@@ -488,13 +488,13 @@
 
   .tradeDescTitle {
     font-size: 16px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
     margin-bottom: 5px;
   }
 
   .tradeDesc {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -565,7 +565,7 @@
 
 .timerLabel {
   color: $colorWhite;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-size: 20px;
   margin-bottom: 5px;
 }
@@ -600,7 +600,7 @@
 
   .timerLabel {
     color: $colorWhite;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 20px;
     margin-bottom: 5px;
     width: 100%;

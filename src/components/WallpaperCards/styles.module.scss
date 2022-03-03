@@ -21,7 +21,7 @@
   flex-direction: row;
   align-items: center;
   color: $colorWhite;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-size: 24px;
   font-weight: 700;
   padding-bottom: 20px;
@@ -29,7 +29,7 @@
   .howtoLink {
     cursor: pointer;
     font-size: 11px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     text-decoration: underline;
     color: $colorYellow;
 
@@ -163,7 +163,7 @@
         bottom: 0;
         left: 0;
         color: $colorWhite;
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         padding: 30px;
 
         .title {
@@ -194,7 +194,7 @@
         align-items: center;
         justify-content: center;
         font-size: 24px;
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         color: #f2ff53;
         text-align: center;
         font-weight: 700;

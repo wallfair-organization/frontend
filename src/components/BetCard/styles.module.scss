@@ -21,10 +21,16 @@
     mix-blend-mode: multiply;
     background: linear-gradient(
       to bottom,
-      rgba(31, 32, 79, 0.5) 0%,
-      rgba(25, 20, 52, 0.91) 70%,
+      rgba(31, 32, 79, 0.3) 0%,
+      rgba(25, 20, 52, 0.8) 70%,
       rgba(18, 14, 39, 1) 100%
     );
+  }
+
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   .timerContainer {
@@ -43,6 +49,9 @@
       display: flex;
       align-items: flex-end;
       padding-right: 10px;
+      color: $colorWhite;
+      font-family: $fontDMSans;
+
       .timerLabel {
         font-size: 12px;
         padding-right: 10px;
@@ -50,7 +59,9 @@
 
       .timerValue {
         font-size: 13px;
-        font-family: $fontBold;
+        line-height: 15px;
+        font-family: $fontDMSans;
+        font-weight: 700;
         padding-right: 2px;
       }
 
@@ -58,6 +69,28 @@
         font-size: 10px;
         color: $colorWhite30;
         padding-right: 10px;
+      }
+
+      &.smallTimer {
+        padding-right: 0px;
+        .timerLabel {
+          font-size: 10px;
+          padding-right: 8px;
+        }
+
+        .timerValue {
+          font-size: 12px;
+          line-height: 14px;
+          font-family: $fontDMSans;
+          font-weight: 700;
+          padding-right: 2px;
+        }
+
+        .timerUnit {
+          font-size: 10px;
+          color: $colorWhite30;
+          padding-right: 10px;
+        }
       }
     }
   }
@@ -105,226 +138,10 @@
       }
 
       .title {
-        font-family: $fontBold;
+        font-family: $fontDMSans;
+        font-weight: bold;
         font-size: 15px;
       }
     }
   }
 }
-
-// .betCardContainer {
-//   .betCard {
-//     background: white;
-//     padding: 0;
-//     height: 100%;
-//     border-radius: 12px;
-//     font-family: $fontLight;
-//     color: $colorWhite;
-//     display: flex;
-//     position: relative;
-//     z-index: 0;
-//     flex-direction: column;
-//     user-select: none;
-//     cursor: pointer;
-//     overflow: hidden;
-
-//     .eventVideoBackground {
-//       position: absolute;
-//       top: 0;
-//       left: 0;
-//       width: 100%;
-//       height: 100%;
-//     }
-//     .betCardVideoBackground {
-//       position: absolute;
-//       top: 0;
-//       left: 0;
-//       width: 100%;
-//       height: 100%;
-//       z-index: 10;
-//     }
-
-//     .titleContainer {
-//       text-overflow: ellipsis;
-//       overflow: hidden;
-//       color: $colorBlack;
-//     }
-
-//     .title {
-//       font-family: $fontOmnes;
-//       font-size: 16px;
-//       font-weight: 500;
-//       line-height: 1.5;
-//       color: $colorBlack;
-//       vertical-align: top;
-//       text-overflow: ellipsis;
-//       overflow: hidden;
-//     }
-
-//     .section {
-//       color: #c1c8d2;
-//       font-size: 10px;
-//       font-weight: 500;
-//       align-self: end;
-//     }
-
-//     .header {
-//       display: flex;
-//       justify-content: space-between;
-//       padding: 16px 16px 16px 28px;
-//       cursor: default;
-//       position: relative;
-//     }
-
-//     .special {
-//       display: flex;
-//       flex-direction: row-reverse;
-//       align-items: end;
-//       .star {
-//         font-size: 16px;
-//         color: black;
-//       }
-//     }
-
-//     .outcomesContainer {
-//       width: 100%;
-//       display: flex;
-//       padding: 14px 0 14px 0;
-//       flex-direction: column;
-//       .outcome {
-//         display: grid;
-//         grid-template-columns: 80px 100px 20px;
-//         grid-gap: 16px;
-//         .amount {
-//           font-size: 8pt;
-//           font-weight: 500;
-//           align-self: center;
-//           font-weight: bold;
-//           color: #979ea7;
-//         }
-//         .outcomeName {
-//           font-family: $fontOmnes;
-//           font-size: 10pt;
-//           line-height: 1.5;
-//           font-weight: 500;
-//           color: #000;
-//           align-self: center;
-//         }
-//       }
-//     }
-//     .buttonContainer {
-//       width: 100%;
-//       display: flex;
-//       padding: 14px 0 14px 0;
-//       flex-direction: column;
-//       justify-content: center;
-//       align-items: center;
-//       .button {
-//         outline: 0;
-//         color: $colorBlack;
-//         width: 10em;
-//         height: 50px;
-//         border-radius: 4px;
-//         font-size: 16px;
-//         font-weight: bolder;
-//         display: flex;
-//         align-items: center;
-//         font-family: $fontOmnes;
-//         justify-content: space-around;
-//         background-image: url('../../data/backgrounds/games/games-highlight.png');
-//         background-repeat: no-repeat;
-//         background-size: contain;
-//         cursor: pointer;
-//         @media screen and (max-width: $screen-xs) {
-//           margin-top: 10px;
-//           margin-bottom: 10px;
-//         }
-//       }
-//     }
-//   }
-// }
-
-// .visualization {
-//   position: relative;
-//   background: $colorYellowAdjusted;
-//   width: 100px;
-//   min-height: 3px;
-//   max-height: 3px;
-//   border-radius: 3px;
-//   align-self: center;
-// }
-
-// .gauge {
-//   position: absolute;
-//   width: 1px;
-//   min-height: 3px;
-//   max-height: 3px;
-//   max-width: 100px;
-//   border-radius: 3px;
-//   background: #120f27;
-// }
-
-// .content {
-//   padding: 0 28px 5px 28px;
-//   &.timerActive {
-//     position: relative;
-//     bottom: 30px;
-//   }
-// }
-
-// .timer {
-//   width: max-content;
-//   border-radius: 2px;
-//   background-color: #f6f7f8;
-//   padding: 5px 9px 4px 9px;
-//   display: flex;
-//   justify-content: center;
-//   margin-right: 10px;
-
-//   span {
-//     font-weight: 500;
-//     min-width: 5px;
-//     color: #8192a6;
-//     font-size: 8px;
-//   }
-// }
-
-// .star {
-//   background-image: url('../../data/icons/star-1.svg');
-//   background-repeat: no-repeat;
-//   width: 17px;
-//   height: 17px;
-//   background-size: cover;
-//   z-index: 10;
-//   cursor: pointer;
-// }
-
-// .starFull {
-//   background-image: url('../../data/icons/star-2.svg');
-//   background-repeat: no-repeat;
-//   width: 17px;
-//   height: 17px;
-//   background-size: cover;
-//   z-index: 10;
-//   cursor: pointer;
-// }
-
-// .picture {
-//   width: 100%;
-//   min-height: 120px;
-//   background-size: cover;
-//   background-position: center;
-//   background-color: #f6f7f8;
-//   z-index: 2;
-// }
-
-// .categorySticker {
-//   width: 52px;
-//   height: 52px;
-//   background: url('../../data/icons/events-all-icon.svg');
-//   border-radius: 50%;
-//   background-position: center;
-//   position: absolute;
-//   top: -35px;
-//   z-index: 3;
-// }

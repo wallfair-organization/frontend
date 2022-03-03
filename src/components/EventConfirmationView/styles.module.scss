@@ -1,0 +1,76 @@
+@import '../../styles/all';
+
+.eventCreateContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: $colorWhite;
+  color: $colorPrimaryDark;
+  border-radius: 10px;
+
+  .eventOverview {
+    position: relative;
+    width: 70%;
+    min-width: 300px;
+    margin: 25px 0 20px;
+    line-height: 1;
+    font-size: 20px;
+
+    @media (max-width: $screen-sm) {
+      font-size: 16px;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: -20%;
+      @media (max-width: $screen-sm) {
+        display: none;
+      }
+    }
+  }
+
+  .headLine {
+    font-size: 24px;
+    text-align: center;
+    font-family: $fontDMSans;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .shareButtons {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+
+    .shareIcon {
+      width: 49px;
+      height: 49px;
+
+      svg > * {
+        fill: $colorYellow;
+      }
+
+      button,
+      svg {
+        width: 49px;
+        height: 49px;
+      }
+
+      path {
+        fill: $colorPrimary;
+      }
+    }
+  }
+
+  .skipButton {
+    margin-top: 24px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    text-decoration-line: underline;
+    color: #120e27;
+    cursor: pointer;
+  }
+}

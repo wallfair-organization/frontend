@@ -72,9 +72,13 @@ const MainMenu = ({
     history.push(destinationRoute);
   };
 
+  const onEventsClick = () => {
+    onClickGoToRoute('/events/all');
+  };
+
   const onGamesClick = () => {
     onClickGoToRoute(Routes.games);
-  }
+  };
 
   const onProfileClick = () => {
     onClickGoToRoute(`/user/${user.userId}`);
@@ -434,6 +438,7 @@ const MainMenu = ({
             loggedIn={user.authState === LOGGED_IN}
             profilePic={profilePic}
             onWalletClick={onWalletClick}
+            onEventsClick={onEventsClick}
             onGamesClick={onGamesClick}
             onActivitiesClick={onActivitiesClick}
             onLeaderboardClick={onLeaderboardClick}

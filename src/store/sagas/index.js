@@ -19,6 +19,7 @@ import {
 import { AuthenticationTypes } from '../actions/authentication';
 import { BetTypes } from '../actions/bet';
 import { EventTypes } from '../actions/event';
+import { ChartTypes } from '../actions/chart-params';
 import { REHYDRATE } from 'redux-persist';
 import { TransactionTypes } from '../actions/transaction';
 import { UserTypes } from '../actions/user';
@@ -44,11 +45,6 @@ const root = function* () {
     takeLatest(
       [AuthenticationTypes.FORCED_LOGOUT],
       AuthenticationSagas.forcedLogout
-    ),
-    takeLatest([AuthenticationTypes.VERIFY_SMS], AuthenticationSagas.verifySms),
-    takeLatest(
-      [AuthenticationTypes.REQUEST_SMS],
-      AuthenticationSagas.requestSms
     ),
     takeLatest(
       [AuthenticationTypes.SET_NAME, AuthenticationTypes.SET_EMAIL],
@@ -131,26 +127,24 @@ const root = function* () {
       ],
       AlertSagas.handleShown
     ),
-    takeLatest([EventTypes.FETCH_ALL], EventSagas.fetchAll),
+    // takeLatest([EventTypes.FETCH_ALL], EventSagas.fetchAll),
     takeLatest([EventTypes.FETCH_ALL_SUCCEEDED], EventSagas.fetchAllSucceeded),
     takeLatest([EventTypes.FETCH_FILTERED], EventSagas.fetchFilteredEvents),
-    takeEvery([EventTypes.FETCH_HOME_EVENTS], EventSagas.fetchHomeEvents),
+    // takeEvery([EventTypes.FETCH_HOME_EVENTS], EventSagas.fetchHomeEvents),
     takeLatest([BetTypes.PLACE], BetSagas.place),
     takeLatest([BetTypes.CREATE], BetSagas.create),
     takeLatest([BetTypes.EDIT], BetSagas.edit),
     takeEvery([BetTypes.FETCH_OUTCOMES], BetSagas.fetchOutcomes),
     takeEvery([BetTypes.FETCH_SELL_OUTCOMES], BetSagas.fetchSellOutcomes),
-    takeLatest([BetTypes.FETCH_OPEN_BETS], BetSagas.fetchOpenBets),
-    takeLatest([BetTypes.FETCH_TRADE_HISTORY], BetSagas.fetchTradeHistory),
     takeLatest(
       [BetTypes.FETCH_OPEN_BETS_SUCCEEDED],
       BetSagas.fetchOpenBetsSucceeded
     ),
     takeEvery([BetTypes.PULL_OUT_BET], BetSagas.pullOut),
-    takeLatest(
-      [TransactionTypes.FETCH_ALL],
-      TransactionSagas.fetchTransactions
-    ),
+    // takeLatest(
+    //   [TransactionTypes.FETCH_ALL],
+    //   TransactionSagas.fetchTransactions
+    // ),
     takeEvery([UserTypes.FETCH], UserSagas.fetch),
     takeEvery([UserTypes.FETCH_SUCCEEDED], UserSagas.fetchSucceeded),
     takeLatest([UserTypes.UPDATE_PREFERENCES], UserSagas.updatePreferences),
@@ -185,10 +179,6 @@ const root = function* () {
       [AuthenticationTypes.ACCEPT_TOS_CONSENT],
       AuthenticationSagas.updateToSConsent
     ),
-    takeLatest(
-      [EventTypes.FETCH_HISTORY_CHART_DATA, EventTypes.UPDATE_CHART_PARAMS],
-      EventSagas.fetchHistoryChartData
-    ),
     takeLatest([EventTypes.FETCH_NEWS_DATA], EventSagas.fetchNewsData),
     takeLatest([EventTypes.CREATE_EVENT], EventSagas.createEvent),
     takeLatest([EventTypes.EDIT_EVENT], EventSagas.editEvent),
@@ -217,14 +207,14 @@ const root = function* () {
       TransactionSagas.fetchWalletTransactions
     ),
     takeLatest(
-      [OnboardingTypes.START, OnboardingTypes.NEXT],
+      [OnboardingTypes.START, OnboardingTypes.NEXT, OnboardingTypes.ADD_PHONE],
       OnboardingSaga.loadOnboardingStep
     ),
     takeEvery([OnboardingTypes.START], OnboardingSaga.getUsernameSuggestion),
     takeEvery(
       [OnboardingTypes.GET_USERNAME],
       OnboardingSaga.getUsernameSuggestion
-    ),
+    )
     // @formatter:on
   ]);
 };

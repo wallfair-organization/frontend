@@ -8,7 +8,7 @@ import {
 } from './utils';
 
 const AXIS_LABEL_NUM = 50;
-const AXIS_LABEL_FONT_FAMILY = 'PlusJakarta-Bold';
+const AXIS_LABEL_FONT_FAMILY = 'DM Sans';
 const AXIS_LABEL_COLOR = 0xffffff;
 const AXIS_LABEL_FONT_SIZE = 10;
 export class CoinAnimation {

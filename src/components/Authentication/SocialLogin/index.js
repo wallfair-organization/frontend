@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import Button from 'components/Button';
+import ButtonTheme from 'components/Button/ButtonTheme';
 import Icon from 'components/Icon';
 import IconType from 'components/Icon/IconType';
 import { useEffect, useState } from 'react';
@@ -9,7 +10,8 @@ import { useSocialLogins } from './useSocialLogins';
 const LoginButton = ({ children, onClick, styles, disabled }) => (
   <Button
     onClick={onClick}
-    className={classNames(styles.signInButton)}    
+    className={classNames(styles.signInButton)}   
+    theme={ButtonTheme.secondaryButtonLight} 
     // disabled={disabled}
   >
     {children}
@@ -91,7 +93,8 @@ const SocialLogin = ({ styles, prepend = [], signUp = true, authenticationType, 
             <p>Sign up with Google</p>
           </LoginButton>
         ) : (
-          <button
+          <Button
+            theme={ButtonTheme.secondaryButtonLight}
             className={styles.socialCircleButton}
             onClick={(event) => {
               login('google', isRegistration)();
@@ -104,7 +107,7 @@ const SocialLogin = ({ styles, prepend = [], signUp = true, authenticationType, 
               iconType={IconType.google}
               {...iconProps}
             />
-          </button>
+          </Button>
         ))}
       {isVisible.twitch &&
         (showLarge ? (
@@ -122,7 +125,8 @@ const SocialLogin = ({ styles, prepend = [], signUp = true, authenticationType, 
             <p>Sign up with Twitch</p>
           </LoginButton>
         ) : (
-          <button
+          <Button
+            theme={ButtonTheme.secondaryButtonLight}
             className={styles.socialCircleButton}
             onClick={(event) => {
               login('twitch', isRegistration)();
@@ -135,7 +139,7 @@ const SocialLogin = ({ styles, prepend = [], signUp = true, authenticationType, 
               iconType={IconType.twitch}
               {...iconProps}
             />
-          </button>
+          </Button>
         ))}
       {isVisible.discord &&
         (showLarge ? (
@@ -153,7 +157,8 @@ const SocialLogin = ({ styles, prepend = [], signUp = true, authenticationType, 
             <p>Sign up with Discord</p>
           </LoginButton>
         ) : (
-          <button
+          <Button
+            theme={ButtonTheme.secondaryButtonLight}
             className={styles.socialCircleButton}
             onClick={(event) => {
               login('discord', isRegistration)();
@@ -166,7 +171,7 @@ const SocialLogin = ({ styles, prepend = [], signUp = true, authenticationType, 
               iconType={IconType.discord}
               {...iconProps}
             />
-          </button>
+          </Button>
         ))}
     </div>
   );

@@ -9,6 +9,7 @@ import styles from './styles.module.scss';
 import { connect } from 'react-redux';
 import ReferralLinkCopyInputBox from '../ReferralLinkCopyInputBox';
 import { TOKEN_NAME } from '../../constants/Token';
+import { currencyDisplay } from 'helper/Currency';
 
 const ReferralList = ({ closed, userId, referralsWithUser }) => {
   const renderReferralItem = referralWithUser => {
@@ -57,7 +58,7 @@ const ReferralList = ({ closed, userId, referralsWithUser }) => {
         Referrals
       </div>
       <div className={styles.referralListDescription}>
-        Get 50 {TOKEN_NAME} for each user which joined over your referral link.
+        Get 50 {currencyDisplay(TOKEN_NAME)} for each user which joined over your referral link.
         <br />
         <br />
         <div className={styles.referralLinkContainer}>

@@ -3,7 +3,7 @@
 .buttonSmall {
   background-color: $colorWhite;
   color: $colorPrimary;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-size: 12px;
   min-width: 60px;
   min-height: 20px;
@@ -33,6 +33,11 @@
     background-color: $colorGrayLight6;
     color: $colorPrimaryLight;
     border-radius: 99px;
+  }
+
+  &.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 
   .greyIcon {

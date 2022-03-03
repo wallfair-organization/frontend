@@ -10,6 +10,8 @@ import ReactTooltip from 'react-tooltip';
 import { RECAPTCHA_KEY } from 'constants/Api';
 import classNames from 'classnames';
 import AuthState from '../../../constants/AuthState';
+import ButtonTheme from 'components/Button/ButtonTheme';
+import StepBar from 'components/StepBar';
 
 const EmailSignUp = ({
   styles,
@@ -39,7 +41,7 @@ const EmailSignUp = ({
   useEffect(() => {
     ReactTooltip.rebuild();
 
-    if (error) {
+    if (error || errorState) {
       ReactTooltip.show(fooRef.current);
       setSubmitInProgress(false);
     } else {
@@ -166,6 +168,10 @@ const EmailSignUp = ({
         backgroundColor={'#ff0000'}
         className={styles.stepsTooltipError}
       />
+
+      <StepBar step={1} size={4} className={styles.stepBar} />
+      <div className={styles.title}>What about your E-Mail address?</div>
+
       <div className={styles.rowContainer}>
         <div>
           <FormGroup
@@ -272,6 +278,7 @@ const EmailSignUp = ({
         className={classNames([styles.submitButton, styles.desktop])}
         disabled={submitInProgress || !legalAuthorizationAgreed}
         disabledWithOverlay={false}
+        theme={ButtonTheme.primaryButtonXL}
       >
         Sign Up with E-mail
       </Button>

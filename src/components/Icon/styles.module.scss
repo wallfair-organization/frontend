@@ -29,7 +29,7 @@
 
   &.iconFavorite {
     > svg {
-      @include svgColorStroke($colorLightYellow);
+      @include svgColorStroke($colorPrimary);
     }
   }
 

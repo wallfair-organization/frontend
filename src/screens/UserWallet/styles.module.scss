@@ -30,7 +30,7 @@
       flex-direction: column;
     }
     h1 {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-size: 30px;
       color: $colorWhite;
     }
@@ -39,7 +39,7 @@
       align-items: center;
       p {
         margin-left: 8px;
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-size: 12px;
         color: $colorWhite;
       }
@@ -80,7 +80,7 @@
     align-items: center;
     justify-content: space-between;
     color: $colorWhite;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 24px;
     margin-bottom: 20px;
 
@@ -150,7 +150,7 @@
       display: inline-block;
       padding: 1px 4px;
       border-radius: 6px;
-      font-family: $fontRegular;
+      font-family: $fontDMSans;
       background-color: $mainAction;
       font-size: 9px;
       padding: 1px 4px;
@@ -195,7 +195,7 @@
   display: flex;
   align-items: flex-end;
   color: $colorWhite;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -341,7 +341,7 @@
         .balanceTextContainer {
           margin-left: 25px;
           .currentbalanceHeading {
-            font-family: $fontOmnes;
+            font-family: $fontDMSans;
             color: $colorWhite;
             font-weight: 600;
             font-size: 11px;
@@ -354,7 +354,7 @@
               display: flex;
 
               box-sizing: border-box;
-              font-family: $fontOmnes;
+              font-family: $fontDMSans;
               font-size: 44px;
               font-weight: 600;
               text-align: center;
@@ -374,7 +374,7 @@
               }
             }
             .symbolContainer {
-              font-family: $fontOmnes;
+              font-family: $fontDMSans;
               font-size: 16px;
               font-weight: 600;
               text-align: center;
@@ -408,7 +408,7 @@
       width: 100%;
       cursor: pointer;
       .depositTitle {
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-size: 20px;
         font-weight: 600;
         color: $colorWhite;
@@ -419,7 +419,7 @@
         align-items: center;
       }
       .depositDescription {
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-size: 12px;
         font-weight: 600;
         color: #dbe0ff;
@@ -524,7 +524,7 @@
         line-height: 24px;
         padding: 0 40px 10px;
         margin: 0 auto;
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-size: 14px;
         font-weight: 500;
         color: $colorWhite;
@@ -548,7 +548,7 @@
         margin-top: 0px;
         // margin-bottom: 20px;
         width: 240px;
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
 
         &.buttonDeposit {
           margin-top: 10px;

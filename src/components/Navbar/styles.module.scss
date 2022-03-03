@@ -1,574 +1,713 @@
 @import '../../styles/all';
 
-.navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px 50px;
-  z-index: $sIndexNavbar;
-  background: $colorNavBackground;
+.topWrapper {
+  position: relative;
+  .topBar {
+    background: $colorBlue;
+    width: 100%;
+    height: 30px;
+    color: $colorWhite;
 
-  @media (max-width: $screen-md) {
-    padding: 36px 24px;
-  }
-
-  @media (min-width: 1900px) {
-    padding: 50px 100px;
-  }
-
-  &.home {
-    background: rgba(8, 14, 51, 0);
-  }
-
-  .drawerWrapper {
-    display: contents;
-  }
-
-  .drawerBackdropBg {
-    backdrop-filter: blur(6px);
-    height: inherit;
-    width: inherit;
-    position: absolute;
-    z-index: 1;
-  }
-
-  .drawerContent {
-    z-index: 5;
     display: flex;
-    flex-flow: column nowrap;
-    height: inherit;
-  }
-
-  .centerContainer {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    .walletButton {
-      color: $colorLightYellow;
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-      padding-left: 8px;
-      border: 1px solid $colorLightYellow;
-      box-sizing: border-box;
-      border-radius: 24px;
-      font-family: $fontOmnes;
-      font-size: 12px;
-      cursor: pointer;
-      min-width: 80px;
-      height: 38px;
-      z-index: 0;
-
-      .walletLinkContainer {
-        display: flex;
-        p {
-          width: 100%;
-          min-width: 110px;
-          text-align: center;
-        }
-        &:hover {
-          & p {
-            font-weight: 600;
-          }
-        }
-      }
-
-      .depositLabel {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 124px;
-        height: 38px;
-        margin-left: 10px;
-        background: #ffd31a;
-        border: 1px solid #ffd401;
-        box-sizing: border-box;
-        border-radius: 25px;
-        color: $colorPrimary;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-        padding: 0 12px;
-        justify-content: space-around;
-
-        &:hover {
-          & .deposit {
-            padding: 0;
-            font-weight: 700;
-          }
-        }
-
-        @media (max-width: $screen-xs) {
-          width: 38px;
-          padding: 0;
-          & .deposit {
-            display: none;
-          }
-        }
-
-        & svg {
-          margin: 0;
-        }
-      }
-
-      img,
-      svg {
-        margin-right: 10px;
-        max-height: 24px;
-      }
-
-      p {
-        font-size: 16px;
-        // @media (max-width: $screen-md) {
-        //   font-size: 14px;
-        // }
-      }
-
-      &.leaderboardValues {
-        background-color: $colorPrimary;
-      }
-
-      &Active {
-        background-color: transparent;
-        border: 2px solid rgba(172, 196, 255, 0.42);
-        padding: 8px 13px;
-      }
-    }
-  }
-
-  .walletEquivalentBlock {
-    margin-top: 2px;
-    text-align: center;
-    color: white;
-    font-size: 15px;
-
-    .walletEquivalentCurrency {
-      color: #ffd31a;
-    }
-
-    .walletEquivalentOperator {
-      font-size: 22px;
-      line-height: 0;
-    }
-  }
-
-  .navbarItems {
-    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
 
-    svg {
-      stroke-width: 0;
+    font-size: 13px;
+    font-family: $fontDMSans;
+    column-gap: 10px;
+
+    @media (max-width: $screen-sm) {
+      display: none;
     }
 
-    &.hideOnMobile {
-      @media (max-width: $screen-md) {
-        display: none;
+    &.redBar {
+      column-gap: 0;
+      background: $colorRedLight;
+
+      .gift {
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: 0;
+        padding-right: 5px;
       }
     }
 
-    &:not(.hideOnMobile) {
-      @media (max-width: $screen-xs-max) {
-        width: 100%;
-        justify-content: flex-end;
-      }
+    & > svg,
+    & > img {
+      width: auto;
+      height: 14px;
     }
-    .signUpButton {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 43px;
-      border-radius: 30px;
-      font-family: $fontOmnes;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 20px;
-      margin-left: 0;
-      margin-right: 20px;
-      background: #ffd31a;
-      color: black;
-      border: 2px solid #ea9c00;
-      box-sizing: border-box;
-      border-radius: 25px;
-      padding: 0 24px;
+
+    a,
+    button {
+      width: fit-content;
+      text-decoration: underline;
       cursor: pointer;
-
-      @media (max-width: $screen-sm) {
-        display: none;
-        height: 40px;
-        font-size: 14px;
-      }
-    }
-
-    .loginButton {
-      margin-right: 20px;
-      font-size: 20px;
-      @media (max-width: $screen-sm) {
-        font-size: 16px;
-      }
-      @media (max-width: 320px) {
-        margin-right: 5px;
-      }
-    }
-
-    .registerButton {
-      margin-right: 10px;
-      font-size: 20px;
-      @media (max-width: $screen-sm) {
-        font-size: 16px;
-      }
-      @media (max-width: 320px) {
-        margin-right: 5px;
-        margin-left: 5px;
-      }
-    }
-
-    a {
+      border: 0;
+      outline: none;
+      background: transparent;
       color: $colorWhite;
-      opacity: 0.7;
-      text-decoration: none;
-      margin: 0 15px;
-      font-family: $fontLight;
-      white-space: nowrap;
-      letter-spacing: 0.4px;
-      font-size: 16px;
+    }
 
-      &:hover {
-        opacity: 1;
+    & > div {
+      white-space: nowrap;
+      display: flex;
+      column-gap: 3px;
+      padding-left: 5px;
+    }
+
+    & > span {
+      display: flex;
+      width: fit-content;
+      letter-spacing: 0.5px;
+      padding-right: 5px;
+    }
+
+    span.icon {
+      display: block;
+      padding-top: 2px;
+
+      svg {
+        height: 10px;
+        & > * {
+          fill: $colorWhite;
+        }
+      }
+    }
+  }
+
+  .topBarMobile {
+    display: none;
+    background: $colorBlue;
+    width: 100%;
+    height: 30px;
+    color: $colorWhite;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    font-family: $fontDMSans;
+    column-gap: 10px;
+
+    @media (max-width: $screen-sm) {
+      display: flex;
+    }
+
+    & > svg,
+    & > img {
+      width: auto;
+      height: 14px;
+    }
+
+    a,
+    button {
+      width: fit-content;
+      text-decoration: underline;
+      cursor: pointer;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: $colorWhite;
+    }
+
+    & > div {
+      white-space: nowrap;
+      display: flex;
+      column-gap: 3px;
+      padding-left: 5px;
+    }
+
+    & > span {
+      display: flex;
+      width: fit-content;
+      letter-spacing: 0.5px;
+      padding-right: 5px;
+    }
+
+    span.icon {
+      display: block;
+      padding-top: 2px;
+
+      svg {
+        height: 10px;
+        & > * {
+          fill: $colorWhite;
+        }
+      }
+    }
+  }
+
+  .navbar {
+    position: relative;
+    // top: 0;
+    // left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 50px;
+    z-index: $sIndexNavbar;
+    background: $colorPrimary;
+
+    @media (max-width: $screen-md) {
+      padding: 36px 24px;
+    }
+
+    @media (min-width: 1900px) {
+      padding: 50px 100px;
+    }
+
+    &.home {
+      background: rgba(8, 14, 51, 0);
+    }
+
+    .drawerWrapper {
+      display: contents;
+    }
+
+    .drawerBackdropBg {
+      backdrop-filter: blur(6px);
+      height: inherit;
+      width: inherit;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .drawerContent {
+      z-index: 5;
+      display: flex;
+      flex-flow: column nowrap;
+      height: inherit;
+    }
+
+    .centerContainer {
+      .walletDepositContainer {
+        display: flex;
+        column-gap: 10px;
+        .depositButton {
+          @media (max-width: $screen-xs) {
+            width: 100px;
+            .depositIcon {
+              display: none;
+            }
+          }
+        }
+      }
+      .walletButton {
+        color: $colorWhite;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        padding-left: 8px;
+        box-sizing: border-box;
+        border-radius: 6px;
+        font-family: $fontDMSans;
+        font-size: 12px;
+        cursor: pointer;
+        min-width: 80px;
+        height: 38px;
+        z-index: 0;
+        background: $colorLightPurple16;
+
+        .walletLinkContainer {
+          display: flex;
+          align-items: center;
+          position: relative;
+
+          .medal {
+            width: 24px;
+            @media (max-width: $screen-xs) {
+              display: none;
+            }
+          }
+
+          .balance {
+            width: 100%;
+            min-width: 110px;
+            text-align: center;
+            font-size: 16px;
+            padding: 0 10px;
+
+            @media (max-width: $screen-xs) {
+              min-width: 100px;
+            }
+          }
+
+          &:hover {
+            & .balance {
+              font-weight: 600;
+            }
+          }
+
+          .infoTooltip {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $colorLightPurple16;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+            width: max-content;
+            max-width: 250px;
+            color: $colorWhite;
+          }
+
+          &:hover {
+            .infoTooltip {
+              display: block;
+              @media (max-width: $screen-xs) {
+                display: none;
+              }
+            }
+          }
+        }
       }
     }
 
-    .ranking {
-      z-index: 5;
-      @media (max-width: $screen-xs) {
-        display: none !important;
+    .walletEquivalentBlock {
+      margin-top: 2px;
+      text-align: center;
+      color: white;
+      font-size: 15px;
+
+      .walletEquivalentCurrency {
+        color: #ffd31a;
       }
 
-      &.hiddenMobile {
-        @media (max-width: $screen-xs) {
+      .walletEquivalentOperator {
+        font-size: 22px;
+        line-height: 0;
+      }
+    }
+
+    .navbarItems {
+      display: flex;
+      align-items: center;
+
+      svg {
+        stroke-width: 0;
+      }
+
+      &.hideOnMobile {
+        @media (max-width: $screen-md) {
           display: none;
         }
       }
-    }
 
-    .balanceOverview {
-      border: none;
-      opacity: 1;
-      z-index: 5;
-      @media (max-width: 360px) {
-        display: none !important;
-      }
-    }
-
-    .notificationOverview {
-      position: relative;
-      color: white;
-      z-index: 5;
-      padding: 0 1rem;
-      cursor: pointer;
-
-      .notificationIcon {
-        position: absolute;
-        top: -10px;
-        left: 0;
+      &:not(.hideOnMobile) {
+        @media (max-width: $screen-xs-max) {
+          // width: 100%;
+          justify-content: flex-end;
+        }
       }
 
-      .notificationNew {
-        position: absolute;
-        top: -12px;
-        right: -5px;
-        width: 21px;
-        height: 17px;
+      .signUpButton {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: $colorRedLight;
-        border-radius: 8.4px;
-
-        .notificationNewText {
-          font-size: 10px;
-          line-height: 13px;
-          color: #ffffff;
-        }
-      }
-    }
-
-    .profileContainer {
-      display: flex;
-      margin-left: 15px;
-      cursor: pointer;
-      z-index: 5;
-
-      &.menuOpened {
-        .downCaret {
-          transform: rotate(90deg);
-        }
-      }
-
-      .profile {
-        flex: auto;
-        margin: 0;
-        height: 35px;
-        width: 35px;
-        border-radius: 50%;
-        background-color: $colorGrayLight;
-        background-size: cover;
-        background-position: center center;
-        border: 1px solid $colorLightGray;
-      }
-      .downCaret {
-        margin: 0 0 0 10px;
-        width: auto;
-        transition: transform 0.5s ease-in-out;
-      }
-      svg path {
-        fill: $colorWhite;
-        stroke: $colorWhite;
-      }
-
-      @media screen and (min-width: $screen-sm) {
+        height: 43px;
+        border-radius: 30px;
+        font-family: $fontDMSans;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 20px;
+        margin-left: 0;
         margin-right: 20px;
-      }
-    }
+        background: #ffd31a;
+        color: black;
+        border: 2px solid #ea9c00;
+        box-sizing: border-box;
+        border-radius: 25px;
+        padding: 0 24px;
+        cursor: pointer;
 
-    .menuContainer {
-      cursor: pointer;
-      z-index: 5;
-      .menu {
-        width: auto;
-        @media (max-width: $screen-md) {
-          width: 40px;
+        @media (max-width: $screen-sm) {
+          display: none;
           height: 40px;
+          font-size: 14px;
+        }
+      }
+
+      .loginButton {
+        margin-right: 20px;
+        font-size: 20px;
+
+        @media (max-width: $screen-sm) {
+          padding-top: 0;
+          padding-bottom: 0;
+          width: 80px;
+          height: 45px;
+          font-size: 16px;
+        }
+        @media (max-width: 320px) {
+          margin-right: 5px;
+        }
+      }
+
+      .registerButton {
+        margin-right: 10px;
+        font-size: 20px;
+        height: 50px;
+
+        @media (max-width: $screen-sm) {
+          padding: 0;
+          width: 100px;
+          font-size: 16px;
+        }
+        @media (max-width: 320px) {
+          margin-right: 5px;
+          margin-left: 5px;
+        }
+      }
+
+      a {
+        color: $colorWhite;
+        opacity: 0.7;
+        text-decoration: none;
+        margin: 0 15px;
+        font-family: $fontLight;
+        white-space: nowrap;
+        letter-spacing: 0.4px;
+        font-size: 16px;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .ranking {
+        z-index: 5;
+        @media (max-width: $screen-xs) {
+          display: none !important;
+        }
+
+        &.hiddenMobile {
+          @media (max-width: $screen-xs) {
+            display: none;
+          }
+        }
+      }
+
+      .balanceOverview {
+        border: none;
+        opacity: 1;
+        z-index: 5;
+        @media (max-width: 360px) {
+          display: none !important;
+        }
+      }
+
+      .notificationOverview {
+        position: relative;
+        color: white;
+        z-index: 5;
+        padding: 0 1rem;
+        cursor: pointer;
+
+        .notificationIcon {
+          position: absolute;
+          top: -10px;
+          left: 0;
+        }
+
+        .notificationNew {
+          position: absolute;
+          top: -12px;
+          right: -5px;
+          width: 21px;
+          height: 17px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: $colorRedLight;
+          border-radius: 8.4px;
+
+          .notificationNewText {
+            font-size: 10px;
+            line-height: 13px;
+            color: #ffffff;
+          }
+        }
+      }
+
+      .profileContainer {
+        display: flex;
+        margin-left: 15px;
+        cursor: pointer;
+        z-index: 5;
+
+        &.menuOpened {
+          .downCaret {
+            transform: rotate(90deg);
+          }
+        }
+
+        .profile {
+          flex: auto;
+          margin: 0;
+          height: 35px;
+          width: 35px;
+          border-radius: 50%;
+          background-color: $colorGrayLight;
+          background-size: cover;
+          background-position: center center;
+          border: 1px solid $colorLightGray;
+        }
+        .downCaret {
+          margin: 0 0 0 10px;
+          width: auto;
+          transition: transform 0.5s ease-in-out;
+        }
+        svg path {
+          fill: $colorWhite;
+          stroke: $colorWhite;
+        }
+
+        @media screen and (min-width: $screen-sm) {
+          margin-right: 20px;
+        }
+      }
+
+      .menuContainer {
+        cursor: pointer;
+        z-index: 5;
+        width: auto;
+        padding: 0;
+        border-radius: 50px;
+        @media (max-width: $screen-md) {
+          width: 55px;
+          height: 55px;
+        }
+      }
+
+      .active {
+        opacity: 1;
+        font-family: $fontDMSans;
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          background-color: $colorWhite;
+          bottom: -5px;
+          left: 50%;
+          width: 80%;
+          max-width: 120px;
+          height: 2px;
+          transform: translateX(-50%);
+          transition: opacity 0.2s ease-in-out;
+        }
+      }
+
+      .logoLink {
+        opacity: 1;
+        margin: 0;
+
+        // .logoContainer {
+        //   display: flex;
+        //   align-items: center;
+        //   .logoText {
+        //     margin-left: 10px;
+        //     color: $colorWhite;
+        //     font-family: $fontDMSans;
+        //     font-weight: bold;
+        //     font-size: 30px;
+        //     line-height: 50px;
+        //   }
+        // }
+
+        & > img {
+          margin: 0;
+          // width: 450px;
+        }
+
+        &:after {
+          display: none;
+        }
+      }
+
+      .linkWrapper {
+        display: flex;
+        margin-left: 1rem;
+        margin-top: 4rem;
+      }
+
+      .homeIcon {
+        width: 20px;
+        height: 20px;
+
+        & > svg {
+          max-height: 20px;
         }
       }
     }
 
-    .active {
-      opacity: 1;
-      font-family: $fontOmnes;
-      position: relative;
+    .leaderboard {
+      background-color: $colorPrimary;
 
-      &:after {
-        content: '';
-        position: absolute;
-        background-color: $colorWhite;
-        bottom: -5px;
-        left: 50%;
-        width: 80%;
-        max-width: 120px;
-        height: 2px;
-        transform: translateX(-50%);
-        transition: opacity 0.2s ease-in-out;
-      }
-    }
-
-    .logoLink {
-      opacity: 1;
-      margin: 0;
-
-      // .logoContainer {
-      //   display: flex;
-      //   align-items: center;
-      //   .logoText {
-      //     margin-left: 10px;
-      //     color: $colorWhite;
-      //     font-family: $fontOmnes;
-      //     font-weight: bold;
-      //     font-size: 30px;
-      //     line-height: 50px;
-      //   }
-      // }
-
-      & > img {
-        margin: 0;
-        // width: 450px;
-      }
-
-      &:after {
-        display: none;
-      }
-    }
-
-    .linkWrapper {
       display: flex;
-      margin-left: 1rem;
-      margin-top: 4rem;
-    }
+      flex-flow: column nowrap;
+      z-index: 1;
 
-    .homeIcon {
-      width: 20px;
-      height: 20px;
+      .closeLeaderboard {
+        @extend .floatingCloseButton;
 
-      & > svg {
-        max-height: 20px;
-      }
-    }
-  }
-
-  .leaderboard {
-    background-color: $colorPrimary;
-
-    display: flex;
-    flex-flow: column nowrap;
-    z-index: 1;
-
-    .closeLeaderboard {
-      @extend .floatingCloseButton;
-
-      @media screen and (min-width: $screen-sm) {
-        display: none;
-      }
-    }
-
-    .leaderboardHeadingWrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      padding: 15px 0;
-
-      @media (max-width: $screen-md) {
-        padding: 0;
+        @media screen and (min-width: $screen-sm) {
+          display: none;
+        }
       }
 
-      .leaderboardIcon {
-        width: 30px;
-        height: 30px;
-        margin-left: 30px;
+      .leaderboardHeadingWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: 15px 0;
+
+        @media (max-width: $screen-md) {
+          padding: 0;
+        }
+
+        .leaderboardIcon {
+          width: 30px;
+          height: 30px;
+          margin-left: 30px;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          right: 17px;
+          top: 10px;
+          width: 100px;
+          height: 70px;
+          z-index: -1;
+        }
       }
-      &:after {
-        content: '';
-        position: absolute;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        right: 17px;
-        top: 10px;
-        width: 100px;
-        height: 70px;
-        z-index: -1;
+
+      .leaderboardHeading {
+        padding: 20px 16px;
+        color: $colorWhite;
+        width: 100%;
+        font-family: $fontDMSans;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 30px;
+
+        @media (max-width: $screen-md) {
+          font-size: 22px;
+          margin-right: 30px;
+        }
       }
-    }
 
-    .leaderboardHeading {
-      padding: 20px 16px;
-      color: $colorWhite;
-      width: 100%;
-      font-family: $fontOmnes;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 30px;
-
-      @media (max-width: $screen-md) {
-        font-size: 22px;
-        margin-right: 30px;
-      }
-    }
-
-    .leaderboardHeadingRank {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      color: $colorWhite;
-      padding: 20px 30px;
-      min-width: 90px;
-      display: none;
-    }
-
-    .leaderboardHeadingRankText {
-      font-size: 11px;
-      text-transform: uppercase;
-      //opacity: 0.45;
-      padding-bottom: 10px;
-    }
-
-    .leaderboardHeadingRankValue {
-      font-size: 24px;
-    }
-
-    .leaderboardInfo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 90px;
-      width: 100%;
-      margin-bottom: 20px;
-      display: none;
-
-      @media (max-width: $screen-sm) {
+      .leaderboardHeadingRank {
+        display: flex;
         flex-direction: column;
-        padding: 0 15px;
-        height: auto;
-      }
-    }
-
-    .leaderboardInfoItem {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      width: 100%;
-      padding: 20px;
-      color: $colorWhite;
-      height: 100%;
-      font-family: $fontOmnes;
-
-      &:first-child {
-        margin: 0 5px 0 30px;
+        align-items: flex-end;
+        color: $colorWhite;
+        padding: 20px 30px;
+        min-width: 90px;
+        display: none;
       }
 
-      &:last-child {
-        margin: 0 30px 0 5px;
+      .leaderboardHeadingRankText {
+        font-size: 11px;
+        text-transform: uppercase;
+        //opacity: 0.45;
+        padding-bottom: 10px;
       }
 
-      @media (max-width: $screen-sm) {
-        margin: 0;
-        padding: 15px 20px;
+      .leaderboardHeadingRankValue {
+        font-size: 24px;
+      }
+
+      .leaderboardInfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90px;
+        width: 100%;
+        margin-bottom: 20px;
+        display: none;
+
+        @media (max-width: $screen-sm) {
+          flex-direction: column;
+          padding: 0 15px;
+          height: auto;
+        }
+      }
+
+      .leaderboardInfoItem {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+        padding: 20px;
+        color: $colorWhite;
+        height: 100%;
+        font-family: $fontDMSans;
 
         &:first-child {
-          margin: 0 0 10px 0;
+          margin: 0 5px 0 30px;
         }
 
         &:last-child {
-          margin: 0;
+          margin: 0 30px 0 5px;
         }
+
+        @media (max-width: $screen-sm) {
+          margin: 0;
+          padding: 15px 20px;
+
+          &:first-child {
+            margin: 0 0 10px 0;
+          }
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+
+      .leaderboardInfoItemText {
+        font-size: 11px;
+        text-transform: uppercase;
+        //opacity: 0.45;
+      }
+
+      .leaderboardInfoItemNumber {
+        font-size: 24px;
+      }
+
+      .leaderboardInfoItemToken {
+        font-size: 10px;
+        vertical-align: super;
       }
     }
 
-    .leaderboardInfoItemText {
-      font-size: 11px;
-      text-transform: uppercase;
-      //opacity: 0.45;
+    .logoMobile {
+      width: auto;
+      max-width: 42px;
     }
 
-    .leaderboardInfoItemNumber {
-      font-size: 24px;
-    }
-
-    .leaderboardInfoItemToken {
-      font-size: 10px;
-      vertical-align: super;
+    .logoMobileWrapper {
+      @media (min-width: $screen-md) {
+        display: none;
+      }
     }
   }
 
-  .logoMobile {
-    width: auto;
-    max-width: 42px;
-  }
-
-  .logoMobileWrapper {
-    @media (min-width: $screen-md) {
-      display: none;
-    }
-  }
-}
-
-.navbarSticky {
-  position: fixed;
+  // .navbarSticky {
+  //   position: fixed;
+  // }
 }

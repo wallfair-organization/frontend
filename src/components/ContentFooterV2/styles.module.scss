@@ -4,7 +4,7 @@
   width: 100%;
   flex-direction: column;
   padding: 40px 60px 15px 60px;
-  background-color: $colorBackground;
+  background-color: $colorPrimary;
   font-size: 18px;
 
   @media (max-width: $screen-sm) {
@@ -46,7 +46,6 @@
   font-size: 16px;
 }
 
-
 .supportBlock {
   font-size: 16px;
   color: white;
@@ -76,13 +75,13 @@
     }
 
     .logosSeparator:last-child {
-        margin-bottom: 0;
+      margin-bottom: 0;
     }
   }
 
   .logosSeparator {
     height: 1px;
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255, 255, 255, 0.6);
     margin: 30px 0;
 
     @media (max-width: $screen-md) {
@@ -90,10 +89,9 @@
     }
   }
 
-
   .footerSeparator {
     height: 1px;
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255, 255, 255, 0.6);
     margin: 5px 0;
     width: 100%;
 
@@ -117,7 +115,7 @@
 
     img {
       width: 55px;
-      display:block;
+      display: block;
     }
   }
 
@@ -128,9 +126,8 @@
 
     img {
       height: 30px;
-      display:block;
+      display: block;
     }
-
   }
 
   .logoContainer {
@@ -138,8 +135,8 @@
     flex-direction: row;
     align-items: center;
 
-
-    a, iframe {
+    a,
+    iframe {
       height: 50px;
       margin-right: 25px;
       display: flex;
@@ -154,11 +151,13 @@
       flex-direction: column;
       align-items: center;
 
-      a, iframe {
+      a,
+      iframe {
         margin: 10px 0;
       }
 
-      a:not(.wfairTokenEmblem), iframe {
+      a:not(.wfairTokenEmblem),
+      iframe {
         //margin-bottom: 25px;
         height: 50px;
       }
@@ -248,7 +247,7 @@
 
     a,
     button {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       display: flex;
       align-items: center;
       text-decoration: none;

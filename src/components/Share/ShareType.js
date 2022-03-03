@@ -3,4 +3,5 @@ export default {
   facebook: 'facebook',
   telegram: 'telegram',
   reddit: 'reddit',
+  discord: 'discord',
 };

@@ -77,6 +77,18 @@ $largeMobileHeight: 700px;
         left: 23px;
         width: 30px;
 
+        &.strokeIcon {
+          svg path {
+            stroke: $colorYellow;
+          }
+        }
+
+        &.fillIcon {
+          svg path {
+            fill: $colorYellow;
+          }
+        }
+
         @media (max-width: $screen-sm) {
           left: 15px;
         }
@@ -86,7 +98,7 @@ $largeMobileHeight: 700px;
         position: absolute;
         left: 70px;
         font-style: normal;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 24px;
         line-height: 30px;
         color: $colorWhite;

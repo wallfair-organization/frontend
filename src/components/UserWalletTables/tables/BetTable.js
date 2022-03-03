@@ -8,6 +8,7 @@ import { toNumericString } from 'helper/FormatNumbers';
 import { TOKEN_NAME } from '../../../constants/Token';
 import { GAMES } from 'constants/Games';
 import {getGameById, getExternalGames} from "../../../helper/Games";
+import { currencyDisplay } from 'helper/Currency';
 
 const BetsRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
   const { gameId,username, crashFactor, stakedAmount } = data;
@@ -48,7 +49,7 @@ const BetsRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
           className={hideSecondaryColumns && styles.hideSecondaryColumns}
         >
           <div className={styles.messageCenter}>
-            {toNumericString(stakedAmount)} {TOKEN_NAME}
+            {toNumericString(stakedAmount)} {currencyDisplay(TOKEN_NAME)}
             </div>
         </Grid>
         <Grid
@@ -62,7 +63,7 @@ const BetsRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
         </Grid>
         <Grid item xs>
           <div className={classNames(styles.messageLast, styles.messageRight)}>
-            <p className={styles.reward}>{toNumericString(roundToTwo(cashout, 0))} {TOKEN_NAME}</p>
+            <p className={styles.reward}>{toNumericString(roundToTwo(cashout, 0))} {currencyDisplay(TOKEN_NAME)}</p>
           </div>
         </Grid>
       </Grid>

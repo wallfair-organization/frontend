@@ -19,7 +19,8 @@ export const Validators = {
   isUrl: val =>
     !!val &&
     (val.startsWith('http://') || val.startsWith('https://')) &&
-    val.split('/').at(-1) !== '' &&
+    // (val.split('/')).at(-1) !== '' && //at() not supported by safari macOS / iOS
+    val.split('/')[val.split('/').length - 1] !== '' &&
     val.includes('.')
       ? null
       : { invalidUrl: true },

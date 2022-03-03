@@ -74,8 +74,36 @@ const loadOnboardingStep = function* (action) {
       //     },
       //   })
       // );
+    case OnboardingSteps.setPhoneNumber:
+      return yield put(
+        PopupActions.show({
+          popupType: PopupTheme.phoneNumber,
+          options: {
+            initialOnboarding: action?.initialOnboarding,
+            ...action?.options,
+            small: false,
+          },
+        })
+      );
+    case OnboardingSteps.phoneVerification:
+      return yield put(
+        PopupActions.show({
+          popupType: PopupTheme.phoneVerification,
+          options: {
+            ...action?.options,
+            small: false,
+          },
+        })
+      );
     case OnboardingSteps.wallet:
-      yield put(push('/wallet'))
+      const initialOnboarding = yield select(state => state.onboarding.initialOnboarding);
+      if (initialOnboarding) {
+        yield put(push('/wallet'));
+      } else {
+        yield put(
+          PopupActions.hide()
+        )
+      }
       yield delay(1000);
       yield put(OnboardingActions.reset());
   }

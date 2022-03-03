@@ -50,7 +50,6 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory) => {
         translatedCat = 'Card Games';
       }
     } else if (gamesCategory === "Poker") {
-      console.log(catSubType);
       if (catSubType === 'Poker' || (catSubType === 'Table' && name.indexOf('Poker') > -1)) {
         translatedCat = 'Poker Games';
       }

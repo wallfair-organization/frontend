@@ -6,7 +6,11 @@ import Store from '../store';
 import { AuthenticationActions } from 'store/actions/authentication';
 import { PopupActions } from 'store/actions/popup';
 import PopupTheme from 'components/Popup/PopupTheme';
-import {KYC_REFRESH_STATUS, SEND_BUY_WITH_CRYPTO, SEND_BUY_WITH_FIAT} from '../constants/Api';
+import {
+  KYC_REFRESH_STATUS,
+  SEND_BUY_WITH_CRYPTO,
+  SEND_BUY_WITH_FIAT,
+} from '../constants/Api';
 
 const {
   store: { dispatch },
@@ -51,29 +55,30 @@ const createInstance = (host, apiPath) => {
 };
 
 const Api = createInstance(ApiUrls.BACKEND_URL, '/');
-
 const WithdrawServiceApi = createInstance(ApiUrls.WITHDRAW_SERVICE_URL, '/');
+const EventsServiceApi = createInstance(ApiUrls.EVENTS_SERVICE_URL, '/');
 
 const setToken = token => {
   const authentication = 'Bearer ' + token;
 
   Api.defaults.headers.common['Authorization'] = authentication;
   WithdrawServiceApi.defaults.headers.common['Authorization'] = authentication;
+  EventsServiceApi.defaults.headers.common['Authorization'] = authentication;
 };
 
-const requestSms = (phone, ref) => {
-  return Api.post(ApiUrls.API_AUTHENTICATION_REQUEST_SMS_URL, {
+const sendSms = phone => {
+  return Api.post(ApiUrls.API_AUTHENTICATION_SEND_SMS, {
     phone,
-    ref,
   })
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
 
-const verifySms = (phone, smsToken) => {
-  return Api.post(ApiUrls.API_AUTHENTICATION_VERIFY_SMS_URL, {
+const verifySms = (phone, smsToken, userId) => {
+  return Api.post(ApiUrls.API_AUTHENTICATION_VERIFY_SMS, {
     phone,
     smsToken,
+    userId,
   })
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
@@ -201,7 +206,9 @@ const updateUserPreferences = (userId, preferences) => {
   })
     .then(response => ({ response }))
     .catch(error => {
-      return { error: (error.response?.message || 'Update user preferences failed') }
+      return {
+        error: error.response?.message || 'Update user preferences failed',
+      };
     });
 };
 
@@ -235,23 +242,25 @@ const getSellOutcomes = (betId, amount) => {
   });
 };
 
-const pullOutBet = (betId, amount, outcome) => {
-  return Api.post(_.replace(ApiUrls.API_BET_PULL_OUT, ':id', betId), {
-    amount,
+const pullOutBet = (betId, outcome) => {
+  return EventsServiceApi.post(`/bets/${betId}/sell`, {
     outcome,
-  }).catch(error => {
-    console.log('[API Error] called: pullOutBet', error);
-  });
+  })
+    .then(res => res.data)
+    .catch(error => {
+      console.log('[API Error] called: pullOutBet', error);
+      throw error;
+    });
 };
 
 const getOpenBets = () => {
-  return Api.get(ApiUrls.API_USER_OPEN_BETS).catch(error => {
+  return EventsServiceApi.get('/trades?statuses=active').catch(error => {
     console.log('[API Error] called: getOpenBets', error);
   });
 };
 
 const getTradeHistory = () => {
-  return Api.get(ApiUrls.API_USER_TRADE_HISTORY).catch(error => {
+  return EventsServiceApi.get('/trades/history').catch(error => {
     console.log('[API Error] called: getTradeHistory', error);
   });
 };
@@ -263,11 +272,12 @@ const getTransactions = () => {
 };
 
 const placeBet = (betId, amount, outcome) => {
-  return Api.post(_.replace(ApiUrls.API_BET_PLACE, ':id', betId), {
+  return EventsServiceApi.post(`/bets/${betId}/place`, {
     amount,
     outcome,
   }).catch(error => {
     console.log('[API Error] called: placeBet', error);
+    throw error;
   });
 };
 
@@ -330,28 +340,22 @@ const editEvent = (id, payload) => {
     .catch(error => ({ error: error.response.data }));
 };
 
-const deleteEvent = id => {
-  return Api.delete(ApiUrls.API_EVENT_DELETE.replace(':id', id))
+const deleteEvent = slug => {
+  return EventsServiceApi.delete(`/events/${slug}`)
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
 
 const bookmarkEvent = id => {
-  return Api.put(ApiUrls.API_EVENT_BOOKMARK.replace(':id', id));
+  return EventsServiceApi.put(`/events/${id}/bookmarks/add`);
 };
 
 const bookmarkEventCancel = id => {
-  return Api.put(ApiUrls.API_EVENT_BOOKMARK_CANCEL.replace(':id', id));
+  return EventsServiceApi.put(`/events/${id}/bookmarks/remove`);
 };
 
 const createEventBet = payload => {
   return Api.post(ApiUrls.API_EVENT_BET_CREATE, payload)
-    .then(response => ({ response }))
-    .catch(error => ({ error: error.response.data }));
-};
-
-const editEventBet = (betId, payload) => {
-  return Api.post(ApiUrls.API_EVENT_BET_EDIT.replace(':betId', betId), payload)
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
@@ -407,19 +411,25 @@ const getCoverStream = () => {
 };
 
 const resolveBet = (betId, data) => {
-  return Api.post(ApiUrls.API_BET_RESOLVE.replace(':id', betId), data)
+  return EventsServiceApi.post(`/bets/${betId}/resolve`, data)
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
+};
+
+const closeBet = (betId, data) => {
+  return EventsServiceApi.post(`/bets/${betId}/close`, data)
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
 
 const cancelBet = (betId, payload) => {
-  return Api.post(ApiUrls.API_BET_CANCEL.replace(':id', betId), payload)
+  return EventsServiceApi.post(`/bets/${betId}/cancel`, payload)
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
 
 const deleteBet = betId => {
-  return Api.delete(ApiUrls.API_BET_DELETE.replace(':id', betId))
+  return EventsServiceApi.delete(`/bets/${betId}`)
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
@@ -489,9 +499,12 @@ const signUp = payload => {
 };
 
 const loginExternal = ({ provider, body }) => {
-  return Api.post(ApiUrls.API_AUTH_LOGIN_EXTERNAL.replace(':provider', provider), body)
-    .then((response) => ({ response }))
-    .catch((error) => ({ error: error.response.data }));
+  return Api.post(
+    ApiUrls.API_AUTH_LOGIN_EXTERNAL.replace(':provider', provider),
+    body
+  )
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.response.data }));
 };
 
 const login = payload => {
@@ -533,104 +546,239 @@ const updateStatus = (userId, status) => {
     .catch(error => ({ error: error.response.data }));
 };
 
-const convertCurrency = ({convertFrom, convertTo, amount}) => {
+const convertCurrency = ({ convertFrom, convertTo, amount }) => {
   return Api.get(ApiUrls.CONVERT_CURRENCY, {
     params: {
       convertFrom,
       convertTo,
-      amount
+      amount,
     },
   })
     .then(response => ({ response }))
     .catch(error => ({ error: error.response?.data }));
 };
 
-const generateCryptopayChannel = (body) => {
+const generateCryptopayChannel = body => {
   return Api.post(ApiUrls.GENERATE_CRYPTOPAY_CHANNEL, body)
-    .then(({ data }) => (data.data))
-    .catch((error) => ({ error: error.response?.data }));
-}
+    .then(({ data }) => data.data)
+    .catch(error => ({ error: error.response?.data }));
+};
 
 const getWalletTransactions = () => {
-  return Api.get(ApiUrls.API_USER_WALLET_TRANSACTIONS).catch((error) => {
+  return Api.get(ApiUrls.API_USER_WALLET_TRANSACTIONS).catch(error => {
     console.log('[API Error] called: getWalletTransactions', error);
   });
 };
 
-const getWithdrawQuote = ({amount, network}) => {
-  return WithdrawServiceApi.post(ApiUrls.API_GETQUOTE, {amount, network})
+const getWithdrawQuote = ({ amount, network }) => {
+  return WithdrawServiceApi.post(ApiUrls.API_GETQUOTE, { amount, network })
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
 
-const processWithdraw = ({amount, network, toAddress}) => {
-  return WithdrawServiceApi.post(ApiUrls.API_WITHDRAW, {amount, network, 'to_address': toAddress})
+const processWithdraw = ({ amount, network, toAddress }) => {
+  return WithdrawServiceApi.post(ApiUrls.API_WITHDRAW, {
+    amount,
+    network,
+    to_address: toAddress,
+  })
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
 
-const getWithdrawStatus = (transactionId) => {
-  return WithdrawServiceApi.post(ApiUrls.API_WITHDRAW_STATUS.replace(':id', transactionId))
+const getWithdrawStatus = transactionId => {
+  return WithdrawServiceApi.post(
+    ApiUrls.API_WITHDRAW_STATUS.replace(':id', transactionId)
+  )
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
 };
 
-const getUserKycData = (userId) => {
+const getUserKycData = userId => {
   return Api.get(ApiUrls.KYC_DATA_FOR_USER.replace(':userId', userId))
     .then(response => ({ response }))
     .catch(error => ({ error: error.message }));
 };
 
-const refreshKycStatus = (userId) => {
+const refreshKycStatus = userId => {
   return Api.get(ApiUrls.KYC_REFRESH_STATUS)
     .then(response => ({ response }))
     .catch(error => ({ error: error.message }));
 };
 
 const getRandomUsername = () => {
-  return Api.get(ApiUrls.RANDOM_USERNAME)
-    .catch(error => ({ error: error.message }));
-}
+  return Api.get(ApiUrls.RANDOM_USERNAME).catch(error => ({
+    error: error.message,
+  }));
+};
 
-const sendBuyWithCrypto = (data) => {
+const sendBuyWithCrypto = data => {
   if (!Api.defaults.headers.common['Authorization']) return;
   return Api.post(ApiUrls.SEND_BUY_WITH_CRYPTO, data)
     .then(response => ({ response }))
-    .catch(error => ({ error: error.message }))
-}
+    .catch(error => ({ error: error.message }));
+};
 
-const sendBuyWithFiat = (data) => {
+const sendBuyWithFiat = data => {
   if (!Api.defaults.headers.common['Authorization']) return;
   return Api.post(ApiUrls.SEND_BUY_WITH_FIAT, data)
     .then(response => ({ response }))
-    .catch(error => ({ error: error.message }))
-}
+    .catch(error => ({ error: error.message }));
+};
 
-const generateMoonpayUrl = (data) => {
+const generateMoonpayUrl = data => {
   if (!Api.defaults.headers.common['Authorization']) return;
   return Api.post(ApiUrls.GENERATE_MOONPAY_URL, data)
     .then(response => ({ response }))
     .catch(error => ({ error: error.message }));
-}
+};
 
 const acceptToS = () => {
   if (!Api.defaults.headers.common['Authorization']) return;
   return Api.post(ApiUrls.ACCEPT_TOS)
-    .then((response) => ({ response }))
-    .catch((error) => ({ error: error.message }));
-}
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.message }));
+};
 
 const getUserCount = () => {
   return Api.get(ApiUrls.USER_COUNT)
-    .then((response) => ({ response }))
-    .catch((error) => ({ error: error.message }));
-}
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.message }));
+};
 
-const getBonusCount = (bonusId) => {
+const getBonusCount = bonusId => {
   return Api.get(ApiUrls.BONUS_COUNT.replace(':id', bonusId))
-    .then((response) => ({ response }))
-    .catch((error) => ({ error: error.message }));
-}
+    .then(response => ({ response }))
+    .catch(error => ({ error: error.message }));
+};
+
+/// EVENTS-SERVICE API
+
+const createMarketEvent = payload => {
+  return EventsServiceApi.post('/events/market-events', payload)
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: createMarketEvent ', err);
+      throw err;
+    });
+};
+
+const editMarketEvent = (id, payload) => {
+  return EventsServiceApi.patch(`/events/market-events/${id}`, payload)
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: editMarketEvent ', err);
+      throw err;
+    });
+};
+
+const deleteMarketEvent = id => {
+  return EventsServiceApi.delete(`/admin/market-events/${id}`)
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: deleteMarketEvent ', err);
+      throw err;
+    });
+};
+
+const getMarketEvents = ({
+  category,
+  statuses,
+  page = null,
+  limit,
+  name = '',
+  orderBy = 'created_at',
+  order = 'DESC',
+  creator = false,
+}) => {
+  // additionaly provide params for status, search by name sorting, pagination etc
+  return EventsServiceApi.get(
+    `/events/market-events${creator ? '/all/creator' : ''}?categories=${category}&statuses=${statuses.join(
+      ','
+    )}&name=${name}&limit=${limit}&page=${page}&orderBy=${orderBy}&order=${order}`
+  )
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: getMarketEvents ', err);
+      throw err;
+    });
+};
+
+const getEventBySlug = slug => {
+  return EventsServiceApi.get(`/events/market-events/${slug}`)
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: getEventBySlug ', err);
+      throw err;
+    });
+};
+
+const calculateBuyOutcome = (betId, amount) => {
+  return EventsServiceApi.post(`/bets/${betId}/outcomes/buy`, {
+    amount,
+  })
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: calculateBuyOutcome ', err);
+      throw err;
+    });
+};
+
+const getOutcomesHistoryForChart = (betId, params = {}) => {
+  return EventsServiceApi.get(`/bets/${betId}/history`, {
+    params,
+  })
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: getOutcomesHistoryForChart ', err);
+      throw err;
+    });
+};
+
+const editEventBet = (betId, payload) => {
+  return EventsServiceApi.put(`/admin/bet/${betId}`, payload)
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: editEventBet ', err);
+      throw err;
+    });
+};
+
+const openDispute = (betId, payload) => {
+  return EventsServiceApi.post(`/bets/${betId}/disputes`, payload)
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: openDispute ', err);
+      throw err;
+    });
+};
+
+const getDisputes = betId => {
+  return EventsServiceApi.get(`/bets/${betId}/disputes`)
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: getDisputes ', err);
+      throw err;
+    });
+};
+
+const claimTokens = () => {
+  return Api.post('/api/user/tokens')
+    .then(res => res.data)
+    .catch(e => {
+      console.log('[API-Error]: claimTokens ', e);
+      throw e;
+    });
+};
+
+const uploadImage = payload => {
+  return Api.post('/api/user/upload-image', payload)
+    .then(res => res.data)
+    .catch(e => {
+      console.log('[API-Error]: uploadImage ', e);
+      throw e;
+    });
+};
 
 export {
   Api,
@@ -648,7 +796,7 @@ export {
   listEventsFiltered,
   placeBet,
   pullOutBet,
-  requestSms,
+  sendSms,
   saveAdditionalInfo,
   setToken,
   verifySms,
@@ -674,6 +822,7 @@ export {
   getCoverStream,
   getTradeById,
   resolveBet,
+  closeBet,
   cancelBet,
   deleteBet,
   login,
@@ -707,4 +856,15 @@ export {
   getBonusCount,
   refreshKycStatus,
   generateMoonpayUrl,
+  createMarketEvent,
+  editMarketEvent,
+  deleteMarketEvent,
+  getMarketEvents,
+  getEventBySlug,
+  calculateBuyOutcome,
+  getOutcomesHistoryForChart,
+  openDispute,
+  getDisputes,
+  claimTokens,
+  uploadImage,
 };

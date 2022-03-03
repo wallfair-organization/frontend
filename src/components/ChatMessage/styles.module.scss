@@ -38,7 +38,7 @@
     min-width: 36px;
   }
   .singleMessageUser {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
     color: $colorLightYellow;
     text-decoration: underline;
@@ -52,7 +52,7 @@
     margin-left: 5px;
     color: $colorWhite;
     font-size: 12px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     overflow-x: hidden;
     text-overflow: ellipsis;
   }

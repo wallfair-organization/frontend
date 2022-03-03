@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="21px" viewBox="0 0 34 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>maestro</title>
+    <g id="Screens-+-UI-Kit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Events" transform="translate(-660.000000, -2408.000000)" fill-rule="nonzero">
+            <g id="Group-44" transform="translate(549.000000, 2342.000000)">
+                <g id="Group-32" transform="translate(31.000000, 65.000000)">
+                    <g id="maestro" transform="translate(80.000000, 1.000000)">
+                        <ellipse id="Oval" fill="#EE0005" cx="10.4862338" cy="10.5" rx="10.4862338" ry="10.5"></ellipse>
+                        <ellipse id="Oval" fill="#0098E2" cx="23.5137662" cy="10.5" rx="10.4862338" ry="10.5"></ellipse>
+                        <path d="M13.0280092,10.4998409 C13.0280092,13.8338057 14.5801243,16.8045355 17,18.727891 C19.4197962,16.8044559 20.9719908,13.8338057 20.9719908,10.4998409 C20.9719908,7.16587602 19.4197962,4.19522583 17,2.27179069 C14.5802038,4.1953054 13.0280092,7.16595559 13.0280092,10.4998409 Z" id="Path" fill="#6C69BF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

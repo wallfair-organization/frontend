@@ -80,7 +80,7 @@ class AnimationController {
           ctx.shadowColor = '#000';
           ctx.shadowBlur = this.r / 100;
         }
-        ctx.font = (this.r / sections.length) * 1.6 + 'px PlusJakarta-Regular';
+        ctx.font = (this.r / sections.length) * 1.6 + 'px DM Sans';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.translate(cx, cy);
@@ -192,7 +192,7 @@ class AnimationController {
           ctx.shadowColor = '#000';
           ctx.shadowBlur = this.r / 100;
         }
-        ctx.font = (this.r / sections.length) * 1.6 + 'px PlusJakarta-Regular';
+        ctx.font = (this.r / sections.length) * 1.6 + 'px DM Sans';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.translate(cx, cy);

@@ -50,19 +50,19 @@ const ChatMessageWrapper = ({
           />
         );
 
-      case ChatMessageType.createBet:
-      case ChatMessageType.placeBet:
-      case ChatMessageType.pulloutBet:
-        return (
-          <BetActionChatMessage
-            lastMessage={lastMessage}
-            parentRef={parentRef}
-            chatMessageType={type}
-            message={message}
-            user={user}
-            dateString={dateString}
-          />
-        );
+      // case ChatMessageType.createBet:
+      // case ChatMessageType.placeBet:
+      // case ChatMessageType.pulloutBet:
+      //   return (
+      //     <BetActionChatMessage
+      //       lastMessage={lastMessage}
+      //       parentRef={parentRef}
+      //       chatMessageType={type}
+      //       message={message}
+      //       user={user}
+      //       dateString={dateString}
+      //     />
+      //   );
     }
 
     return null;

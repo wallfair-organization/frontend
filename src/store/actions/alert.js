@@ -10,6 +10,10 @@ export const AlertTypes = {
 
 export const UserNotificationTypes = {
   BET_RESOLVED: 'Notification/EVENT_BET_RESOLVED',
+  BET_CLOSED: 'Notification/EVENT_BET_CLOSED',
+  BET_DISPUTED: 'Notification/EVENT_BET_DISPUTED',
+  BET_ACTIVE: 'Notification/EVENT_BET_ACTIVE',
+  BET_WAITING_RESOLUTION: 'Notification/EVENT_BET_WAITING_RESOLUTION',
   EVENT_RESOLVE: 'Notification/EVENT_RESOLVE',
   EVENT_BET_CANCELLED: 'Notification/EVENT_BET_CANCELED',
   EVENT_USER_REWARD: 'Notification/EVENT_USER_REWARD',

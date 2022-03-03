@@ -1,0 +1,28 @@
+@import '../../styles/all';
+
+.widgetContainer {
+  width: 100%;
+  max-width: 363px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+  padding: 60px 0;
+
+  .title {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  & > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    & > img {
+      width: 54px;
+      height: 24px;
+    }
+  }
+}

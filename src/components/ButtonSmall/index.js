@@ -10,6 +10,8 @@ const ButtonSmall = ({
   iconLeft = false,
   iconType,
   onClick,
+  classNameExtended,
+  disabled,
 }) => {
   const themeStyles = {
     [ButtonSmallTheme.dark]: {
@@ -36,8 +38,14 @@ const ButtonSmall = ({
 
   return (
     <button
-      className={classNames(styles.buttonSmall, themeStyles[butonTheme]?.style)}
-      onClick={onClick}
+      className={classNames(
+        classNameExtended || null,
+        styles.buttonSmall,
+        themeStyles[butonTheme]?.style,
+        disabled ? styles.disabled : null
+      )}
+      onClick={disabled ? null : onClick}
+      disabled={disabled}
     >
       {!iconLeft && text}
       {iconType && (

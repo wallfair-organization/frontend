@@ -27,13 +27,13 @@
 .title {
   color: $colorPrimary;
   font-size: 36px;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   text-align: center;
 }
 
 .authenticationDescription {
   width: 100%;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0;
@@ -48,8 +48,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: $fontOmnes;
-  text-transform: uppercase;
+  font-family: $fontDMSans;
+  // text-transform: uppercase;
+
+  .stepBar {
+    max-width: 228px;
+  }
+
+  .title {
+    font-size: 38px;
+    font-weight: bold;
+    text-transform: none;
+    text-align: left;
+    padding: 90px 0 40px;
+  }
 
   &.forgotPassword {
     padding: 50px 20px;
@@ -91,9 +103,9 @@
   .inputLabel {
     font-size: 16px;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 400;
     align-items: center;
-    color: black;
+    color: $colorPrimary;
 
     @media (max-width: $screen-sm) {
       font-size: 12px;
@@ -115,9 +127,9 @@
   .forgotPasswordLink {
     align-self: flex-end;
     text-decoration: underline;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     cursor: pointer;
-    color: $colorButton;
+    color: $colorPrimary;
     margin: 10px 0;
   }
 
@@ -133,7 +145,7 @@
   width: (100% - $paddingHTotal);
   margin: 2rem $paddingPercent;
   font-size: 13px;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   line-height: 19.6px;
   letter-spacing: 0;
   color: rgba(2, 6, 30, 0.36);
@@ -165,7 +177,7 @@
 
 .errorText {
   margin: 10px 5px 11px 0;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   font-size: 14px;
   color: $colorRedLight;
   max-width: 390px;
@@ -202,7 +214,7 @@
   text-transform: none;
 
   a {
-    color: #ea9c00;
+    color: $colorPrimary;
     text-decoration: underline;
   }
   @media screen and (max-width: $screen-sm-max) {
@@ -214,19 +226,19 @@
 .signInButton {
   margin: 30px 0 0;
   padding: 10px 0;
-  width: 250px;
-
+  width: 100%;
+  max-width: 400px;
   @media (max-width: $screen-sm) {
     margin: 10px 0 0;
   }
 
-  @media (max-width: $screen-xs) {
-    width: 200px;
-  }
+  // @media (max-width: $screen-xs) {
+  //   width: 200px;
+  // }
 
-  span > svg {
-    overflow: hidden;
-  }
+  // span > svg {
+  //   overflow: hidden;
+  // }
 
   &[disabled] {
     opacity: 0.7;
@@ -236,25 +248,25 @@
   &.mobile {
     display: none;
     @media (max-width: $screen-sm) {
-      display: block;
+      display: flex;
       margin: 0 auto;
     }
   }
 
   &.desktop {
-    display: block;
+    display: flex;
     @media (max-width: $screen-sm) {
       display: none;
     }
   }
 
-  svg {
-    width: 24px;
-    max-width: 24px;
-    height: 24px;
-    max-height: 24px;
-    margin-right: 10px;
-  }
+  // svg {
+  //   width: 24px;
+  //   max-width: 24px;
+  //   height: 24px;
+  //   max-height: 24px;
+  //   margin-right: 10px;
+  // }
 }
 .signInButton {
   margin-top: 5px;
@@ -281,20 +293,20 @@
         stroke-width: 0;
       }
     }
-    &[data-icon-type='email'] {
-      width: 20px;
-      svg * {
-        stroke-width: 17px;
-        fill: $colorWhite;
-        stroke: $colorWhite;
-      }
-    }
+    // &[data-icon-type='email'] {
+    //   width: 20px;
+    //   svg * {
+    //     stroke-width: 17px;
+    //     fill: $colorWhite;
+    //     stroke: $colorWhite;
+    //   }
+    // }
   }
 }
 .unstyledButton {
   background: transparent;
   border: none;
-  font-family: $fontOmnes;
+  font-family: $fontDMSans;
   cursor: pointer;
   font-size: 16px;
 }
@@ -307,7 +319,7 @@
     content: '';
     height: 10px;
     width: 10px;
-    border: 2px solid $colorBlack;
+    border: 2px solid $colorPrimary;
     border-top: 0;
     border-right: 0;
     display: block;
@@ -320,6 +332,7 @@
   margin-top: 25px;
   font-size: 14px;
   text-align: center;
+  color: $colorPrimary;
   @media (max-width: $screen-sm) {
     position: static;
     margin-top: 14px;
@@ -362,18 +375,13 @@
   .socialCircleButton {
     width: 60px;
     height: 60px;
-    background: $colorButton;
-    border-radius: 30px;
+    border-radius: 50px;
     svg {
       width: 30px;
       height: 30px;
     }
     &[disabled] {
       opacity: 0.7;
-    }
-    @media screen and (max-width: $screen-xs-max) {
-      width: 45px;
-      height: 45px;
     }
   }
 }

@@ -18,7 +18,7 @@
     padding: 15px 20px 10px 20px;
     .label {
       color: $colorWhite;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       line-height: 13.76px;
       // opacity: 0.5;
     }
@@ -26,7 +26,7 @@
     .value {
       color: $colorLightGreen;
       transition: color 0.2s ease-in;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
     }
     .value.positive {
       color: $colorGreen;

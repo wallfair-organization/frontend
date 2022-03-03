@@ -7,24 +7,25 @@
   padding: 0 20px;
 }
 
-.timerColon{
+.timerColon {
   padding: 0 5px;
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 700;
   color: $colorWhite;
   opacity: 0.8;
 }
 
-.timePartValue{
+.timePartValue {
   font-size: 24px;
-  font-family: "PlusJakarta-Bold";
+  font-family: $fontDMSans;
+  font-weight: bold;
   color: $colorWhite;
 }
 
 .timePartName {
-    margin-top: 5px;
-    font-size: 15px;
-    font-weight: normal;
-    color: $colorWhite;
-    opacity: 0.8;
+  margin-top: 5px;
+  font-size: 15px;
+  font-weight: normal;
+  color: $colorWhite;
+  opacity: 0.8;
 }

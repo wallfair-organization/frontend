@@ -31,6 +31,7 @@
     "chartjs-adapter-moment": "^1.0.0",
     "chartjs-plugin-datalabels": "^2.0.0",
     "classnames": "^2.3.1",
+    "compressorjs": "^1.1.1",
     "connected-react-router": "^6.9.1",
     "crypto-js": "^4.1.1",
     "dateformat": "^5.0.1",

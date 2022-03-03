@@ -26,9 +26,8 @@ const TradeDetailOverview = ({
     hidePopup();
 
     history.push(
-      Routes.getRouteWithParameters(Routes.bet, {
-        eventSlug,
-        betSlug: tradeSlug,
+      Routes.getRouteWithParameters(Routes.event, {
+        eventSlug
       })
     );
   };

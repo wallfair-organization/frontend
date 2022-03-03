@@ -17,11 +17,12 @@ import coinImg from '../../data/images/singleGameDetails/mines/coin.jpg';
 import { TOKEN_NAME } from '../../constants/Token';
 import {GAMES} from '../../constants/Games';
 import { roundToTwo } from '../../helper/FormatNumbers';
+import { currencyDisplay } from 'helper/Currency';
 
 const GameCurrency = (props) => {
   return <div>
     <b>Game currency:</b>{' '}
-    <span>{props?.value || TOKEN_NAME}</span>
+    <span>{currencyDisplay(props?.value)}</span>
   </div>
 }
 

@@ -177,10 +177,12 @@ const PlinkoGame = ({
   const renderActivities = () => (
     <Grid item xs={12} md={6}>
       <EventActivitiesTabs
-          activitiesLimit={50}
-          className={styles.activitiesTrackerGamesBlock}
-          preselectedCategory={'game'}
-          gameId={PLINKO_GAME_EVENT_ID}></EventActivitiesTabs>
+        activitiesLimit={50}
+        className={styles.activitiesTrackerGamesBlock}
+        preselectedCategory={'game'}
+        gameId={PLINKO_GAME_EVENT_ID}
+        gameScreen={true}
+      />
     </Grid>
   );
 

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserBet } from '../../store/selectors/rosi-game';
 import { calcCrashFactorFromElapsedTime } from  "components/RosiGameAnimation/canvas/utils";
+import { currencyDisplay } from 'helper/Currency';
 
 const Timer = ({ startTimeMs, showIncome = false }) => {
   const bet = useSelector(selectUserBet);
@@ -26,30 +27,30 @@ const Timer = ({ startTimeMs, showIncome = false }) => {
 
   function renderProfit() {
     if (!bet || !bet.amount)
-      return <span className={'empty'}>+ 0 {TOKEN_NAME}</span>;
+      return <span className={'empty'}>+ 0 {currencyDisplay(TOKEN_NAME)}</span>;
     const profit = (bet.amount * factor).toFixed(0);
     if (profit > 0) {
       return (
         <span className={'positive'}>
-          + {profit} {TOKEN_NAME}
+          + {profit} {currencyDisplay(TOKEN_NAME)}
         </span>
       );
     }
     if (profit === 0) {
       return (
         <span className={'zero'}>
-          {profit} {TOKEN_NAME}
+          {profit} {currencyDisplay(TOKEN_NAME)}
         </span>
       );
     }
     if (profit < 0) {
       return (
         <span className={'negative'}>
-          - {profit} {TOKEN_NAME}
+          - {profit} {currencyDisplay(TOKEN_NAME)}
         </span>
       );
     }
-    return <span className={'empty'}>+ 0 {TOKEN_NAME}</span>;
+    return <span className={'empty'}>+ 0 {currencyDisplay(TOKEN_NAME)}</span>;
   }
 
   return showIncome ? (

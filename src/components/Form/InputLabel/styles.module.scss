@@ -6,3 +6,9 @@
   font-weight: bold;
   margin-bottom: 12px;
 }
+
+.directionRow {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}

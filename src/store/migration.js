@@ -1,4 +1,4 @@
-export const MIGRATION_VERSION = 10;
+export const MIGRATION_VERSION = 11;
 
 export const migrations = {
   0: state => {
@@ -168,5 +168,14 @@ export const migrations = {
         shouldAcceptToS: false,
       },
     };
-  }
+  },
+  11: state => {
+    return {
+      ...state,
+      chartParams: {
+        rangeType: 'hour',
+        rangeValue: '24'
+      },
+    };
+  },
 };

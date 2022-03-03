@@ -25,10 +25,8 @@ import PulloutApprovePopup from '../PulloutApprovePopup';
 import DialogActionPopup from '../DialogActionPopup';
 import DialogActions from 'components/DialogActionPopup/DialogActions';
 import LotteryGamePopup from '../LotteryGamePopup';
-import NewEventPopup from '../NewEventPopup';
-import EditEventPopup from '../EditEventPopup';
-import NewBetPopup from '../NewBetPopup';
-import EditBetPopup from '../EditBetPopup';
+import EventForms from '../EventForms';
+import EventConfirmationView from '../EventConfirmationView';
 import AuthenticationPopup from '../AuthenticationPopup';
 import ViewImagePopup from 'components/ViewImagePopup';
 import ResolveBetPopup from 'components/ResolveBetPopup';
@@ -48,6 +46,10 @@ import ToSPopup from 'components/ToSPopup';
 import BanPopup from 'components/BanPopup';
 import WalletDepositPopup from 'components/WalletDepositPopup';
 import SelectGameModePopup from "../SelectGameModePopup";
+import VerifyPhonePopup from 'components/VerifyPhonePopup';
+import PhonePopup from 'components/PhonePopup';
+import DisputesPopup from 'components/DisputesPopup';
+import CashoutPopupView from '../CashoutPopupView';
 
 const Popup = ({ type, visible, options = {}, hidePopup }) => {
   const small = _.get(options, 'small', false);
@@ -80,7 +82,11 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
       PopupTheme.newEvent ||
       PopupTheme.editEvent ||
       PopupTheme.newBet ||
-      PopupTheme.editBet
+      PopupTheme.editBet ||
+      PopupTheme.eventForms ||
+      PopupTheme.eventDetails ||
+      PopupTheme.phoneVerification ||
+      PopupTheme.phoneNumber
     )
       return;
     hidePopup();
@@ -98,6 +104,9 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
     }
 
     switch (type) {
+      case PopupTheme.eventConfirmation:
+        return <EventConfirmationView hidePopup={hidePopup} options={options}/>;
+
       case PopupTheme.betApprove:
         return <BetApproveView options={options} />;
 
@@ -160,7 +169,7 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
           />
         );
       case PopupTheme.reportEvent:
-        return <ReportEventPopup />;
+        return <ReportEventPopup betId={options?.betId} />;
       case PopupTheme.lastGamesDetail:
         return <LastGamesDetailPopup data={options?.data} />;
       case PopupTheme.fairnessPopup:
@@ -175,16 +184,16 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <VerifyEmailPopup closed={false} />;
 
       case PopupTheme.pulloutApprove:
-        return <PulloutApprovePopup betData={_.get(options, 'betData')} />;
+        return <PulloutApprovePopup betData={_.get(options, 'betData')} onApprove={options.onApprove} />;
 
       case PopupTheme.lotteryGameAnswered:
         return (
           <LotteryGamePopup hidePopup={hidePopup} rewardId={options.rewardId} />
         );
-      case PopupTheme.newEvent:
-        return <NewEventPopup eventType={options.eventType} />;
-      case PopupTheme.editEvent:
-        return <EditEventPopup />;
+      case PopupTheme.eventForms:
+        return (
+          <EventForms event={options?.event} bet={options?.bet} step={options?.step} />
+        );
       case PopupTheme.deleteEvent:
         return (
           <DialogActionPopup
@@ -194,20 +203,16 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         );
       case PopupTheme.disableSharing:
         return <DialogActionPopup actionType={DialogActions.disableSharing} />;
-      case PopupTheme.newBet:
-        return <NewBetPopup />;
-      case PopupTheme.editBet:
-        return <EditBetPopup />;
       case PopupTheme.viewImage:
         return <ViewImagePopup imageURL={options.imageURL} />;
       case PopupTheme.resolveBet:
         return (
-          <ResolveBetPopup betId={options.tradeId} eventId={options.eventId} />
+          <ResolveBetPopup bet={options.bet} event={options.event} action={options.action} />
         );
       case PopupTheme.cancelBet:
         return (
           <DialogActionPopup
-            data={options?.bet}
+            data={{ bet: options?.bet, event: options?.event }}
             actionType={DialogActions.cancelBet}
           />
         );
@@ -256,6 +261,15 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <ToSPopup isOnboarding={options?.isOnboarding} />;
       case PopupTheme.ban:
         return <BanPopup banData={options?.banData} />;
+      case PopupTheme.phoneNumber:
+        return <PhonePopup initialOnboarding={options?.initialOnboarding} />;
+      case PopupTheme.phoneVerification:
+        const initialOnboarding = _.get(options, 'initialOnboarding', true);
+        return <VerifyPhonePopup initialOnboarding={initialOnboarding} />;
+      case PopupTheme.disputes:
+        return <DisputesPopup disputes={options?.disputes} />
+      case PopupTheme.cashoutPopupView:
+        return <CashoutPopupView options={options} />
     }
 
     return null;
@@ -281,6 +295,7 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             type === PopupTheme.walletWithdraw ? classNames(styles.walletDeposit, styles.depositWider) : null,
             type === PopupTheme.walletConnectWallet ? styles.walletDeposit : null,
             type === PopupTheme.disclaimer ? styles.disclaimerContainer : null,
+            type === PopupTheme.eventForms ? styles.eventForms : null,
             type === PopupTheme.explanation
               ? styles.explanationPopupVisual
               : null,
@@ -297,6 +312,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             type === PopupTheme.welcome ? styles.welcomeContainer : null,
             type === PopupTheme.betApprove ? styles.betApproveContainer : null,
             type === PopupTheme.username ? styles.usernamePopup : null,
+            type === PopupTheme.phoneNumber ? styles.phoneNumberPopup : null,
+            type === PopupTheme.phoneVerification ? styles.verifyPhonePopup : null,
             small ? styles.small : null,
             maxWidth ? styles.maxWidth : null,
             type === PopupTheme.auth && styles.registrationPopupContainer,

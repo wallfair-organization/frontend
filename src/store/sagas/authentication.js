@@ -20,96 +20,6 @@ import { errors } from 'ethers';
 
 const afterLoginRoute = Routes.home;
 
-const requestSms = function* (action) {
-  const country = yield select(state => state.authentication.country);
-  const phone = yield select(state => state.authentication.phone);
-  const referral = yield select(state => state.authentication.referral);
-  let phoneNumber = country + phone;
-
-  if (phoneNumber) {
-    if (!phoneNumber.startsWith('+')) {
-      phoneNumber = '+' + phoneNumber;
-    }
-
-    if (phone.startsWith('0')) {
-      phoneNumber = '+' + country + phone.substring(1);
-    }
-
-    const { response, error } = yield call(
-      Api.requestSms,
-      phoneNumber,
-      referral
-    );
-
-    if (response) {
-      const data = response.data;
-
-      yield put(
-        AuthenticationActions.requestSmsSucceeded({
-          ...data,
-          phone,
-          country,
-        })
-      );
-      return;
-    } else {
-      yield put(
-        AuthenticationActions.requestSmsFailed({
-          phone,
-          error,
-        })
-      );
-      return;
-    }
-  }
-
-  yield put(
-    AuthenticationActions.requestSmsFailed({
-      phone,
-    })
-  );
-};
-
-const verifySms = function* (action) {
-  const country = yield select(state => state.authentication.country);
-  const phone = yield select(state => state.authentication.phone);
-  const smsToken = action.smsToken;
-  let phoneNumber = country + phone;
-
-  if (phoneNumber) {
-    if (!phoneNumber.startsWith('+')) {
-      phoneNumber = '+' + phoneNumber;
-    }
-
-    if (phone.startsWith('0')) {
-      phoneNumber = '+' + country + phone.substring(1);
-    }
-
-    const { response, error } = yield call(
-      Api.verifySms,
-      phoneNumber,
-      smsToken
-    );
-
-    if (response) {
-      const data = response.data;
-
-      Api.setToken(data.session);
-      crashGameApi.setToken(data.session);
-
-      yield put(
-        AuthenticationActions.verifySmsSucceeded({
-          ...data,
-        })
-      );
-    } else {
-      yield put(AuthenticationActions.verifySmsFailed(error));
-    }
-  } else {
-    yield put(AuthenticationActions.verifySmsFailed());
-  }
-};
-
 const verifyEmail = function* (action) {
   const userId = action.userId;
   const code = action.code;
@@ -227,7 +137,7 @@ const authenticationSucceeded = function* (action) {
     yield put(AuthenticationActions.fetchReferrals());
     yield put(WebsocketsActions.init());
     yield put(RosiGameActions.clearGuestData());
-    yield put(AlertActions.showSuccess({ message: 'Successfully logged in' }));
+    // yield put(AlertActions.showSuccess({ message: 'Successfully logged in' }));
 
     yield put(
       WebsocketsActions.joinRoom({
@@ -449,6 +359,7 @@ const loginExternal = function* ({ code, provider, ref, tosAccepted, sid, cid })
         user: data?.user,
         shouldAcceptToS: data?.shouldAcceptToS,
         emailConfirmed: data?.emailConfirmed,
+        phoneConfirmed: data?.phoneConfirmed,
       })
     );
 
@@ -500,6 +411,7 @@ const login = function* (action) {
         initialReward: action?.initialReward,
         shouldAcceptToS: data?.shouldAcceptToS,
         emailConfirmed: data?.emailConfirmed,
+        phoneConfirmed: data?.phoneConfirmed,
       })
     );
   } else if(error?.statusCode === 403 && error?.errors?.banData) {
@@ -618,10 +530,8 @@ export default {
   forcedLogout,
   refreshImportantData,
   registrationSucceeded,
-  requestSms,
   restoreToken,
   setAdditionalInformation,
-  verifySms,
   verifyEmail,
   firstSignUpPopup,
   updateUserData,

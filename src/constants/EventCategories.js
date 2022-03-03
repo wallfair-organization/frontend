@@ -13,6 +13,70 @@ import ApexLegendsImage from '../data/images/Apex Legends-144x192.jpeg';
 import GTAImage from '../data/images/Grand Theft Auto V-144x192.jpeg';
 import CSImage from '../data/images/Counter-Strike_ Global Offensive-144x192.jpeg';
 
+import IconEventAll from '../data/icons/icon-event-all.svg';
+import IconEventSports from '../data/icons/icon-event-sports.svg';
+import IconEventPolitics from '../data/icons/icon-event-politics.svg';
+import IconEventNFT from '../data/icons/icon-event-nft.svg';
+import IconEventCrypto from '../data/icons/icon-event-crypto.svg';
+import IconEventGaming from '../data/icons/icon-event-gaming.svg';
+import IconEventStar from '../data/icons/icon-event-star.svg';
+import IconEventTrading from '../data/icons/icon-event-trading.svg';
+
+export const EVENT_CATEGORIES_SECOND = [
+  {
+    value: 'all',
+    label: 'All',
+    image: IconEventAll,
+    isActive: true,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'Gaming / E-Sports',
+    label: 'Gaming',
+    image: IconEventGaming,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'Sports',
+    image: IconEventSports,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+  // {
+  //   value: 'Politics',
+  //   image: IconEventPolitics,
+  //   isActive: false,
+  //   type: 'icon',
+  //   disabled: false,
+  // },
+  {
+    value: 'Sick Society',
+    image: IconEventStar,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'Trading',
+    image: IconEventTrading,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+  {
+    value: 'Wallfair Bets',
+    label: 'Wallfair',
+    image: IconEventCrypto,
+    isActive: false,
+    type: 'icon',
+    disabled: false,
+  },
+];
+
 export const EVENT_CATEGORIES = [
   {
     value: 'all',

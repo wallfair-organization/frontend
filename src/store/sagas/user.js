@@ -72,6 +72,7 @@ const fetchSucceeded = function* (action) {
       const notificationSettings = user.notificationSettings;
       const kyc = user.kyc;
       const emailConfirmed = user.emailConfirmed;
+      const phoneConfirmed = user.phoneConfirmed;
       yield put(
         AuthenticationActions.updateData({
           profilePicture,
@@ -90,6 +91,7 @@ const fetchSucceeded = function* (action) {
           notificationSettings,
           kyc,
           emailConfirmed,
+          phoneConfirmed,
         })
       );
     }

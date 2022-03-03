@@ -13,39 +13,39 @@
   height: 81px;
   min-width: 170px;
 
-  &.choiceColorOrangeLight {
-    border-color: $colorOrangeLight;
+  &.choiceColorOne {
+    border-color: $colorChoiceColorOne;
 
     &.choiceButtonSelected,
     &:hover:not(&.choiceButtonDisabled) {
-      background-color: $colorOrangeLight20;
+      background-color: $colorChoiceColorOne20;
     }
   }
 
-  &.choiceColorGreen {
-    border-color: $colorGreen;
+  &.choiceColorTwo {
+    border-color: $colorChoiceColorTwo;
 
     &.choiceButtonSelected,
     &:hover:not(&.choiceButtonDisabled) {
-      background-color: $colorGreen20;
+      background-color: $colorChoiceColorTwo20;
     }
   }
 
-  &.choiceColorPinkLight {
-    border-color: $colorPinkLight;
+  &.choiceColorThree {
+    border-color: $colorChoiceColorThree;
 
     &.choiceButtonSelected,
     &:hover:not(&.choiceButtonDisabled) {
-      background-color: $colorPinkLight20;
+      background-color: $colorChoiceColorThree20;
     }
   }
 
-  &.choiceColorFlamingo {
-    border-color: $colorFlamingo;
+  &.choiceColorFour {
+    border-color: $colorChoiceColorFour;
 
     &.choiceButtonSelected,
     &:hover:not(&.choiceButtonDisabled) {
-      background-color: $colorFlamingo20;
+      background-color: $colorChoiceColorFour20;
     }
   }
 
@@ -58,7 +58,7 @@
   }
 
   .choiceName {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -76,7 +76,7 @@
     .choiceWinAmount {
       overflow-wrap: anywhere;
       width: 52%;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-size: 28px;
       font-style: normal;
       font-weight: 700;
@@ -91,7 +91,7 @@
       padding-left: 3px;
 
       .choiceWinAmountUnit {
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-size: 12px;
         font-style: normal;
         font-weight: 500;
@@ -99,7 +99,7 @@
         text-align: left;
       }
       .choiceWinAmountCash {
-        font-family: $fontOmnes;
+        font-family: $fontDMSans;
         font-size: 12px;
         font-style: normal;
         font-weight: 400;

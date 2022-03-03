@@ -194,8 +194,8 @@ export default function (state = initialState, action) {
       return resetDefaultParamsValues(state, action);
     case EventTypes.FETCH_HISTORY_CHART_DATA_SUCCESS:
       return fetchHistoryChartSuccess(state, action);
-    case EventTypes.UPDATE_CHART_PARAMS:
-      return updateChartParams(state, action);
+    // case EventTypes.UPDATE_CHART_PARAMS:
+    //   return updateChartParams(state, action);
     case EventTypes.FETCH_NEWS_DATA_SUCCESS:
       return fetchNewsDataSuccess(state, action);
     case EventTypes.FETCH_HOME_EVENTS_SUCCESS:

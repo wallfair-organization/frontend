@@ -33,11 +33,7 @@
     background-clip: padding-box;
     outline: 0;
     border-radius: 6px;
-    background: linear-gradient(
-      163.46deg,
-      $colorWhite -21.15%,
-      $colorRedLighter 100.59%
-    );
+    background: $colorWhite;
     padding: 50px 30px 30px;
     max-width: calc(100vw - 30px);
     min-height: 280px;
@@ -49,35 +45,8 @@
       position: relative;
     }
 
-    &::after {
-      // inset border
-      content: '';
-      position: absolute;
-      inset: 15px;
-      border-radius: 4px;
-      border: 1px solid $colorPopBorder;
-      z-index: 0;
-    }
-
-    .candyTopLeft,
-    .candyBottomRight {
-      position: absolute;
-      z-index: 1;
-      max-width: initial;
-    }
-    .candyTopLeft {
-      left: -124px;
-      top: -116px;
-      height: 365px;
-    }
-    .candyBottomRight {
-      width: 383px;
-      bottom: -96px;
-      right: -114px;
-    }
-
     @media screen and (min-width: $screen-sm) {
-      padding: 50px;
+      padding: 40px;
     }
 
     @media screen and (min-width: $screen-xs) {
@@ -106,7 +75,7 @@
     }
 
     &.walletDeposit {
-      max-width: 320px;
+      max-width: 400px;
 
       &.depositWider {
         max-width: 414px;
@@ -120,8 +89,22 @@
 
     &.signUpNotificationPopupContainer,
     &.welcomeContainer,
+    &.verifyPhonePopup,
+    &.phoneNumberPopup,
     &.usernamePopup {
       overflow: visible;
+    }
+
+    &.eventForms {
+      .modalContent {
+        min-width: 550px;
+        width: 550px;
+        padding: 0;
+
+        @media screen and (max-width: $screen-md) {
+          min-width: 0;
+        }
+      }
     }
 
     //here specific popup sizes per type, if needed
@@ -190,8 +173,9 @@
 
   .closeButtonContainer {
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: 5px;
+    right: 5px;
+    z-index: 10;
 
     .closeButton {
       z-index: $zIndexPopup + 1;
@@ -213,7 +197,6 @@
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  //background-color: #000;
   background-color: $colorPrimary90;
   opacity: 1;
 

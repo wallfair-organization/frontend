@@ -19,7 +19,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14.x"
+          node-version: '14.x'
       - name: Install node dependencies
         run: npm ci
       - name: Install doctl (to be able to login on Digital Ocean)
@@ -76,6 +76,9 @@ jobs:
                             --build-arg REACT_APP_WITHDRAW_SERVICE_URL="https://withdraw-service-staging.wallfair.io"\
                             --build-arg REACT_APP_SMARTSOFT_LAUNCHER_URL="https://eu-staging.ssgportal.com/GameLauncher/Loader.aspx"\
                             --build-arg REACT_APP_SMARTSOFT_PORTALNAME="wallfair"\
+                            --build-arg REACT_APP_EVENTS_SERVICE_URL="https://events-staging.wallfair.io"\
+                            --build-arg REACT_APP_PLAYMONEY=true\
+                            --build-arg REACT_APP_TOKEN_DISPLAY_NAME=PFAIR\
                             -t registry.digitalocean.com/wallfair/frontend_k8s_staging:${GITHUB_SHA::6}
           docker push registry.digitalocean.com/wallfair/frontend_k8s_staging:${GITHUB_SHA::6}
       - name: Build the docker image (development)
@@ -107,6 +110,10 @@ jobs:
                             --build-arg REACT_APP_TRANSAK_NETWORK=ethereum,mainnet,polygon,kovan\
                             --build-arg REACT_APP_TWITCH_CLIENT_ID=ducsd7kb44uqzp5u3gqgsmsbx2uggs\
                             --build-arg REACT_APP_DISCORD_CLIENT_ID=920342099684126730\
+                            --build-arg REACT_APP_WITHDRAW_SERVICE_URL="https://withdraw-service-staging.wallfair.io"\
+                            --build-arg REACT_APP_SMARTSOFT_LAUNCHER_URL="https://eu-staging.ssgportal.com/GameLauncher/Loader.aspx"\
+                            --build-arg REACT_APP_SMARTSOFT_PORTALNAME="wallfair"\
+                            --build-arg REACT_APP_EVENTS_SERVICE_URL="https://events-staging.wallfair.io"\
                             -t registry.digitalocean.com/wallfair/frontend_k8s_develop:${GITHUB_SHA::6}
           docker push registry.digitalocean.com/wallfair/frontend_k8s_develop:${GITHUB_SHA::6}
       - name: Build the docker image (production)
@@ -142,6 +149,7 @@ jobs:
                             --build-arg REACT_APP_WITHDRAW_SERVICE_URL="https://rm-withdraw-service.alpacasino.io"\
                             --build-arg REACT_APP_SMARTSOFT_LAUNCHER_URL="https://eu-server.ssgportal.com/GameLauncher/Loader.aspx"\
                             --build-arg REACT_APP_SMARTSOFT_PORTALNAME="wallfair"\
+                            --build-arg REACT_APP_EVENTS_SERVICE_URL="https://rm-events.alpacasino.io"\
                             -t registry.digitalocean.com/wallfair/frontend_k8s_prod:${GITHUB_SHA::6}
           docker push registry.digitalocean.com/wallfair/frontend_k8s_prod:${GITHUB_SHA::6}
       - name: Build the docker image (production-app)
@@ -177,6 +185,7 @@ jobs:
                             --build-arg REACT_APP_WITHDRAW_SERVICE_URL="https://rm-withdraw-service.alpacasino.io"\
                             --build-arg REACT_APP_SMARTSOFT_LAUNCHER_URL="https://eu-server.ssgportal.com/GameLauncher/Loader.aspx"\
                             --build-arg REACT_APP_SMARTSOFT_PORTALNAME="wallfair"\
+                            --build-arg REACT_APP_EVENTS_SERVICE_URL="https://rm-events.alpacasino.io"\
                             -t registry.digitalocean.com/wallfair/frontend_k8s_prod_app:${GITHUB_SHA::6}
           docker push registry.digitalocean.com/wallfair/frontend_k8s_prod_app:${GITHUB_SHA::6}
       - name: Build the docker image (alpa production)

@@ -23,7 +23,7 @@ class DateText {
     return differenceInDays + 'd';
   }
 
-  static formatDate(input) {
+  static formatDate(input, includeYear = true) {
     const pad = s => String(s).padStart(2, '0');
     const date = new Date(input);
     const day = pad(date.getUTCDate());
@@ -32,7 +32,7 @@ class DateText {
     const hour = pad(date.getUTCHours());
     const minutes = pad(date.getMinutes());
 
-    return `${day}/${month}/${year} @ ${hour}:${minutes}`;
+    return includeYear ? `${day}/${month}/${year} ${hour}:${minutes}` : `${day}/${month} ${hour}:${minutes}`;
   }
 
   static getHoursAndMins(input) {

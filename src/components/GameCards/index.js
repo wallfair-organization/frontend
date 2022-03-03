@@ -59,7 +59,7 @@ const GameCards = ({ games,gameTitle = false, category, showHowtoLink, showPopup
     <div className={classNames(styles.gamesContainer, !gameTitle ? styles.gamesPageContainer : null)}>
       {gameTitle ?
       <div className={styles.title}>
-          <h2>Wallfair Games</h2>
+          <h2>House Games</h2>
           <p>Games available only in Wallfair. 100% fun &amp; pure love </p>
         </div>
       

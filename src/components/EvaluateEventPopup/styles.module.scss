@@ -12,13 +12,13 @@
   }
 
   .title {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 20px;
     margin-top: 20px;
   }
 
   .subtitle {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 14px;
     opacity: 0.5;
     padding-top: 5px;
@@ -39,7 +39,7 @@
       min-width: 70px;
       border-radius: 4px;
       background-color: $colorGrayLight7;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       color: $colorPrimaryLight;
       display: flex;
       justify-content: center;

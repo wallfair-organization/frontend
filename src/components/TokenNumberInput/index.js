@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import _ from 'lodash';
 import ErrorHint from '../ErrorHint';
 import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
+import { currencyDisplay } from 'helper/Currency';
 
 const TokenNumberInput = ({
   value,
@@ -24,8 +25,10 @@ const TokenNumberInput = ({
     // @TODO: this needs refactoring imo, a validation function, a base form component that this could based upon or render and may be even refactor the parent forms to a lib like react-final-form or similar
     let targetValue = value;
 
+    const max = _.toNumber(maxValue);
+
     // make sure value is not above maxValue (if given)
-    if (maxValue && targetValue > _.toNumber(maxValue)) {
+    if (max > 0 && targetValue > max) {
       targetValue = maxValue;
     }
 
@@ -59,7 +62,7 @@ const TokenNumberInput = ({
           withoutDecimals
           {...props}
         />
-        <span className={styles.eventTokenLabel}>{currency}</span>
+        <span className={styles.eventTokenLabel}>{currencyDisplay(currency)}</span>
         <div className={styles.buttonWrapper}>
           {halfIcon && (
             <span

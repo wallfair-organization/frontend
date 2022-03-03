@@ -6,7 +6,7 @@ import { Container } from "pixi.js";
 import { PumpDumpGameMananger } from "../PumpDumpGameManager";
 
 
-const AXIS_LABEL_FONT_FAMILY = 'PlusJakarta-Bold';
+const AXIS_LABEL_FONT_FAMILY = 'DM Sans';
 // const AXIS_LABEL_COLOR = 0x605c8d;
 const AXIS_LABEL_COLOR = 0x999999;
 const AXIS_LABEL_FONT_SIZE = 10;
@@ -86,6 +86,7 @@ export class HorizontalAxis extends Container {
                 fontFamily: AXIS_LABEL_FONT_FAMILY,
                 fontSize: AXIS_LABEL_FONT_SIZE,
                 fill: AXIS_LABEL_COLOR,
+                fontWeight: 'bold'
             });
             this.timeLabels[i].position.set(this.axisLines[i].x + AXIS_LABEL_GAP, this.axisLines[i].y);
             this.timeLabels[i].anchor.set(0, 1);

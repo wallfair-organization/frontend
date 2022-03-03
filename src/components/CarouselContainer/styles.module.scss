@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     color: #f2ff53;
     font-weight: 700;
   }
@@ -31,7 +31,8 @@
 
     .title {
       color: $colorWhite;
-      font-size: 24px;
+      font-size: 20px;
+      font-weight: bold;
     }
 
     .titleLink {
@@ -39,14 +40,21 @@
       color: $colorWhite;
       line-height: 12px;
       letter-spacing: 0.6px;
-      margin-left: 20px;
+      margin-right: 10px;
+      height: 36px;
+      padding: 0 15px;
+
+      @media (max-width: $screen-xs) {
+        margin-right: 0;
+      }
     }
   }
 
   .carousel {
     display: flex;
     position: relative;
-    column-gap: 40px;
+    column-gap: 13px;
+    overflow: hidden;
 
     &.blurContainer {
       filter: blur(4px);
@@ -60,7 +68,7 @@
     }
 
     @media (max-width: 1300px) {
-      overflow-x: scroll;
+      overflow-x: auto;
     }
 
     a {
@@ -98,17 +106,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    column-gap: 10px;
   }
 
   .arrowNext,
   .arrowPrev {
-    background-color: transparent;
-    border: none;
-    height: 60px;
-    width: 60px;
+    height: 36px;
+    width: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
     cursor: pointer;
 
     &.inactive {

@@ -1,9 +1,11 @@
 import classNames from 'classnames';
+import Button from 'components/Button';
+import ButtonTheme from 'components/Button/ButtonTheme';
 import Icon from 'components/Icon';
 import BetState from 'constants/BetState';
 import _ from 'lodash';
 import { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../store/actions/popup';
 import IconTheme from '../Icon/IconTheme';
 import IconType from '../Icon/IconType';
@@ -17,26 +19,53 @@ import styles from './styles.module.scss';
 const BetActionsMenu = ({ event, bet, showPopup }) => {
   const [menuOpened, setMenuOpened] = useState(false);
 
-  const canEdit = ![BetState.canceled, BetState.resolved].includes(bet?.status);
-  const canResolve = [BetState.active, BetState.closed].includes(bet?.status);
-  const canCancel = [BetState.active, BetState.closed].includes(bet?.status);
-  const canDelete = [BetState.canceled].includes(bet?.status);
+  const userCreator = useSelector(
+    state => state.authentication.userId === bet.creator
+  );
+  const isAdmin = useSelector(state => state.authentication.admin);
+  const canEdit = ![
+    BetState.canceled, 
+    BetState.resolved
+  ].includes(bet?.status);
+  const canDelete = [
+    BetState.canceled
+  ].includes(bet?.status);
+  const canResolve = [
+    BetState.upcoming,
+    BetState.active,
+    BetState.waitingResolution,
+  ].includes(bet?.status);
+  const canCancel = [
+    BetState.upcoming,
+    BetState.active,
+    BetState.resolved,
+    BetState.disputed,
+    BetState.waitingResolution,
+  ].includes(bet?.status);
+  const canClose = [
+    BetState.resolved,
+    BetState.disputed,
+  ].includes(bet?.status) && isAdmin;
 
   /** @param {BetManagementActions} name */
   const action = name => () => {
     setMenuOpened(false);
     switch (name) {
       case 'edit':
-        return showPopup(PopupTheme.editBet, { event, bet });
+        return showPopup(PopupTheme.eventForms, { bet, event })
       case 'resolve':
+      case 'close':
         return showPopup(PopupTheme.resolveBet, {
-          eventId: event._id,
-          tradeId: bet._id,
+          bet,
+          event,
+          action: name,
         });
       case 'cancel':
-        return showPopup(PopupTheme.cancelBet, { bet });
+        return showPopup(PopupTheme.cancelBet, { bet, event });
       case 'delete':
-        return showPopup(PopupTheme.deleteBet, { bet });
+        showPopup(PopupTheme.deleteBet, { bet });
+        //return showPopup(PopupTheme.deleteEvent, { event });
+        
     }
   };
 
@@ -59,7 +88,7 @@ const BetActionsMenu = ({ event, bet, showPopup }) => {
   );
 
   // dont render anything if no actions are available
-  if (!canEdit && !canResolve && !canCancel && !canDelete) {
+  if ((!userCreator && !isAdmin) || bet?.status === BetState.closed) {
     return null;
   }
 
@@ -71,24 +100,32 @@ const BetActionsMenu = ({ event, bet, showPopup }) => {
           onClick={() => setMenuOpened(false)}
         ></div>
       )}
-      <Icon
-        iconType={IconType.menu}
-        iconTheme={null}
+      <Button
+        theme={ButtonTheme.secondaryButton}
+        className={styles.menuButton}
         onClick={toggleMenu}
-        className={styles.menuIcon}
-      />
+      >
+        <Icon
+          iconType={IconType.menu}
+          className={styles.menuIcon}
+        />
+      </Button>
       <div
         className={classNames(
           styles.menuBox,
           menuOpened ? styles.menuBoxOpened : null
         )}
       >
-        {canEdit && menuItem('Edit', action('edit'), IconType.edit)}
+        {canEdit && 
+          menuItem('Edit', action('edit'), IconType.edit)}
         {canResolve &&
           menuItem('Resolve', action('resolve'), IconType.hourglass)}
         {canCancel &&
           menuItem('Cancel', action('cancel'), IconType.cross, 14, 14)}
-        {canDelete && menuItem('Delete', action('delete'), IconType.trash)}
+        {canClose &&
+          menuItem('Close', action('close'), IconType.success)}
+        {canDelete && 
+          menuItem('Delete', action('delete'), IconType.trash)}
       </div>
     </div>
   );

@@ -4,14 +4,14 @@ import Icon from '../Icon';
 import IconType from '../Icon/IconType';
 import IconTheme from '../Icon/IconTheme';
 import classNames from 'classnames';
+import Button from 'components/Button';
+import ButtonTheme from 'components/Button/ButtonTheme';
 
 const Favorite = props => {
   const {
     isFavorite = false,
     onBookmark = () => {},
     onBookmarkCancel = () => {},
-    isMobile = false,
-    buttonClass,
   } = props;
 
   const iconToUse = isFavorite ? IconType.starFull : IconType.star;
@@ -19,17 +19,15 @@ const Favorite = props => {
   return (
     <div className={styles.fvtTrigger}>
       <div className={styles.fvtContainer}>
-        <div
-          className={classNames(styles.fvtButton, buttonClass)}
+        <Button
+          className={styles.fvtButton} 
           onClick={() => {
             isFavorite ? onBookmarkCancel() : onBookmark();
           }}
+          theme={ButtonTheme.secondaryButton}
         >
-          <div className={styles.fvtIcon}>
-            <Icon iconType={iconToUse} iconTheme={IconTheme.favorite} />
-          </div>
-          {!isMobile && `Favorite`}
-        </div>
+          <Icon iconType={iconToUse} iconTheme={IconTheme.white} />
+        </Button>
       </div>
     </div>
   );

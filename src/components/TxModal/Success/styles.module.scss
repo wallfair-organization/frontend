@@ -14,14 +14,14 @@
   }
 
   .title {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
     font-size: 20px;
     margin-top: 20px;
   }
 
   .subtitle {
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-size: 14px;
   }
 
@@ -35,7 +35,7 @@
     }
 
     .message {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-weight: bold;
       font-size: 24px;
     }
@@ -57,7 +57,7 @@
     p {
       width: 20%;
       font-size: 14px;
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       font-weight: bold;
       @media (max-width: $screen-xs) {
         font-size: 12px;
@@ -82,7 +82,7 @@
   .keepGoing {
     margin-top: 10px;
     width: 240px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
   }
 
   .summary {
@@ -116,7 +116,7 @@
     display: flex;
     align-items: center;
     padding: 0 40px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
 
     &:after {

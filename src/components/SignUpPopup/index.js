@@ -9,6 +9,7 @@ import { LOGGED_IN } from 'constants/AuthState';
 import { TOKEN_NAME } from '../../constants/Token';
 import { selectTotalUsers } from '../../store/selectors/leaderboard';
 import { OnboardingActions } from 'store/actions/onboarding';
+import { currencyDisplay } from 'helper/Currency';
 
 const SignUpPopup = ({ authState, startOnboarding }) => {
   const totalUsers = useSelector(selectTotalUsers);
@@ -19,7 +20,7 @@ const SignUpPopup = ({ authState, startOnboarding }) => {
         <img className={styles.logoMini} src={LogoMini} alt="logo" />
         <span className={styles.welcomeTextText}>Sign up now and get</span>
         <span className={styles.welcomeTextHeadline}>
-          5,000 {TOKEN_NAME} for testing.
+          100 {currencyDisplay(TOKEN_NAME)} for testing.
           <span className={styles.welcomeTextHeadlineUnderline}></span>
         </span>
         <ul className={styles.featureList}>

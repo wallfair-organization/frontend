@@ -15,17 +15,17 @@
   padding: 35px 60px;
   .info {
     font-size: 18px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
     line-height: 1.5;
     margin: 30px auto;
 
     span.amount {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
     }
 
     span.red {
-      font-family: $fontOmnes;
+      font-family: $fontDMSans;
       color: $colorRed;
     }
   }
@@ -34,7 +34,7 @@
     justify-content: space-between;
     align-items: center;
     width: 300px;
-    font-family: $fontOmnes;
+    font-family: $fontDMSans;
     font-weight: bold;
     font-size: 16px;
     .accept {

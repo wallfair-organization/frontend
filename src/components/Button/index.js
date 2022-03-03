@@ -5,6 +5,11 @@ import SelectionHelper from '../../helper/SelectionHelper';
 import style from './styles.module.scss';
 import Highlight from '../Highlight';
 
+import {ReactComponent as ButtonS} from '../../data/backgrounds/buttons/button-s.svg';
+import {ReactComponent as ButtonM} from '../../data/backgrounds/buttons/button-m.svg';
+import {ReactComponent as ButtonL} from '../../data/backgrounds/buttons/button-l.svg';
+import {ReactComponent as ButtonXL} from '../../data/backgrounds/buttons/button-xl.svg';
+
 const Button = ({
   children,
   highlightType,
@@ -16,6 +21,13 @@ const Button = ({
   withoutPadding = false,
   dataTrackingId,
 }) => {
+
+  const buttonBackground = {
+    [ButtonTheme.primaryButtonS]: <ButtonS />,
+    [ButtonTheme.primaryButtonM]: <ButtonM />,
+    [ButtonTheme.primaryButtonL]: <ButtonL />,
+    [ButtonTheme.primaryButtonXL]: <ButtonXL />,
+  }
 
   const renderHighlight = () => {
     if (highlightType) {
@@ -30,80 +42,60 @@ const Button = ({
 
     return null;
   };
-  const PrimaryButton = () => (
-    <span
-      className={classNames(
-        className,
-        style.primaryButton,
-        disabled ? style.disabled : null,
-      )}
-      disabled={disabled}
-      onClick={disabled ? null : onClick}
-      data-tracking-id={dataTrackingId}
-    > 
-      <div className={style.buttonInnerBackground}>
-        {!withoutPadding && <div className={style.buttonPattern}/> }
-        <div className={style.butonSecondInnerBackground}>
-          <div className={classNames(style.buttonThirdInnerBackground, withoutPadding && style.withoutPadding)}>
-            <span>{children}</span>
-          </div>
-        </div>
-      </div>
-    </span>
-  );
 
-  const SecondaryButton = () => (
-    <span
-      className={classNames(
-        className,
-        style.secondaryButton,
-        disabled ? style.disabled : null,
-      )}
-      disabled={disabled}
-      onClick={disabled ? null : onClick}
-      data-tracking-id={dataTrackingId}
-    > 
-      <div className={style.buttonInnerBackground}>
-        {!withoutPadding && <div className={style.buttonPattern}/> }
-        <div className={style.butonSecondInnerBackground}>
-          <div className={classNames(style.buttonThirdInnerBackground, withoutPadding && style.withoutPadding)}>
-            <span>{children}</span>
-          </div>
-        </div>
-      </div>
-    </span>
-  );
+  const renderPrimaryButton = () => {
+    return (
+      <span
+        className={classNames(
+          className,
+          style.primaryButton,
+          style[theme],
+          disabled ? style.disabled : null,
+        )}
+        disabled={disabled}
+        onClick={disabled ? null : onClick}
+        data-tracking-id={dataTrackingId}
+      > 
+        {buttonBackground[theme]}
+        <span className={style.buttonContent}>{children}</span>
+      </span> 
+    )
+  }
 
-  const LoginButton = () => (
-    <span
-      className={classNames(
-        className,
-        style.loginButton,
-        disabled ? style.disabled : null,
-      )}
-      disabled={disabled}
-      onClick={disabled ? null : onClick}
-      data-tracking-id={dataTrackingId}
-    >
-      {children}
-    </span>
-  );
+  const renderSecondaryButton = () => {
+    return (
+      <span
+        className={classNames(
+          className,
+          style.secondaryButton,
+          style[theme],
+          disabled ? style.disabled : null,
+        )}
+        disabled={disabled}
+        onClick={disabled ? null : onClick}
+        data-tracking-id={dataTrackingId}
+      > 
+        <span className={style.buttonContent}>{children}</span>
+      </span> 
+    )
+  }
 
   return (
     <>
-      { theme === ButtonTheme.primaryButton ?
-        <span
-          className={classNames(
-            className,
-            style.primaryButton,
-            disabled ? style.disabled : null,
-          )}
-          disabled={disabled}
-          onClick={disabled ? null : onClick}
-          data-tracking-id={dataTrackingId}
-        > 
-          {children}
-        </span> 
+      { [
+        ButtonTheme.primaryButton, 
+        ButtonTheme.primaryButtonS,
+        ButtonTheme.primaryButtonM,
+        ButtonTheme.primaryButtonL,
+        ButtonTheme.primaryButtonXL,
+      ].includes(theme) ?
+        renderPrimaryButton()
+
+        : [
+          ButtonTheme.secondaryButton,
+          ButtonTheme.secondaryButtonLight
+         ] ?
+          renderSecondaryButton()
 
         : theme === ButtonTheme.alternativeButton ?
         <span
@@ -119,11 +111,11 @@ const Button = ({
           {children}
         </span> 
 
-        : theme === ButtonTheme.secondaryButton ?
+        : theme === ButtonTheme.redButton ?
         <span
           className={classNames(
             className,
-            style.secondaryButton,
+            style.redButton,
             disabled ? style.disabled : null,
           )}
           disabled={disabled}

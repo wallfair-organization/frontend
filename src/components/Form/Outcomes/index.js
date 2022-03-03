@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { ReactComponent as AddTagIcon } from './add-icon.svg';
 import { useValidatedState } from '../hooks/useValidatedState';
 import { isValid } from '../utils/validators';
 import styles from './styles.module.scss';
@@ -13,18 +12,27 @@ const Outcomes = ({
   setIsValid = () => {},
   max = 4,
   min = 2,
+  betEdit = false,
 }) => {
   const emptyOutcome = ({ idDiff = '', probability = 0.5 }) => ({
     id: `${Date.now()}${idDiff}`,
     name: '',
     probability,
   });
+
   const emptyOutcomes = Array(min)
     .fill('')
     .map((_, i) => emptyOutcome({ idDiff: i }));
+
+  const outcomeValidators = [
+    OutcomesValidators.duplicateOutcomeName,
+    OutcomesValidators.probabilitySum,
+  ];
+
+  if (betEdit) outcomeValidators.pop();
   const [outcomes, setOutcomes, outcomesErrors] = useValidatedState(
-    value || [...emptyOutcomes],
-    [OutcomesValidators.duplicateOutcomeName, OutcomesValidators.probabilitySum]
+    value.length === 0 ? [...emptyOutcomes] : value,
+    outcomeValidators
   );
   const [outcomesValidity, setOutcomesValidity] = useState({});
 
@@ -87,10 +95,10 @@ const Outcomes = ({
     <div className={styles.outcomes}>
       {outcomes.map((outcome, index) => (
         <div className={styles.outcomeCard}>
-          <span className={styles.index}>{index}</span>
-          {showRemove && (
+          <span className={styles.index}>Option #0{index + 1}</span>
+          {(!betEdit && showRemove) && (
             <button
-              title="Remove outcome"
+              title="Remove option"
               type="button"
               className={styles.removeButton}
               onClick={() => removeOutcome(outcome.id)}
@@ -103,13 +111,14 @@ const Outcomes = ({
             outcome={outcome}
             onChange={updateOutcome}
             setIsValid={valid => setValidity(outcome.id, valid)}
+            betEdit={betEdit}
           />
         </div>
       ))}
 
-      {showAdd && (
+      {(!betEdit && showAdd) && (
         <button className={styles.addButton} onClick={addOutcome} type="button">
-          Add outcome
+          + Add option
         </button>
       )}
 
@@ -117,7 +126,7 @@ const Outcomes = ({
         classes={styles.outcomesErrors}
         errors={outcomesErrors}
         errorMessages={{
-          duplicateOutcomeNames: 'All outcomes must have a unique name.',
+          duplicateOutcomeNames: 'All options must have a unique name.',
           incorrectProbabilitiesSum: 'The sum of all probabilities must be 1.',
         }}
       />
