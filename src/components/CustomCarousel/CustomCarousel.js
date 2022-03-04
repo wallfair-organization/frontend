@@ -268,7 +268,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
                 THE TOTAL PRIZE POOL IS<br/>
                 WORTH <span className={styles.secondTitle}>5,000 EURO IN ETH.</span></h2>
             <div className={classNames(styles.buttonWrapper, styles.mobile)}>
-              <Button className={styles.button} onClick={onClickItemFirstBanner}>Create Event now</Button>
+              <Button className={styles.button} onClick={onClickItemFirstBanner}>Create an Event</Button>
             </div>
             </div>
           </div>
