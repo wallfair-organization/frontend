@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import { connect } from 'react-redux';
 import { PopupActions } from '../../store/actions/popup';
 import { useParams, useHistory } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import { TransactionActions } from 'store/actions/transaction';
 import { ChatActions } from 'store/actions/chat';
@@ -37,6 +37,7 @@ const MarketEvent = ({
   fetchChatMessages,
   chartParams,
   isAdmin,
+  activities,
 }) => {
   const { eventSlug, betSlug } = useParams();
   const [event, setEvent] = useState(null);
@@ -45,6 +46,8 @@ const MarketEvent = ({
   const [isFavorite, setIsFavorite] = useState(false);
   const history = useHistory();
   const userCreator = userId === event?.bet?.creator;
+
+  const activitiesRef = useRef([]);
 
   const { filterActive, handleChartPeriodFilter } = useChartData(
     event?.bet?.id
@@ -67,6 +70,15 @@ const MarketEvent = ({
         );
       });
   }, [eventSlug, betSlug]);
+
+  useEffect(() => {
+    console.log(activities, activitiesRef.current);
+    if (activities.length && activities.length !== activitiesRef.current.length) {
+      activitiesRef.current = activities;
+      getEventBySlug(eventSlug)
+        .then(res => setEvent(res));
+    }
+  }, [activities]);
 
   const fetchChartHistory = betId => {
     getOutcomesHistoryForChart(betId, chartParams).then(history => {
@@ -322,6 +334,8 @@ const mapStateToProps = state => {
     userId: state.authentication.userId,
     isAdmin: state.authentication.admin,
     chartParams: state.chartParams,
+    activities: state.notification.activities
+      .filter((a) => a.data.roomId === state.websockets.room),
   };
 };
 
