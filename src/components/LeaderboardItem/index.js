@@ -7,7 +7,6 @@ import medalBronze from '../../data/icons/medal-third.png';
 import medalCoin from '../../data/icons/medal-coin.png';
 import { formatToFixed } from 'helper/FormatNumbers';
 import classNames from 'classnames';
-import Button from 'components/Button';
 
 const LeaderboardItem = ({
   user,
@@ -15,6 +14,7 @@ const LeaderboardItem = ({
   showLoadButton = false,
   skipUsernameSuffix = false,
   onLoad,
+  loadMore = true,
 }) => {
   const renderLoadButton = () => {
     return (
@@ -122,7 +122,7 @@ const LeaderboardItem = ({
               {formatToFixed(user.amountWon, 0, true)}
             </p>
           </div>
-          {showLoadButton && renderLoadButton()}
+          {showLoadButton && loadMore && renderLoadButton()}
         </>
       ) : (
         <>
@@ -148,7 +148,7 @@ const LeaderboardItem = ({
               {formatToFixed(user.amountWon, 0, true)}
             </p>
           </div>
-          {showLoadButton && renderLoadButton()}
+          {showLoadButton && loadMore && renderLoadButton()}
         </>
       )}
     </>
