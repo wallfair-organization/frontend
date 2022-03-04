@@ -72,7 +72,6 @@ const MarketEvent = ({
   }, [eventSlug, betSlug]);
 
   useEffect(() => {
-    console.log(activities, activitiesRef.current);
     if (activities.length && activities.length !== activitiesRef.current.length) {
       activitiesRef.current = activities;
       getEventBySlug(eventSlug)
