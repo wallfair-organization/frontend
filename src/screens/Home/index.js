@@ -93,7 +93,7 @@ const Home = (
 
       <div className={styles.gameBannerContainer}>
         <div className={styles.title}>
-          <h2>🎮 Discover our Games</h2>
+          <h2 id="games">🎮 Discover our Games</h2>
         </div>
         <div className={styles.games}>
           <div onClick={() => history.push(Routes.elonGame)} className={styles.gameBanner}>
