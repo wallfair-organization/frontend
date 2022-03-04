@@ -98,6 +98,7 @@
   flex-direction: column;
   width: 100%;
   justify-content: center;
+  align-items: center;
 
   .chooseOtherMethod {
     display: flex;
@@ -109,8 +110,12 @@
 
     span {
       padding-bottom: 3px;
-      color: $colorButton;
+      color: $colorPrimary;
       font-size: 14px;
+    }
+
+    & > svg path {
+      fill: $colorPrimary;
     }
   }
 
@@ -128,13 +133,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid $colorWhite;
-    background-color: $colorLightYellow;
-    border-radius: 50px;
+    // border: 1px solid $colorGrayLight;
+    // background-color: $colorGrayLight;
+    border-radius: 6px;
     padding: 10px 8px;
     width: 265px;
     height: 64px;
     margin-top: 10px;
+    column-gap: 30px;
 
     .imageSizeEther {
       height: 35px;
@@ -150,7 +156,7 @@
       align-items: center;
       display: flex;
       background-color: $colorWhite;
-      border-radius: 50px;
+      border-radius: 6px;
       padding: 8px 3px;
       display: flex;
       cursor: not-allowed;
@@ -165,6 +171,7 @@
       display: flex;
       cursor: pointer;
       justify-content: center;
+      opacity: 0.25;
     }
   }
 

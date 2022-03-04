@@ -195,7 +195,13 @@
           justify-content: center;
         }
         .button {
-          font-size: 16px;
+          width: 100%;
+          max-width: 320px;
+          font-size: 20px;
+
+          & > svg {
+            height: 60px;
+          }
         }
         &.desktop {
           display: flex;
