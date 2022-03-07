@@ -73,14 +73,15 @@ const Winners = (
     return (
       <div className={styles.winnerItem}>
         <span className={styles.rankNumber}>#{number}</span>
-        <span>{title}</span>
+        <span>{`${title} - `}</span>
+        <span className={styles.prize}>$50 in ETH</span>
       </div>
     )
   }
   const renderWinnersConditions = () => {
     return (
       <div className={styles.winnerContainer}>
-        <span className={styles.title}>The 3 Winners</span>
+        <span className={styles.title}>The 3 daily winners</span>
         <WinnerItem number={1} title={'Highest multiplier cashed out in an Event'} />
         <WinnerItem number={2} title={'Highest cashout value from Elon Game and Pump & Dump'} />
         <WinnerItem number={3} title={'Creator of the event with highest volume'} />
@@ -105,10 +106,8 @@ const Winners = (
             <div className={styles.contentWrapper}>
               <span className={styles.title}>MARCH COMPETITION</span>
               <h2>
-                WE WILL DRAW 3 WINNERS<br/>
-                AT THE END OF MARCH.<br/>
-                THE TOTAL PRIZE POOL IS<br/>
-                WORTH <span className={styles.secondTitle}>5,000 EURO IN ETH.</span></h2>
+                WE WILL DRAW 3 WINNERS <span className={styles.secondTitle}>EVERY DAY!</span><br/>
+                THE DAILY PRIZE POOL IS WORTH <span className={styles.secondTitle}>150 USD IN ETH.</span></h2>
             <div className={classNames(styles.buttonWrapper, styles.mobile)}>
               <Button className={styles.button} onClick={handleClickCreateEvent}>Create Event now</Button>
             </div>
