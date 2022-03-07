@@ -1,15 +1,32 @@
 @import '../../styles/all';
 
+.howItWorks {
+  position: relative;
+  padding: 50px;
+}
+
 .title {
   font-size: 30px;
-  position: relative;
   text-align: center;
 
-  .highlight {
-    position: absolute;
-    right: 100px;
-    top: 20px;
-    width: 200px;
+  .highlighted {
+    position: relative;
+
+    .highlight {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      @media (max-width: $screen-md) {
+        display: none;
+      }
+
+      svg {
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -23,6 +40,10 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 50px;
+
+  @media (max-width: $screen-md) {
+    flex-direction: column;
+  }
 
   .step {
     min-width: 120px;
@@ -38,6 +59,10 @@
     font-weight: bold;
     padding: 10px;
 
+    @media (max-width: $screen-md) {
+      min-height: 50px;
+    }
+
     .number {
       position: absolute;
       background-color: #0F002D;
@@ -48,9 +73,18 @@
       width: 25px;
       top: 0;
       transform: translateY(-50%);
+
+      @media (max-width: $screen-md) {
+        top: 50%;
+        left: 10px;
+      }
     }
   }
   .chevron {
+    @media (max-width: $screen-md) {
+      margin: 10px 0 10px;
+    }
+
     svg > * {
       fill: #DBE0FF;
     }
@@ -60,4 +94,17 @@
 .button {
   width: 300px;
   margin: 0 auto;
+}
+
+.coins {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 125%;
+
+  @media (max-width: $screen-md) {
+    top: -70px;
+    left: 0;
+    width: 100%;
+  }
 }
