@@ -6,17 +6,16 @@ import styles from './styles.module.scss';
 import HighlightType from '../Highlight/HighlightType';
 import Highlight from 'components/Highlight';
 import { useDispatch } from 'react-redux';
-import { PopupActions } from 'store/actions/popup';
-import PopupTheme from 'components/Popup/PopupTheme';
 import Coins from '../../data/images/carousel/coins-2.png';
 import { useMediaQuery } from '@material-ui/core';
+import { OnboardingActions } from 'store/actions/onboarding';
 
 const HowItWorksPopup = () => {
   const dispatch = useDispatch();
   const isMobile = useMediaQuery('(max-width: 992px)');
 
   const handleClick = () => {
-    dispatch(PopupActions.show({ popupType: PopupTheme.auth }))
+    dispatch(OnboardingActions.start());
   }
 
   return (
