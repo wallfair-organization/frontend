@@ -92,6 +92,10 @@ const MainMenu = ({
     setOpenDrawer('leaderboard');
   }
 
+  const onHowItWorksClick = () => {
+    onClickGoToRoute('/how-it-works');
+  };
+
   const onClickShowEditProfile = () => {
     setProfilePic(user.profilePicture);
     setEditVisible(!editVisible);
@@ -440,6 +444,7 @@ const MainMenu = ({
             onWalletClick={onWalletClick}
             onEventsClick={onEventsClick}
             onGamesClick={onGamesClick}
+            onHowItWorksClick={onHowItWorksClick}
             onActivitiesClick={onActivitiesClick}
             onLeaderboardClick={onLeaderboardClick}
             onEditClick={() => onClickShowEditProfile()}
