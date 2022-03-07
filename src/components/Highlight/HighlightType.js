@@ -17,4 +17,5 @@ export default {
   highlightAuthButton: 'highlightAuthButton',
   highlightUnderline: 'highlightUnderline',
   highlightTitle: 'highlightTitle',
+  highlightTitleUnderline: 'highlightTitleUnderline',
 };

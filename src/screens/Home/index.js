@@ -176,7 +176,7 @@ const Home = authState => {
     return (
       <div className={styles.leaderboards}>
         <div className={styles.title}>
-          <h2>Leaderboard</h2>
+          <h2 id="leaderboard">Leaderboard</h2>
         </div>
         <div className={styles.leaderboardBlock}>
           {LEADERBOARD_TYPES.map(type => {

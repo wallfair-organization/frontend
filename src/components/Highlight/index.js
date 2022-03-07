@@ -20,6 +20,7 @@ import { ReactComponent as HighlightModalButton2Disabled } from '../../data/back
 import { ReactComponent as HighlightAuthButton } from '../../data/backgrounds/highlight-auth.svg';
 import { ReactComponent as HighlightUnderline } from '../../data/backgrounds/highlight-underline.svg';
 import { ReactComponent as HighlightTitle } from '../../data/backgrounds/highlight-title.svg';
+import { ReactComponent as HighlightTitleUnderline } from '../../data/backgrounds/highlight-title-underline.svg';
 import HighlightTheme from './HighlightTheme';
 
 const Highlight = ({
@@ -61,6 +62,7 @@ const Highlight = ({
       [HighlightType.highlightAuthButton]: <HighlightAuthButton />,
       [HighlightType.highlightUnderline]: <HighlightUnderline />,
       [HighlightType.highlightTitle]: <HighlightTitle />,
+      [HighlightType.highlightTitleUnderline]: <HighlightTitleUnderline />,
     });
   };
 
