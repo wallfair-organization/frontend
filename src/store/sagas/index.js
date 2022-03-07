@@ -37,6 +37,8 @@ import * as RosiGameSagas from './rosi-game';
 import { OnboardingTypes } from 'store/actions/onboarding';
 import { PopupActions } from 'store/actions/popup';
 import PopupTheme from 'components/Popup/PopupTheme';
+import * as AUTH_STATE from 'constants/AuthState';
+import { GeneralActions } from 'store/actions/general';
 
 const root = function* () {
   yield all([
@@ -227,9 +229,10 @@ const preLoading = function* () {
   //related with disabled betting feature
   // yield put(EventActions.fetchAll());
   yield put(WebsocketsActions.init());
-  const { userId, shouldAcceptToS } = yield select(
+  const { userId, shouldAcceptToS, authState } = yield select(
     state => state.authentication
   );
+  const { howItWorksVisible } = yield select(state => state.general);
 
   if (userId) {
     yield put(
@@ -252,6 +255,14 @@ const preLoading = function* () {
         })
       );
     }
+  }
+
+  if (process.env.REACT_APP_PLAYMONEY === 'true' && 
+      howItWorksVisible && 
+      authState === AUTH_STATE.LOGGED_OUT) {
+    yield delay(1 * 1000);
+    yield put(PopupActions.show({ popupType: PopupTheme.howItWorks }));
+    yield put(GeneralActions.setHowItWorksVisible(false));
   }
 };
 

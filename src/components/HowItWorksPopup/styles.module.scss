@@ -1,0 +1,63 @@
+@import '../../styles/all';
+
+.title {
+  font-size: 30px;
+  position: relative;
+  text-align: center;
+
+  .highlight {
+    position: absolute;
+    right: 100px;
+    top: 20px;
+    width: 200px;
+  }
+}
+
+.description {
+  font-size: 14px;
+  text-align: center;
+  margin: 25px 0 70px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+
+  .step {
+    min-width: 120px;
+    min-height: 90px;
+    background-color: rgba(172, 196, 255, 0.144979);
+    border-radius: 4px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+
+    .number {
+      position: absolute;
+      background-color: #0F002D;
+      color: #ffffff;
+      font-size: 12px;
+      border-radius: 50%;
+      padding: 5px;
+      width: 25px;
+      top: 0;
+      transform: translateY(-50%);
+    }
+  }
+  .chevron {
+    svg > * {
+      fill: #DBE0FF;
+    }
+  }
+}
+
+.button {
+  width: 300px;
+  margin: 0 auto;
+}
