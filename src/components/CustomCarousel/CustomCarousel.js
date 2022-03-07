@@ -264,7 +264,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             <div className={styles.contentWrapper}>
               <span className={styles.title}>MARCH COMPETITION</span>
               <h2>
-                WE WILL DRAW 3 WINNERS <span className={styles.highlightWinner}>EVERY DAY</span>!<br/>
+                WE WILL DRAW 3 WINNERS <span className={styles.highlightWinner}>EVERY DAY!</span><br/>
                 THE DAILY PRIZE POOL IS WORTH <span className={styles.highlightWinner}>150 USD IN ETH.</span>
               </h2>
               <div className={classNames(styles.buttonWrapper, styles.mobile)}>
