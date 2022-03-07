@@ -50,6 +50,7 @@ import VerifyPhonePopup from 'components/VerifyPhonePopup';
 import PhonePopup from 'components/PhonePopup';
 import DisputesPopup from 'components/DisputesPopup';
 import CashoutPopupView from '../CashoutPopupView';
+import HowItWorksPopup from '../HowItWorksPopup';
 
 const Popup = ({ type, visible, options = {}, hidePopup }) => {
   const small = _.get(options, 'small', false);
@@ -270,6 +271,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <DisputesPopup disputes={options?.disputes} />
       case PopupTheme.cashoutPopupView:
         return <CashoutPopupView options={options} />
+      case PopupTheme.howItWorks:
+        return <HowItWorksPopup />
     }
 
     return null;

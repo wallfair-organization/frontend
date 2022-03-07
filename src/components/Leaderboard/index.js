@@ -8,9 +8,6 @@ import { LOGGED_IN } from 'constants/AuthState';
 import { selectLeaderboard } from 'store/selectors/leaderboard';
 import { selectUser } from 'store/selectors/authentication';
 import classNames from 'classnames';
-import Icon from 'components/Icon';
-import IconTheme from 'components/Icon/IconTheme';
-import IconType from 'components/Icon/IconType';
 
 const Leaderboard = ({
   fetchLeaderboard,
@@ -27,6 +24,7 @@ const Leaderboard = ({
   const LIMIT_FOR_CURRENT = 5;
 
   const [fetched, setFetched] = useState(false);
+  const [leaderboardType, setLeaderboardType] = useState('overall');
 
   const leaderboard = useSelector(selectLeaderboard);
 
@@ -40,6 +38,7 @@ const Leaderboard = ({
   useEffect(() => {
     if (fetch && !userRef) {
       fetchLeaderboard(
+        leaderboardType,
         0,
         LIMIT,
         isLoggedIn(),
@@ -50,8 +49,6 @@ const Leaderboard = ({
       setFetched(true);
     }
   }, [fetch]);
-
-
 
   useEffect(() => {
     if (userRef) {
@@ -67,6 +64,7 @@ const Leaderboard = ({
 
   const onLeaderboardLoad = () => {
     fetchLeaderboard(
+      leaderboardType,
       users.length,
       LIMIT,
       false,
@@ -79,7 +77,14 @@ const Leaderboard = ({
     const last = usersWithCurrent[usersWithCurrent.length - 1];
     const skip =
       small && usersWithCurrent.length === 1 ? last.rank : last.rank - 1;
-    fetchLeaderboard(skip, 0, true, SKIP_FOR_CURRENT, LIMIT_FOR_CURRENT);
+    fetchLeaderboard(
+      leaderboardType,
+      skip,
+      0,
+      true,
+      SKIP_FOR_CURRENT,
+      LIMIT_FOR_CURRENT
+    );
   };
 
   const onSelectedUserLoad = () => {
@@ -104,15 +109,9 @@ const Leaderboard = ({
   return (
     <div className={classNames(style.leaderboardTable, className)}>
       <div className={classNames(style.tableHeadings, headingClass)}>
-        <p className={style.rankingHeading}>
-          RANKING
-        </p>
-        <p className={style.userHeading}>
-          USER
-        </p>
-        <p className={style.tokenHeading}>
-          TOKENS WON
-        </p>
+        <p className={style.rankingHeading}>RANKING</p>
+        <p className={style.userHeading}>USER</p>
+        <p className={style.tokenHeading}>TOKENS WON</p>
       </div>
       <div className={style.leaderboardRanking}>
         {!userRef &&
@@ -137,6 +136,7 @@ const Leaderboard = ({
 const mapDispatchToProps = dispatch => {
   return {
     fetchLeaderboard: (
+      leaderboardType,
       skip,
       limit,
       fetchAfterCurrent = false,
@@ -145,6 +145,7 @@ const mapDispatchToProps = dispatch => {
     ) => {
       dispatch(
         LeaderboardActions.fetchAll({
+          leaderboardType,
           skip,
           limit,
           fetchAfterCurrent,

@@ -57,7 +57,7 @@ const fetchAllSucceeded = (action, state) => {
     };
   });
 
-  if (usersWithCurrent.length > 0) {
+  if (usersWithCurrent.length > 0 && users.length) {
     let user = findUser(users, usersWithCurrent[0]._id);
     let overlap =
       user || users[users.length - 1].rank === usersWithCurrent[0].rank - 1;

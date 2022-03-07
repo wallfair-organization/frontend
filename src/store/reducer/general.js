@@ -8,7 +8,8 @@ const initialState = {
   preferencesVisible: false,
   referralsVisible: false,
   disclaimerHidden: false,
-  kycInfoVisible: false
+  kycInfoVisible: false,
+  howItWorksVisible: true,
 };
 
 const setDrawer = (state, { payload }) => {
@@ -79,6 +80,13 @@ const setKycInfoVisible = (state, action) => {
   };
 };
 
+const setHowItWorksVisible = (state, action) => {
+  return {
+    ...state,
+    howItWorksVisible: action.visible,
+  };
+}
+
 const reducers = {
   [GeneralTypes.SET_GLOBAL_DRAWER]: setDrawer,
   [GeneralTypes.SET_EDIT_PROFILE_VISIBLE]: setEditProfileVisible,
@@ -88,6 +96,7 @@ const reducers = {
   [GeneralTypes.SET_REFERRALS_VISIBLE]: setReferralsVisible,
   [GeneralTypes.SET_DISCLAIMER_VISIBLE]: setDisclaimerHidden,
   [GeneralTypes.SET_KYC_INFO_VISIBLE]: setKycInfoVisible,
+  [GeneralTypes.SET_HOW_IT_WORKS_VISIBLE]: setHowItWorksVisible,
 };
 
 export default function (state = initialState, action) {
