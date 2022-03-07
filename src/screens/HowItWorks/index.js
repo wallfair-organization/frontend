@@ -11,9 +11,32 @@ import Button from "../../components/Button";
 import ButtonTheme from '../../components/Button/ButtonTheme';
 import { Link, useHistory } from "react-router-dom";
 import LeaderboardJackpot from "../../components/LeaderboardJackpot";
+import { useCallback } from "react";
+import { connect, useDispatch } from "react-redux";
+import { PopupActions } from "store/actions/popup";
+import authState from "constants/AuthState";
+import Routes from "constants/Routes";
+import PopupTheme from "components/Popup/PopupTheme";
+import { OnboardingActions } from "store/actions/onboarding";
 
-const HowItWorks = () => {
+const HowItWorks = ({loggedIn, phoneConfirmed, showPopup}) => {
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const handleCreateEvent = useCallback(() => {
+    if (loggedIn) {
+      history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
+
+      if (phoneConfirmed) {
+        showPopup(PopupTheme.eventForms, {});
+      } else {
+        dispatch(OnboardingActions.addPhoneNumber());
+      }
+
+    } else {
+      dispatch(OnboardingActions.start());
+    }
+  }, []);
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
@@ -41,8 +64,8 @@ const HowItWorks = () => {
                 <span className={styles.highlighted}> 100 PFAIR for free</span>
               </h1>
               <div className={styles.description}>
-                You get 100 PFAIR for free and have the chance to win 150USD
-                every day keep in mind u can claim 100 PFAIR per day !
+                You get 100 PFAIR for free and have the chance to win 150 USD
+                every day. Keep in mind you can claim 100 PFAIR per day!
               </div>
             </div>
             <div>
@@ -60,7 +83,7 @@ const HowItWorks = () => {
                 Create an event and
                 <span className={styles.highlighted}>
                   {' '}
-                  share with your friends & community
+                  share with your friends &amp; community
                 </span>
               </h1>
               <div className={styles.description}>
@@ -97,7 +120,7 @@ const HowItWorks = () => {
                 </div>
                 <div className={styles.item}>
                   <img src={Medal} alt="Medal" />
-                  Highest cashout value from Elon Game and Pump & Dump
+                  Highest cashout value from Elon Game and Pump &amp; Dump
                 </div>
                 <div className={styles.item}>
                   <img src={Medal} alt="Medal" />
@@ -107,7 +130,7 @@ const HowItWorks = () => {
               <Button
                 className={styles.button}
                 theme={ButtonTheme.primaryButtonM}
-                onClick={() => history.push('/events')}
+                onClick={handleCreateEvent}
               >
                 Create Event now
               </Button>
@@ -130,4 +153,29 @@ const HowItWorks = () => {
   );
 };
 
-export default HowItWorks;
+const mapStateToProps = state => {
+  return {
+    user: state.authentication,
+    loggedIn: state.authentication.authState === authState.LOGGED_IN,
+    userId: state.authentication.userId,
+    phoneConfirmed: state.authentication.phoneConfirmed,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    showPopup: (popupType, options) => {
+      dispatch(
+        PopupActions.show({
+          popupType,
+          options,
+        })
+      );
+    },
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HowItWorks);
