@@ -204,7 +204,7 @@ const Home = authState => {
             );
           })}
         </div>
-        {jackpotUsers.length && (
+        {(jackpotUsers.length > 0) && (
           <div className={styles.jackpotContainer}>
             <div className={styles.jackpotInfo}>
               <div className={styles.header}>
@@ -313,7 +313,7 @@ const Home = authState => {
         )}
 
         {renderActivities()}
-        {renderLeaderboards()}
+        {/* {renderLeaderboards()} */}
 
         <FAQ />
       </div>
