@@ -6,7 +6,6 @@ import { useHistory, useLocation } from 'react-router-dom';
 import useOAuthCallback from 'hooks/useOAuthCallback';
 import { LOGGED_IN } from 'constants/AuthState';
 import { Grid } from '@material-ui/core';
-import { formatToFixed } from 'helper/FormatNumbers';
 import { GeneralActions } from 'store/actions/general';
 import { PopupActions } from 'store/actions/popup';
 import { OnboardingActions } from 'store/actions/onboarding';
@@ -17,11 +16,6 @@ import GainBanner from 'components/GainBanner';
 import Routes from 'constants/Routes';
 import PumpDumpBanner from 'data/backgrounds/home/pumpdump-banner.jpg';
 import ElonBanner from 'data/backgrounds/home/elon-banner.jpg';
-import JackpotImg from 'data/images/carousel/jackpot.png';
-import medalGold from 'data/images/leaderboard/medal-1.svg';
-import medalSilver from 'data/images/leaderboard/medal-2.svg';
-import medalBronze from 'data/images/leaderboard/medal-3.svg';
-import WfairTokenEmblem from 'data/images/token/wfair_token_emblem.png';
 import Button from 'components/Button';
 import ButtonTheme from 'components/Button/ButtonTheme';
 import { selectUser } from 'store/selectors/authentication';
@@ -39,7 +33,7 @@ import {
 } from 'constants/Games';
 import { prepareEvoplayGames, prepareSoftSwissGames } from 'helper/Games';
 import LeaderboardHome from 'components/LeaderboardHome';
-import Link from 'components/Link';
+import LeaderboardJackpot from 'components/LeaderboardJackpot';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
@@ -63,7 +57,6 @@ const Home = authState => {
   const isMount = useIsMount();
   const dispatch = useDispatch();
   const userState = useSelector(selectUser);
-  const [jackpotUsers, setJackpotUsers] = useState([]);
 
   useOAuthCallback();
 
@@ -86,10 +79,6 @@ const Home = authState => {
       });
     }
   }, [isLoggedIn]);
-
-  const pushJackpotUser = user => {
-    setJackpotUsers(old => [...old, user]);
-  };
 
   const handleClickCreateEvent = useCallback(() => {
     if (isLoggedIn) {
@@ -198,61 +187,12 @@ const Home = authState => {
                   className={styles.leaderboardItem}
                   fetch={true}
                   leaderboardType={type.key}
-                  pushJackpotUser={pushJackpotUser}
                 />
               </div>
             );
           })}
         </div>
-        {(jackpotUsers.length > 0) && (
-          <div className={styles.jackpotContainer}>
-            <div className={styles.jackpotInfo}>
-              <div className={styles.header}>
-                <h3>Jackpot Winners</h3>
-                <h3>Of Yesterday</h3>
-              </div>
-
-              <div className={styles.infoList}>
-                {jackpotUsers.map((user, index) => {
-                  return (
-                    <div className={styles.userInfo}>
-                      <div className={styles.imgs}>
-                        <img
-                          src={
-                            index === 0
-                              ? medalGold
-                              : index === 1
-                              ? medalSilver
-                              : index === 2
-                              ? medalBronze
-                              : null
-                          }
-                          alt=""
-                          className={styles.medalImg}
-                        />
-                        <img
-                          src={user.profilePicture || WfairTokenEmblem}
-                          alt=""
-                          className={styles.profilePicture}
-                        />
-                      </div>
-                      <Link
-                        className={styles.username}
-                        to={`/user/${user._id}`}
-                      >
-                        {user.username}
-                      </Link>
-                      <div className={styles.amoun}>
-                        {formatToFixed(user.amountWon, 0, true)} WFAIR
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <img src={JackpotImg} alt="" className={styles.jackpotImage} />
-          </div>
-        )}
+        <LeaderboardJackpot fetch={true} />
       </div>
     );
   };
@@ -313,7 +253,7 @@ const Home = authState => {
         )}
 
         {renderActivities()}
-        {/* {renderLeaderboards()} */}
+        {renderLeaderboards()}
 
         <FAQ />
       </div>

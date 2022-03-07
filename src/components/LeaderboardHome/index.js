@@ -14,7 +14,6 @@ const LeaderboardHome = ({
   headingClass,
   className,
   leaderboardType,
-  pushJackpotUser,
 }) => {
   const LIMIT = 5;
   const [users, setUsers] = useState([]);
@@ -24,9 +23,6 @@ const LeaderboardHome = ({
       getLeaderboard(leaderboardType, 0, LIMIT)
         .then(res => {
           setUsers(res.data.users);
-          if (res.data.users[0]) {
-            pushJackpotUser(res.data.users[0]);
-          }
         })
         .catch(err => {
           console.log(err);
