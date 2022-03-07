@@ -24,7 +24,7 @@ const LeaderboardJackpot = ({ fetch = false }) => {
 
   return (
     <>
-      {jackpotUsers.length && (
+      {jackpotUsers.length > 0 && (
         <div className={styles.jackpotContainer}>
           <div className={styles.jackpotInfo}>
             <div className={styles.header}>

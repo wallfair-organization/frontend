@@ -22,6 +22,10 @@
   color: $colorWhite;
   position: relative;
   margin-bottom: 75px;
+
+  @media (max-width: $screen-md) {
+    margin: 0;
+  }
 }
 
 .video {
@@ -43,6 +47,10 @@
 
 .steps {
   margin-top: 75px;
+
+  @media (max-width: $screen-md) {
+    margin: 0;
+  }
 
   .step {
     display: flex;

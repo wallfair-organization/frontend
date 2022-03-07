@@ -2,7 +2,10 @@
 
 .howItWorks {
   position: relative;
-  padding: 50px;
+  padding: 50px 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
@@ -107,4 +110,10 @@
     left: 0;
     width: 100%;
   }
+}
+
+.link {
+  font-size: 12px;
+  text-decoration: underline;
+  margin-top: 40px;
 }

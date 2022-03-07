@@ -9,6 +9,8 @@ import { useDispatch } from 'react-redux';
 import Coins from '../../data/images/carousel/coins-2.png';
 import { useMediaQuery } from '@material-ui/core';
 import { OnboardingActions } from 'store/actions/onboarding';
+import Routes from 'constants/Routes';
+import { Link } from 'react-router-dom';
 
 const HowItWorksPopup = () => {
   const dispatch = useDispatch();
@@ -75,6 +77,8 @@ const HowItWorksPopup = () => {
       >
         <span>Sign up and create Event</span>
       </Button>
+
+      <Link to={Routes.howItWorks} className={styles.link}>How it works</Link>
 
       <img src={Coins} className={styles.coins} alt="coins" />
     </div>
