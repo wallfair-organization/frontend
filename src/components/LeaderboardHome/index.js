@@ -8,6 +8,7 @@ import medalGold from '../../data/images/leaderboard/medal-1.svg';
 import medalSilver from '../../data/images/leaderboard/medal-2.svg';
 import medalBronze from '../../data/images/leaderboard/medal-3.svg';
 import { ReactComponent as WfairIcon } from '../../data/icons/wfair-symbol.svg';
+import Loader from 'components/Loader/Loader';
 
 const LeaderboardHome = ({
   fetch = false,
@@ -17,15 +18,20 @@ const LeaderboardHome = ({
 }) => {
   const LIMIT = 5;
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (fetch) {
+      setLoading(true);
       getLeaderboard(leaderboardType, 0, LIMIT)
         .then(res => {
           setUsers(res.data.users);
         })
         .catch(err => {
           console.log(err);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     }
   }, [fetch]);
@@ -65,7 +71,7 @@ const LeaderboardHome = ({
             <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
           </p>
           <p className={style.firstBalance}>
-            {formatToFixed(user.amountWon, 0, true)} WFAIR
+            {formatToFixed(user.amountWon, 0, true)} PFAIR
             <WfairIcon className={style.wfairLogo} />
           </p>
         </div>
@@ -86,14 +92,18 @@ const LeaderboardHome = ({
         <p className={style.userHeading}>USER</p>
         <p className={style.tokenHeading}>TOKENS</p>
       </div>
-      <div className={style.leaderboardRanking}>
-        {users &&
-          (users.length ? (
-            renderItems()
-          ) : (
-            <span className={style.emptyRanks}>Nothing here.</span>
-          ))}
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className={style.leaderboardRanking}>
+          {users &&
+            (users.length ? (
+              renderItems()
+            ) : (
+              <span className={style.emptyRanks}>Nothing here.</span>
+            ))}
+        </div>
+      )}
     </div>
   );
 };

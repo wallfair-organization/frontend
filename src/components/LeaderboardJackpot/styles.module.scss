@@ -11,6 +11,7 @@
 
   @media (max-width: $screen-sm) {
     flex-direction: column;
+    padding: 10px 15px;
   }
 
   .jackpotInfo {
@@ -53,31 +54,41 @@
         padding-left: 10px;
 
         .imgs {
-          width: 20%;
+          width: 15%;
           justify-content: flex-start;
           display: flex;
-
-          .medalImg {
-            width: 16px;
-          }
 
           .profilePicture {
             width: 44px;
             border-radius: 100px;
             margin-left: 10px;
           }
+
+          @media (max-width: $screen-sm) {
+            width: 10%;
+          }
         }
 
         .username {
-          width: 30%;
+          width: 35%;
+
+          @media (max-width: $screen-sm) {
+            width: 40%;
+            margin-left: 15%;
+          }
         }
 
         .amount {
           width: 50%;
+
+          @media (max-width: $screen-sm) {
+            margin-left: 20%;
+          }
         }
 
         @media (max-width: $screen-sm) {
-          justify-content: space-between;
+          justify-content: start;
+          font-size: 14px;
         }
       }
     }

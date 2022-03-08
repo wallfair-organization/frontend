@@ -75,6 +75,7 @@
         flex-direction: column;
         flex: auto;
         width: min-content;
+        min-width: max-content;
         margin-right: 15px;
 
         &:last-child {
