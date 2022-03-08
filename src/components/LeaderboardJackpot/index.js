@@ -12,6 +12,12 @@ const LeaderboardJackpot = ({ fetch = false }) => {
   const [jackpotUsers, setJackpotUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const prizeType = [
+    'Highest cashout from Events',
+    'Highest cashout from Games',
+    'Event creator with highest volume',
+  ]
+
   useEffect(() => {
     if (fetch) {
       setLoading(true);
@@ -37,29 +43,32 @@ const LeaderboardJackpot = ({ fetch = false }) => {
           <div className={styles.jackpotContainer}>
             <div className={styles.jackpotInfo}>
               <div className={styles.header}>
-                <h3>Jackpot Winners</h3>
-                <h3>Of Yesterday</h3>
+                <h3>Jackpot winners</h3>
+                <h3>of yesterday</h3>
               </div>
 
               <div className={styles.infoList}>
-                {jackpotUsers.map(user => {
+                {jackpotUsers.map((user, index) => {
                   return (
-                    <div className={styles.userInfo}>
-                      <div className={styles.imgs}>
-                        <img
-                          src={user.profilePicture || WfairTokenEmblem}
-                          alt=""
-                          className={styles.profilePicture}
-                        />
-                      </div>
-                      <Link
-                        className={styles.username}
-                        to={`/user/${user._id}`}
-                      >
-                        {user.username}
-                      </Link>
-                      <div className={styles.amoun}>
-                        {formatToFixed(user.amountWon, 0, true)} <b>PFAIR</b>
+                    <div className={styles.userContainer}>
+                      <span>{prizeType[index]}</span>
+                      <div className={styles.userInfo}>
+                        <div className={styles.imgs}>
+                          <img
+                            src={user.profilePicture || WfairTokenEmblem}
+                            alt=""
+                            className={styles.profilePicture}
+                          />
+                        </div>
+                        <Link
+                          className={styles.username}
+                          to={`/user/${user._id}`}
+                        >
+                          {user.username}
+                        </Link>
+                        <div className={styles.amoun}>
+                          {formatToFixed(user.amountWon, 0, true)} <b>PFAIR</b>
+                        </div>
                       </div>
                     </div>
                   );

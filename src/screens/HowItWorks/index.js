@@ -92,7 +92,7 @@ const HowItWorks = ({loggedIn, phoneConfirmed, showPopup}) => {
                 to start a fun competition. Besides the betting competition, you
                 as an event creator can profit from the volume of trading, while
                 your friends could bet on the correct outcome to make a profit
-                in PFAIR and maybe reaching the highest cash-out to earn the
+                in PFAIR and maybe reaching the highest cashout to earn the
                 daily prize.
               </div>
             </div>
@@ -105,18 +105,18 @@ const HowItWorks = ({loggedIn, phoneConfirmed, showPopup}) => {
                 You can win
                 <span className={styles.highlighted}>
                   {' '}
-                  1 out of 3 prices per week
+                  1 out of 3 prizes per week
                 </span>
               </h1>
               <div className={styles.description}>
                 Wallfair will grant daily prizes worth US$ 150 (in ETH) for
                 winners of our daily competition. Users who reach the 1st place
-                in the following leaderboards will earn $50 each.
+                in the following prize categories will earn $50 each.
               </div>
               <div className={styles.ranking}>
                 <div className={styles.item}>
                   <img src={Medal} alt="Medal" />
-                  Highest multiplier cashed out in an Event
+                  Highest cashout value in an Event
                 </div>
                 <div className={styles.item}>
                   <img src={Medal} alt="Medal" />
