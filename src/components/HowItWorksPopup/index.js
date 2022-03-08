@@ -25,11 +25,12 @@ const HowItWorksPopup = () => {
       <h1 className={styles.title}>
         Sign up & get{' '}
         <span className={styles.highlighted}>
-          100 PFAIR for free{' '}
           <Highlight
             className={styles.highlight}
             highlightType={HighlightType.highlightTitle}
           />
+          <span>100 PFAIR for free{' '}</span>
+          
         </span>
       </h1>
       <div className={styles.description}>
