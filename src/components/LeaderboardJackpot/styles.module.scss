@@ -43,52 +43,65 @@
       display: flex;
       flex-direction: column;
 
-      .userInfo {
+      .userContainer {
         display: flex;
-        flex-direction: row;
-        flex: auto;
-        justify-content: flex-start;
-        align-items: center;
-        height: 60px;
-        width: 95%;
-        padding-left: 10px;
+        flex-direction: column;
+        margin-bottom: 15px;
+        & > span {
+          font-size: 12px;
+          text-transform: uppercase;
+          color: $colorWhite30;
+          font-weight: bold;
+          padding-bottom: 5px;
+        }
 
-        .imgs {
-          width: 15%;
-          justify-content: flex-start;
+        .userInfo {
           display: flex;
+          flex-direction: row;
+          flex: auto;
+          justify-content: flex-start;
+          align-items: center;
+          height: 50px;
+          width: 95%;
+          padding-left: 10px;
 
-          .profilePicture {
-            width: 44px;
-            border-radius: 100px;
-            margin-left: 10px;
+          .imgs {
+            width: 15%;
+            justify-content: flex-start;
+            display: flex;
+
+            .profilePicture {
+              width: 44px;
+              border-radius: 100px;
+              margin-left: 10px;
+            }
+
+            @media (max-width: $screen-sm) {
+              width: 10%;
+            }
+          }
+
+          .username {
+            width: 35%;
+
+            @media (max-width: $screen-sm) {
+              width: 40%;
+              margin-left: 15%;
+            }
+          }
+
+          .amount {
+            width: 50%;
+
+            @media (max-width: $screen-sm) {
+              margin-left: 20%;
+            }
           }
 
           @media (max-width: $screen-sm) {
-            width: 10%;
+            justify-content: start;
+            font-size: 14px;
           }
-        }
-
-        .username {
-          width: 35%;
-
-          @media (max-width: $screen-sm) {
-            width: 40%;
-            margin-left: 15%;
-          }
-        }
-
-        .amount {
-          width: 50%;
-
-          @media (max-width: $screen-sm) {
-            margin-left: 20%;
-          }
-        }
-
-        @media (max-width: $screen-sm) {
-          justify-content: start;
-          font-size: 14px;
         }
       }
     }

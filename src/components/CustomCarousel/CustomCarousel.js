@@ -190,7 +190,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
     return (
       <div className={styles.winnerContainer}>
         <span className={styles.title}>The 3 Winners</span>
-        <WinnerItem number={1} title={'Highest multiplier cashed out in an Event'} />
+        <WinnerItem number={1} title={'Highest cashout value in an Event'} />
         <WinnerItem number={2} title={'Highest cashout value from Elon Game and Pump & Dump'} />
         <WinnerItem number={3} title={'Creator of the event with highest volume'} />
 
