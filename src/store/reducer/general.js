@@ -9,7 +9,7 @@ const initialState = {
   referralsVisible: false,
   disclaimerHidden: false,
   kycInfoVisible: false,
-  howItWorksVisible: true,
+  howItWorksVisible: false,
 };
 
 const setDrawer = (state, { payload }) => {

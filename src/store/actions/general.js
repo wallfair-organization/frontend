@@ -8,6 +8,7 @@ export const GeneralTypes = {
   SET_DISCLAIMER_VISIBLE: 'General/SET_DISCLAIMER_VISIBLE',
   SET_KYC_INFO_VISIBLE: 'General/SET_KYC_INFO_VISIBLE',
   SET_HOW_IT_WORKS_VISIBLE: 'General/SET_HOW_IT_WORKS_VISIBLE',
+  SHOW_HOW_IT_WORKS: 'General/SHOW_HOW_IT_WORKS',
 };
 
 const setDrawer = payload => ({
@@ -53,6 +54,10 @@ const setDisclaimerHidden = visible => ({
 const setHowItWorksVisible = visible => ({
   type: GeneralTypes.SET_HOW_IT_WORKS_VISIBLE,
   visible,
+});
+
+const showHowItWorks = () => ({
+  type: GeneralTypes.SHOW_HOW_IT_WORKS,
 })
 
 export const GeneralActions = {
@@ -64,5 +69,6 @@ export const GeneralActions = {
   setReferralsVisible,
   setDisclaimerHidden,
   setKycInfoVisible,
+  showHowItWorks,
   setHowItWorksVisible,
 };

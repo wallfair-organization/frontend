@@ -62,4 +62,5 @@ export default {
   imprint: '/imprint',
   oauth: '/oauth/:provider',
   winners: '/winners',
+  howItWorks: '/how-it-works',
 };
