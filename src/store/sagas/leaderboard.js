@@ -12,6 +12,7 @@ const fetchAll = function* (action) {
   const user = State.getUser(userId, users);
   const limit = action.limit;
   const skip = action.skip;
+  const leaderboardType = action.leaderboardType;
   const fetchAfterCurrent = action.fetchAfterCurrent;
   const skipForCurrent = user?.rank ? user.rank - action.skipForCurrent : 0;
   const limitForCurrent = user?.rank ? action.limitForCurrent : 5;
@@ -33,12 +34,13 @@ const fetchAll = function* (action) {
   };
 
   if (skip === 0 && fetchAfterCurrent && userId) {
-    const response = yield call(Api.getLeaderboard, skip, limit);
+    const response = yield call(Api.getLeaderboard, leaderboardType, skip, limit);
     let current = [];
 
     if (!response.data.users.find(u => u._id === userId)) {
       const responseCurrent = yield call(
         Api.getLeaderboard,
+        leaderboardType,
         skipForCurrent,
         limitForCurrent
       );
@@ -53,6 +55,7 @@ const fetchAll = function* (action) {
   } else if (fetchAfterCurrent) {
     const responseCurrent = yield call(
       Api.getLeaderboard,
+      leaderboardType,
       skip,
       limitForCurrent
     );
@@ -68,7 +71,7 @@ const fetchAll = function* (action) {
       fetchAfterOnly: true,
     };
   } else {
-    const response = yield call(Api.getLeaderboard, skip, limit);
+    const response = yield call(Api.getLeaderboard, leaderboardType, skip, limit);
     leaderboard = {
       ...leaderboard,
       ...response.data,
@@ -84,7 +87,7 @@ const fetchAll = function* (action) {
 };
 
 const fetchByUser = function* (action) {
-  const response = yield call(Api.getLeaderboard, action.skip, action.limit);
+  const response = yield call(Api.getLeaderboard, action.leaderboardType, action.skip, action.limit);
 
   if (response) {
     yield put(

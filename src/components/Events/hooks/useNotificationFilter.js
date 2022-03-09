@@ -20,7 +20,6 @@ export function useNotificationFilter(category) {
 
       if (category) {
         const notificationByCategory = filterByCategory(initialActivities?.data);
-        console.log('bycategory', notificationByCategory)
         setNotifications(notificationByCategory);
       } else {
         setNotifications(initialActivities?.data);

@@ -71,7 +71,7 @@ const UserWallet = ({
   const [stakesLoading, setStakesLoading] = useState(true);
 
   const { myBetsData } = useRosiData();
-  const [userKyc, setUserKyc] = useState({ ...user?.kyc });
+  // const [userKyc, setUserKyc] = useState({ ...user?.kyc });
 
   const [emailSent, setEmailSent] = useState(false);
   const [openTrades, setOpenTrades] = useState([]);
@@ -144,7 +144,7 @@ const UserWallet = ({
         { name: 'TRADE HISTORY', index: 6 },
       ]);
     }
-    setUserKyc(user?.kyc);
+    // setUserKyc(user?.kyc);
   }, [connected, refreshMyBetsData, user]);
 
   useEffect(() => {
@@ -156,21 +156,21 @@ const UserWallet = ({
     isTransactionsFetchError ? setStakesLoading(false) : setStakesLoading(true);
   }, [isTransactionsFetchError]);
 
-  const isKycStarted = () => userKyc && userKyc.status;
+  // const isKycStarted = () => userKyc && userKyc.status;
 
-  const isKycVerified = () => userKyc && userKyc.status === 'approved';
+  // const isKycVerified = () => userKyc && userKyc.status === 'approved';
 
-  const showKycBanner = () =>
-    !isKycStarted() ||
-    userKyc.status === 'error' ||
-    userKyc.status === 'rejected';
+  // const showKycBanner = () =>
+  //   !isKycStarted() ||
+  //   userKyc.status === 'error' ||
+  //   userKyc.status === 'rejected';
 
-  const openFractal = () => {
-    const kycUrl =
-      ApiUrls.BACKEND_URL +
-      ApiUrls.KYC_START_FOR_USER.replace(':userId', user.userId);
-    window.open(kycUrl, 'fractal', 'width=480,height=700,top=150,left=150');
-  };
+  // const openFractal = () => {
+  //   const kycUrl =
+  //     ApiUrls.BACKEND_URL +
+  //     ApiUrls.KYC_START_FOR_USER.replace(':userId', user.userId);
+  //   window.open(kycUrl, 'fractal', 'width=480,height=700,top=150,left=150');
+  // };
 
   const renderStats = () => {
     return (
@@ -378,7 +378,7 @@ const UserWallet = ({
           </Grid>
         )}
 
-        {user.emailConfirmed && showKycBanner() && (
+        {/* {user.emailConfirmed && showKycBanner() && (
           <Grid
             className={styles.balanceCard}
             item
@@ -417,7 +417,7 @@ const UserWallet = ({
               </div>
             </div>
           </Grid>
-        )}
+        )} */}
         <Grid
           container
           justifyContent="flex-start"
@@ -544,20 +544,20 @@ const UserWallet = ({
                 <div className={styles.buttonContainer}>
                   <h2>Withdraw</h2>
                   <p className={styles.label}>
-                    You can withdraw your funds in the casino directly to your
-                    wallet. You can then convert your WFAIR to other
+                    You can withdraw your funds directly to your
+                    crypto wallet. You can then convert your WFAIR to other
                     cryptocurrencies or hold it to have early access to the
                     upcoming utilities.
                   </p>
                   <Button
                     className={styles.button}
-                    disabled={!isKycVerified() || !user.emailConfirmed}
+                    // disabled={!isKycVerified() || !user.emailConfirmed}
                     disabledWithOverlay={false}
                     onClick={showWithdrawPopup}
-                    title="Withdraw is only possible after the KYC verification is approved and the e-mail address is confirmed."
-                    theme={ButtonTheme.alternativeButton}
+                    title="Instant withdraw up to 100,000 WFAIR"
+                    theme={ButtonTheme.secondaryButton}
                   >
-                    Withdraw
+                    Instant Withdraw
                   </Button>
                 </div>
               </div>

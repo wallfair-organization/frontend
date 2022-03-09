@@ -17,6 +17,7 @@ import { ChatActions } from 'store/actions/chat';
 import { OnboardingActions } from 'store/actions/onboarding';
 import { trackSignup } from 'config/gtm';
 import { errors } from 'ethers';
+import { GeneralActions } from 'store/actions/general';
 
 const afterLoginRoute = Routes.home;
 
@@ -522,6 +523,24 @@ const updateToSConsent = function* ({ isOnboarding }) {
   }
 }
 
+const showHowItWorks = function* () {
+  const authState = yield select(state => state.authentication.authState);
+
+  if (
+    process.env.REACT_APP_PLAYMONEY !== 'true' ||
+    authState !== AuthState.LOGGED_OUT
+  )
+    return;
+
+  yield delay(1 * 1000);
+  const howItWorksVisible = yield select(state => state.general.howItWorksVisible);
+
+  howItWorksVisible && (yield delay(1 * 600000));
+  yield put(PopupActions.show({ popupType: PopupTheme.howItWorks }));
+  yield put(GeneralActions.setHowItWorksVisible(true));
+  yield call(showHowItWorks);
+}
+
 export default {
   authenticationSucceeded,
   fetchReferrals,
@@ -542,4 +561,5 @@ export default {
   resetPassword,
   updateStatus,
   updateToSConsent,
+  showHowItWorks,
 };

@@ -30,8 +30,12 @@ const BetCard = ({
   };
 
   const isVideoBackground = () => {
-    const urlObj = new URL(image);
-    return urlObj.host.indexOf('twitch') > -1;
+    try {
+      const urlObj = new URL(image);
+      return urlObj.host.indexOf('twitch') > -1;
+    } catch (e) {
+      return false;
+    }
   }
 
   const eventState = {

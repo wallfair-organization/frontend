@@ -167,6 +167,7 @@ const root = function* () {
       AuthenticationSagas.refreshImportantData
     ),
     takeLatest([REHYDRATE], AuthenticationSagas.firstSignUpPopup),
+    takeLatest([REHYDRATE], AuthenticationSagas.showHowItWorks),
     takeLatest([LeaderboardTypes.FETCH_ALL], LeaderboardSagas.fetchAll),
     takeLatest([LeaderboardTypes.FETCH_BY_USER], LeaderboardSagas.fetchByUser),
     takeLatest([EventTypes.FETCH_TAGS], EventSagas.fetchTags),
@@ -214,7 +215,7 @@ const root = function* () {
     takeEvery(
       [OnboardingTypes.GET_USERNAME],
       OnboardingSaga.getUsernameSuggestion
-    )
+    ),
     // @formatter:on
   ]);
 };

@@ -48,4 +48,5 @@ export default {
   selectGameMode: 'selectGameMode',
   disputes: 'disputes',
   cashoutPopupView: 'cashoutPopupView',
+  howItWorks: 'howItWorks',
 };

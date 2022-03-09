@@ -41,6 +41,59 @@
       }
     }
   }
+
+  // LEADERBOARDS
+  .leaderboards {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-top: 60px;
+
+    .title {
+      display: flex;
+      align-items: center;
+      color: $colorWhite;
+
+      h2 {
+        color: $colorWhite;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 0;
+
+        @media (max-width: $screen-xs) {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .leaderboardBlock {
+      display: flex;
+      flex-wrap: wrap;
+
+      .typeContainer {
+        display: flex;
+        flex-direction: column;
+        flex: auto;
+        width: min-content;
+        min-width: max-content;
+        margin-right: 15px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        @media (max-width: $screen-xs) {
+          margin-right: 0;
+        }
+
+        h3 {
+          color: #fff;
+          font-size: 14px;
+          padding: 15px 0;
+        }
+      }
+    }
+  }
 }
 
 .gameBannerContainer {

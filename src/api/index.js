@@ -212,9 +212,9 @@ const updateUserPreferences = (userId, preferences) => {
     });
 };
 
-const getLeaderboard = (skip, limit) => {
+const getLeaderboard = (type, skip, limit) => {
   return Api.get(
-    ApiUrls.API_LEADERBOARD.replace(':skip', skip).replace(':limit', limit)
+    ApiUrls.API_LEADERBOARD.replace(':type', type).replace(':skip', skip).replace(':limit', limit)
   ).catch(error => {
     console.log('[API Error] called: getLeaderboard', error);
   });
