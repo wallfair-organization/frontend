@@ -22,6 +22,8 @@ import GainBanner from 'components/GainBanner';
 import Button from 'components/Button';
 import FAQ from 'components/FAQ';
 
+const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
+
 const Winners = (
   authState,
 ) => {
@@ -36,7 +38,7 @@ const Winners = (
   }, [authState]);
 
   useEffect(() => {
-    if (isLoggedIn && !userState.phoneConfirmed) {
+    if (isPlayMoney && isLoggedIn && !userState.phoneConfirmed) {
       dispatch(OnboardingActions.addPhoneNumber());
     }
   }, [isLoggedIn, userState.phoneConfirmed]);
@@ -53,6 +55,12 @@ const Winners = (
 
   const handleClickCreateEvent = useCallback(() => {
     if (isLoggedIn) {
+
+      if (!isPlayMoney) {
+        dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
+        return;
+      }
+
       if (userState.phoneConfirmed) {
         history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
         dispatch(PopupActions.show({popupType: PopupTheme.eventForms}));

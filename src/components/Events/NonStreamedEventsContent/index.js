@@ -30,6 +30,8 @@ import { LOGGED_IN } from 'constants/AuthState';
 import { getMarketEvents } from 'api';
 import { isMobileOnly } from 'react-device-detect';
 
+const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
+
 const NonStreamedEventsContent = ({
   categories,
   setCategories,
@@ -153,6 +155,12 @@ const NonStreamedEventsContent = ({
   }, []);
 
   const handleEventCreation = useCallback(() => {
+
+    if (!isPlayMoney) {
+      showPopup(PopupTheme.eventForms, {})
+      return;
+    }
+
     if (phoneConfirmed) {
       showPopup(PopupTheme.eventForms, {})
     } else {

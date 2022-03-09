@@ -17,7 +17,7 @@ const HomeSettings = ({
   onEmailNotificationClick,
   onLogoutClick,
   onCloseProfile,
-  onKycInfoClick,
+  // onKycInfoClick,
   onProfileClick,
   onHowItWorksClick,
 }) => {
@@ -110,7 +110,7 @@ const HomeSettings = ({
               <p className={styles.settingTitle}>Edit my Profile</p>
             </div>
 
-            <RealMoneyOnly>
+            {/* <RealMoneyOnly>
               <div
                 onClick={() => onKycInfoClick()}
                 className={classNames(styles.singleSettingHolder)}
@@ -121,7 +121,7 @@ const HomeSettings = ({
                 />
                 <p className={styles.settingTitle}>KYC Verification</p>
               </div>
-            </RealMoneyOnly>
+            </RealMoneyOnly> */}
 
             <div
               className={classNames(styles.singleSettingHolder)}

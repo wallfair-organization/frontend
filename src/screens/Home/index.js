@@ -34,6 +34,7 @@ import {
 import { prepareEvoplayGames, prepareSoftSwissGames } from 'helper/Games';
 import LeaderboardHome from 'components/LeaderboardHome';
 import LeaderboardJackpot from 'components/LeaderboardJackpot';
+import PlayMoneyOnly from 'components/PlayMoneyOnly';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
@@ -65,7 +66,7 @@ const Home = authState => {
   }, [authState]);
 
   useEffect(() => {
-    if (isLoggedIn && !userState.phoneConfirmed) {
+    if (isPlayMoney && isLoggedIn && !userState.phoneConfirmed) {
       dispatch(OnboardingActions.addPhoneNumber());
     }
   }, [isLoggedIn, userState.phoneConfirmed]);
@@ -82,6 +83,11 @@ const Home = authState => {
 
   const handleClickCreateEvent = useCallback(() => {
     if (isLoggedIn) {
+      if (!isPlayMoney) {
+        dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
+        return;
+      }
+
       if (userState.phoneConfirmed) {
         dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
       } else {
@@ -174,26 +180,28 @@ const Home = authState => {
 
   const renderLeaderboards = () => {
     return (
-      <div className={styles.leaderboards}>
-        <div className={styles.title}>
-          <h2 id="leaderboard">Leaderboard</h2>
+        <div className={styles.leaderboards}>
+          <div className={styles.title}>
+            <h2 id="leaderboard">Leaderboard</h2>
+          </div>
+          <div className={styles.leaderboardBlock}>
+            {LEADERBOARD_TYPES.map(type => {
+              return (
+                <div className={styles.typeContainer}>
+                  <h3>{type.name}</h3>
+                  <LeaderboardHome
+                    className={styles.leaderboardItem}
+                    fetch={true}
+                    leaderboardType={type.key}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <PlayMoneyOnly>
+            <LeaderboardJackpot fetch={true} />
+          </PlayMoneyOnly>
         </div>
-        <div className={styles.leaderboardBlock}>
-          {LEADERBOARD_TYPES.map(type => {
-            return (
-              <div className={styles.typeContainer}>
-                <h3>{type.name}</h3>
-                <LeaderboardHome
-                  className={styles.leaderboardItem}
-                  fetch={true}
-                  leaderboardType={type.key}
-                />
-              </div>
-            );
-          })}
-        </div>
-        <LeaderboardJackpot fetch={true} />
-      </div>
     );
   };
 

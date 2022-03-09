@@ -3,7 +3,7 @@ import { isMobileRosiGame } from "components/RosiGameAnimation/canvas/utils";
 // const deviceType = isMobileRosiGame ? 'mobile' : 'desktop';
 // const resolution = deviceType === 'mobile' ? 2 : 1;
 
-const assetVersion = "3";
+const assetVersion = "4";
 
 const constructPath = asset =>
     `/images/pump-dump-game/${isMobileRosiGame ? '@2x':'@1x'}/${asset}?v=${assetVersion}`;
@@ -47,7 +47,6 @@ export const ASSET_LIST = {
     MEME_19: constructPath('meme-19.png'),
     MEME_20: constructPath('meme-20.png'),
     MEME_21: constructPath('meme-21.png'),
-    MEME_22: constructPath('meme-22.png'),
 }
 
 export const AUDIO_LIST = {

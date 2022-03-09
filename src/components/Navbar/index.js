@@ -523,9 +523,8 @@ const Navbar = ({
             <img src={LogoDemo} width={200} alt={'Wallfair'} />,
             true
           )}
-          <PlayMoneyOnly>
-            {renderNavbarLink(`/how-it-works`, 'How it works', null, 'menu-howitworks')}
-          </PlayMoneyOnly>
+          
+          {renderNavbarLink(`/how-it-works`, 'How it works', null, 'menu-howitworks')}
           {renderNavbarLink(`/events`, 'Events', null, 'menu-events')}
           <RealMoneyOnly>
             {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
