@@ -18,14 +18,23 @@ import authState from "constants/AuthState";
 import Routes from "constants/Routes";
 import PopupTheme from "components/Popup/PopupTheme";
 import { OnboardingActions } from "store/actions/onboarding";
+import PlayMoneyOnly from "components/PlayMoneyOnly";
+import RealMoneyOnly from "components/RealMoneyOnly";
 
 const HowItWorks = ({loggedIn, phoneConfirmed, showPopup}) => {
   const history = useHistory();
   const dispatch = useDispatch();
+  
+  const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
   const handleCreateEvent = useCallback(() => {
     if (loggedIn) {
       history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
+
+      if (!isPlayMoney) {
+        dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
+        return;
+      }
 
       if (phoneConfirmed) {
         showPopup(PopupTheme.eventForms, {});
@@ -60,12 +69,23 @@ const HowItWorks = ({loggedIn, phoneConfirmed, showPopup}) => {
             <div className={styles.content}>
               <div className={styles.number}>01</div>
               <h1 className={styles.title}>
-                Create your Account and get
-                <span className={styles.highlighted}> 100 PFAIR for free</span>
+                <PlayMoneyOnly>
+                  Create your Account and get{' '}
+                  <span className={styles.highlighted}>100 PFAIR for free</span>
+                </PlayMoneyOnly>
+                <RealMoneyOnly>
+                  Connect your wallet and{' '}
+                  <span className={styles.highlighted}>start betting</span>
+                </RealMoneyOnly>
               </h1>
               <div className={styles.description}>
-                You get 100 PFAIR for free and have the chance to win 150 USD
-                every day. Keep in mind you can claim 100 PFAIR per day!
+                <PlayMoneyOnly>
+                  You get 100 PFAIR for free and have the chance to win 150 USD
+                  every day. Keep in mind you can claim 100 PFAIR per day!
+                </PlayMoneyOnly>
+                <RealMoneyOnly>
+                  Sign up by connecting your Metamask wallet to start betting on fun events and enjoy playing on casino games.
+                </RealMoneyOnly>
               </div>
             </div>
             <div>
@@ -87,67 +107,88 @@ const HowItWorks = ({loggedIn, phoneConfirmed, showPopup}) => {
                 </span>
               </h1>
               <div className={styles.description}>
-                Create a fun event on which you would like to have people
-                betting on, and share it with your family, friends and community
-                to start a fun competition. Besides the betting competition, you
-                as an event creator can profit from the volume of trading, while
-                your friends could bet on the correct outcome to make a profit
-                in PFAIR and maybe reaching the highest cashout to earn the
-                daily prize.
+                <PlayMoneyOnly>
+                  Create a fun event on which you would like to have people
+                  betting on, and share it with your family, friends and community
+                  to start a fun competition. Besides the betting competition, you
+                  as an event creator can profit from the volume of trading, while
+                  your friends could bet on the correct outcome to make a profit
+                  in PFAIR and maybe reaching the highest cashout to earn the
+                  daily prize.
+                </PlayMoneyOnly>
+                <RealMoneyOnly>
+                  Create a fun event on which you would like to have people
+                  betting on, and share it with your family, friends and community
+                  to start a fun competition. You as an event creator can profit 
+                  from a % of the volume of trading, while your friends could earn money 
+                  by betting on the correct outcome.
+                </RealMoneyOnly>
               </div>
+              <RealMoneyOnly>
+                <Button
+                  className={styles.button}
+                  theme={ButtonTheme.primaryButtonM}
+                  onClick={handleCreateEvent}
+                >
+                  Create Event now
+                </Button>
+              </RealMoneyOnly>
             </div>
           </div>
 
-          <div className={styles.step}>
-            <div className={styles.content}>
-              <div className={styles.number}>03</div>
-              <h1 className={styles.title}>
-                You can win
-                <span className={styles.highlighted}>
-                  {' '}
-                  1 out of 3 prizes per week
-                </span>
-              </h1>
-              <div className={styles.description}>
-                Wallfair will grant daily prizes worth US$ 150 (in ETH) for
-                winners of our daily competition. Users who reach the 1st place
-                in the following prize categories will earn $50 each.
+          <PlayMoneyOnly>
+            <div className={styles.step}>
+              <div className={styles.content}>
+                <div className={styles.number}>03</div>
+                <h1 className={styles.title}>
+                  You can win{' '}
+                  <span className={styles.highlighted}>
+                    1 out of 3 prizes per week
+                  </span>
+                </h1>
+                <div className={styles.description}>
+                  Wallfair will grant daily prizes worth US$ 150 (in ETH) for
+                  winners of our daily competition. Users who reach the 1st place
+                  in the following prize categories will earn $50 each.
+                </div>
+                <div className={styles.ranking}>
+                  <div className={styles.item}>
+                    <img src={Medal} alt="Medal" />
+                    Highest cashout value in an Event
+                  </div>
+                  <div className={styles.item}>
+                    <img src={Medal} alt="Medal" />
+                    Highest cashout value from Elon Game and Pump &amp; Dump
+                  </div>
+                  <div className={styles.item}>
+                    <img src={Medal} alt="Medal" />
+                    Creator of the event with highest volume
+                  </div>
+                </div>
+                <Button
+                  className={styles.button}
+                  theme={ButtonTheme.primaryButtonM}
+                  onClick={handleCreateEvent}
+                >
+                  Create Event now
+                </Button>
               </div>
-              <div className={styles.ranking}>
-                <div className={styles.item}>
-                  <img src={Medal} alt="Medal" />
-                  Highest cashout value in an Event
-                </div>
-                <div className={styles.item}>
-                  <img src={Medal} alt="Medal" />
-                  Highest cashout value from Elon Game and Pump &amp; Dump
-                </div>
-                <div className={styles.item}>
-                  <img src={Medal} alt="Medal" />
-                  Creator of the event with highest volume
-                </div>
+              <div>
+                <img src={Image3} className={styles.image} alt="Group 3" />
               </div>
-              <Button
-                className={styles.button}
-                theme={ButtonTheme.primaryButtonM}
-                onClick={handleCreateEvent}
-              >
-                Create Event now
-              </Button>
             </div>
-            <div>
-              <img src={Image3} className={styles.image} alt="Group 3" />
-            </div>
+          </PlayMoneyOnly>
+        </div>
+        
+        <PlayMoneyOnly>
+          <div className={styles.leaderboard}> 
+              <LeaderboardJackpot fetch={true} />
           </div>
-        </div>
 
-        <div className={styles.leaderboard}>
-          <LeaderboardJackpot fetch={true} />
-        </div>
-
-        <a href={'/#leaderboard'} className={styles.leaderboardLink}>
-          Go to daily leaderboard
-        </a>
+          <a href={'/#leaderboard'} className={styles.leaderboardLink}>
+            Go to daily leaderboard
+          </a>
+        </PlayMoneyOnly>
       </div>
     </BaseContainerWithNavbar>
   );

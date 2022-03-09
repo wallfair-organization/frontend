@@ -96,12 +96,12 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
             </div>
             <RealMoneyOnly>
               <div className={styles.linksGroup}>
-                <Link
+                {/* <Link
                   data-tracking-id="footer-kyc"
                   to={Routes.kyc}
                 >
                   <p>{'KYC Policy'}</p>
-                </Link>
+                </Link> */}
 
                 <Link
                   data-tracking-id="footer-responsible-gambling"
@@ -118,11 +118,11 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
           <RealMoneyOnly>
             <div className={styles.trustPilotBlock}>
               <div>
-                <a href="https://www.trustpilot.com/review/app.wallfair.io" target="_blank" rel="noopener noreferrer"><img src={trustPilotIcon} className={styles.trustPilotIcon}/></a>
+                <a href="https://www.trustpilot.com/review/wallfair.io" target="_blank" rel="noopener noreferrer"><img src={trustPilotIcon} className={styles.trustPilotIcon}/></a>
               </div>
 
-              <div className={"trustpilot-widget"} data-locale="en-US" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="61dc05ba2525917592e9d274" data-style-height="24px" data-style-width="100%" data-theme="dark" data-min-review-count="10">
-                <a href="https://www.trustpilot.com/review/app.wallfair.io" target="_blank" rel="noopener noreferrer">Trustpilot</a>
+              <div className={"trustpilot-widget"} data-locale="en-US" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="61bd1806444ad2deeadfba8a" data-style-height="24px" data-style-width="100%" data-theme="dark" data-min-review-count="10">
+                <a href="https://www.trustpilot.com/review/wallfair.io" target="_blank" rel="noopener noreferrer">Trustpilot</a>
               </div>
             </div>
           </RealMoneyOnly>

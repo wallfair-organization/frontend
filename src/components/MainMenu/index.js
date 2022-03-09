@@ -20,7 +20,9 @@ import { checkUsername } from '../../api';
 import { AlertActions } from 'store/actions/alert';
 import { useDispatch } from 'react-redux';
 import { PopupActions } from 'store/actions/popup';
-import KycStatus from 'components/KycStatus';
+// import KycStatus from 'components/KycStatus';
+import Button from 'components/Button';
+import ButtonTheme from 'components/Button/ButtonTheme';
 
 const MainMenu = ({
   opened,
@@ -117,9 +119,9 @@ const MainMenu = ({
     handleReferralsVisible(!referralsVisible);
   };
 
-  const onKycInfoClick = () => {
-    handleKycInfoVisible(!kycInfoVisible);
-  };
+  // const onKycInfoClick = () => {
+  //   handleKycInfoVisible(!kycInfoVisible);
+  // };
 
   const handleName = e => {
     setName(e.target.value);
@@ -305,28 +307,28 @@ const MainMenu = ({
     );
   };
 
-  const renderKycInfoDrawer = () => {
-    return (
-      <div
-        className={classNames(
-          styles.panel,
-          !kycInfoVisible && styles.panelHidden
-        )}
-      >
-        <h2 className={styles.profileHeading}>
-          <Icon
-            className={styles.backButton}
-            iconType={'arrowTopRight'}
-            onClick={() => handleKycInfoVisible(!kycInfoVisible)}
-          />
-          KYC Info
-        </h2>
-        <div className={styles.kycWrapper}>
-          <KycStatus/>
-        </div>
-      </div>
-    );
-  };
+  // const renderKycInfoDrawer = () => {
+  //   return (
+  //     <div
+  //       className={classNames(
+  //         styles.panel,
+  //         !kycInfoVisible && styles.panelHidden
+  //       )}
+  //     >
+  //       <h2 className={styles.profileHeading}>
+  //         <Icon
+  //           className={styles.backButton}
+  //           iconType={'arrowTopRight'}
+  //           onClick={() => handleKycInfoVisible(!kycInfoVisible)}
+  //         />
+  //         KYC Info
+  //       </h2>
+  //       <div className={styles.kycWrapper}>
+  //         <KycStatus/>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   const renderReferralsDrawer = () => {
     return (
@@ -403,12 +405,14 @@ const MainMenu = ({
                 </div>
               )}
               <div className={styles.submitButtonContainer}>
-                <input
+                <Button
+                  theme={ButtonTheme.primaryButtonM}
                   disabled={profileSubmitActive ? false : true}
                   className={styles.profileSubmit}
                   type={'submit'}
-                  value={'Save changes'}
-                />
+                >
+                  Save changes
+                </Button>
               </div>
             </div>
           </form>
@@ -453,7 +457,7 @@ const MainMenu = ({
             onPreferencesClick={() => onPreferencesClick()}
             onLogoutClick={() => doLogout()}
             onCloseProfile={() => close()}
-            onKycInfoClick={() => onKycInfoClick()}
+            // onKycInfoClick={() => onKycInfoClick()}
             onProfileClick={onProfileClick}
           />
         </div>
@@ -463,7 +467,7 @@ const MainMenu = ({
       {referralsVisible && renderReferralsDrawer()}
       {emailNotificationsVisible && renderEmailNotificationDrawer()}
       {preferencesVisible && renderPreferencesDrawer()}
-      {kycInfoVisible && renderKycInfoDrawer()}
+      {/* {kycInfoVisible && renderKycInfoDrawer()} */}
     </div>
   );
 };

@@ -348,7 +348,7 @@ const RosiGame = ({
       <div className={styles.gameContent}>
         <h1 className={styles.title}>Elon Game</h1>
         <div className={styles.content}>
-          <div className={styles.topContainer}>
+          {/* <div className={styles.topContainer}>
             <p>
               <b>Elon had enough: Covid, inflation, corrupt politicians and that bastard Bezos and the other virgin. If that wasn’t enough, SEC got pissed again about some hilarious tweets he wrote. He was tired so decided to relax. As his Ambien stash was empty, there was the only thing he could do. Inhale…Exhale… After a while, he knew what he had to do. There was only one place where he would finally be happy, the space.</b>
             </p>
@@ -358,10 +358,10 @@ const RosiGame = ({
             <p>
               Now it’s your turn to become a part of the mission. Help Elon to get to the Mars and he will immediately reward you! But if you fail, SEC and all the other haters will laugh.
             </p>
-          </div>
+          </div> */}
           <div className={styles.descriptionContainer}>
             <div className={styles.firstWrapper}>
-              <img src={ElonAlpaca} alt='elon-alpaca'/>
+              <img src={ElonAlpaca} alt='elon game'/>
             </div>
             <div className={styles.secondWrapper}>
               <h2>HOW TO PLAY ELON GAME?</h2>
@@ -369,16 +369,16 @@ const RosiGame = ({
                 <b>Step 1:</b> Enter the bet amount you want to play with
               </p>
               <p>
-                <b>Step 2:</b> Click "Place Bet" <br/>
+                <b>Step 2:</b> Click "Place Bet" and wait for the next round to start<br/>
               </p>
               <p>
-                <b>Step 3:</b> Cash out before the Elons rocket exploded <br/>
+                <b>Step 3:</b> Cash out before the Elon&apos;s rocket exploded<br/>
               </p>
               <p>
-                <b>Step 4:</b> Not ready jet? u can cancel the Bet <br/>              
+                <b>Step 4:</b> Not ready yet? You can cancel the Bet<br/>            
               </p>
               <p className={styles.importantTip}>
-                <b>IMPORTANT!</b> You can only place a bet for rounds that haven’t started yet.
+                <b>IMPORTANT!</b>{' '}You can only place a bet for rounds that haven&apos;t started yet.
               </p>
               <p className={styles.importantTip}>
                 You can see the history of your winnings and losses in the game bar.
@@ -397,7 +397,7 @@ const RosiGame = ({
         <div className={styles.gameContent}>
           <h1 className={styles.title}>Pump and Dump</h1>
           <div className={styles.content}>
-            <div className={styles.topContainer}>
+            {/* <div className={styles.topContainer}>
               <p>
                 <b>Everyone talks about the Wolves of Wallstreet. Everyone thinks those aggressive and ruthless creatures are the soil of the investment market, the gurus of investing. But all those stories are smokes and mirrors to protect the real money makers - the Order of the Happy Alpacas. Established back in the days by the genius Warren who discovered that Alpacas developed an astonishing ability to predict market movements way better and more precise than anyone else. </b>
               </p>
@@ -407,10 +407,10 @@ const RosiGame = ({
               <p>
                 Warren had no choice but to pull off the same stunt again, but this time on a broader scale. He talked to his friend Martin, and they decided to remind people about the Jordan and Wolves of Wallstreet and make them the centre of the attention, the icon. It wasn't that expensive, just 5 Oscars, and it worked like a charm. Now it's your turn to see if your prediction skills are on par with Alpacas'. Make Warren proud!
               </p>
-            </div>
+            </div> */}
             <div className={styles.descriptionContainer}>
               <div className={styles.firstWrapper}>
-                <img src={PumpDumpAlpaca} alt='pumpdump-alpaca'/>
+                <img src={PumpDumpAlpaca} alt='pumpdump game'/>
               </div>
               <div className={styles.secondWrapper}>
                 <h2>HOW TO PLAY PUMP AND DUMP?</h2>
@@ -418,19 +418,19 @@ const RosiGame = ({
                   <b>Step 1:</b> Enter the bet amount you want to play with
                 </p>
                 <p>
-                  <b>Step 2:</b> Click "Place Bet" <br/>
+                  <b>Step 2:</b> Click "Place Bet" and wait the next round to start<br/>
                 </p>
                 <p>
-                  <b>Step 3:</b> Cash out before the Shitcoin hits the dump <br/>
+                  <b>Step 3:</b> Cash out before the Shitcoin hits the dump<br/>
                 </p>
                 <p>
-                  <b>Step 4:</b> If your sound is muted, turn it on! <br/>              
+                  <b>Step 4:</b> If your sound is muted, turn it on!<br/>
                 </p>
                 <p>
-                  <b>Step 5:</b> Not ready jet? u can cancel the Bet <br/>              
+                  <b>Step 5:</b> Not ready yet? You can cancel the Bet<br/>              
                 </p>
                 <p className={styles.importantTip}>
-                  <b>IMPORTANT!</b> You can only place a bet for rounds that haven’t started yet.
+                  <b>IMPORTANT!</b>{' '}You can only place a bet for rounds that haven&apos;t started yet.
                 </p>
                 <p className={styles.importantTip}>
                   You can see the history of your winnings and losses in the game bar.

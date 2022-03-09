@@ -20,7 +20,7 @@ export class MemeContainer extends Container {
         this.currentMemeIndex = 0;
         const resources = PumpDumpGameMananger.app.loader.resources;
 
-        for (let i = 0; i <= 21; ++i) {
+        for (let i = 0; i <= 20; ++i) {
             this.memes[i] = new Sprite(resources[ASSET_LIST[`MEME_${i + 1}`]].texture);
             this.memes[i].visible = false;
             this.memes[i].alpha = 0;
