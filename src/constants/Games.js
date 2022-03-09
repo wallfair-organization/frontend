@@ -1880,6 +1880,70 @@ export const SOFTSWISS_GAMES =
                     "blacklist": []
                 }
             }
+        },
+        {
+          "title": "10001 Nights",
+          "identifier": "evolution:10001Nights",
+          "identifier2": "category=slots&table=10001nights00000&devTableID=10001nights00000",
+          "provider": "evolution",
+          "producer": "redtiger",
+          "category": "slots",
+          "has_freespins": true,
+          "feature_group": "redtiger_basic",
+          "devices": [
+              "desktop",
+              "mobile"
+          ],
+          "lines": 20,
+          "payout": 95.73,
+          "volatility_rating": "very-high",
+          "has_jackpot": true,
+          "hd": true,
+          "multiplier": 10001,
+          "restrictions": {
+              "default": {
+                  "blacklist": [
+                      "AU",
+                      "CA-AB",
+                      "CA-BC",
+                      "CA-MB",
+                      "CA-ON",
+                      "CA-QC",
+                      "HK",
+                      "IR",
+                      "KP",
+                      "LV",
+                      "SD",
+                      "SE",
+                      "SG",
+                      "SY",
+                      "US",
+                      "VE",
+                      "ZA"
+                  ]
+              },
+              "MT": {
+                  "blacklist": [
+                      "AU",
+                      "CA-AB",
+                      "CA-BC",
+                      "CA-MB",
+                      "CA-ON",
+                      "CA-QC",
+                      "HK",
+                      "IR",
+                      "KP",
+                      "LV",
+                      "SD",
+                      "SE",
+                      "SG",
+                      "SY",
+                      "US",
+                      "VE",
+                      "ZA"
+                  ]
+              }
+          }
         }
     ]
 
