@@ -217,16 +217,19 @@ const Navbar = ({
           >
             <img src={CoinIcon} alt="medal" className={style.medal} />
             <div className={style.balance}>
-              {formatToFixed(balance, 0, true)} {currencyDisplay(TOKEN_NAME)}
+              {/* {formatToFixed(balance, 0, true)} {currencyDisplay(TOKEN_NAME)} */}
+              {convertAmount(balance, prices['USD'])} {gamesCurrency}
             </div>
             <RealMoneyOnly>
               {gamesCurrency !== TOKEN_NAME ?
                 <span
                   className={classNames(style.infoTooltip, style.hideOnMobile)}
                 >
-                  &asymp; {convertAmount(balance, prices[gamesCurrency])}{' '}
+                  {/* &asymp; {convertAmount(balance, prices[gamesCurrency])}{' '} */}
+                  {formatToFixed(balance, 0, true)}{' '}
                   <span className={style.walletEquivalentCurrency}>
-                    {gamesCurrency}
+                    {/* {gamesCurrency} */}
+                    {currencyDisplay(TOKEN_NAME)}
                   </span>
                 </span>
               :

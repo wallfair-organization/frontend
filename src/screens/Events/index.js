@@ -2,6 +2,7 @@ import { useState, memo } from 'react';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import NonStreamedEventsContent from 'components/Events/NonStreamedEventsContent';
 import { EVENT_CATEGORIES_SECOND } from '../../constants/EventCategories';
+import styles from './styles.module.scss';
 
 const Events = () => {
   const [categories, setCategories] = useState(EVENT_CATEGORIES_SECOND);
