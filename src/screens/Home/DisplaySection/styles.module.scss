@@ -139,7 +139,7 @@
 
     .gameItem {
       height: 100%;
-
+      font-size: 16px;
       display: flex;
       justify-content: center;
 
@@ -149,6 +149,7 @@
       &:hover {
         .title {
           display: block !important;
+          font-size: 16px;
         }
         &::before {
           content: '';
@@ -174,6 +175,8 @@
         z-index: 3;
         display: none;
         padding: 10px;
+
+        font-size: 16px;
         color: white;
         position: absolute;
         bottom: 0;
@@ -183,6 +186,7 @@
       }
 
       &.gameItemLg {
+        font-size: 16px;
         .gameInfo {
           .title {
             @media (max-width: $screen-md) {
@@ -214,6 +218,7 @@
 
       &.gameItemMd,
       &.gameItemSm {
+        font-size: 16px;
         .inactivePlaceholder {
           min-width: 150px;
           min-height: 45px;
@@ -222,6 +227,7 @@
       }
 
       &.gameItemMd {
+        font-size: 16px;
         .gameInfo {
           .title {
             @media (max-width: $screen-md) {
@@ -232,6 +238,7 @@
       }
 
       &.gameItemSm {
+        font-size: 16px;
         .gameInfo {
           .title {
             font-size: 26px;

@@ -37,7 +37,7 @@
     letter-spacing: 0.75px;
     color: white;
 
-    margin: 0 auto 32px;
+    // margin: 0 auto 32px;
   }
 
   /* ACTIVITY TRACKER */
@@ -390,7 +390,7 @@
 
     .gameItem {
       height: 100%;
-
+      font-size: 16px;
       display: flex;
       justify-content: center;
 
@@ -431,9 +431,11 @@
         width: 100%;
         text-align: center;
         font-weight: bold;
+        font-size: 16px;
       }
 
       &.gameItemLg {
+        font-size: 16px;
         .gameInfo {
           .title {
             @media (max-width: $screen-md) {
@@ -465,6 +467,7 @@
 
       &.gameItemMd,
       &.gameItemSm {
+        font-size: 16px;
         .inactivePlaceholder {
           min-width: 150px;
           min-height: 45px;
@@ -473,6 +476,7 @@
       }
 
       &.gameItemMd {
+        font-size: 16px;
         .gameInfo {
           .title {
             @media (max-width: $screen-md) {
@@ -483,6 +487,7 @@
       }
 
       &.gameItemSm {
+        font-size: 16px;
         .gameInfo {
           .title {
             font-size: 26px;
