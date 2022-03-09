@@ -151,10 +151,12 @@
 
     .gameItem {
       height: 100%;
+      font-size: 16px;
       @media (max-width: $screen-md) {
         height: auto;
       }
       &.gameItemLg {
+        font-size: 16px;
         .gameInfo {
           .title {
             @media (max-width: $screen-md) {
