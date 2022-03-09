@@ -180,8 +180,11 @@ const Games = (
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true} carouselType='landingpage'>
-      <CustomCarousel carouselType={'landingpage'} />
+      {/* <CustomCarousel carouselType={'landingpage'} /> */}
       <div className={styles.container}>
+        <section className={styles.title}>
+          <span>Games</span>
+        </section>
 
         <section className={styles.header}>
           <div className={styles.categories}>
