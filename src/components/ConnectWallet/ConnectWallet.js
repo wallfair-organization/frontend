@@ -182,15 +182,6 @@ const ConnectWallet = props => {
       );
     }
 
-    const getContentWithOptions = () => {
-      return (
-        <>
-          {getModalHeader()}
-          <div className={styles.optionsWrap}>{getOptions()}</div>
-        </>
-      );
-    };
-
     return (
       <div className={styles.optionsWrap}>
         <Loader />
@@ -241,12 +232,4 @@ const ConnectWallet = props => {
   return <div className={styles.walletsContainer}>{getModalContent()}</div>;
 };
 
-const mapDispatchToProps = dispatch => {
-  return {};
-};
-
-const mapStateToProps = state => {
-  return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ConnectWallet);
+export default ConnectWallet;

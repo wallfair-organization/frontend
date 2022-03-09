@@ -171,7 +171,8 @@ const Navbar = ({
   }
   const showPopupForLogin = () => {
     if (!isLoggedIn()) {
-      showPopup(PopupTheme.auth, { small: true, authenticationType:AuthenticationType.login });
+      // showPopup(PopupTheme.auth, { small: true, authenticationType:AuthenticationType.login });
+      showPopup(PopupTheme.loginWeb3, { small: true });
     }
   }
 
@@ -305,18 +306,18 @@ const Navbar = ({
         {!isLoggedIn() && <>
           <Button
             className={style.loginButton}
-            theme={ButtonTheme.secondaryButton}
+            theme={ButtonTheme.primaryButtonL}
             onClick={() => showPopupForLogin()}
           >
             Login
           </Button>
-          <Button
+          {/* <Button
             className={style.registerButton}
             theme={ButtonTheme.primaryButtonL}
             onClick={() => startOnboardingFlow()}
           >
             Register
-          </Button>
+          </Button> */}
         </>}
       </div>
     );
