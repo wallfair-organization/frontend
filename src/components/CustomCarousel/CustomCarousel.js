@@ -58,6 +58,11 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
     if (loggedIn) {
       history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
 
+      if (!isPlayMoney) {
+        dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
+        return;
+      }
+
       if (phoneConfirmed) {
         showPopup(PopupTheme.eventForms, {});
       } else {

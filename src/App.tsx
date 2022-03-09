@@ -12,16 +12,13 @@ import { history } from './store';
 import { Provider } from 'react-redux';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import Navbar from 'components/Navbar';
-import NavbarFooter from 'components/NavbarFooter';
-import NavbarFooterAction from 'components/NavbarFooterAction';
-import IconType from 'components/Icon/IconType';
 import Events from './screens/Events';
 // import LiveEvents from './screens/LiveEvents';
 import RosiGame from './screens/RosiGame';
-import PlinkoGame from './screens/PlinkoGame';
-import AlpacannonGame from './screens/AlpacannonGame';
-import RouletteGame from './screens/RouletteGame';
-import MinesGame from './screens/MinesGame';
+// import PlinkoGame from './screens/PlinkoGame';
+// import AlpacannonGame from './screens/AlpacannonGame';
+// import RouletteGame from './screens/RouletteGame';
+// import MinesGame from './screens/MinesGame';
 import { PersistGate } from 'redux-persist/integration/react';
 import Games from './screens/Games';
 import UserWallet from './screens/UserWallet'
@@ -36,7 +33,7 @@ import LeaderboardPage from 'screens/LeaderboardPage';
 import { initTagManager } from './config/gtm';
 import AudioContent from './components/AudioContent';
 import ScrollToTop from 'utils/ScrollToTop';
-import DisclaimerPopupContainer from 'components/DisclaimerPopupContainer';
+// import DisclaimerPopupContainer from 'components/DisclaimerPopupContainer';
 import PageTracker from 'components/PageTracker';
 import EventRouter from 'components/Events/EventRouter';
 // import TypeformController from 'components/TypeformController';
@@ -44,11 +41,11 @@ import ElonWallPaper from 'screens/ElonWallPaper';
 import Fair from 'screens/Fair';
 import TermsConditions from 'screens/TermsConditions';
 import ResponsibleGambling from 'screens/ResponsibleGambling';
-import KYCPolicy from 'screens/KYCPolicy';
+// import KYCPolicy from 'screens/KYCPolicy';
 import Imprint from 'screens/Imprint';
 import PrivacyPolicy from 'screens/PrivacyPolicy';
 import PrivateRoute from 'components/PrivateRoute';
-import LandingPageV2 from 'screens/LandingPageV2';
+// import LandingPageV2 from 'screens/LandingPageV2';
 import PlayMoneyWallet from 'screens/PlayMoneyWallet';
 import Winners from 'screens/Winners';
 import HowItWorks from 'screens/HowItWorks';
@@ -124,9 +121,6 @@ const App = () => {
               <Route exact path={Routes.logout} component={Logout} />
               <Route exact path={Routes.home} component={Home} />
               <Route exact path={Routes.oauth} component={Home} />
-              {/* <Route exact path={Routes.home} component={LandingPageV2} /> */}
-              {/* <Route exact path={Routes.bet} component={Bet} /> */}
-              {/* <Route exact path={Routes.bet} component={BetVTwo} /> */}
               <Route exact path={Routes.event} component={EventRouter} />
               <Route exact path={Routes.betApproveDirect} component={Home} />
               {/*<Route exact path={Routes.liveEvents} component={LiveEvents} />*/}
@@ -146,19 +140,19 @@ const App = () => {
               <Route exact path={Routes.imprint} component={Imprint} />
               <Route exact path={Routes.privacy} component={PrivacyPolicy} />
               <PrivateRoute exact path={Routes.wallet} component={realMoneyOnly ? UserWallet : PlayMoneyWallet} />
-              {!realMoneyOnly && <Route exact path={Routes.howItWorks} component={HowItWorks} />}
+              <Route exact path={Routes.howItWorks} component={HowItWorks} />
 
               {realMoneyOnly && <>
                 <Route path={Routes.games} component={Games} />
-                <Route exact path={Routes.rouletteGame} component={RouletteGame} />
-                <Route exact path={Routes.minesGame} component={MinesGame} />
-                <Route exact path={Routes.plinkoGame} component={PlinkoGame} />
-                <Route exact path={Routes.alpacannonGame} component={AlpacannonGame} />
+                {/* <Route exact path={Routes.rouletteGame} component={RouletteGame} /> */}
+                {/* <Route exact path={Routes.minesGame} component={MinesGame} /> */}
+                {/* <Route exact path={Routes.plinkoGame} component={PlinkoGame} /> */}
+                {/* <Route exact path={Routes.alpacannonGame} component={AlpacannonGame} /> */}
                 <Route exact path={Routes.evoplayGame} component={EvoplayGame} />
                 <Route exact path={Routes.softswissGame} component={SoftswissGame} />
                 <Route exact path={Routes.externalGame} component={ExternalGame} />
                 <Route exact path={Routes.responsibleGambling} component={ResponsibleGambling} />
-                <Route exact path={Routes.kyc} component={KYCPolicy} />
+                {/* <Route exact path={Routes.kyc} component={KYCPolicy} /> */}
               </>}
 
               <Redirect to={Routes.home} />
