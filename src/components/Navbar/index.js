@@ -217,8 +217,16 @@ const Navbar = ({
           >
             <img src={CoinIcon} alt="medal" className={style.medal} />
             <div className={style.balance}>
-              {/* {formatToFixed(balance, 0, true)} {currencyDisplay(TOKEN_NAME)} */}
-              {convertAmount(balance, prices['USD'])} {gamesCurrency}
+              <PlayMoneyOnly>
+                {formatToFixed(balance, 0, true)} {currencyDisplay(TOKEN_NAME)}
+              </PlayMoneyOnly>
+              <RealMoneyOnly>
+                {gamesCurrency !== TOKEN_NAME ?
+                  `${convertAmount(balance, prices[gamesCurrency])} ${gamesCurrency}`
+                :
+                  currencyDisplay(TOKEN_NAME)
+                }
+              </RealMoneyOnly>
             </div>
             <RealMoneyOnly>
               {gamesCurrency !== TOKEN_NAME ?
