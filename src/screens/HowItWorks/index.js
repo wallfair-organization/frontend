@@ -141,13 +141,13 @@ const HowItWorks = ({loggedIn, phoneConfirmed, showPopup}) => {
           </div>
         </div>
 
-        {/* <div className={styles.leaderboard}>
+        <div className={styles.leaderboard}>
           <LeaderboardJackpot fetch={true} />
         </div>
 
         <a href={'/#leaderboard'} className={styles.leaderboardLink}>
           Go to daily leaderboard
-        </a> */}
+        </a>
       </div>
     </BaseContainerWithNavbar>
   );

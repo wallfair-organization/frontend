@@ -253,7 +253,7 @@ const Home = authState => {
         )}
 
         {renderActivities()}
-        {/* {renderLeaderboards()} */}
+        {renderLeaderboards()}
 
         <FAQ />
       </div>
