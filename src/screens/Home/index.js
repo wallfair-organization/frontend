@@ -1,33 +1,23 @@
-import {memo, useCallback, useEffect, useMemo, useState} from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
-
 import styles from './styles.module.scss';
-import GameCards from '../../components/GameCards';
-
 import { useIsMount } from 'components/hoc/useIsMount';
 import { useHistory, useLocation } from 'react-router-dom';
 import useOAuthCallback from 'hooks/useOAuthCallback';
 import { LOGGED_IN } from 'constants/AuthState';
-import classNames from 'classnames';
-import Icon from 'components/Icon';
-import IconType from 'components/Icon/IconType';
 import { Grid } from '@material-ui/core';
 import { GeneralActions } from 'store/actions/general';
 import { PopupActions } from 'store/actions/popup';
 import { OnboardingActions } from 'store/actions/onboarding';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import EventActivitiesTabs from 'components/EventActivitiesTabs';
 import CustomCarousel from 'components/CustomCarousel/CustomCarousel';
 import EventsCarouselContainer from 'components/EventsCarouselContainer';
 import GainBanner from 'components/GainBanner';
 import Routes from 'constants/Routes';
-
 import PumpDumpBanner from 'data/backgrounds/home/pumpdump-banner.jpg';
 import ElonBanner from 'data/backgrounds/home/elon-banner.jpg';
 import Button from 'components/Button';
 import ButtonTheme from 'components/Button/ButtonTheme';
-import { UserActions } from 'store/actions/user';
-import { TOKEN_NAME } from 'constants/Token';
 import { selectUser } from 'store/selectors/authentication';
 import FAQ from 'components/FAQ';
 import DiscordWidget from 'components/DiscordWidget';
@@ -35,14 +25,34 @@ import PopupTheme from 'components/Popup/PopupTheme';
 import { dataLayerPush } from 'config/gtm';
 import ActivitiesTracker from 'components/ActivitiesTracker';
 import DisplaySection from './DisplaySection';
-import { EVOPLAY_GAMES, EXTERNAL_GAMES, SOFTSWISS_GAMES, TOP_PICKS_GAMES } from 'constants/Games';
+import {
+  EVOPLAY_GAMES,
+  EXTERNAL_GAMES,
+  SOFTSWISS_GAMES,
+  TOP_PICKS_GAMES,
+} from 'constants/Games';
 import { prepareEvoplayGames, prepareSoftSwissGames } from 'helper/Games';
+import LeaderboardHome from 'components/LeaderboardHome';
+import LeaderboardJackpot from 'components/LeaderboardJackpot';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
-const Home = (
-  authState,
-) => {
+const LEADERBOARD_TYPES = [
+  {
+    key: 'high_events',
+    name: 'Highest cashouts from Events',
+  },
+  {
+    key: 'high_games',
+    name: 'Highest cashouts from Games',
+  },
+  {
+    key: 'high_volume',
+    name: 'Event creators with highest volume',
+  },
+];
+
+const Home = authState => {
   const history = useHistory();
   const isMount = useIsMount();
   const dispatch = useDispatch();
@@ -64,7 +74,7 @@ const Home = (
     if (!isLoggedIn) {
       dispatch(OnboardingActions.start());
       dataLayerPush({
-        event:'gtm.click',
+        event: 'gtm.click',
         'gtm.elementId': 'home-banner--signup',
       });
     }
@@ -73,32 +83,36 @@ const Home = (
   const handleClickCreateEvent = useCallback(() => {
     if (isLoggedIn) {
       if (userState.phoneConfirmed) {
-        dispatch(PopupActions.show({popupType: PopupTheme.eventForms}));
+        dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
       } else {
         dispatch(OnboardingActions.addPhoneNumber());
       }
-
     } else {
       dispatch(OnboardingActions.start());
       dataLayerPush({
-        event:'gtm.click',
+        event: 'gtm.click',
         'gtm.elementId': 'home-banner--create-events',
       });
     }
   }, [isLoggedIn, userState.phoneConfirmed, dispatch]);
 
-  
   const renderGamesBanner = () => {
     return (
-
       <div className={styles.gameBannerContainer}>
         <div className={styles.title}>
-          <h2>🎮 Discover our Games</h2>
+          <h2 id="games">🎮 Discover our Games</h2>
         </div>
         <div className={styles.games}>
-          <div onClick={() => history.push(Routes.elonGame)} className={styles.gameBanner}>
+          <div
+            onClick={() => history.push(Routes.elonGame)}
+            className={styles.gameBanner}
+          >
             <img src={ElonBanner} alt="Elon Game banner" />
-            <span className={styles.bannerTitle}>Play the<br />Elon Game</span>
+            <span className={styles.bannerTitle}>
+              Play the
+              <br />
+              Elon Game
+            </span>
             <Button
               theme={ButtonTheme.primaryButtonM}
               className={styles.bannerButton}
@@ -106,9 +120,16 @@ const Home = (
               Play now
             </Button>
           </div>
-          <div onClick={() => history.push(Routes.pumpdumpGame)} className={styles.gameBanner}>
+          <div
+            onClick={() => history.push(Routes.pumpdumpGame)}
+            className={styles.gameBanner}
+          >
             <img src={PumpDumpBanner} alt="Pump Dump Game banner" />
-            <span className={styles.bannerTitle}>Let's play<br />Pump &amp; Dump</span>
+            <span className={styles.bannerTitle}>
+              Let's play
+              <br />
+              Pump &amp; Dump
+            </span>
             <Button
               theme={ButtonTheme.primaryButtonM}
               className={styles.bannerButton}
@@ -119,7 +140,7 @@ const Home = (
         </div>
       </div>
     );
-  }
+  };
 
   const renderActivities = () => {
     return (
@@ -151,51 +172,88 @@ const Home = (
     );
   };
 
+  const renderLeaderboards = () => {
+    return (
+      <div className={styles.leaderboards}>
+        <div className={styles.title}>
+          <h2 id="leaderboard">Leaderboard</h2>
+        </div>
+        <div className={styles.leaderboardBlock}>
+          {LEADERBOARD_TYPES.map(type => {
+            return (
+              <div className={styles.typeContainer}>
+                <h3>{type.name}</h3>
+                <LeaderboardHome
+                  className={styles.leaderboardItem}
+                  fetch={true}
+                  leaderboardType={type.key}
+                />
+              </div>
+            );
+          })}
+        </div>
+        <LeaderboardJackpot fetch={true} />
+      </div>
+    );
+  };
 
   return (
-    <BaseContainerWithNavbar withPaddingTop={true} carouselType='landingpage'>
+    <BaseContainerWithNavbar withPaddingTop={true} carouselType="landingpage">
       <CustomCarousel carouselType={'landingpage'} />
-      
+
       <div className={styles.container}>
         <DiscordWidget />
-        <EventsCarouselContainer 
+        <EventsCarouselContainer
           title={'🔥 Most popular Events'}
           titleLink={'Show all events'}
           orderBy={'most_popular'}
-          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {category: 'all'})}
+          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {
+            category: 'all',
+          })}
         />
 
-        <EventsCarouselContainer 
+        <EventsCarouselContainer
           title={'✨ Latest Events Added'}
           titleLink={'Show all events'}
           category={'all'}
-          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {category: 'all'})}
+          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {
+            category: 'all',
+          })}
         />
 
-        <EventsCarouselContainer 
+        <EventsCarouselContainer
           title={'⏱️ Events ending soon'}
           titleLink={'Show all events'}
           category={'all'}
           orderBy={'bet_end_date'}
           order={'ASC'}
-          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {category: 'all'})}
+          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {
+            category: 'all',
+          })}
         />
 
-        {isPlayMoney &&
+        {isPlayMoney && (
           <GainBanner
             isLoggedIn={isLoggedIn}
             handleClickSignUp={handleClickSignUp}
             handleClickCreateEvent={handleClickCreateEvent}
           />
-        }
+        )}
 
         {renderGamesBanner()}
 
-        {!isPlayMoney &&
-          <DisplaySection selectedGamesLabel={TOP_PICKS_GAMES.header} selectedGamesNames={TOP_PICKS_GAMES.names} smartsoftGames={EXTERNAL_GAMES} evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)} softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}/>
-        }
+        {!isPlayMoney && (
+          <DisplaySection
+            selectedGamesLabel={TOP_PICKS_GAMES.header}
+            selectedGamesNames={TOP_PICKS_GAMES.names}
+            smartsoftGames={EXTERNAL_GAMES}
+            evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)}
+            softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}
+          />
+        )}
 
         {renderActivities()}
+        {renderLeaderboards()}
 
         <FAQ />
       </div>

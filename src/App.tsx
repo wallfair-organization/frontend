@@ -51,6 +51,7 @@ import PrivateRoute from 'components/PrivateRoute';
 import LandingPageV2 from 'screens/LandingPageV2';
 import PlayMoneyWallet from 'screens/PlayMoneyWallet';
 import Winners from 'screens/Winners';
+import HowItWorks from 'screens/HowItWorks';
 
 const { store, persistor } = configStore();
 
@@ -145,6 +146,7 @@ const App = () => {
               <Route exact path={Routes.imprint} component={Imprint} />
               <Route exact path={Routes.privacy} component={PrivacyPolicy} />
               <PrivateRoute exact path={Routes.wallet} component={realMoneyOnly ? UserWallet : PlayMoneyWallet} />
+              {!realMoneyOnly && <Route exact path={Routes.howItWorks} component={HowItWorks} />}
 
               {realMoneyOnly && <>
                 <Route path={Routes.games} component={Games} />

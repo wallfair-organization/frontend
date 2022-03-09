@@ -10,6 +10,7 @@ export const LeaderboardTypes = {
 };
 
 const fetchAll = makeActionCreator(LeaderboardTypes.FETCH_ALL, {
+  leaderboardType: 'overall',
   skip: 0,
   limit: 10,
   fetchAfterCurrent: false,
@@ -27,6 +28,7 @@ const fetchAllSucceeded = makeActionCreator(
 const fetchAllFailed = makeActionCreator(LeaderboardTypes.FETCH_ALL_FAILED);
 
 const fetchByUser = makeActionCreator(LeaderboardTypes.FETCH_BY_USER, {
+  leaderboardType: 'overall',
   skip: 0,
   limit: 10,
   paginate: false,

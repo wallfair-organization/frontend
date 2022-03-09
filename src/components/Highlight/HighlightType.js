@@ -16,4 +16,6 @@ export default {
   highlightModalButton2Disabled: 'highlightModalButton2Disabled',
   highlightAuthButton: 'highlightAuthButton',
   highlightUnderline: 'highlightUnderline',
+  highlightTitle: 'highlightTitle',
+  highlightTitleUnderline: 'highlightTitleUnderline',
 };

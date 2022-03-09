@@ -523,7 +523,26 @@ const Navbar = ({
             <img src={LogoDemo} width={200} alt={'Wallfair'} />,
             true
           )}
+          <PlayMoneyOnly>
+            {renderNavbarLink(`/how-it-works`, 'How it works', null, 'menu-howitworks')}
+          </PlayMoneyOnly>
+          {renderNavbarLink(`/events`, 'Events', null, 'menu-events')}
+          <RealMoneyOnly>
+            {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
+          </RealMoneyOnly>
+          
+          <PlayMoneyOnly>
+            <a
+              href={'/#games'}
+              data-tracking-id={'menu-games'}
+            >
+              Games
+            </a>
+          </PlayMoneyOnly>
         </div>
+        {/* <div className={style.linkWrapper}>
+          
+        </div> */}
         {renderWalletButton()}
         <div ref={drawerWrapper} className={style.drawerWrapper}>
           {renderNavButtons()}

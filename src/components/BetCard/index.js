@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { calculateTimeLeft } from '../../helper/Time';
 import { EVENT_CATEGORIES } from '../../constants/EventCategories';
 import BetState from 'constants/BetState';
+import EmbedVideo from 'components/EmbedVideo';
 
 const BetCard = ({
   betId,
@@ -27,6 +28,15 @@ const BetCard = ({
       backgroundImage: 'url("' + image + '")',
     };
   };
+
+  const isVideoBackground = () => {
+    try {
+      const urlObj = new URL(image);
+      return urlObj.host.indexOf('twitch') > -1;
+    } catch (e) {
+      return false;
+    }
+  }
 
   const eventState = {
     [BetState.disputed]: 'Event disputed',
@@ -54,6 +64,7 @@ const BetCard = ({
       onClick={onClick}
     >
       <div className={styles.picture} style={getEventCardStyle()} />
+      { isVideoBackground() && <EmbedVideo className={styles.video} video={image} muted={true} autoPlay={false} controls={false} /> }
       <div className={classNames(styles.picture, styles.overlay)} />
       <div className={classNames(styles.betCard)}>
         <div className={styles.badgeContainer}>
