@@ -1,47 +1,37 @@
-import {memo, useCallback, useEffect, useMemo, useState} from 'react';
+import {memo, useCallback, useMemo} from 'react';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 
 import styles from './styles.module.scss';
 
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import useOAuthCallback from 'hooks/useOAuthCallback';
 import { LOGGED_IN } from 'constants/AuthState';
 import classNames from 'classnames';
 import { PopupActions } from 'store/actions/popup';
 import { OnboardingActions } from 'store/actions/onboarding';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import Routes from 'constants/Routes';
 
 import BackgroundThird from 'data/images/carousel/bg-third.png';
 import JackpotImg from 'data/images/carousel/jackpot.png';
 
-import { selectUser } from 'store/selectors/authentication';
 import PopupTheme from 'components/Popup/PopupTheme';
 import { dataLayerPush } from 'config/gtm';
 import GainBanner from 'components/GainBanner';
 import Button from 'components/Button';
 import FAQ from 'components/FAQ';
 
-const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
-
 const Winners = (
   authState,
 ) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const userState = useSelector(selectUser);
 
   useOAuthCallback();
 
   const isLoggedIn = useMemo(() => {
     return authState?.authState === LOGGED_IN;
   }, [authState]);
-
-  useEffect(() => {
-    if (isPlayMoney && isLoggedIn && !userState.phoneConfirmed) {
-      dispatch(OnboardingActions.addPhoneNumber());
-    }
-  }, [isLoggedIn, userState.phoneConfirmed]);
 
   const handleClickSignUp = useCallback(() => {
     if (!isLoggedIn) {
@@ -55,19 +45,10 @@ const Winners = (
 
   const handleClickCreateEvent = useCallback(() => {
     if (isLoggedIn) {
-
-      if (!isPlayMoney) {
-        dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
-        return;
-      }
-
-      if (userState.phoneConfirmed) {
-        history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
-        dispatch(PopupActions.show({popupType: PopupTheme.eventForms}));
-      } else {
-        dispatch(OnboardingActions.addPhoneNumber());
-      }
-
+      history.push(
+        Routes.getRouteWithParameters(Routes.events, { category: 'all' })
+      );
+      dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
     } else {
       dispatch(OnboardingActions.start());
       dataLayerPush({
@@ -75,7 +56,7 @@ const Winners = (
         'gtm.elementId': 'home-banner--create-events',
       });
     }
-  }, [isLoggedIn, userState.phoneConfirmed, dispatch]);
+  }, [isLoggedIn, dispatch]);
 
   const WinnerItem = ({number, title}) => {
     return (
@@ -154,7 +135,6 @@ const mapStateToProps = state => {
     tags: state.event.tags,
     events: state.event.events,
     userId: state.authentication.userId,
-    phoneConfirmed: state.phoneConfirmed,
   };
 };
 

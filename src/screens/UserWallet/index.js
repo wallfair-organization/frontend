@@ -254,9 +254,6 @@ const UserWallet = ({
                 >
                   Deposit
                 </Button>
-                <span className={styles.presentText}>
-                  🎁 We double your deposit!
-                </span>
               </div>
             </div>
           </div>

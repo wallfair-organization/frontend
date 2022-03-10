@@ -39,22 +39,10 @@ const TokenTransfer = ({
   // const [TXSuccess, setTXSuccess] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   // const [formError, setformError] = useState('');
-  const [checkBox, setCheckBox] = useState(false);
-
-  const depositCount = useDepositsCounter();
-  const [bonus, setBonus] = useState(0);
 
   useEffect(() => {
     setIsLoading(false);
   }, []);
-
-  useEffect(() => {
-    if (depositCount > 0) {
-      setBonus(0);
-    } else {
-      setBonus(Math.min(LIMIT_BONUS, transferValue));
-    }
-  }, [depositCount, transferValue]);
 
   useEffect(() => {
     if (!modalOpen) {
@@ -66,10 +54,6 @@ const TokenTransfer = ({
       showTxModal();
     }
   }, [modalOpen]);
-
-  const getLookupLabel = () => {
-    return Object.keys();
-  };
 
   const handleTransaction = useCallback(() => {
     setBlocked(true);
@@ -140,11 +124,7 @@ const TokenTransfer = ({
               </div>
               <hr/>
               <div className={styles.overviewItem}>
-                <span>Bonus</span><span className={styles.bonus}>{numberWithCommas(bonus)} {TOKEN_NAME}</span>
-              </div>
-              <hr/>
-              <div className={styles.overviewItem}>
-                <span className={styles.total}>Total</span><span className={styles.total}>{numberWithCommas(parseFloat(transferValue) + bonus)} {TOKEN_NAME}</span>
+                <span className={styles.total}>Total</span><span className={styles.total}>{numberWithCommas(parseFloat(transferValue))} {TOKEN_NAME}</span>
               </div>
               <hr/>
             </div>

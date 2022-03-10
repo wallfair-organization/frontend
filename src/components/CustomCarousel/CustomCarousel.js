@@ -44,7 +44,7 @@ const BottomBanner = ({title, price}) => {
   )
 }
 
-const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible, setOpenDrawer, userId, showPopup, phoneConfirmed}) => {
+const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible, setOpenDrawer, userId, showPopup}) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
@@ -58,17 +58,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
     if (loggedIn) {
       history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
 
-      if (!isPlayMoney) {
-        dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
-        return;
-      }
-
-      if (phoneConfirmed) {
-        showPopup(PopupTheme.eventForms, {});
-      } else {
-        dispatch(OnboardingActions.addPhoneNumber());
-      }
-
+      showPopup(PopupTheme.eventForms, {});
     } else {
       dispatch(OnboardingActions.start());
       dataLayerPush({
@@ -438,7 +428,6 @@ const mapStateToProps = state => {
     user: state.authentication,
     loggedIn: state.authentication.authState === authState.LOGGED_IN,
     userId: state.authentication.userId,
-    phoneConfirmed: state.authentication.phoneConfirmed,
   }
 }
 

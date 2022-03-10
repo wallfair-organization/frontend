@@ -1,0 +1,81 @@
+@import '../../styles/all';
+
+.title {
+  padding: 90px 0 40px;
+  text-align: left;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  color: $colorPrimary;
+  line-height: 30px;
+}
+
+.container {
+  max-width: 452px;
+
+  .description {
+    font-size: 16px;
+    font-weight: 400;
+    color: $colorPrimary;
+    white-space: nowrap;
+    padding-bottom: 20px;
+
+    @media (max-width: $screen-xs) {
+      white-space: normal;
+    }
+
+    .randomizeButton {
+      font-weight: 400;
+      color: $colorPrimary;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .inputBox {
+    width: 100%;
+    margin: 0 auto;
+
+    @media (max-width: $screen-sm) {
+      width: 100%;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    padding-bottom: 30px;
+
+    .button {
+      width: 100%;
+      border: none;
+      margin-top: 50px;
+    }
+  }
+
+  .terms {
+    font-size: 14px;
+    color: $colorGrayLight1;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .errorHandLing {
+    font-size: 14.5px;
+    height: 60px;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $colorRedLight;
+    color: $colorWhite;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+}

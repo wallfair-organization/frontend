@@ -7,8 +7,16 @@ import {ReactComponent as Maestro} from 'data/icons/maestro.svg';
 import {ReactComponent as GooglePay} from 'data/icons/google-pay.svg';
 import Button from 'components/Button';
 import ButtonTheme from 'components/Button/ButtonTheme';
+import { useHistory } from 'react-router-dom';
+import Routes from 'constants/Routes';
+import { PopupActions } from 'store/actions/popup';
+import PopupTheme from 'components/Popup/PopupTheme';
+import { useDispatch } from 'react-redux';
 
 const BuyWFAIRWidget = () => {
+
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.widgetContainer}>
@@ -19,9 +27,17 @@ const BuyWFAIRWidget = () => {
         <ApplePay />
         <img src={SamsungPay} alt="SamsungPay Logo"/>
       </div>
-      <a href={'https://staking.wallfair.io/dashboard/buy-wfair'} target="_blank" rel="noreferrer">
-        <Button theme={ButtonTheme.primaryButtonL}>Buy WFAIR</Button>
-      </a>
+      
+      <Button 
+        theme={ButtonTheme.primaryButtonL}
+        onClick={() => {
+          history.push(Routes.wallet);
+          dispatch(PopupActions.show({ popupType: PopupTheme.walletDeposit }));
+        }}
+      >
+        Buy WFAIR
+      </Button>
+      
     </div>
   );
 };
