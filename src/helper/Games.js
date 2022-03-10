@@ -23,9 +23,12 @@ export const ObjectId = (gamename) => {
 export const prepareSoftSwissGames = (softswissGames, gamesCategory) => {
   const output = [];
   const thumbUrl = "https://cdn.softswiss.net/i/s3/";
+  const blockedProducers = ['redtiger'];
   for (let key in softswissGames) {
     const gameInfo = softswissGames[key];
-
+    if(blockedProducers.indexOf(gameInfo.producer)>-1){
+      continue;
+    }
     const catSubType = gameInfo.category;
     const name = gameInfo.title;
    let translatedCat = null;
@@ -68,13 +71,17 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory) => {
         translatedCat = 'Casino Games';
       }
     }
-
-
+    let imageName;
+    if(gameInfo.provider==='evolution'){
+      imageName= gameInfo.identifier.split(':')[1] + '.png';
+    }else{
+      imageName = gameInfo.identifier2+".png"
+    }
     const gameEntry = {
       GameProvider: 'softswiss',
       TechnicalName: gameInfo.title,
       GameCategory: translatedCat || catSubType,
-      GameThumb: thumbUrl + gameInfo.provider +'/'+ gameInfo.identifier2+".png",
+      GameThumb: thumbUrl + gameInfo.provider +'/'+ imageName,
       _cfg: gameInfo
     }
     output.push(gameEntry);
