@@ -286,11 +286,10 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has placed{' '}
-            <div className={'global-token-currency'}>
               <b>
                 {formatToFixed(stakedAmount, 0, true)} {gamesCurrency}
               </b>
-            </div>{' '}
+            {' '}
             bet on {gameLabel}.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
@@ -306,16 +305,16 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has cashed out{' '}
-            <div className={'global-token-currency'}>
+            
               <b>
                 {formatToFixed(_.get(data, 'reward'), 0, true)} {gamesCurrency}
               </b>
-            </div>{' '}
+            {' '}
             {gainValueCasino && (
               <div
                 className={
                   gainNegativeCasino
-                    ? 'global-cashout-loss'
+                    ? null
                     : 'global-cashout-profit'
                 }
               >
@@ -372,15 +371,14 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has lost{' '}
-            <div className={'global-token-currency'}>
-              <b className={'global-cashout-loss'}>
+            
+              <b>
                 {formatToFixed(stakedAmount, 0, true)} {gamesCurrency}
               </b>
-            </div>{' '}
+            {' '}
             at{' '}
-            <div className={'global-game-crashfactor'}>
-              {roundToTwo(multiplier)}
-            </div>{' '}
+            {roundToTwo(multiplier)}
+            {' '}
             {multiplierLabel} on {gameLabel}.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
