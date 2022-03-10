@@ -16,13 +16,63 @@
 .container {
   width: 100%;
 
+  .buttonDeposit {
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    margin: 0 auto;
+  }
+
+  .walletFAQ {
+    h2 {
+      font-size: 24px;
+    }
+  }
+
+  .howitworks {
+    display: flex;
+    flex-direction: column;
+    margin: 80px auto;
+    max-width: 373px;
+    width: 100%;
+    row-gap: 30px;
+    padding: 0 15px;
+
+    .howitworksTitle {
+      font-size: 28px;
+      color: $colorWhite;
+      font-weight: 600;
+      margin: 0 auto;
+    }
+
+    .howitworksItem {
+      display: flex;
+      flex-direction: row;
+      column-gap: 15px;
+
+      & > div {
+        width: 22px;
+        height: 22px;
+      }
+
+      & > span {
+        color: $colorWhite;
+        text-align: justify;
+      }
+    }
+  }
+
   .paymentMethodIcons {
     display: flex;
     width: 100%;
-    margin: 20px auto;
 
-    @media (max-width: $screen-xs) {
-      width: 80%;
+    & > svg {
+      margin: 20px auto;
+      cursor: pointer;
+
+      @media (max-width: $screen-xs) {
+        width: 80%;
+      }
     }
   }
 
@@ -33,11 +83,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 120px auto 0;
+    margin: 100px auto 0;
     padding: 0 16px;
 
     @media (max-width: $screen-sm) {
       flex-direction: column;
+      margin: 80px auto 0;
     }
     h1 {
       font-family: $fontDMSans;
@@ -358,12 +409,23 @@
           flex-direction: column;
           margin-left: 25px;
           width: 100%;
-          row-gap: 20px;
+          row-gap: 10px;
+
+          @media (max-width: $screen-xs) {
+            margin: 7px auto 0;
+            align-items: center;
+          }
 
           .balanceToken {
             display: flex;
             justify-content: space-between;
-            max-width: 335px;
+            max-width: 235px;
+            margin-top: 30px;
+
+            @media (max-width: $screen-xs) {
+              width: 100%;
+              max-width: 220px;
+            }
 
             span {
               font-family: $fontDMSans;
@@ -389,9 +451,9 @@
           .balanceBottomContainer {
             margin-top: 7px;
             display: flex;
+
             .currentbalanceWFair {
               display: flex;
-
               box-sizing: border-box;
               font-family: $fontDMSans;
               font-size: 44px;
@@ -422,13 +484,6 @@
 
             .inputSelect {
               margin-left: 15px;
-              & > * {
-                &:focus,
-                &:active {
-                  outline: 0;
-                  border: 0;
-                }
-              }
             }
           }
         }
@@ -446,8 +501,13 @@
         }
 
         .buttonDeposit {
-          width: 240px;
+          height: 50px;
         }
+        .withdrawButton {
+          background: transparent;
+          height: 50px;
+        }
+
         .presentText {
           margin-top: 10px;
           font-size: 11px;

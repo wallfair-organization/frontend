@@ -29,6 +29,9 @@ import { ReactComponent as WalletIcon } from '../../data/icons/wallet/wallet.svg
 import { ReactComponent as RightArrow } from '../../data/icons/wallet/right-arrow.svg';
 import { ReactComponent as LockerIcon } from '../../data/icons/wallet/locker-icon.svg';
 import { ReactComponent as PaymentMethodIcon } from '../../data/icons/wallet/payment-icons.svg';
+import { ReactComponent as LockYellowIcon } from '../../data/icons/wallet/locker-yellow-icon.svg';
+import { ReactComponent as ClockYellowIcon } from '../../data/icons/wallet/clock-yellow-icon.svg';
+import { ReactComponent as CheckYellowIcon } from '../../data/icons/wallet/check-yellow-icon.svg';
 
 import * as ApiUrls from 'constants/Api';
 import { getOpenBets, getTradeHistory, resendEmailVerification } from 'api';
@@ -48,6 +51,7 @@ import { TOKEN_NAME } from '../../constants/Token';
 import { convertAmount, currencyDisplay } from 'helper/Currency';
 import { selectPrices } from 'store/selectors/info-channel';
 import { red } from '@material-ui/core/colors';
+import WalletFAQ from 'components/FAQ/WalletFAQ';
 
 const UserWallet = ({
   connected,
@@ -260,7 +264,7 @@ const UserWallet = ({
               <div className={styles.rightCard}>
                 <Button
                   theme={ButtonTheme.primaryButtonL}
-                  // className={classNames(styles.button, styles.buttonDeposit)}
+                  className={styles.buttonDeposit}
                   onClick={showWalletDepositPopup}
                 >
                   <LockerIcon />
@@ -270,8 +274,8 @@ const UserWallet = ({
                 <Button
                   theme={ButtonTheme.secondaryButton}
                   onClick={showWithdrawPopup}
+                  className={styles.withdrawButton}
                 >
-                  <LockerIcon />
                   Instant Withdraw
                 </Button>
               </div>
@@ -605,6 +609,38 @@ const UserWallet = ({
   //   );
   // };
 
+
+  const renderDepositBonusSection = () => {
+    return (
+      <div className={styles.howitworks}>
+        <span className={styles.howitworksTitle}>How it works</span>
+
+        <span className={styles.howitworksItem}>
+          <div><LockYellowIcon /></div>
+          <span>You can deposit funds <b>safely</b> via crypto payments credit card, bank wire, Apple Pay.</span>
+        </span>
+
+        <span className={styles.howitworksItem}>
+          <div><LockYellowIcon /></div>
+          <span><b>Safety matters!</b>Fully licensed casino, audited payment providers.</span>
+        </span>
+
+        <span className={styles.howitworksItem}>
+          <div><ClockYellowIcon /></div>
+          <span>You can play <b>instantly!</b></span>
+        </span>
+
+        <span className={styles.howitworksItem}>
+          <div><CheckYellowIcon /></div>
+          <span>You can withdraw up to 100,000 WFAIR per day. No KYC required.</span>
+        </span>
+
+        
+      </div>
+    )
+  }
+
+
   return (
     <BaseContainerWithNavbar>
       <div className={styles.containerWrapper}>
@@ -614,9 +650,28 @@ const UserWallet = ({
           </div>
           {renderCurrentBalanceSection()}
 
-          <PaymentMethodIcon className={styles.paymentMethodIcons} />
+          <div className={styles.paymentMethodIcons}>
+            <PaymentMethodIcon onClick={showWalletDepositPopup} />
+          </div>
           {/* {renderDepositBonusSection()} */}
           {renderStats()}
+
+          {renderDepositBonusSection()}
+
+          <Button
+            theme={ButtonTheme.primaryButtonL}
+            className={styles.buttonDeposit}
+            onClick={showWalletDepositPopup}
+          >
+            <LockerIcon />
+            Safe Instant Deposit
+          </Button>
+
+          <div className={styles.paymentMethodIcons}>
+            <PaymentMethodIcon onClick={showWalletDepositPopup} />
+          </div>
+
+          <WalletFAQ className={styles.walletFAQ}/>
         </div>
       </div>
     </BaseContainerWithNavbar>
