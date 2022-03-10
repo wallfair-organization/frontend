@@ -1,15 +1,15 @@
 import {
-  walletconnect,
+  // walletconnect,
   injected,
-  gnosisSafe,
+  // gnosisSafe,
   // trezor,
-  walletlink,
+  // walletlink,
 } from './connectors';
 // import TrezorIcon from '../data/icons/wallet/trezor.svg';
-import GnosisIcon from '../data/icons/wallet/gnosis.svg';
+// import GnosisIcon from '../data/icons/wallet/gnosis.svg';
 import MetaMaskIcon from '../data/icons/wallet/metamask.svg';
-import CoinbaseIcon from '../data/icons/wallet/coinbase.svg';
-import WallectConnectIcon from '../data/icons/wallet/wallet-connect.svg';
+// import CoinbaseIcon from '../data/icons/wallet/coinbase.svg';
+// import WallectConnectIcon from '../data/icons/wallet/wallet-connect.svg';
 
 export const SUPPORTED_WALLETS = {
   INJECTED: {

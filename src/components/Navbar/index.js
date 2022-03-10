@@ -310,7 +310,7 @@ const Navbar = ({
             theme={ButtonTheme.primaryButtonL}
             onClick={() => showPopupForLogin()}
           >
-            Login
+            Connect
           </Button>
           {/* <Button
             className={style.registerButton}

@@ -51,10 +51,10 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
       sid,
       cid,
     }).then(res => {
-      loginSuccessful(res);
       localStorage.removeItem('urlParam_ref');
       localStorage.removeItem('urlParam_sid');
       localStorage.removeItem('urlParam_cid');
+      loginSuccessful(res);
     }).catch(e => {
       console.error(e);
       deactivate();
@@ -75,6 +75,7 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
           signResponse,
           challenge: response.challenge,
         });
+        setProcessing(false);
         loginSuccessful(loginResponse);
       } else {
         setShowUsername(true);
@@ -84,7 +85,6 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
     } catch (e) {
       console.error(e);
       deactivate();
-    } finally {
       setProcessing(false);
     }
   };  

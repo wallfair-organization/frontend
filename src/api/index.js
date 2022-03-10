@@ -29,11 +29,13 @@ const createInstance = (host, apiPath) => {
     response => response,
     error => {
       if (
+        error.response &&
         error.response.status === 401 &&
         error.response.data?.message !== 'Invalid login'
       ) {
         dispatch(AuthenticationActions.forcedLogout());
       } else if (
+        error.response &&
         error.response.status === 403 &&
         error.response.data?.errors?.banData
       ) {
