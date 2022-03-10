@@ -49,4 +49,5 @@ export default {
   disputes: 'disputes',
   cashoutPopupView: 'cashoutPopupView',
   howItWorks: 'howItWorks',
+  loginWeb3: 'loginWeb3',
 };

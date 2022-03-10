@@ -65,12 +65,10 @@ const DepositCrypto = ({user, showWalletDepositPopup, fetchWalletTransactions}) 
 
   const [inputAmount, setInputAmount] = useState(0.1);
   const [tokenValue, setTokenValue] = useState(0);
-  const [bonus, setBonus] = useState(0);
   const [total, setTotal] = useState(0);
   const [address, setAddress] = useState('');
   const [uri, setUri] = useState('');
   const [errorFetchingChannel, setErrorFetchingChannel] = useState(false);
-  const depositCount = useDepositsCounter();
 
   useEffect(() => {
     fetchWalletTransactions();
@@ -121,16 +119,12 @@ const DepositCrypto = ({user, showWalletDepositPopup, fetchWalletTransactions}) 
 
       setTokenValue(WfairTokenValue);
 
-      const expectedBonus = depositCount > 0 ? 0 : Math.min(LIMIT_BONUS, WfairTokenValue);
-      setBonus(expectedBonus);
-
-      const calculatedTotal = Math.floor((WfairTokenValue + expectedBonus) * 100) / 100;
+      const calculatedTotal = Math.floor(WfairTokenValue * 100) / 100;
 
       setTotal(calculatedTotal);
 
     } else {
       setTokenValue(0);
-      setBonus(0);
       setTotal(0)
     }
   }, [selectedCurrency.label]);
@@ -237,10 +231,6 @@ const DepositCrypto = ({user, showWalletDepositPopup, fetchWalletTransactions}) 
         </p>
         <div className={styles.overviewItem}>
           <span>Estimate</span><span>{numberWithCommas(tokenValue)} {TOKEN_NAME}</span>
-        </div>
-        <hr/>
-        <div className={styles.overviewItem}>
-          <span>Bonus</span><span className={styles.bonus}>{numberWithCommas(bonus)} {TOKEN_NAME}</span>
         </div>
         <hr/>
         <div className={styles.overviewItem}>

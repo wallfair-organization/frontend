@@ -42,8 +42,6 @@ const NonStreamedEventsContent = ({
   bookmarkEventCancel,
   startOnboarding,
   authState,
-  phoneConfirmed,
-  requirePhoneNumberVerification,
 }) => {
   const eventType = 'non-streamed';
 
@@ -154,20 +152,6 @@ const NonStreamedEventsContent = ({
     startOnboarding();
   }, []);
 
-  const handleEventCreation = useCallback(() => {
-
-    if (!isPlayMoney) {
-      showPopup(PopupTheme.eventForms, {})
-      return;
-    }
-
-    if (phoneConfirmed) {
-      showPopup(PopupTheme.eventForms, {})
-    } else {
-      requirePhoneNumberVerification();
-    }
-  }, [phoneConfirmed])
-
   return (
     <>
       <section className={styles.title}>
@@ -202,7 +186,7 @@ const NonStreamedEventsContent = ({
             {authState === LOGGED_IN && (
               <Button
                 theme={ButtonTheme.primaryButtonS}
-                onClick={handleEventCreation}
+                onClick={() => showPopup(PopupTheme.eventForms, {})}
                 className={styles.createButton}
               >
                 <PlusIcon />
@@ -311,9 +295,6 @@ const mapDispatchToProps = dispatch => {
     },
     startOnboarding: () => {
       dispatch(OnboardingActions.start());
-    },
-    requirePhoneNumberVerification: () => {
-      dispatch(OnboardingActions.addPhoneNumber({initialOnboarding: false}));
     },
   };
 };

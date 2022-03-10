@@ -51,6 +51,7 @@ import PhonePopup from 'components/PhonePopup';
 import DisputesPopup from 'components/DisputesPopup';
 import CashoutPopupView from '../CashoutPopupView';
 import HowItWorksPopup from '../HowItWorksPopup';
+import LoginWeb3Popup from '../LoginWeb3Popup';
 
 const Popup = ({ type, visible, options = {}, hidePopup }) => {
   const small = _.get(options, 'small', false);
@@ -273,6 +274,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <CashoutPopupView options={options} />
       case PopupTheme.howItWorks:
         return <HowItWorksPopup />
+      case PopupTheme.loginWeb3:
+        return <LoginWeb3Popup />
     }
 
     return null;

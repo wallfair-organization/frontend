@@ -21,27 +21,15 @@ import { OnboardingActions } from "store/actions/onboarding";
 import PlayMoneyOnly from "components/PlayMoneyOnly";
 import RealMoneyOnly from "components/RealMoneyOnly";
 
-const HowItWorks = ({loggedIn, phoneConfirmed, showPopup}) => {
+const HowItWorks = ({loggedIn, showPopup}) => {
   const history = useHistory();
   const dispatch = useDispatch();
   
-  const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
-
   const handleCreateEvent = useCallback(() => {
     if (loggedIn) {
       history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
 
-      if (!isPlayMoney) {
-        dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
-        return;
-      }
-
-      if (phoneConfirmed) {
-        showPopup(PopupTheme.eventForms, {});
-      } else {
-        dispatch(OnboardingActions.addPhoneNumber());
-      }
-
+      showPopup(PopupTheme.eventForms, {});
     } else {
       dispatch(OnboardingActions.start());
     }
@@ -199,7 +187,6 @@ const mapStateToProps = state => {
     user: state.authentication,
     loggedIn: state.authentication.authState === authState.LOGGED_IN,
     userId: state.authentication.userId,
-    phoneConfirmed: state.authentication.phoneConfirmed,
   }
 }
 
