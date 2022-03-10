@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { useEffect, useState } from 'react';
 import Option from './Option';
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core';
 import BigNumber from 'bignumber.js';
@@ -10,6 +9,7 @@ import { isMobile } from 'react-device-detect';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 import { injected } from '../../config/connectors';
 import { isMetamask } from '../../utils/detection';
+import MetaMaskIcon from '../../data/icons/wallet/metamask.svg';
 
 import {
   NoEthereumProviderError,
@@ -18,6 +18,8 @@ import {
 import { UserRejectedRequestError as UserRejectedRequestErrorWalletConnect } from '@web3-react/walletconnect-connector';
 
 import styles from './styles.module.scss';
+import Button from '../Button';
+import ButtonTheme from '../Button/ButtonTheme';
 
 const WALLET_VIEWS = {
   OPTIONS: 'OPTIONS',
@@ -35,7 +37,29 @@ function isUserRejected (error) {
 
 function getErrorMessage (error) {
   if (error instanceof NoEthereumProviderError) {
-    return 'No Ethereum browser extension detected, install MetaMask on desktop or visit from a dApp browser on mobile.';
+    return (
+      <div>
+        No Ethereum browser extension detected, install MetaMask on desktop or
+        visit from a dApp browser on mobile.
+        <a
+          href={
+            isMetamask || !isMobile
+              ? 'https://metamask.io/download/'
+              : `https://metamask.app.link/dapp/${window.location.origin}`
+          }
+          data-tracking-id="install-metamask-button"
+          data-content-type="dashboard"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.installLink}
+        >
+          <div className={styles.installButtonContent}>
+            <img src={MetaMaskIcon} alt="metamask" width="40" height="30" />
+            Install Metamask
+          </div>
+        </a>
+      </div>
+    );
   } else if (error instanceof UnsupportedChainIdError) {
     return "You're connected to an unsupported network.";
   } else if (isUserRejected(error)) {
@@ -57,8 +81,6 @@ const ConnectWallet = props => {
     error,
   } = useWeb3React();
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT);
-  const [pendingError, setPendingError] = useState(false);
-  const [wallet, setPendingWallet] = useState(undefined);
   const [balance, setBalance] = useState('');
 
   useEffect(() => {
@@ -81,16 +103,13 @@ const ConnectWallet = props => {
     newConnector &&
       activate(newConnector, undefined, true)
         .then(() => {
-          setPendingWallet(newConnector);
           setWalletView(WALLET_VIEWS.ACCOUNT);
         })
         .catch(error => {
           if (isUserRejected(error)) {
-            setPendingError(true);
             setWalletError('');
           } else {
             const message = getErrorMessage(error);
-            setPendingError(true);
             setWalletError(message);
           }
         });
@@ -110,7 +129,6 @@ const ConnectWallet = props => {
               active={option.connector === connector}
               icon={option.iconURL}
               onClick={() => {
-                setPendingError(false);
                 option.connector === connector
                   ? setWalletView(WALLET_VIEWS.ACCOUNT)
                   : !option.href && tryActivation(option.connector);
@@ -150,8 +168,6 @@ const ConnectWallet = props => {
             active={option.connector === connector}
             icon={option.iconURL}
             onClick={() => {
-              setPendingError(false);
-
               option.connector === connector
                 ? setWalletView(WALLET_VIEWS.ACCOUNT)
                 : !option.href && tryActivation(option.connector);
@@ -174,10 +190,7 @@ const ConnectWallet = props => {
       return (
         <div className={classNames(styles.optionsWrap, styles.optionsError)}>
           <strong>{`Something went wrong`}</strong>
-          <span>
-            {`Message: `}
-            {walletError}
-          </span>
+          {walletError}
         </div>
       );
     }

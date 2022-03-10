@@ -105,3 +105,19 @@
     font-family: $fontDMSans;
   }
 }
+
+.installLink {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 0;
+  background: url('../../data/backgrounds/buttons/button-l.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.installButtonContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
