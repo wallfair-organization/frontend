@@ -220,7 +220,7 @@ const Games = (
 
         {alpacaGames.length > 0 && <GameCards games={alpacaGames} category="House Games" />}
 
-        <DisplaySection smartsoftGames={externalGames} evoplayGames={externalGamesEvoplay} softswissGames={process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' ? externalGamesSoftswiss : []} />
+        <DisplaySection smartsoftGames={externalGames} evoplayGames={externalGamesEvoplay} softswissGames={externalGamesSoftswiss} />
         {/* {showDiscordBanner && renderDiscordBanner()} */}
         {renderActivities()}
       </div>

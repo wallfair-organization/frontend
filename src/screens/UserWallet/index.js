@@ -27,6 +27,8 @@ import { ReactComponent as BitcoinIcon } from '../../data/icons/wallet/bitcoin.s
 import { ReactComponent as EuroIcon } from '../../data/icons/wallet/euro.svg';
 import { ReactComponent as WalletIcon } from '../../data/icons/wallet/wallet.svg';
 import { ReactComponent as RightArrow } from '../../data/icons/wallet/right-arrow.svg';
+import { ReactComponent as LockerIcon } from '../../data/icons/wallet/locker-icon.svg';
+import { ReactComponent as PaymentMethodIcon } from '../../data/icons/wallet/payment-icons.svg';
 
 import * as ApiUrls from 'constants/Api';
 import { getOpenBets, getTradeHistory, resendEmailVerification } from 'api';
@@ -45,6 +47,7 @@ import { AVAILABLE_GAMES_CURRENCY } from '../../constants/Currency';
 import { TOKEN_NAME } from '../../constants/Token';
 import { convertAmount, currencyDisplay } from 'helper/Currency';
 import { selectPrices } from 'store/selectors/info-channel';
+import { red } from '@material-ui/core/colors';
 
 const UserWallet = ({
   connected,
@@ -229,34 +232,47 @@ const UserWallet = ({
             <div className={styles.balanceContainer}>
               <div className={styles.leftCard}>
                 { balance && (
-                    <div className={styles.balanceTextContainer}>
-                      <p className={styles.currentbalanceHeading}>
-                        Current balance:
-                      </p>
-                      <div className={styles.balanceBottomContainer}>
-                        <p className={styles.currentbalanceWFair}>
-                          {/* <span>{formatToFixed(balance, 0, true)}</span> */}
+                  <div className={styles.balanceTextContainer}>
+                    <p className={styles.currentbalanceHeading}>
+                      Current balance
+                    </p>
+                    <div className={styles.balanceBottomContainer}>
+                      <p className={styles.currentbalanceWFair}>
+                        {/* <span>{formatToFixed(balance, 0, true)}</span> */}
 
-                          {gamesCurrency !== TOKEN_NAME
-                            ? `${convertAmount(
-                                balance,
-                                prices[gamesCurrency]
-                              )}`
-                            : `${formatToFixed(balance, 0, true)}`
-                          }
-                        </p>
-                        {renderWalletPreferencesSection()}
-                        {/* <p className={styles.symbolContainer}>{gamesCurrency}</p> */}
-                      </div>
+                        {gamesCurrency !== TOKEN_NAME
+                          ? `${convertAmount(
+                              balance,
+                              prices[gamesCurrency]
+                            )}`
+                          : `${formatToFixed(balance, 0, true)}`
+                        }
+                      </p>
+                      {renderWalletPreferencesSection()}
                     </div>
-                  )}
+                    <div className={styles.balanceToken}>
+                      <span>Balance in WFAIR</span>
+                      <span>{`${formatToFixed(balance, 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
+                    </div>
+                  </div>
+                )}
               </div>
               <div className={styles.rightCard}>
                 <Button
-                  className={classNames(styles.button, styles.buttonDeposit)}
+                  theme={ButtonTheme.primaryButtonL}
+                  // className={classNames(styles.button, styles.buttonDeposit)}
                   onClick={showWalletDepositPopup}
                 >
-                  Deposit
+                  <LockerIcon />
+                  Safe Instant Deposit
+                </Button>
+
+                <Button
+                  theme={ButtonTheme.secondaryButton}
+                  onClick={showWithdrawPopup}
+                >
+                  <LockerIcon />
+                  Instant Withdraw
                 </Button>
               </div>
             </div>
@@ -293,6 +309,24 @@ const UserWallet = ({
       });
     };
 
+    const dropdownCustomStyles = {
+      'control':(provided, state) => ({
+        ...provided,
+        backgroundColor:'transparent',
+        border: '0',
+        color: '#ffffff',
+        outline: '0',
+      }),
+      'input':(provided, state) => ({
+        ...provided,
+        color: 'white',
+      }),
+      'singleValue':(provided, state) => ({
+        ...provided,
+        color: 'white',
+      })
+    }
+
     return (
       // <div className={styles.walletPreferencesSection}>
       //   <div className={styles.boxContainer}>
@@ -304,9 +338,11 @@ const UserWallet = ({
               onChange={handleChangeCurrency}
               options={options}
               isClearable={false}
+              isSearchable={false}
               name="selected-currency"
               defaultValue={getSelected()}
               className={styles.inputSelect}
+              styles={dropdownCustomStyles}
             />
       //     </div>
       //   </div>
@@ -577,6 +613,8 @@ const UserWallet = ({
             <h1>My Wallet</h1>
           </div>
           {renderCurrentBalanceSection()}
+
+          <PaymentMethodIcon className={styles.paymentMethodIcons} />
           {/* {renderDepositBonusSection()} */}
           {renderStats()}
         </div>
