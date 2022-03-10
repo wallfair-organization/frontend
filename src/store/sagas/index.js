@@ -207,11 +207,12 @@ const root = function* () {
       [TransactionTypes.FETCH_WALLET_TRANSACTIONS],
       TransactionSagas.fetchWalletTransactions
     ),
-    takeLatest(
-      [OnboardingTypes.START, OnboardingTypes.NEXT, OnboardingTypes.ADD_PHONE],
-      OnboardingSaga.loadOnboardingStep
-    ),
-    takeEvery([OnboardingTypes.START], OnboardingSaga.getUsernameSuggestion),
+    // takeLatest(
+    //   [OnboardingTypes.START, OnboardingTypes.NEXT, OnboardingTypes.ADD_PHONE],
+    //   OnboardingSaga.loadOnboardingStep
+    // ),
+    // takeEvery([OnboardingTypes.START], OnboardingSaga.getUsernameSuggestion),
+    takeLatest([OnboardingTypes.START], OnboardingSaga.startOnboarding),
     takeEvery(
       [OnboardingTypes.GET_USERNAME],
       OnboardingSaga.getUsernameSuggestion

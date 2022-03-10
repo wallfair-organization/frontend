@@ -49,6 +49,7 @@ import PrivateRoute from 'components/PrivateRoute';
 import PlayMoneyWallet from 'screens/PlayMoneyWallet';
 import Winners from 'screens/Winners';
 import HowItWorks from 'screens/HowItWorks';
+import Web3Listener from './components/Web3Listener';
 
 const { store, persistor } = configStore();
 
@@ -111,6 +112,7 @@ const App = () => {
         <PersistGate persistor={persistor}>
           <ConnectedRouter history={history}>
             <PageTracker />
+            <Web3Listener />
             <Navbar skipRoutes={[]} />
             <AlertBox />
             <Popup />

@@ -781,7 +781,7 @@ const uploadImage = payload => {
 };
 
 const loginWeb3Challenge = (address) => {
-  return Api.get(`/api/auth/login/web3/${address}`)
+  return Api.get(`/api/auth/web3/${address}`)
     .then(res => res.data)
     .catch(e => {
       console.log('[API-Error]: loginWeb3Challenge', e);
@@ -790,7 +790,7 @@ const loginWeb3Challenge = (address) => {
 };
 
 const loginWeb3 = payload => {
-  return Api.post('/api/auth/login/web3', payload)
+  return Api.post('/api/auth/web3', payload)
     .then(res => res.data)
     .catch(e => {
       console.log('[API-Error]: loginWeb3', e);
