@@ -72,6 +72,7 @@ const UniversalVideoEmbed = props => {
   const streamType = checkStreamType(video);
   const embeddingDomains = [
     'main.wallfair.io',
+    'app.wallfair.io',
     'main.alpacasino.io',
     'staging.wallfair.io',
     'demo.wallfair.io',
