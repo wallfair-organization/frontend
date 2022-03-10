@@ -298,7 +298,7 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             type === PopupTheme.walletDeposit ? styles.walletDeposit : null,
             type === PopupTheme.walletDepositCrypto ? classNames(styles.walletDeposit, styles.depositWider) : null,
             type === PopupTheme.walletDepositFiat ? classNames(styles.walletDeposit, styles.depositWider) : null,
-            type === PopupTheme.walletWithdraw ? classNames(styles.walletDeposit, styles.depositWider) : null,
+            type === PopupTheme.walletWithdraw ? classNames(styles.walletDeposit, styles.withdrawWider) : null,
             type === PopupTheme.walletConnectWallet ? styles.walletDeposit : null,
             type === PopupTheme.disclaimer ? styles.disclaimerContainer : null,
             type === PopupTheme.eventForms ? styles.eventForms : null,

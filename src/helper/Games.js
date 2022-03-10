@@ -23,7 +23,7 @@ export const ObjectId = (gamename) => {
 export const prepareSoftSwissGames = (softswissGames, gamesCategory) => {
   const output = [];
   const thumbUrl = "https://cdn.softswiss.net/i/s3/";
-  const blockedProducers = ['redtiger'];
+  const blockedProducers = ['redtiger','netent'];
   for (let key in softswissGames) {
     const gameInfo = softswissGames[key];
     if(blockedProducers.indexOf(gameInfo.producer)>-1){

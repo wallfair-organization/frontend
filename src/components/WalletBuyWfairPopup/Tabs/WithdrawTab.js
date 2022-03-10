@@ -279,34 +279,26 @@ const WithdrawTab = () => {
             <div
               className={classNames(
                 styles.cryptoTab,
-                activeNetwork === networkName.polygon && styles.cryptoTabActive
+                activeNetwork === networkName.polygon ? styles.cryptoTabActive : styles.cryptoTabInactive
               )}
               onClick={() => setActiveNetwork(networkName.polygon)}
             >
               <img
                 className={styles.imageSizePolygon}
-                src={
-                  activeNetwork === networkName.polygon
-                    ? PolygonLogoActive
-                    : PolygonLogo
-                }
+                src={PolygonLogoActive}
                 alt="Polygon Logo"
               />
             </div>
             <div
               className={classNames(
                 styles.cryptoTab,
-                activeNetwork === networkName.ethereum && styles.cryptoTabActive
+                activeNetwork === networkName.ethereum ? styles.cryptoTabActive : styles.cryptoTabInactive
               )}
               onClick={() => setActiveNetwork(networkName.ethereum)}
             >
               <img
                 className={styles.imageSizeEthereum}
-                src={
-                  activeNetwork === networkName.ethereum
-                    ? EthereumLogoActive
-                    : EthereumLogo
-                }
+                src={EthereumLogoActive}
                 alt="Ethereum Logo"
               />
             </div>
