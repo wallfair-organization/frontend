@@ -222,15 +222,18 @@ const Navbar = ({
                 {formatToFixed(balance, 0, true)} {currencyDisplay(TOKEN_NAME)}
               </PlayMoneyOnly>
               <RealMoneyOnly>
-                {gamesCurrency !== TOKEN_NAME ?
-                  `${convertAmount(balance, prices[gamesCurrency])} ${gamesCurrency}`
-                :
-                  currencyDisplay(TOKEN_NAME)
-                }
+                {gamesCurrency !== TOKEN_NAME
+                  ? `${convertAmount(
+                      balance,
+                      prices[gamesCurrency]
+                    )} ${gamesCurrency}`
+                  : `${formatToFixed(balance, 0, true)} ${currencyDisplay(
+                      TOKEN_NAME
+                    )}`}
               </RealMoneyOnly>
             </div>
             <RealMoneyOnly>
-              {gamesCurrency !== TOKEN_NAME ?
+              {gamesCurrency !== TOKEN_NAME ? (
                 <span
                   className={classNames(style.infoTooltip, style.hideOnMobile)}
                 >
@@ -241,9 +244,7 @@ const Navbar = ({
                     {currencyDisplay(TOKEN_NAME)}
                   </span>
                 </span>
-              :
-                null
-              }
+              ) : null}
             </RealMoneyOnly>
           </div>
         </span>
