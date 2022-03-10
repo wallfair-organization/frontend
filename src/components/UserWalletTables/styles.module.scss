@@ -14,11 +14,13 @@ $tableMinWidth: 580px;
     padding-left: 8px;
     padding-right: 8px;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    font-size: 14px;
-    font-weight: 600;
+    // background: rgba(255, 255, 255, 0.1);
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 400;
     padding: 24px 10px;
     min-width: $tableMinWidth;
+    opacity: 0.41;
     > div {
       /* for grid container */
       min-width: calc(#{$tableMinWidth} - 20px);
@@ -31,15 +33,15 @@ $tableMinWidth: 580px;
 
     .title {
       text-align: center;
-      color: $colorLightYellow;
+      color: $colorWhite;
     }
     .titleFirst {
       text-align: left;
-      color: $colorLightYellow;
+      color: $colorWhite;
     }
     .titleLast {
       text-align: right;
-      color: $colorLightYellow;
+      color: $colorWhite;
     }
   }
 
@@ -236,7 +238,7 @@ $tableMinWidth: 580px;
     }
 
     > :nth-child(even) {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: $colorLightPurple10;
     }
   }
 
@@ -346,17 +348,16 @@ $tableMinWidth: 580px;
 }
 
 .styledButton {
-    background: transparent url('../../data/images/cashout-stroke.svg')
-      no-repeat;
-    background-position: center;
-    height: 28px;
-    min-width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
-    font-size: 12px;
-    letter-spacing: 0.2px;
-    font-weight: 700;
-  }
+  background: transparent url('../../data/images/cashout-stroke.svg') no-repeat;
+  background-position: center;
+  height: 28px;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  font-weight: 700;
+}

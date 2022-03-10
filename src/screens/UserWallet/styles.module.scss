@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 80px auto 0;
+  margin: 0 auto 0;
   max-width: 1300px;
 
   @media (max-width: $screen-sm) {
@@ -16,6 +16,16 @@
 .container {
   width: 100%;
 
+  .paymentMethodIcons {
+    display: flex;
+    width: 100%;
+    margin: 20px auto;
+
+    @media (max-width: $screen-xs) {
+      width: 80%;
+    }
+  }
+
   @media (min-width: $screen-lg) {
     max-width: 1300px;
   }
@@ -23,7 +33,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 100px auto 0;
+    margin: 120px auto 0;
     padding: 0 16px;
 
     @media (max-width: $screen-sm) {
@@ -138,9 +148,13 @@
 .activityWrapper {
   // margin-top: 32px;
   background: $colorPrimary;
-  border: 1px solid $colorBlueBorder;
+  // border: 1px solid $colorBlueBorder;
 
   .headerTables {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+
     @media screen and (max-width: $screen-xs) {
       padding: 4px 5px;
       font-size: 10px;
@@ -270,8 +284,7 @@
   }
 
   .currentBalanceCard {
-    background: rgba($colorBlue80, 0.6);
-    border: 1px solid $colorBlueBorder;
+    background: $colorLightPurple10;
     border-radius: 12px;
     position: relative;
     z-index: 1;
@@ -325,12 +338,14 @@
       display: flex;
       justify-content: space-between;
       padding: 50px 50px;
+      gap: 20px;
       @media (max-width: $screen-sm) {
         flex-direction: column;
         padding: 30px 0px;
       }
       .leftCard {
         display: flex;
+        width: 100%;
         @media (max-width: $screen-sm) {
           justify-content: center;
         }
@@ -339,13 +354,37 @@
           height: 64px;
         }
         .balanceTextContainer {
+          display: flex;
+          flex-direction: column;
           margin-left: 25px;
+          width: 100%;
+          row-gap: 20px;
+
+          .balanceToken {
+            display: flex;
+            justify-content: space-between;
+            max-width: 335px;
+
+            span {
+              font-family: $fontDMSans;
+              color: $colorWhite;
+              font-weight: 500;
+              font-size: 12px;
+            }
+
+            span:first-child {
+              opacity: 0.41;
+            }
+          }
+
           .currentbalanceHeading {
             font-family: $fontDMSans;
             color: $colorWhite;
-            font-weight: 600;
-            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 12px;
             opacity: 0.41;
+            letter-spacing: 1.6px;
           }
           .balanceBottomContainer {
             margin-top: 7px;
@@ -380,15 +419,29 @@
               text-align: center;
               color: $colorWhite;
             }
+
+            .inputSelect {
+              margin-left: 15px;
+              & > * {
+                &:focus,
+                &:active {
+                  outline: 0;
+                  border: 0;
+                }
+              }
+            }
           }
         }
       }
       .rightCard {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        column-gap: 20px;
+        row-gap: 40px;
         @media (max-width: $screen-sm) {
+          flex-direction: column;
           margin-top: 20px;
         }
 
@@ -559,45 +612,5 @@
         }
       }
     }
-  }
-}
-
-.walletPreferencesSection {
-  position: relative;
-  //color: white;
-  z-index: 5;
-  padding: 14px;
-
-  .boxContainer {
-    background: rgba($colorBlue80, 0.6);
-    border: 1px solid $colorBlueBorder;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: left;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-  }
-
-  .inputSelect {
-    width: 200px;
-  }
-
-  .settingsLabel {
-    color: white;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-  .settingsMainHeader {
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  @media (max-width: $screen-sm) {
   }
 }
