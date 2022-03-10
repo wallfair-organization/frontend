@@ -43,6 +43,8 @@ import Bonus100kMobile from '../../data/images/deposit/bonus100k-mobile.png';
 import ButtonTheme from 'components/Button/ButtonTheme';
 import { AVAILABLE_GAMES_CURRENCY } from '../../constants/Currency';
 import { TOKEN_NAME } from '../../constants/Token';
+import { convertAmount, currencyDisplay } from 'helper/Currency';
+import { selectPrices } from 'store/selectors/info-channel';
 
 const UserWallet = ({
   connected,
@@ -60,11 +62,11 @@ const UserWallet = ({
   showWalletConnectWallet,
   updateUser,
 }) => {
-  const showNewFeatures =
-    process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true';
+  
   const { active, library, account, chainId } = useWeb3React();
 
-  const { balance, balances, gamesCurrency } = useSelector(selectUser);
+  const { balance, gamesCurrency } = useSelector(selectUser);
+  const prices = useSelector(selectPrices);
   const [selectedGamesCurrency, setSelectedGamesCurrency] = useState(gamesCurrency);
 
   const signer = library?.getSigner();
@@ -226,26 +228,28 @@ const UserWallet = ({
           <div className={styles.currentBalanceCard}>
             <div className={styles.balanceContainer}>
               <div className={styles.leftCard}>
-                <WfairIcon
-                  className={styles.wfairLogo}
-                />
-                {
-                  balances && balances.map(b => {
-                    return (
-                      <div className={styles.balanceTextContainer} key={b.symbol}>
-                        <p className={styles.currentbalanceHeading}>
-                          {b.symbol === TOKEN_NAME ? 'Current balance:' : 'Casino Bonus:'}
+                { balance && (
+                    <div className={styles.balanceTextContainer}>
+                      <p className={styles.currentbalanceHeading}>
+                        Current balance:
+                      </p>
+                      <div className={styles.balanceBottomContainer}>
+                        <p className={styles.currentbalanceWFair}>
+                          {/* <span>{formatToFixed(balance, 0, true)}</span> */}
+
+                          {gamesCurrency !== TOKEN_NAME
+                            ? `${convertAmount(
+                                balance,
+                                prices[gamesCurrency]
+                              )}`
+                            : `${formatToFixed(balance, 0, true)}`
+                          }
                         </p>
-                        <div className={styles.balanceBottomContainer}>
-                          <p className={styles.currentbalanceWFair}>
-                            <span>{formatToFixed(b.balance, 0, true)}</span>
-                          </p>
-                          <p className={styles.symbolContainer}>{b.symbol}</p>
-                        </div>
+                        {renderWalletPreferencesSection()}
+                        {/* <p className={styles.symbolContainer}>{gamesCurrency}</p> */}
                       </div>
-                    );
-                  })
-                }
+                    </div>
+                  )}
               </div>
               <div className={styles.rightCard}>
                 <Button
@@ -290,12 +294,12 @@ const UserWallet = ({
     };
 
     return (
-      <div className={styles.walletPreferencesSection}>
-        <div className={styles.boxContainer}>
-          <div className={styles.settingsMainHeader}>Settings</div>
+      // <div className={styles.walletPreferencesSection}>
+      //   <div className={styles.boxContainer}>
+      //     <div className={styles.settingsMainHeader}>Settings</div>
 
-          <div className={styles.currentBalanceCard}>
-            <div className={styles.settingsLabel}>Selected games currency</div>
+      //     <div className={styles.currentBalanceCard}>
+      //       <div className={styles.settingsLabel}>Selected games currency</div>
             <Select
               onChange={handleChangeCurrency}
               options={options}
@@ -304,277 +308,276 @@ const UserWallet = ({
               defaultValue={getSelected()}
               className={styles.inputSelect}
             />
-          </div>
-        </div>
-      </div>
+      //     </div>
+      //   </div>
+      // </div>
     );
   };
 
-  const renderDepositBonusSection = () => {
-    return (
-      <div className={styles.currentBalanceSection}>
-        {depositCount != null && depositCount === 0 && (
-          <Grid
-            className={styles.balanceCard}
-            item
-            lg={12}
-            md={12}
-          >
-            <div className={styles.currentBalanceDescription}>
-              <img
-                src={Bonus100kDesktop}
-                className={styles.bonusDesktop}
-                alt="bonus desktop"
-              />
-              <img
-                src={Bonus100kMobile}
-                className={styles.bonusMobile}
-                alt="bonus mobile"
-              />
-            </div>
-          </Grid>
-        )}
+  // const renderDepositBonusSection = () => {
+  //   return (
+  //     <div className={styles.currentBalanceSection}>
+  //       {depositCount != null && depositCount === 0 && (
+  //         <Grid
+  //           className={styles.balanceCard}
+  //           item
+  //           lg={12}
+  //           md={12}
+  //         >
+  //           <div className={styles.currentBalanceDescription}>
+  //             <img
+  //               src={Bonus100kDesktop}
+  //               className={styles.bonusDesktop}
+  //               alt="bonus desktop"
+  //             />
+  //             <img
+  //               src={Bonus100kMobile}
+  //               className={styles.bonusMobile}
+  //               alt="bonus mobile"
+  //             />
+  //           </div>
+  //         </Grid>
+  //       )}
 
-        {!user.emailConfirmed && (
-          <Grid
-            className={styles.balanceCard}
-            item
-            lg={12}
-            md={12}
-            style={{ width: '100%' }}
-          >
-            <div
-              style={{ width: '100%' }}
-              className={styles.currentBalanceDescription}
-            >
-              <div className={styles.currentBalanceCard}>
-                <div
-                  className={classNames(
-                    styles.buttonContainer,
-                    styles.rowContainer
-                  )}
-                >
-                  <div>
-                    <h2>Verify your e-mail</h2>
-                    <p className={styles.label}>
-                      In order to activate full functionality of your account,
-                      you must verify your email.
-                    </p>
-                  </div>
-                  <Button
-                    className={styles.buttonBanner}
-                    onClick={handleResendEmailConfirmation}
-                    disabled={emailSent}
-                    theme={ButtonTheme.alternativeButton}
-                  >
-                    {!emailSent ? 'Resend Email' : 'Email sent'}
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </Grid>
-        )}
+  //       {!user.emailConfirmed && (
+  //         <Grid
+  //           className={styles.balanceCard}
+  //           item
+  //           lg={12}
+  //           md={12}
+  //           style={{ width: '100%' }}
+  //         >
+  //           <div
+  //             style={{ width: '100%' }}
+  //             className={styles.currentBalanceDescription}
+  //           >
+  //             <div className={styles.currentBalanceCard}>
+  //               <div
+  //                 className={classNames(
+  //                   styles.buttonContainer,
+  //                   styles.rowContainer
+  //                 )}
+  //               >
+  //                 <div>
+  //                   <h2>Verify your e-mail</h2>
+  //                   <p className={styles.label}>
+  //                     In order to activate full functionality of your account,
+  //                     you must verify your email.
+  //                   </p>
+  //                 </div>
+  //                 <Button
+  //                   className={styles.buttonBanner}
+  //                   onClick={handleResendEmailConfirmation}
+  //                   disabled={emailSent}
+  //                   theme={ButtonTheme.alternativeButton}
+  //                 >
+  //                   {!emailSent ? 'Resend Email' : 'Email sent'}
+  //                 </Button>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </Grid>
+  //       )}
 
-        {/* {user.emailConfirmed && showKycBanner() && (
-          <Grid
-            className={styles.balanceCard}
-            item
-            lg={12}
-            md={12}
-            style={{ width: '100%' }}
-          >
-            <div
-              style={{ width: '100%' }}
-              className={styles.currentBalanceDescription}
-            >
-              <div className={styles.currentBalanceCard}>
-                <div
-                  className={classNames(
-                    styles.buttonContainer,
-                    styles.rowContainer
-                  )}
-                >
-                  <div>
-                    <h2>Verify your identity</h2>
-                    <p className={styles.label}>
-                      In order to activate full functionality of your account,
-                      you must provide a proof-of-identity. To ensure your
-                      safety and privacy, we use an external provider for this
-                      procedure.
-                    </p>
-                  </div>
-                  <Button
-                    className={styles.buttonBanner}
-                    onClick={openFractal}
-                    theme={ButtonTheme.alternativeButton}
-                  >
-                    Start
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </Grid>
-        )} */}
-        <Grid
-          container
-          justifyContent="flex-start"
-          alignContent="center"
-          spacing={1}
-        >
-          <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
-            <div
-              className={classNames(
-                styles.currentBalanceDescription,
-                styles.smallCurrentBalanceDescription
-              )}
-            >
-              <div
-                className={classNames(
-                  styles.currentBalanceCard,
-                  styles.smallCard
-                )}
-              >
-                <div
-                  className={styles.depositCardContainer}
-                  onClick={showWalletDepositCrypto}
-                >
-                  <BitcoinIcon />
-                  <p className={styles.depositTitle}>Deposit with Crypto</p>
-                  <div className={styles.depositDescriptionSection}>
-                    <p className={styles.depositDescription}>
-                      Deposit ETH or BTC and start playing <br />
-                      immediately.
-                    </p>
-                    <RightArrow />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Grid>
+  //       {user.emailConfirmed && showKycBanner() && (
+  //         <Grid
+  //           className={styles.balanceCard}
+  //           item
+  //           lg={12}
+  //           md={12}
+  //           style={{ width: '100%' }}
+  //         >
+  //           <div
+  //             style={{ width: '100%' }}
+  //             className={styles.currentBalanceDescription}
+  //           >
+  //             <div className={styles.currentBalanceCard}>
+  //               <div
+  //                 className={classNames(
+  //                   styles.buttonContainer,
+  //                   styles.rowContainer
+  //                 )}
+  //               >
+  //                 <div>
+  //                   <h2>Verify your identity</h2>
+  //                   <p className={styles.label}>
+  //                     In order to activate full functionality of your account,
+  //                     you must provide a proof-of-identity. To ensure your
+  //                     safety and privacy, we use an external provider for this
+  //                     procedure.
+  //                   </p>
+  //                 </div>
+  //                 <Button
+  //                   className={styles.buttonBanner}
+  //                   onClick={openFractal}
+  //                   theme={ButtonTheme.alternativeButton}
+  //                 >
+  //                   Start
+  //                 </Button>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </Grid>
+  //       )}
+  //       <Grid
+  //         container
+  //         justifyContent="flex-start"
+  //         alignContent="center"
+  //         spacing={1}
+  //       >
+  //         <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
+  //           <div
+  //             className={classNames(
+  //               styles.currentBalanceDescription,
+  //               styles.smallCurrentBalanceDescription
+  //             )}
+  //           >
+  //             <div
+  //               className={classNames(
+  //                 styles.currentBalanceCard,
+  //                 styles.smallCard
+  //               )}
+  //             >
+  //               <div
+  //                 className={styles.depositCardContainer}
+  //                 onClick={showWalletDepositCrypto}
+  //               >
+  //                 <BitcoinIcon />
+  //                 <p className={styles.depositTitle}>Deposit with Crypto</p>
+  //                 <div className={styles.depositDescriptionSection}>
+  //                   <p className={styles.depositDescription}>
+  //                     Deposit ETH or BTC and start playing <br />
+  //                     immediately.
+  //                   </p>
+  //                   <RightArrow />
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </Grid>
 
-          <Grid
-            className={styles.balanceCard}
-            item
-            lg={4}
-            md={4}
-            xs={12}
-          >
-            <div
-              className={classNames(
-                styles.currentBalanceDescription,
-                styles.smallCurrentBalanceDescription
-              )}
-            >
-              <div
-                className={classNames(
-                  styles.currentBalanceCard,
-                  styles.smallCard
-                )}
-              >
-                <div
-                  className={styles.depositCardContainer}
-                  onClick={showWalletDepositFiat}
-                >
-                  <EuroIcon />
-                  <p className={styles.depositTitle}>Deposit with EUR / USD</p>
-                  <div className={styles.depositDescriptionSection}>
-                    <p className={styles.depositDescription}>
-                      Deposit EUR or USD to start playing in a<br /> few hours.
-                    </p>
-                    <RightArrow />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Grid>
+  //         <Grid
+  //           className={styles.balanceCard}
+  //           item
+  //           lg={4}
+  //           md={4}
+  //           xs={12}
+  //         >
+  //           <div
+  //             className={classNames(
+  //               styles.currentBalanceDescription,
+  //               styles.smallCurrentBalanceDescription
+  //             )}
+  //           >
+  //             <div
+  //               className={classNames(
+  //                 styles.currentBalanceCard,
+  //                 styles.smallCard
+  //               )}
+  //             >
+  //               <div
+  //                 className={styles.depositCardContainer}
+  //                 onClick={showWalletDepositFiat}
+  //               >
+  //                 <EuroIcon />
+  //                 <p className={styles.depositTitle}>Deposit with EUR / USD</p>
+  //                 <div className={styles.depositDescriptionSection}>
+  //                   <p className={styles.depositDescription}>
+  //                     Deposit EUR or USD to start playing in a<br /> few hours.
+  //                   </p>
+  //                   <RightArrow />
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </Grid>
 
-          <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
-            <div
-              className={classNames(
-                styles.currentBalanceDescription,
-                styles.smallCurrentBalanceDescription
-              )}
-            >
-              <div
-                className={classNames(
-                  styles.currentBalanceCard,
-                  styles.smallCard
-                )}
-              >
-                <div
-                  className={styles.depositCardContainer}
-                  onClick={showWalletConnectWallet}
-                >
-                  <WalletIcon />
-                  <p className={styles.depositTitle}>Connect your Wallet</p>
-                  <div className={styles.depositDescriptionSection}>
-                    <p className={styles.depositDescription}>
-                      Connect your existing wallet with WFAIR
-                      <br /> your bought and start immediately
-                    </p>
-                    <RightArrow />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          alignContent="center"
-          justifyContent="flex-start"
-          spacing={1}
-        >
-          <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
-            <div
-              className={classNames(
-                styles.currentBalanceDescription,
-                styles.smallCurrentBalanceDescription
-              )}
-            >
-              <div
-                className={classNames(
-                  styles.currentBalanceCard,
-                  styles.smallCard
-                )}
-              >
-                <div className={styles.buttonContainer}>
-                  <h2>Withdraw</h2>
-                  <p className={styles.label}>
-                    You can withdraw your funds directly to your
-                    crypto wallet. You can then convert your WFAIR to other
-                    cryptocurrencies or hold it to have early access to the
-                    upcoming utilities.
-                  </p>
-                  <Button
-                    className={styles.button}
-                    // disabled={!isKycVerified() || !user.emailConfirmed}
-                    disabledWithOverlay={false}
-                    onClick={showWithdrawPopup}
-                    title="Instant withdraw up to 100,000 WFAIR"
-                    theme={ButtonTheme.secondaryButton}
-                  >
-                    Instant Withdraw
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </Grid>
-        </Grid>
-      </div>
-    );
-  };
+  //         <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
+  //           <div
+  //             className={classNames(
+  //               styles.currentBalanceDescription,
+  //               styles.smallCurrentBalanceDescription
+  //             )}
+  //           >
+  //             <div
+  //               className={classNames(
+  //                 styles.currentBalanceCard,
+  //                 styles.smallCard
+  //               )}
+  //             >
+  //               <div
+  //                 className={styles.depositCardContainer}
+  //                 onClick={showWalletConnectWallet}
+  //               >
+  //                 <WalletIcon />
+  //                 <p className={styles.depositTitle}>Connect your Wallet</p>
+  //                 <div className={styles.depositDescriptionSection}>
+  //                   <p className={styles.depositDescription}>
+  //                     Connect your existing wallet with WFAIR
+  //                     <br /> your bought and start immediately
+  //                   </p>
+  //                   <RightArrow />
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </Grid>
+  //       </Grid>
+  //       <Grid
+  //         container
+  //         alignContent="center"
+  //         justifyContent="flex-start"
+  //         spacing={1}
+  //       >
+  //         <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
+  //           <div
+  //             className={classNames(
+  //               styles.currentBalanceDescription,
+  //               styles.smallCurrentBalanceDescription
+  //             )}
+  //           >
+  //             <div
+  //               className={classNames(
+  //                 styles.currentBalanceCard,
+  //                 styles.smallCard
+  //               )}
+  //             >
+  //               <div className={styles.buttonContainer}>
+  //                 <h2>Withdraw</h2>
+  //                 <p className={styles.label}>
+  //                   You can withdraw your funds directly to your
+  //                   crypto wallet. You can then convert your WFAIR to other
+  //                   cryptocurrencies or hold it to have early access to the
+  //                   upcoming utilities.
+  //                 </p>
+  //                 <Button
+  //                   className={styles.button}
+  //                   // disabled={!isKycVerified() || !user.emailConfirmed}
+  //                   disabledWithOverlay={false}
+  //                   onClick={showWithdrawPopup}
+  //                   title="Instant withdraw up to 100,000 WFAIR"
+  //                   theme={ButtonTheme.secondaryButton}
+  //                 >
+  //                   Instant Withdraw
+  //                 </Button>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </Grid>
+  //       </Grid>
+  //     </div>
+  //   );
+  // };
 
   return (
     <BaseContainerWithNavbar>
       <div className={styles.containerWrapper}>
         <div className={styles.container}>
           <div className={styles.titleSection}>
-            <h1>Your Wallet</h1>
+            <h1>My Wallet</h1>
           </div>
-          {renderWalletPreferencesSection()}
           {renderCurrentBalanceSection()}
-          {renderDepositBonusSection()}
+          {/* {renderDepositBonusSection()} */}
           {renderStats()}
         </div>
       </div>
