@@ -81,6 +81,15 @@
         max-width: 414px;
       }
 
+      &.withdrawWider {
+        max-width: 500px;
+
+        .modalContent {
+          min-height: 430px;
+          padding: 15px;
+        }
+      }
+
       .modalContent {
         min-height: 430px;
         padding: 30px;

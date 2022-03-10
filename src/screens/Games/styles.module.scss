@@ -37,7 +37,11 @@
     letter-spacing: 0.75px;
     color: white;
 
-    // margin: 0 auto 32px;
+    margin: 0 auto 32px;
+
+    @media (max-width: $screen-sm) {
+      margin: 0;
+    }
   }
 
   /* ACTIVITY TRACKER */

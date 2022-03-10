@@ -106,7 +106,6 @@
     padding: 5px;
     margin-top: 20px;
     border-radius: 50px;
-    background-color: $colorLightYellow;
     justify-content: center;
 
     align-items: center;
@@ -180,6 +179,15 @@
         color: $colorBlack;
       }
     }
+
+    .cryptoTabInactive {
+      background-color: $colorWhite;
+      opacity: 0.3;
+
+      p {
+        color: $colorBlack;
+      }
+    }
   }
 
   .cryptoContent {
@@ -245,11 +253,11 @@
       position: relative;
       max-width: 500px;
       width: 100%;
-      height: 62px;
+      height: 40px;
       background: #f1f2f6;
-      border: 1px solid $colorLightGray2;
+      // border: 1px solid $colorLightGray2;
       box-sizing: border-box;
-      border-radius: 40px;
+      border-radius: 6px;
       margin-bottom: 11px;
       display: flex;
       align-items: center;
@@ -296,11 +304,10 @@
       position: relative;
       max-width: 500px;
       width: 100%;
-      height: 62px;
+      height: 40px;
       background: #f1f2f6;
-      border: 1px solid $colorLightGray2;
       box-sizing: border-box;
-      border-radius: 40px;
+      border-radius: 6px;
       margin-top: 26px;
       margin-bottom: 11px;
       display: flex;
@@ -333,7 +340,7 @@
         background: transparent;
         width: 70%;
         height: 100%;
-        padding: 20px;
+        padding: 0 20px;
         margin: 0px 10px;
         border: none;
         direction: ltr;
