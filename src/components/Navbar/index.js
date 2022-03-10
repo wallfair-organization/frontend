@@ -441,7 +441,7 @@ const Navbar = ({
 
   const renderTopBar = () => {
     
-      return (
+      return <>
         <PlayMoneyOnly>
           {!isLoggedIn() ? 
             <>
@@ -485,26 +485,14 @@ const Navbar = ({
             </>
           }
         </PlayMoneyOnly>
-      )
-
-    return (
-      <RealMoneyOnly>
-        <div className={style.topBar}>
-          <span>No crypto? No problem!</span>
-          <GooglePay />
-          <Maestro />
-          <ApplePay />
-          <img src={SamsungPay} alt="SamsungPay Logo"/>
-          <div>
-            <button onClick={() => {
-              history.push(Routes.wallet);
-              showWalletDepositPopup();
-            }}>Buy WFAIR</button>
-            <Icon className={style.icon} iconType={IconType.arrowRight} />
-          </div>
-        </div>
-        <div className={classNames(style.topBarMobile)}>
-             <span>No crypto? No problem!</span>
+      
+        <RealMoneyOnly>
+          <div className={style.topBar}>
+            <span>No crypto? No problem!</span>
+            <GooglePay />
+            <Maestro />
+            <ApplePay />
+            <img src={SamsungPay} alt="SamsungPay Logo"/>
             <div>
               <button onClick={() => {
                 history.push(Routes.wallet);
@@ -513,8 +501,18 @@ const Navbar = ({
               <Icon className={style.icon} iconType={IconType.arrowRight} />
             </div>
           </div>
-      </RealMoneyOnly>
-    )
+          <div className={classNames(style.topBarMobile)}>
+              <span>No crypto? No problem!</span>
+              <div>
+                <button onClick={() => {
+                  history.push(Routes.wallet);
+                  showWalletDepositPopup();
+                }}>Buy WFAIR</button>
+                <Icon className={style.icon} iconType={IconType.arrowRight} />
+              </div>
+            </div>
+        </RealMoneyOnly>
+      </>
   }
 
   return (
