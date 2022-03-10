@@ -1884,7 +1884,7 @@ export const SOFTSWISS_GAMES =
         {
           "title": "10001 Nights",
           "identifier": "evolution:10001Nights",
-          "identifier2": "category=slots&table=10001nights00000&devTableID=10001nights00000",
+          "identifier2": "10001Nights",
           "provider": "evolution",
           "producer": "redtiger",
           "category": "slots",
