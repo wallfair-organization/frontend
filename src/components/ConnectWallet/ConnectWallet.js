@@ -100,6 +100,14 @@ const ConnectWallet = props => {
     ) {
       newConnector.walletConnectProvider = undefined;
     }
+
+    const metamask = window.ethereum?._metamask;
+    if (metamask) {
+      metamask.isUnlocked()
+        .then(unlocked => !unlocked && 
+          setWalletError('Please unlock your metamask and proceed with signing'));
+    }
+
     newConnector &&
       activate(newConnector, undefined, true)
         .then(() => {
@@ -190,7 +198,7 @@ const ConnectWallet = props => {
       return (
         <div className={classNames(styles.optionsWrap, styles.optionsError)}>
           <strong>{`Something went wrong`}</strong>
-          {walletError}
+          <div>{walletError}</div>
         </div>
       );
     }
