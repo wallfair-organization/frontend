@@ -215,7 +215,7 @@ const ConnectWallet = props => {
         <div className={styles.accountInfo}>
           <span>{account}</span>
           <br />
-          <span>{balance}</span>
+          <span>{!isNaN(balance) && balance}</span>
         </div>
       );
     }
