@@ -780,6 +780,24 @@ const uploadImage = payload => {
     });
 };
 
+const loginWeb3Challenge = (address) => {
+  return Api.get(`/api/auth/web3/${address}`)
+    .then(res => res.data)
+    .catch(e => {
+      console.log('[API-Error]: loginWeb3Challenge', e);
+      throw e;
+    });
+};
+
+const loginWeb3 = payload => {
+  return Api.post('/api/auth/web3', payload)
+    .then(res => res.data)
+    .catch(e => {
+      console.log('[API-Error]: loginWeb3', e);
+      throw e;
+    });
+};
+
 export {
   Api,
   createBet,
@@ -826,6 +844,8 @@ export {
   cancelBet,
   deleteBet,
   login,
+  loginWeb3Challenge,
+  loginWeb3,
   signUp,
   loginExternal,
   forgotPassword,

@@ -114,8 +114,19 @@ const getUsernameSuggestion = function* (){
   return yield put(OnboardingActions.addUsernameSuggestion({username: result.data.username}))
 }
 
+const startOnboarding = function* () {
+  return yield put(
+    PopupActions.show({
+      popupType: PopupTheme.loginWeb3,
+      options: {
+        small: true,
+      }
+    })
+  );
+};
 
 export default {
   loadOnboardingStep,
-  getUsernameSuggestion
+  getUsernameSuggestion,
+  startOnboarding,
 };

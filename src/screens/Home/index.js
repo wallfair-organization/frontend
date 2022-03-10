@@ -65,12 +65,6 @@ const Home = authState => {
     return authState?.authState === LOGGED_IN;
   }, [authState]);
 
-  useEffect(() => {
-    if (isPlayMoney && isLoggedIn && !userState.phoneConfirmed) {
-      dispatch(OnboardingActions.addPhoneNumber());
-    }
-  }, [isLoggedIn, userState.phoneConfirmed]);
-
   const handleClickSignUp = useCallback(() => {
     if (!isLoggedIn) {
       dispatch(OnboardingActions.start());
@@ -83,16 +77,7 @@ const Home = authState => {
 
   const handleClickCreateEvent = useCallback(() => {
     if (isLoggedIn) {
-      if (!isPlayMoney) {
-        dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
-        return;
-      }
-
-      if (userState.phoneConfirmed) {
-        dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
-      } else {
-        dispatch(OnboardingActions.addPhoneNumber());
-      }
+      dispatch(PopupActions.show({ popupType: PopupTheme.eventForms }));
     } else {
       dispatch(OnboardingActions.start());
       dataLayerPush({

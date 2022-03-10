@@ -171,7 +171,8 @@ const Navbar = ({
   }
   const showPopupForLogin = () => {
     if (!isLoggedIn()) {
-      showPopup(PopupTheme.auth, { small: true, authenticationType:AuthenticationType.login });
+      // showPopup(PopupTheme.auth, { small: true, authenticationType:AuthenticationType.login });
+      showPopup(PopupTheme.loginWeb3, { small: true });
     }
   }
 
@@ -221,15 +222,18 @@ const Navbar = ({
                 {formatToFixed(balance, 0, true)} {currencyDisplay(TOKEN_NAME)}
               </PlayMoneyOnly>
               <RealMoneyOnly>
-                {gamesCurrency !== TOKEN_NAME ?
-                  `${convertAmount(balance, prices[gamesCurrency])} ${gamesCurrency}`
-                :
-                  currencyDisplay(TOKEN_NAME)
-                }
+                {gamesCurrency !== TOKEN_NAME
+                  ? `${convertAmount(
+                      balance,
+                      prices[gamesCurrency]
+                    )} ${gamesCurrency}`
+                  : `${formatToFixed(balance, 0, true)} ${currencyDisplay(
+                      TOKEN_NAME
+                    )}`}
               </RealMoneyOnly>
             </div>
             <RealMoneyOnly>
-              {gamesCurrency !== TOKEN_NAME ?
+              {gamesCurrency !== TOKEN_NAME ? (
                 <span
                   className={classNames(style.infoTooltip, style.hideOnMobile)}
                 >
@@ -240,9 +244,7 @@ const Navbar = ({
                     {currencyDisplay(TOKEN_NAME)}
                   </span>
                 </span>
-              :
-                null
-              }
+              ) : null}
             </RealMoneyOnly>
           </div>
         </span>
@@ -305,18 +307,18 @@ const Navbar = ({
         {!isLoggedIn() && <>
           <Button
             className={style.loginButton}
-            theme={ButtonTheme.secondaryButton}
+            theme={ButtonTheme.primaryButtonL}
             onClick={() => showPopupForLogin()}
           >
             Login
           </Button>
-          <Button
+          {/* <Button
             className={style.registerButton}
             theme={ButtonTheme.primaryButtonL}
             onClick={() => startOnboardingFlow()}
           >
             Register
-          </Button>
+          </Button> */}
         </>}
       </div>
     );
