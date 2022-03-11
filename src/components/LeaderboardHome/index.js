@@ -9,6 +9,11 @@ import medalSilver from '../../data/images/leaderboard/medal-2.svg';
 import medalBronze from '../../data/images/leaderboard/medal-3.svg';
 import { ReactComponent as WfairIcon } from '../../data/icons/wfair-symbol.svg';
 import Loader from 'components/Loader/Loader';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'store/selectors/authentication';
+import { selectPrices } from 'store/selectors/info-channel';
+import { convertAmount, currencyDisplay } from 'helper/Currency';
+import { TOKEN_NAME } from 'constants/Token';
 
 const LeaderboardHome = ({
   fetch = false,
@@ -16,6 +21,10 @@ const LeaderboardHome = ({
   className,
   leaderboardType,
 }) => {
+
+  const { balance, gamesCurrency } = useSelector(selectUser);
+  const prices = useSelector(selectPrices);
+
   const LIMIT = 5;
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -71,8 +80,16 @@ const LeaderboardHome = ({
             <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
           </p>
           <p className={style.firstBalance}>
-            {formatToFixed(user.amountWon, 0, true)} PFAIR
-            <WfairIcon className={style.wfairLogo} />
+            {/* {formatToFixed(user.amountWon, 0, true)} PFAIR
+            <WfairIcon className={style.wfairLogo} /> */}
+            {gamesCurrency !== TOKEN_NAME
+            ? `${convertAmount(
+                user.amountWon,
+                prices[gamesCurrency]
+              )} ${gamesCurrency}`
+            : `${formatToFixed(user.amountWon, 0, true)} ${currencyDisplay(
+                TOKEN_NAME
+              )}`}
           </p>
         </div>
       </>
