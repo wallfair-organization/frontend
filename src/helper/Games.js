@@ -25,8 +25,6 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) =
   const thumbUrl = "https://cdn.softswiss.net/i/s3/";
   const blockedProducers = ['redtiger','netent'];
 
-  console.log(provider);
-
   for (let key in softswissGames) {
     const gameInfo = softswissGames[key];
     if(blockedProducers.indexOf(gameInfo.producer)>-1){
@@ -36,8 +34,6 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) =
     if (provider !== undefined && provider !== gameInfo.producer) {
       continue;
     }
-
-    console.log('2', provider);
 
     const catSubType = gameInfo.category;
     const name = gameInfo.title;

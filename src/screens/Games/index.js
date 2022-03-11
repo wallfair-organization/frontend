@@ -152,11 +152,7 @@ const Games = () => {
 
   const setGames = (selectGame, gameCategory, provider) => {
 
-    console.log('setGames', {gameCategory, provider});
-
     if (provider !== 'all' || gameCategory !== 'All') {
-
-      console.log('a', provider, ['all', 'bgaming', 'evolution'].includes(provider));
 
       let externalGamesDisplaySmartsoft =
         ['all', 'smartsoft'].includes(provider) ? EXTERNAL_GAMES : [];
@@ -223,7 +219,6 @@ const Games = () => {
             className={styles.gameproviderList}
             providers={GAME_PROVIDERS}
             setSelectedProvider={(provider) => {
-              console.log(provider);
               setSelectedProvider(provider);
               setGames('external', selectedCategory, provider);
               setSearchTerm('');
