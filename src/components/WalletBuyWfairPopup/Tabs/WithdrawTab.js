@@ -88,8 +88,10 @@ const WithdrawTab = () => {
       withdrawAmount > 0 &&
       tokenAmount >= minTokenWithdrawAmount
     ) {
+      console.log('ready to withdraw');
       setSubmitButtonDisable(false);
     } else {
+      console.log('not ready to withdraw', isAddressValid, error, withdrawAmount,tokenAmount,minTokenWithdrawAmount);
       setSubmitButtonDisable(true);
       validateInput();
     }
@@ -232,6 +234,8 @@ const WithdrawTab = () => {
   };
 
   const handleWithdraw = async () => {
+    console.log('handleWithdraw');
+
     const payload = {
       amount: tokenAmount,
       network: activeNetwork,
@@ -240,6 +244,7 @@ const WithdrawTab = () => {
 
     const { response, error } = await processWithdraw(payload);
     if (error) {
+      console.error(error);
       console.error(error.message);
       setTransactionFailedMessage(error.message);
       setTransactionFailed(true);
