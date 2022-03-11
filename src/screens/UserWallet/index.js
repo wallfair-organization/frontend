@@ -622,7 +622,7 @@ const UserWallet = ({
 
         <span className={styles.howitworksItem}>
           <div><LockYellowIcon /></div>
-          <span><b>Safety matters!</b>Fully licensed casino, audited payment providers.</span>
+          <span><b>Safety matters!</b> Fully licensed casino, audited payment providers.</span>
         </span>
 
         <span className={styles.howitworksItem}>
