@@ -2,7 +2,7 @@ import _ from 'lodash';
 import styles from './styles.module.scss';
 import { PopupActions } from 'store/actions/popup';
 import PopupTheme from '../Popup/PopupTheme';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import useConfettiAnimation from 'hooks/useConfettiAnimation';
 import { Link, useLocation } from 'react-router-dom';
 import BetCard from 'components/BetCard';
@@ -11,10 +11,13 @@ import { FacebookIcon, FacebookShareButton, TelegramIcon, TelegramShareButton, T
 import ConfirmCongrat from '../../data/images/coins-popup.png';
 import ShadowAmount from '../../data/images/cashout-amount-shadow.png';
 import { TOKEN_NAME } from 'constants/Token';
-import { currencyDisplay } from 'helper/Currency';
+import { convertAmount, currencyDisplay } from 'helper/Currency';
 import { useEffect, useState } from 'react';
 import { shortenerTinyUrl } from 'api';
 import { useIsMount } from 'components/hoc/useIsMount';
+import { formatToFixed } from 'helper/FormatNumbers';
+import { selectUser } from 'store/selectors/authentication';
+import { selectPrices } from 'store/selectors/info-channel';
 
 const CashoutPopupView = ({ authentication, visible, hidePopup, options }) => {
   const defaultSharing = ['facebook', 'twitter', 'discord'];
@@ -22,6 +25,9 @@ const CashoutPopupView = ({ authentication, visible, hidePopup, options }) => {
   // const { getAnimationInstance, canvasStyles } = useConfettiAnimation({
   //   visible,
   // });
+
+  const { gamesCurrency } = useSelector(selectUser);
+  const prices = useSelector(selectPrices);
   
   const { multiplier, amount, game } = options;
 
@@ -114,7 +120,17 @@ const CashoutPopupView = ({ authentication, visible, hidePopup, options }) => {
       <div className={styles.cashoutContent}>
         <span className={styles.cashoutAmount}>
           <img src={ShadowAmount} className={styles.shadow} alt="amount" />
-          <span className={styles.amount}>{`${amount} ${currencyDisplay(TOKEN_NAME)}`}</span>
+          {/* <span className={styles.amount}>{`${amount} ${currencyDisplay(TOKEN_NAME)}`}</span> */}
+          <span className={styles.amount}>
+            {gamesCurrency !== TOKEN_NAME
+            ? `${convertAmount(
+                amount,
+                prices[gamesCurrency]
+              )} ${gamesCurrency}`
+            : `${formatToFixed(amount, 0, true)} ${currencyDisplay(
+                TOKEN_NAME
+            )}`}
+          </span>
         </span>
         <span className={styles.multiplier}>
           {multiplier}x
