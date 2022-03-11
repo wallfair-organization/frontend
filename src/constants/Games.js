@@ -26,6 +26,13 @@ import IconGameKeno from '../data/icons/games/keno-icon.svg';
 import IconGameRoulette from '../data/icons/games/roulette-icon.svg';
 import IconGameSlot from '../data/icons/games/slot-icon.svg';
 
+import ProviderBgaming from '../data/icons/games/gameproviders/bgaming.svg';
+import ProviderEvolution from '../data/icons/games/gameproviders/evolution.svg';
+import ProviderEvoplay from '../data/icons/games/gameproviders/evoplay.svg';
+import ProviderSmartsoft from '../data/icons/footer/smartsoft.png';
+
+
+
 const softswissAcceptanceTests = [
   {
     "title": "Acceptance test 1",
@@ -43279,3 +43286,31 @@ export const GAME_CATEGORIES = [
     disabled: false,
   },
 ];
+
+export const GAME_PROVIDERS = [
+    {
+        value: 'all',
+        label: 'All Providers',
+        image: IconGameAll,
+    },
+    {
+        value: 'bgaming',
+        label: 'BGAMING',
+        image: ProviderBgaming,
+    },
+    {
+        value: 'evolution',
+        label: 'EVOLUTION',
+        image: ProviderEvolution,
+    },
+    {
+        value: 'evoplay',
+        label: 'EVOPLAY',
+        image: ProviderEvoplay,
+    },
+    {
+        value: 'smartsoft',
+        label: 'SMARTSOFT',
+        image: ProviderSmartsoft,
+    },
+]

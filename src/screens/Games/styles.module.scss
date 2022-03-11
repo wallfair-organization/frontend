@@ -808,6 +808,21 @@
     }
   }
 
+  .gameproviderList {
+    margin: 20px 0 0;
+    align-items: center;
+    // justify-content: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    @media (max-width: $screen-sm) {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+
   .containerOptions {
     width: fit-content;
     display: flex;
