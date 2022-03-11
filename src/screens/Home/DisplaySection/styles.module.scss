@@ -53,6 +53,7 @@
   font-weight: 700;
   padding-bottom: 20px;
   margin-top: 40px;
+  justify-content: space-between;
 
   @media (max-width: $screen-lg) {
     padding: 20px;
@@ -61,7 +62,7 @@
   h2 {
     color: $colorWhite;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 20px;
     font-family: $fontDMSans;
     @media (max-width: $screen-xs) {
@@ -110,7 +111,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  gap: 18px;
+  gap: 26px;
 
   @media (max-width: $screen-lg) {
     padding: 0;
@@ -119,6 +120,7 @@
   @media (max-width: $screen-sm) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(calc(33% - 5px), 1fr));
+    gap: 18px;
   }
 
   .wrapper {

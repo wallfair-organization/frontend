@@ -55,7 +55,6 @@ const LEADERBOARD_TYPES = [
 
 const Home = authState => {
   const history = useHistory();
-  const isMount = useIsMount();
   const dispatch = useDispatch();
   const userState = useSelector(selectUser);
 
@@ -237,7 +236,8 @@ const Home = authState => {
 
         {!isPlayMoney && (
           <DisplaySection
-            selectedGamesLabel={TOP_PICKS_GAMES.header}
+            selectedGamesLabel={'Games'}
+            showMore={true}
             selectedGamesNames={TOP_PICKS_GAMES.names}
             smartsoftGames={EXTERNAL_GAMES}
             evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)}

@@ -462,7 +462,7 @@ const RosiGame = ({
             }`}
           >
             <BackLink
-              to="/"
+              to="/games"
               text={
                 slug === GAMES['elonGame'].slug ? 'Elon Game' : 'Pump & Dump'
               }

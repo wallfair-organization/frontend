@@ -43222,14 +43222,14 @@ export const GAME_CATEGORIES = [
     type: 'icon',
     disabled: false,
   },
-  {
-    value: 'House Games',
-    label: 'House Games',
-    image: IconGameAll,
-    isActive: false,
-    type: 'icon',
-    disabled: false,
-  },
+//   {
+//     value: 'House Games',
+//     label: 'House Games',
+//     image: IconGameAll,
+//     isActive: false,
+//     type: 'icon',
+//     disabled: false,
+//   },
   {
     value: 'Casino',
     label: 'Casino',

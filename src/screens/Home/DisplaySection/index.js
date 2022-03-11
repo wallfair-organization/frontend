@@ -6,12 +6,16 @@ import { OnboardingActions } from 'store/actions/onboarding';
 import { selectUser } from 'store/selectors/authentication';
 import styles from './styles.module.scss';
 import _ from 'lodash';
+import Button from 'components/Button';
+import ButtonTheme from 'components/Button/ButtonTheme';
+import Routes from 'constants/Routes';
 
 const DisplaySection = (props) => {
 //   let history = useHistory();
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  const {smartsoftGames, evoplayGames, softswissGames, selectedGamesNames, selectedGamesLabel} = props;
+  const history = useHistory();
+  const {smartsoftGames, evoplayGames, softswissGames, selectedGamesNames, selectedGamesLabel, showMore} = props;
 
   const [games, setGames] = useState([]);
   const getGameItemSizeClass = () => {
@@ -176,6 +180,16 @@ const DisplaySection = (props) => {
       {selectedGamesNames ? <div className={classNames(styles.gamesCategorySelected)}>
         <div className={styles.gamesCategory}>
           <h2>{selectedGamesLabel}</h2>
+          {showMore && 
+            <Button
+              theme={ButtonTheme.secondaryButton}
+              onClick={() => {
+                history.push(Routes.games)
+              }}
+            >
+              Show all games
+            </Button>
+          }
         </div>
         <div className={classNames(styles.games)}>
           {games.map((game, index) => {
