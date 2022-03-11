@@ -54,7 +54,7 @@ const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout, date, 
 
     const data = activity.data;
     const userName = getUserProfileUrl(data);
-    const initialRewardAmount = isPlayMoney ? data?.reward : data?.rewardWfair;
+    const initialRewardAmount = isPlayMoney ? data?.rewardWfair : data?.reward;
     const rewardAmountFormatted = formatToFixed(initialRewardAmount ?? 0, 0, false);
     const rewardAmount = toNumericString(rewardAmountFormatted);
     const gameName = data?.gameName;
