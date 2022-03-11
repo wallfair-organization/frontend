@@ -10,7 +10,8 @@ import {
   SOFTSWISS_GAMES,
   TOP_PICKS_GAMES,
   GAMES,
-  GAME_CATEGORIES
+  GAME_CATEGORIES,
+  GAME_PROVIDERS,
 } from '../../constants/Games';
 import GameCards from '../../components/GameCards';
 
@@ -31,6 +32,7 @@ import { useHistory } from 'react-router-dom';
 import PumpDumpBanner from 'data/backgrounds/home/pumpdump-banner.jpg';
 import ElonBanner from 'data/backgrounds/home/elon-banner.jpg';
 import GamesCarousel from 'components/GamesCarousel';
+import GameProviderFilter from 'components/GameProviderFilter';
 
 const Games = () => {
     const history = useHistory();
@@ -46,6 +48,7 @@ const Games = () => {
   const [externalGamesSoftswiss, setExternalGamesSoftswiss] = useState(initialSwiss);
 
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedProvider, setSelectedProvider] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   
 
@@ -147,30 +150,33 @@ const Games = () => {
   };
 
 
-  const setGames = (selectGame, gameCategory) => {
-    if (selectGame && (gameCategory !== 'All')) {
-      // const houseGamesDisplay =
-      //   selectGame === 'alpaca'
-      //     ? NEW_SLOTS_GAMES
-      //     : [];
+  const setGames = (selectGame, gameCategory, provider) => {
+
+    console.log('setGames', {gameCategory, provider});
+
+    if (provider !== 'all' || gameCategory !== 'All') {
+
+      console.log('a', provider, ['all', 'bgaming', 'evolution'].includes(provider));
+
       let externalGamesDisplaySmartsoft =
-        selectGame === 'external' ? EXTERNAL_GAMES : [];
+        ['all', 'smartsoft'].includes(provider) ? EXTERNAL_GAMES : [];
       let externalGamesDisplayEvoplay =
-        selectGame === 'external' ? prepareEvoplayGames(EVOPLAY_GAMES, gameCategory) : [];
+        ['all', 'evoplay'].includes(provider) ? prepareEvoplayGames(EVOPLAY_GAMES, gameCategory) : [];
       let externalGamesDisplaySoftswiss =
-        selectGame === 'external' ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory) : [];
-     // let ret = [];
+        ['all', 'bgaming', 'evolution'].includes(provider) ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory, provider) : [];
+      // let ret = [];
+
         if(gameCategory) {
           externalGamesDisplaySmartsoft = externalGamesDisplaySmartsoft.filter(game => {
-            return game.GameCategory.indexOf(gameCategory) > -1;
+            return (gameCategory === 'All' || game.GameCategory.indexOf(gameCategory) > -1);
           })
 
           externalGamesDisplayEvoplay = externalGamesDisplayEvoplay.filter(game => {
-            return game.GameCategory.indexOf(gameCategory) > -1;
+            return (gameCategory === 'All' || game.GameCategory.indexOf(gameCategory) > -1);
           })
 
           externalGamesDisplaySoftswiss = externalGamesDisplaySoftswiss.filter(game => {
-            return game.GameCategory.indexOf(gameCategory) > -1;
+            return (gameCategory === 'All' || game.GameCategory.indexOf(gameCategory) > -1);
           })
           // let map = new Map();
           // externalGamesDisplaySmartsoft.forEach((x) => map.set(x.TechnicalName, { ...x }));
@@ -188,7 +194,9 @@ const Games = () => {
         }
 
       // setHouseGames(houseGamesDisplay);
+
       setExternalGames(externalGamesDisplaySmartsoft);
+
       setExternalGamesEvoplay(externalGamesDisplayEvoplay);
 
       setExternalGamesSoftswiss(externalGamesDisplaySoftswiss);
@@ -205,13 +213,24 @@ const Games = () => {
     <BaseContainerWithNavbar withPaddingTop={true} carouselType='landingpage'>
       <GamesCarousel />
       <div className={styles.container}>
-        {/* <section className={styles.title}>
-          <span>Games</span>
-        </section> */}
 
         {renderGamesBanner()}
 
         <DisplaySection selectedGamesLabel={TOP_PICKS_GAMES.header} selectedGamesNames={TOP_PICKS_GAMES.names} smartsoftGames={EXTERNAL_GAMES} evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)} softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}/>
+
+        <div className={styles.categories}>
+          <GameProviderFilter
+            className={styles.gameproviderList}
+            providers={GAME_PROVIDERS}
+            setSelectedProvider={(provider) => {
+              console.log(provider);
+              setSelectedProvider(provider);
+              setGames('external', selectedCategory, provider);
+              setSearchTerm('');
+            }}
+            selectedProvider={selectedProvider}
+          />
+        </div>
 
         <section className={styles.header}>
           <div className={styles.categories}>
@@ -220,7 +239,7 @@ const Games = () => {
               categories={GAME_CATEGORIES}
               setSelectedCategory={(category) => {
                 setSelectedCategory(category);
-                setGames('external', category)
+                setGames('external', category, selectedProvider)
                 setSearchTerm('');
               }}
               selectedCategory={selectedCategory}
