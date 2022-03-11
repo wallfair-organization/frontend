@@ -6,11 +6,11 @@ import {ReactComponent as SearchIcon} from '../../../data/icons/search-small.svg
 
 const SearchSection = ({ setGames,
   alpacaGames,
-setAlpacaGame,
-externalGames,
-setExternalGames,
-externalGamesEvoplay,
-setExternalGamesEvoplay,
+  setAlpacaGame,
+  externalGames,
+  setExternalGames,
+  externalGamesEvoplay,
+  setExternalGamesEvoplay,
   externalGamesSoftswiss,
   setExternalGamesSoftswiss
  }) => {

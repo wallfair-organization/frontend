@@ -1,0 +1,334 @@
+@import '../../styles/all';
+
+.carouselContainer {
+  display: block;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .topContainer {
+      position: relative;
+      height: 552px;
+      display: flex;
+      justify-content: space-evenly;
+
+      @media (max-width: $screen-lg) {
+        flex-direction: column;
+        height: 760px;
+        padding: 60px 0px;
+      }
+
+      .backgroundImg {
+        position: absolute;
+        height: 552px;
+        top: 0;
+        bottom: 0;
+        object-fit: cover !important;
+        z-index: -1;
+
+        @media (max-width: $screen-lg) {
+          height: 100%;
+        }
+      }
+      .firstContainer {
+        display: flex;
+        align-items: center;
+        height: calc(100% - 73px);
+
+        @media (max-width: $screen-lg) {
+          justify-content: center;
+          padding: 0 20px;
+        }
+        .contentWrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          max-width: 600px;
+
+          @media (max-width: $screen-lg) {
+            align-items: center;
+            max-width: 500px;
+          }
+          .title {
+            font-size: 12px;
+            color: white;
+            opacity: 0.54;
+            margin-bottom: 16px;
+          }
+        }
+        h2 {
+          color: white;
+          font-family: $fontDMSans;
+          font-style: italic;
+          font-size: 50px;
+          text-align: left;
+          .secondTitle {
+            color: #efff54;
+          }
+          .thirdTitle {
+            color: #3aff1d;
+          }
+          .highlightWinner {
+            color: $colorGreenWinner;
+          }
+          @media (max-width: $screen-lg) {
+            width: 100%;
+            font-size: 40px;
+            text-align: center;
+          }
+          @media (max-width: $screen-sm) {
+            width: 100%;
+            font-size: 24px;
+            text-align: center;
+          }
+        }
+        .description {
+          margin-top: 33px;
+          color: white;
+          font-size: 16px;
+          text-align: left;
+          @media (max-width: $screen-lg) {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+      .secondContainer {
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: calc(100% - 73px);
+        text-align: left;
+
+        @media (max-width: $screen-lg) {
+          padding: 60px 0;
+          justify-content: center;
+        }
+        .coins {
+          position: absolute;
+          top: 25%;
+          left: -15%;
+          width: 402px;
+          height: 234px;
+          animation: floating 10s ease-in-out infinite;
+
+          @media (max-width: $screen-sm) {
+            top: 15%;
+            left: 0;
+          }
+        }
+
+        @keyframes floating {
+          0% {
+            transform: rotateZ(0);
+          }
+
+          50% {
+            transform: rotateZ(-6deg);
+          }
+        }
+        .title {
+          font-size: 12px;
+          color: white;
+          opacity: 0.54;
+          margin-bottom: 12px;
+        }
+        .winnerContainer {
+          width: 579px;
+          display: flex;
+          flex-direction: column;
+          @media (max-width: $screen-sm) {
+            width: 90%;
+          }
+          .winnerItem {
+            background: rgba(172, 196, 255, 0.10077);
+            border-radius: 4px;
+            padding: 8px 16px;
+            margin-bottom: 8px;
+            span {
+              font-size: 14px;
+              color: white;
+              opacity: 0.8;
+            }
+            .rankNumber {
+              font-size: 16px;
+              opacity: 1;
+              margin-right: 8px;
+            }
+            .highlightWinner {
+              color: $colorGreenWinner;
+              font-weight: bold;
+            }
+          }
+        }
+        .cardContainer {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          background: rgba(0, 0, 0, 0.31922);
+          backdrop-filter: blur(27.1828px);
+          border-radius: 8px;
+          padding: 30px 30px;
+          overflow: auto;
+
+          .cardsWrapper {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+          }
+        }
+        .card {
+          position: relative;
+          // min-width: 300px;
+          width: 181px;
+          min-width: 181px;
+          height: 220px;
+          background: linear-gradient(
+            180deg,
+            rgba(41, 32, 79, 0.372183) 0%,
+            rgba(25, 20, 52, 0.672307) 74.19%,
+            rgba(18, 14, 39, 0.7104) 100%
+          );
+
+          .timerContainer {
+            background: red;
+          }
+        }
+      }
+      .buttonWrapper {
+        margin-top: 33px;
+        display: flex;
+        @media (max-width: $screen-lg) {
+          justify-content: center;
+        }
+        .button {
+          width: 100%;
+          max-width: 320px;
+          font-size: 20px;
+
+          & > svg {
+            height: 60px;
+          }
+        }
+        &.desktop {
+          display: flex;
+          @media (max-width: $screen-lg) {
+            display: none;
+          }
+        }
+        &.mobile {
+          display: none;
+          @media (max-width: $screen-lg) {
+            display: block;
+          }
+        }
+      }
+
+      .bottomBannerContainner {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        height: 73px;
+        width: 100%;
+        background: rgba(14, 9, 39, 0.803032);
+        align-items: center;
+        justify-content: center;
+        overflow: auto;
+        column-gap: 60px;
+
+        @media (max-width: $screen-sm) {
+          // justify-content: flex-start;
+          column-gap: 20px;
+        }
+
+        @media (max-width: $screen-sm) {
+          justify-content: flex-start;
+          column-gap: 0;
+        }
+
+        .bottomBanner {
+          margin: 0 16px;
+          display: flex;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+          }
+          .bottomBannerContent {
+            margin-left: 8px;
+            @media (max-width: $screen-sm) {
+              width: 120px;
+            }
+
+            a {
+              .title {
+                font-size: 14px;
+                color: white;
+              }
+              .price {
+                font-size: 18px;
+                color: #3aff1d;
+              }
+
+              &:hover {
+                & > * {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.carousel-root {
+  .carousel * {
+    @media (max-width: $screen-md) {
+      height: 430px !important;
+    }
+
+    @media (max-width: $screen-md) {
+      height: 410px !important;
+    }
+  }
+  .carousel {
+    .control-dots {
+      bottom: 35% !important;
+      background: #00092b !important;
+      z-index: 99999999999999 !important;
+      border-radius: 30px !important;
+
+      width: 20% !important;
+      padding: 10px !important;
+      left: 40% !important;
+      align-items: center !important;
+      @media (max-width: $screen-md) {
+        width: 25% !important;
+      }
+      @media (max-width: $screen-sm) {
+        display: none;
+      }
+
+      .dot {
+        height: 20px !important;
+        width: 20px !important;
+        background: rgba(255, 255, 255, 0.5) !important;
+        border: 2px solid #ffd401 !important;
+
+        @media (max-width: $screen-md) {
+          height: 14px !important;
+          width: 14px !important;
+        }
+      }
+    }
+
+    .thumbs-wrapper {
+      display: none !important;
+    }
+  }
+}

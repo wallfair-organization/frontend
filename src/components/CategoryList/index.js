@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import CategoryListItem from './CategoryListItem';
 import classNames from 'classnames';
 
-function CategoryList({ categories, eventType, className }) {
+function CategoryList({ categories, eventType, className, setSelectedCategory, selectedCategory }) {
   return (
     <>
       <section className={classNames(styles.categoryList, className)}>
@@ -12,6 +12,8 @@ function CategoryList({ categories, eventType, className }) {
             key={index}
             categoryItem={item}
             eventType={eventType}
+            setSelectedCategory={setSelectedCategory}
+            isActive={selectedCategory === item.label}
           />
         ))}
       </section>

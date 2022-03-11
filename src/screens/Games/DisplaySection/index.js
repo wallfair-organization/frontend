@@ -170,6 +170,10 @@ const DisplaySection = (props) => {
   }, [smartsoftGames, evoplayGames, softswissGames])
 
   let categories = games.reduce((gs, g) => { return gs.includes(g.GameCategory) ? gs :gs.concat(g.GameCategory) },[]);
+  
+  let preferredCategoriesOrder = ["Slot Games", "Casino Games", "Instant Win Games", "Roulette Games", "Keno Games", "Card Games"];
+
+  categories = preferredCategoriesOrder.filter(item => categories.includes(item));
 
   return (
     <div className={styles.gamesContainer}>

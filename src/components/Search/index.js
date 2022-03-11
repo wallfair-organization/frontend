@@ -17,6 +17,7 @@ function Search({ value, handleConfirm, handleChange, className }) {
         className={styles.input}
         placeholder="Search..."
         onChange={event => handleChange(event.target.value)}
+        value={value}
       />
       {/* <Icon
                 className={styles.searchIcon}
@@ -24,7 +25,7 @@ function Search({ value, handleConfirm, handleChange, className }) {
                 // width={14}
                 // height={14}
             /> */}
-      <IconSearch className={styles.searchIcon} onClick={handleConfirm} />
+      <IconSearch className={styles.searchIcon} onClick={() => handleConfirm(value)} />
     </div>
   );
 }

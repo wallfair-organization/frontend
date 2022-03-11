@@ -15,91 +15,70 @@ import {
 import GameCards from '../../components/GameCards';
 
 import {prepareEvoplayGames, prepareSoftSwissGames} from "../../helper/Games";
-import SearchSection from './SearchSection';
 import DisplaySection from './DisplaySection';
-import { useIsMount } from 'components/hoc/useIsMount';
-import { LOGGED_IN } from 'constants/AuthState';
 import classNames from 'classnames';
-import Icon from 'components/Icon';
-import IconType from 'components/Icon/IconType';
 import { Grid } from '@material-ui/core';
 import { connect } from 'react-redux';
 
-import { ReactComponent as DiscordMarker } from '../../data/images/home/discord-mark.svg';
 import EventActivitiesTabs from 'components/EventActivitiesTabs';
 import CustomCarousel from 'components/CustomCarousel/CustomCarousel';
 import CategoryList from 'components/CategoryList';
 import Search from 'components/Search';
+import Routes from 'constants/Routes';
+import ButtonTheme from 'components/Button/ButtonTheme';
+import Button from 'components/Button';
+import { useHistory } from 'react-router-dom';
+import PumpDumpBanner from 'data/backgrounds/home/pumpdump-banner.jpg';
+import ElonBanner from 'data/backgrounds/home/elon-banner.jpg';
+import GamesCarousel from 'components/GamesCarousel';
 
-const Games = (
-  authState,
-  userId,
-) => {
-  const isMount = useIsMount();
-  const showUpcoming = process.env.REACT_APP_SHOW_UPCOMING_FEATURES || 'false';
-  const [showDiscordBanner, setShowDiscordBanner] = useState(false);
-  const [alpacaGames, setAlpacaGame] = useState(
-    showUpcoming ? NEW_SLOTS_GAMES : SLOTS_GAMES
-  );
-  const [externalGames, setExternalGames] = useState(EXTERNAL_GAMES);
-  const [externalGamesEvoplay, setExternalGamesEvoplay] = useState([...prepareEvoplayGames(EVOPLAY_GAMES)]);
-  const [externalGamesSoftswiss, setExternalGamesSoftswiss] = useState([...prepareSoftSwissGames(SOFTSWISS_GAMES)]);
+const Games = () => {
+    const history = useHistory();
 
-  const isLoggedIn = () => {
-    return authState === LOGGED_IN;
-  };
+  const initialHouse = NEW_SLOTS_GAMES;
+  const initialExternal = EXTERNAL_GAMES;
+  const initialEvoplay = [...prepareEvoplayGames(EVOPLAY_GAMES)];
+  const initialSwiss = [...prepareSoftSwissGames(SOFTSWISS_GAMES)];
 
-  useEffect(() => {
-    if (isMount) {
-      setShowDiscordBanner(!checkdDiscordBanner());
-    }
-  }, []);
+  const [houseGames, setHouseGames] = useState(initialHouse);
+  const [externalGames, setExternalGames] = useState(initialExternal);
+  const [externalGamesEvoplay, setExternalGamesEvoplay] = useState(initialEvoplay);
+  const [externalGamesSoftswiss, setExternalGamesSoftswiss] = useState(initialSwiss);
 
-  const checkdDiscordBanner = () => {
-    return localStorage.getItem('discordBanner') || false;
-  };
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
+  
 
-  const hideDiscordBanner = () => {
-    localStorage.setItem('discordBanner', true);
-    setShowDiscordBanner(false);
-  }
+  const onConfirmSearch = (value) => {
+      if (value === null) {
+        setSearchTerm('');
+        return;
+      } else {
+        setSearchTerm(value);
+      }
 
-  const renderDiscordBanner =() => {
-    return (
-      <div className={classNames(styles.discordBanner, isLoggedIn() && styles.withPadding)}>
-        <div className={styles.backgroundWrapper}>
-          <div className={styles.whiteWrapper}>
-            <div className={styles.whiteContainer}>
-              <a
-                href="https://discord.gg/vxAtN9y4Vt"
-                target="_blank"
-                rel="noreferrer"
-              >
-              <DiscordMarker />
-              </a>
-            </div>
-          </div>
-          <div className={styles.bodyContainer}>
-            <Icon
-              className={styles.closeButton}
-              width={30}
-              height={30}
-              iconType={IconType.close}
-              onClick={hideDiscordBanner}
-            />
-            <p>
-              <a
-                href="https://discord.gg/vxAtN9y4Vt"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Join Discord for early access of Games, News and Airdrops
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    )
+      const searchedExternalGames = initialExternal.filter(game => {
+        const match = game.TechnicalName.toLowerCase().match(value.toLowerCase());
+        return Array.isArray(match);
+      });
+
+      const searchedExternalGamesEvoplay = initialEvoplay.filter(game => {
+        const match = game.TechnicalName.toLowerCase().match(value.toLowerCase());
+        return Array.isArray(match);
+      });
+      const searchedExternalGamesSoftswiss = initialSwiss.filter(game => {
+        const match = game.TechnicalName.toLowerCase().match(value.toLowerCase());
+        return Array.isArray(match);
+      });
+
+      setExternalGames(searchedExternalGames);
+      setExternalGamesEvoplay(searchedExternalGamesEvoplay);
+      setExternalGamesSoftswiss(searchedExternalGamesSoftswiss);
+
+      if(!value) {
+        setGames('external', 'All');
+      }
+    
   }
 
   const renderActivities = () => {
@@ -121,15 +100,59 @@ const Games = (
     );
   };
 
+  const renderGamesBanner = () => {
+    return (
+      <div className={styles.houseGamesContainer}>
+        <div className={styles.title}>
+          <h2 id="games">House Games</h2>
+        </div>
+        <div className={styles.games}>
+          <div
+            onClick={() => history.push(Routes.elonGame)}
+            className={styles.gameBanner}
+          >
+            <img src={ElonBanner} alt="Elon Game banner" />
+            <span className={styles.bannerTitle}>
+              Play the
+              <br />
+              Elon Game
+            </span>
+            <Button
+              theme={ButtonTheme.primaryButtonM}
+              className={styles.bannerButton}
+            >
+              Play now
+            </Button>
+          </div>
+          <div
+            onClick={() => history.push(Routes.pumpdumpGame)}
+            className={styles.gameBanner}
+          >
+            <img src={PumpDumpBanner} alt="Pump Dump Game banner" />
+            <span className={styles.bannerTitle}>
+              Let's play
+              <br />
+              Pump &amp; Dump
+            </span>
+            <Button
+              theme={ButtonTheme.primaryButtonM}
+              className={styles.bannerButton}
+            >
+              Play now
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
 
   const setGames = (selectGame, gameCategory) => {
-    if (selectGame) {
-      const alpacaGamesDisplay =
-        selectGame === 'alpaca'
-          ? showUpcoming
-            ? NEW_SLOTS_GAMES
-            : SLOTS_GAMES
-          : [];
+    if (selectGame && (gameCategory !== 'All')) {
+      // const houseGamesDisplay =
+      //   selectGame === 'alpaca'
+      //     ? NEW_SLOTS_GAMES
+      //     : [];
       let externalGamesDisplaySmartsoft =
         selectGame === 'external' ? EXTERNAL_GAMES : [];
       let externalGamesDisplayEvoplay =
@@ -164,7 +187,7 @@ const Games = (
           // });
         }
 
-      setAlpacaGame(alpacaGamesDisplay);
+      // setHouseGames(houseGamesDisplay);
       setExternalGames(externalGamesDisplaySmartsoft);
       setExternalGamesEvoplay(externalGamesDisplayEvoplay);
 
@@ -172,44 +195,51 @@ const Games = (
       return;
     }
 
-    setAlpacaGame(showUpcoming ? NEW_SLOTS_GAMES : SLOTS_GAMES);
-    setExternalGames(EXTERNAL_GAMES);
-    setExternalGamesEvoplay(prepareEvoplayGames(EVOPLAY_GAMES));
-    setExternalGamesSoftswiss(prepareSoftSwissGames(SOFTSWISS_GAMES));
+    // setHouseGames(initialHouse);
+    setExternalGames(initialExternal);
+    setExternalGamesEvoplay(initialEvoplay);
+    setExternalGamesSoftswiss(initialSwiss);
   };
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true} carouselType='landingpage'>
-      {/* <CustomCarousel carouselType={'landingpage'} /> */}
+      <GamesCarousel />
       <div className={styles.container}>
-        <section className={styles.title}>
+        {/* <section className={styles.title}>
           <span>Games</span>
-        </section>
+        </section> */}
+
+        {renderGamesBanner()}
+
+        <DisplaySection selectedGamesLabel={TOP_PICKS_GAMES.header} selectedGamesNames={TOP_PICKS_GAMES.names} smartsoftGames={EXTERNAL_GAMES} evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)} softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}/>
 
         <section className={styles.header}>
           <div className={styles.categories}>
             <CategoryList
               className={styles.categoryList}
               categories={GAME_CATEGORIES}
-              // handleSelect={handleSelectCategory}
+              setSelectedCategory={(category) => {
+                setSelectedCategory(category);
+                setGames('external', category)
+                setSearchTerm('');
+              }}
+              selectedCategory={selectedCategory}
             />
             <div className={styles.containerOptions}>
               <Search
                 className={styles.searchInput}
-                // value={searchTerm}
-                // handleChange={setSearchTerm}
-                // handleConfirm={onConfirmSearch}
+                value={searchTerm}
+                handleChange={setSearchTerm}
+                handleConfirm={onConfirmSearch}
               />
             </div>
           </div>
         </section>
 
-        <DisplaySection selectedGamesLabel={TOP_PICKS_GAMES.header} selectedGamesNames={TOP_PICKS_GAMES.names} smartsoftGames={EXTERNAL_GAMES} evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)} softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}/>
-
         {/* <SearchSection
           setGames={setGames}
-          alpacaGames={showUpcoming ? NEW_SLOTS_GAMES : SLOTS_GAMES}
-          setAlpacaGame={setAlpacaGame}
+          houseGames={showUpcoming ? NEW_SLOTS_GAMES : SLOTS_GAMES}
+          setHouseGame={setHouseGame}
           externalGames={EXTERNAL_GAMES}
           externalGamesEvoplay={externalGamesEvoplay}
           setExternalGamesEvoplay={setExternalGamesEvoplay}
@@ -218,10 +248,9 @@ const Games = (
           setExternalGames={setExternalGames}
         /> */}
 
-        {alpacaGames.length > 0 && <GameCards games={alpacaGames} category="House Games" />}
+        
 
         <DisplaySection smartsoftGames={externalGames} evoplayGames={externalGamesEvoplay} softswissGames={externalGamesSoftswiss} />
-        {/* {showDiscordBanner && renderDiscordBanner()} */}
         {renderActivities()}
       </div>
     </BaseContainerWithNavbar>
