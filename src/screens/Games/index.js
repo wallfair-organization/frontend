@@ -57,6 +57,8 @@ const Games = () => {
         setSearchTerm('');
         return;
       } else {
+        setSelectedProvider('all');
+        setSelectedCategory('All');
         setSearchTerm(value);
       }
 
