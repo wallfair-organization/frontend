@@ -7,7 +7,7 @@ import EventTypes from 'constants/EventTypes';
 import Button from 'components/Button';
 import ButtonTheme from 'components/Button/ButtonTheme';
 
-function CategoryListItem({ categoryItem, eventType }) {
+function CategoryListItem({ categoryItem, eventType, setSelectedCategory, isActive }) {
   
   return (
     <>
@@ -34,7 +34,11 @@ function CategoryListItem({ categoryItem, eventType }) {
           </Link>
         :
         
-          <Button className={classNames(styles.categoryButton, categoryItem.isActive && styles.active)} theme={ButtonTheme.secondaryButton}>
+          <Button 
+            className={classNames(styles.categoryButton, isActive && styles.active)} 
+            theme={ButtonTheme.secondaryButton}
+            onClick={() => setSelectedCategory(categoryItem.label)}
+          >
             <img
               src={categoryItem.image}
               alt={`category ${categoryItem.value}`}/>
