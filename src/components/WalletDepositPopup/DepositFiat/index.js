@@ -228,7 +228,7 @@ const DepositFiat = ({
         </div>
       </div>
 
-      <div className={styles.overview}>
+      {/* <div className={styles.overview}>
         <p className={styles.title}>Deposit Overview</p>
         <div className={styles.overviewItem}>
           <span>Estimate</span>
@@ -237,22 +237,7 @@ const DepositFiat = ({
           </span>
         </div>
         <hr />
-        <div className={styles.overviewItem}>
-          <span>Bonus</span>
-          <span className={styles.bonus}>
-            {numberWithCommas(bonus)} {TOKEN_NAME}
-          </span>
-        </div>
-        <hr />
-        <div className={styles.overviewItem}>
-          <span className={styles.total}>Total</span>
-          <span className={styles.total}>
-            {numberWithCommas(parseFloat(WFAIRToken) + parseFloat(bonus))}{' '}
-            {TOKEN_NAME}
-          </span>
-        </div>
-        <hr />
-      </div>
+      </div> */}
 
       <div className={styles.summary}>
         <span>

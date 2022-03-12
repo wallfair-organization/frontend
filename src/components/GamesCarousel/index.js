@@ -9,11 +9,14 @@ import Routes from 'constants/Routes';
 import classNames from 'classnames';
 
 import BackgroundFirst from '../../data/images/carousel/elon-bg-2x.png';
+import BackgroundSecond from '../../data/images/carousel/unlimited-wishes-bg.jpg';
 import { useEventsFilter } from 'components/Events/hooks/useEventsFilter';
 import BetState from 'constants/BetState';  
 import { useCallback } from 'react';
 import { useNotificationFilter } from 'components/Events/hooks/useNotificationFilter';
 import Button from 'components/Button';
+import { currencyDisplay } from 'helper/Currency';
+import { TOKEN_NAME } from 'constants/Token';
 
 
 const BottomBanner = ({title, price}) => {
@@ -31,21 +34,21 @@ const BottomBanner = ({title, price}) => {
 }
 
 const GamesCarousel = ({loggedIn, userId, showPopup}) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const history = useHistory();
-  const location = useLocation();
+  // const location = useLocation();
 
-  const { events } = useEventsFilter([BetState.active], 'all', null, true);
-  const { events : eventsByCreationDate } = useEventsFilter([BetState.active], 'all', null, false, 15, '', 'most_popular');
+  // const { events } = useEventsFilter([BetState.active], 'all', null, true);
+  // const { events : eventsByCreationDate } = useEventsFilter([BetState.active], 'all', null, false, 15, '', 'most_popular');
 
-  const {notifications} = useNotificationFilter('Notification/EVENT_USER_REWARD');
+  const {notifications} = useNotificationFilter('Casino/CASINO_CASHOUT', 'game');
 
   const onClickItemFirstBanner = useCallback(() => {
     history.push(Routes.elonGame);
   }, []);
 
   const onClickItemSecondBanner = useCallback(() => {
-        
+    history.push('/evoplay-game/Unlimited%20Wishes/Slot/5759');
   }, []);
 
   // const onClickItemThirdBanner = useCallback(() => {
@@ -93,25 +96,24 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
             </div>
           </div>
           <div className={styles.secondContainer}>
-            {/* {renderBetCard()}
-            <img src={Coins} className={styles.coins} alt="coins" /> */}
           </div>
-          {/* <div className={styles.bottomBannerContainner}>
+          <div className={styles.bottomBannerContainner}>
             {notifications && notifications.slice(0, 5).map(activity => {
+              console.log(activity.data);
               return (
                 <BottomBanner
-                  title={`${activity.data?.user?.username}`}
-                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                  title={`${activity.data?.username}`}
+                  price={`${Math.floor(activity.data?.reward * 100) / 100} ${activity.data?.gamesCurrency}`}
                 />
               )
             })}
-          </div> */}
+          </div>
         </div>
       </div>
       
 
 
-      {/* <div className={styles.container}>
+      <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
             className={styles.backgroundImg}
@@ -120,31 +122,30 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
           />
           <div className={styles.firstContainer}>
             <div>
-              <h2>TRADE ON<br/><span className={styles.secondTitle}>FUN EVENTS!</span></h2>
+              <h2><span className={styles.secondTitle}>UNLIMITED WISHES</span><br />SLOT GAME</h2>
               <p className={styles.description}>
-                Share the events with your friends or community. <br/>
-                The best and most interesting events will be rewarded.
+                You could win a maximum prize of x2100 when you get into the hidden Bonus game, Infinity Magic.
               </p>
               <div className={styles.buttonWrapper}>
-                <Button className={styles.button} theme={ButtonTheme.secondaryButton} onClick={onClickItemSecondBanner}>Discover all Events</Button>
+                <Button className={styles.button} onClick={onClickItemSecondBanner}>Start spinning!</Button>
               </div>
             </div>
           </div>
           <div className={styles.secondContainer}>
-            {render3BetCards()}
           </div>
           <div className={styles.bottomBannerContainner}>
             {notifications && notifications.slice(0, 5).map(activity => {
+              console.log(activity.data);
               return (
                 <BottomBanner
-                  title={`${activity.data?.user?.username}`}
-                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                  title={`${activity.data?.username}`}
+                  price={`${Math.floor(activity.data?.reward * 100) / 100} ${activity.data?.gamesCurrency}`}
                 />
               )
             })}
           </div>
         </div>
-      </div> */}
+      </div>
     </Carousel>
     )
   }

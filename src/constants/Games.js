@@ -43217,7 +43217,7 @@ export const EXTERNAL_GAMES = [
 
 export const TOP_PICKS_GAMES = {
   header: 'Top picks',
-  names: ['JetX', 'PlingoBall', 'Mine Field', 'Tree Of Light', 'Unlimited Wishes', 'FunFruit']
+  names: ['Crazy Time', 'Plinko', 'Monopoly', 'Unlimited Wishes', 'Tree Of Light', 'JetX']
 }
 
 export const GAME_CATEGORIES = [

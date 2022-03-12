@@ -24,7 +24,7 @@
   // }
 
   @media (max-width: $screen-sm) {
-    padding: 0 20px;
+    padding: 50px 20px 0;
   }
 
   .title {
@@ -847,6 +847,10 @@
     h2 {
       font-size: 20px;
       color: $colorWhite;
+
+      @media (max-width: $screen-xs) {
+        font-size: 30px;
+      }
     }
   }
 
