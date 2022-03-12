@@ -110,19 +110,6 @@ const HomeSettings = ({
               <p className={styles.settingTitle}>Edit my Profile</p>
             </div>
 
-            {/* <RealMoneyOnly>
-              <div
-                onClick={() => onKycInfoClick()}
-                className={classNames(styles.singleSettingHolder)}
-              >
-                <Icon
-                  className={classNames(styles.referralIcon, styles.fillIcon)}
-                  iconType={'question'}
-                />
-                <p className={styles.settingTitle}>KYC Verification</p>
-              </div>
-            </RealMoneyOnly> */}
-
             <div
               className={classNames(styles.singleSettingHolder)}
               onClick={() => onReferralsClick()}
@@ -134,18 +121,29 @@ const HomeSettings = ({
               <p className={styles.settingTitle}>Referrals</p>
             </div>
 
-            <PlayMoneyOnly>
-              <div
-                onClick={onHowItWorksClick}
-                className={classNames(styles.singleSettingHolder)}
-              >
-                <Icon
-                  className={classNames(styles.referralIcon, styles.strokeIcon)}
-                  iconType={'info'}
-                />
-                <p className={styles.settingTitle}>How it works?</p>
-              </div>
-            </PlayMoneyOnly>
+            <div
+              onClick={onHowItWorksClick}
+              className={classNames(styles.singleSettingHolder)}
+            >
+              <Icon
+                className={classNames(styles.referralIcon, styles.strokeIcon)}
+                iconType={'info'}
+              />
+              <p className={styles.settingTitle}>How it works?</p>
+            </div>
+
+            <a
+              href={'https://staking.wallfair.io'}
+              target='_blank'
+              rel='noreferrer'
+              className={classNames(styles.singleSettingHolder)}
+            >
+              <Icon
+                className={classNames(styles.referralIcon, styles.fillIcon)}
+                iconType={'wallet3'}
+              />
+              <p className={styles.settingTitle}>Staking 35% APY</p>
+            </a>
 
             <div
               className={classNames(styles.singleSettingHolder)}
