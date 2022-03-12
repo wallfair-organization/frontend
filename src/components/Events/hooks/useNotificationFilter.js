@@ -1,7 +1,7 @@
 import { getNotificationEvents } from 'api';
 import { useEffect, useState } from 'react';
 
-export function useNotificationFilter(category) {
+export function useNotificationFilter(category, typeNotification = 'bets') {
 
   const [notifications, setNotifications] = useState([]);
 
@@ -13,7 +13,7 @@ export function useNotificationFilter(category) {
     (async () => {
       const initialActivities = await getNotificationEvents({
         limit: 200,
-        category: 'bets',
+        category: typeNotification,
       }).catch(err => {
         console.error("Can't get trade by id:", err);
       });

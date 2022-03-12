@@ -2,34 +2,29 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import styles from './styles.module.scss';
-import {ReactComponent as BitcoinIcon} from '../../../data/icons/deposit/bitcoin.svg';
-import {ReactComponent as EuroIcon} from '../../../data/icons/deposit/euro.svg';
-import {ReactComponent as WalletIcon} from '../../../data/icons/deposit/wallet.svg';
-import {ReactComponent as Arrow} from '../../../data/icons/deposit/arrow.svg';
-import Button from 'components/Button';
-import {convertCurrency, generateCryptopayChannel, sendBuyWithCrypto} from '../../../api/index';
+import {convertCurrency, generateCryptopayChannel} from '../../../api/index';
 import { numberWithCommas } from 'utils/common';
-import useDebounce from 'hooks/useDebounce';
 import Dropdown from 'components/Dropdown';
 import {ReactComponent as LeftArrow} from '../../../data/icons/deposit/left-arrow.svg';
 import { PopupActions } from 'store/actions/popup';
 import PopupTheme from 'components/Popup/PopupTheme';
-import {connect, useSelector} from 'react-redux';
+import {connect} from 'react-redux';
 import { TOKEN_NAME } from 'constants/Token';
 import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
 import ReferralLinkCopyInputBox from 'components/ReferralLinkCopyInputBox';
 import InputBoxTheme from 'components/InputBox/InputBoxTheme';
 import QRCode from 'react-qr-code';
 import classNames from 'classnames';
-import { LIMIT_BONUS } from 'constants/Bonus';
-import useDepositsCounter from 'hooks/useDepositsCounter';
 import { TransactionActions } from 'store/actions/transaction';
-import {selectPrices} from "../../../store/selectors/info-channel";
 
 const cryptoShortName = {
   BITCOIN: 'BTC',
   ETHEREUM: `ETH`,
   LITECOIN: `LTC`,
+  USDT: 'USDT',
+  USDC: 'USDC',
+  DAI: 'DAI',
+  XRP: 'XRP',
 };
 
 const CURRENCY_OPTIONS = [
@@ -45,11 +40,29 @@ const CURRENCY_OPTIONS = [
     label: 'LITECOIN',
     value: 2,
   },
+  {
+    label: 'USDT',
+    value: 3,
+  },
+  {
+    label: 'USDC',
+    value: 4,
+  },
+  {
+    label: 'DAI',
+    value: 5,
+  },
+  {
+    label: 'XRP',
+    value: 6,
+  },
 ];
 
-const DepositCrypto = ({user, showWalletDepositPopup, fetchWalletTransactions}) => {
+const DepositCrypto = ({ currency, showWalletDepositPopup, fetchWalletTransactions }) => {
 
-  const [selectedCurrency, setSelectedCurrency] = useState(CURRENCY_OPTIONS[0]);
+  const [selectedCurrency, setSelectedCurrency] = useState(
+    CURRENCY_OPTIONS.find(c => c.label === currency) ||  
+    CURRENCY_OPTIONS[0]);
 
   //get updated prices from WS, without using call example = 1 WFAIR
   // const prices = useSelector(selectPrices);
@@ -128,11 +141,6 @@ const DepositCrypto = ({user, showWalletDepositPopup, fetchWalletTransactions}) 
       setTotal(0)
     }
   }, [selectedCurrency.label]);
-
-  const onChangeAmount = useDebounce({
-    callback: onInputAmountChange,
-    delay: 500,
-  });
 
   const onCurrencyChange = val => {
     setSelectedCurrency(CURRENCY_OPTIONS.find(c => c.value === val));
@@ -231,10 +239,6 @@ const DepositCrypto = ({user, showWalletDepositPopup, fetchWalletTransactions}) 
         </p>
         <div className={styles.overviewItem}>
           <span>Estimate</span><span>{numberWithCommas(tokenValue)} {TOKEN_NAME}</span>
-        </div>
-        <hr/>
-        <div className={styles.overviewItem}>
-          <span className={styles.total}>Total</span><span className={styles.total}>{numberWithCommas(total)} {TOKEN_NAME}</span>
         </div>
         <hr/>
       </div>

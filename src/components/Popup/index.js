@@ -107,7 +107,9 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
 
     switch (type) {
       case PopupTheme.eventConfirmation:
-        return <EventConfirmationView hidePopup={hidePopup} options={options}/>;
+        return (
+          <EventConfirmationView hidePopup={hidePopup} options={options} />
+        );
 
       case PopupTheme.betApprove:
         return <BetApproveView options={options} />;
@@ -186,7 +188,12 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <VerifyEmailPopup closed={false} />;
 
       case PopupTheme.pulloutApprove:
-        return <PulloutApprovePopup betData={_.get(options, 'betData')} onApprove={options.onApprove} />;
+        return (
+          <PulloutApprovePopup
+            betData={_.get(options, 'betData')}
+            onApprove={options.onApprove}
+          />
+        );
 
       case PopupTheme.lotteryGameAnswered:
         return (
@@ -194,7 +201,11 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         );
       case PopupTheme.eventForms:
         return (
-          <EventForms event={options?.event} bet={options?.bet} step={options?.step} />
+          <EventForms
+            event={options?.event}
+            bet={options?.bet}
+            step={options?.step}
+          />
         );
       case PopupTheme.deleteEvent:
         return (
@@ -209,7 +220,11 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <ViewImagePopup imageURL={options.imageURL} />;
       case PopupTheme.resolveBet:
         return (
-          <ResolveBetPopup bet={options.bet} event={options.event} action={options.action} />
+          <ResolveBetPopup
+            bet={options.bet}
+            event={options.event}
+            action={options.action}
+          />
         );
       case PopupTheme.cancelBet:
         return (
@@ -246,15 +261,11 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <RequestTokensPopup />;
 
       case PopupTheme.walletDeposit:
-        return <WalletDepositPopup />;
       case PopupTheme.walletDepositCrypto:
-        return <WalletDepositPopup type={PopupTheme.walletDepositCrypto} />;
       case PopupTheme.walletDepositFiat:
-        return <WalletDepositPopup type={PopupTheme.walletDepositFiat} />;
       case PopupTheme.walletConnectWallet:
-        return <WalletDepositPopup type={PopupTheme.walletConnectWallet} />;
       case PopupTheme.walletWithdraw:
-        return <WalletDepositPopup type={PopupTheme.walletWithdraw} />;
+        return <WalletDepositPopup type={type} currency={options?.currency} />;
       case PopupTheme.transakSuccess:
         return <TransakSuccess options={options} />;
       case PopupTheme.txModal:
@@ -269,13 +280,13 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         const initialOnboarding = _.get(options, 'initialOnboarding', true);
         return <VerifyPhonePopup initialOnboarding={initialOnboarding} />;
       case PopupTheme.disputes:
-        return <DisputesPopup disputes={options?.disputes} />
+        return <DisputesPopup disputes={options?.disputes} />;
       case PopupTheme.cashoutPopupView:
-        return <CashoutPopupView options={options} />
+        return <CashoutPopupView options={options} />;
       case PopupTheme.howItWorks:
-        return <HowItWorksPopup />
+        return <HowItWorksPopup />;
       case PopupTheme.loginWeb3:
-        return <LoginWeb3Popup />
+        return <LoginWeb3Popup />;
     }
 
     return null;

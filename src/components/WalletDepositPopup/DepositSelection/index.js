@@ -9,6 +9,10 @@ import {ReactComponent as ApplePay} from '../../../data/icons/deposit/applepay-i
 import {ReactComponent as Ethereum} from '../../../data/icons/deposit/ethereum-icon.svg';
 import {ReactComponent as GooglePay} from '../../../data/icons/deposit/googlepay-icon.svg';
 import {ReactComponent as Litecoin} from '../../../data/icons/deposit/litecoin-icon.svg';
+import { ReactComponent as USDT } from '../../../data/icons/deposit/usdt-logo.svg';
+import { ReactComponent as DAI } from '../../../data/icons/deposit/dai-logo.svg';
+import { ReactComponent as USDC } from '../../../data/icons/deposit/usdc-logo.svg';
+import { ReactComponent as XRP } from '../../../data/icons/deposit/xrp-logo.svg';
 import {ReactComponent as VisaMaster} from '../../../data/icons/deposit/visamaster-icon.svg';
 import { connect } from 'react-redux';
 import { PopupActions } from 'store/actions/popup';
@@ -23,6 +27,37 @@ const DepositSelection = ({showWalletDepositCrypto, showWalletDepositFiat, showW
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const CRYPTO_OPTIONS = [
+    {
+      label: 'Bitcoin',
+      icon: <BitcoinIcon />,
+    },
+    {
+      label: 'Ethereum',
+      icon: <Ethereum />,
+    },
+    {
+      label: 'Litecoin',
+      icon: <Litecoin />,
+    },
+    {
+      label: 'USDT',
+      icon: <USDT />,
+    },
+    {
+      label: 'DAI',
+      icon: <DAI />,
+    },
+    {
+      label: 'USDC',
+      icon: <USDC />,
+    },
+    {
+      label: 'XRP',
+      icon: <XRP />,
+    },
+  ];
+
   return (
     <div className={styles.depositSelectionContainer}>
       <h3>Choose your deposit method</h3>
@@ -33,49 +68,29 @@ const DepositSelection = ({showWalletDepositCrypto, showWalletDepositFiat, showW
         </div>
         {/* <WFAIRIcon /> */}
         <div className={styles.buttonText}>
-          <p className={styles.title}>
-            WFAIR via MetaMask
-          </p>
+          <p className={styles.title}>WFAIR via MetaMask</p>
         </div>
         <Arrow className={styles.arrowRight} />
       </div>
 
-      <div className={styles.selectorButton} onClick={showWalletDepositCrypto}>
-        <div className={styles.iconWrapper}>
-          <BitcoinIcon />
-        </div>
-        <div className={styles.buttonText}>
-          <p className={styles.title}>
-            Bitcoin
-          </p>
-        </div>
-        <Arrow className={styles.arrowRight} />
-      </div>
+      {CRYPTO_OPTIONS.map(option => {
+        return (
+          <div
+            className={styles.selectorButton}
+            onClick={() => showWalletDepositCrypto(option.label.toUpperCase())}
+            key={option.label}
+          >
+            <div className={styles.iconWrapper}>
+              {option.icon}
+            </div>
+            <div className={styles.buttonText}>
+              <p className={styles.title}>{option.label}</p>
+            </div>
+            <Arrow className={styles.arrowRight} />
+          </div>
+        );
+      })}
 
-      <div className={styles.selectorButton} onClick={showWalletDepositCrypto}>
-        <div className={styles.iconWrapper}>
-          <Ethereum />
-        </div>
-        <div className={styles.buttonText}>
-          <p className={styles.title}>
-            Ethereum
-          </p>
-        </div>
-        <Arrow className={styles.arrowRight} />
-      </div>
-      
-      <div className={styles.selectorButton} onClick={showWalletDepositCrypto}>
-        <div className={styles.iconWrapper}>
-          <Litecoin />
-        </div>
-        <div className={styles.buttonText}>
-          <p className={styles.title}>
-            Litecoin
-          </p>
-        </div>
-        <Arrow className={styles.arrowRight} />
-      </div>
-      
       <h3 className={styles.nocrypto}>No crypto? No problem!</h3>
 
       <div className={styles.selectorButton} onClick={showWalletDepositFiat}>
@@ -83,57 +98,52 @@ const DepositSelection = ({showWalletDepositCrypto, showWalletDepositFiat, showW
           <VisaMaster />
         </div>
         <div className={styles.buttonText}>
-          <p className={styles.title}>
-            Credit Card
-          </p>
+          <p className={styles.title}>Credit Card</p>
         </div>
         <Arrow className={styles.arrowRight} />
-      </div> 
+      </div>
 
       <div className={styles.selectorButton} onClick={showWalletDepositFiat}>
         <div className={styles.iconWrapper}>
           <VisaMaster />
         </div>
         <div className={styles.buttonText}>
-          <p className={styles.title}>
-            Bank Transfer
-          </p>
+          <p className={styles.title}>Bank Transfer</p>
         </div>
         <Arrow className={styles.arrowRight} />
-      </div> 
+      </div>
 
       <div className={styles.selectorButton} onClick={showWalletDepositFiat}>
         <div className={styles.iconWrapper}>
           <ApplePay />
         </div>
         <div className={styles.buttonText}>
-          <p className={styles.title}>
-            Apple Pay
-          </p>
+          <p className={styles.title}>Apple Pay</p>
         </div>
         <Arrow className={styles.arrowRight} />
-      </div> 
+      </div>
 
       <div className={styles.selectorButton} onClick={showWalletDepositFiat}>
         <div className={styles.iconWrapper}>
           <GooglePay />
         </div>
         <div className={styles.buttonText}>
-          <p className={styles.title}>
-            Google Pay
-          </p>
+          <p className={styles.title}>Google Pay</p>
         </div>
         <Arrow className={styles.arrowRight} />
-      </div> 
+      </div>
     </div>
   );
 };
 
 const mapDispatchToProps = dispatch => {
   return { 
-    showWalletDepositCrypto: () => {
+    showWalletDepositCrypto: (currency) => {
       trackWalletBuyWithCryptoButton();
-      dispatch(PopupActions.show({ popupType: PopupTheme.walletDepositCrypto }));
+      dispatch(PopupActions.show({ 
+        popupType: PopupTheme.walletDepositCrypto,
+        options: { currency },
+      }));
     },
     showWalletDepositFiat: () => {
       trackWalletBuyWithFiatButton();

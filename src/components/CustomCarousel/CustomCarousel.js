@@ -54,7 +54,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
 
   const {notifications} = useNotificationFilter('Notification/EVENT_USER_REWARD');
 
-  const onClickItemFirstBanner = useCallback(() => {
+  const onClickItemFirstBanner = () => {
     if (loggedIn) {
       history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
 
@@ -66,7 +66,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
         'gtm.elementId': 'banner--create-events',
       });
     }
-  }, []);
+  };
 
   const onClickItemSecondBanner = useCallback(() => {
         history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));

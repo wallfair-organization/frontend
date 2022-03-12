@@ -41,10 +41,6 @@ const MainMenu = ({
   referralsVisible,
   close,
   updateNotificationSettings,
-  fetchReferrals,
-  showPopup,
-  kycInfoVisible = false,
-  handleKycInfoVisible,
 }) => {
   const dispatch = useDispatch();
   const [name, setName] = useState(user.name);
@@ -56,8 +52,6 @@ const MainMenu = ({
   const [profileSubmitActive, setProfileSubmitActive] = useState(true);
   const [profileErrorMessage, setProfileErrorMessage] = useState();
   const { deactivate } = useWeb3React();
-
-  const profilePictureRefName = useRef(null);
 
   useEffect(() => {
     if (editVisible) return;
@@ -119,14 +113,6 @@ const MainMenu = ({
     handleReferralsVisible(!referralsVisible);
   };
 
-  // const onKycInfoClick = () => {
-  //   handleKycInfoVisible(!kycInfoVisible);
-  // };
-
-  const handleName = e => {
-    setName(e.target.value);
-  };
-
   const handleUsernameDebounceAction = useMemo(() => {
     return _.debounce(async eventValue => {
       const response = await checkUsername(eventValue).catch(err => {
@@ -150,7 +136,8 @@ const MainMenu = ({
   }, []);
 
   const handleUsername = e => {
-    if(e.target.value.length > 25) {
+    if (e.target.value.length > 25) {
+      setProfileSubmitActive(false);
       dispatch(
         AlertActions.showError({
           message: 'Username can have a maximum of 25 characters.',
@@ -158,7 +145,7 @@ const MainMenu = ({
       );
     }
     else {
-      setProfileSubmitActive(false);
+      setProfileSubmitActive(true);
       setUsername(e.target.value);
       handleUsernameDebounceAction(e.target.value);
     }
@@ -170,7 +157,6 @@ const MainMenu = ({
   };
 
   const handleSubmit = e => {
-    e.preventDefault();
     updateUser(name, username, email, imageName, aboutMe, profilePic);
     setEditVisible(false);
   };
@@ -186,11 +172,6 @@ const MainMenu = ({
       setImageName(blob.name);
     }
   }
-
-  const handleProfilePictureUpload = async e => {
-    if (!e.target.files.length) return;
-    await handleFileUpload(e.target.files[0]);
-  };
 
   const resizePicture = base64 =>
     new Promise((resolve, reject) => {
@@ -306,30 +287,7 @@ const MainMenu = ({
       </div>
     );
   };
-
-  // const renderKycInfoDrawer = () => {
-  //   return (
-  //     <div
-  //       className={classNames(
-  //         styles.panel,
-  //         !kycInfoVisible && styles.panelHidden
-  //       )}
-  //     >
-  //       <h2 className={styles.profileHeading}>
-  //         <Icon
-  //           className={styles.backButton}
-  //           iconType={'arrowTopRight'}
-  //           onClick={() => handleKycInfoVisible(!kycInfoVisible)}
-  //         />
-  //         KYC Info
-  //       </h2>
-  //       <div className={styles.kycWrapper}>
-  //         <KycStatus/>
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
+  
   const renderReferralsDrawer = () => {
     return (
       <div
@@ -367,55 +325,52 @@ const MainMenu = ({
           Edit My Profile
         </h2>
         <div className={styles.editProfileContent}>
-          
-          <form onSubmit={handleSubmit}>
-            <div className={styles.profileContent}>
-              <div className={styles.profileInputGroup}>
-                <label className={styles.profileInputLabel}>
-                  My username is...
-                </label>
-                <input
-                  className={styles.profileInput}
-                  value={username}
-                  onChange={handleUsername}
-                />
-              </div>
-              <div className={styles.profileInputGroup}>
-                <label className={styles.profileInputLabel}>About me</label>
-                <Textarea
-                  className={classNames(styles.profileInput, styles.textarea)}
-                  value={aboutMe}
-                  onChange={e => setAboutMe(e.target.value)}
-                  placeholder="Tell us something about yourself..."
-                />
-              </div>
-              <div className={styles.profileInputGroup}>
-                <label className={styles.profileInputLabel}>E-Mail</label>
-                <input
-                  className={styles.profileInput}
-                  disabled
-                  value={email}
-                  onChange={handleEmail}
-                />
-              </div>
-
-              {!_.isEmpty(profileErrorMessage) && (
-                <div className={styles.profileErrorHandLing}>
-                  {profileErrorMessage}
-                </div>
-              )}
-              <div className={styles.submitButtonContainer}>
-                <Button
-                  theme={ButtonTheme.primaryButtonM}
-                  disabled={profileSubmitActive ? false : true}
-                  className={styles.profileSubmit}
-                  type={'submit'}
-                >
-                  Save changes
-                </Button>
-              </div>
+          <div className={styles.profileContent}>
+            <div className={styles.profileInputGroup}>
+              <label className={styles.profileInputLabel}>
+                My username is...
+              </label>
+              <input
+                className={styles.profileInput}
+                value={username}
+                onChange={handleUsername}
+              />
             </div>
-          </form>
+            <div className={styles.profileInputGroup}>
+              <label className={styles.profileInputLabel}>About me</label>
+              <Textarea
+                className={classNames(styles.profileInput, styles.textarea)}
+                value={aboutMe}
+                onChange={e => setAboutMe(e.target.value)}
+                placeholder="Tell us something about yourself..."
+              />
+            </div>
+            <div className={styles.profileInputGroup}>
+              <label className={styles.profileInputLabel}>E-Mail</label>
+              <input
+                className={styles.profileInput}
+                disabled
+                value={email}
+                onChange={handleEmail}
+              />
+            </div>
+
+            {!_.isEmpty(profileErrorMessage) && (
+              <div className={styles.profileErrorHandLing}>
+                {profileErrorMessage}
+              </div>
+            )}
+            <div className={styles.submitButtonContainer}>
+              <Button
+                theme={ButtonTheme.primaryButtonM}
+                disabled={!profileSubmitActive}
+                className={styles.profileSubmit}
+                onClick={handleSubmit}
+              >
+                Save changes
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -467,7 +422,6 @@ const MainMenu = ({
       {referralsVisible && renderReferralsDrawer()}
       {emailNotificationsVisible && renderEmailNotificationDrawer()}
       {preferencesVisible && renderPreferencesDrawer()}
-      {/* {kycInfoVisible && renderKycInfoDrawer()} */}
     </div>
   );
 };
@@ -480,7 +434,6 @@ const mapStateToProps = state => {
     emailNotificationsVisible: state.general.emailNotificationsVisible,
     preferencesVisible: state.general.preferencesVisible,
     referralsVisible: state.general.referralsVisible,
-    kycInfoVisible: state.general.kycInfoVisible,
   };
 };
 
@@ -517,20 +470,6 @@ const mapDispatchToProps = dispatch => {
     },
     handleReferralsVisible: bool => {
       dispatch(GeneralActions.setReferralsVisible(bool));
-    },
-    handleKycInfoVisible: bool => {
-      dispatch(GeneralActions.setKycInfoVisible(bool));
-    },
-    fetchReferrals: () => {
-      dispatch(AuthenticationActions.fetchReferrals());
-    },
-    showPopup: (popupType, options) => {
-      dispatch(
-        PopupActions.show({
-          popupType,
-          options,
-        })
-      );
     },
   };
 };
