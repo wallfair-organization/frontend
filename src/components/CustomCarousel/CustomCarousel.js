@@ -322,6 +322,27 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
     )
   }
 
+  const TextItem = ({emoji, children}) => {
+    return (
+      <div className={styles.textItem}>
+        <span className={styles.emoji}>{emoji}</span>
+        {' '}{children}
+        {/* <span className={styles.prize}></span> */}
+      </div>
+    )
+  }
+
+  const renderTextItems = () => {
+    return (
+      <div className={styles.textItemsContainer}>
+        {/* <span className={styles.title}>The 3 daily winners</span> */}
+        <TextItem emoji={'💩'}><span><span className={styles.highlighted}>No bullshit</span>: Web 3.0 - Instant MetaMask deposit &amp; withdrawal instead of sign up, KYC and deposit limits</span></TextItem>
+        <TextItem emoji={'🥸'}><span><span className={styles.highlighted}>Fun</span>: Over 500 fun games and the first platform to bet on user generated events</span></TextItem>
+        <TextItem emoji={'💰'}><span><span className={styles.highlighted}>Make money</span>: Create your own bets and earn 10% of the trading volume (Limit: 500,000 USD per event)</span></TextItem>
+      </div>
+    )
+  }
+
   const renderSlidesRealMoney = () => {
     return (
       <Carousel
@@ -339,6 +360,38 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
         showThumbs={false}
         
       >
+
+      <div className={styles.container}>
+        <div className={styles.topContainer}>
+          <img
+            className={styles.backgroundImg}
+            alt=""
+            src={BackgroundFirst}
+          />
+          <div className={styles.firstContainer}>
+            <div>
+              <h2><span className={styles.secondTitle}>WALLFAIR</span> IS WEB 3.0<br/> FUN BETTING WITH<br/>NO BULLSHIT</h2>
+              <div className={styles.buttonWrapper}>
+                <Button className={styles.button} theme={ButtonTheme.secondaryButton} onClick={() => { history.push('/how-it-works')}}>How it works</Button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.secondContainer}>
+            {renderTextItems()}
+          </div>
+          <div className={styles.bottomBannerContainner}>
+            {notifications && notifications.slice(0, 5).map(activity => {
+              return (
+                <BottomBanner
+                  title={`${activity.data?.user?.username}`}
+                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+
       <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
