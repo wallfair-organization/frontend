@@ -43220,6 +43220,11 @@ export const TOP_PICKS_GAMES = {
   names: ['Crazy Time', 'Plinko', 'Monopoly', 'Unlimited Wishes', 'Tree Of Light', 'JetX']
 }
 
+export const HOMEPAGE_TOP_PICKS_GAMES = {
+  header: 'Top picks',
+  names: ['Crazy Time', 'Plinko', 'Monopoly', 'Unlimited Wishes', 'Tree Of Light', 'JetX', 'Bonanza Billion', 'BookOfWin', 'Minesweeper', 'FunFruit', 'JetX3', 'Craps']
+}
+
 export const GAME_CATEGORIES = [
   {
     value: 'all',

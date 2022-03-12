@@ -28,8 +28,8 @@ import DisplaySection from './DisplaySection';
 import {
   EVOPLAY_GAMES,
   EXTERNAL_GAMES,
+  HOMEPAGE_TOP_PICKS_GAMES,
   SOFTSWISS_GAMES,
-  TOP_PICKS_GAMES,
 } from 'constants/Games';
 import { prepareEvoplayGames, prepareSoftSwissGames } from 'helper/Games';
 import LeaderboardHome from 'components/LeaderboardHome';
@@ -238,7 +238,7 @@ const Home = authState => {
           <DisplaySection
             selectedGamesLabel={'Games'}
             showMore={true}
-            selectedGamesNames={TOP_PICKS_GAMES.names}
+            selectedGamesNames={HOMEPAGE_TOP_PICKS_GAMES.names}
             smartsoftGames={EXTERNAL_GAMES}
             evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)}
             softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}
