@@ -33,7 +33,10 @@ import ProviderSmartsoft from '../data/icons/footer/smartsoft.png';
 import ProviderYggdrasil from '../data/icons/games/gameproviders/yggdrasil.svg';
 import Provider1spin4win from '../data/icons/games/gameproviders/1spin4win.png';
 import ProviderWazdan from '../data/icons/games/gameproviders/wazdan.png';
-
+import ProviderThunderkick from '../data/icons/games/gameproviders/thunderkick.svg';
+import ProviderSlotmill from '../data/icons/games/gameproviders/slotmill.png';
+import ProviderPlayngo from '../data/icons/games/gameproviders/playngo.png';
+import ProviderMerkur from '../data/icons/games/gameproviders/merkur.png';
 
 
 const softswissAcceptanceTests = [
@@ -53003,5 +53006,25 @@ export const GAME_PROVIDERS = [
       value: 'yggdrasil',
       label: 'Yggdrasil',
       image: ProviderYggdrasil,
+    },
+    {
+      value: 'merkur',
+      label: 'Merkur',
+      image: ProviderMerkur,
+    },
+    {
+      value: 'thunderkick',
+      label: 'ThunderKick',
+      image: ProviderThunderkick,
+    },
+    {
+      value: 'slotmill',
+      label: 'Slotmill',
+      image: ProviderSlotmill,
+    },
+    {
+      value: 'playngo',
+      label: 'Playngo',
+      image: ProviderPlayngo,
     },
 ]
