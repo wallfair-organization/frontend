@@ -23,7 +23,7 @@ import { LIMIT_BONUS } from 'constants/Bonus';
 import { TransactionActions } from 'store/actions/transaction';
 
 // const stagingGoerliRampURL = "https://ri-widget-staging-goerli2.firebaseapp.com/";
-const productionRampURL = 'https://buy.ramp.network/';
+// const productionRampURL = 'https://buy.ramp.network/';
 const cryptoTransaction = 'BTC';
 
 const CURRENCY_OPTIONS = [
@@ -146,13 +146,6 @@ const DepositFiat = ({
     );
   };
 
-  const getRampUrl = () => {
-    if (address) {
-      const rampUrl = `${productionRampURL}?swapAsset=${cryptoTransaction}&fiatValue=${currency}&fiatCurrency=${selectedCurrency.label}&userEmailAddress=${user.email}&userAddress=${address}`;
-      window.open(rampUrl);
-    }
-  };
-
   const proceedWithMoonpay = async () => {
     const windowRef = window.open();
 
@@ -247,7 +240,7 @@ const DepositFiat = ({
         </span>
       </div>
 
-      {currency > 0 && user.email && !loading ? (
+      {currency > 0 && !loading ? (
         <Button onClick={() => handlePartnerClick()}>
           Proceed with partner
         </Button>
