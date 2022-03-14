@@ -1,0 +1,96 @@
+@import '../../styles/all';
+
+.howtoCardContainer {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+
+  width: 181px;
+  min-width: 181px;
+  height: 220px;
+
+  .picture {
+    background: $colorLightPurple12;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    position: absolute;
+  }
+
+  .overlay {
+    mix-blend-mode: multiply;
+    background: linear-gradient(
+      to bottom,
+      rgba(31, 32, 79, 0.1) 0%,
+      rgba(25, 20, 52, 0.8) 70%,
+      rgba(18, 14, 39, 1) 100%
+    );
+  }
+
+  .timerContainer {
+    background: $colorLightPurple12;
+    width: 100%;
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .contentWrapper {
+      display: flex;
+      align-items: center;
+      color: $colorWhite;
+      font-family: $fontDMSans;
+      padding-right: 0px;
+
+      .timerLabel {
+        font-size: 10px;
+        padding-right: 8px;
+      }
+
+      .timerValue {
+        font-size: 12px;
+        line-height: 14px;
+        font-family: $fontDMSans;
+        font-weight: 700;
+        padding-right: 2px;
+      }
+
+      .timerUnit {
+        font-size: 10px;
+        color: $colorWhite30;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .howtoCard {
+    position: relative;
+    padding: 0;
+    font-family: $fontLight;
+    color: $colorWhite;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    user-select: none;
+    cursor: pointer;
+    height: 100%;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .titleContainer {
+      display: flex;
+      flex-direction: column;
+      margin-top: 120px;
+      padding-bottom: 30px;
+    }
+  }
+}

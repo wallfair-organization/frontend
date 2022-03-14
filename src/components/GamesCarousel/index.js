@@ -17,6 +17,7 @@ import { useNotificationFilter } from 'components/Events/hooks/useNotificationFi
 import Button from 'components/Button';
 import { currencyDisplay } from 'helper/Currency';
 import { TOKEN_NAME } from 'constants/Token';
+import HowToStartBanner from 'components/CustomCarousel/HowToStartBanner';
 
 
 const BottomBanner = ({title, price}) => {
@@ -77,7 +78,7 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
         showThumbs={false}
         
       >
-      <div className={styles.container}>
+      {/* <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
             className={styles.backgroundImg}
@@ -99,7 +100,40 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
           </div>
           <div className={styles.bottomBannerContainner}>
             {notifications && notifications.slice(0, 5).map(activity => {
-              console.log(activity.data);
+              return (
+                <BottomBanner
+                  title={`${activity.data?.username}`}
+                  price={`${Math.floor(activity.data?.reward * 100) / 100} ${activity.data?.gamesCurrency}`}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div> */}
+
+      <div className={styles.container}>
+        <div className={styles.topContainer}>
+          <img
+            className={styles.backgroundImg}
+            alt=""
+            src={BackgroundFirst}
+          />
+          <div className={styles.firstContainer}>
+            <div>
+              <h2>THE ELON GAME<br/><span className={styles.secondTitle}>TOURNAMENT!</span><br/>WIN <span className={styles.secondTitle}>1,000 USDT</span></h2>
+              <p className={styles.description}>
+                Score the highest cash-out on <span className={styles.highlight}>March 15th between 7PM and 8:30PM GMT</span> and win <span className={styles.highlight}>1,000 USDT</span><br />
+                Required buy-in to participate: <span className={styles.highlight}>10 USD</span>
+              </p>
+              <div className={styles.buttonWrapper}>
+                <Button className={styles.button} onClick={onClickItemFirstBanner}>Play now!</Button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.secondContainer}>
+          </div>
+          <div className={styles.bottomBannerContainner}>
+            {notifications && notifications.slice(0, 5).map(activity => {
               return (
                 <BottomBanner
                   title={`${activity.data?.username}`}
@@ -110,8 +144,6 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
           </div>
         </div>
       </div>
-      
-
 
       <div className={styles.container}>
         <div className={styles.topContainer}>
@@ -135,7 +167,6 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
           </div>
           <div className={styles.bottomBannerContainner}>
             {notifications && notifications.slice(0, 5).map(activity => {
-              console.log(activity.data);
               return (
                 <BottomBanner
                   title={`${activity.data?.username}`}
