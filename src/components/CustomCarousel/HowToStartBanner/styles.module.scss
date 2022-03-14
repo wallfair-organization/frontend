@@ -1,0 +1,183 @@
+@import '../../../styles/all';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .topContainer {
+    position: relative;
+    height: 552px;
+    display: flex;
+    justify-content: space-evenly;
+
+    @media (max-width: $screen-lg) {
+      flex-direction: column;
+      height: 760px;
+      padding: 60px 0px;
+    }
+
+    .backgroundImg {
+      position: absolute;
+      height: 552px;
+      top: 0;
+      bottom: 0;
+      object-fit: cover !important;
+      z-index: -1;
+
+      @media (max-width: $screen-lg) {
+        height: 100%;
+      }
+    }
+    .firstContainer {
+      display: flex;
+      align-items: center;
+      height: calc(100% - 73px);
+
+      @media (max-width: $screen-lg) {
+        justify-content: center;
+        padding: 0 20px;
+      }
+      .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 600px;
+
+        @media (max-width: $screen-lg) {
+          align-items: center;
+          max-width: 500px;
+        }
+        .title {
+          font-size: 12px;
+          color: white;
+          opacity: 0.54;
+          margin-bottom: 16px;
+        }
+      }
+      h2 {
+        color: white;
+        font-family: $fontDMSans;
+        font-style: italic;
+        font-size: 50px;
+        text-align: left;
+        .secondTitle {
+          color: #efff54;
+        }
+        .thirdTitle {
+          color: #3aff1d;
+        }
+        .highlightWinner {
+          color: $colorGreenWinner;
+        }
+        @media (max-width: $screen-lg) {
+          width: 100%;
+          font-size: 40px;
+          text-align: center;
+        }
+        @media (max-width: $screen-sm) {
+          width: 100%;
+          font-size: 30px;
+          text-align: center;
+        }
+      }
+      .description {
+        margin-top: 33px;
+        color: white;
+        font-size: 16px;
+        text-align: left;
+        @media (max-width: $screen-lg) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+    .secondContainer {
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: calc(100% - 73px);
+      text-align: left;
+
+      @media (max-width: $screen-lg) {
+        padding: 30px 0;
+        justify-content: center;
+      }
+      .coins {
+        position: absolute;
+        top: 25%;
+        left: -15%;
+        width: 402px;
+        height: 234px;
+        animation: floating 10s ease-in-out infinite;
+
+        @media (max-width: $screen-sm) {
+          top: 15%;
+          left: 0;
+        }
+      }
+
+      @keyframes floating {
+        0% {
+          transform: rotateZ(0);
+        }
+
+        50% {
+          transform: rotateZ(-6deg);
+        }
+      }
+      .title {
+        font-size: 12px;
+        color: white;
+        opacity: 0.54;
+        margin-bottom: 12px;
+      }
+
+      .cardContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(0, 0, 0, 0.31922);
+        backdrop-filter: blur(27.1828px);
+        border-radius: 8px;
+        padding: 30px 30px;
+        overflow: auto;
+
+        .cardsWrapper {
+          display: flex;
+          gap: 10px;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .buttonWrapper {
+      margin-top: 33px;
+      display: flex;
+      @media (max-width: $screen-lg) {
+        justify-content: center;
+      }
+      .button {
+        width: 100%;
+        max-width: 320px;
+        font-size: 20px;
+
+        & > svg {
+          height: 60px;
+        }
+      }
+      &.desktop {
+        display: flex;
+        @media (max-width: $screen-lg) {
+          display: none;
+        }
+      }
+      &.mobile {
+        display: none;
+        @media (max-width: $screen-lg) {
+          display: block;
+        }
+      }
+    }
+  }
+}
