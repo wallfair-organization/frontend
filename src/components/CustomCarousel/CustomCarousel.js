@@ -362,6 +362,8 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
         
       >
 
+      <HowToStartBanner />
+
       <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
@@ -392,10 +394,6 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
           </div>
         </div>
       </div>
-
-
-      <HowToStartBanner />
-
 
       <div className={styles.container}>
         <div className={styles.topContainer}>
