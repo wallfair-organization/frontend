@@ -77,12 +77,8 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) =
         translatedCat = 'Casino Games';
       }
     }
-    let imageName;
-    if(gameInfo.provider==='evolution'){
-      imageName= gameInfo.identifier.split(':')[1] + '.png';
-    }else{
-      imageName = gameInfo.identifier2+".png"
-    }
+    const imageName = gameInfo.identifier.split(':')[1] + '.png';
+
     const gameEntry = {
       GameProvider: 'softswiss',
       TechnicalName: gameInfo.title,
