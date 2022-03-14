@@ -10,6 +10,7 @@ import { PopupActions } from 'store/actions/popup';
 import * as crashGameApi from '../../api/crash-game';
 import * as Api from '../../api';
 import { useLocation } from 'react-router-dom';
+import { trackSignup } from 'config/gtm';
 
 const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
   const { active, library, account, deactivate } = useWeb3React();
@@ -55,6 +56,7 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
       localStorage.removeItem('urlParam_sid');
       localStorage.removeItem('urlParam_cid');
       loginSuccessful(res);
+      trackSignup('web3');
     }).catch(e => {
       console.error(e);
       deactivate();
