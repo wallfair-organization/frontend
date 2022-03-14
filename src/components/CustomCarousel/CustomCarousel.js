@@ -27,6 +27,7 @@ import { useCallback } from 'react';
 import { useNotificationFilter } from 'components/Events/hooks/useNotificationFilter';
 import { TOKEN_NAME } from 'constants/Token';
 import { currencyDisplay } from 'helper/Currency';
+import HowToStartBanner from './HowToStartBanner';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
@@ -392,6 +393,10 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
         </div>
       </div>
 
+
+      <HowToStartBanner />
+
+
       <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
@@ -427,7 +432,6 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
           </div>
         </div>
       </div>
-      
 
 
       <div className={styles.container}>
@@ -462,9 +466,9 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
               )
             })}
           </div>
-        </div>
-        
+        </div>        
       </div>
+
     </Carousel>
     )
   }

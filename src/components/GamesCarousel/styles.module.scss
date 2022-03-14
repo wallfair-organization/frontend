@@ -90,8 +90,12 @@
           color: white;
           font-size: 16px;
           text-align: left;
-          max-width: 80%;
+          max-width: 70%;
+          .highlight {
+            color: #efff54;
+          }
           @media (max-width: $screen-lg) {
+            max-width: 100%;
             width: 100%;
             text-align: center;
           }
