@@ -50,7 +50,7 @@ const Games = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedProvider, setSelectedProvider] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-  
+
 
   const onConfirmSearch = (value) => {
       if (value === null) {
@@ -83,7 +83,7 @@ const Games = () => {
       if(!value) {
         setGames('external', 'All');
       }
-    
+
   }
 
   const renderActivities = () => {
@@ -161,7 +161,7 @@ const Games = () => {
       let externalGamesDisplayEvoplay =
         ['all', 'evoplay'].includes(provider) ? prepareEvoplayGames(EVOPLAY_GAMES, gameCategory) : [];
       let externalGamesDisplaySoftswiss =
-        ['all', 'bgaming', 'evolution'].includes(provider) ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory, provider) : [];
+        ['all', 'bgaming', 'evolution','yggdrasil', 'wazdan','1spin4win'].includes(provider) ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory, provider) : [];
       // let ret = [];
 
         if(gameCategory) {
@@ -264,7 +264,7 @@ const Games = () => {
           setExternalGames={setExternalGames}
         /> */}
 
-        
+
 
         <DisplaySection smartsoftGames={externalGames} evoplayGames={externalGamesEvoplay} softswissGames={externalGamesSoftswiss} />
         {renderActivities()}
