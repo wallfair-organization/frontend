@@ -30,6 +30,9 @@ import ProviderBgaming from '../data/icons/games/gameproviders/bgaming.svg';
 import ProviderEvolution from '../data/icons/games/gameproviders/evolution.svg';
 import ProviderEvoplay from '../data/icons/games/gameproviders/evoplay.svg';
 import ProviderSmartsoft from '../data/icons/footer/smartsoft.png';
+import ProviderYggdrasil from '../data/icons/games/gameproviders/yggdrasil.svg';
+import Provider1spin4win from '../data/icons/games/gameproviders/1spin4win.png';
+import ProviderWazdan from '../data/icons/games/gameproviders/wazdan.png';
 
 
 
@@ -48130,5 +48133,20 @@ export const GAME_PROVIDERS = [
         value: 'smartsoft',
         label: 'SMARTSOFT',
         image: ProviderSmartsoft,
+    },
+    {
+      value: '1spin4win',
+      label: '1Spin4Win',
+      image: Provider1spin4win,
+    },
+    {
+      value: 'wazdan',
+      label: 'Wazdan',
+      image: ProviderWazdan,
+    },
+    {
+      value: 'yggdrasil',
+      label: 'Yggdrasil',
+      image: ProviderYggdrasil,
     },
 ]
