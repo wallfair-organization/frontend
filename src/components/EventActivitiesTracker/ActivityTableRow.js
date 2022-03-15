@@ -7,8 +7,11 @@ import { toNumericString } from 'helper/FormatNumbers';
 import classNames from 'classnames';
 import { GAMES } from 'constants/Games';
 import { roundToTwo } from '../../helper/FormatNumbers';
-import { currencyDisplay } from 'helper/Currency';
+import { convertAmount, currencyDisplay } from 'helper/Currency';
 import DateText from 'helper/DateText';
+import { useSelector } from 'react-redux';
+import { selectPrices } from 'store/selectors/info-channel';
+import { selectUser } from 'store/selectors/authentication';
 
 const UserLink = props => {
   const { userId, username } = props;
@@ -44,13 +47,29 @@ const ActivityTableRow = ({ data, type, gameLabel, hideSecondaryColumns = false,
     date,
     createdAt,
   } = data;
-  const stakedAmountNum = Math.round(extractNumber(stakedAmount));
-  const rewardAmountNum = Math.round(extractNumber(rewardAmount));
+
+  const prices = useSelector(selectPrices);
+  const { gamesCurrency : currency } = useSelector(selectUser);
+  const userPreferredCurrency = currency === TOKEN_NAME ? 'USD' : currency;
+  const gamesCurrency = currencyDisplay(data?.gamesCurrency);
+
+  const stakedAmountNum = extractNumber(stakedAmount);
+  const rewardAmountNum = extractNumber(rewardAmount);
   const crashFactorStr = roundToTwo(extractNumber(crashFactor));
-  const stakedAmountStr = toNumericString(stakedAmountNum);
-  const rewardAmountStr = toNumericString(rewardAmountNum);
-  const lostAmountStr = toNumericString(stakedAmountNum - rewardAmountNum);
-  const currency = currencyDisplay(data?.gamesCurrency);
+
+  let convertedStakedAmount = stakedAmountNum
+  let convertedRewardAmount = rewardAmountNum;
+
+  if (gamesCurrency === TOKEN_NAME) {
+    convertedStakedAmount = convertAmount(stakedAmountNum, prices[userPreferredCurrency]);
+    convertedRewardAmount = convertAmount(rewardAmountNum, prices[userPreferredCurrency]);
+  }
+
+  const stakedAmountStr = toNumericString(convertedStakedAmount);
+  const rewardAmountStr = toNumericString(convertedRewardAmount);
+  const lostAmountStr = toNumericString(convertedStakedAmount - convertedRewardAmount);
+  
+  const convertedCurrency = gamesCurrency === TOKEN_NAME ? userPreferredCurrency : gamesCurrency;
 
   if(rewardAmountNum<stakedAmountNum) type = 'lost'
   else type = 'win';
@@ -88,7 +107,7 @@ const ActivityTableRow = ({ data, type, gameLabel, hideSecondaryColumns = false,
           }
           <Grid item xs className={hideSecondaryColumns ? styles.hideSecondaryColumns : null}>
             <div className={styles.messageRight}>
-              <p>{stakedAmountStr} {currency}</p>
+              <p>{stakedAmountStr} {convertedCurrency}</p>
               <img src={medalCoin} alt="medal" />
             </div>
           </Grid>
@@ -100,9 +119,9 @@ const ActivityTableRow = ({ data, type, gameLabel, hideSecondaryColumns = false,
           <Grid item xs>
             <div className={classNames(styles.messageLast, styles.messageRight)} data-wg-notranslate>
               {type==='lost' ? (
-                  <p className={styles.loss}>{`-${lostAmountStr} ${currency}`}</p>
+                  <p className={styles.loss}>{`-${lostAmountStr} ${convertedCurrency}`}</p>
                 ):(
-                  <p className={styles.reward}>{`${rewardAmountStr} ${currency}`}</p>
+                  <p className={styles.reward}>{`${rewardAmountStr} ${convertedCurrency}`}</p>
                 )}
               <img src={medalCoin} alt="medal" />
             </div>

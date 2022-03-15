@@ -38,6 +38,7 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
     loginSuccess({
       session: res.session,
       userId: res.userId,
+      admin: res.admin,
       shouldAcceptToS: res.shouldAcceptToS,
     });
   }
