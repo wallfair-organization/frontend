@@ -95,7 +95,10 @@ const BetView = ({
       valid = false;
     }
 
-    if (userLoggedIn && _.toNumber(commitment) > _.toNumber(balance)) {
+    if (userLoggedIn && _.toNumber(commitment) > 10000) {
+      valid = false;
+    
+    } else if (userLoggedIn && _.toNumber(commitment) > _.toNumber(balance)) {
       valid = false;
 
       // setCommitmentErrorText('');
@@ -370,18 +373,32 @@ const BetView = ({
         }
       };
 
+      const errorMsg = () => {
+        if (userLoggedIn && isCreator) {
+          return `Event creator can't bet on their own events`;
+        }
+
+        if (userLoggedIn && _.toNumber(commitment) > _.toNumber(balance)) {
+          return `Not enough funds to place a bet. Add more funds.}`
+        }
+
+        if (userLoggedIn && _.toNumber(commitment) > 10000) {
+          return `Maximum bet amount is 10,000 WFAIR`;
+        }
+        
+        if (userLoggedIn && !isCreator) {
+          return 'You need to select an option first';
+        }
+
+        return null;
+      }
+
       return (
         <>
           {/* {renderTradeDesc()} */}
           <span
             data-for="tool-tip"
-            data-tip={
-              userLoggedIn && !isCreator
-                ? 'You need to select an option first'
-                : userLoggedIn && isCreator
-                ? `Event creator can't bet on their own events`
-                : null
-            }
+            data-tip={errorMsg()}
           >
             <Button
               theme={ButtonTheme.primaryButtonXL}
