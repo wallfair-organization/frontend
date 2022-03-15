@@ -53007,11 +53007,11 @@ export const GAME_PROVIDERS = [
       label: 'Yggdrasil',
       image: ProviderYggdrasil,
     },
-    {
-      value: 'merkur',
-      label: 'Merkur',
-      image: ProviderMerkur,
-    },
+    // {
+    //   value: 'merkur',
+    //   label: 'Merkur',
+    //   image: ProviderMerkur,
+    // },
     {
       value: 'thunderkick',
       label: 'ThunderKick',
@@ -53022,9 +53022,9 @@ export const GAME_PROVIDERS = [
       label: 'Slotmill',
       image: ProviderSlotmill,
     },
-    {
-      value: 'playngo',
-      label: 'Playngo',
-      image: ProviderPlayngo,
-    },
+    // {
+    //   value: 'playngo',
+    //   label: 'Playngo',
+    //   image: ProviderPlayngo,
+    // },
 ]

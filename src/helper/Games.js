@@ -23,7 +23,7 @@ export const ObjectId = (gamename) => {
 export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) => {
   const output = [];
   const thumbUrl = "https://cdn.softswiss.net/i/s3/";
-  const blockedProducers = ['redtiger','netent'];
+  const blockedProducers = ['redtiger','netent','playngo','merkur'];
 
   for (let key in softswissGames) {
     const gameInfo = softswissGames[key];
