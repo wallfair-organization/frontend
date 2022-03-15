@@ -265,9 +265,13 @@ const downgradeAuthState = (action, state) => {
 };
 
 const loginSuccess = (action, state) => {
+  console.log(action);
   return update(state, {
     loading: {
       $set: false,
+    },
+    admin: {
+      $set: action.admin,
     },
     userId: {
       $set: action.userId,
