@@ -161,7 +161,8 @@ const Games = () => {
       let externalGamesDisplayEvoplay =
         ['all', 'evoplay'].includes(provider) ? prepareEvoplayGames(EVOPLAY_GAMES, gameCategory) : [];
       let externalGamesDisplaySoftswiss =
-        ['all', 'bgaming', 'evolution','yggdrasil', 'wazdan','1spin4win','thunderkick','playngo','slotmill','merkur'].includes(provider) ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory, provider) : [];
+        ['all', 'bgaming', 'evolution','yggdrasil', 'wazdan','1spin4win','thunderkick','slotmill'].includes(provider) ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory, provider) : [];
+        // ['all', 'bgaming', 'evolution','yggdrasil', 'wazdan','1spin4win','thunderkick','playngo','slotmill','merkur'].includes(provider) ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory, provider) : [];
       // let ret = [];
 
         if(gameCategory) {
