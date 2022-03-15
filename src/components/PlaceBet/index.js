@@ -46,15 +46,21 @@ import { GAMES_CURRENCY_DEFAULT_BET } from '../../constants/Currency';
 import Button from 'components/Button';
 import ButtonTheme from 'components/Button/ButtonTheme';
 import Routes from 'constants/Routes';
-import { currencyDisplay } from 'helper/Currency';
+import { convertAmount, currencyDisplay } from 'helper/Currency';
+import { selectPrices } from 'store/selectors/info-channel';
+import { TOKEN_NAME } from 'constants/Token';
 
 const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const user = useSelector(selectUser);
+  const prices = useSelector(selectPrices);
   const userBalance = parseInt(user?.balance || 0, 10);
   const gamesCurrency = user.gamesCurrency;
+
+  const userBalanceConverted = gamesCurrency !== TOKEN_NAME ? convertAmount(userBalance, prices[gamesCurrency]) : userBalance;
+
   const sliderMinAmount = GAMES_CURRENCY_DEFAULT_BET;
   // const sliderMaxAmount = Math.min(500, userBalance);
   const isGameRunning = useSelector(selectHasStarted);
@@ -466,7 +472,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
       <div className={styles.buyTokenInfo}>
         <p
           className={classNames([
-            user.isLoggedIn && amount > userBalance ? styles.visible : null,
+            user.isLoggedIn && amount > userBalanceConverted ? styles.visible : null,
           ])}
         >
           Insufficient balance to place this bet.{' '}

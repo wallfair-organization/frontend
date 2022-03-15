@@ -8,7 +8,7 @@ import { roundToTwo } from '../../helper/FormatNumbers';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { formatToFixed } from 'helper/FormatNumbers';
-import { TOKEN_DISPLAY_NAME } from '../../constants/Token';
+import { TOKEN_DISPLAY_NAME, TOKEN_NAME } from '../../constants/Token';
 import { calculateGain } from '../../helper/Calculation';
 import { getGameById } from '../../helper/Games';
 import { currencyDisplay } from 'helper/Currency';
@@ -167,7 +167,7 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
             on <b>{outcomesName}</b>.
           </div>
         );
-      case 'Notification/EVENT_BET_CASHED_OUT':
+      case 'Notification/EVENT_BET_CASHED_OUT': {
         const gainValueEvent = _.get(data, 'gain.value');
         const gainNegativeEvent = _.get(data, 'gain.negative');
         return (
@@ -202,6 +202,7 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
             )}
           </div>
         );
+      }
       case 'Notification/EVENT_BET_RESOLVED':
       case 'Notification/EVENT_BET_CLOSED': {
         const event = _.get(data, 'event');
@@ -282,12 +283,13 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
       case 'Casino/CASINO_PLACE_BET': {
         const stakedAmount = data?.amount || data?.stakedAmount;
         const gamesCurrency = currencyDisplay(data?.gamesCurrency);
+        const numDecimals = gamesCurrency === TOKEN_NAME ? 0 : 2;
 
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has placed{' '}
               <b>
-                {formatToFixed(stakedAmount, 0, true)} {gamesCurrency}
+                {formatToFixed(stakedAmount, numDecimals, true)} {gamesCurrency}
               </b>
             {' '}
             bet on {gameLabel}.{' '}
@@ -302,12 +304,13 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
         const gain = calculateGain(stakedAmount, reward);
         const gainValueCasino = _.get(gain, 'value');
         const gainNegativeCasino = _.get(gain, 'negative');
+        const numDecimals = gamesCurrency === TOKEN_NAME ? 0 : 2;
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has cashed out{' '}
             
               <b>
-                {formatToFixed(_.get(data, 'reward'), 0, true)} {gamesCurrency}
+                {formatToFixed(_.get(data, 'reward'), numDecimals, true)} {gamesCurrency}
               </b>
             {' '}
             {gainValueCasino && (
@@ -368,12 +371,14 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
         const stakedAmount = isPlayMoney
           ? _.get(data, 'stakedAmountWfair')
           : _.get(data, 'stakedAmount');
+        const numDecimals = gamesCurrency === TOKEN_NAME ? 0 : 2;
+        
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has lost{' '}
             
               <b>
-                {formatToFixed(stakedAmount, 0, true)} {gamesCurrency}
+                {formatToFixed(stakedAmount, numDecimals, true)} {gamesCurrency}
               </b>
             {' '}
             at{' '}
