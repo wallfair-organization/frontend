@@ -1,0 +1,1000 @@
+﻿[
+  {
+    "title": "9 Lions",
+    "identifier": "wazdan:9Lions",
+    "identifier2": "65888",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 8,
+    "payout": 96.59,
+    "description": "Sitting at the top of a mystic mountain is the temple devoted to 9 Lions – ancient gods that bring luck to their true followers. Together with other deities of fortune and their special bonuses, these beasts create an extraordinary experience that has garnered exceptional popularity amongst the crowds!",
+    "volatility_rating": "medium",
+    "hd": true,
+    "accumulating": true,
+    "multiplier": 1000,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Burning Stars",
+    "identifier": "wazdan:BurningStars",
+    "identifier2": "300",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 20,
+    "payout": 96.5,
+    "description": "Grab a telescope and look up to the stars to see mesmerizing wins unfold before your eyes! Spin the reels and let Burning Stars shower you with great prizes!\r\n\r\nIf you enjoy stargazing, you will definitely find our online slot Burning Stars to your liking. The game is equipped with 5 reels and as much as 20 paylines to give you more chances to win. The slot features some classic card symbols – 9s, 10s, Jacks, Queens, Kings and Aces – as well as burning sevens that fans of traditional old-school slots will surely appreciate. ",
+    "hit_rate": 29.56,
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 305,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Burning Stars 3",
+    "identifier": "wazdan:BurningStars3",
+    "identifier2": "394",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 20,
+    "payout": 96.15,
+    "description": "This scorching hot slot successfully ignites players’ imagination with a unique blend of classic and pleasantly familiar fruity symbols, explosive theme, and innovative mechanics. With 9 reels on a 3 x 3 grid, a Wild symbol that substitutes other symbols (apart from the Bonus symbol), and a chance to Hold the Jackpot – the temperature in Burning Stars 3™ never drops!",
+    "volatility_rating": "low-medium",
+    "has_jackpot": true,
+    "hd": true,
+    "released_at": "2021-03-23T00:00:00.000Z",
+    "multiplier": 2187,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Sizzling 777",
+    "identifier": "wazdan:Sizzling777",
+    "identifier2": "131432",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 20,
+    "payout": 96.42,
+    "description": "Classic looks, juicy fruits, stars and sevens along with retro atmosphere – fans of traditional slots will love Sizzling 777!",
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 305,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Sizzling 777 Deluxe",
+    "identifier": "wazdan:Sizzling777Deluxe",
+    "identifier2": "65896",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 20,
+    "payout": 96.42,
+    "description": "Sizzling 777 Deluxe – give it a spin and discover the excellent combination of an old-school video slot and state-of-the-art technology. Ouch! Be careful not to burn yourself!",
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 305,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Sun of Fortune",
+    "identifier": "wazdan:SunofFortune",
+    "identifier2": "395",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": false,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "payout": 96.15,
+    "description": "Feel the heat of the Sun of Fortune and warm up to the popular Hold the Jackpot bonus!\r\n\r\nThis innovative slot, featuring 16 independent reels on a 4x4 matrix grid offers a dynamic experience spiced with oriental themed symbols of majestic dragons, remarkable dragon turtles, colorful koi fish, one-of-a-kind Chinese phoenixes, useful Wilds, and a true shining star of the game – the golden sun Bonus symbol itself.\r\n\r\nSo, would you like to know, how to activate the Hold the Jackpot bonus that makes waves among our fans across the globe?",
+    "volatility_rating": "high",
+    "has_jackpot": true,
+    "hd": true,
+    "released_at": "2021-04-27T00:00:00.000Z",
+    "multiplier": 1450,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Larry the Leprechaun",
+    "identifier": "wazdan:LarrytheLeprechaun",
+    "identifier2": "367",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "payout": 96.47,
+    "description": "Leprechauns can be real pranksters, but what they’re known for even more are their hidden pots of gold! Larry the Leprechaun is one such creature, whose antics will definitely keep players occupied while spinning the reels of this game.",
+    "volatility_rating": "medium",
+    "hd": true,
+    "accumulating": true,
+    "multiplier": 350,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Los Muertos",
+    "identifier": "wazdan:LosMuertos",
+    "identifier2": "65869",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 40,
+    "payout": 96.29,
+    "description": "With Los Muertos™ you can celebrate the Day of the Dead any time you want! Paint your face, join the joyful mariachi band and discover an online slot full of surprises!\r\n\r\nLos Muertos™ features 5 reels equipped with 4 rows and 40 paylines. The online slot takes you to a gloomy cemetery where everything can happen! ",
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 850,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Lost Treasure",
+    "identifier": "wazdan:LostTreasure",
+    "identifier2": "305",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 20,
+    "payout": 96.13,
+    "description": "There’s an ancient pyramid hidden in the deepest part of a dense jungle and rumours say that there’s a secret room with a chest full of gold inside. We’re launching an expedition to claim those riches and we’re inviting you to join us by playing Lost Treasure!",
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 3500,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Unicorn Reels",
+    "identifier": "wazdan:UnicornReels",
+    "identifier2": "392",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 10,
+    "payout": 96.14,
+    "description": "Discover treasures hidden deep inside the enchanted forest, collect magical unicorns and Hold the Jackpot with Unicorn Reels, a 5-reel, 10-payline slot that’s as unique as a unicorn itself!\r\n\r\nLet the search for Jackpots begin! Catch at least 5 Unicorn symbols to trigger the Unicorn Jackpot Game and find as many Unicorns as possible for the biggest wins. Played on a 5x5 grid featuring 25 separate fields, the bonus round starts with 3 re-spins, and with each new Unicorn that lands on the reels their number resets to 3. Also, each collected Unicorn takes you to a higher reward, with Minor and Major Jackpots available along the way. The magnificent Grand Jackpot of 1000x your stake is also up for grabs for those who collect all 25 Unicorns!",
+    "volatility_rating": "high",
+    "has_jackpot": true,
+    "hd": true,
+    "released_at": "2021-01-27T00:00:00.000Z",
+    "multiplier": 1000,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Valhalla",
+    "identifier": "wazdan:Valhalla",
+    "identifier2": "65895",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 54,
+    "payout": 96.47,
+    "description": "Find yourself at the gates of the mythical Vikings’ heaven and gain the favour of the Norse gods to feast with the bravest warriors!\r\n\r\nLet the valkyries guide you to unimaginable treasures hidden in the corridors of Valhalla! This exceptional online slot features 4 reels equipped with 54 fixed bet lines. ",
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 600,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Magic Poker",
+    "identifier": "wazdan:MagicPoker",
+    "identifier2": "519",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "poker",
+    "has_freespins": false,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "payout": 96.61,
+    "description": "Magic Poker can do real wonders with its marvellous special features – play the game and see how the magic works when your wins increase!\r\n\r\nFans of poker – and surely there are many of them – will certainly enjoy playing Magic Poker as well. It’s a variation of an all-time favourite card game that follows traditional rules but is additionally equipped with a marvellous twist to make the gameplay more exciting and increase your wins. Attractive animation with its vivid colours adds to the enjoyment and render this game eye-catching and enchanting. What’s more, graphics create unique magical atmosphere that differentiates Magic Poker from other video poker games. Waste no more time and place your bets!",
+    "hit_rate": 14.46,
+    "volatility_rating": "medium-high",
+    "hd": true,
+    "multiplier": 800,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Clover Lady",
+    "identifier": "wazdan:CloverLady",
+    "identifier2": "391",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 10,
+    "payout": 96.21,
+    "description": "Deep in the forest, a mysterious woodswoman and her loyal Direwolf await in the 6-reel, 10-payline hit Clover Lady™.\r\n\r\nThe Clover Lady™ herself appears on the Bonus symbol, with 3 or more of them triggering the magical Clover Jackpot Bonus, during which you collect Bonus symbols to Hold the Jackpot and Direwolf symbols to multiply it! The bonus round starts with 3 re-spins, their number resetting with every special symbol that lands on the reels.",
+    "volatility_rating": "high",
+    "has_jackpot": true,
+    "hd": true,
+    "released_at": "2021-02-10T00:00:00.000Z",
+    "multiplier": 3500,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Magic Stars",
+    "identifier": "wazdan:MagicStars",
+    "identifier2": "303",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 5,
+    "payout": 96.25,
+    "description": "Spin the reels of this colourful retro slot and find the star symbol and experience the magic – great fun and big win guaranteed!\r\n\r\nA beginning of a highly successful series, Magic Stars is a retro 3-reel online slot with 5 paylines that proves just how well-liked classic slots are",
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 40,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Magic Stars 3",
+    "identifier": "wazdan:MagicStars3",
+    "identifier2": "353",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 5,
+    "payout": 96.5,
+    "description": "Do you enjoy playing any of your online slots featured in the Magic Stars series? If so, Magic Stars 3 is a perfect choice!\r\n\r\nMagic Stars 3 is equipped with 3 reels and 5 fixed paylines. This online slot takes you on a beautiful journey far into outer space. The balanced colours of the game, smooth animations and a catchy tune playing in the background make your time with Magic Stars 3 a wonderful experience.",
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 200,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Magic Stars 5",
+    "identifier": "wazdan:MagicStars5",
+    "identifier2": "262504",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 20,
+    "payout": 96.42,
+    "description": "Sit back and enjoy the spectacular view as Magic Stars 5 takes you on an unparalleled trip to a distant universe filled to the brim with valuable crystals.\r\n\r\nMagic Stars 5 will keep you on the edge of your seat as you spin its 5 reels equipped with 20 paylines. ",
+    "hit_rate": 26,
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 305,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Magic Stars 6",
+    "identifier": "wazdan:MagicStars6",
+    "identifier2": "368",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 20,
+    "payout": 96.49,
+    "description": "Have you ever dreamt of going way beyond the sky and observing the magnificent universe? With Magic Stars 6, you can do it from the comfort of your home!\r\n\r\nMagic Stars 6 will take you on a trip of your life with its 6 reels and 20 action-packed paylines and colourful symbols.",
+    "hit_rate": 25.13,
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 750,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Magic Stars 9",
+    "identifier": "wazdan:MagicStars9",
+    "identifier2": "378",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "payout": 96.21,
+    "description": "You simply cannot resist our Magic Stars series so Magic Stars 9 has quickly gained popularity among both casino operators and devoted players. Discover what it has to offer and join the fanbase – an endless adventure awaits!",
+    "volatility_rating": "high",
+    "hd": true,
+    "multiplier": 10500,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Magic Fruits Deluxe",
+    "identifier": "wazdan:MagicFruitsDeluxe",
+    "identifier2": "341",
+    "provider": "wazdan",
+    "producer": "wazdan",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 5,
+    "payout": 96.41,
+    "description": "Magic Fruits Deluxe – an updated version of a classic slot overflowing with juicy fruits brings more chances to win!\r\n\r\nAnother take on a successful series Magic Fruits Deluxe is a perfect choice for the fans of classic, old-school slots. Vibrant colours and a retro vibe of this 3-reel online slot equipped with 5 paylines ensure a fantastic gaming experience.",
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 40,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      },
+      "MT": {
+        "blacklist": [
+          "BE",
+          "BG",
+          "CH",
+          "ES",
+          "FR",
+          "PL",
+          "RO",
+          "RS",
+          "UK",
+          "UM",
+          "US"
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,861 @@
+[
+{
+        "title": "Hot Hot Fruit",
+        "identifier": "habanero:SGHotHotFruit",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 98.05,
+        "description": "Hot Hot Fruit is a vibrant classic fruit inspired slot with 15 lines to play and a chance to win up to 25,000 coins on a single line!Played at a frenzied pace, the heat is on to see the reels light up a flurry of big wins when the Hot Hot feature strikes!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 25000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Wealth Inn",
+        "identifier": "habanero:SGWealthInn",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 8,
+        "payout": 97.97,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 188,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Wild Trucks",
+        "identifier": "habanero:SGWildTrucks",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 98.01,
+        "description": "Feel the power of the Wild Trucks barreling down the reels! Each reel collects a specific truck which turns the reel wild once 4 have been collected. Win up to 75 Free games for a truck sized fortune!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 75000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Lucky Lucky",
+        "identifier": "habanero:SGLuckyLucky",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 98.02,
+        "description": "Enter the Lucky Lucky portal where Asia's treasures await! Money trees, golden trinkets and more reward on a 1 line tumbler!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 50,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Return to the Feature",
+        "identifier": "habanero:SGReturnToTheFeature",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 97.95,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-04-27T00:00:00.000Z",
+        "multiplier": 2888,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "5 Lucky Lions",
+        "identifier": "habanero:SG5LuckyLions",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 88,
+        "payout": 97.93,
+        "description": "In 5 Lucky Lions, good fortune awaits only the bravest players. Pick the right lucky lion and discover a wealth of riches and rewards. Choose well, your destiny is in your own hands.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 8800,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Santa's Village",
+        "identifier": "habanero:SGSantasVillage",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.08,
+        "volatility_rating": "medium",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 7500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Before Time Runs Out",
+        "identifier": "habanero:SGBeforeTimeRunsOut",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.61,
+        "volatility_rating": "very-high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-03-30T00:00:00.000Z",
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bikini Island",
+        "identifier": "habanero:SGBikiniIsland",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.15,
+        "description": "Bikini Island is a place where you will find sun, sea, sand, and sensational prizes. So slap on the sun cream and spin those reels.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 12500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Knockout Football Rush",
+        "identifier": "habanero:SGKnockoutFootballRush",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96.8,
+        "description": "The Beautiful Game is back in Knockout Football Rush - featuring a simple and fun 3x3 reel config with the chance to win random penalty kicks that pay up to 60x!Habanero is ready to entertain your players this football season.",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 800,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Orbs Of Atlantis",
+        "identifier": "habanero:SGOrbsOfAtlantis",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96.6,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 35000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Totem Towers",
+        "identifier": "habanero:SGTotemTowers",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.58,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Scopa",
+        "identifier": "habanero:SGScopa",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 27,
+        "payout": 96.67,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Christmas Gift Rush",
+        "identifier": "habanero:SGChristmasGiftRush",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 3,
+        "payout": 96.66,
+        "description": "Win on the center line to trigger the Nudge Feature.Reels continue to Nudge until no winning combinationson screen.Unlock 3 lines, thereafter the multiplier increases witheach Nudge.Enable Buy Feature to purchase a feature with everyspin!",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 20,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Happiest Christmas Tree",
+        "identifier": "habanero:SGHappiestChristmasTree",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.88,
+        "description": "Decorate the Happiest Christmas Tree with baubles, bells and all that jingles! Plenty of presents await all who take the spin this festive season!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	 {
+        "title": "Egyptian Dreams Deluxe",
+        "identifier": "habanero:SGEgyptianDreamsDeluxe",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 3125,
+        "payout": 98.04,
+        "description": "A classic rises again in Egyptian Dreams Deluxe! Summon the Pharaoh to smash the blocks and unlock more ways to win. Unearth riches withup to 60 Free Games when the Pyramids and the Pharaohs align.",
+        "volatility_rating": "high",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	 {
+        "title": "Taberna De Los Muertos",
+        "identifier": "habanero:SGTabernaDeLosMuertos",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 101,
+        "payout": 96.67,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Hot Hot Halloween",
+        "identifier": "habanero:SGHotHotHalloween",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.12,
+        "description": "Hot Hot Halloween delivers a spin-chilling experience guaranteed by the spooky atmosphere and the upbeat soundtrack.Win up to 12 Free games when you get Jack-o'-lanterns symbols and familiar Halloween spooks acts as high winning symbols.The Hot Hot feature celebrates this magical festival by randomly multiplying the winning symbols!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 25000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Hey Sushi",
+        "identifier": "habanero:SGHeySushi",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97.89,
+        "description": "The delicious \"Hey Sushi\" is a top choice for the summer season.The 5x3 reel with vibrant sushi symbols cascading down will keep all the foodies asking for more!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "The Koi Gate",
+        "identifier": "habanero:SGTheKoiGate",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 18,
+        "payout": 98,
+        "description": "In a time before recorded history, one determined Koi defied the odds. A heroic leap over a waterfall pleased the gods who transformed him into a powerful Dragon. Now good fortune awaits at Koi Gate!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 150,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Happy Ape",
+        "identifier": "habanero:SGHappyApe",
+        "identifier2": null,
+        "provider": "habanero",
+        "producer": "habanero",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.66,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AM",
+                    "AU",
+                    "BG",
+                    "CY",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IT",
+                    "NL",
+                    "PH",
+                    "PT",
+                    "SG",
+                    "TW",
+                    "US",
+                    "ZA"
+                ]
+            }
+        }
+    }
+
+]

@@ -1,0 +1,129 @@
+[
+{
+        "title": "Merry Scary Christmas!",
+        "identifier": "mascot:merry_scary_christmas",
+        "identifier2": "merry_scary_christmas",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.2,
+        "description": "Ho Ho Ho Christmas is coming! It's a most wonderful time of the year… but wait, who stole all the gifts? Bad Santa wants to ruin the celebration – don't let him take your winnings! It's gonna be Scary Merry Christmas!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1850,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	{
+        "title": "Queen of Spades",
+        "identifier": "mascot:queen_of_spades",
+        "identifier2": "queen_of_spades",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.2,
+        "description": "Cards never lie, are you ready to risk to know your fate? Queen of Spades is waiting for you in her castle!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	{
+        "title": "Three Corsairs",
+        "identifier": "mascot:3_corsairs",
+        "identifier2": "3_corsairs",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.5,
+        "description": "Fair winds and following seas! Find the treasure map together with courageous corsairs, ahoy!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 437,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	{
+        "title": "Riot",
+        "identifier": "mascot:riot",
+        "identifier2": "riot",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.7,
+        "description": "Dystopian end of the world theme and unique Risk and Buy feature deliver excitement, anticipation and trills. Are you ready for the Riot?",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	 {
+        "title": "Re Kill",
+        "identifier": "mascot:re_kill",
+        "identifier2": "re_kill",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.6,
+        "description": "Do you really think it's not possible? Look around, they are here! Zombie apocalypse has come and only the strongest will survive. If you brave enough try to stay alive...or say good bye to some of your body parts. Yummy!",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 200,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    }
+
+
+]

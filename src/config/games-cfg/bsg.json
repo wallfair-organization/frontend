@@ -1,0 +1,4531 @@
+[
+    {
+        "title": "Launcher",
+        "identifier": "bsg:1",
+        "identifier2": "1",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "maxquest",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "description": "Technical entity, not a real game",
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "21 Burn Blackjack",
+        "identifier": "bsg:21BurnBlackjack",
+        "identifier2": "64",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop"
+        ],
+        "payout": 99.5,
+        "description": "Multi Deck Blackjack game with \"Burn\" card functionality",
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "2 Million B.C.",
+        "identifier": "bsg:2MillionBC",
+        "identifier2": "224,616,617,618",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 91.94,
+        "description": "Caveman themed 30 Line 5 Reel Slots3 Game",
+        "volatility_rating": "low",
+        "multiplier": 4400,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "4 Seasons",
+        "identifier": "bsg:4Seasons",
+        "identifier2": "637,638,639,640",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.3,
+        "description": "As time moves on and the seasons change, so too do we change and grow. Enter the gorgeous world of 4 SEASONS, based upon the ancient Chinese zodiac that has guided the steps of billions for years untold. From Horse to Snake, all the way around the wheel, each sign is present and ready to capture your heart. This game will leave you asking your friends: what's your sign?",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "7 Fortune Frenzy",
+        "identifier": "bsg:7FortuneFrenzy",
+        "identifier2": "846",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 96,
+        "description": "Get ready for big and plentiful wins in 7 FORTUNE FRENZY! This three standard reel, single payline slot\nfeatures a bonus reel with the potential for game-changing effects, making sure that each spin will have\nyour players on the edge of their seats.\nWith the majesty of space in the background, your players will enjoy the cool retro electronica theme as\nthey rack up wins. The game boasts a broad bouquet of bonuses, and any bonus is possible with each\nwinning spin — a 2x, 5x, or 8x multiplier on wins, an 8x or 18x boost to the player’s wager, or a free respin\nthat features its own multiplier on wins!\n7 FORTUNE FRENZY is the fast-paced, beautifully rendered slot your players have been looking ",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-08-26T00:00:00.000Z",
+        "multiplier": 2368,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "7th Heaven",
+        "identifier": "bsg:7thHeaven",
+        "identifier2": "229,542,543,544",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.8,
+        "description": "Classic slot with great features! ",
+        "volatility_rating": "low",
+        "multiplier": 4338,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "88 Frenzy Fortune",
+        "identifier": "bsg:88FrenzyFortune",
+        "identifier2": "849",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 96,
+        "description": "Get ready for big and plentiful wins in 88 FRENZY FORTUNE! This three standard reel, single payline slotfeatures a bonus reel with the potential for game-changing effects, making sure that each spin will haveyour players on the edge of their seats.With the majesty of space in the background, your players will enjoy the cool retro electronica theme asthey rack up wins. The game boasts a broad bouquet of bonuses, and any bonus is possible with eachwinning spin a 2x, 5x, or 8x multiplier on wins, an 8x or 18x boost to the player's wager, or a free respinthat features its own multiplier on wins!88 FRENZY FORTUNE is the fast-paced, beautifully rendered slot your players have been looking for!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-08-12T00:00:00.000Z",
+        "multiplier": 2368,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "After Night Falls",
+        "identifier": "bsg:AfterNightFalls",
+        "identifier2": "295,306,307,364",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 97.27,
+        "description": "Cops and Robbers themed 30 Line 5 Reel Slots3 Game",
+        "volatility_rating": "low",
+        "multiplier": 505,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Alkemor's Tower",
+        "identifier": "bsg:AlkemorsTower",
+        "identifier2": "553,604,605,606",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 94.96,
+        "description": "Delve into the mysteries of the arcane with the wizard himself in Alkemor's Tower. Seek the Astrology and Nature rooms. Cast magical spells featuring the four classic elements of Earth, Wind, Fire and Water. This brilliant and artfully crafted slot machine is another crowning achievement in the ever-expanding Slots game lineup.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 664,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Max Quest: Amazon",
+        "identifier": "bsg:Amazon",
+        "identifier2": "821",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "maxquest",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "description": "Max Quest: Mission: Amazon is an innovative, expansive role play and actionadventure experience offering rich gameplay, capped with popular social elements\nto keep players engaged and excited. This next provocative chapter in the Max Quest\nlegend will provide a mesmerizing level of engagement, including exciting prizes,\npriceless collectable treasures for quests, and several detailed avatars from which\nyour players can choose. These features will enrich both the players’ connection\nwith the characters and the gameplay to an unprecedented leve",
+        "hd": true,
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "American Blackjack",
+        "identifier": "bsg:AmericanBlackjack",
+        "identifier2": "195,271,272,366",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.68,
+        "description": "Multideck Blackjack without sidebet",
+        "volatility_rating": "low",
+        "multiplier": 2328,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "American Roulette",
+        "identifier": "bsg:AmericanRoulette",
+        "identifier2": "5",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop"
+        ],
+        "payout": 94.74,
+        "description": "American (Double Zero) Style Roulette Game",
+        "volatility_rating": "high",
+        "multiplier": 25344,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Angler",
+        "identifier": "bsg:Angler",
+        "identifier2": "747, 748, 749, 750",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97.1,
+        "description": "Cast your rod and reel in the wins with THE ANGLER! This five reel, twenty payline video slot features burly fisherman Otis and his endless quest for the perfect catch!\n\nJoin Otis as he fishes the tranquil lake on a pleasant afternoon. With Oyster Free Spins and Clingy Wilds, a frequently occurring Wild symbol and an innovative “Time To Fish!” bonus game, this fishing trip will be no ordinary day at the l",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1300,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Arrival",
+        "identifier": "bsg:Arrival",
+        "identifier2": "226,658,659,660",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 92.26,
+        "description": "Alien Invader themed 30 Line 5 Reel Slots3 Game",
+        "volatility_rating": "medium",
+        "multiplier": 359,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "At The Copa",
+        "identifier": "bsg:AtTheCopa",
+        "identifier2": "300,312,315,361",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 97.42,
+        "description": "Salsa Dancing Themed 30 Line 5 Reel Slots3 Game with 3 Progressive Jackpots",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "multiplier": 1084,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "At The Movies",
+        "identifier": "bsg:AtTheMovies",
+        "identifier2": "266,607,608,609",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94.75,
+        "description": "Movie Theater themed 25 Line 5 Reel Slots3 GamePart of the informal \"Slots 2.5\" product line",
+        "volatility_rating": "medium",
+        "multiplier": 640,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Baccarat",
+        "identifier": "bsg:Baccarat",
+        "identifier2": "13",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.99,
+        "description": "Baccarat is a thrilling game played at major casinos all over the world. It’s up to you to wager that the player’s hand will win, the banker’s hand will win, or that the game will result in ",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 4420,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Back To Venus",
+        "identifier": "bsg:BackToVenus",
+        "identifier2": "817",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97.07,
+        "description": "The Plant has returned and is prepared to take you BACK TO VENUS in this charming 5 reel, 20 payline video slot!Presenting two revolutionary Second Chance features, this delightful sequel will reach out andgrasp your players with its appealing alien plant theme. The Prickly Sticky and Respin feature willchoose a symbol at random, and continue respinning until there is a win with that symbol!The Plant can also exercise its alien power in the Flowering Wild Burst feature, awarding a FreeRespin and an increased chance for Asteroid WILDS to hit the reels!Frequent storms of Sticky Asteroid WILDS are possible with the Plant's presence. A secondscreen Free Spins mode that takes you to Venus, with a chance for multiplier WILDS, awaits youin the Rocketship. Climb in and take off for flowering fun in space!",
+        "hit_rate": 45.28,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 377,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bamboo Rush",
+        "identifier": "bsg:BambooRush",
+        "identifier2": "806",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.9,
+        "description": "Brush aside the bamboo stems, take the mountain path, and discover a secret garden filled with endless opportunities in BAMBOO RUSH - the new 5X4 slot game from Betsoft Gaming.BAMBOO RUSH boasts 40 paylines that pay from left to right. As well as standing in forany other symbol in the base game, wilds also award multipliers of 2X or 3X during free spins,with a combined maximum of 27X the winning value per payline. Wilds can only appear in reels2 to 4.Seek out the treasured Golden Panda scatter to trigger BAMBOO RUSH's free spins feature,where you can win up to 20 free spins straight from the start, and the potential to uncover even more of them! All symbols are stacked during the base game and free spins except for the scatter, which can lead to wins of up to 53000x in a single spin!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 243,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Barbary Coast",
+        "identifier": "bsg:BarbaryCoast",
+        "identifier2": "194,627,628,629",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 93.2,
+        "description": "This is the REAL Captain Blackbeard and me ruthless band of Pirates, seadog! Climb up the aft and join me hearties as we pillage and plunder along the BARBARY COAST. Hijack ships, search for buried booty, pillage land lubbers gold, and of course kidnap the fair Maiden. Ahhh yes, Captain Blackbeard and me crew have NO mercy in our quest for riches, larceny, and debauchery. Yarrrrrrrr!\n\nFeatures:\nDestroy reel with cannon to turn it BARBARY WILD REEL! Win Free Spins with your trusty Parrot!\nDashing Pick Me Instant Wins and more instant bonus features!\nExperience the excitement of the high seas with the Find the Treasure and Sea Battle Bonus Rounds!",
+        "volatility_rating": "low",
+        "multiplier": 243,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Birds",
+        "identifier": "bsg:Birds",
+        "identifier2": "654,655,656,657",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.48,
+        "description": "Get twitterpaited with BIRDS! This adorable new Slots title will have you soaring up to the heights with excitement! The revolutionary reels and lovable avian characters each with their own cute personalities!  is set to capture your heart as you play. BIRDS! offers you a chance for unlimited free spins as you while away the day in the company of these fine feathered friends!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1260,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Black Gold",
+        "identifier": "bsg:BlackGold",
+        "identifier2": "256,601,602,603",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 94.31,
+        "description": "It's time to put on your cowboy hat and spurs when you play Black Gold! Join Ol' Bill the Oil Tycoon and his faithful steed as they wander the Texas range in search of Oil. Help Bill find the right spot to place his oil pumps and find the gushers hidden deep beneath the earth. You'll find yourself becoming filthy rich when you strike it big and fill your barrels with that Black Gold!",
+        "volatility_rating": "low",
+        "multiplier": 4338,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Blood Eternal",
+        "identifier": "bsg:BloodEternal",
+        "identifier2": "763, 764, 765, 766",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.03,
+        "description": "Sink your teeth into BLOOD ETERNAL, the latest video slot to join Betsoft’s expanding Classics collection. With an expanded six-reel arrangement and dramatic bonus features, you’ll fall in love at first bite!\n\nVampire stories originate from the European areas, and we expect this to aid in the popularity of this title in those markets. Origins aside, we feel that the strong playability of the game will allow BLOOD ETERNAL to thrive in other, growing mark",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1921,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Book of Darkness",
+        "identifier": "bsg:BookofDarkness",
+        "identifier2": "825",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.48,
+        "description": "Uncover the secrets of dark magic in BOOK OF DARKNESS, the latest 10 fixed payline video slot by Betsoft.Look for the mystical books and choose the hero to fight for in the CLASH FOR POWER bonus rounds!When the HUNTRESS and DARK WIZARD symbols align next to a BOOK symbol, the CLASH FOR POWERbegins. Choose your fighter and fill up the HERO METER by receiving wins with your chosen hero. If yourfighter wins, you'll be rewarded handsomely and start another bonus round.With the unique SHADOWFORM feature, get caught up in the action as the HUNTRESS and DARK WIZARDbattle to magnify your wins. If the DARK WIZARD won the CLASH FOR POWER, he will cause 5 symbols toexpand. If the HUNTRESS won the CLASH FOR POWER, she will award a 5x MULTIPLIER to any and all wins.Prepare yourself for a unique arcane fantasy, only to be found in the BOOK OF DARKNESS. ",
+        "hit_rate": 38.07,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 10680,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Boomanji",
+        "identifier": "bsg:Boomanji",
+        "identifier2": "323,324,325,369",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.96,
+        "description": "Fast Paced Fireworks themed 10 line 5 reel Slots3 GameNote: Has a cloned version called Gemscapades that's 7RED exclusive, it's the same exact game.",
+        "volatility_rating": "high",
+        "multiplier": 1450,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Caishen's Arrival",
+        "identifier": "bsg:CaishensArrival",
+        "identifier2": "812",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 95.74,
+        "description": "Discover boundless wealth in the newest slots game by Betsoft Gaming  CAISHEN'S ARRIVAL!With the amazing blessings of Caishen, prepare to delve into a world of riches!CAISHEN's ARRIVAL features fast-paced slots gameplay with amazing possibility. Featuringa multiplier of over 35000x, the wins can reach the skies. Look out for the CAISHEN symbolwhich serves as a wild for huge wins!Stack 3 portraits of Caishen on a reel to trigger a FULL REEL WILD and receive a FREERE-SPIN! Earn additional riches by seeking out the COIN PURSE SCATTER, with 3 or moresymbols anywhere on the reel triggering a reward.Venture into a world of fortune in CAISHEN's ARRIVAL!",
+        "hit_rate": 18.36,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 394,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Caribbean Poker",
+        "identifier": "bsg:CaribbeanPoker",
+        "identifier2": "12,445,446,447",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94.78,
+        "description": "Poker game",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 8098,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Carnaval Forever",
+        "identifier": "bsg:CarnavalForever",
+        "identifier2": "802",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.63,
+        "description": "Let the sound of the samba transport you to the streets of Rio de Janeiro with Carnaval Forever, the glittering new slot game that pulses to the open-air beat of the biggest show on earth. With millions of visitors every year, the Rio carnival (carnaval in the country's native Portuguese) is the largest of its kind in the world.Carnaval Forever captures all that celebratory atmosphere in its audio-visual presentation, with beautiful people and ornate floats making up the symbols, backgrounds festooned with brightly coloured feathers, and a soundtrack that pounds to the rhythms of the procession.Float symbols are wild, and can stand in for any other non-special symbol. But the centre of attention is the stunning Carnaval Queen, who weaves her way through the crowds, with free spins and multipliers following in her wake. Three or more Queens appearing at once will multiply the total stake by between 5X and 9X, and the Queen also leads the troupe towards Carnaval Forever's free spins feature, with anallocation of between 3 and 9 free spins.Like the festival itself, Carnaval Forever is an inclusive, triumphant game. Built around 10 straightforward paylines, the reels also feature a unique symbol that can reduce the cost of Betsoft's signature featurebuy-in mechanic to zero if enough are visible at once.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 225,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Charms And Clovers",
+        "identifier": "bsg:CharmsAndClovers",
+        "identifier2": "691,669,672,675",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.31,
+        "description": "Somewhere, at the end of the rainbow, legendary treasure awaits you in a sylvan paradise. May the luck of the leprechaun be with you as you play CHARMS AND CLOVERS!\n\nFeaturing exciting features such as an added BONUS REEL for more fun & POTS OF GOLD filled to the brim with wealth, there’s never a dull moment in this clover-filled wonderland.\n\nTake your chances and find your fortune in CHARMS AND CLOVER",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 33817,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "ChilliPop",
+        "identifier": "bsg:ChilliPop",
+        "identifier2": "800",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.08,
+        "description": "Spice things up with Chillipop, the cluster-based, cascading slot game with a secret ingredient: an expanding grid offering explosive new ways to win.From the Mariachi soundtrack to the potent chilli symbols, Chillipop is suffused with the spirit and sizzle of Mexican cuisine. Players try to assemble the perfect salsa, matching symbols like tomatoes, onions, garlic, and red, yellow, and green peppers to create the tastiest (and top-paying) combinations.Like the sauce itself, things can heat up quickly in Chillipop any configuration of 3 or more adjacent symbols pays out, and as items are added to the pot, new symbols cascade down to replace them. Couple this with the wild symbol - which can substitute for any ingredient, as well as creating stackedmultipliers when several appear on-screen and players can create maximum flavour from a single spin.The fiesta gets into full swing with the Free Spins feature, triggered by 3 or more pack mule scatter symbols appearing at once. Over an allocation of between 5 and 26 free spins, Chillipop then uses Betsoft's proprietary trail system to track the number of sombrero-sporting mules that players collect, with set milestones expanding the size of the cooking pot even further. From an initial 5x3 grid, the Free Spins feature can grow the playing area to a massive 8x8, with the new dimensions dramatically increasing the number of paylines.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 21667,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Max Quest Tournament",
+        "identifier": "bsg:ChilliPoptest",
+        "identifier2": null,
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "maxquest",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96.08,
+        "description": "MAX QUEST transplants the excitement of RNG-based slot gaming into an interactive shooting experience.Every bullet fired towards the shambling hordes has a chance to pay out or trigger a feature, and while Ra’s gauntlet will test players’ nerve, it never tests their aim.A missed shot will either ricochet until it finds a target, or return to the chamber along with its wager.As you progress through the rooms, sinking deeper beneath the sands in search of loot, your party will come toe-to-toe with different tiers of terrifying enemies and accrue an arsenal fit for a Pharaoh.Gem-crusted Scarab beetles scuttle, risen warriors sharpen their weapons, and the god’s own Shadowguard shuffle forward in their funeral sh",
+        "hd": true,
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "A Christmas Carol",
+        "identifier": "bsg:ChristmasCarol",
+        "identifier2": "619,620,621,622",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.58,
+        "description": "Relive an iconic piece of literature in this true 3D slot adaptation of Charles Dickens' A CHRISTMAS CAROL! Cower under the covers with callous old Ebenezer Scrooge as he is visited by the howling Ghosts of Christmas Past, Present and Future. Each of the Ghosts bring their own special power to the reels, including the Reverse Reels of Christmas Past! With WILD symbols and Free Spins, A CHRISTMAS CAROL will enrich your players and bring them a warm sense of the holiday season.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1260,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Max Quest: Clash of the Gods",
+        "identifier": "bsg:ClashoftheGods",
+        "identifier2": "843",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "maxquest",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "description": "MAX QUEST transplants the excitement of RNG-based slot gaming into an interactive shooting experience.Every bullet fired towards the shambling hordes has a chance to pay out or trigger a feature, and while Ra’s gauntlet will test players’ nerve, it never tests their aim.A missed shot will either ricochet until it finds a target, or return to the chamber along with its wager.As you progress through the rooms, sinking deeper beneath the sands in search of loot, your party will come toe-to-toe with different tiers of terrifying enemies and accrue an arsenal fit for a Pharaoh.Gem-crusted Scarab beetles scuttle, risen warriors sharpen their weapons, and the god’s own Shadowguard shuffle forward in their funeral sh",
+        "hd": true,
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Curious Machine Plus",
+        "identifier": "bsg:CuriousMachinePlus",
+        "identifier2": "461,462,463,464",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.5,
+        "description": "Miles Bellhouse has invented the most Curious of Machines, one which can travel through space and time! Along with Gizmo, his trusty steam-powered robot, they will scour the past and protect their invention from the dastardly devious General Traytor, a stocky sort of man who suspects the machine has great military potential. So hop aboard for a trip through time and entertainment in MILES BELLHOUSE AND HIS CUROUS MACHINE!",
+        "volatility_rating": "medium",
+        "multiplier": 1666,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Max Quest: Dead Man's Cove",
+        "identifier": "bsg:DeadMansCove",
+        "identifier2": "808",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "maxquest",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "description": "Max Quest: Dead Man’s Cove is an expansive role play and action-adventure\nexperience offering rich gameplay, capped with deep social elements. This\nsecond chapter in the Max Quest tale will provide a broad range of engagement,\nincluding exciting prizes, collectible treasures, Quests and customizable\nappearances. These features will enrich both the players’ connection with the\ncharacters and the gameplay to an unprecedented le",
+        "hd": true,
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Deuces Wild",
+        "identifier": "bsg:DeucesWild",
+        "identifier2": "29,539,540,541",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "video_poker",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.91,
+        "description": "Single Hand Machine",
+        "volatility_rating": "high",
+        "multiplier": 4774,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dim Sum Prize",
+        "identifier": "bsg:DimSumPrize",
+        "identifier2": "828",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97.18,
+        "description": "Feeling hungry? Come to the hottest food stand in town. The new Betsoft game DIM SUM PRIZE will keep you craving for more and more. Sit back, enjoy the teatime and get ready for hot buns, dumplings and exciting big wins!\n\nWith 5 reels and 10 lines of delicious prawns, steamed goodies and rice noodle rolls, your appetite will be more than satisfied. 3 Crimson Coupons award FREE SPINS! The Crimson Coupons transform into TEATIME WILDS that stay in place for the duration of the FREE SPINS round. The more TEATIME WILDS appear, the more respins will be triggered.\n\nA Bamboo Basket can appear anytime on the reels 2, 3 and 4. The Bamboo Basket surprises you with either a CRIMSON COUPON or a TEATIME WILD. Take it while it’s hot, get ready to spin and enjoy the spoils in DIM SUM PRI",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 7552,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dragon Kings",
+        "identifier": "bsg:DragonKings",
+        "identifier2": "796",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.53,
+        "description": "Chinese myths come roaring to life in Dragon Kings, a modern take on a traditional tale, and a 3x5 slot game where the symbols are the real stars. Alongside Asian cornerstones like lucky coins and jade figurines, Dragon Kings reimagines the guardians of ancient China's seas as four standout, scaly symbols- all of them wild, and each with their own powers and identities.The centre reel is reserved for the eye-catching and even more powerful Dragon King, who builds on the individual dragon's blessings with his own 2x multiplier. The Dragon King also holds the keys to four tiered jackpots - from bronze to diamond.A special sixth reel contains a magical flaming pearl, which doubles the number of free spins awarded from scatter symbols (up to a possible 30). This symbol is essential for unlocking jackpots, in combination with the Dragon King and one or more of the other dragons.Line up all five dragons and receive a prize fit for a king: 2,000 coins!",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5981,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dragon & Phoenix",
+        "identifier": "bsg:Dragon&Phoenix",
+        "identifier2": "814",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.01,
+        "description": "Welcome to the court of DRAGON & PHOENIX, a lucrative realm filled to the brim with riches. Seek out the ROYAL COUPLE and MONEY TREE SCATTERS to win big in this rich 5X3 video slot game.Wealth and prosperity is just around the corner. The ROYAL COUPLE can appear on reels 2 to 5 and can expand to cover up the entire reel, potentially delivering huge wins of up to 8000x.If you're looking for a royal delight, search out the prized MONEY TREE SCATTERS. Collect up to 15 of them to receive prizes up to 500x INSTANTLY!Are you ready to discover the mysteries of the royal court in DRAGON & PHOENIX?",
+        "hit_rate": 25.16,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 10291,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Draw Hi-Lo",
+        "identifier": "bsg:DrawHiLo",
+        "identifier2": "74",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop"
+        ],
+        "payout": 97.59,
+        "description": "Welcome to Draw Hi-Lo, an exciting, fast-paced card game.\n\nThe goal of the game is to guess whether the next card will be higher or lower than the previous card. If you guess correctly, you can keep playing to win even more or you can cashout at any time and collect your winnings",
+        "multiplier": 3330,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dr. Jekyll & Mr. Hyde",
+        "identifier": "bsg:DrJekyllAndMrHyde",
+        "identifier2": "500,501,502,503",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.17,
+        "description": "The delightful and sweet Dr. Jekyll hides a secret: a monstrous side of himself he keeps hidden away. Being a scientist, his only solution seems obvious: concoct a special potion he hopes will quell the monster within. But quiet the monster it does not, instead it had the opposite effect: THE MONSTER IS FREE!",
+        "volatility_rating": "medium",
+        "accumulating": true,
+        "multiplier": 3200,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "European Blackjack",
+        "identifier": "bsg:EuropeanBlackjack",
+        "identifier2": "191",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99.38,
+        "description": "Welcome to multi-hand European Blackjack. Six (6) decks of cards are used to play this variant. Each player plays only against the dealer (i.e. the bank), independently of other players. Your goal as the player is to draw cards (i.e. hit) until your hand adds up to 21, or comes as close as possible without exceeding 21. If your first two cards total 21, you have Blackjack!",
+        "hd": true,
+        "multiplier": 3330,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "European Blackjack Sp",
+        "identifier": "bsg:European_Blackjack_Sp",
+        "identifier2": "831",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "test_sp",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "European Roulette",
+        "identifier": "bsg:EuropeanRoulette",
+        "identifier2": "79,275,276,371",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "description": "Roulette is a simple game that gives players the chance to win big.\n\nOur Roulette is based on standard European Standard Single Zero Roulette, according to the standard rules of the Nevada Gaming Commission. An ivory ball circles in the rotating roulette wheel that consists of 36 numbers plus 0. Eventually, the ball stops randomly on one of the 37 random numbers. The player is to predict the outcome of each spin by placing bets in the fields of the Roulette table. Each player wagers against the bank, independently from other game participants.\n\nYour winnings will be based on how well you have predicted the ball’s final resting-place by placing your chips accordingl",
+        "hd": true,
+        "multiplier": 4450,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "European Roulette SP",
+        "identifier": "bsg:EuropeanRouletteSP",
+        "identifier2": "50052,50053,50054,50055",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "test_sp",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Event Horizon",
+        "identifier": "bsg:EventHorizon",
+        "identifier2": "548,549,550,551",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 243,
+        "payout": 96.51,
+        "description": "It's said that nothing can escape from an Event Horizon  not even light. Combine this dazzling Any Way Pays video slot with duplicating reels and you have a game with wins so massive, your players will never want to leave. Every spin gives a chance for two, three, four or all five reels to sync up, spinning at the same time with the same matching symbols. These synced reels greatly increase each spin's chance of winning. With classic slot machine symbols (Cherries, Bells, Bars and 7s and gorgeous deep space graphics, this game unifies the new and the old in true Betsoft style.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1152,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Exterminator",
+        "identifier": "bsg:Exterminator",
+        "identifier2": "262,641,642,643",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.27,
+        "description": "Alvin Goodman is a simple man with a simple job: Catching mischievous critters and getting rid of them. Whether it’s aggressive bears, or unruly squirrels, Alvin takes on all comers big and small. However, he’s about to meet his match! A wily raccoon has taken up residence in the neighborhood and is causing all sorts of havoc! No trash can is safe from his plundering, and now Alvin needs your help to catch the dastardly raccoon! Come along and see all the wacky hijinx for yourself when you play The Extermina",
+        "volatility_rating": "low",
+        "multiplier": 3516,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Faerie Spells",
+        "identifier": "bsg:FaerieSpells",
+        "identifier2": "798",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.03,
+        "description": "Uncover the secrets of the undergrowth in Faerie Spells, the 3x5 videoslot where woodland spirits brew potions in the shadows, and any toadstool can hide a hoard of treasure.A traditional alternative to modern fairytales, the symbols in Faerie Spells paint the natural world as a place of uncharted wealth and wonder. Faeries and pixie princesses are joined by wild, green-bearded tree guardians, will the wisps, and glowing, magical trees. The ruler of the realm, the Faerie Queen, can conjure two different features: her aura causes toadstools to reveal their riches, in the form of multiples ofthe player's bet and three or more of her royal symbols triggers the unique jackpot game.Taking place on a special playfield in the Faerie Queen's hidden workshop, Betsoft's signature shared jackpot feature challenges players to collect special potion phials over the course of 10, 15, or 25 free spins. Every drop of potion collected contributes to one of four tiered jackpot recipes being concocted by the queen: the Spells of Plenty, Luxury, Wealth, and Riches. When a symbol is collected, it's removed fromthe reels and other special symbols cascade down in a magical shower. With Betsoft's innovative \"Buy-In\" feature, players can pay to trigger the max number of free spins on demand as many times as they like.",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 1225,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "FaFaTwins",
+        "identifier": "bsg:FaFaTwins",
+        "identifier2": "692,693,694,695",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 243,
+        "payout": 95.29,
+        "description": "Double your money, double the fun! This delightful game offers 243 paylines that pay any way to dramatically increase your chances to win. And that's not all! Guided by an adorable pair of identical twin sisters, FA FA TWINS features reels that can lock and sync with matching symbols on those reels, providing even more chances for huge wins!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 6480,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fire & Steel",
+        "identifier": "bsg:FireandSteel",
+        "identifier2": "755, 756, 757, 758",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.21,
+        "description": "Grim-dark Fantasy (Think: Game of Thrones) themed slot with a 3-4-5-4-3 reel arrangement and a unique spreading wild feature that also ties into a free spins feature with clingy wilds. Backstory is:One nation, split by a war that has burned for centuries. Two noble Houses, mired deeply in that war. And an unexpected threat that no one could have anticipated the Coming of the Dragons. Watch as the Houses of the Shieldmaiden and the Swordsman unite to fight back against the aggressive draconic invaders using their combined War Cry that can flip icons to Wilds and greatly increase chances for winning!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1385,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Frankenslot's Monster",
+        "identifier": "bsg:Frankenslots",
+        "identifier2": "647,648,649,650",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.83,
+        "description": "IT'S ALIVE! Mad Dr. Frankenslot has finally done it - he has built a random collection of bits and organs into a terrifying creature  - Frankenslot's Monster! In this hilarious retelling of the famous story, you will have the opportunity to control the monster yourself! What will you make it do? Win big with Scatter Pays and Wilds when you play FRANKENSLOT'S MONSTER!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2704,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruitbat Crazy",
+        "identifier": "bsg:FruitbatCrazy",
+        "identifier2": "804",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 95.22,
+        "description": "A new slant on traditional slots, Fruitbat Crazy stars a cheeky bat who's always on the prowl for food - looking to sink his fangs into clusters of melons, berries, citrus fruits and cherries.In Fruitbat Crazy, clusters of low-value symbols always pop first, allowing higher-paying stacks to mount up before splattering them in one big explosion. Unlike other cascading slots, Fruitbat Crazy's roster of symbols also collapse on a combo-by-combo basis, with smaller wins resolving before triggering their own collapses creating the chance for some seriously succulent payouts.Beyond the 3X5, 243 ways to win base game, Fruitbat Crazy earns its name in the free spins feature: find 3 or more Fruitbat symbols and a whole flock will descend from the trees and gorge themselves over the course of 10 or more free spins.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 1196,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruit Zen",
+        "identifier": "bsg:FruitZen",
+        "identifier2": "512,513,514,515",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.96,
+        "description": "Relax and enjoy the peaceful views of FRUIT ZEN, the newest release in Betsoft Gaming's SLOTS3 ARCADE series. This fantastic slot machine features unparalleled 3D graphics, with lush moving water and incredible win effects. The gentle is sure to melt your stress away.Come, unwind and win with FRUIT ZEN.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruit Zen",
+        "identifier": "bsg:FruitZenSP",
+        "identifier2": "50008,50009,50010,50011",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "test_sp",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gemmed!",
+        "identifier": "bsg:Gemmed",
+        "identifier2": "811",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 40503,
+        "payout": 96.46,
+        "description": "Win with gems of ALL shapes and sizes in GEMMED, the latest slots game by Betsoft. Featuring 40503 ways to win and an innovative reel system, hunting for wins has never been this fun.The game uses a 9x9 grid with special reels that allow for symbols of different sizes. Payouts areawarded via contiguous symbols, which are symbols that touch each other, either adjacent or diagonally. Bigger symbols are worth more as they will pay out ALL payline combinations that pass through them and form a winning combination.There's always action around the corner. With reels packed with symbols of all values and amazing wilds, you never know when the next win will come around! Look out for the GEM CLUSTERS to trigger the free spins round!Hunt for gems, make it shine and win big in GEMMED!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 21667,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Giovanni's Gems",
+        "identifier": "bsg:GiovannisGems",
+        "identifier2": "759, 760, 761, 762",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94.94,
+        "description": "Visit a land of magical enchantment, where kingdoms are the home to Kings and Queens, Jokers and an Ogre?!\nIn Betsoft's newest smash hit OGRE EMPIRE, join the townspeople of a fantasy kingdom with a rather inconvenient Ogre problem! An innovative Day/Nigh",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 3567,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gladiator",
+        "identifier": "bsg:Gladiator",
+        "identifier2": "178,406,407,408",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.27,
+        "description": "Gladiator themed 30 Line 5 Reel Slots3 Game",
+        "volatility_rating": "low",
+        "multiplier": 3382,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Glam Life",
+        "identifier": "bsg:GlamLife",
+        "identifier2": "173,610,611,612",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 92.02,
+        "description": "Luxury/Glam themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "multiplier": 13574,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gold Canyon",
+        "identifier": "bsg:GoldCanyon",
+        "identifier2": "809",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.13,
+        "description": "Polish your spurs, saddle up and get ready for a pistol-shooting, treasure-hunting & reel-spinning action in Gold Canyon. A dynamite new take on traditional 5X3 video slots.The treasures of Gold Canyon are sure to provide super wins, but even better is theappearance of the MYSTERIOUS DRIFTER, when he spins into the arena, things will get a little more WILD!Watch out for the explosives in the canyon of riches, three or more pieces of DYNAMITE will trigger free spins.Will you be the one to find the treasures of the GOLD CANYON?",
+        "hit_rate": 37.07,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 4774,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gold Diggers",
+        "identifier": "bsg:GoldDiggers",
+        "identifier2": "222",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop"
+        ],
+        "lines": 30,
+        "payout": 91.23,
+        "description": "Gold Miner themed 30 Line 5 Reel Slots3 Game",
+        "volatility_rating": "medium",
+        "multiplier": 91,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Golden Horns",
+        "identifier": "bsg:GoldenHorns",
+        "identifier2": "822",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 96.26,
+        "description": "Celebrate the Year of the Ox and follow his enchanted path to unimaginable luck and copious treasure inGOLDEN HORNS! Rejoice in the newest addition to the Red Dragon line in the latest video slot by Betsoft Gaming.3 reels, a single payline, yet a max win of over 25000x your bet awaits.Seek out the magnificent money tree, the glorious fishes and the lavish frogs, all waiting on the reels. Collect 3symbols in a line for even greater wins! Prepare for glory in a pile of gold with the generous CHARGE OF THEWILD OX!Guardian lions and gleaming lanterns line the halls on your path to boundless wealth, but it is the WILD OXthat is sure to make you smile. Each OX can bring with it a hefty multiplier, amplifying your wins. Get ready fora festival of fun in GOLDEN HORNS!",
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-01-14T00:00:00.000Z",
+        "multiplier": 25344,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gold Tiger Ascent",
+        "identifier": "bsg:GoldTigerAscent",
+        "identifier2": "855",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.37,
+        "description": "Take a journey into the high mountains in GOLD TIGER ASCENT, the latest video slot from Betsoft Gaming! This 3-reel, 3 row video slot, featuring an iconic golden tiger character, pays on 3 of a kind on any payline.\r\n\r\nInnovative functionality allows for MAGIC RED ENVELOPES to appear on the reels, and these ENVELOPES can reveal WILDS, instant cash wins, high value symbols, and even SCATTERS that pay and offer generous FREE SPINS!\r\n\r\nDuring FREE SPINS mode, the MAGIC RED ENVELOPES have even more power: there can be up to 5 ENVELOPES with SCATTERS, and up to 9 ENVELOPES with other symbols! This offers unprecedented chances to win!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-01-20T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2520,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Good Girl, Bad Girl",
+        "identifier": "bsg:GoodGirlBadGirl",
+        "identifier2": "426,428,430,432",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 97.3,
+        "description": "Innovative Multi-Model 3D Slot game. Players can choose between low volatility, high volatility, or both at the same time. 15 Line, 5 Reel Slot.",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 15600,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Great88",
+        "identifier": "bsg:Great88",
+        "identifier2": "700,701,702,703",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.36,
+        "description": "The world of GREAT 88 presents opportunities to win like never before! This gorgeous game captures the essence of a peaceful evening, brimming with exquisite Asian-inspired detail and a novel bonus system that will keep your players searching for luck and good fortune with every spin!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 8888,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Greedy Goblins",
+        "identifier": "bsg:GreedyGoblins",
+        "identifier2": "341,342,343,353",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 97.2,
+        "description": "Fantasy Themed 30 Line 5 Reel Slots 3 Game.Unofficial Sequel to \"Once Upon A Time\"",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "multiplier": 8000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gypsy Rose",
+        "identifier": "bsg:GypsyRose",
+        "identifier2": "478,479,480,481",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 97.63,
+        "description": "A fortune teller themed slot, featuring 5-reels and 30-paylines.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 2240,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hat Trick Hero",
+        "identifier": "bsg:HatTrickHero",
+        "identifier2": "832",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.23,
+        "description": "Game on! Football season is here. Go for the POWER SHOT and score the winning goal for big prizes in HAT TRICK HERO! With 5 reels, 25 paylines and exciting features, the latest video slot from Betsoft Gaming will put you right in the spotlight of the football field.\n\nWatch out for the special POWER SHOT WILDS, which substitute for all other symbols. Find 3 or more of them on the reels to trigger the HAT TRICK HERO event! During these rounds, any POWER SHOT WILD symbols will move one reel to the left until they have left the reels, potentially stacking up for immense wins.\n\nGet ready for your moment of glory! Each time a POWER SHOT symbol exits the reels, it will raise the SCORE METER by one level. Collect more POWER SHOT symbols to trigger more respins. Collect 15 POWER SHOT symbols to fill the SCORE METER, awarding you with an instant 1000x win.",
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-05-27T00:00:00.000Z",
+        "multiplier": 1260,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Heist",
+        "identifier": "bsg:Heist",
+        "identifier2": "180,468,469,470",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 93.8,
+        "description": "Bank Robber themed 30 Line 5 Reel Slots3 Game",
+        "volatility_rating": "low",
+        "multiplier": 12133,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "House of Fun",
+        "identifier": "bsg:HouseOfFun",
+        "identifier2": "221,644,645,646",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 94.96,
+        "description": "Haunted House themed 30 Line 5 Reel Slots3 Game",
+        "volatility_rating": "medium",
+        "multiplier": 210,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jumbo Joker",
+        "identifier": "bsg:JumboJoker",
+        "identifier2": "767,768,769,770",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95,
+        "description": "Start hauling in the credits with Betsoft's fresh, fun take on the classic fruit machine format - JUMBOJOKER!This fast paced, brightly-coloured traditional fruit machine will capture and keep your players' attention as they go for big MYSTERY WINS in the JUMBO METER mode, which offers higher payouts. The JUMBO METER mode becomes active whenever a win of at least 20 coins occurs on the bottom reels. The winnings from the bottom reels are transferred to the JUMBO METER, where they can either be collected immediately, or used to play on the upper reels, which offer higher wagers and higher payouts.In the best fruit machine tradition, JUMBO JOKER offers a taste of classic fruit iconography and retro-styled audios that will be familiar and comfortable, while the exciting gameplay and high definition graphics brings this classic genre into the modern age.JUMBO JOKER offers players a level of control and strategy that sets it apart from other traditional slot games. By choosing when and how to use the JUMBO METER mode, and the higher payouts it offers, JUMBO JOKER rewards players with a compelling gaming experience and tantalizing wins.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3200,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jungle Stripes",
+        "identifier": "bsg:JungleStripes",
+        "identifier2": "842",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97.03,
+        "description": "Get lost wandering through the lavish jungles in the latest video slot by Betsoft Gaming Jungle Stripes!Make the exotic flowers and leaves tango with exciting features including wilds, scatters and free spins! Theexcitement awaits as you go in search of the majestic Jungle King, who will expand and lock your reels intoplace for free respin action!This 5 reel, 10 fixed payline slot takes you deep inside the wilderness, where the claws of the tiger will bringforward amazing win potential! The thrilling jungle hides all sorts of mysteries, but the Jungle King is the oneyou are looking for. The rumbling growl of the wild animal will easily shake up the calming atmosphere of JungleStripes!While the vibrant nature of the tropical forest sets the mood, wait for the special Moonglow symbols, whichserve as scatters! With glowing lotus flowers and fluorescent mushrooms growing from crystal rocks the junglehas become the magical destination for amazing action and big wins!",
+        "hit_rate": 21.87,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-06-24T00:00:00.000Z",
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Kawaii Kitty",
+        "identifier": "bsg:KawaiiKitty",
+        "identifier2": "727,728,729,730",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.27,
+        "description": "Leap into the purr-fect pastel world of KAWAII KITTY! This innovative 3D video slot pays both ways for maximum chances to win, and features Wild Yarn balls that can expand to fill an entire reel! Join adorable Kitty as she plays with cute toys and wins your heart while you win credits!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lava Gold",
+        "identifier": "bsg:LavaGold",
+        "identifier2": "823",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95.99,
+        "description": "Things are about to get hot in LAVA GOLD – the latest 5×5 grid cluster-based game by Betsoft Gaming! With multiple features, including VOLCANO WILDS, FREE SPINS and CLUSTER WINS, the newest slot provides your players with a rich and vivid experience, both graphically and functionally.\n\nLAVA GOLD brings you to a volcanic island, a world of enormous and spine-chilling dinosaurs. Go on a dinosaur egg hunt across the steaming grounds of the archipelago and try not to get caught in the claws of the flying Pterodactyl or the frightening T-Rex! Let the tangles of twigs and leaves guide you to the VOLCANO, which is a WILD symbol!\n\nThe ground shakes as the LAVA METER fills up and FREE SPINS are awarded. During FREE SPINS mode, the central column of the grid will be made up of an identical symbol, guaranteeing a win! Each FREE SPIN during FREE SPINS mode has a growing multiplier. The first FREE SPIN awards a 1x multiplier on wins, and it progresses from there up to a 10x multipli",
+        "hit_rate": 29.19,
+        "volatility_rating": "medium",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 159,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Legend of the Nile",
+        "identifier": "bsg:LegendOfTheNile",
+        "identifier2": "775,776,777,778",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95.62,
+        "description": "Explore the timeless myths of Egypt in LEGEND OF THE NILE, the latest Classic Slots release from Betsoft Gaming! This6x6 cascading slot features cluster pays and exploding wins to build anticipation for the new symbols that cascadein from above.LEGEND OF THE NILE invites players to walk the Trails of the Gods: Isis, Queen of Heaven, Ra of the Sun and Anubis ofthe Underworld. Each of these Gods is represented by a high-value symbol and each winning combination of symbolscontributes to the respective Gods' trail, with each trail leading to thrilling payouts and features, such as free spins,massive 400x stake payouts, and even a progressive jackpot!",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 748,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lost",
+        "identifier": "bsg:Lost",
+        "identifier2": "248,422,423,424",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 93.8,
+        "description": "Indiana Jones/Egypt themed 30 Line 5 Reel Slot Machine Game",
+        "volatility_rating": "high",
+        "multiplier": 933,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lost Mystery Chests",
+        "identifier": "bsg:LostMysteryChests",
+        "identifier2": "854",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.37,
+        "description": "Return to the mysterious pyramids of Egypt with world-renowned archaeologist Dr. Dakota Bones in LOST: MYSTERY CHESTS! In this fascinating sequel to the hit game LOST, your players will go deep beneath sand and stone to discover untold treasures hidden in MYSTERY CHESTS on the reels.\r\n\r\nThis 3-reel, 3-row video slot offers unique mechanics to allow for those MYSTERY CHESTS to open when they land on the reels, revealing what lies within, anything from an instant cash win, high value symbols, WILDS, or SCATTERS symbols that lead to generous FREE SPINS!\r\n\r\nAnd during those FREE SPINS bonus rounds, the MYSTERY CHESTS are guaranteed to appear, offering huge chances to win! Between 3 and 9 MYSTERY CHESTS are possible with each FREE SPIN.",
+        "hit_rate": 45.78,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-02-24T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2520,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lucky Seven",
+        "identifier": "bsg:LuckySeven",
+        "identifier2": "2,263,268,355",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 3,
+        "payout": 96.7,
+        "description": "Traditional 3 Reel 1 Line Slot Game",
+        "volatility_rating": "medium-high",
+        "multiplier": 1666,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Madder Scientist",
+        "identifier": "bsg:MadderScientist",
+        "identifier2": "247,412,413,414",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.18,
+        "description": "Mad Scientist themed 30 Line 5 Reel Slots3 GameSequel to one of the original Slots3 Titles: Mad Scientist",
+        "volatility_rating": "low",
+        "multiplier": 218,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Magic Shoppe",
+        "identifier": "bsg:MagicShoppe",
+        "identifier2": "751,752,753,754",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.58,
+        "description": "As you walk down the dark and narrow alley, you are inexplicably drawn to the mysterious shop on the left. The door creaks and a curtain of old spider-webs parts as you enter THE MAGIC SHOPPE, well known for its occult offerings from places near and far. This new 5 reel, 25 payline true 3D video slot from Betsoft boasts a special feature that allows any free spin to win a prize!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 4104,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mamma Mia",
+        "identifier": "bsg:MammaMia",
+        "identifier2": "238,584,585,586",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 94.46,
+        "description": "Renowned chef Salvatore welcomes you to his kitchen in Mamma Mia! Take on the role of Salvatore's Sous-Chef and help him to create wonderful works of culinary art, such as gourmet pizza and panna cotta. But watch out! The cold-hearted food critic, Alberto Ranbomzi, is rumored to visit the restaurant any day now! Will you be able to help Salvatore save the day by helping him to create his perfect dish? Buona Fortuna!",
+        "volatility_rating": "low",
+        "multiplier": 6906,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mega Gems",
+        "identifier": "bsg:MegaGems",
+        "identifier2": "534,535,536,537",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.18,
+        "description": "What do you get when you mix a video slot machine theme, features everyone loves and the high-end 3D touch only found in Betsoft Gaming products? MEGA GEMS!\nMega Gems is five reels and ten lines of lusciously coloured gemstones against a smoothly futuristic backdrop where the lines pay both ways.",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mega Glam Life",
+        "identifier": "bsg:MegaGlamLife",
+        "identifier2": "554,587,588,589",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 92.02,
+        "description": "MEGA GLAM LIFE is a gorgeous five reel, twenty line true 3D video slot highlighting the finer things in the world: fast cars, sleek yachts and unimaginable wealth. Boasting three tiered Progressive Jackpots, MEGA GLAM LIFE is rich with features including Scatter Pays and Sticky Wilds. The Jackpots can be won via the exciting Money Wheel Bonus Round, and the Free Spins mode whisks the player away to a tranquil tropical island, with warm sunset hues",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "multiplier": 20000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Miles Bellhouse and the Gears of time",
+        "identifier": "bsg:MilesBellhouseAndtheGearsOftime",
+        "identifier2": "834",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96.68,
+        "description": "Miles Bellhouse has been experimenting with Time again! Take a trip of a lifetime and seek out timeless riches with him in this new uniquely crafted 5×5 grid slot by Betsoft where the Past, the Present and the Future provide a new and exciting gameplay experience!\n\nWith every spin, the game will randomly select 5 positions which may be covered by a winning Cluster at the end of each cascade. The more winning Clusters that cover selected positions, the greater chance to trigger one of the special Time Traveling features!\n\nJoin the suspense as Miles Bellhouse finds his way through Past, Present and Future, and magnify your wins with time charged wilds",
+        "hit_rate": 19.89,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1084,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Monster Pop",
+        "identifier": "bsg:MonsterPop",
+        "identifier2": "819",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.07,
+        "description": "Immerse yourself in the frantic world of MONSTER POP, the latest cluster pays slot by Betsoft Gaming.Collect stacks of monsters, enjoy a variety of features and expand your playing grid to burst your waythrough to AMAZING wins.Featuring eye-popping visuals, MONSTER POP brings fast-paced gameplay with exciting action. Start out your monster adventure with a 5x5 grid that expands with the MONSTER CLONER SYMBOL by duplicating a row, column, or both - and adds WILDS in the mix for extra chances to win!Watch out for special FLAMING SPHERE SYMBOLS, which grant you free spins to keep the action going,with a potential for even more respins. Don't fret if you don't get a winning spin, as MONSTER FURY cantrigger at the end of a cascade to create reactions that will spark off big wins!Don't you dare stop, get ready to MONSTER POP!",
+        "hit_rate": 31.17,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1921,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "More Gold Diggin",
+        "identifier": "bsg:MoreGoldDiggin",
+        "identifier2": "444,451,452,453",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 94.53,
+        "description": "Those crazy miners are at it again in MORE GOLD DIGGIN’ Join Jeb and Cletus as they mine and blast their way to incredible riches! And it’s not just gold they’re after this time, now there’s Diamonds, Silver, Oil and much more to dig for! This 5 reel 25 line Cascading Reels slot game features gorgeous HD True 3D graphics and a pulse-pounding free spins mode that features up to a 15x mul",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3048,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mr. Macau",
+        "identifier": "bsg:MrMacau",
+        "identifier2": "844",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97.07,
+        "description": "Join the inimitable Mr. Macau for a night on the town in the Las Vegas of the East – Macau! The latest 5 reel, 20 payline video slot by Betsoft Gaming highlights the glitzy and glamorous elements of the entertainment capital of Asia, and encompasses the very essence of gaming.\n\nMr. Macau is rich with features. The ensemble includes STICKY WILDS, MR. MACAU’S WILD BOOST and TRIPLE 7 FREE SPINS! With every spin without a win, there is a possibility that a random symbol will become STICKY on the reels and award a respin!\n\nWith the murmur of the crowds under a smooth jazz soundtrack, Mr. Macau whisks the player away to a playground of neon and strobing lights. It’s time to win big and relive those memorable simmering nights spent at luxurious ca",
+        "hit_rate": 45.28,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-06-10T00:00:00.000Z",
+        "multiplier": 4338,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mr. Vegas",
+        "identifier": "bsg:MrVegas",
+        "identifier2": "210,269,270,362",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 93.6,
+        "description": "Join the inimitable Mr. Vegas and his beautiful starlet companions for a night on the town in the City of Second Chances! By incorporating the glitzy glamorous elements of the Entertainment Capital of the World into one very spectacular 3D slot game, the ground-breaking Mr. Vegas transcends all player genres and encompasses the very essence of gaming.\n\nMr. Vegas encompasses the same style that is the hallmark of Slots3 – visually stunning 3D graphics comparable to that of a studio feature film and a dynamic soundtrack all of which combine to provide the most immersive slots gaming experience to players.\n\nBonus rounds include classic Las Vegas casino games, such as Roulette, the thrilling Money Wheel and a Mini-Slot within a Slo",
+        "volatility_rating": "low",
+        "has_jackpot": true,
+        "multiplier": 798,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "A Night in Paris",
+        "identifier": "bsg:NightInParis",
+        "identifier2": "351,391,392,393",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.92,
+        "description": "Take a breathtaking journey to the fabled City of Lights, straight into the Museum of Paris – where many priceless works of art are just waiting to be nabbed by the entertaining, yet hapless art thief Jacques.\n\nWorking to protect the museum from the thefts is the faithful security guard Jerome LaBaste. Accompanied by his trusty canine friend Pierre, they are bound and determined to stymie this villainous larceny and keep the art where it belongs – the mus",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Oasis Poker",
+        "identifier": "bsg:OasisPoker",
+        "identifier2": "203",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop"
+        ],
+        "payout": 99.39,
+        "description": "Oasis Poker is a variant of the classic Caribbean Stud Poker. It holds similarities both to Blackjack and to Video Poker.\n\nThe player plays against the dealer, independently of other players. Your goal as the player is to beat the dealer’s han",
+        "multiplier": 4578,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Ogre Empire",
+        "identifier": "bsg:OgreEmpire",
+        "identifier2": "793",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 95.23,
+        "description": "Visit a land of magical enchantment, where kingdoms are the home to Kings and Queens, Jokers and an Ogre?!\nIn Betsoft's newest smash hit OGRE EMPIRE, join the townspeople of a fantasy kingdom with a rather inconvenient Ogre problem! An innovative Day/Night cycle switches up gameplay and allow players to experience what life is like for the people who live in the town.\nDuring the day, the Ogre is awake and active while the townsfolk sleep. And it' no wonder, as the Ogre will occasionally smash stone symbols, offering extra rewards! Once night falls, the Ogre will drift to sleep and the townsfolk emerge from their stone homes. Only appearing on the reels during night mode, they bring with them royal rewards! Higher payouts aren't the only benefit of night mode: the Joker emerges as well and brings with him merriment and 2x WILD WINS!\nThe Joker certainly isn't the only wild find in this kingdom! Both Day and Night offer a special WILD flower blossom. Watch the magic grow and expand, as each flower blossoms and grows or shoots spores, turning other symbols on the reels WILD!\nIn OGRE EMPIRE the struggle is reel and the rewards are nothing short of mythical!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1192,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Once Upon A Time",
+        "identifier": "bsg:OnceUponATime",
+        "identifier2": "193,524,525,526",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.28,
+        "description": "Once upon a time, in a land far away… There was a 3D Slot Game like never before seen. Where sneaky goblins ran amok, stealing every valuable in sight. Where a brave knight sets off to rescue a beautiful maiden, and where a dangerous, menacing dragon stood in his way! You’re invited to a magical world of fantastic entertainment, when you play Once Upon A Time!\n\nFeatures\nTwo exciting full animation bonus rounds offer amusement and entertainment for the player\nWild reels and free spins modes feature exciting, full-screen animation\nSave the Princess and be a hero\n30 lines results in many ways for your player to",
+        "volatility_rating": "low",
+        "multiplier": 362,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Paco and the Popping Peppers",
+        "identifier": "bsg:PacoAndThePoppingPeppers",
+        "identifier2": "225,651,652,653",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.29,
+        "description": "In an old town south of the border, overrun with despair and depression… Only one man can set things right again. TIME FOR FIESTA!\n\nJoin Paco and his charming salsa friends in this fun and exciting cascading reels slot machin",
+        "volatility_rating": "low",
+        "multiplier": 221,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Pai Gow",
+        "identifier": "bsg:PaiGow",
+        "identifier2": "9",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.27,
+        "description": "Table Poker",
+        "hd": true,
+        "multiplier": 4000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Pinocchio",
+        "identifier": "bsg:Pinocchio",
+        "identifier2": "520,521,522,523",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.53,
+        "description": "PINOCCHIO features multiple game levels offering unique features including: Fairy Re-Spins, Pinocchio Wandering Wilds and much more! Travel to School and find the Scatter Wild Books or to the Stage and discover the Dancing Wild reel. When in secondary worlds, all wins are doubled!",
+        "volatility_rating": "low",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 1873,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Pirate 21",
+        "identifier": "bsg:Pirate21",
+        "identifier2": "82",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop"
+        ],
+        "payout": 99.24,
+        "description": "Pirate 21 is an exciting multi-hand Blackjack that allows you to play up to 3 simultaneous hands of Blackjack.\n\nEach hand plays only against the dealer (i.e. the bank), independently of other hands. Six (6) Spanish decks of cards are used to play. A Spanish deck contains no 10s. Your goal as the player is to draw cards (i.e. hit) until your hand adds up to 21, or comes as close as possible without exceeding 21. If your first two cards total 21, you have Blackjack.",
+        "multiplier": 2349,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Pontoon",
+        "identifier": "bsg:Pontoon",
+        "identifier2": "81",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop"
+        ],
+        "payout": 99.62,
+        "description": "Pontoon is an exciting multi-hand Blackjack that allows you to play up to 3 simultaneous hands of Blackjack.\n\nEach hand plays only against the dealer (i.e. the bank), independently of other hands. Eight (8) decks of cards are used to play. Your goal as the player is to draw cards (i.e. hit) until your hand adds up to 21, or comes as close as possible without exceeding 21. If your first two cards total 21, you have Blackjack.\n\nAdditionally, if you get a “pontoon” which is a 5 card hand that has not busted, it will also count as a ",
+        "multiplier": 3400,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Primal Hunt",
+        "identifier": "bsg:PrimalHunt",
+        "identifier2": "833",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 80,
+        "payout": 96.1,
+        "description": "With multiplying multipliers, Free Spins, and\nmore, Primal Hunt takes you back to the lands of\nthe ice age, when the Cave Lion ruled the earth.",
+        "hit_rate": 14.33,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 88406,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Puppy Love Plus",
+        "identifier": "bsg:PuppyLovePlus",
+        "identifier2": "482,483,484,485",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97.23,
+        "description": "Come on down to the Puppy Store and see what breed of dog will be the perfect pooch to make a part of your lucky family!\n\nThis video slot machine offers Free Spins, Wilds and Scatters! You can also browse and buy your perfect puppy in the Puppy Store Bonus Round.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 1062,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Quest to the West",
+        "identifier": "bsg:QuesttotheWest",
+        "identifier2": "820",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97.53,
+        "description": "Get ready for an adventure of a lifetime. Follow the path of the Monkey King as you journey to lands unknown to discover riches of the West. Enjoy a classic Eastern Asian themed video slot with 5-reels,\n\n25 paylines, plenty of WILDS, free respins and a chance to instantly win x1000!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1260,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Red Dog",
+        "identifier": "bsg:RedDog",
+        "identifier2": "94",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.2,
+        "description": "Welcome to Red Dog, a simple but exciting, fast-paced card game. The dealer will deal 2 cards. If the 2 cards are of the same value, a 3rd cart is dealt. If the result is a tie, it results in a push. If the result is a 3 of a kind, you will win 11 to 1. Otherwise, you will be prompted to ride or stand, based on whether or not you believe the 3rd card will fall in between the values of the previous 2 cards.",
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Reels of Wealth",
+        "identifier": "bsg:ReelsofWealth",
+        "identifier2": "792",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.26,
+        "description": "Cash in on one of the most exciting new BIG WIN games of 2018 with Reels of Wealth. In this jewel toned, multi-feature new gem from Betsoft Gaming, players try their luck to earn the payday of a lifetime with the innovative new Megastar Jackpot mini game.\n\nThe game itself is built on a “Rolling Wins” platform, awarding players a re-spin every time they win. Compounding the excitement of those free re-spins is the Rolling Wins multiplier, which can award up to three times the payout of a standard win, depending on the number of respins the player has already triggered. In addition to that, instead of a standard wild, Reels of Wealth uses an opulent multiplier wild, which will stack with other wilds for even BIGGER wins. Players also enjoy the luxury of not one but TWO scatter icons. One, the Vault of Wealth, pays immediately. The other – the MEGASTAR JACKPOT symbol -pays players in a much richer fashion.\n\nWhen 3 or more MEGASTAR JACKPOT symbols appear anywhere on the reels the Megastar Jackpot mini-game . The reels change to the special Megastar Jackpot symbols surrounding players with gold and jewels worthy of such a momentous event. Utilizing the proprietary new “Trail System”, the Megastar Jackpot Feature allows players to collect special Jackpot symbols during Free Spins in an attempt to earn one of FOUR incredible jackpots. As the special jackpot symbols fall into place they EXPLODE, allowing other symbols to cascade onto the reels, and advancing their specific Jackpot trail. The Jackpots vary in size, from HERO to STAR to LEGEND to MEGASTAR, each requiring a different number of symbols to reach the GRAND PRIZE. Reels of Wealth gives players so many ways to win, they can bet on a rewarding experience, one way or anot",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 674,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Return to Paris",
+        "identifier": "bsg:ReturntoParis",
+        "identifier2": "847",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.06,
+        "description": "In Paris, there is a museum that holds the world's treasures. When night falls, these treasures becomevulnerable to the sticky fingers of a notorious Thief, who is crafty and makes off with a treasure each time he visits the museum. But the chase is on - the museum's Cop is hot on the Thief's trail!When the Thief and the Cop land adjacently on the reels, a Wild Explosion is triggered, turning all surroundingsymbols to WILDS!The clever game of cat and mouse is played out on the reels, in a constant cycle of steal and return betweenthe Thief and the Cop. When 3 MONA LISA SCATTERS occur on the reels, the open-ended FREE SPINS modebegins, and your players can experience up to 1000 FREE SPINS as the Cop chases the Thief all around thereels! The Cop is always one step closer to his clever quarry.This sequel to our smash hit A NIGHT IN PARIS will have your players glued to their devices, watching theantics of the wily Thief and dedicated Cop ",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-10-28T00:00:00.000Z",
+        "multiplier": 1056,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Max Quest: Rise of the Mummy",
+        "identifier": "bsg:RiseOfTheMummy",
+        "identifier2": "829",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "maxquest",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "description": "MAX QUEST transplants the excitement of RNG-based slot gaming into an interactive shooting experience.Every bullet fired towards the shambling hordes has a chance to pay out or trigger a feature, and while Ra’s gauntlet will test players’ nerve, it never tests their aim.A missed shot will either ricochet until it finds a target, or return to the chamber along with its wager.As you progress through the rooms, sinking deeper beneath the sands in search of loot, your party will come toe-to-toe with different tiers of terrifying enemies and accrue an arsenal fit for a Pharaoh.Gem-crusted Scarab beetles scuttle, risen warriors sharpen their weapons, and the god’s own Shadowguard shuffle forward in their funeral sh",
+        "hd": true,
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "RockStar",
+        "identifier": "bsg:RockStar",
+        "identifier2": "220",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop"
+        ],
+        "lines": 30,
+        "payout": 93.84,
+        "description": "I was born to rock\nEverybody knows that it’s true\nI hear people talk\nThey say that I rock, and I do!\n‘Cause I’m a rock star, baby\nI rule the world with my guitar\nAnd people love me\nOh, because I’m a r",
+        "volatility_rating": "low",
+        "multiplier": 160,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Rook's Revenge",
+        "identifier": "bsg:RooksRevenge",
+        "identifier2": "277,318,319,368",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.53,
+        "description": "Everyone’s favorite Aztec Chief, Rook, is at it again in this amazing 5 reel, 25 line Cascading Reels slot machine. Journey into the heart of the rainforest and the hidden treasure vault in the Rook’s Revenge Free Spins Mode! Riches beyond imagination are waiting for you, with cascading wins that award up to a 15x multiplier during Free Sp",
+        "volatility_rating": "high",
+        "multiplier": 18640,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Safari Sam",
+        "identifier": "bsg:SafariSam",
+        "identifier2": "280,303,304,373",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 97.5,
+        "description": "SAFARI SAM is a breathtaking five reel, thirty line video slot, bursting with exciting elements such as frequent free spins and a zany bonus round that will leave you thirsting for more adventure!",
+        "volatility_rating": "low",
+        "multiplier": 1666,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Safari Sam 2",
+        "identifier": "bsg:SafariSam2",
+        "identifier2": "841",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96.3,
+        "description": "Safari Sam is back! Get ready to go on a safari journey with Sam & Pam for stacked wins, wilds & more! SAFARI\nSAM 2 is the latest 5 reel, 50 payline video slot by Betsoft Gaming, bursting with exciting features that will leave\nyou craving more adventure!\nIt's time to pack your bags and take a trip to the untamed lands of the savannah for a breathtaking expedition,\nwhere things can get a little WILD! Follow the compass to the CALL OF THE WILDS while sightseeing the majestic\nanimals in their natural habitat!\nAs Sam & Pam guide you through the sun-drenched African Savannah, watch out for ACACIA TREE symbols -\n3 or more acacia scatters will trigger FREE SPINS feature, where you can win up to 20 FREE SPINS straight from\nthe start! With the addition of SAFARI STACKS, there are some truly flaming wins to score",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-04-22T00:00:00.000Z",
+        "multiplier": 505,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Sin City Nights",
+        "identifier": "bsg:SinCityNights",
+        "identifier2": "719,720,721,722",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 93.66,
+        "description": "Relive those memorable simmering nights spent in the City of Sin with SIN CITY NIGHTS!\n\nThe big bright lights of Las Vegas are brought to you under a pure funk soundtrack in this explosive cascading reels 3D video slot. All sinners welcome.\n\nIt’s time to win big and enjoy your time in SIN CITY NIGHT",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 18640,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Single Deck Blackjack",
+        "identifier": "bsg:SingleDeckBlackjack",
+        "identifier2": "63,448,449,450",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99.55,
+        "description": "Welcome to multi-hand Single Deck Blackjack.\n\nThis variant is played with a single deck of cards, unlike standard Blackjack, which is played with 6 decks. Each player plays only against the dealer (i.e. the bank), independently of other players. Your goal as the player is to draw cards (i.e. hit) until your hand adds up to 21, or comes as close as possible without exceeding 21.\n\nIf your first two cards total 21, you have Blackjack!",
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Slotfather",
+        "identifier": "bsg:Slotfather",
+        "identifier2": "344,345,346,376",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.69,
+        "description": "I’ll offer them a jackpot they can’t refuse… The Infamous words spoken by The Slotfather, the secret underworld Boss of all slots, big and small. The one man that holds all the strings, controlling an organized syndicate of slots stretching across the city and beyond… that man is The Sl",
+        "volatility_rating": "low",
+        "has_jackpot": true,
+        "multiplier": 1040,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Slotfather2",
+        "identifier": "bsg:Slotfather2",
+        "identifier2": "704,705,706,707",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96.6,
+        "description": "The Slotfather is back with all his henchmen – including Snake Eyes Sammy, Frankie “Knuckles” and Fat Tony – in this exciting, any-way-pays sequel to THE SLOTFATHER PART II! The dark and seedy crime underworld comes to life in gorgeous high definition animations and graphics. This is the Slotfather’s world, and you’re a part of his family now!\n\nWith Tall symbols, Gangster Respins for a second chance at the bonus round, Free Spins and the Big Boss Feature Bonus Round, this game will have you doing the rolling in the dough badda-bing,",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 9684,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Slots Angels",
+        "identifier": "bsg:SlotsAngels",
+        "identifier2": "258,545,546,547",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.89,
+        "description": "Ridin’ down the highway, Feelin’ like a king, On my way to winnin’… Winnin’ everything. I can feel it inside me, I can feel it a lot, Very soon I’ll be playin’, Playin’ some slots!\nWere you Born to Spin? Then come join the notorious biker gang, the “Slots Angels” as they cruise the desert in search of the big Progressive Jackpot! As an honorary member, you’llÂ have the honor of hanging out with the rest of the gang at their favorite dive bar, and cheer them on as they race across",
+        "volatility_rating": "low",
+        "has_jackpot": true,
+        "multiplier": 8000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Spinfinity Man",
+        "identifier": "bsg:SpinfinityMan",
+        "identifier2": "807",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 49,
+        "payout": 95.8,
+        "description": "When crime plagues the streets of Metropolis, SPINFINITY MAN will answer the call! With the help of amazing wild symbols, an arsenal of superpowers and the evil Mr. X to fight against, SPINFINITY MAN is here to become the saviour of the city!\n\nA fun and frivolous take on the golden age of superhero comics, SPINFINITY MAN is a cluster-based, cascading game where groups of more than 4 of the same symbols explode to form winning combinations. SPINFINITY MAN’s randomly-chosen powers are drawn as animated 2×2 symbols – triggering new cascades and launching an avalanche of big wins. Laser eye beams burn away either a full column or a full row of symbols, or both if you find a double beam. Icy breath can freeze and shatter a small or large cluster of symbols. Telepathy will remove all symbols of a single type or colour.\n\nWith his face on every newspaper in town, SPINFINITY MAN has more than his share of admirers. Everywhere he goes – from base game to free spins feature – his dedicated fangirl follows, hopipicture with her idol. When she snaps a photo, a cluster of symbols will pop and trigger an immediate cascade. The fangirl cluster count resets with every new spin – giving SPINFINITY MAN the chance to prove himself (and pose for more selfies) all over again.\n\nWhile solving street-level crime is all in a day’s work for SPINFINITY MAN, a more insidious evil is encroaching on the city! Super villain Mr. X is developing his next dastardly master plan. It’s up to our hero to follow the clues, fill a dedicated Mr. X meter, and catch him red-handed in a city-shaking bonus round! Here the two super humans go head-to-head, but Mr. X has an advantage: he’s replaced all SPINFINITY MAN’s power symbols with his own and increased the odds of them appearing. Get ready for the blockbuster of the summer in SPINF",
+        "volatility_rating": "high",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 5600,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Spring Tails",
+        "identifier": "bsg:SpringTails",
+        "identifier2": "816",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.84,
+        "description": "Celebrate the Year of the Rat in style and experience bountiful fun in SPRING TAILS, the new video slot from Betsoft Gaming. An adorable rat character will guide you through an experience that includes stacking multipliers & an exciting FREE SPINS MODE!A new year brings prosperity and luck, and there's plenty to be found in SPRING TAILS. Enjoy theLUCKY RAT MULTIPLIER WILDS, which can appear on reels 2, 3, and 4. Put some spring in your step, as multipliers can stack, which can add up to a total multiplier of 60x, bringing you super wins.If that wasn't enough, the GOLDEN KEY symbol can appear anywhere on the reels, which will triggera free spins mode. 12 free spins, MEGA potential, as all low-value symbols will be removed for theduration of the mode.Start off your new year right with the blessing of the rat in SPRING TAILS!",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 48016,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Stacked",
+        "identifier": "bsg:Stacked",
+        "identifier2": "840",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.39,
+        "description": "Slip into the magic of the reels with Stacked, the latest 4 reel, 20 fixed payline video slot by Betsoft Gaming.The Magician has many tricks and secrets up his sleeve, so keep your eye on him! Featuring a variety offeatures and a dynamic free spins mode, there is plenty of fun to be had!Enjoy the show as the Magician fixes the reels in your favor and lets you look into the Mystery Boxes,which will reward you with FREE SPINS! The deck flips and all reel spots get turned upside down. Before theFREE SPINS mode begins, you will be able to choose your spots on the reels that award unique effects.Powerful magical effects are lurking beneath these spots, if you dare to explore them. Look out for the specialattributes that can enhance your FREE SPINS mode! These attributes can stack and occur together during FREESPINS. Don't tell anyone. It's a secret!",
+        "hit_rate": 39.83,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "released_at": "2021-03-18T00:00:00.000Z",
+        "multiplier": 3847,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Stampede",
+        "identifier": "bsg:Stampede",
+        "identifier2": "771,772,773,774",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 95.27,
+        "description": "Take a trip to the sun-drenched African savannah with STAMPEDE, the newest Classic Slot brought to youby Betsoft Gaming.This all-ways-pay slot machine offers 1024 ways to win and a beautiful art style, that evoking the highgrasses and spreading acacia trees of the African plain. The warm palette suggests the heat of thesavannah in summer, where the majestic elephant herds rule supreme, accompanied by other icon Africanwildlife such as giraffes, gazelles and zebras.The top value Elephant symbols dominate the reels, and when they Stampede the players win big! With theaddition of x3 Wilds in Free Spins, there are some truly mammoth wins to excite your players.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3847,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Stay Frosty!",
+        "identifier": "bsg:StayFrosty",
+        "identifier2": "851",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 96.21,
+        "description": "Celebrate the holiday season with a warm mug of cocoa and STAY FROSTY! This 5-reel, 100 payline video slot is bursting with holiday cheer and innovative Sticky WILDS that stay Stickyw for 2 spins when part of a winning combination! The Snowman symbol is WILD and varies in size from small to tall!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-18T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 922.48,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Sugar Pop",
+        "identifier": "bsg:SugarPop",
+        "identifier2": "402,494,495,496",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.6,
+        "description": "Indulge in the reinvention of Sugar Pop, one of Betsoft’s most popular games. In this incredible sequel, embrace all that was beloved about the original, with cluster wins and candies that explode in a cascade, allowing for additional wins. Revisit the enticing bright colors and welcoming, fluffy, cloud-like dreamland that is the setting of Sugar Pop. But don’t get too comfortable, because things are about to change. In Sugar Pop 2: Double Dipped, everything has been reinvented, from leveling to the candies themselves.\n\nThe difference is noticeable right away, as the special candies no longer just appear on the board, but instead come onto the board in a giant chocolate surprise egg! Some of the old favorites get a slight functional makeover, like the caramel chew that now removes all candies of a specific color from the board. But the real highlights to the special candies are the new additions. A Morphing Golden Wild candy will shift and change shape to match any candy near it. The Jelly Bean Cannon firelly Beans into the air, taking out any candies they land on, and the Sweet Hammer slams the board taking out all candies in its way.\n\nBeyond the special candies are new mechanics behind the cluster wins. Clusters of the special Free Spin candy now trigger Free Spins, while large clusters resolve leaving a WILD on the board to allow for further wins. When more than five clusters resolve in a turn, a Candy BOMB will be left behind to clear a large portion of the board, and result in massive wins.\n\nSugar Pop 2 isn’t just about the individual spin, but, like the original, allows players to level up from spin to spin. Every few levels, a new candy is unlocked and adds to the player’s special candy list, while increasing player enjoyment. Unlike the original, each new level comes with rewards befitting the prestige of leveling up! Also, unlike the original, Sugar Pop 2 has no level cap! With this sweet sequel the fun never has to ",
+        "volatility_rating": "high",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 19,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Sugar Pop 2: Double Dipped",
+        "identifier": "bsg:SugarPop2DoubleDipped",
+        "identifier2": "784,785,786,787",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96.42,
+        "description": "Indulge in the reinvention of Sugar Pop, one of Betsoft's most popular games. In this incredible sequel, embrace all that was beloved about the original, with cluster wins and candies that explode in a cascade, allowing for additional wins. Revisit the enticing bright colors and welcoming, fluffy, cloud-like dreamland that is the setting of Sugar Pop. But don't get too comfortable, because things are about to change. In Sugar Pop 2: Double Dipped, everything has been reinvented, from leveling to the candies themselves.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 113,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Super 7 Blackjack",
+        "identifier": "bsg:Super7Blackjack",
+        "identifier2": "44",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99.71,
+        "description": "Super 7 Blackjack is an exciting multi-hand Blackjack that allows you to play up to 3 simultaneous hands of Blackjack. Each hand plays only against the dealer (i.e. the bank), independently of other hands. Six (6) decks of cards are used to play. Your goal as the player is to draw cards (i.e. hit) until your hand adds up to 21, or comes as close as possible without exceeding 21. If your first two cards total 21, you have Blackjack.\n\nSidebets: The Super 7 bonus side game gives you the chance to win up to an additional 5000.00 depending on what cards you receive.",
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Super Sweets",
+        "identifier": "bsg:SuperSweets",
+        "identifier2": "815",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.03,
+        "description": "Get your sweet tooth on and get ready for some big wins in SUPER SWEETS, the delicious video slot from Betsoft Gaming. Enjoy a scrumptious 5x3 experience with delightful visuals, sticky wild re-spins and an action-packed free spins mode.Sink your teeth in a variety of candies and chocolates as you spin your way to the top. Scoop up a serving of SUPER STICKY WILDS that appear on the reels and trigger a single free re-spin, chain them up, collect golden tickets & power your way to the GOLDEN TICKET FREE SPINS.A SUPER SWEETS CANDY SURPRISE can appear at any time on reels 2, 3 and 4, which can give youeither a re-spin or a ticket to the bonus rounds. Who knows what surprises await?Satisfy your sweet tooth and enjoy sweet, sweet wins on SUPER SWEETS!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 394,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Take Olympus",
+        "identifier": "bsg:TakeOlympus",
+        "identifier2": "837",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 95.49,
+        "description": "Prepare to face the ancient deities of Greece in TAKE OLYMPUS, the newest 5 reel, 50 payline video slot byBetsoft Gaming! This visually stunning game cycles through four Olympian Gods - Apollo, Aphrodite, Poseidon,and Hades. Each God has their own special powers, which will lead you to eternal rewards!Take on the powers of the other Gods alongside the Mighty King of the Gods - Zeus! The ruler of Mount Olympus,Zeus, in any configuration, is WILD. When he appears in a 4-symbol tall configuration, he will award the player10 FREE SPINS, if all 4 other Gods are also present on the reels!Join the Master of all Tides :Poseidon, the God of Light - Apollo, Lord of the Underworld - Hades and theGoddess of Love - Aphrodite, and get a taste of the cherished immortality. Every 10 spins, the endless cycle ofthe Gods turns, bringing new powers with each new God! Multipliers, wilds, and more await you on Olympus!",
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-02-18T00:00:00.000Z",
+        "accumulating": true,
+        "multiplier": 2328,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Take Santa's shop",
+        "identifier": "bsg:TakeSantasShop",
+        "identifier2": "836",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 75,
+        "payout": 96.08,
+        "description": "Get ready for holiday fun with Betsoft's latest video slot Take Santa's Shop! Are you ready to be the villain andhelp the Holiday Robber? With snowflakes falling across the reels, bells jingling and Ornament Bombs turninginto Wilds, the festive season has never been more exciting!This special progression game is played in rounds of 10 - with every spin, an Ornament Bomb Counter countsdown from 10 to 0, making all the bombs detonate for even larger possible wins! Buckle up for the biggest heistof the Christmas season and look out for Santa's Sleigh symbols landing on the reels - that will award you 15Free Spins to escape with!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 7194,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Take The Bank",
+        "identifier": "bsg:TakeTheBank",
+        "identifier2": "813",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 75,
+        "payout": 96.08,
+        "description": "Are you ready for the heist of a lifetime? Welcome to TAKE THE BANK, a fast-paced slot with big, big payouts. Rob the bank and run away with the goods in an exciting adventure with sticky wilds bonus rounds and superb potential!5 reels, 75 paylines, but unlimited is to be had. Watch out for the HEIST SPINS every spin brings you closer to a bomb explosion. Collect robbers on the reels and every 10 spins they will turn into a WILD symbol, busting the vaults wide open.Keep your eyes peeled for the police, as 3 bonus symbols will trigger the FREE SPINS. Catch the handful of wilds running around during the robbery and participate in the heist of a lifetime.TAKE THE BANK is fast, explosive, and ready to bring out the big wins.Break the vaults and win big in TAKE THE BANK!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 225,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Take The Kingdom",
+        "identifier": "bsg:TakeTheKingdom",
+        "identifier2": "850",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 96.53,
+        "description": "TAKE THE KINGDOM is played in 7-spin increments and features a massive red dragon who breathes on the reels, leaving fireball bombs that count down over the 7 spins until they explode! All fireball positions are then converted into WILDS!",
+        "hit_rate": 37.55,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-12-09T00:00:00.000Z",
+        "multiplier": 3640,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Thai Blossoms",
+        "identifier": "bsg:ThaiBlossoms",
+        "identifier2": "852",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 96.21,
+        "description": "Discover a lush jungle paradise where the scent of fruit is heavy in the misty air. THAI BLOSSOMS, the latest Betsoft video slot, offers a gorgeous thematic backdrop of Southeast Asia. Luxuriate in a tropical wonderland as you play this exciting new game.\r\nThis 5-reel, 100 payline video slot features stacking WILDS that stay Sticky for 2 spins when occurring on a winning payline. The grand elephant, lord of the fragrant jungle, trumpets triumph in groups of 3 or more, granting access to a generous FREE SPINS mode where the stacking WILDS remain Sticky and persist until the end of the bonus round.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-11T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 922.48,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Golden Owl of Athena",
+        "identifier": "bsg:TheGoldenOwlofAthena",
+        "identifier2": "794",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.05,
+        "description": "Journey to ancient Greece and unlock the secret of great reward with the Golden Owl of Athena. In this visually stunning 3x5 classic slot, The Golden Owl is the key. Harnessing the wisdom of the ages, Athena's Owl offers up to 20 Free Spins. However, as a wellspring of knowledge, the Golden Owl offers more thanjust Free Spins. This majestic creature also awards Scatter wins and acts as Wild for all other symbols on the reels.The will of Athena takes over during Free Spins and anoints a single symbol at random. Should that symbol be scattered along the reels during Free Spins, the symbols will expand to fill the reel, awarding bonus wins. Follow the Golden Owl and she will lead to eternal reward in The Golden Owl of Athena.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5620,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Hive!",
+        "identifier": "bsg:TheHive",
+        "identifier2": "827",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.97,
+        "description": "Welcome to the sweet world of The Hive, a unique hexagonal grid video slot by Betsoft. Kick off your summer with a fun cast of bee characters, each with their unique twist on the gameplay that will create fun and memorable playing sessions. Discover all the features and enjoy a buzzingly awesome free spins mode while you fly to the riches.",
+        "volatility_rating": "low",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 243,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Mystic Hive",
+        "identifier": "bsg:TheMysticHive",
+        "identifier2": "835",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.13,
+        "description": "Get enchanted with the luminous wonders of the MYSTIC HIVE, the latest hexagonal grid video slot by Betsoft. Collect the magical nectar while fireflies dazzle around and help you by summoning storms and awarding multipliers!\n\nWith every spin, the fireflies move clockwise around the grid, increasing the chances of filling the NECTAR METER. When the NECTAR METER is full, 5 FREE SPINS are awarded! Mystic fireflies of any type can spawn randomly with every spin.\n\nDuring FREE SPINS, 1, 2 or 3 Nectar Burst spreading WILDS will appear on the Mystic Hive Grid! WILDS will spread from their initial place on the grid to adjacent honeycomb cells after every spin, and will continue to spread to other cells until the end of the FREE SPINS!\n\nDelve into a world glimmering with tiny sparks of wondrous light and enjoy the MYSTIC HIVE!",
+        "volatility_rating": "low",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 243,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Three Card Rummy",
+        "identifier": "bsg:ThreeCardRummy",
+        "identifier2": "244",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.04,
+        "description": "Welcome to THREE CARD RUMMY!\n\nAn exciting single deck poker variant table game based on hands consisting of three cards.\n\nAll cards are ranked according to their poker value, except aces are always low.\n\nThe object is to have fewer points than the dealer.",
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Genie's Fortune",
+        "identifier": "bsg:ThreeWishes",
+        "identifier2": "177,291,292,356",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.61,
+        "description": "Who doesn’t like a good Genie, especially one that grants you THREE WISHES? But what will you choose… and endless amount of Wealth and Fortune? Fame beyond your wildest dreams? Or is it true, undying and passionate Love you seek? Don’t fret; the good Genie will grant them all once you find him!\n\nFeatures:\n– Choose between Fame, Wealth and Love in the 3 Wishes bonus round!\n– Monkey Click Me features interactive monkey who helps win instant credits\n– Free Spins Chest and special Magic Carpet features add excitement to the main game\n– Amazing animation brings the Genie and his",
+        "volatility_rating": "medium",
+        "multiplier": 428,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Tiger's Claw",
+        "identifier": "bsg:TigersClaw",
+        "identifier2": "788,789,790,791",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 720,
+        "payout": 95.16,
+        "description": "Get swept away in the mystical world of Tiger's Claw. In this fantasy excursion players spin the reels of the popular 3, 4, 5, 4, 3 slot that pays both left to right and right to left. Spiritual Shaman guides appear across the reels leading\nplayers to scatter wins.\nIf the glorious Tiger's Claw grasping a glowing orb can be found on every reel, Free Spins are triggered. For each combination of 5 Claws, more Free Spins are added, up to 98 in a single spin! Free Spins don't only earn players big\nprizes, but more Free Spins as well. Retrigger with the golden Tiger's Claw for up to 240 total Free Spins!\nWith 720 ways to win, the opportunity for numerous Free Spins, and a mystical appeal, Tiger's Claw will reach out and grab players, while they grab fantastic rewards! ",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3200,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Tigers Claw",
+        "identifier": "bsg:TigersClawSP",
+        "identifier2": "50194",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "test_sp",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Tipsy Tourist",
+        "identifier": "bsg:TipsyTourist",
+        "identifier2": "597,598,599,600",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97.1,
+        "description": "THE TIPSY TOURIST brings you into the world of Gary, a hardworking fellow who sets off on a fabulous late summer holiday to beautiful Miami, Florida. Gary guides you on the reels through many exciting bonus features, such as the Double Up Mini Game, where you can increase any standard win when you choose the right card! The Free Spins mode and Scatter Pays offer many chances to win, and you can join Gary himself in a drinking contest in the interactive Bonus Round",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1300,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Top Card Trumps",
+        "identifier": "bsg:TopCardTrumps",
+        "identifier2": "48",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop"
+        ],
+        "payout": 97.32,
+        "description": "Welcome to Top Card Trumps, an exciting fast paced card game much like the game you played as a child, only now you play against the dealer.\n\nThe game is very simple: Whoever has the highest card wins. All hands are played separately versus the Dealer.",
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Total Overdrive",
+        "identifier": "bsg:TotalOverdrive",
+        "identifier2": "818",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.92,
+        "description": "Ride a cool rush into a world of neon electronica with this 3 reel, 5 payline video slot. With fresh designs of cherries, bells, diamonds, bars, and 7s, this update of the classic fruit machine with awesome laser effects and a driving soundtrack is sure to inspire nostalgia.The heart of TOTAL OVERDRIVE is the Overdrive Multiplier. Every winning spin will increase themultiplier, and the multiplier will continue to increase with consecutive winning spins. Watch the electric filaments build in intensity with each multiplied win!But it doesn't end there. The Overdrive Multiplier can also become Sticky. This means it will hold in place for a duration of spins, even if there are no more consecutive wins. The Overdrive Multiplier holdcan even re-trigger while active, pushing the multiplier level and win potential into real overdrive!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 3206,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Tower of Fortuna",
+        "identifier": "bsg:TowerofFortuna",
+        "identifier2": "845",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.09,
+        "description": "Welcome to the TOWER OF FORTUNA, where the Goddess of Luck, Fortuna, rules with a fair hand.\nThis 3-reel, 5 payline game features revolutionary tower-climbing mechanics, taking your player on\na journey up endless levels of the tower every time they lose a spin.\nBut because Fortuna is fair, she increases a multiplier with every losing spin that is then applied to\nthe player’s eventual winning spin, returning them to the first level of the tower again.\nFortuna gives and takes in a cycle that is beautifully represented in this unique slot, quite unlike any\ngame availabl",
+        "volatility_rating": "medium",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 3200,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Treasure Room",
+        "identifier": "bsg:TreasureRoom",
+        "identifier2": "158,381,382,383",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 94,
+        "description": "Buried deep inside a cavern hundreds of years ago was gold, riches and wealth incomprehensible unless actually seen.Â It seems like miles and miles of treasure chests, gold bars, priceless coins, statues, rubies and emeralds are finally discovered, and now rightfully yours.\n\nFeatures:\n– 5 jackpot symbols on max bet wins the JACKPOT!\n– Sword and Shield instant bonus can award up to 550 credits!\n– 3 scattered bonus feature symbols awards second screen bonus round\n– Players can earn bonus prizes in the Rare Treasure bo",
+        "volatility_rating": "low",
+        "has_jackpot": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Triple Edge Poker",
+        "identifier": "bsg:TripleEdgePoker",
+        "identifier2": "105",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.99,
+        "description": "Welcome to Triple Edge Poker, an exciting single deck poker table game based on hands consisting of three cards.\n\nIn fact, Triple Edge Poker is two games in one!\n\nPair Plus, Triple Edge Poker’s side bet, allows you to win even more money per han",
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Triple Juicy Drops",
+        "identifier": "bsg:TripleJuicyDrops",
+        "identifier2": "853",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95.73,
+        "description": "Will your players take home the Large, Grand, or Massive Prize from TRIPLE JUICY DROPS? This 5×5 gridbased cascading reels video slot will have them collecting colorful symbols for a chance at one of the three PRIZE WHEELS in the game. With generous WILDS in standard play, TRIPLE JUICY DROPS is a fast paced game with the potential for huge rewards!",
+        "hit_rate": 31.24,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-22T00:00:00.000Z",
+        "multiplier": 20534,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "True Illusions",
+        "identifier": "bsg:TrueIllusions",
+        "identifier2": "236,396,397,398",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.62,
+        "description": "In the world of magic, nothing is what it seems. You keep telling yourself it’s only a trick, but is it? There can only one explaination… it’s MAGIC!\nThe higher the risk, the more entertaining the show. Join our fearless magician and his beautiful assistant in TRUE ILLUSIONS.\n\n– Experience TRUE cinematic 3D with full screen camera animation!\n– Watch the credits fly during the cascading free spins feature\n– Enjoy the show with an interactive card trick ",
+        "volatility_rating": "medium",
+        "multiplier": 747,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The True Sheriff",
+        "identifier": "bsg:TrueSheriff",
+        "identifier2": "384,385,386,387",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 97.03,
+        "description": "Villainy has come to the quiet Old West town of High Noon. The people are afraid and the riches of the saloon are in the robber’s sights. Only one man can stand between them. Only one man can set the wrongs to rights and bring justice to the dangerous criminal – THE TRUE SHERIFF from BETSOFT GAM",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Tycoons Plus",
+        "identifier": "bsg:TycoonsPlus",
+        "identifier2": "471,472,473,474",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.34,
+        "description": "In a world reserved for the wealthiest of the wealthy, a world invisible to everyone but the highest echelon, they play a game where the stakes are infinitely high..Only members of the elite Billionaire’s Club are welcom",
+        "volatility_rating": "low",
+        "has_jackpot": true,
+        "multiplier": 1080,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Under The Bed",
+        "identifier": "bsg:UnderTheBed",
+        "identifier2": "308,320,321,365",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.4,
+        "description": "Jessie and Jane have been left home alone, in the dark. What monsters lurk there, in the deep shadows of the night? A rustle, a thump, a clank… there could be anything at all lurking UNDER THE BED. With an exciting new STICKING WILD feature, free spins mode and cinematic second screen bonus round, UNDER THE BED is another top-of-the-line slot machine from Betsoft Gami",
+        "volatility_rating": "low",
+        "multiplier": 700,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Under The Sea",
+        "identifier": "bsg:UnderTheSea",
+        "identifier2": "259,455,456,457",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.4,
+        "description": "Far beneath the clear, shining sea is a coral reef wonderland, teeming with life. Framed by delicately undulating fronds of kelp, brilliantly coloured tropical fish dart about in attendance to the lovely mermaid who guards the treasures here. Will you discover that rarest of oysters, bearing a flawless pearl? The sea’s mysterious bounties are there for the taking when you dive down deep Under the Se",
+        "volatility_rating": "medium",
+        "multiplier": 700,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Viking Age",
+        "identifier": "bsg:VikingAge",
+        "identifier2": "228,623,624,625",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 94.2,
+        "description": "Join Amma as she explores the secrets held within the reels including instant free creates and cinematic camera movement IN GAME! Be part of the action with this exciting 5-Reel video slot.. Only from Betsoft Gaming.",
+        "volatility_rating": "medium",
+        "multiplier": 3875,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Viking Voyage",
+        "identifier": "bsg:VikingVoyage",
+        "identifier2": "805",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.12,
+        "description": "The soothsayers spoke of great riches across the sea, so the Golden King has gathered his most loyal warriors on their greatest expedition to date. Polish your axe, push out the longboats, and prepare to go looting when VIKING VOYAGE sets sail this spring! Steeped in Scandinavian lore, the reels of VIKING VOYAGE are loaded with royals, runes, and other symbols that spell good fortune for your band of intrepid adventurers: horned helmets, battle-worn axes, golden goblets plundered on past voyages, and god-sent guardians in the form of Odin's watchful ravens. Joining the Golden King on his fateful voyage are a grizzled village elder, two hardened fighters, and a feisty\nshieldmaiden  all high-paying symbols, and all ready to follow their king to explore new shores in search of untold treasures.\nThe Golden King himself has descended from his throne to lead his people, and he stands proud on reels 1-4 in stacks of up to 3, using his warrior's instincts to stand in for any other symbol  including the raven scatter. When the King appears in a full-height stack, he bellows a battle cry, freezing that reel in place and shaking the earth so that all other reels spin again. And if another full stack appears during that spin, the King will command that reel to lock, too, before a further respin.\nA special longboat symbol appears only on reels 1 and 5, with shields mounted along its sides, ready to take to the water. When one longboat appears, the drums begin to sound, and if another appears in the same spin, the Vikings being their raid over fifteen free spins!",
+        "hit_rate": 26.32,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 14036,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Vip American Roulette",
+        "identifier": "bsg:VipAmericanRoulette",
+        "identifier2": "198",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "vip",
+        "devices": [
+            "desktop"
+        ],
+        "payout": 97.74,
+        "description": "VIP version of American Roulette. Same as base game, just fancier graphics and higher limits.",
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Vip European Roulette",
+        "identifier": "bsg:VipEuropeanRoulette",
+        "identifier2": "197",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "vip",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "description": "VIP variant of the standard European Roulette game. Features slightly different graphics, and higher limits. Base game is exactly the same.",
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Weekend In Vegas",
+        "identifier": "bsg:WeekendInVegas",
+        "identifier2": "590,591,592,593",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96.6,
+        "description": "Join three unlucky companions as they travel the Nevada desert to Las Vegas, City of Second Chances!\n\nWith free spins, money wheels, reel re-spins for additional chances at the bonus round and a hot stop on the Vegas Strip for some good ol’ gambling, this true 3D cinematic video slot brings the bright lights of Vegas right to the comfort of your hom",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 9684,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wild Drops",
+        "identifier": "bsg:WildDrops",
+        "identifier2": "839",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 16,
+        "payout": 96.11,
+        "description": "Far below the surface of the Earth, there is a prismatic fortune waiting to be found by an explorer bothbrave and bold. Welcome to Wild Drops, the latest video slot by Betsoft. An endless treasure trove ofsparkling gemstones in the mystical mines await you!This 5-reel, 16 fixed payline (8 rows which pay both ways) slot is a visual feast in the popular gemmatching genre. Appealing colours framed by the sweeping deep blues of the mine make every win pop.Winning gems match and disappear from the reels. Clear the entire board to multiply your wins!Drill deep, and match 3 or more identical gems in a horizontal line for a win. Five of a kind on any rowpays both ways! And as wins clear the board, players have a chance to uncover 5 hidden coins to earn5 FREE SPINS. The FREE SPINS mode will take players even deeper into the mines, where the central reel is guaranteed to be fully WILD!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 4400,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wolf Moon Rising",
+        "identifier": "bsg:WolfMoonRising",
+        "identifier2": "810",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.53,
+        "description": "Dream big, win big. Enter the mystical lands of Wolf Moon Rising and explore a slot filled to the brim with exciting action & a potential of up to 20000x, as well as a lucrative bonus game that pays both ways and DOUBLES your wins.Featuring classic Betsoft slots gameplay mixed up with the big win capability that players desire, Wolf Moon Rising has several exciting features. Collect the FEATHER TALISMANS to trigger 12 free spins them up for a chance at amazing wins.Watch for special symbols that will guide you to fortune. The WOLF MOON symbol can appear on any reel and will award an INSTANT WIN. More symbols equal more wins. The game also features a wild mechanic to make for some intense wins. Exciting ways to win in the newest release by Betsoft!Unleash your feral spirit in WOLF MOON RISING!",
+        "hit_rate": 49.96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 20196,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Yak, Yeti & Roll",
+        "identifier": "bsg:YakYetiRoll",
+        "identifier2": "801",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.93,
+        "description": "Built around Betsoft's proprietary trail system, Yak, Yeti & Roll sees an eccentric Inuit inventor and his faithful yeti sidekick forging a steady path across the icy plains of the Arctic. But while the reels are packed with standard seasonal symbols like igloos and yetis, Yak the Eskimo has redesigned the traditional reindeer-driven sled to traverse the snow in style. From his perch he points the way, while his Yeti pal uses pedal power to propel them forwards.Every time a cascade triggers, the spiked wheels of the snowmobile gain traction, and the unlikely pair advance even further along the trail, unearthing frozen treasures as they go. These range from instant payouts to cumulative multipliers that apply to the next cascade win.Free spins is where the payouts really start to snowball\\\\; players can pile up huge reserves of free spins, add free-spin-specific multipliers to these, and then also apply cascade multipliers to quickly turn a small win into an earth-shaking avalanche!",
+        "hd": true,
+        "multiplier": 4637,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Zoom Roulette",
+        "identifier": "bsg:ZoomRoulette",
+        "identifier2": "278",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "standard",
+        "devices": [
+            "desktop"
+        ],
+        "payout": 97.3,
+        "description": "Zoom Roulette is a simple game that gives players the chance to win big.\n\nOur roulette is based on standard European standard single zero roulette, according to the standard rules of the Nevada gaming commission.\n\nZoom Roulette features a stunningly rendered presentation of this classic game in a modern, easy to play format with pre-configured popular betting templates such as Orphelins and Zero bets.",
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    }
+]
