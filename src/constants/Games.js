@@ -37,6 +37,19 @@ import ProviderThunderkick from '../data/icons/games/gameproviders/thunderkick.s
 import ProviderSlotmill from '../data/icons/games/gameproviders/slotmill.png';
 import ProviderPlayngo from '../data/icons/games/gameproviders/playngo.png';
 import ProviderMerkur from '../data/icons/games/gameproviders/merkur.png';
+import ProviderAtmosphera from '../data/icons/games/gameproviders/atmosphera.svg';
+import ProviderEagaming from '../data/icons/games/gameproviders/eagaming.png';
+import ProviderEzugi from '../data/icons/games/gameproviders/ezugi.png';
+import ProviderGameart from '../data/icons/games/gameproviders/gameart.png';
+import ProviderGroove from '../data/icons/games/gameproviders/groove.png';
+import ProviderHabanero from '../data/icons/games/gameproviders/habanero.png';
+import ProviderKagaming from '../data/icons/games/gameproviders/kagaming.png';
+import ProviderKalamba from '../data/icons/games/gameproviders/kalamba.svg';
+import ProviderMascot from '../data/icons/games/gameproviders/mascot.png';
+import ProviderMrslotty from '../data/icons/games/gameproviders/mrslotty.png';
+import ProviderPushgaming from '../data/icons/games/gameproviders/pushgaming.png';
+import ProviderQuickspin from '../data/icons/games/gameproviders/quickspin.svg';
+import ProviderSpearhead from '../data/icons/games/gameproviders/spearhead.svg';
 
 
 const softswissAcceptanceTests = [
@@ -3099,4 +3112,69 @@ export const GAME_PROVIDERS = [
     //   label: 'Playngo',
     //   image: ProviderPlayngo,
     // },
+    {
+      value: 'atmosfera',
+      label: 'Atmosfera',
+      image: ProviderAtmosphera,
+    },
+    {
+      value: 'eagaming',
+      label: 'EA Gaming',
+      image: ProviderEagaming,
+    },
+    {
+      value: 'ezugi',
+      label: 'Ezugi',
+      image: ProviderEzugi,
+    },
+    {
+      value: 'gameart',
+      label: 'Game Art',
+      image: ProviderGameart,
+    },
+    {
+      value: 'habanero',
+      label: 'Habanero',
+      image: ProviderHabanero,
+    },
+    {
+      value: 'kagaming',
+      label: 'KA Gaming',
+      image: ProviderKagaming,
+    },
+    {
+      value: 'kalamba',
+      label: 'Kalamba',
+      image: ProviderKalamba,
+    },
+    {
+      value: 'mascot',
+      label: 'Mascot',
+      image: ProviderMascot,
+    },
+    {
+      value: 'mrslotty',
+      label: 'MrSlotty',
+      image: ProviderMrslotty,
+    },
+    {
+      value: 'pushgaming',
+      label: 'Push Gaming',
+      image: ProviderPushgaming,
+    },
+    {
+      value: 'quickspin',
+      label: 'QuickSpin',
+      image: ProviderQuickspin,
+    },
+    {
+      value: 'spearhead',
+      label: 'SpearHead',
+      image: ProviderSpearhead,
+    },
+    {
+      value: 'groove',
+      label: 'Groove',
+      image: ProviderGroove,
+    },
 ]
