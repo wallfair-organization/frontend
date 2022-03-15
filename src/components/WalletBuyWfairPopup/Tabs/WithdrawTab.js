@@ -1,34 +1,25 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import styles from '../withdraw.module.scss';
 import InputLineSeparator from '../../../data/images/input_line_separator.png';
-import Dropdown from '../../Dropdown';
 import _ from 'lodash';
-
 import { ReactComponent as WfairIcon } from '../../../data/icons/wfair-symbol.svg';
 import {
   getWithdrawQuote,
   processWithdraw,
-  getWithdrawStatus,
   convertCurrency,
 } from '../../../api/index';
 import classNames from 'classnames';
 import { numberWithCommas } from '../../../utils/common';
-import ReferralLinkCopyInputBox from 'components/ReferralLinkCopyInputBox';
-import InputBoxTheme from 'components/InputBox/InputBoxTheme';
 import { addMetaMaskEthereum } from 'utils/helpers/ethereum';
 import WithdrawalSuccessPopup from 'components/WithdrawalSuccessPopup';
-// import { TOKEN_NAME } from 'constants/Token';
 import { selectUser } from 'store/selectors/authentication';
 import { useSelector } from 'react-redux';
 import EthereumLogoActive from '../../../data/icons/ethereum-logo-icon-active.svg';
-import EthereumLogo from '../../../data/icons/ethereum-logo-icon.svg';
 import PolygonLogoActive from '../../../data/icons/polygon-logo-active.svg';
-import PolygonLogo from '../../../data/icons/polygon-logo.svg';
 import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
 import { TOKEN_NAME } from 'constants/Token';
 import ReactTooltip from 'react-tooltip';
-import { FormGroup, InputLabel } from 'components/Form';
-import { validate } from '@material-ui/pickers';
+import { FormGroup } from 'components/Form';
 import WithdrawalErrorPopup from 'components/WithdrawalErrorPopup';
 import Button from 'components/Button';
 
@@ -44,6 +35,7 @@ const WithdrawTab = () => {
   let addressRef = useRef(null);
   let amountRef = useRef(null);
 
+  const account = window.ethereum?.selectedAddress;
   const [address, setAddress] = useState('');
   const [tokenAmount, setTokenAmount] = useState(0);
   const [withdrawAmount, setWithdrawAmount] = useState(0);
@@ -68,6 +60,10 @@ const WithdrawTab = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeNetwork]);
+
+  useEffect(() => {
+    account && setAddress(account);
+  }, [account]);
 
   useEffect(() => {
     ReactTooltip.rebuild();
@@ -167,19 +163,6 @@ const WithdrawTab = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenAmount]);
-
-  const addressLostFocus = useCallback(event => {
-    const inputAddress = event.target.value;
-    const regex = /^0x[a-fA-F0-9]{40}$/g;
-    const valid = inputAddress.match(regex);
-
-    if (!valid) {
-      console.error('wrong 0x address format');
-      return;
-    }
-
-    setAddress(inputAddress);
-  }, []);
 
   const updateReceiveField = async () => {
     if (tokenAmount > 0) {
@@ -335,6 +318,7 @@ const WithdrawTab = () => {
                 onChange={addressChange}
                 onBlur={validateInput}
                 onClick={selectContent}
+                disabled={true}
                 placeholder={`Add your ${
                   activeNetwork === networkName.polygon ? 'Polygon' : 'Ethereum'
                 } wallet address`}
