@@ -28,7 +28,7 @@ const Timer = ({ currency = TOKEN_NAME, startTimeMs, showIncome = false }) => {
   function renderProfit() {
     if (!bet || !bet.amount)
       return <span className={'empty'}>+ 0 {currencyDisplay(currency)}</span>;
-    const profit = (bet.amount * factor).toFixed(0);
+    const profit = (bet.amount * factor).toFixed(2);
     if (profit > 0) {
       return (
         <span className={'positive'}>
