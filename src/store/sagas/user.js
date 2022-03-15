@@ -7,7 +7,6 @@ import { select } from 'redux-saga/effects';
 import { UserActions } from '../actions/user';
 import { LOGGED_IN } from 'constants/AuthState';
 import { AlertActions } from 'store/actions/alert';
-
 const fetch = function* (action) {
   const forceFetch = action.forceFetch;
   let fetchUser = true;
@@ -31,12 +30,17 @@ const fetch = function* (action) {
 
     if (response) {
       const user = response.data;
+      const adminState = yield select(state => state.authentication.admin);
 
-      yield put(
-        UserActions.fetchSucceeded({
-          user,
-        })
-      );
+      if (user.admin !== adminState) {
+        yield put(AuthenticationActions.forcedLogout());
+      } else {
+        yield put(
+          UserActions.fetchSucceeded({
+            user,
+          })
+        );
+      }
     } else {
       yield put(
         UserActions.fetchFailed({
@@ -116,7 +120,7 @@ const updatePreferences = function* (action) {
       })
     );
   } else {
-    yield put(AlertActions.showError({message: error}));
+    yield put(AlertActions.showError({ message: error }));
   }
 };
 
