@@ -1,0 +1,252 @@
+[
+{
+        "title": "Cryptomania",
+        "identifier": "mrslotty:Cryptomania",
+        "identifier2": "eagaming-4",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 16,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	 {
+        "title": "Cursed",
+        "identifier": "mrslotty:Cursed",
+        "identifier2": "eagaming-cursed",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-12-24T00:00:00.000Z",
+        "multiplier": 11445.2,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	{
+        "title": "Dragon of The Eastern Sea",
+        "identifier": "mrslotty:DragonofTheEasternSea",
+        "identifier2": "eagaming-27",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 97,
+        "hit_rate": 37,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	{
+        "title": "Dragon Powerflame",
+        "identifier": "mrslotty:DragonPowerflame",
+        "identifier2": "eagaming-13",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97,
+        "hit_rate": 26,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	{
+        "title": "Dynamite Reels",
+        "identifier": "mrslotty:DynamiteReels",
+        "identifier2": "eagaming-5",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 29,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	{
+        "title": "Empress Regnant",
+        "identifier": "mrslotty:EmpressRegnant",
+        "identifier2": "eagaming-44",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 21,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	{
+        "title": "Enchanted Forest",
+        "identifier": "mrslotty:EnchantedForest",
+        "identifier2": "eagaming-enchanted-forest",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 576,
+        "payout": 97,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-26T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	 {
+        "title": "Enter The KTV",
+        "identifier": "mrslotty:EnterTheKTV",
+        "identifier2": "eagaming-15",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 97,
+        "hit_rate": 37,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	 {
+        "title": "Feng Huang",
+        "identifier": "mrslotty:FengHuang",
+        "identifier2": "eagaming-feng-huang",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-26T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+	{
+        "title": "Four Dragons",
+        "identifier": "mrslotty:FourDragons",
+        "identifier2": "eagaming-36",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 97,
+        "hit_rate": 33,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    }
+]

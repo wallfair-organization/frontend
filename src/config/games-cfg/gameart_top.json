@@ -1,0 +1,433 @@
+[
+	{
+        "title": "Ramses Treasure",
+        "identifier": "gameart:RamsesTreasure",
+        "identifier2": "137",
+        "provider": "gameart",
+        "producer": "gameart",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.03,
+        "description": "Welcome to the mysterious Egyptian world of RAMSES TREASURE. A 5 reel - 10 pay line slot game with astonishing graphics and sounds is ready to engage you with its frequent bonus, where 3, 4 or 5 scattered Golden Chest symbols lead you to the bonus feature. During the bonus screen, the Golden Chest will determine the number of free spins and symbols that will turn gold and act as wild during the free spins feature. Bonus feature can be retriggered during free spins.",
+        "hit_rate": 21,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 2432,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "BG",
+                    "CY",
+                    "DK",
+                    "EE",
+                    "FR",
+                    "GB",
+                    "HK",
+                    "HR",
+                    "IL",
+                    "IT",
+                    "NL",
+                    "NZ",
+                    "RO",
+                    "SE"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Lady Luck",
+        "identifier": "gameart:LadyLuck",
+        "identifier2": "13",
+        "provider": "gameart",
+        "producer": "gameart",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.93,
+        "description": "Have you ever met a fortune teller, reading your palms or looking into a Crystal Ball? Then look no further, this beautiful game is full of rich predictions from LADY LUCK! A 5 reel - 20 pay line games, enriched with original gypsy sounds and enchanting music which offers the bonus feature that is triggered by 3, 4 or 5 scattered Crystal Ball symbols awarding 15 free spins.",
+        "hit_rate": 34,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 1453,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "BG",
+                    "CY",
+                    "DK",
+                    "EE",
+                    "FR",
+                    "GB",
+                    "HK",
+                    "HR",
+                    "IL",
+                    "IT",
+                    "NL",
+                    "NZ",
+                    "RO",
+                    "SE"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Crystal Mystery",
+        "identifier": "gameart:CrystalMystery",
+        "identifier2": "102",
+        "provider": "gameart",
+        "producer": "gameart",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.04,
+        "description": "Join the beautiful explorer in the mystery adventure chasing the alluring and magical crystal skulls. CRYSTAL MYSTERY is a 10 pay line slot game ready to provide you with big wins in this intriguing game. 3, 4 or 5 scattered CRYSTAL SKULL symbols trigger the bonus feature awarding 10 free spins wherein the bonus screen, the time-gate determines your mystery symbol.",
+        "hit_rate": 29,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5171,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "BG",
+                    "CY",
+                    "DK",
+                    "EE",
+                    "FR",
+                    "GB",
+                    "HK",
+                    "HR",
+                    "IL",
+                    "IT",
+                    "NL",
+                    "NZ",
+                    "RO",
+                    "SE"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Santa's Farm",
+        "identifier": "gameart:SantasFarm",
+        "identifier2": "200",
+        "provider": "gameart",
+        "producer": "gameart",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.9,
+        "description": "Win 5 free spins for each line where the CHICKEN substitutes a winning combination, and each GOLDEN EGG that appears during the free spins repeats the wild win that triggered the bonus features. The repeat wild win amount is displayed in the banner above the reels during the free spins and can be multiplied by up to 5 times for every free spin. Bonus feature can be retriggered during free spins.SANTAвЂ™S FARM is positively bursting with Christmas decorations and lights, the brightest colours and a feel-good cosy spirit thatвЂ™s sure to brighten even the darkest of winter evenings, making it an irresistible choice this festive season.",
+        "hit_rate": 32.19,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1803,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "BG",
+                    "CY",
+                    "DK",
+                    "EE",
+                    "FR",
+                    "GB",
+                    "HK",
+                    "HR",
+                    "IL",
+                    "IT",
+                    "NL",
+                    "NZ",
+                    "RO",
+                    "SE"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Wild Dolphin",
+        "identifier": "gameart:WildDolphin",
+        "identifier2": "9",
+        "provider": "gameart",
+        "producer": "gameart",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.95,
+        "description": "One of nature’s most intelligent mammals’, the Dolphin, take a deep dive into this beautifully designed waterscape environment with encaptivating graphics and immersive sounds takes you into the submarine world of WILD DOLPHIN. A 5 reel - 10 pay line game offers the bonus feature that is triggered by 3, 4 or 5 scattered Pearl symbols awarding 15 free spins. All wins during the free spins are multiplied THREE times. Bonus feature can be retriggered during the free spins – big probability of bonus feature retrigger.",
+        "hit_rate": 26,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 2779,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "BG",
+                    "CY",
+                    "DK",
+                    "EE",
+                    "FR",
+                    "GB",
+                    "HK",
+                    "HR",
+                    "IL",
+                    "IT",
+                    "NL",
+                    "NZ",
+                    "RO",
+                    "SE"
+                ]
+            }
+        }
+    },
+	    {
+        "title": "Jumpin Pot",
+        "identifier": "gameart:JumpinPot",
+        "identifier2": "71",
+        "provider": "gameart",
+        "producer": "gameart",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 95.91,
+        "description": "Trip the light fantastic with the Luck of the Irish and catch your personal and sometimes naughty Irish Leprechaun that helps you find a JUMPIN’ POT that’s rich beyond your wildest dreams and full of gold. This 5 reel – 25 pay line slot game offers plenty of excitement during its bonus feature. 10 free spins are won with any 5, 4 or 3 scattered Clover symbols.",
+        "hit_rate": 32,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 403,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "BG",
+                    "CY",
+                    "DK",
+                    "EE",
+                    "FR",
+                    "GB",
+                    "HK",
+                    "HR",
+                    "IL",
+                    "IT",
+                    "NL",
+                    "NZ",
+                    "RO",
+                    "SE"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Atlantis World",
+        "identifier": "gameart:AtlantisWorld",
+        "identifier2": "100",
+        "provider": "gameart",
+        "producer": "gameart",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96.01,
+        "description": "Atlantis, the fabled city under the sea, swim along with the golden dolphins in the mystical waters of ATLANTIS WORLD and discover all the sea of riches that they can win for you. Underwater ambiance surrounded by the Atlantis magnificent ruins, this 50 pay lines slot game offers frequent wild stacked symbols that can deliver exciting big wins. The bonus feature is triggered with three scattered Sphere symbols in any position on reels 2, 3 and 4 awarding 5 free spins, with additional stacked WILD GOLDEN DOLPHINS on bonus reels. If you’re lucky, you can also boost your bonus with an additional five free spins!",
+        "hit_rate": 26,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 2014,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "BG",
+                    "CY",
+                    "DK",
+                    "EE",
+                    "FR",
+                    "GB",
+                    "HK",
+                    "HR",
+                    "IL",
+                    "IT",
+                    "NL",
+                    "NZ",
+                    "RO",
+                    "SE"
+                ]
+            }
+        }
+    },
+	 {
+        "title": "Gold Of Ra",
+        "identifier": "gameart:GoldOfRa",
+        "identifier2": "19",
+        "provider": "gameart",
+        "producer": "gameart",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "description": "Welcome to the mysterious and ancient Egyptian world of GOLD OF RA. RA is a powerful deity and Sun God and this game provides a powerful 5 reel - 25 pay line slot game with astonishing mystical graphics and sounds that are ready to engage you with its frequent bonus, where 3, 4 or 5 scattered Golden Chest symbols lead you to the desired path of enlightenment, the bonus feature. During the engaging bonus screen, the Golden Chest will determine and bestow the number of free spins and symbols that will turn gold and act as wild during the free spins feature. The Bonus feature can be retriggered during further free spins.",
+        "hit_rate": 24,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1078,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "BG",
+                    "CY",
+                    "DK",
+                    "EE",
+                    "FR",
+                    "GB",
+                    "HK",
+                    "HR",
+                    "IL",
+                    "IT",
+                    "NL",
+                    "NZ",
+                    "RO",
+                    "SE"
+                ]
+            }
+        }
+    },
+	{
+        "title": "88 Riches",
+        "identifier": "gameart:88Riches",
+        "identifier2": "133",
+        "provider": "gameart",
+        "producer": "gameart",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 95.64,
+        "description": "Indulge yourself in the all-powerful and mystical land of fire-breathing dragons if you darn, combined with the opulence from 88 RICHES. The 5 reel – 50 pay line slot game offers 10 free spins triggered by the three Jing Jang symbols landing on reels 1, 2 and 3 simultaneously. During the free spins, any GOLDEN DRAGONS appearing on reels stays locked in that position until the end of free spins and substitutes for all symbols except scatters. Bonus feature can be retriggered during the free spins awarding additional 5 free spins.",
+        "hit_rate": 34,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1011,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "BG",
+                    "CY",
+                    "DK",
+                    "EE",
+                    "FR",
+                    "GB",
+                    "HK",
+                    "HR",
+                    "IL",
+                    "IT",
+                    "NL",
+                    "NZ",
+                    "RO",
+                    "SE"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Tiger Heart",
+        "identifier": "gameart:TigerHeart",
+        "identifier2": "146",
+        "provider": "gameart",
+        "producer": "gameart",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.48,
+        "description": "The tiger is of nature’s most powerful cats. Hear and feel the beat of TIGER HEART to pump up your daily dose of adrenaline is this heart-stopping slot. The 5 reel – 10 pay line game delivers lots of big heart pumping wins with its stacked symbols feature. Win 8, 10 or 15 free spins with 3, 4 or 5 Tiger Heart symbols on any pay line with a maximum of 150 free spins. All wins during free spins are doubled. Bonus feature can be re-triggered during free spins. Welcome to one of the most powerful slots in the jungle!",
+        "hit_rate": 30,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2890,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "BG",
+                    "CY",
+                    "DK",
+                    "EE",
+                    "FR",
+                    "GB",
+                    "HK",
+                    "HR",
+                    "IL",
+                    "IT",
+                    "NL",
+                    "NZ",
+                    "RO",
+                    "SE"
+                ]
+            }
+        }
+    }
+
+]

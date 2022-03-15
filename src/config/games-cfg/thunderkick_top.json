@@ -1,0 +1,620 @@
+﻿[
+  {
+    "title": "1429 Uncharted Seas",
+    "identifier": "thunderkick:1429UnchartedSeas_tk",
+    "identifier2": "tk-uncharted",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 25,
+    "payout": 98.63,
+    "volatility_rating": "low",
+    "hd": true,
+    "accumulating": true,
+    "multiplier": 700,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Babushkas",
+    "identifier": "thunderkick:Babushkas_tk",
+    "identifier2": "tk-s1-g5",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 17,
+    "payout": 95.8,
+    "volatility_rating": "low",
+    "hd": true,
+    "multiplier": 390,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Pink Elephants 2",
+    "identifier": "thunderkick:PinkElephants2_tk",
+    "identifier2": "tk-s1-g29",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "ways": 4096,
+    "payout": 96.13,
+    "volatility_rating": "high",
+    "hd": true,
+    "multiplier": 10000,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Pink Elephants",
+    "identifier": "thunderkick:PinkElephants_tk",
+    "identifier2": "tk-s1-g13",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "ways": 4096,
+    "payout": 96.1,
+    "volatility_rating": "medium-high",
+    "hd": true,
+    "multiplier": 8200,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Carnival Queen",
+    "identifier": "thunderkick:CarnivalQueen",
+    "identifier2": "tk-s1-g21-90",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basicde",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "ways": 4096,
+    "payout": 96.1,
+    "volatility_rating": "medium",
+    "hd": true,
+    "multiplier": 22700,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Esqueleto Explosivo 2",
+    "identifier": "thunderkick:EsqueletoExplosivo2_de",
+    "identifier2": "tk-s1-g27-90",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basicde",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "ways": 99,
+    "payout": 96.13,
+    "volatility_rating": "high",
+    "hd": true,
+    "multiplier": 5000,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Esqueleto Explosivo 2",
+    "identifier": "thunderkick:EsqueletoExplosivo2_tk",
+    "identifier2": "tk-s1-g27",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "ways": 99,
+    "payout": 96.13,
+    "description": "AY AY AY! Gear up for the day of dead celebrations and lose yourself to the mariachi rhythms!",
+    "volatility_rating": "high",
+    "hd": true,
+    "multiplier": 5000,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Esqueleto Explosivo",
+    "identifier": "thunderkick:EsqueletoExplosivo_tk",
+    "identifier2": "tk-esqueleto-a",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 17,
+    "payout": 96,
+    "volatility_rating": "low",
+    "hd": true,
+    "multiplier": 700,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "The Falcon Huntress",
+    "identifier": "thunderkick:TheFalconHuntress_tk",
+    "identifier2": "tk-s1-g15",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 9,
+    "payout": 96.1,
+    "volatility_rating": "medium-high",
+    "hd": true,
+    "multiplier": 10050,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Fruit Warp",
+    "identifier": "thunderkick:FruitWarp_tk",
+    "identifier2": "tk-fruittime",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 9,
+    "payout": 97.04,
+    "volatility_rating": "high",
+    "hd": true,
+    "multiplier": 11000,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Dragon Horn",
+    "identifier": "thunderkick:DragonHorn_tk",
+    "identifier2": "tk-s1-g23",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "ways": 243,
+    "payout": 96.1,
+    "description": "Embark on a mysterious journey along with knights, elves and orcs in our upcoming slot - Dragon Horn. With  243 ways to win (pay ways) and a highly volatile bonus game consisting of 5 different levels for those who dare.\r\nGet ready to meet the Dragon!",
+    "volatility_rating": "medium-high",
+    "hd": true,
+    "multiplier": 8282,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Wild Heist at Peacock Manor",
+    "identifier": "thunderkick:WildHeist_tk",
+    "identifier2": "tk-s1-g16",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 17,
+    "payout": 96.1,
+    "volatility_rating": "high",
+    "hd": true,
+    "multiplier": 8500,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Flame Busters",
+    "identifier": "thunderkick:FlameBusters_tk",
+    "identifier2": "tk-s1-g10",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "ways": 243,
+    "payout": 96.1,
+    "volatility_rating": "high",
+    "hd": true,
+    "multiplier": 5280,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Tiger Rush",
+    "identifier": "thunderkick:TigerRush_tk",
+    "identifier2": "tk-s1-g18",
+    "provider": "thunderkick",
+    "producer": "thunderkick",
+    "category": "slots",
+    "has_freespins": true,
+    "feature_group": "basic",
+    "devices": [
+      "desktop",
+      "mobile"
+    ],
+    "lines": 10,
+    "payout": 96.3,
+    "volatility_rating": "low",
+    "hd": true,
+    "multiplier": 1783,
+    "restrictions": {
+      "default": {
+        "blacklist": [
+          "AU",
+          "BE",
+          "CZ",
+          "DK",
+          "ES",
+          "FR",
+          "GB",
+          "IR",
+          "IT",
+          "KP",
+          "LY",
+          "MM",
+          "PT",
+          "RO",
+          "SD",
+          "SY",
+          "US",
+          "VE",
+          "ZW"
+        ]
+      }
+    }
+  }
+]

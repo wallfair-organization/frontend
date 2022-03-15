@@ -1,0 +1,314 @@
+[
+	{
+        "title": "Jungle Stripes",
+        "identifier": "bsg:JungleStripes",
+        "identifier2": "842",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97.03,
+        "description": "Get lost wandering through the lavish jungles in the latest video slot by Betsoft Gaming Jungle Stripes!Make the exotic flowers and leaves tango with exciting features including wilds, scatters and free spins! Theexcitement awaits as you go in search of the majestic Jungle King, who will expand and lock your reels intoplace for free respin action!This 5 reel, 10 fixed payline slot takes you deep inside the wilderness, where the claws of the tiger will bringforward amazing win potential! The thrilling jungle hides all sorts of mysteries, but the Jungle King is the oneyou are looking for. The rumbling growl of the wild animal will easily shake up the calming atmosphere of JungleStripes!While the vibrant nature of the tropical forest sets the mood, wait for the special Moonglow symbols, whichserve as scatters! With glowing lotus flowers and fluorescent mushrooms growing from crystal rocks the junglehas become the magical destination for amazing action and big wins!",
+        "hit_rate": 21.87,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-06-24T00:00:00.000Z",
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+	
+	{
+        "title": "88 Frenzy Fortune",
+        "identifier": "bsg:88FrenzyFortune",
+        "identifier2": "849",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 96,
+        "description": "Get ready for big and plentiful wins in 88 FRENZY FORTUNE! This three standard reel, single payline slotfeatures a bonus reel with the potential for game-changing effects, making sure that each spin will haveyour players on the edge of their seats.With the majesty of space in the background, your players will enjoy the cool retro electronica theme asthey rack up wins. The game boasts a broad bouquet of bonuses, and any bonus is possible with eachwinning spin a 2x, 5x, or 8x multiplier on wins, an 8x or 18x boost to the player's wager, or a free respinthat features its own multiplier on wins!88 FRENZY FORTUNE is the fast-paced, beautifully rendered slot your players have been looking for!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-08-12T00:00:00.000Z",
+        "multiplier": 2368,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Stacked",
+        "identifier": "bsg:Stacked",
+        "identifier2": "840",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.39,
+        "description": "Slip into the magic of the reels with Stacked, the latest 4 reel, 20 fixed payline video slot by Betsoft Gaming.The Magician has many tricks and secrets up his sleeve, so keep your eye on him! Featuring a variety offeatures and a dynamic free spins mode, there is plenty of fun to be had!Enjoy the show as the Magician fixes the reels in your favor and lets you look into the Mystery Boxes,which will reward you with FREE SPINS! The deck flips and all reel spots get turned upside down. Before theFREE SPINS mode begins, you will be able to choose your spots on the reels that award unique effects.Powerful magical effects are lurking beneath these spots, if you dare to explore them. Look out for the specialattributes that can enhance your FREE SPINS mode! These attributes can stack and occur together during FREESPINS. Don't tell anyone. It's a secret!",
+        "hit_rate": 39.83,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "released_at": "2021-03-18T00:00:00.000Z",
+        "multiplier": 3847,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Take The Bank",
+        "identifier": "bsg:TakeTheBank",
+        "identifier2": "813",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 75,
+        "payout": 96.08,
+        "description": "Are you ready for the heist of a lifetime? Welcome to TAKE THE BANK, a fast-paced slot with big, big payouts. Rob the bank and run away with the goods in an exciting adventure with sticky wilds bonus rounds and superb potential!5 reels, 75 paylines, but unlimited is to be had. Watch out for the HEIST SPINS every spin brings you closer to a bomb explosion. Collect robbers on the reels and every 10 spins they will turn into a WILD symbol, busting the vaults wide open.Keep your eyes peeled for the police, as 3 bonus symbols will trigger the FREE SPINS. Catch the handful of wilds running around during the robbery and participate in the heist of a lifetime.TAKE THE BANK is fast, explosive, and ready to bring out the big wins.Break the vaults and win big in TAKE THE BANK!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 225,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+	
+	{
+        "title": "7 Fortune Frenzy",
+        "identifier": "bsg:7FortuneFrenzy",
+        "identifier2": "846",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 96,
+        "description": "Get ready for big and plentiful wins in 7 FORTUNE FRENZY! This three standard reel, single payline slot\nfeatures a bonus reel with the potential for game-changing effects, making sure that each spin will have\nyour players on the edge of their seats.\nWith the majesty of space in the background, your players will enjoy the cool retro electronica theme as\nthey rack up wins. The game boasts a broad bouquet of bonuses, and any bonus is possible with each\nwinning spin — a 2x, 5x, or 8x multiplier on wins, an 8x or 18x boost to the player’s wager, or a free respin\nthat features its own multiplier on wins!\n7 FORTUNE FRENZY is the fast-paced, beautifully rendered slot your players have been looking ",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-08-26T00:00:00.000Z",
+        "multiplier": 2368,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Stampede",
+        "identifier": "bsg:Stampede",
+        "identifier2": "771,772,773,774",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 95.27,
+        "description": "Take a trip to the sun-drenched African savannah with STAMPEDE, the newest Classic Slot brought to youby Betsoft Gaming.This all-ways-pay slot machine offers 1024 ways to win and a beautiful art style, that evoking the highgrasses and spreading acacia trees of the African plain. The warm palette suggests the heat of thesavannah in summer, where the majestic elephant herds rule supreme, accompanied by other icon Africanwildlife such as giraffes, gazelles and zebras.The top value Elephant symbols dominate the reels, and when they Stampede the players win big! With theaddition of x3 Wilds in Free Spins, there are some truly mammoth wins to excite your players.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3847,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Primal Hunt",
+        "identifier": "bsg:PrimalHunt",
+        "identifier2": "833",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 80,
+        "payout": 96.1,
+        "description": "With multiplying multipliers, Free Spins, and\nmore, Primal Hunt takes you back to the lands of\nthe ice age, when the Cave Lion ruled the earth.",
+        "hit_rate": 14.33,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 88406,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "ChilliPop",
+        "identifier": "bsg:ChilliPop",
+        "identifier2": "800",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.08,
+        "description": "Spice things up with Chillipop, the cluster-based, cascading slot game with a secret ingredient: an expanding grid offering explosive new ways to win.From the Mariachi soundtrack to the potent chilli symbols, Chillipop is suffused with the spirit and sizzle of Mexican cuisine. Players try to assemble the perfect salsa, matching symbols like tomatoes, onions, garlic, and red, yellow, and green peppers to create the tastiest (and top-paying) combinations.Like the sauce itself, things can heat up quickly in Chillipop any configuration of 3 or more adjacent symbols pays out, and as items are added to the pot, new symbols cascade down to replace them. Couple this with the wild symbol - which can substitute for any ingredient, as well as creating stackedmultipliers when several appear on-screen and players can create maximum flavour from a single spin.The fiesta gets into full swing with the Free Spins feature, triggered by 3 or more pack mule scatter symbols appearing at once. Over an allocation of between 5 and 26 free spins, Chillipop then uses Betsoft's proprietary trail system to track the number of sombrero-sporting mules that players collect, with set milestones expanding the size of the cooking pot even further. From an initial 5x3 grid, the Free Spins feature can grow the playing area to a massive 8x8, with the new dimensions dramatically increasing the number of paylines.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 21667,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Lava Gold",
+        "identifier": "bsg:LavaGold",
+        "identifier2": "823",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95.99,
+        "description": "Things are about to get hot in LAVA GOLD – the latest 5×5 grid cluster-based game by Betsoft Gaming! With multiple features, including VOLCANO WILDS, FREE SPINS and CLUSTER WINS, the newest slot provides your players with a rich and vivid experience, both graphically and functionally.\n\nLAVA GOLD brings you to a volcanic island, a world of enormous and spine-chilling dinosaurs. Go on a dinosaur egg hunt across the steaming grounds of the archipelago and try not to get caught in the claws of the flying Pterodactyl or the frightening T-Rex! Let the tangles of twigs and leaves guide you to the VOLCANO, which is a WILD symbol!\n\nThe ground shakes as the LAVA METER fills up and FREE SPINS are awarded. During FREE SPINS mode, the central column of the grid will be made up of an identical symbol, guaranteeing a win! Each FREE SPIN during FREE SPINS mode has a growing multiplier. The first FREE SPIN awards a 1x multiplier on wins, and it progresses from there up to a 10x multipli",
+        "hit_rate": 29.19,
+        "volatility_rating": "medium",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 159,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Safari Sam 2",
+        "identifier": "bsg:SafariSam2",
+        "identifier2": "841",
+        "provider": "bsg",
+        "producer": "bsg",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "standard",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96.3,
+        "description": "Safari Sam is back! Get ready to go on a safari journey with Sam & Pam for stacked wins, wilds & more! SAFARI\nSAM 2 is the latest 5 reel, 50 payline video slot by Betsoft Gaming, bursting with exciting features that will leave\nyou craving more adventure!\nIt's time to pack your bags and take a trip to the untamed lands of the savannah for a breathtaking expedition,\nwhere things can get a little WILD! Follow the compass to the CALL OF THE WILDS while sightseeing the majestic\nanimals in their natural habitat!\nAs Sam & Pam guide you through the sun-drenched African Savannah, watch out for ACACIA TREE symbols -\n3 or more acacia scatters will trigger FREE SPINS feature, where you can win up to 20 FREE SPINS straight from\nthe start! With the addition of SAFARI STACKS, there are some truly flaming wins to score",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-04-22T00:00:00.000Z",
+        "multiplier": 505,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            },
+            "MT": {
+                "blacklist": [
+                    "US"
+                ]
+            }
+        }
+    },
+]

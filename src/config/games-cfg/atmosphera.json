@@ -1,0 +1,271 @@
+[
+    {
+        "title": "Bet on Poker",
+        "identifier": "atmosphera:BetonPoker",
+        "identifier2": "poker",
+        "provider": "atmosphera",
+        "producer": "atmosfera",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-09T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AF",
+                    "AG",
+                    "BQ",
+                    "CA",
+                    "CU",
+                    "CW",
+                    "IL",
+                    "IQ",
+                    "IR",
+                    "LY",
+                    "MO",
+                    "RS",
+                    "SD",
+                    "SX",
+                    "SY",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "European Bingo Roulette",
+        "identifier": "atmosphera:Bingo37",
+        "identifier2": "bingo37",
+        "provider": "atmosphera",
+        "producer": "atmosfera",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AF",
+                    "AG",
+                    "BQ",
+                    "CA",
+                    "CU",
+                    "CW",
+                    "IL",
+                    "IQ",
+                    "IR",
+                    "LY",
+                    "MO",
+                    "RS",
+                    "SD",
+                    "SX",
+                    "SY",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "American Bingo Roulette",
+        "identifier": "atmosphera:Bingo38",
+        "identifier2": "bingo38",
+        "provider": "atmosphera",
+        "producer": "atmosfera",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AF",
+                    "AG",
+                    "BQ",
+                    "CA",
+                    "CU",
+                    "CW",
+                    "IL",
+                    "IQ",
+                    "IR",
+                    "LY",
+                    "MO",
+                    "RS",
+                    "SD",
+                    "SX",
+                    "SY",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Keno",
+        "identifier": "atmosphera:Keno",
+        "identifier2": "keno",
+        "provider": "atmosphera",
+        "producer": "atmosfera",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AF",
+                    "AG",
+                    "BQ",
+                    "CA",
+                    "CU",
+                    "CW",
+                    "IL",
+                    "IQ",
+                    "IR",
+                    "LY",
+                    "MO",
+                    "RS",
+                    "SD",
+                    "SX",
+                    "SY",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "LiveSlots",
+        "identifier": "atmosphera:LiveSlots",
+        "identifier2": "liveslots",
+        "provider": "atmosphera",
+        "producer": "liveslots",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "liveslots",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AF",
+                    "AG",
+                    "AM",
+                    "BQ",
+                    "CA",
+                    "CU",
+                    "CW",
+                    "IL",
+                    "IQ",
+                    "IR",
+                    "LY",
+                    "MO",
+                    "RS",
+                    "SD",
+                    "SX",
+                    "SY",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Music Wheel",
+        "identifier": "atmosphera:musicwheel",
+        "identifier2": "musicwheel",
+        "provider": "atmosphera",
+        "producer": "atmosfera",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AF",
+                    "AG",
+                    "BQ",
+                    "CA",
+                    "CU",
+                    "CW",
+                    "IL",
+                    "IQ",
+                    "IR",
+                    "LY",
+                    "MO",
+                    "RS",
+                    "SD",
+                    "SX",
+                    "SY",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Live Roulette",
+        "identifier": "atmosphera:RouletteEng",
+        "identifier2": "roulette_eng",
+        "provider": "atmosphera",
+        "producer": "atmosfera",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AF",
+                    "AG",
+                    "BQ",
+                    "CA",
+                    "CU",
+                    "CW",
+                    "IL",
+                    "IQ",
+                    "IR",
+                    "LY",
+                    "MO",
+                    "RS",
+                    "SD",
+                    "SX",
+                    "SY",
+                    "US"
+                ]
+            }
+        }
+    }
+]

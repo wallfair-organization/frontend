@@ -1,0 +1,1488 @@
+[
+    {
+        "title": "Agent 51",
+        "identifier": "kalamba:Agent51_k",
+        "identifier2": "agent51",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.73,
+        "description": "Travel back to the 1960s and meet the intrepid Agent 51 as he investigates all manner of unusual goings on in this mystery adventure. Complete with HyperBonus, and K-Loops (the new name for LuckyLoops), chase aliens and huge wins in this amazing new thriller.",
+        "hit_rate": 59,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-02-18T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 5593,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Age of Dragons",
+        "identifier": "kalamba:AgeofDragons_k",
+        "identifier2": "ageofdragons",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.76,
+        "description": "Age of Dragons is a 5-reel, 3-4-3-4-3 game with 40 paylines. There is an accumulation feature whereby symbols are accumulated to a counter for each column over multiple spins, and when a sufficient number is collected for a given column then the column becomes wild for a number of spins. Additionally, there is a free spinsbonus.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Age of Huracan",
+        "identifier": "kalamba:AgeOfHuracan_k",
+        "identifier2": "ageofhuracan",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 96.75,
+        "description": "Enter the Age of Huracan! Our 50th game sees players exploring the Mayan temple in search of thrills and big potential wins. Packed with epic features, this trip into history delivers a truly legendary gaming experience.Can your players raid Huracan's treasure? There's only one way to find out - make sure Age of Huracan is in your lobby from from launch day!",
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-06-30T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 10240,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Age of Ice Dragons",
+        "identifier": "kalamba:AgeofIceDragons_k",
+        "identifier2": "ageofdragons-ice",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.76,
+        "description": "Welcome to \"Age of Ice Dragons\"! Another seasonal entry in our always growing library of games. Showcasing the flexibility of custom game assets to meet promotional, brand and seasonal requirements of our operator partners and adding a seasonal twist to our monstrously successful \"Age of Dragons\". This 5-reel, 3-4-3-4-3 game with 40 paylines and a 2000x bet max win gives and extra level of excitement by combining Kalamba's unique Missions mechanic (with bronze, silver, gold and platinum levels), accumulating wild symbols & super-volatile Free Spins Bonus effectively maximizing players engagement over time. Ice Dragon Throne awaits! Set the reels on fire and conquer it!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Atlantis Thunder",
+        "identifier": "kalamba:AtlantisThunder_k",
+        "identifier2": "atlantis",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 3600,
+        "payout": 97.73,
+        "description": "Atlantis Thunder is a 6 reels, 3-4-5-5-4-3 rows, 3600 pay ways game with free spins, hyper bonus, progressive jackpots and multiplier wild symbols. A Free Spins Bonus is triggered when 3 or more special symbols appear during the base game. The volatile free spins mechanic comes with high potential for retriggers. Wild symbols act as multipliers, raising excitement for a well-known feature. The Personal Progressive Jackpots is a proven engagement and retention mechanic from previous game releases and targets high-value players. Players rewarded with higher jackpots for extended play or higher bets. Hyper Bonus  monetization mechanic  targeting all player demographics. Used highly successfully in land-based casinos, now available online in Kalamba Games giving a player option to go directly to free spins. Intuitive win feedback with ways pays well suited to retention and engagement. Frequent retrigger in frees pins rounds with multipliers encouraging engagement.",
+        "hit_rate": 28,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 19000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Atlantis Thunder St. Patrick's Day",
+        "identifier": "kalamba:AtlantisThunderStPatricksDay_k",
+        "identifier2": "atlantis-stpatricks",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 3600,
+        "payout": 97.73,
+        "description": "Showcasing the flexibility of custom game assets to meet promotional, brand and seasonal requirements of our operator partners, celebrate St. Patrick's day with a seasonal twist to a player favourite Atlantis Thunder. Atlantis Thunder is a 6 reels, 3-4-5-5-4-3 rows, 3600 pay ways game with free spins, hyper bonus, progressive jackpots and multiplier wild symbols. A Free Spins Bonus is triggered when 3 or more special symbols appear during the base game. The volatile free spins mechanic comes with high potential for retriggers. Wild symbols act as multipliers, raising excitement for a well-known feature. The Personal Progressive Jackpots is a proven engagement and retention mechanic from previous game releases and targets high-value players. Players rewarded with higher jackpots for extended play or higher bets. Hyper Bonus  monetization mechanic  targeting all player demographics. Used highly successfully in land-based casinos, now available online in Kalamba Games giving a player option to go directly to free spins. Intuitive win feedback with ways pays well suited to retention and engagement. Frequent retrigger in frees pins rounds with multipliers encouraging engagement.",
+        "hit_rate": 28,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 19000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bangkok Dreams",
+        "identifier": "kalamba:BangkokDreams_k",
+        "identifier2": "bangkokdreams",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.69,
+        "description": "Bangkok Dreams is a 5 reels, 4 rows, 40 paylines game with free spins, symbol accumulation & wild symbol multipliers. High-rollers can play the game at the most volatile of 4 game play choices, and can even make a special bet to enter the free spins bonus directly! Newer players will be engaged by the easy-to-understand retention mechanic and can be brought on board at one of the lower volatility settings. Operators can offer free rounds with any bet option in order to engage players at the right spot, giving a plethora of retention marketing options around a single game.",
+        "hit_rate": 26,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "accumulating": true,
+        "bonus_buy": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Beers on Reels",
+        "identifier": "kalamba:BeersonReels_k",
+        "identifier2": "beersonreels",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.29,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1383,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Big Bounty Bill",
+        "identifier": "kalamba:BigBountyBill_k",
+        "identifier2": "bigbountybill",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 16807,
+        "payout": 97.88,
+        "description": "\"Join Big Bounty Bill on his journey to the Badlands in dogged pursuit of a gallery of original villains to reel in big prizes in this Retro-futurist slots adventure.  Packed with Kalamba signature features that let you play your own way, Big Bounty Bill lives up to his name with a maximum win of 5000x bet, allowing truly intrepid gunslingers out there to chase really big wins.Persistent Hyperspins add an extra layer of fun - collect expansion symbols to raise column height then collect 3 symbols to trigger HyperSpins.Can't wait to to land some prizes? Use our signature HyperBonus feature to shortcut to the bonus round 16807 ways pays and a maximum win of 5000x bet make Big Bounty Bill an essential addition to your collection. Bounty huntin' has never been more fun!\"",
+        "hit_rate": 27,
+        "volatility_rating": "high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Blazing Bull 2",
+        "identifier": "kalamba:BlazingBull2_k",
+        "identifier2": "blazingbull2",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 97.21,
+        "description": "This bigger and even better sequel to last year's smash hit is sure to be a resounding hit among key target demographics.Featuring K-Boost, where players fill two meters with each base game spin to get a higher number of starting free spins, Two different Free Spins games, K-Split, and HyperBonus, Blazing Bull 2 truly takes the visuals and excitement to the next level!",
+        "hit_rate": 28,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-08-10T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 50000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Blazing Bull",
+        "identifier": "kalamba:BlazingBull_k",
+        "identifier2": "blazingbull",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 97.42,
+        "description": "Get close to nature and track Blazing Bull across this 6-reel, 4-row video slot where 4096 ways pays. Trekkers can collect silver and gold bonus symbols to trigger free spins with multipliers. Bears, Eagles, Wolves cougars are your spirit guides on the quest to find the Blazing Bull!",
+        "volatility_rating": "high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 6480,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Blood Moon Express",
+        "identifier": "kalamba:BloodMoonExpress_k",
+        "identifier2": "bloodmoonexpress",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 120,
+        "payout": 97.48,
+        "hit_rate": 28,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Burning Diamonds",
+        "identifier": "kalamba:BurningDiamonds_k",
+        "identifier2": "burningdiamonds",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.21,
+        "description": "Burning Diamonds delivers the fiery volatility our players love. Use HyperBet to set the level of wild multipliers in the reels to chase those bigger wins and additional free spins or shortcut directly to the free spins rounds with a HyperBonus special bet. With luck on your side you could land one of four accumulating Bonus Jackpots and win big.",
+        "hit_rate": 14,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Caribbean Anne 2",
+        "identifier": "kalamba:CaribbeanAnne2_k",
+        "identifier2": "caribbeananne2",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97.16,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-10-14T00:00:00.000Z",
+        "multiplier": 14100,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Caribbean Anne",
+        "identifier": "kalamba:CaribbeanAnne_k",
+        "identifier2": "caribbeananne",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.83,
+        "description": "Shiver me jackpots! Get ready to sail the seven seas with Caribbean Anne. High volatility and persistent player features make this one not to be missed!Hyperbonus, Hyperbet, Locking Multiplier Wilds and 4 level Bonus Jackpots all add to the fun and excitement as you get aboard and sail off on your pirate adventure.",
+        "hit_rate": 18,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Cosmic Charms",
+        "identifier": "kalamba:CosmicCharms_k",
+        "identifier2": "cosmiccharms",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.97,
+        "hit_rate": 17,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 20120,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crystal Cavern",
+        "identifier": "kalamba:CrystalCavern_k",
+        "identifier2": "crystalcavern",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 97.72,
+        "description": "The Crystal Cavern is a place to seek precious stones, relaxing fun - and big potential wins! Atmospheric sounds and sparkling symbols allow players to get engaged and enjoy chilling out whilst having a huge amount of fun. Proven monetisation and retention features make this game sure to charm players from all backgrounds.",
+        "hit_rate": 24.45,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 4167,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Desert Gem",
+        "identifier": "kalamba:DesertGem_k",
+        "identifier2": "desertgem",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 97.97,
+        "description": "Set in a desert landscape, the game offers a treasure trove of exciting in-game features taking players on a quest for hidden gems, additional free spins and wild multipliers. This 4x5 video slot incorporates the popular HyperBet feature enabling players to adjust game volatility and win potential by setting the number of gold symbols in the reels. Selecting more gold symbols increases the probability of hitting bonus jackpots and increases pay line pay-outs. Multi-layered symbol collection mechanics enable players to decide whether to play bonus rounds at bronze, silver gold and platinum levels for ever increasing win potential and match their play style with risk appetite.",
+        "hit_rate": 30,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5763,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dino Odyssey",
+        "identifier": "kalamba:DinoOdyssey_k",
+        "identifier2": "dinoodyssey",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96.7,
+        "description": "Dino Odyssey combines sharp, high production quality graphics, a unique and volatile maths model that will keep players excited and playing for a long time.The missions collection feature also has a reward of locking bonus spins, that will entertain players for a long duration.The free spins feature symbols can be collected to lock wilds in up to 3 of the center columns at the same time. The missions collection feature provides an intuitive and simple engagement funnel that will provide excellent short and long term retention. Players are able to choose to play the bonus respins at any of the 4 levels, or to keep playing for a far higher reward. With the increasing levels of the bonus providing more volatility and higher rewards, Dino Odyssey offers lasting engagement for players. At the same time, the nature of the volatility profile, combined with the missions mechanic, offers excellent opportunities for redeposit promotions.",
+        "hit_rate": 34,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Doctor Electro",
+        "identifier": "kalamba:DoctorElectro_k",
+        "identifier2": "electro",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 16807,
+        "payout": 97.55,
+        "description": "Doctor Electo introduces a unique layer of player engagement with column expansion collection meters and the all new Hyperspins feature. Upping the bar again with art, animation and audio, Dr. Electro is a 5-column, 4-row base game with expanding reels, increasing to 7 rows and a huge 16807 ways pays. Collect column expansion symbols in the base game, trigger the all new Hyperspins feature to unlock the reels, then continue collection to further expand the reels and up the win potential. Enter free spins with Bonus scatter symbols or even immediately with a HyperBonus special bet. Expansion symbol collection in free spins extends reels directly and awards freespin retriggers. Progressive Platinum and Gold Bonus jackpots are back by popular demand and with expanded reels the opportunity to win big just increases. Packed with engagement, monetisation and retention - the classic Kalamba Games calling card!",
+        "hit_rate": 31,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 1480,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Double Joker",
+        "identifier": "kalamba:DoubleJoker_k",
+        "identifier2": "doublejoker",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97.21,
+        "description": "Double Joker is a flashy classic style game with novel features on a 3x3 reel grid. Joker symbols are wild and can have up to a 3x multiplier, so any win can be multiplied up to 27x. The respins feature is triggered whenever 2 or more joker symbols appear, and joker symbols are locked in place wild the reels respin. This exciting feature gives players the volatility they crave, with the chance to lock jokers in all positions on the reels for even greater awards. Double Joker features Kalamba's missions mechanic, where players can choose what symbols to collect over 30, 50, 75, or 100 spins, and get paid out for the final number collected. This compelling retention feature adds a new layer of excitement to the game, and is sure to keep players coming back for more.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 2700,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Ducks Till Dawn",
+        "identifier": "kalamba:DucksTillDawn_k",
+        "identifier2": "duckstilldawn",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.91,
+        "description": "Roll up roll up!  Come to the spooky fairground at twilight where you can try your luck at shooting ducks and scoring massive potential wins!  Get more free spins with our SpinBoost feature or go straight to the bonus feature with HyperBonus in this chilling and exciting adventure, where anything is possible if you can survive...from Ducks till Dawn.",
+        "hit_rate": 35.69,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-01-20T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 15595,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "El Vigilante",
+        "identifier": "kalamba:ElVigilante_k",
+        "identifier2": "vigilante",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.74,
+        "description": "If you have a problem and no one else can help, and you live in 19th Century California, who do you call? El Vigilante of course! Our latest good guy helps other good guys catch bad guys - whilst of course looking for massive potential wins in his own inimitable style. Featuring three game modes; the Base game, Free Spins, and K-Cash spins; El Vigilante is a true swashbuckling adventure!",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-09-30T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 10136,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Finnegan's Banditos",
+        "identifier": "kalamba:FinnegansBanditos",
+        "identifier2": "finnegansbanditos",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "description": "Finnegan the lucky leprechaun has lost his pot of gold and been tricked into joining a group of 19th century banditos to try and get it back! Can you stop him and go for huge potential wins? Featuring three game modes; the Base game, Free Spins, and K-Cash Spins; Finnegan’s Banditos is an unmissable leprechaun fighting adventure!\t",
+        "hit_rate": 18,
+        "hd": true,
+        "released_at": "2022-02-10T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 10136,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Finnegan's Formula",
+        "identifier": "kalamba:FinnegansFormula_k",
+        "identifier2": "finnegansformula",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 7776,
+        "payout": 97.11,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-06-10T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Firedrake's Fortune",
+        "identifier": "kalamba:FiredrakesFortune_k",
+        "identifier2": "firedrakesfortune",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.13,
+        "description": "Can you defeat the Firedrakes and raid their treasure?  This epic title features 6 reels and 40 lines and sees players join a team of Vikings in hot pursuit of mythical beasts and magical riches.Kalamba's signature features, HyperBonus, HyperBet, LuckyLoops and more are present to help players on their journey.",
+        "volatility_rating": "high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 2588,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fire Eagle",
+        "identifier": "kalamba:FireEagle_k",
+        "identifier2": "fireeagle",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 120,
+        "payout": 96.01,
+        "description": "Fire Eagle has a unique reel layout with glossy high-res graphics that will instantly impress players. Already proving popular with players, it now comes with Kalamba's Missions. Players will have fun collecting different symbols for loads of different prizes and can choose between bronze and platinum missions for massive payouts of 1000x+ or even higher when promotions are running! The random stacked wilds, super exciting free spins rounds and the popular missions features, will quickly engage players for lasting entertainment. Missions provide an extra layer of player engagement and retention with attractive and variable rewards for completing objectives. Players can select their own level, helping the early engagement funnel while offering different pay-outs that drive long-term entertainment. The free spins offers visible potential for huge wins providing a high level of excitement The random stacked wilds give quick feedback that will further help player engagement.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gates of Babylon",
+        "identifier": "kalamba:GatesofBabylon_k",
+        "identifier2": "gatesofbabylon",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.29,
+        "description": "Gates of Babylon is a 40-line 5x4 game with a novel accumulation mechanic to win multiple spins with stacked wilds. During the base game, when gold coin symbols land, they award a ruby for the reel on which they landed. When there are 3 rubies collected for any reel, the full reel becomes wild for 3 spins, with a chance to retrigger for more! The free spins features this same collection mechanic, but once a stacked wild is awarded it remains locked for all remaining spins, giving a chance to win one massive payout after another.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Goblins & Gemstones",
+        "identifier": "kalamba:GoblinsGemstones_k",
+        "identifier2": "goblins",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 96.3,
+        "description": "Challenge your players to unlock the Goblin Treasure Vault! This all-new title features THREE new unique mechanics designed for massive volatility and huge win potential. HyperBonus allows players to go straight to their choice of any of these features in this unmissable fantasy crime caper.",
+        "hit_rate": 23.23,
+        "volatility_rating": "high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 38891,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gold Fire 7s",
+        "identifier": "kalamba:GoldFire7s_k",
+        "identifier2": "goldfire7s",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.65,
+        "description": "Goldfire 7s is a classic style slot with an exciting respins feature and locking wild multipliers, which offers the player attractive and visibly huge potential wins. Coming with Kalamba's awesome missions feature and all the revolutionary promo tools, they provide an extra layer for increasing player engagement and retention. Players can select their own level, helping the early engagement funnel, while offering different rewards for long-term entertainment.",
+        "hit_rate": 31,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 13500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Griffin's Quest",
+        "identifier": "kalamba:GriffinsQuest_k",
+        "identifier2": "griffinsquest",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 2400,
+        "payout": 97.52,
+        "description": "Battle mythological creatures in the search for the Mighty Griffin in our latest slot title. Journey up Mount Olympus and encounter Manticores and even the evil Goddess Medusa in an epic quest for big potential wins.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 26032,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Griffin's Quest Xmas",
+        "identifier": "kalamba:GriffinsQuestXmas_k",
+        "identifier2": "griffinsquest-xmas",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 2400,
+        "payout": 96.5,
+        "hit_rate": 22.96,
+        "volatility_rating": "high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 26032,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Holmes: Reel Detective",
+        "identifier": "kalamba:HOLMESReelDetective_k",
+        "identifier2": "sherlockholmes",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96,
+        "description": "Join the world’s greatest detectives, Holmes and Watson on a spectacular clue chase through Victorian London! Featuring K-Boost, K-Cash with a maximum 200x multiplier, 2 types of Free Spins and HyperBonus, the magic is indubitably the mystery in this extraordinarily compelling slots adventure.",
+        "hit_rate": 40.77,
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2022-01-13T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 20550,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hong Bao",
+        "identifier": "kalamba:HongBao_k",
+        "identifier2": "hongbao",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 97.5,
+        "description": "Random Walking Wilds is an all new engagement feature in this 4-row, 5 reel slot. Wild multipliers are set by players using the trusted Hyperbet mechanic, raising the minimum bet levels, driving monetisation and of course upping win potential and volatility. An excellent funneling mechanic for players transitioning from beginner-intermediate-VIP and testing the waters with higher volatility and payouts. 3 bonus symbols award Free spins and the random multiplier theme continues with locking wilds defined by the player selected HyberBet level. Symbol collection progression mechanics that extend session length open the Bonus Game which can be played at bronze, silver, gold and platinum levels. Extended game play rewards the higher Bonus Games levels and greater payout potential. Back by popular demand is HyperBonus to buy-in directly to free spins and raise average bet per round. Another fun and successful monetisation feature.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 2083,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jewels of Jupiter",
+        "identifier": "kalamba:JewelsofJupiter_k",
+        "identifier2": "jewelsofjupiter",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 120,
+        "payout": 96.73,
+        "description": "Take a relaxing walk through ancient Rome! Jewels of Jupiter features a unique reel layout, 10c minimum bet, Random Reel Wilds, HyperBonus and four levels of persistent Missions. Make sure your players get the chance to revel in this fantastic, engaging classical world, with truly legendary potential wins!",
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-09-23T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2830,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Joker 3600",
+        "identifier": "kalamba:Joker3600_k",
+        "identifier2": "joker3600",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 3600,
+        "payout": 96.6,
+        "description": "We are delighted to present you with yet another exceptional slot experience with a brand new Kalamba Games title: \"Joker 3600\"! This is a 6-column, 5/4/3/3/4/5 row game with ways pays. It includes the most wanted features like our signature Hyper Bonus (a shortcut to Free Spins which you can activate on demand) or Progressive Jackpots. Collecting bonus symbols in regular gameplay will also give you access to Free Spins. We re-designed the graphics and made this Joker experience more unique and up to date for the players. Let's enjoy this classic slot experience together!",
+        "hit_rate": 32,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 13000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Joker Lanterns",
+        "identifier": "kalamba:JokerLanterns_k",
+        "identifier2": "jokerlanterns",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.42,
+        "description": "Joker Lanterns is a classic Vegas style slot theme with a Halloween twist. Jackpots, extra free spins and our signature HyperBonus feature are all there to make sure you have a super fun Halloween with massive potential wins!",
+        "hit_rate": 16,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 10025,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Joker Leprechauns",
+        "identifier": "kalamba:JokerLeprechauns_k",
+        "identifier2": "jokerleprechauns",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.42,
+        "description": "What could be better than the luck of the Irish? The extreme volatility of a Joker game you say? Well, we have great news. We've wrapped both up all in one St Patrick's day extravaganza. Four levels of jackpots and HyperBonus and HyperBet round out this great seasonal, classic Vegas-style slot.",
+        "hit_rate": 16,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-03-04T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 10025,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Joker Max",
+        "identifier": "kalamba:JokerMax_k",
+        "identifier2": "jokermax",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.42,
+        "description": "Building on the smash hit Joker Supreme, Joker Max captures the classic Vegas style slot theme but now with even greater win potential.  Higher multipliers and and all-new graphics and animations make this a game not to be missed.",
+        "hit_rate": 16,
+        "volatility_rating": "high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 10025,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Joker Supreme",
+        "identifier": "kalamba:JokerSupreme_k",
+        "identifier2": "jokersupreme",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.12,
+        "description": "Joker Supreme captures a classic slot theme beautifully with clean, slick graphics and animations that will resonate with players across multiple markets. Hyper Bonus, player selected multipliers, bonus jackpots and a free spin collection mechanic are just a few in-game features giving an added twist to this masterpiece. Delivering top end volatility and potential returns, Joker Supreme is sure to wow and entertain our ever expanding fan base.",
+        "hit_rate": 14,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Joker Supreme Xmas Edition",
+        "identifier": "kalamba:JokerSupremeXmasEdition_k",
+        "identifier2": "jokersupreme-xmas",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 44410,
+        "payout": 97.21,
+        "description": "Have Yourself a Merry Little Christmas, with Joker Supreme: Christmas Edition!  Based on the smash hit earlier in the year, Joker Supreme: Christmas edition retains all the great features of the original game, with added Christmas sparkle.  HyperBonus, Selectable Wild Multipliers and Bonus Jackpots are present and special Santa Jokers have been added to make Christmas go with a swing in this highly volatile, classic-themed game.",
+        "hit_rate": 14,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Joker Times",
+        "identifier": "kalamba:JokerTimes_k",
+        "identifier2": "jokertimes",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97.21,
+        "hit_rate": 16,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-05-04T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 21000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Joker Times Xmas",
+        "identifier": "kalamba:JokerTimesXmas_k",
+        "identifier2": "jokertimes-xmas",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96,
+        "hit_rate": 16,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-12-02T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 21000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lady Lava",
+        "identifier": "kalamba:LadyLava_k",
+        "identifier2": "ladylava",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.82,
+        "hit_rate": 21.3,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-11-04T00:00:00.000Z",
+        "multiplier": 3793,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Legend of Senteng",
+        "identifier": "kalamba:LegendofSenteng",
+        "identifier2": "legendofsenteng",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 97.76,
+        "hit_rate": 22,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-03-10T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2635,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mammoth Chase Easter Edition",
+        "identifier": "kalamba:MammothChaseEasterEdition_k",
+        "identifier2": "mammothchase-easter",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.94,
+        "description": "Special Easter edition for the player favorite Mammoth Chase. A volatile ride with mammoth payout potential. A 4096-ways game that is designed from beginning to end to give players a volatile experience. It features stacked mammoth symbols that combine to award huge wins, and a free spins bonus with a frequent retrigger and where wild symbols act as multipliers, giving excitement to a well-known feature. As a final layer of volatility, Mammoth Chase has three levels of Bonus Jackpot that are awarded for scattered Mammoth symbols. The highest level jackpot starts from 1000x bet, giving an obvious chance to win big!",
+        "hit_rate": 29,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 6760,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mammoth Chase",
+        "identifier": "kalamba:MammothChase_k",
+        "identifier2": "mammothchase",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.94,
+        "description": "Mammoth Chase is a 4096-ways game that is designed from beginning to end to give players a volatile experience. It features stacked mammoth symbols that combine to award huge wins, and a free spins bonus with a frequent retrigger and where wild symbols act as multipliers, giving excitement to a well-known feature. As a final layer of volatility, Mammoth Chase has three levels of personal progressive jackpots that are awarded for scattered Mammoth symbols. The highest level jackpot starts from 1000x bet, giving an obvious chance to win big!",
+        "hit_rate": 29,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 6760,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Maui Millions",
+        "identifier": "kalamba:MauiMillions_k",
+        "identifier2": "mauimillions",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 97.39,
+        "hit_rate": 24.69,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 4115.75,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mermaids Galore",
+        "identifier": "kalamba:MermaidsGalore_k",
+        "identifier2": "mermaidsgalore",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1200,
+        "payout": 97.16,
+        "description": "Welcome to \"Mermaids Galore\"! A beautifully crafted environment and a lighter approach towards the slots experience which combines the best of several Kalamba features, all driven towards giving players a choice of how they want to play the game. Players have a choice to select and play the main with up to 5 gold symbols, with each gold symbol having increased pay to offer much higher volatility for larger bets. Additionally, players can choose to enter the free spins directly with 1-5 gold symbols, via Kalamba's HyperBonus signature feature.",
+        "hit_rate": 50,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 2667,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Miami Bonus Wheel",
+        "identifier": "kalamba:MiamiBonusWheel_k",
+        "identifier2": "miamibonuswheel",
+        "provider": "kalamba",
+        "producer": "kalamba",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97.72,
+        "description": "Welcome to Miami Bonus Wheel where a great 3x3 game with 10 paylines awaits.  The wheel bonus is triggered by a symbol combination, and the wheel can award a cash prize or trigger a free spins bonus!  Another chance for players to chase great potential wins and for operators to engage and retain players.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 7408,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "US"
+                ]
+            }
+        }
+    }
+]

@@ -80,8 +80,36 @@ const softswissAcceptanceTests = [
   }
 ];
 
-export const SOFTSWISS_GAMES =
-    [
+export const SOFTSWISS_GAMES =[
+
+  ...require('../config/games-cfg/bgaming.json'),
+  //...require('../config/games-cfg/acceptance_tests.json'),
+  ...require('../config/games-cfg/bgaming.json'),
+  ...require('../config/games-cfg/evolution.json'),
+  ...require('../config/games-cfg/1spin4win.json'),
+  ...require('../config/games-cfg/wazdan_top.json'),
+  ...require('../config/games-cfg/yggdrasil_top.json'),
+  //...require('../config/games-cfg/thunderkick_top.json'),
+  //...require('../config/games-cfg/epicmedia_top.json'),
+  ...require('../config/games-cfg/slotmill_top.json'),
+  //...require('../config/games-cfg/playngo_top.json'),
+  ...require('../config/games-cfg/spearhead_50.json'),
+  ...require('../config/games-cfg/quickspin_50.json'),
+  ...require('../config/games-cfg/pushgaming.json'),
+  ...require('../config/games-cfg/mrslotty_top.json'),
+  ...require('../config/games-cfg/mascot_top.json'),
+  ...require('../config/games-cfg/kalamba_50.json'),
+  ...require('../config/games-cfg/kagaming_50.json'),
+  ...require('../config/games-cfg/habanero_top.json'),
+  ...require('../config/games-cfg/groove_top.json'),
+  ...require('../config/games-cfg/gameart_top.json'),
+  ...require('../config/games-cfg/fazi.json'),
+  ...require('../config/games-cfg/ezugi_50'),
+  ...require('../config/games-cfg/eagaming.json'),
+  ...require('../config/games-cfg/atmosphera.json')
+]
+  /*
+  [
       //...softswissAcceptanceTests,
       {
         "title": "Book of Dead",
@@ -50036,7 +50064,7 @@ export const SOFTSWISS_GAMES =
               }
           }
       }
-    ]
+    ]*/
 
 export const EVOPLAY_GAMES = {
     "556": {

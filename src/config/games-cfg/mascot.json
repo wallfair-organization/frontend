@@ -1,0 +1,1218 @@
+[
+    {
+        "title": "Three Corsairs",
+        "identifier": "mascot:3_corsairs",
+        "identifier2": "3_corsairs",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.5,
+        "description": "Fair winds and following seas! Find the treasure map together with courageous corsairs, ahoy!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 437,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Aloha! Tiki Bar",
+        "identifier": "mascot:aloha_tiki_bar",
+        "identifier2": "aloha_tiki_bar",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 3600,
+        "payout": 95.2,
+        "description": "The game's mechanic is as simple as it is attractive - the Mascot team has taken one of their\r\nmost popular games, Fruit Vegas, and updated it just the way the players wanted. The new\r\ngame offers six reels instead of the usual 5 and 3600 pay ways for even more winning\r\nopportunities.",
+        "hit_rate": 23.4,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-02T00:00:00.000Z",
+        "multiplier": 1300,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Amaterasu Keno",
+        "identifier": "mascot:amaterasu_keno",
+        "identifier2": "amaterasu_keno",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95.5,
+        "hd": true,
+        "released_at": "2022-02-17T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Anksunamun: the queen of Egypt",
+        "identifier": "mascot:AnksunamunTQoE",
+        "identifier2": "anksunamun_tqoe",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.6,
+        "description": "Beautiful queen Anksunamun, Nefertiti daughter, will help you unravel the mystery of pharaoh's tomb. Are you ready for a thrilling adventure? Great treasures, severe gods, pharaohs and pyramids - enjoy the breathtaking world of Ancient Egypt!",
+        "volatility_rating": "high",
+        "multiplier": 675,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Baccarat",
+        "identifier": "mascot:baccarat_mg",
+        "identifier2": "baccarat_mg",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.9,
+        "description": "Baccarat historically was the favorite entertainment of aristocratic high society, in the original version secret agent 007 James Bond played exactly this game. Try your luck not wearing a tuxedo – you are invited to our virtual table!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bamboo Bear",
+        "identifier": "mascot:bamboo_bear",
+        "identifier2": "bamboo_bear",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 97.2,
+        "description": "The smooth rustle of bamboo stalks, the murmur of a cool mountain stream... Tranquility and peace reign in the Chinese garden. Like Yin and Yang, game excitement and spiritual balance inevitably meet each other. Find your harmony with a bamboo bear!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 264,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bastet and Cats",
+        "identifier": "mascot:BastetAndCats",
+        "identifier2": "bastet_and_cats",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95,
+        "description": "Endless golden sands, pyramids and… cats. It's time to go to Ancient Egypt! Bastet, the goddess of joy, fun and richness will bring you luck. Meow!",
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-04-21T00:00:00.000Z",
+        "accumulating": true,
+        "multiplier": 812,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Benny's the Biggest game",
+        "identifier": "mascot:bennys_the_biggest_game",
+        "identifier2": "bennys_the_biggest_game",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.4,
+        "description": "It's time to try our amusing video slot with juicy cartoon graphics and exciting features. Multiply your winnings with Benny's Shoot Me bonus and catch Elephant's free spins game with up to x125 multiplier Wilds. Thrilling jungle adventure has never been so funny!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Black Jack",
+        "identifier": "mascot:blackjack_mg",
+        "identifier2": "blackjack_mg",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95.4,
+        "description": "What’s the first thing that comes to your mind when you think about casino? Of course, it’s Blackjack – a classic card game, popular all over the world. We made it as accessible as possible – sit at the virtual table, enjoy good music and play!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Book Of Amaterasu",
+        "identifier": "mascot:book_of_amaterasu",
+        "identifier2": "book_of_amaterasu",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95,
+        "description": "The great goddes of the Sun Amaterasu is shining in the sky. Look, she's opened her book in front of you! Now your fate is in your hands.",
+        "hit_rate": 28.9,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2021-06-01T00:00:00.000Z",
+        "multiplier": 5550,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "CanCan Saloon",
+        "identifier": "mascot:cancan_saloon",
+        "identifier2": "cancan_saloon",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.7,
+        "description": "We are going straight to the Wild Wild West: hey cowboy, do not pass by our wild saloon! Keep your wits sharp, your heart open, and your gun loaded. Hot girls and desperado guys wanted!",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Candy Crush",
+        "identifier": "mascot:candy_crush",
+        "identifier2": "candy_crush",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15625,
+        "payout": 95.2,
+        "description": "Doughnuts, biscuits, and marshmallows in the brand new colorful video slot by Mascot Gaming. Please, welcome - The Candy Crush!",
+        "hit_rate": 26.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-02-22T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 900,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Cleopatra's gems. Rockways",
+        "identifier": "mascot:cleopatras_gems_rockways",
+        "identifier2": "cleopatras_gems_rockways",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 46656,
+        "payout": 95.01,
+        "hit_rate": 34.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-12-21T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 600,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Dragon's Nest",
+        "identifier": "mascot:dragons_nest",
+        "identifier2": "dragons_nest",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.2,
+        "description": "In a faraway castle a Great Dragon guards his precious eggs like the apple of an eye. Try to grab this treasured trophy from him!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-08-17T00:00:00.000Z",
+        "multiplier": 1850,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Fairytale Coven",
+        "identifier": "mascot:fairytale_coven",
+        "identifier2": "fairytale_coven",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.7,
+        "description": "FAIRYTALE COVEN is based on a magic forest theme that serves as home to the coven of powerful fairies. It boasts a unique Risk&Buy feature that allows players to make decisions that impact the result of the game and the size of their win.",
+        "hit_rate": 31.9,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-12-07T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "For the Realm!",
+        "identifier": "mascot:for_the_realm",
+        "identifier2": "for_the_realm",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 95.4,
+        "description": "The battle for a magical realm is on the rise in the universe of the new slot game by Mascot Gaming. The fantasy theme, loved by many, looks especially sharp thanks to the 3D character symbols. The developer has already stablished its reputation as the creator of online casino games with stunning graphics, but what else can the\r\nplayers expect from the new game?\r\nThe famous Risk&Buy feature is available after every spin, regardless of whether the player wins or loses. The game can increase the player’s win at any time if they are ready to take the risk - what a smart way to spice up the game, especially when it comes to big wins.",
+        "hit_rate": 31.3,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-01-25T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Fruit Macao",
+        "identifier": "mascot:fruit_macau",
+        "identifier2": "fruit_macau",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 95,
+        "description": "Nobody loves fruits as much as slot lovers. Our superhit fruits started their opulent voyage in Vegas. Ready, steady... and we are in fabulous Macau! Juicy fruits, immersive music, plenty of new thrilling features – open the second chapter of Mascot Gaming Fruit Trilogy. The next stop is Monaco!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 695,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Fruit Monaco",
+        "identifier": "mascot:fruit_monaco",
+        "identifier2": "fruit_monaco",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 95.4,
+        "description": "From Vegas to Macau, from Macau to Monaco: our fruit tour of casino capitals is making a real blast. Feel the royal vibe, play like a king, enjoy your juicy victory in a classic fruit game!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 480,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Fruits of Luxor",
+        "identifier": "mascot:FruitsofLuxor",
+        "identifier2": "fruits_of_luxor",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 95,
+        "description": "Juicy splash in the sands of the Ancient World. Enjoy a fresh adventure to marvelous Luxor!",
+        "hit_rate": 46.3,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-07-27T00:00:00.000Z",
+        "multiplier": 167,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Fruit Vegas",
+        "identifier": "mascot:fruit_vegas",
+        "identifier2": "fruit_vegas",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "description": "We all love the atmosphere of the good old Vegas. A bright cocktail made of colourful fruits, funny music and favourite features is waiting for you. Let yourself drain into a fresh, juicy world!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Gemz Grow",
+        "identifier": "mascot:gemz_grow",
+        "identifier2": "gemz_grow",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 3125,
+        "payout": 96.7,
+        "description": "The enchanting melody sounds in the mountains. This is a magical place where the sun shines and gems are hidden. Immerse yourself in this atmosphere and take your gems!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 300,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Gryphon's Castle",
+        "identifier": "mascot:gryphons_castle",
+        "identifier2": "gryphons_castle",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.6,
+        "description": "Noble Gryphon guards a castle full of treasures. Will you dare to take them? Your bravery deserves a great reward!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 450,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Hell'Sing",
+        "identifier": "mascot:hellsing",
+        "identifier2": "hellsing",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 112,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Casino Hold'em",
+        "identifier": "mascot:holdem_mg",
+        "identifier2": "holdem_mg",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "video_poker",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99.3,
+        "description": "Feel the Las Vegas vibe and try your luck against the casino! Enjoy our classical interpretation of Texas Casino Hold'em – the most popular sort of poker game.",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Legioner",
+        "identifier": "mascot:legioner",
+        "identifier2": "legioner",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "description": "Once again the Emperor sends his legions to conquer new lands. Will the great Roman Empire be even more powerful? Join the Legioner for the sake of immortal victory!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2068,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lion's Pride",
+        "identifier": "mascot:lions_pride",
+        "identifier2": "lions_pride",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97,
+        "description": "Since the beginning of time wild animal world was lead by a strong lion and his pride. What role will you choose - predator or prey? Hear the roar of animal king!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Merlin's Tower",
+        "identifier": "mascot:merlins_tower",
+        "identifier2": "merlins_tower",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.9,
+        "description": "Far far away in the woods stands the Tower. White-haired wizard Merlin is doing his miracles here. Magic potion brings luck to everyone who comes here. Let’s go for a wonders and treasures!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 225,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Mermaid's Bay",
+        "identifier": "mascot:mermaids_bay",
+        "identifier2": "mermaids_bay",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "description": "The magical underwater world hides incredible treasures, but only the most courageous will get them. Beautiful mermaids will reveal the secret of the deep sea to you!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2068,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Merry Scary Christmas!",
+        "identifier": "mascot:merry_scary_christmas",
+        "identifier2": "merry_scary_christmas",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.2,
+        "description": "Ho Ho Ho Christmas is coming! It's a most wonderful time of the year… but wait, who stole all the gifts? Bad Santa wants to ruin the celebration – don't let him take your winnings! It's gonna be Scary Merry Christmas!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1850,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Northern Heat",
+        "identifier": "mascot:northen_heat",
+        "identifier2": "northern_heat",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.9,
+        "description": "Frosty, freezy, cool! It's time to explore the spectacular Northern Pole. Follow the footsteps of gorgeous arctic animals and find a big winning!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 225,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "PinUp Dolls",
+        "identifier": "mascot:pinup_dolls",
+        "identifier2": "pinup_dolls",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.7,
+        "description": "It's getting hot in here! Meet gorgeous ladies and take your prizes at our pin up cafe!",
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-09-15T00:00:00.000Z",
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Primal Bet. Rockways",
+        "identifier": "mascot:primal_bet_rockways",
+        "identifier2": "primal_bet_rockways",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 46656,
+        "payout": 95.27,
+        "description": "Badass dinosaurs await you with the most exciting game mechanics in the new slot game by Mascot Gaming - PRIMAL BET. ROCKWAYS. Hear the roar!",
+        "hit_rate": 33.2,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-11-23T00:00:00.000Z",
+        "multiplier": 4400,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Prince of Persia: the Gems of Persepolis",
+        "identifier": "mascot:prince_of_persia_tgop",
+        "identifier2": "prince_of_persia_tgop",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.1,
+        "description": "Oh, the marvelous and mysterious East, the land of fairy–tales, rich in gold and gems… Let's take an adventure together with Prince of Persia and hunt the legendary treasures!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 800,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Purple Pills",
+        "identifier": "mascot:purple_pills",
+        "identifier2": "purple_pills",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "description": "Are you bored? We have a remedy for you! Without a doctor’s prescription.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Queen of Spades",
+        "identifier": "mascot:queen_of_spades",
+        "identifier2": "queen_of_spades",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.2,
+        "description": "Cards never lie, are you ready to risk to know your fate? Queen of Spades is waiting for you in her castle!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Red Horde",
+        "identifier": "mascot:red_horde",
+        "identifier2": "red_horde",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.5,
+        "description": "Red goblin horde attacks! Protect your village from nasty creatures and get a gold reward! Secrets hidden in trunks gonna help you increase the winning.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Re Kill",
+        "identifier": "mascot:re_kill",
+        "identifier2": "re_kill",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.6,
+        "description": "Do you really think it's not possible? Look around, they are here! Zombie apocalypse has come and only the strongest will survive. If you brave enough try to stay alive...or say good bye to some of your body parts. Yummy!",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 200,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Riot",
+        "identifier": "mascot:riot",
+        "identifier2": "riot",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.7,
+        "description": "Dystopian end of the world theme and unique Risk and Buy feature deliver excitement, anticipation and trills. Are you ready for the Riot?",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Robin of Loxley",
+        "identifier": "mascot:robin_of_loxley",
+        "identifier2": "robin_of_loxley",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.1,
+        "description": "Get your bow and arrows ready! Go on the great adventure with a legendary and heroic outlaw Robin of Loxley!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 775,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Evil Bet",
+        "identifier": "mascot:the_evil_bet",
+        "identifier2": "the_evil_bet",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.5,
+        "description": "Bloody hell! Somewhere in the woods sinister creatures are up to crawl out the ground and make some noise. It's time to treat them with an old good chainsaw!",
+        "hit_rate": 35.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-10-05T00:00:00.000Z",
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Myth",
+        "identifier": "mascot:the_myth",
+        "identifier2": "the_myth",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94.8,
+        "description": "Do you believe in myths of dragon's treasures? Go on an adventure trip with powerful vikings then!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Rite",
+        "identifier": "mascot:the_rite",
+        "identifier2": "the_rite",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.1,
+        "description": "Voodoo doll can protect from evil or destroy your enemies - what side do you choose? Mystery rites came here from Africa. Shaman hits the drum, performing his ritual...Spooky!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 125,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Tomb",
+        "identifier": "mascot:the_tomb_det",
+        "identifier2": "the_tomb_det",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.8,
+        "description": "Bewitched by a sorceress, ruthless Chinese Dragon Emperor has no mercy. His countless army turned into terracotta warriors. Who is brave enough to face the immortal army and unravel the riddle of Emperors' tomb? The adventure full of danger awaits you on the road to the treasure!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Twin Fruits of Olympus",
+        "identifier": "mascot:TwinFruitsofOlympus",
+        "identifier2": "twin_fruits_of_olympus",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 95.5,
+        "description": "The Olympus mountain is all covered with divine fruits. What are the gods up to? Take your chance and grab all the godsents in a new slot game!",
+        "hit_rate": 39.2,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-07-27T00:00:00.000Z",
+        "multiplier": 1100,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Twin Fruits of Santa",
+        "identifier": "mascot:twin_fruits_of_santa",
+        "identifier2": "twin_fruits_of_santa",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "ways": 1024,
+        "payout": 95.5,
+        "hit_rate": 39.2,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-12-21T00:00:00.000Z",
+        "multiplier": 660,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Venetian Magic",
+        "identifier": "mascot:venetian_magic",
+        "identifier2": "venetian_magic",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 95.7,
+        "description": "Elegant women and gentlemen in masks, endless canals and songs of gondoliers - join the magnificent Venice carnival! Oh, Bella Italia!",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 76,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Wild Spirit",
+        "identifier": "mascot:wild_spirit",
+        "identifier2": "wild_spirit",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97,
+        "description": "Have you ever heard the wolf singing to the moon? Open your mind to the wild spirit of beautiful savage lands.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Zeus the Thunderer",
+        "identifier": "mascot:zeus_the_thunderer",
+        "identifier2": "zeus_the_thunderer",
+        "provider": "mascot",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.3,
+        "description": "Do you hear the thunder? Now your destiny is in the hands of the Greatest Olympic Gods! Beautiful Aphrodite, powerful Zeus and mysterious Hades are waiting for you in the new outstanding game.",
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-06-29T00:00:00.000Z",
+        "multiplier": 225,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    }
+]
