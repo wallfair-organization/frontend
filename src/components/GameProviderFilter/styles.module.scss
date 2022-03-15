@@ -13,15 +13,18 @@
   .providerButton {
     font-size: 12px;
     padding: 11px 16px;
-    // width: 100%;
-    // max-width: 180px;
+    width: 100%;
+    max-width: 160px;
+    height: 60px;
     &.active {
       background: rgba(172, 196, 255, 0.16);
       border: 2px solid #dbe0ff;
     }
 
     img {
-      height: 20px;
+      height: 35px;
+      max-width: 120px;
+      object-fit: contain;
     }
   }
 }
