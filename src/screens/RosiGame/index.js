@@ -225,13 +225,11 @@ const RosiGame = ({
       // const roundedMultiplier = Math.floor(parseFloat(crashFactorCashout) * 100) / 100;
       // const roundedReward = Math.floor(parseFloat(reward));
 
-      
       // showPopup(PopupTheme.cashoutPopupView, {
       //   multiplier: numberWithCommas(roundedMultiplier),
       //   amount: numberWithCommas(roundedReward),
       //   game: game.name
       // });
-      
 
       return response;
     } catch (e) {
