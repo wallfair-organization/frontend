@@ -102,7 +102,7 @@ export const SOFTSWISS_GAMES =[
   ...require('../config/games-cfg/1spin4win.json'),
   ...require('../config/games-cfg/wazdan_top.json'),
   ...require('../config/games-cfg/yggdrasil_top.json'),
-  ...require('../config/games-cfg/thunderkick_top.json'),
+  ...require('../config/games-cfg/thunderkick.json'),
   //...require('../config/games-cfg/epicmedia_top.json'),
   ...require('../config/games-cfg/slotmill_top.json'),
   //...require('../config/games-cfg/playngo_top.json'),
