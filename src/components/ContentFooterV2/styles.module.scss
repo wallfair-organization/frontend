@@ -273,6 +273,35 @@
     }
   }
 
+  .providersList {
+    margin: 20px 0 0;
+    align-items: center;
+    // justify-content: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    @media (max-width: $screen-sm) {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .providerItem {
+      font-size: 12px;
+      padding: 11px 16px;
+      width: 100%;
+      max-width: 160px;
+      height: 60px;
+
+      img {
+        height: 35px;
+        max-width: 120px;
+        object-fit: contain;
+      }
+    }
+  }
+
   .links {
     display: flex;
     color: white;

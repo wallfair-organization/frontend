@@ -33,6 +33,7 @@ import {selectPrices} from '../../store/selectors/info-channel';
 import {roundToTwo} from "../../helper/FormatNumbers";
 import RealMoneyOnly from 'components/RealMoneyOnly';
 import PlayMoneyOnly from 'components/PlayMoneyOnly';
+import { GAME_PROVIDERS } from 'constants/Games';
 
 const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
   const openLeaderboard = useCallback(event => {
@@ -278,6 +279,19 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   <img src={adultPlusIcon} className={styles.footerGenericIcons} alt={'adult plus icon'} />
                 </Link>
               </div>
+            </div>
+            <div className={styles.logosSeparator}></div>
+            <div className={styles.providersList}>
+            {
+              GAME_PROVIDERS.map((providerItem, index) => (
+              <div 
+                key={index}
+                className={styles.providerItem} 
+              >
+                <img src={providerItem.image} alt={`${providerItem.label} logo`}  />
+              </div>
+            ))
+            }
             </div>
             <div className={styles.logosSeparator}></div>
           </RealMoneyOnly>
