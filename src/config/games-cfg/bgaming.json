@@ -1,5 +1,5 @@
 [
-    {
+	{
         "title": "All Lucky Clovers",
         "identifier": "softswiss:AllLuckyClover",
         "identifier2": "AllLuckyClover",
@@ -14,108 +14,7 @@
         ],
         "lines": 100,
         "payout": 97,
-        "description": "Next level of gaming experience is presented in slot All Lucky Clovers. The game includes fourmodes which can be played anytime: play with 5, 20, 40 or 100 lines. The layout of the reelsfor 5 and 20 lines is 5x3. The layout for 40 and 100 line-game is 5x4. The game features 2Scatters, Expanding Wilds, Gamble Round and a lot of action in general. All Lucky Clovers isexciting to play and enlarge the winnings.",
         "volatility_rating": "high",
-        "hd": true,
-        "multiplier": 3000,
-        "restrictions": {
-            "default": {
-                "blacklist": []
-            }
-        }
-    },
-    {
-        "title": "All Lucky Clovers 100",
-        "identifier": "softswiss:AllLuckyClover100",
-        "identifier2": "AllLuckyClover100",
-        "provider": "softswiss",
-        "producer": "bgaming",
-        "category": "slots",
-        "has_freespins": true,
-        "feature_group": "new",
-        "devices": [
-            "desktop",
-            "mobile"
-        ],
-        "lines": 100,
-        "payout": 97,
-        "description": "Next level of gaming experience is presented in slot All Lucky Clovers. The game includes fourmodes which can be played anytime: play with 5, 20, 40 or 100 lines. The layout of the reelsfor 5 and 20 lines is 5x3. The layout for 40 and 100 line-game is 5x4. The game features 2Scatters, Expanding Wilds, Gamble Round and a lot of action in general. All Lucky Clovers isexciting to play and enlarge the winnings.",
-        "volatility_rating": "high",
-        "hd": true,
-        "multiplier": 3000,
-        "restrictions": {
-            "default": {
-                "blacklist": []
-            }
-        }
-    },
-    {
-        "title": "All Lucky Clovers 20",
-        "identifier": "softswiss:AllLuckyClover20",
-        "identifier2": "AllLuckyClover20",
-        "provider": "softswiss",
-        "producer": "bgaming",
-        "category": "slots",
-        "has_freespins": true,
-        "feature_group": "new",
-        "devices": [
-            "desktop",
-            "mobile"
-        ],
-        "lines": 20,
-        "payout": 97,
-        "description": "Next level of gaming experience is presented in slot All Lucky Clovers. The game includes fourmodes which can be played anytime: play with 5, 20, 40 or 100 lines. The layout of the reelsfor 5 and 20 lines is 5x3. The layout for 40 and 100 line-game is 5x4. The game features 2Scatters, Expanding Wilds, Gamble Round and a lot of action in general. All Lucky Clovers isexciting to play and enlarge the winnings.",
-        "volatility_rating": "high",
-        "hd": true,
-        "multiplier": 3000,
-        "restrictions": {
-            "default": {
-                "blacklist": []
-            }
-        }
-    },
-    {
-        "title": "All Lucky Clovers 40",
-        "identifier": "softswiss:AllLuckyClover40",
-        "identifier2": "AllLuckyClover40",
-        "provider": "softswiss",
-        "producer": "bgaming",
-        "category": "slots",
-        "has_freespins": true,
-        "feature_group": "new",
-        "devices": [
-            "desktop",
-            "mobile"
-        ],
-        "lines": 40,
-        "payout": 97,
-        "description": "Next level of gaming experience is presented in slot All Lucky Clovers. The game includes fourmodes which can be played anytime: play with 5, 20, 40 or 100 lines. The layout of the reelsfor 5 and 20 lines is 5x3. The layout for 40 and 100 line-game is 5x4. The game features 2Scatters, Expanding Wilds, Gamble Round and a lot of action in general. All Lucky Clovers isexciting to play and enlarge the winnings.",
-        "volatility_rating": "high",
-        "hd": true,
-        "multiplier": 3000,
-        "restrictions": {
-            "default": {
-                "blacklist": []
-            }
-        }
-    },
-    {
-        "title": "All Lucky Clovers 5",
-        "identifier": "softswiss:AllLuckyClover5",
-        "identifier2": "AllLuckyClover5",
-        "provider": "softswiss",
-        "producer": "bgaming",
-        "category": "slots",
-        "has_freespins": true,
-        "feature_group": "new",
-        "devices": [
-            "desktop",
-            "mobile"
-        ],
-        "lines": 5,
-        "payout": 97,
-        "description": "Next level of gaming experience is presented in slot All Lucky Clovers. The game includes fourmodes which can be played anytime: play with 5, 20, 40 or 100 lines. The layout of the reelsfor 5 and 20 lines is 5x3. The layout for 40 and 100 line-game is 5x4. The game features 2Scatters, Expanding Wilds, Gamble Round and a lot of action in general. All Lucky Clovers isexciting to play and enlarge the winnings.",
-        "volatility_rating": "medium",
         "hd": true,
         "multiplier": 3000,
         "restrictions": {
