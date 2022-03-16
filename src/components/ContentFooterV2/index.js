@@ -5,9 +5,14 @@ import WfairTokenEmblem from '../../data/images/token/wfair_token_emblem.png';
 import LogoFooter from '../../data/icons/wfair-logo-footer.svg';
 import SmartsoftLogo from '../../data/icons/footer/smartsoft.png';
 import EvoplayLogo from '../../data/icons/footer/evoplay.png';
-import bitcoinLogo from '../../data/icons/footer/bitcoin_logo.png';
-import ethereumLogo from '../../data/icons/footer/ethereum_logo.png';
-import litecoinLogo from '../../data/icons/footer/litecoin_logo.png';
+import bitcoinLogo from '../../data/icons/footer/bitcoin-btc-logo.svg';
+import ethereumLogo from '../../data/icons/footer/ethereum-eth-logo.svg';
+import litecoinLogo from '../../data/icons/footer/litecoin-ltc-logo.svg';
+import metamaskLogo from '../../data/icons/footer/metamask-fox.svg';
+import usdtLogo from '../../data/icons/footer/tether-usdt-logo.svg';
+import usdcLogo from '../../data/icons/footer/usd-coin-usdc-logo.svg';
+import daiLogo from '../../data/icons/footer/multi-collateral-dai-dai-logo.svg';
+import xrpLogo from '../../data/icons/footer/xrp-xrp-logo.svg';
 import moonPayLogo from '../../data/icons/footer/moon-pay-logo.png';
 import cryptoPay from '../../data/icons/footer/crypto-pay-logo.png';
 import handshakeIcon from '../../data/icons/footer/handshake-icon.png';
@@ -115,7 +120,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
             </RealMoneyOnly>
           </div>
 
-          <RealMoneyOnly>
+          {/* <RealMoneyOnly>
             <div className={styles.trustPilotBlock}>
               <div>
                 <a href="https://www.trustpilot.com/review/wallfair.io" target="_blank" rel="noopener noreferrer"><img src={trustPilotIcon} className={styles.trustPilotIcon}/></a>
@@ -125,7 +130,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                 <a href="https://www.trustpilot.com/review/wallfair.io" target="_blank" rel="noopener noreferrer">Trustpilot</a>
               </div>
             </div>
-          </RealMoneyOnly>
+          </RealMoneyOnly> */}
 
         </div>
 
@@ -135,7 +140,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
           <div className={styles.logosSeparator}></div>
 
           <RealMoneyOnly>
-            <div className={styles.splittedBlock}>
+            <div className={styles.centeredBlock}>
               <div className={styles.logoContainer}>
                 <a
                   href="https://wallfair.io/"
@@ -143,36 +148,74 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   rel="noreferrer"
                   className={styles.wfairTokenEmblem}
                 >
-                  <img src={WfairTokenEmblem} className={styles.footerLogo} alt={'WFAIR Token emblem'} /> WFAIR
+                  <img src={WfairTokenEmblem} className={styles.footerLogo} alt={'WFAIR Token emblem'} /><span>WFAIR</span>
                 </a>
 
                 <a
                   href="https://wallfair.io/"
                   target="_blank"
                   rel="noreferrer"
-                  className={styles.cryptoTokenIcon}
+                  className={styles.cryptoCoinWrapper}
                 >
-                  <img src={bitcoinLogo}  alt={'Bitcoin logo'} />
+                  <img src={bitcoinLogo}  alt={'Bitcoin logo'} /> <span>Bitcoin</span>
                 </a>
 
                 <a
                   href="https://wallfair.io/"
                   target="_blank"
                   rel="noreferrer"
-                  className={styles.cryptoTokenIcon}
+                  className={styles.cryptoCoinWrapper}
                 >
-                  <img src={ethereumLogo} alt={'Ethereum loco'} />
+                  <img src={ethereumLogo} alt={'Ethereum loco'} /> <span>Ethereum</span>
                 </a>
                 <a
                   href="https://wallfair.io/"
                   target="_blank"
                   rel="noreferrer"
-                  className={styles.cryptoTokenIcon}
+                  className={styles.cryptoCoinWrapper}
                 >
-                  <img src={litecoinLogo} alt={'Litecoin loco'} />
+                  <img src={litecoinLogo} alt={'Litecoin loco'} /> <span>Litecoin</span>
                 </a>
-              </div>
-              <div className={styles.logoContainer}>
+                <a
+                  href="https://wallfair.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.cryptoCoinWrapper}
+                >
+                  <img src={metamaskLogo} alt={'Metamask'} /> <span>Metamask</span>
+                </a>
+                <a
+                  href="https://wallfair.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.cryptoCoinWrapper}
+                >
+                  <img src={usdtLogo} alt={'USDT'} /> <span>USDT</span>
+                </a>
+                <a
+                  href="https://wallfair.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.cryptoCoinWrapper}
+                >
+                  <img src={usdcLogo} alt={'Litecoin loco'} /> <span>USDC</span>
+                </a>
+                <a
+                  href="https://wallfair.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.cryptoCoinWrapper}
+                >
+                  <img src={daiLogo} alt={'Litecoin loco'} /> <span>DAI</span>
+                </a>
+                <a
+                  href="https://wallfair.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.cryptoCoinWrapper}
+                >
+                  <img src={xrpLogo} alt={'Litecoin loco'} /> <span>XRP</span>
+                </a>
                 <a
                   href="https://www.moonpay.com/"
                   target="_blank"
@@ -195,14 +238,16 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
 
             <div className={styles.logosSeparator}></div>
 
-            <div className={styles.splittedBlock}>
-              <div className={styles.logoContainer}>
+            <div className={styles.centeredBlock}>
+              {/* <div className={styles.logoContainer}>
                 <iframe className={styles.license} title="license" src="https://licensing.gaming-curacao.com/validator/?lh=58e4868441e3bb0ff2fe2230d82a8091&amp;template=seal" width={125} height={50} style={{border:'none'}} />
                 <a href="https://www.smartsoftgaming.com/" rel="noreferrer" target="_blank"><img src={SmartsoftLogo} className={styles.partnerLogoSmartsoft} alt="smartsoft games logo" /></a>
                 <a href="https://evoplay.games/" rel="noreferrer" target="_blank"><img src={EvoplayLogo} className={styles.partnerLogoEvoplay} alt="evoplay logo" /></a>
-              </div>
+              </div> */}
               
               <div className={styles.logoContainer}>
+                <a href="https://www.trustpilot.com/review/wallfair.io" target="_blank" rel="noopener noreferrer"><img src={trustPilotIcon} className={styles.handshakeIcon}/></a>
+                <iframe className={styles.license} title="license" src="https://licensing.gaming-curacao.com/validator/?lh=58e4868441e3bb0ff2fe2230d82a8091&amp;template=seal" width={125} height={50} style={{border:'none'}} />
                 <Link
                   data-tracking-id="footer-provably-fair"
                   to={Routes.provablyfair}
