@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js-legacy';
 import TWEEN from '@tweenjs/tween.js';
 import { isMobileRosiGame, calcPercent, calcTotalDelayTime } from './utils';
+import { TOKEN_NAME } from 'constants/Token';
 
 const AMOUNT_TEXT_FILL_COLOR = 0xefff54;
 const AMOUN_FONT_FAMILY = 'DM Sans';
@@ -103,8 +104,8 @@ class Animation {
     }
   }
 
-  setTextValues(amount, crashFactor) {
-    this.amountText.text = `${amount}W`;
+  setTextValues(amount, crashFactor, currency) {
+    this.amountText.text = currency === TOKEN_NAME ? `${amount}W` : (currency === 'eur' ? `€${amount}` : `$${amount}`);
     this.crashFactorText.text = `${crashFactor}x`;
   }
 
@@ -184,7 +185,7 @@ class CashedOutAnimation {
     }
   }
 
-  animate(x, amount, crashFactor) {
+  animate(x, amount, crashFactor, elapsed, currency) {
     const previousAnimX =
       this.currentAnims.length > 0
         ? this.currentAnims[this.currentAnims.length - 1].getX()
@@ -203,7 +204,7 @@ class CashedOutAnimation {
 
     anim.elapsedTime = calcTotalDelayTime(crashFactor);
     anim.crashFactor = crashFactor;
-    anim.setTextValues(amount.toFixed(0), crashFactor);
+    anim.setTextValues(amount.toFixed(2), crashFactor);
 
     const isSmallDistanceBetweenCrashes = x - previousAnimX <= anim.getWidth();
     if (isSmallDistanceBetweenCrashes) {
