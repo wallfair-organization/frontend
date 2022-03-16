@@ -1,0 +1,1308 @@
+[
+    {
+        "title": "777 Vegas",
+        "identifier": "kagaming:777Vegas",
+        "identifier2": "777Vegas",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.1,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 121,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Africa Run",
+        "identifier": "kagaming:AfricaRun",
+        "identifier2": "AfricaRun",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Air Combat 1942",
+        "identifier": "kagaming:AirCombat1942",
+        "identifier2": "AirCombat1942",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "casual",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 388,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Artificial Intelligence",
+        "identifier": "kagaming:Al",
+        "identifier2": "AI",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 12150,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Aladdin",
+        "identifier": "kagaming:Aladdin",
+        "identifier2": "Aladdin",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2700,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Alexander the Great",
+        "identifier": "kagaming:AlexanderTheGreat",
+        "identifier2": "AlexanderTheGreat",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 192,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3840,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Alice In Wonderland",
+        "identifier": "kagaming:AliceInWonderland",
+        "identifier2": "AliceInWonderland",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2318,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Alter World",
+        "identifier": "kagaming:AlterWorld",
+        "identifier2": "AlterWorld",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "casual",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-03T00:00:00.000Z",
+        "multiplier": 368,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "American Burger",
+        "identifier": "kagaming:AmericanBurger",
+        "identifier2": "AmericanBurger",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-02-10T00:00:00.000Z",
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Angry Piggies",
+        "identifier": "kagaming:AngryPiggies",
+        "identifier2": "AngryPiggies",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Animal Fishing",
+        "identifier": "kagaming:AnimalFishing",
+        "identifier2": "AnimalFishing",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "casual",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 89,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Apes",
+        "identifier": "kagaming:Apes",
+        "identifier2": "Apes",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 336,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Archer Robin Hood",
+        "identifier": "kagaming:ArcherRobinHood",
+        "identifier2": "ArcherRobinHood",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Arctic Storm",
+        "identifier": "kagaming:ArcticStorm",
+        "identifier2": "ArcticStorm",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 600,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Ares God of War",
+        "identifier": "kagaming:Ares",
+        "identifier2": "Ares",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1200,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Artist Studio",
+        "identifier": "kagaming:ArtistStudio",
+        "identifier2": "ArtistStudio",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "A Thirsty Crow",
+        "identifier": "kagaming:AThirstyCrow",
+        "identifier2": "ThirstyCrow",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Atlantide",
+        "identifier": "kagaming:Atlantide",
+        "identifier2": "Atlantide",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-03-09T00:00:00.000Z",
+        "multiplier": 4810,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Aurora",
+        "identifier": "kagaming:Aurora",
+        "identifier2": "Aurora",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 400,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Baccarat",
+        "identifier": "kagaming:Baccarat",
+        "identifier2": "Baccarat",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bakery Sweetness",
+        "identifier": "kagaming:Bakery",
+        "identifier2": "Bakery",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "ways": 1024,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 8900,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Baseball Fever",
+        "identifier": "kagaming:BaseballFever",
+        "identifier2": "BaseballFever",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 108,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-03-26T00:00:00.000Z",
+        "multiplier": 17658,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Ba Wang Bie Ji",
+        "identifier": "kagaming:BaWangBieJi",
+        "identifier2": "BaWangBieJi",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Big Apple",
+        "identifier": "kagaming:BigApple",
+        "identifier2": "BigApple",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3645,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Black Rider",
+        "identifier": "kagaming:BlackRider",
+        "identifier2": "BlackRider",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Blocky Blocks",
+        "identifier": "kagaming:BlockyBlocks",
+        "identifier2": "BlockyBlocks",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 300,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Blocky Blocks 2",
+        "identifier": "kagaming:BlockyBlocks2",
+        "identifier2": "BlockyBlocks2",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 4601,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bollywood Romance",
+        "identifier": "kagaming:BollywoodRomance",
+        "identifier2": "BollywoodRomance",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-12-29T00:00:00.000Z",
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bombing Fruit",
+        "identifier": "kagaming:BombingFruit",
+        "identifier2": "BombingFruit",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 10948,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bonus Mania",
+        "identifier": "kagaming:BonusMania",
+        "identifier2": "BonusMania",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 3334,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bonus Mania Deluxe",
+        "identifier": "kagaming:BonusManiaDeluxe",
+        "identifier2": "BonusManiaDeluxe",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 3334,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bonus Vending",
+        "identifier": "kagaming:BonusVending",
+        "identifier2": "BonusVending",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-02-23T00:00:00.000Z",
+        "multiplier": 541,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Book of Mummy",
+        "identifier": "kagaming:BookOfMummy",
+        "identifier2": "BookOfMummy",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-09-15T00:00:00.000Z",
+        "multiplier": 526,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Boxing Roo",
+        "identifier": "kagaming:BoxingRoo",
+        "identifier2": "BoxingRoo",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 3438,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Boy Toys",
+        "identifier": "kagaming:BoyToys",
+        "identifier2": "BoyToys",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 438,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bubble Double",
+        "identifier": "kagaming:BubbleDouble",
+        "identifier2": "BubbleDouble",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1823,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bull Stampede",
+        "identifier": "kagaming:BullStampede",
+        "identifier2": "BullStampede",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bumble Bee",
+        "identifier": "kagaming:BumbleBee",
+        "identifier2": "BumbleBee",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 100,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Butterfly Lovers",
+        "identifier": "kagaming:ButterflyLovers",
+        "identifier2": "ButterflyLovers",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-10-20T00:00:00.000Z",
+        "multiplier": 7104,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Cai Shen Dao",
+        "identifier": "kagaming:CaiShenDao",
+        "identifier2": "CaiShenDao",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "fishing",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-01-12T00:00:00.000Z",
+        "multiplier": 168,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Cai Yuan Guang Jin",
+        "identifier": "kagaming:CaiYuanGuangJin",
+        "identifier2": "CaiYuanGuangJin",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 95.9,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Calabash Boys",
+        "identifier": "kagaming:CalabashBoys",
+        "identifier2": "CalabashBoys",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-02-23T00:00:00.000Z",
+        "multiplier": 319,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Can Can",
+        "identifier": "kagaming:Cancan",
+        "identifier2": "Cancan",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-11-03T00:00:00.000Z",
+        "multiplier": 800,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Candy Mania",
+        "identifier": "kagaming:CandyMania",
+        "identifier2": "CandyMania",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Candy Storm",
+        "identifier": "kagaming:CandyStorm",
+        "identifier2": "CandyStorm",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 470,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Catch The Thief",
+        "identifier": "kagaming:CatchTheThief",
+        "identifier2": "CatchTheThief",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 368,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Charlottes Web",
+        "identifier": "kagaming:CharlottesWeb",
+        "identifier2": "CharlottesWeb",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 576,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-08-18T00:00:00.000Z",
+        "multiplier": 5184,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Charming Sorceress",
+        "identifier": "kagaming:CharmingSorceress",
+        "identifier2": "CharmingSorceress",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Chinese Ancient Tomb",
+        "identifier": "kagaming:ChineseAncientTomb",
+        "identifier2": "ChineseAncientTomb",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-03T00:00:00.000Z",
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Chinese Opera",
+        "identifier": "kagaming:ChineseOpera",
+        "identifier2": "ChineseOpera",
+        "provider": "kagaming",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 6759,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "TW"
+                ]
+            }
+        }
+    }
+]

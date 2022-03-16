@@ -1,0 +1,6777 @@
+[
+    {
+        "title": "3 Treasures",
+        "identifier": "mrslotty:3Treasures",
+        "identifier2": "augustgaming-3-treasures",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "40 Cash Bells",
+        "identifier": "mrslotty:40CashBells",
+        "identifier2": "fazi-40cashbells",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.4,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-02-10T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "40 Wild Clover",
+        "identifier": "mrslotty:40WildClover",
+        "identifier2": "fazi-wildclover40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.32,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-06-02T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "50 Lines Of War",
+        "identifier": "mrslotty:50linesofwar",
+        "identifier2": "50linesofwar",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 94,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 172.5,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "5 Blessings",
+        "identifier": "mrslotty:5Blessings",
+        "identifier2": "augustgaming-5-blessings",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "5 Clover Fire",
+        "identifier": "mrslotty:5CloverFire",
+        "identifier2": "fazi-fireclover5",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.4,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-06-24T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "777 Diamonds",
+        "identifier": "mrslotty:777diamonds",
+        "identifier2": "777diamonds",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "7 Heroines",
+        "identifier": "mrslotty:7Heroines",
+        "identifier2": "kagaming-SevenHeroines",
+        "provider": "mrslotty",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "kagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Action Hot 20",
+        "identifier": "mrslotty:ActionHot20",
+        "identifier2": "fazi-actionhot20",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-02-10T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Action Hot 40",
+        "identifier": "mrslotty:actionhot40",
+        "identifier2": "fazi-actionhot40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.6,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2022-01-27T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Agent X Mission",
+        "identifier": "mrslotty:agentxmission",
+        "identifier2": "agentxmission",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 137.15,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Aloha Charm",
+        "identifier": "mrslotty:AlohaCharm",
+        "identifier2": "fazi-alohacharm",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.1,
+        "description": "Aloha to an unforgettable journey of the great winnings and excitement. Let the power of the Hula take you to an amazing adventure. Embrace the magic and feel the mysterious charms of the islands. Enjoy Hawaiian dance and win incredible awards. Welcome to Hawaii.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 9000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Ancient Artifacts",
+        "identifier": "mrslotty:AncientArtifacts",
+        "identifier2": "eagaming-38",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Ancient Rome",
+        "identifier": "mrslotty:AncientRome",
+        "identifier2": "eagaming-ancient-rome",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2022-02-04T00:00:00.000Z",
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Anksunamun: the queen of Egypt",
+        "identifier": "mrslotty:AnksunamunthequeenofEgypt",
+        "identifier2": "mascot-anksunamun_tqoe",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.6,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 675,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Aztec Pyramids",
+        "identifier": "mrslotty:aztecpyramids",
+        "identifier2": "aztecpyramids",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1.58,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Baccarat",
+        "identifier": "mrslotty:Baccarat",
+        "identifier2": "mascot-baccarat_mg",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.9,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bagua",
+        "identifier": "mrslotty:Bagua",
+        "identifier2": "eagaming-2",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97,
+        "hit_rate": 16,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bagua 2",
+        "identifier": "mrslotty:Bagua2",
+        "identifier2": "eagaming-25",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97,
+        "hit_rate": 40,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bamboo Bear",
+        "identifier": "mrslotty:BambooBear",
+        "identifier2": "mascot-bamboo_bear",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 97.2,
+        "hit_rate": 31.2,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 264,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Beach Life",
+        "identifier": "mrslotty:BeachLife",
+        "identifier2": "eagaming-beach-life",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 2000,
+        "payout": 95.4,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-12-24T00:00:00.000Z",
+        "multiplier": 4078,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Benny's the Biggest game",
+        "identifier": "mrslotty:BennystheBiggestgame",
+        "identifier2": "mascot-bennys_the_biggest_game",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.4,
+        "hit_rate": 32.2,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Big Game Safari",
+        "identifier": "mrslotty:BigGameSafari",
+        "identifier2": "eagaming-big-game-safari",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-11-26T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Black Jack",
+        "identifier": "mrslotty:BlackJack",
+        "identifier2": "mascot-blackjack_mg",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95.4,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Blocky Block",
+        "identifier": "mrslotty:BlockyBlock",
+        "identifier2": "kagaming-BlockyBlocks",
+        "provider": "mrslotty",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "kagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 300,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Blocky Block 2",
+        "identifier": "mrslotty:BlockyBlock2",
+        "identifier2": "kagaming-BlockyBlocks2",
+        "provider": "mrslotty",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "kagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 4601,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Book of Amaterasu",
+        "identifier": "mrslotty:BookofAmaterasu",
+        "identifier2": "mascot-book_of_amaterasu",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2021-04-14T00:00:00.000Z",
+        "multiplier": 5550,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Book of Bruno",
+        "identifier": "mrslotty:BookofBruno",
+        "identifier2": "fazi-bookofbruno",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Book of Luxor Double",
+        "identifier": "mrslotty:bookofluxordouble",
+        "identifier2": "fazi-bookofluxordouble",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.2,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-10-26T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Book of Spells",
+        "identifier": "mrslotty:BookofSpells",
+        "identifier2": "fazi-bookofspells",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Book of Spells Deluxe",
+        "identifier": "mrslotty:BookofSpellsDeluxe",
+        "identifier2": "fazi-bookofspellsdeluxe",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Buffalo Fortune",
+        "identifier": "mrslotty:BuffaloFortune",
+        "identifier2": "fazi-buffalofortune",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.25,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-02-22T00:00:00.000Z",
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Burning Pearl",
+        "identifier": "mrslotty:BurningPearl",
+        "identifier2": "eagaming-17",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 24,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Burning Pearl Numbers",
+        "identifier": "mrslotty:BurningPearlNumbers",
+        "identifier2": "eagaming-33",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97,
+        "hit_rate": 10,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bushido Blade",
+        "identifier": "mrslotty:BushidoBlade",
+        "identifier2": "eagaming-9",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 16,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Caishen Riches",
+        "identifier": "mrslotty:CaishenRiches",
+        "identifier2": "eagaming-22",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97,
+        "hit_rate": 23,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "CanCan Saloon",
+        "identifier": "mrslotty:CanCanSaloon",
+        "identifier2": "mascot-cancan_saloon",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.7,
+        "hit_rate": 46.5,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Casino Hold'em",
+        "identifier": "mrslotty:CasinoHoldem",
+        "identifier2": "mascot-holdem_mg",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99.3,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Chilli Hunter",
+        "identifier": "mrslotty:ChilliHunter",
+        "identifier2": "eagaming-30",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97,
+        "description": "Chilli Hunter is Mexican-themed slot, which comes with 25 paylines, a bonus round full of free spins, and the potential for completely wild reels if player can hunt down the chillies. This 5x5 slot is a colourful and exciting journey into the world of Mexico. Free spins and bonus features available.",
+        "hit_rate": 23,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "China",
+        "identifier": "mrslotty:China",
+        "identifier2": "eagaming-34",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97,
+        "hit_rate": 36,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Chinese Boss",
+        "identifier": "mrslotty:ChineseBoss",
+        "identifier2": "eagaming-43",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97,
+        "hit_rate": 27,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Classic7Fruits",
+        "identifier": "mrslotty:classic7fruits",
+        "identifier2": "classic7fruits",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 80,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Cleopatra 18+",
+        "identifier": "mrslotty:cleopatra18",
+        "identifier2": "cleopatra18",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 80,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "40 Clover Fire",
+        "identifier": "mrslotty:cloverfire40",
+        "identifier2": "fazi-fireclover40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.4,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-08-17T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crazy Halloween",
+        "identifier": "mrslotty:crazyhalloween",
+        "identifier2": "crazyhalloween",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Cryptomania",
+        "identifier": "mrslotty:Cryptomania",
+        "identifier2": "eagaming-4",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 16,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Cryptomania Numbers",
+        "identifier": "mrslotty:CryptomaniaNumbers",
+        "identifier2": "eagaming-23",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97,
+        "hit_rate": 10,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Crypto Matrix",
+        "identifier": "mrslotty:cryptomatrix",
+        "identifier2": "cryptomatrix",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 18,
+        "payout": 94.6,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 139.44,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crystal Hot 100",
+        "identifier": "mrslotty:crystalhot100",
+        "identifier2": "fazi-crystalhot100",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 96.6,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-10-26T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crystal Hot 40",
+        "identifier": "mrslotty:CrystalHot40",
+        "identifier2": "fazi-crystalhot40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crystal Hot 40 Free Spins",
+        "identifier": "mrslotty:crystalhot40freespins",
+        "identifier2": "fazi-crystalhot40freespins",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.02,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-26T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crystal Hot 80",
+        "identifier": "mrslotty:CrystalHot80",
+        "identifier2": "fazi-crystalhot80",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 80,
+        "payout": 96.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crystal Jewels",
+        "identifier": "mrslotty:CrystalJewels",
+        "identifier2": "fazi-CrystalJewels",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crystals of Magic",
+        "identifier": "mrslotty:CrystalsofMagic",
+        "identifier2": "fazi-crystalsofmagic",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Cubes and Stars",
+        "identifier": "mrslotty:CubesandStars",
+        "identifier2": "fazi-cubesandstars",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Cursed",
+        "identifier": "mrslotty:Cursed",
+        "identifier2": "eagaming-cursed",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-12-24T00:00:00.000Z",
+        "multiplier": 11445.2,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Deep Jungle",
+        "identifier": "mrslotty:DeepJungle",
+        "identifier2": "fazi-deepjungle",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.3,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dice of Spells",
+        "identifier": "mrslotty:DiceofSpells",
+        "identifier2": "fazi-diceofspells",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dolphins Gold",
+        "identifier": "mrslotty:dolphinsgold",
+        "identifier2": "dolphinsgold",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Double 88",
+        "identifier": "mrslotty:Double88",
+        "identifier2": "augustgaming-double-88",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dracula's Gems",
+        "identifier": "mrslotty:draculasgems",
+        "identifier2": "draculasgems",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 835.8,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dragon of The Eastern Sea",
+        "identifier": "mrslotty:DragonofTheEasternSea",
+        "identifier2": "eagaming-27",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 97,
+        "hit_rate": 37,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Dragon Powerflame",
+        "identifier": "mrslotty:DragonPowerflame",
+        "identifier2": "eagaming-13",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97,
+        "hit_rate": 26,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Dynamite Reels",
+        "identifier": "mrslotty:DynamiteReels",
+        "identifier2": "eagaming-5",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 29,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Electric7Fruits",
+        "identifier": "mrslotty:electric7fruits",
+        "identifier2": "electric7fruits",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "El Grande Toro",
+        "identifier": "mrslotty:ElGrandeToro",
+        "identifier2": "fazi-elgrandetoro",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.2,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Emoji Slot",
+        "identifier": "mrslotty:emojislot",
+        "identifier2": "emojislot",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Empress Dowager Cixi",
+        "identifier": "mrslotty:EmpressDowagerCixi",
+        "identifier2": "augustgaming-empress-dowager-cixi",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Empress Regnant",
+        "identifier": "mrslotty:EmpressRegnant",
+        "identifier2": "eagaming-44",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 21,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Enchanted 7s",
+        "identifier": "mrslotty:enchanted7s",
+        "identifier2": "enchanted7s",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Enchanted Forest",
+        "identifier": "mrslotty:EnchantedForest",
+        "identifier2": "eagaming-enchanted-forest",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 576,
+        "payout": 97,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-26T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Enter The KTV",
+        "identifier": "mrslotty:EnterTheKTV",
+        "identifier2": "eagaming-15",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 97,
+        "hit_rate": 37,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Feng Huang",
+        "identifier": "mrslotty:FengHuang",
+        "identifier2": "eagaming-feng-huang",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-26T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "40 Dice Fire",
+        "identifier": "mrslotty:firedice40",
+        "identifier2": "fazi-firedice40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.53,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-09-16T00:00:00.000Z",
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "5 Dice Fire",
+        "identifier": "mrslotty:firedice5",
+        "identifier2": "fazi-firedice5",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.45,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-09-16T00:00:00.000Z",
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "5 Fluo Dice",
+        "identifier": "mrslotty:FluoDice5",
+        "identifier2": "fazi-FluoDice5",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "5 Fluo Hot",
+        "identifier": "mrslotty:FluoHot5",
+        "identifier2": "fazi-FluoHot5",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.7,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Forest Fruits",
+        "identifier": "mrslotty:ForestFruits",
+        "identifier2": "fazi-forestfruits",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fortune Luck",
+        "identifier": "mrslotty:FortuneLuck",
+        "identifier2": "augustgaming-fortune-luck",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Four Dragons",
+        "identifier": "mrslotty:FourDragons",
+        "identifier2": "eagaming-36",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 97,
+        "hit_rate": 33,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Four Tigers",
+        "identifier": "mrslotty:FourTigers",
+        "identifier2": "eagaming-10",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97,
+        "hit_rate": 19,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "FruitCocktail7",
+        "identifier": "mrslotty:fruitcocktail7",
+        "identifier2": "fruitcocktail7",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruit Island",
+        "identifier": "mrslotty:FruitIsland",
+        "identifier2": "fazi-unicornfruitisland",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-06-02T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruit Macau",
+        "identifier": "mrslotty:FruitMacau",
+        "identifier2": "mascot-fruit_macau",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 95,
+        "hit_rate": 36.5,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 695,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruit Monaco",
+        "identifier": "mrslotty:FruitMonaco",
+        "identifier2": "mascot-fruit_monaco",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 95.45,
+        "hit_rate": 34.7,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 480,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruits&Diamonds",
+        "identifier": "mrslotty:fruitsanddiamonds",
+        "identifier2": "fruitsanddiamonds",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 55,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 82.64,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruits and Stars",
+        "identifier": "mrslotty:FruitsandStars",
+        "identifier2": "fazi-fruitsandstars",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruits and Stars 40",
+        "identifier": "mrslotty:FruitsandStars40",
+        "identifier2": "fazi-fruitsandstars40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruit Vegas",
+        "identifier": "mrslotty:FruitVegas",
+        "identifier2": "mascot-fruit_vegas",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruity Hot",
+        "identifier": "mrslotty:FruityHot",
+        "identifier2": "fazi-fruityhot",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.79,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-12-09T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruity Win 40",
+        "identifier": "mrslotty:FruityWin40",
+        "identifier2": "fazi-fruitywin40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-02-14T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gems Tower",
+        "identifier": "mrslotty:gemstower",
+        "identifier2": "gemstower",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 94,
+        "description": "None standard \"cross\" layout with 5 reels, 5 rows15 paylines7 regular symbols, with high multipliers which pay off from 4 or more symbols on a payline.1 Wild symbol1 scattered Free Spin symbol (30 freespins for the 5 anywhere on the reels, 30 free spins can be re-triggered during the free spins play)Gamble bonus game becomes active when the Wild symbol is involved",
+        "hit_rate": 15.67,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 276.67,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gemz Grow",
+        "identifier": "mrslotty:GemzGrow",
+        "identifier2": "mascot-gemz_grow",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 3125,
+        "payout": 96.7,
+        "hit_rate": 46.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 300,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gods Of Egypt",
+        "identifier": "mrslotty:godsofegypt",
+        "identifier2": "godsofegypt",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 97.01,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 333.33,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Golden7Fruits",
+        "identifier": "mrslotty:golden7fruits",
+        "identifier2": "golden7fruits",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Golden Joker Dice",
+        "identifier": "mrslotty:goldenjokerdice",
+        "identifier2": "goldenjokerdice",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gold Miners",
+        "identifier": "mrslotty:goldminers",
+        "identifier2": "goldminers",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gryphon's Castle",
+        "identifier": "mrslotty:GryphonsCastle",
+        "identifier2": "mascot-gryphons_castle",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.6,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 450,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hail The Emperor",
+        "identifier": "mrslotty:HailTheEmperor",
+        "identifier2": "augustgaming-hail-the-emperor",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Heating Dice",
+        "identifier": "mrslotty:HeatingDice",
+        "identifier2": "fazi-HeatingDice",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 100,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Heating Ice",
+        "identifier": "mrslotty:heatingice",
+        "identifier2": "fazi-heatingice",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 27,
+        "payout": 96.3,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-08-18T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Heating Ice Deluxe",
+        "identifier": "mrslotty:HeatingIceDeluxe",
+        "identifier2": "fazi-HeatingIceDeluxe",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 27,
+        "payout": 96.3,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 100,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Heist",
+        "identifier": "mrslotty:Heist",
+        "identifier2": "eagaming-heist",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "released_at": "2022-02-10T00:00:00.000Z",
+        "multiplier": 106,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Hell'Sing",
+        "identifier": "mrslotty:HellSing",
+        "identifier2": "mascot-hellsing",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96,
+        "hit_rate": 44.7,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 112,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Horus Eye",
+        "identifier": "mrslotty:HorusEye",
+        "identifier2": "eagaming-11",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 19,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "HOT Fruits",
+        "identifier": "mrslotty:hotfruits",
+        "identifier2": "hotfruits",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hot Fruits",
+        "identifier": "mrslotty:HotFruits1",
+        "identifier2": "eagaming-21",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 97,
+        "hit_rate": 14,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "HotHoney 22",
+        "identifier": "mrslotty:hothoney22",
+        "identifier2": "hothoney22",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "HotHoney 22 VIP",
+        "identifier": "mrslotty:hothoney22vip",
+        "identifier2": "hothoney22vip",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hot Stars",
+        "identifier": "mrslotty:HotStars",
+        "identifier2": "fazi-hotstars",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.5,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Immortals",
+        "identifier": "mrslotty:Immortals",
+        "identifier2": "eagaming-immortals",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 97,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-26T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Insects 18+",
+        "identifier": "mrslotty:insects18",
+        "identifier2": "insects18",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jazzy Fruits",
+        "identifier": "mrslotty:JazzyFruits",
+        "identifier2": "fazi-jazzyfruits",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.65,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jewels Beat",
+        "identifier": "mrslotty:jewelsbeat",
+        "identifier2": "fazi-jewelsbeat",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.4,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-08-18T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Joker Cards",
+        "identifier": "mrslotty:jokercards",
+        "identifier2": "jokercards",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Joker Dice",
+        "identifier": "mrslotty:jokerdice",
+        "identifier2": "jokerdice",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jolly Poker",
+        "identifier": "mrslotty:JollyPoker",
+        "identifier2": "fazi-jollypoker",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Juicy Hot",
+        "identifier": "mrslotty:JuicyHot",
+        "identifier2": "fazi-juicyhot",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 93.7,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "JungleTreasure",
+        "identifier": "mrslotty:jungletreasure",
+        "identifier2": "jungletreasure",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 35,
+        "payout": 94,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Katanas of Time",
+        "identifier": "mrslotty:KatanasofTime",
+        "identifier2": "fazi-katanasoftime",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "King Kong",
+        "identifier": "mrslotty:KingKong",
+        "identifier2": "augustgaming-king-kong",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lady Hawk",
+        "identifier": "mrslotty:LadyHawk",
+        "identifier2": "eagaming-29",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97,
+        "hit_rate": 26,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Legioner",
+        "identifier": "mrslotty:Legioner",
+        "identifier2": "mascot-legioner",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "hit_rate": 46.3,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2068,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lightning God",
+        "identifier": "mrslotty:LightningGod",
+        "identifier2": "eagaming-6",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 97,
+        "hit_rate": 20,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lions Dance",
+        "identifier": "mrslotty:LionsDance",
+        "identifier2": "eagaming-37",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97,
+        "hit_rate": 17,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lion's Pride",
+        "identifier": "mrslotty:LionsPride",
+        "identifier2": "mascot-lions_pride",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97,
+        "hit_rate": 31.2,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lion The Lord",
+        "identifier": "mrslotty:lionthelord",
+        "identifier2": "lionthelord",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lolla's World",
+        "identifier": "mrslotty:lollasworld",
+        "identifier2": "fazi-lollasworld",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.48,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lost Book",
+        "identifier": "mrslotty:LostBook",
+        "identifier2": "fazi-lostbook",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.3,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-12-15T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lost Realm",
+        "identifier": "mrslotty:LostRealm",
+        "identifier2": "kagaming-LostRealm",
+        "provider": "mrslotty",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "kagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 279,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Brilliants",
+        "identifier": "mrslotty:luckybrilliants",
+        "identifier2": "fazi-luckybrilliants",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.65,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-09-17T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lucky Kids",
+        "identifier": "mrslotty:LuckyKids",
+        "identifier2": "augustgaming-lucky-kids",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lucky Panda",
+        "identifier": "mrslotty:LuckyPanda",
+        "identifier2": "augustgaming-lucky-panda",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lucky Rooster",
+        "identifier": "mrslotty:LuckyRooster",
+        "identifier2": "eagaming-19",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 97,
+        "hit_rate": 39,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lux Roulette",
+        "identifier": "mrslotty:LuxRoulette",
+        "identifier2": "fazi-luxroulette",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "MarsDinner",
+        "identifier": "mrslotty:marsdinner",
+        "identifier2": "marsdinner",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "MEGA CUBES DELUXE",
+        "identifier": "mrslotty:megacubesdeluxe",
+        "identifier2": "fazi-megacubesdeluxe",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.48,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-08-03T00:00:00.000Z",
+        "multiplier": 2400,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mega Fortune God",
+        "identifier": "mrslotty:MegaFortuneGod",
+        "identifier2": "augustgaming-mega-fortune-god",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mega Hot",
+        "identifier": "mrslotty:MegaHot",
+        "identifier2": "fazi-megahot",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.7,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Meme Faces",
+        "identifier": "mrslotty:memefaces",
+        "identifier2": "memefaces",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Merlin's Tower",
+        "identifier": "mrslotty:MerlinsTower",
+        "identifier2": "mascot-merlins_tower",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.9,
+        "hit_rate": 31.2,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 225,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mermaid Gold",
+        "identifier": "mrslotty:mermaidgold",
+        "identifier2": "mermaidgold",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mermaid's Bay",
+        "identifier": "mrslotty:MermaidsBay",
+        "identifier2": "mascot-mermaids_bay",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "hit_rate": 46.3,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2068,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Merry Scary Christmas",
+        "identifier": "mrslotty:MerryScaryChristmas",
+        "identifier2": "mascot-merry_scary_christmas",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.2,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1850,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Modern 7 Wonders",
+        "identifier": "mrslotty:Modern7Wonders",
+        "identifier2": "kagaming-SevenWonders",
+        "provider": "mrslotty",
+        "producer": "kagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "kagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 60,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 672,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Money Vault",
+        "identifier": "mrslotty:MoneyVault",
+        "identifier2": "eagaming-16",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 97,
+        "hit_rate": 23,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Monster Birds",
+        "identifier": "mrslotty:monsterbirds",
+        "identifier2": "monsterbirds",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Monsterinos",
+        "identifier": "mrslotty:monsterinos",
+        "identifier2": "monsterinos",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Monsters",
+        "identifier": "mrslotty:Monsters",
+        "identifier2": "fazi-monsters",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mr Tiger",
+        "identifier": "mrslotty:MrTiger",
+        "identifier2": "augustgaming-mr-tiger",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mystery Joker Hot",
+        "identifier": "mrslotty:MysteryJokerHot",
+        "identifier2": "fazi-mysteryjokerhot",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 27,
+        "payout": 96.29,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-05-21T00:00:00.000Z",
+        "multiplier": 100,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Mythical Fire Qilin",
+        "identifier": "mrslotty:MythicalFireQilin",
+        "identifier2": "augustgaming-mythical-fire-qilin",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Neptune Numbers",
+        "identifier": "mrslotty:NeptuneNumbers",
+        "identifier2": "eagaming-24",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97,
+        "hit_rate": 10,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Neptune Treasure",
+        "identifier": "mrslotty:NeptuneTreasure",
+        "identifier2": "eagaming-3",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 25,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "No More Fruits",
+        "identifier": "mrslotty:nomorefruits",
+        "identifier2": "nomorefruits",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Northern Heat",
+        "identifier": "mrslotty:NorthernHeat",
+        "identifier2": "mascot-northern_heat",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.9,
+        "hit_rate": 31.2,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 225,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Nugget Hunters",
+        "identifier": "mrslotty:NuggetHunters",
+        "identifier2": "eagaming-7",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 97,
+        "hit_rate": 25,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Numbers Deluxe",
+        "identifier": "mrslotty:NumbersDeluxe",
+        "identifier2": "augustgaming-numbers-deluxe",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Octagon Gem",
+        "identifier": "mrslotty:OctagonGem",
+        "identifier2": "eagaming-12",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97,
+        "hit_rate": 16,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Octagon Gem 2",
+        "identifier": "mrslotty:OctagonGem2",
+        "identifier2": "eagaming-26",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97,
+        "hit_rate": 40,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Ong Bak 2",
+        "identifier": "mrslotty:OngBak2",
+        "identifier2": "eagaming-ong-bak-2",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-11-26T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "PandaMEME",
+        "identifier": "mrslotty:pandameme",
+        "identifier2": "pandameme",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Peach Banquet",
+        "identifier": "mrslotty:PeachBanquet",
+        "identifier2": "eagaming-40",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97,
+        "hit_rate": 24,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Phoenix888",
+        "identifier": "mrslotty:Phoenix888",
+        "identifier2": "eagaming-28",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 39,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Pirates",
+        "identifier": "mrslotty:Pirates",
+        "identifier2": "fazi-pirates",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Postman",
+        "identifier": "mrslotty:Postman",
+        "identifier2": "fazi-postman",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 82.6,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 9000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Prince of Persia",
+        "identifier": "mrslotty:PrinceofPersia",
+        "identifier2": "mascot-prince_of_persia_tgop",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.1,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-02-02T00:00:00.000Z",
+        "multiplier": 800,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Purple Pills",
+        "identifier": "mrslotty:PurplePills",
+        "identifier2": "mascot-purple_pills",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Pyramid",
+        "identifier": "mrslotty:Pyramid",
+        "identifier2": "fazi-pyramid",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Quarantine",
+        "identifier": "mrslotty:quarantine",
+        "identifier2": "quarantine",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.05,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-07-19T00:00:00.000Z",
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Queen 2",
+        "identifier": "mrslotty:Queen2",
+        "identifier2": "eagaming-queen-2",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-02-18T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Queen of Spades",
+        "identifier": "mrslotty:QueenofSpades",
+        "identifier2": "mascot-queen_of_spades",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.1,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 1500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Red Horde",
+        "identifier": "mrslotty:RedHorde",
+        "identifier2": "mascot-red_horde",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.5,
+        "hit_rate": 35.6,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Re Kill",
+        "identifier": "mrslotty:ReKill",
+        "identifier2": "mascot-re_kill",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.6,
+        "hit_rate": 41.5,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 200,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Retro 7 Hot",
+        "identifier": "mrslotty:Retro7Hot",
+        "identifier2": "fazi-retro7hot",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.5,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 300,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Riot",
+        "identifier": "mrslotty:Riot",
+        "identifier2": "mascot-riot",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.7,
+        "hit_rate": 31.9,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Robin of Loxley",
+        "identifier": "mrslotty:RobinofLoxley",
+        "identifier2": "mascot-robin_of_loxley",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.1,
+        "hit_rate": 33.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 775,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Roulette",
+        "identifier": "mrslotty:Roulette",
+        "identifier2": "fazi-roulette",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Royal7Fruits",
+        "identifier": "mrslotty:royal7fruits",
+        "identifier2": "royal7fruits",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Samurai Warrior",
+        "identifier": "mrslotty:SamuraiWarrior",
+        "identifier2": "augustgaming-samurai-warrior",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Santa's Workshop",
+        "identifier": "mrslotty:SantasWorkshop",
+        "identifier2": "eagaming-santas-workshop",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 75,
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-12-24T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Scheherazade",
+        "identifier": "mrslotty:Scheherazade",
+        "identifier2": "eagaming-scheherazade",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-12-24T00:00:00.000Z",
+        "multiplier": 214,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Seven Classic Slot",
+        "identifier": "mrslotty:SevenClassicSlot",
+        "identifier2": "fazi-sevenclassicslot",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.13,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-12-16T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Shaolin",
+        "identifier": "mrslotty:Shaolin",
+        "identifier2": "eagaming-shaolin",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-07-16T00:00:00.000Z",
+        "multiplier": 100,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "She/He_beach",
+        "identifier": "mrslotty:shehebeach",
+        "identifier2": "shehebeach",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "She/He_club",
+        "identifier": "mrslotty:sheheclub",
+        "identifier2": "sheheclub",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Space Guardians",
+        "identifier": "mrslotty:SpaceGuardians",
+        "identifier2": "fazi-spaceguardians",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.5,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Star Gems",
+        "identifier": "mrslotty:StarGems",
+        "identifier2": "fazi-stargems",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Starlight",
+        "identifier": "mrslotty:Starlight",
+        "identifier2": "fazi-starlight",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Star Runner",
+        "identifier": "mrslotty:StarRunner",
+        "identifier2": "fazi-starrunner",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Super Dragons Fire",
+        "identifier": "mrslotty:superdragonsfire",
+        "identifier2": "superdragonsfire",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Super Fruit",
+        "identifier": "mrslotty:SuperFruit",
+        "identifier2": "augustgaming-superfruit",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Tai Shang Lao Sun",
+        "identifier": "mrslotty:TaiShangLaoSun",
+        "identifier2": "eagaming-39",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 97,
+        "hit_rate": 22,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Talisman",
+        "identifier": "mrslotty:Talisman",
+        "identifier2": "eagaming-talisman",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95.5,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-02-10T00:00:00.000Z",
+        "multiplier": 5632.5,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Templars Quest",
+        "identifier": "mrslotty:TemplarsQuest",
+        "identifier2": "fazi-templarsquest",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.3,
+        "hit_rate": 27.37,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 80,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Crown Fruit",
+        "identifier": "mrslotty:thecrownfruit",
+        "identifier2": "fazi-unicornthecrownfruit",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-08-18T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Magical Lamp",
+        "identifier": "mrslotty:TheMagicalLamp",
+        "identifier2": "augustgaming-the-magical-lamp",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Myth",
+        "identifier": "mrslotty:TheMyth",
+        "identifier2": "mascot-the_myth",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94.5,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-04-13T00:00:00.000Z",
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Red Phoenix",
+        "identifier": "mrslotty:TheRedPhoenix",
+        "identifier2": "augustgaming-the-red-phoenix",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Rite",
+        "identifier": "mrslotty:TheRite",
+        "identifier2": "mascot-the_rite",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 125,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Third Lotus Prince",
+        "identifier": "mrslotty:TheThirdLotusPrince",
+        "identifier2": "augustgaming-the-third-lotus-prince",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Tomb",
+        "identifier": "mrslotty:TheTomb",
+        "identifier2": "mascot-the_tomb_det",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.8,
+        "hit_rate": 35.1,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Wild Protectors",
+        "identifier": "mrslotty:TheWildProtectors",
+        "identifier2": "eagaming-wild-protectors",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97,
+        "hit_rate": 21,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Third Prince's Journey",
+        "identifier": "mrslotty:ThirdPrincesJourney",
+        "identifier2": "eagaming-41",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97,
+        "hit_rate": 35,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Three Corsairs",
+        "identifier": "mrslotty:ThreeCorsairs",
+        "identifier2": "mascot-3_corsairs",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.5,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 437,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Three Kingdoms 2",
+        "identifier": "mrslotty:ThreeKingdoms2",
+        "identifier2": "eagaming-three-kingdoms-2",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-02-18T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Treasures of Egypt",
+        "identifier": "mrslotty:treasuresofegypt",
+        "identifier2": "treasuresofegypt",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Trendy Skulls",
+        "identifier": "mrslotty:trendyskulls",
+        "identifier2": "trendyskulls",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Triple Dice",
+        "identifier": "mrslotty:TripleDice",
+        "identifier2": "fazi-tripledice",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.5,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 300,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Triple Hot",
+        "identifier": "mrslotty:TripleHot",
+        "identifier2": "fazi-triplehot",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.5,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 300,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Troll Faces",
+        "identifier": "mrslotty:trollfaces",
+        "identifier2": "trollfaces",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Tropical7Fruits",
+        "identifier": "mrslotty:tropical7fruits",
+        "identifier2": "tropical7fruits",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Tropical Crush",
+        "identifier": "mrslotty:TropicalCrush",
+        "identifier2": "eagaming-tropical-crush",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-11-26T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Tropical Hot",
+        "identifier": "mrslotty:TropicalHot",
+        "identifier2": "fazi-tropicalhot",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 93.7,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Turbo Dice 40",
+        "identifier": "mrslotty:TurboDice40",
+        "identifier2": "fazi-turbodice40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Turbo Hot 100",
+        "identifier": "mrslotty:TurboHOT100",
+        "identifier2": "fazi-turbohot100",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 96.58,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-24T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Turbo Hot 40",
+        "identifier": "mrslotty:TurboHot40",
+        "identifier2": "fazi-turbohot40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Turbo Hot 80",
+        "identifier": "mrslotty:TurboHot80",
+        "identifier2": "fazi-turbohot80",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 80,
+        "payout": 96.6,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Twenty Dice",
+        "identifier": "mrslotty:TwentyDice",
+        "identifier2": "fazi-twentydice",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Twenty Fruits",
+        "identifier": "mrslotty:TwentyFruits",
+        "identifier2": "fazi-twentyfruits",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Twinkling Hot 40",
+        "identifier": "mrslotty:TwinklingHot40",
+        "identifier2": "fazi-twinklinghot40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.65,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Twinkling Hot 5",
+        "identifier": "mrslotty:TwinklingHot5",
+        "identifier2": "fazi-twinklinghot5",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.65,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Casino Fruits",
+        "identifier": "mrslotty:unicorncasinofruits",
+        "identifier2": "fazi-unicorncasinofruits",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-10-26T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Unicorn Gems",
+        "identifier": "mrslotty:unicorngems",
+        "identifier2": "unicorngems",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Vegas AfterParty",
+        "identifier": "mrslotty:vegasafterparty",
+        "identifier2": "vegasafterparty",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Venetian Magic",
+        "identifier": "mrslotty:VenetianMagic",
+        "identifier2": "mascot-venetian_magic",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 95.7,
+        "hit_rate": 52.4,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 76,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Very Hot 20",
+        "identifier": "mrslotty:VeryHot20",
+        "identifier2": "fazi-veryhot20",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.5,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-02-21T00:00:00.000Z",
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Very Hot 40",
+        "identifier": "mrslotty:veryhot40",
+        "identifier2": "fazi-veryhot40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.4,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-08-17T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Very Hot 5",
+        "identifier": "mrslotty:veryhot5",
+        "identifier2": "fazi-veryhot5",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.4,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-08-16T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Viking Gold",
+        "identifier": "mrslotty:VikingGold",
+        "identifier2": "fazi-vikinggold",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "VIP Roulette",
+        "identifier": "mrslotty:VIPRoulette",
+        "identifier2": "fazi-viproulette",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wild7Fruits",
+        "identifier": "mrslotty:wild7fruits",
+        "identifier2": "wild7fruits",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "50 Wild Cash",
+        "identifier": "mrslotty:wildclover506",
+        "identifier2": "fazi-wildclover506",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 95.3,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-10-26T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "40 Wild Dice",
+        "identifier": "mrslotty:wildcloverdice40",
+        "identifier2": "fazi-wildcloverdice40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.32,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-11-26T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wild Faires",
+        "identifier": "mrslotty:WildFaires",
+        "identifier2": "eagaming-31",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 97,
+        "hit_rate": 21,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Wild Giant Panda",
+        "identifier": "mrslotty:WildGiantPanda",
+        "identifier2": "eagaming-35",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 97,
+        "hit_rate": 34,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Wild Kingdom",
+        "identifier": "mrslotty:WildKingdom",
+        "identifier2": "fazi-wildkingdom",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.1,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-06-18T00:00:00.000Z",
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wild Spirit",
+        "identifier": "mrslotty:WildSpirit",
+        "identifier2": "mascot-wild_spirit",
+        "provider": "mrslotty",
+        "producer": "mascot",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mascot",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97,
+        "hit_rate": 31.2,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wild Vegas",
+        "identifier": "mrslotty:wildvegas",
+        "identifier2": "wildvegas",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.2,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 80.67,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wild West",
+        "identifier": "mrslotty:WildWest",
+        "identifier2": "fazi-wildwest",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Winning Stars",
+        "identifier": "mrslotty:WinningStars",
+        "identifier2": "fazi-winningstars",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.5,
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-12-24T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Witch's Brew",
+        "identifier": "mrslotty:WitchsBrew",
+        "identifier2": "eagaming-8",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "hit_rate": 29,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Wizard",
+        "identifier": "mrslotty:Wizard",
+        "identifier2": "fazi-wizard",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Xmas Party",
+        "identifier": "mrslotty:xmasparty",
+        "identifier2": "xmasparty",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 24,
+        "payout": 95.5,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 44.17,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Yggdrasil",
+        "identifier": "mrslotty:Yggdrasil",
+        "identifier2": "eagaming-20",
+        "provider": "mrslotty",
+        "producer": "eagaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "eagaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97,
+        "hit_rate": 24,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Zeus the Thunderer",
+        "identifier": "mrslotty:zeusthethunderer",
+        "identifier2": "zeusthethunderer",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Zeus the Thunderer II",
+        "identifier": "mrslotty:zeusthethunderer2",
+        "identifier2": "zeusthethunderer2",
+        "provider": "mrslotty",
+        "producer": "mrslotty",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 126,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "LT",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Zhuge Liang",
+        "identifier": "mrslotty:ZhugeLiang",
+        "identifier2": "augustgaming-zhuge-liang",
+        "provider": "mrslotty",
+        "producer": "augustgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "augustgaming",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "CW",
+                    "FR",
+                    "NL",
+                    "SG",
+                    "US"
+                ]
+            }
+        }
+    }
+]

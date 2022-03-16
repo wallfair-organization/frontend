@@ -1,0 +1,1129 @@
+[
+    {
+        "title": "20 Hot Twist",
+        "identifier": "alg:20HotSpins",
+        "identifier2": "1023",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.79,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 20000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "40 Fruity Reels",
+        "identifier": "alg:40FruityReels",
+        "identifier2": "1012",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.72,
+        "volatility_rating": "low-medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 20000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "40 Hot Twist",
+        "identifier": "alg:40HotSpins",
+        "identifier2": "1022",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.88,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 40000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "60 Ultra Classic Hot",
+        "identifier": "alg:60UltraClassicHot",
+        "identifier2": "1019",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 60,
+        "payout": 96.65,
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "80 Fruit Dash",
+        "identifier": "alg:80FruitDash",
+        "identifier2": "1010",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 80,
+        "payout": 96.49,
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 18000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Absolute Bright",
+        "identifier": "alg:AbsoluteBright",
+        "identifier2": "18",
+        "provider": "alg",
+        "producer": "alg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "has_live": true,
+        "hd": true,
+        "released_at": "2021-09-29T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Absolute White",
+        "identifier": "alg:AbsoluteWhite",
+        "identifier2": "12",
+        "provider": "alg",
+        "producer": "alg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Age of Cleopatra",
+        "identifier": "alg:AgeofCleopatra",
+        "identifier2": "1004",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.1,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Andar Bahar",
+        "identifier": "alg:AndarBahar",
+        "identifier2": "1027",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "ait",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Absolute Black",
+        "identifier": "alg:AutomaticRoulette1",
+        "identifier2": "2",
+        "provider": "alg",
+        "producer": "alg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Absolute Brown",
+        "identifier": "alg:AutomaticRoulette2",
+        "identifier2": "5",
+        "provider": "alg",
+        "producer": "alg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Baccarat Table A",
+        "identifier": "alg:BaccaratTableA",
+        "identifier2": "111",
+        "provider": "alg",
+        "producer": "provisiongaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "provision_baccarat",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.8,
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Baccarat Table B",
+        "identifier": "alg:BaccaratTableB",
+        "identifier2": "112",
+        "provider": "alg",
+        "producer": "provisiongaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "provision_baccarat",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.8,
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Baccarat Table C",
+        "identifier": "alg:BaccaratTableC",
+        "identifier2": "113",
+        "provider": "alg",
+        "producer": "provisiongaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "provision_baccarat",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.8,
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Baccarat Table D",
+        "identifier": "alg:BaccaratTableD",
+        "identifier2": "114",
+        "provider": "alg",
+        "producer": "provisiongaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "provision_baccarat",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.8,
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bandidos Showdown",
+        "identifier": "alg:BandidosShowdown",
+        "identifier2": "1002",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 94.83,
+        "volatility_rating": "low-medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 825,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Big 5 Africa",
+        "identifier": "alg:Big5Africa",
+        "identifier2": "1005",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.24,
+        "volatility_rating": "low",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 30000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dragon's Flower",
+        "identifier": "alg:DragonsFlower",
+        "identifier2": "1007",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.67,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dragon Tiger",
+        "identifier": "alg:DragonTiger",
+        "identifier2": "1031",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "ait",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fortune Genie",
+        "identifier": "alg:FortuneGenie",
+        "identifier2": "1008",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.07,
+        "volatility_rating": "low-medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 120,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruit Dash",
+        "identifier": "alg:FruitDash",
+        "identifier2": "1009",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.74,
+        "volatility_rating": "low-medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruity Reels",
+        "identifier": "alg:FruityReels",
+        "identifier2": "1011",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.62,
+        "volatility_rating": "low-medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 20000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Golden Vegas",
+        "identifier": "alg:GoldenVegas",
+        "identifier2": "1013",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 94.29,
+        "volatility_rating": "low-medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hot Fortune Wheel",
+        "identifier": "alg:HotFortuneWheel",
+        "identifier2": "1014",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.41,
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 4000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hot Fortune Wheel 80",
+        "identifier": "alg:HotFortuneWheel80",
+        "identifier2": "1015",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 80,
+        "payout": 96.81,
+        "volatility_rating": "low-medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 30,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lucky Fruit Lines",
+        "identifier": "alg:LuckyFruitLines",
+        "identifier2": "1021",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.38,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Oracle Blaze",
+        "identifier": "alg:Oracle360Roulette",
+        "identifier2": "3",
+        "provider": "alg",
+        "producer": "alg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Portomaso VIP",
+        "identifier": "alg:OracleCasino",
+        "identifier2": "4",
+        "provider": "alg",
+        "producer": "alg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Patrick's Riches",
+        "identifier": "alg:PatricksRiches",
+        "identifier2": "1016",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.61,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 200,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Portomaso Casino",
+        "identifier": "alg:PortomasoCasino",
+        "identifier2": "1",
+        "provider": "alg",
+        "producer": "alg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Portomaso Lumia",
+        "identifier": "alg:PortomasoLumia",
+        "identifier2": "20",
+        "provider": "alg",
+        "producer": "alg",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "has_live": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Rune Wars",
+        "identifier": "alg:RuneWars",
+        "identifier2": "1017",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.71,
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Turkish Blackjack",
+        "identifier": "alg:TurkishBlackjack",
+        "identifier2": "1025",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Turkish Roulette",
+        "identifier": "alg:TurkishRoulette",
+        "identifier2": "1034",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "has_live": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Ultra Classic Hot",
+        "identifier": "alg:UltraClassicHot",
+        "identifier2": "1018",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.53,
+        "volatility_rating": "low-medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 600,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Underwater Adventure",
+        "identifier": "alg:UnderwaterAdventure",
+        "identifier2": "1020",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 94.2,
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wild Bandidos",
+        "identifier": "alg:WildBandidos",
+        "identifier2": "1001",
+        "provider": "alg",
+        "producer": "7mojos",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "ajz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 95.01,
+        "volatility_rating": "low-medium",
+        "has_jackpot": true,
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-07T00:00:00.000Z",
+        "multiplier": 125,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BG",
+                    "ES",
+                    "LV",
+                    "US"
+                ]
+            }
+        }
+    }
+]

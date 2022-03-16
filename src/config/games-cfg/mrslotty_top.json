@@ -1,0 +1,272 @@
+[
+	{
+		"title": "Zeus the Thunderer II",
+		"identifier": "mrslotty:zeusthethunderer2",
+		"identifier2": "zeusthethunderer2",
+		"provider": "mrslotty",
+		"producer": "mrslotty",
+		"category": "slots",
+		"has_freespins": true,
+		"feature_group": "basic",
+		"devices": [
+			"desktop",
+			"mobile"
+		],
+		"lines": 25,
+		"payout": 94,
+		"volatility_rating": "medium",
+		"hd": true,
+		"multiplier": 126,
+		"restrictions": {
+			"default": {
+				"blacklist": [
+					"LT",
+					"US"
+				]
+			}
+		}
+	},
+	{
+		"title": "777 Diamonds",
+		"identifier": "mrslotty:777diamonds",
+		"identifier2": "777diamonds",
+		"provider": "mrslotty",
+		"producer": "mrslotty",
+		"category": "slots",
+		"has_freespins": true,
+		"feature_group": "basic",
+		"devices": [
+			"desktop",
+			"mobile"
+		],
+		"lines": 25,
+		"payout": 94,
+		"volatility_rating": "medium",
+		"hd": true,
+		"multiplier": 126,
+		"restrictions": {
+			"default": {
+				"blacklist": [
+					"LT",
+					"US"
+				]
+			}
+		}
+	},
+	{
+		"title": "Super Dragons Fire",
+		"identifier": "mrslotty:superdragonsfire",
+		"identifier2": "superdragonsfire",
+		"provider": "mrslotty",
+		"producer": "mrslotty",
+		"category": "slots",
+		"has_freespins": true,
+		"feature_group": "basic",
+		"devices": [
+			"desktop",
+			"mobile"
+		],
+		"lines": 25,
+		"payout": 94,
+		"volatility_rating": "medium",
+		"hd": true,
+		"multiplier": 126,
+		"restrictions": {
+			"default": {
+				"blacklist": [
+					"LT",
+					"US"
+				]
+			}
+		}
+	},
+	{
+		"title": "Classic7Fruits",
+		"identifier": "mrslotty:classic7fruits",
+		"identifier2": "classic7fruits",
+		"provider": "mrslotty",
+		"producer": "mrslotty",
+		"category": "slots",
+		"has_freespins": true,
+		"feature_group": "basic",
+		"devices": [
+			"desktop",
+			"mobile"
+		],
+		"lines": 25,
+		"payout": 94,
+		"volatility_rating": "medium",
+		"hd": true,
+		"multiplier": 80,
+		"restrictions": {
+			"default": {
+				"blacklist": [
+					"LT",
+					"US"
+				]
+			}
+		}
+	},
+	{
+		"title": "Treasures of Egypt",
+		"identifier": "mrslotty:treasuresofegypt",
+		"identifier2": "treasuresofegypt",
+		"provider": "mrslotty",
+		"producer": "mrslotty",
+		"category": "slots",
+		"has_freespins": true,
+		"feature_group": "basic",
+		"devices": [
+			"desktop",
+			"mobile"
+		],
+		"lines": 25,
+		"payout": 94,
+		"volatility_rating": "medium",
+		"hd": true,
+		"multiplier": 126,
+		"restrictions": {
+			"default": {
+				"blacklist": [
+					"LT",
+					"US"
+				]
+			}
+		}
+	},
+	{
+		"title": "Wild7Fruits",
+		"identifier": "mrslotty:wild7fruits",
+		"identifier2": "wild7fruits",
+		"provider": "mrslotty",
+		"producer": "mrslotty",
+		"category": "slots",
+		"has_freespins": true,
+		"feature_group": "basic",
+		"devices": [
+			"desktop",
+			"mobile"
+		],
+		"lines": 25,
+		"payout": 94,
+		"volatility_rating": "medium",
+		"hd": true,
+		"multiplier": 126,
+		"restrictions": {
+			"default": {
+				"blacklist": [
+					"LT",
+					"US"
+				]
+			}
+		}
+	},
+	{
+		"title": "HotHoney 22 VIP",
+		"identifier": "mrslotty:hothoney22vip",
+		"identifier2": "hothoney22vip",
+		"provider": "mrslotty",
+		"producer": "mrslotty",
+		"category": "slots",
+		"has_freespins": true,
+		"feature_group": "basic",
+		"devices": [
+			"desktop",
+			"mobile"
+		],
+		"lines": 25,
+		"payout": 94,
+		"volatility_rating": "medium",
+		"hd": true,
+		"multiplier": 126,
+		"restrictions": {
+			"default": {
+				"blacklist": [
+					"LT",
+					"US"
+				]
+			}
+		}
+	},
+	{
+		"title": "Emoji Slot",
+		"identifier": "mrslotty:emojislot",
+		"identifier2": "emojislot",
+		"provider": "mrslotty",
+		"producer": "mrslotty",
+		"category": "slots",
+		"has_freespins": true,
+		"feature_group": "basic",
+		"devices": [
+			"desktop",
+			"mobile"
+		],
+		"lines": 25,
+		"payout": 94,
+		"volatility_rating": "medium",
+		"hd": true,
+		"multiplier": 126,
+		"restrictions": {
+			"default": {
+				"blacklist": [
+					"LT",
+					"US"
+				]
+			}
+		}
+	},
+	{
+		"title": "FruitCocktail7",
+		"identifier": "mrslotty:fruitcocktail7",
+		"identifier2": "fruitcocktail7",
+		"provider": "mrslotty",
+		"producer": "mrslotty",
+		"category": "slots",
+		"has_freespins": true,
+		"feature_group": "basic",
+		"devices": [
+			"desktop",
+			"mobile"
+		],
+		"lines": 25,
+		"payout": 94,
+		"volatility_rating": "medium",
+		"hd": true,
+		"multiplier": 126,
+		"restrictions": {
+			"default": {
+				"blacklist": [
+					"LT",
+					"US"
+				]
+			}
+		}
+	},
+	{
+		"title": "Cleopatra 18+",
+		"identifier": "mrslotty:cleopatra18",
+		"identifier2": "cleopatra18",
+		"provider": "mrslotty",
+		"producer": "mrslotty",
+		"category": "slots",
+		"has_freespins": true,
+		"feature_group": "basic",
+		"devices": [
+			"desktop",
+			"mobile"
+		],
+		"lines": 25,
+		"payout": 94,
+		"volatility_rating": "medium",
+		"hd": true,
+		"multiplier": 80,
+		"restrictions": {
+			"default": {
+				"blacklist": [
+					"LT",
+					"US"
+				]
+			}
+		}
+	}
+]

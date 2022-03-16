@@ -1,0 +1,354 @@
+[
+{
+        "title": "Fruits and Stars",
+        "identifier": "mrslotty:FruitsandStars",
+        "identifier2": "fazi-fruitsandstars",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruits and Stars 40",
+        "identifier": "mrslotty:FruitsandStars40",
+        "identifier2": "fazi-fruitsandstars40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Fruity Hot",
+        "identifier": "mrslotty:FruityHot",
+        "identifier2": "fazi-fruityhot",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.79,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-12-09T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruity Win 40",
+        "identifier": "mrslotty:FruityWin40",
+        "identifier2": "fazi-fruitywin40",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.6,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-02-14T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Heating Dice",
+        "identifier": "mrslotty:HeatingDice",
+        "identifier2": "fazi-HeatingDice",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.8,
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 100,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Heating Ice",
+        "identifier": "mrslotty:heatingice",
+        "identifier2": "fazi-heatingice",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 27,
+        "payout": 96.3,
+        "volatility_rating": "low",
+        "hd": true,
+        "released_at": "2021-08-18T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Heating Ice Deluxe",
+        "identifier": "mrslotty:HeatingIceDeluxe",
+        "identifier2": "fazi-HeatingIceDeluxe",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 27,
+        "payout": 96.3,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 100,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Hot Stars",
+        "identifier": "mrslotty:HotStars",
+        "identifier2": "fazi-hotstars",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.5,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Jazzy Fruits",
+        "identifier": "mrslotty:JazzyFruits",
+        "identifier2": "fazi-jazzyfruits",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.65,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jewels Beat",
+        "identifier": "mrslotty:jewelsbeat",
+        "identifier2": "fazi-jewelsbeat",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.4,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-08-18T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+	{
+        "title": "Jolly Poker",
+        "identifier": "mrslotty:JollyPoker",
+        "identifier2": "fazi-jollypoker",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Juicy Hot",
+        "identifier": "mrslotty:JuicyHot",
+        "identifier2": "fazi-juicyhot",
+        "provider": "mrslotty",
+        "producer": "fazi",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "fazi",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 93.7,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "DE",
+                    "NL",
+                    "US"
+                ]
+            }
+        }
+    }
+]
