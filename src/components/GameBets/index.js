@@ -6,8 +6,8 @@ import classNames from 'classnames';
 import { toNumericString } from 'helper/FormatNumbers';
 import { currencyDisplay } from 'helper/Currency';
 
-const formatAmount = amount =>
-  amount ? toNumericString(amount.toFixed(0)) : '-'; // TODO: temp solution (sometimes amount is undefined)
+const formatAmount = (amount, decimals = 2) =>
+  amount ? toNumericString(amount.toFixed(decimals)) : '-'; // TODO: temp solution (sometimes amount is undefined)
 const isCashedOut = bets => bets.findIndex(b => b.cashedOut) > -1;
 
 const calculateTotal = (bets, gameRunning, endGame) => {
