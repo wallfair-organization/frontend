@@ -31,8 +31,9 @@ const fetch = function* (action) {
     if (response) {
       const user = response.data;
       const adminState = yield select(state => state.authentication.admin);
+      const selfUserId = yield select(state => state.authentication.userId);
 
-      if (user.admin !== adminState) {
+      if (user.userId === selfUserId && user.admin !== adminState) {
         yield put(AuthenticationActions.forcedLogout());
       } else {
         yield put(
