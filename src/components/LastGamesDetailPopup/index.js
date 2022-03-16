@@ -88,14 +88,14 @@ const LastGamesDetailsPopup = ({ hidePopup, showPopup, data }) => {
       <img src={LogoSplash} className={styles.logo} />
       <div className={styles.title}>
         Game details
-        <div
+        {/* <div
           className={styles.nextGame}
           onClick={() => {
             handleCrashFactorChange(match.gamehash, 'next');
           }}
         >
           {'<'} Next
-        </div>
+        </div> */}
         <div
           className={styles.prevGame}
           onClick={() => {

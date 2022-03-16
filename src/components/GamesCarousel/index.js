@@ -78,7 +78,7 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
         showThumbs={false}
         
       >
-      {/* <div className={styles.container}>
+      <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
             className={styles.backgroundImg}
@@ -109,9 +109,9 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
             })}
           </div>
         </div>
-      </div> */}
+      </div>
 
-      <div className={styles.container}>
+      {/* <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
             className={styles.backgroundImg}
@@ -143,7 +143,7 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className={styles.container}>
         <div className={styles.topContainer}>
