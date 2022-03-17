@@ -117,6 +117,36 @@
       width: 55px;
       display: block;
     }
+
+    span {
+      display: none;
+      @media (max-width: $screen-md) {
+        display: block;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .cryptoCoinWrapper {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+
+    img {
+      height: 44px;
+      display: block;
+    }
+    span {
+      display: none;
+      @media (max-width: $screen-md) {
+        display: block;
+        margin-left: 8px;
+      }
+    }
   }
 
   .cryptoTokenIcon {
@@ -224,6 +254,50 @@
 
       & > div + div {
         margin-bottom: 15px;
+      }
+    }
+  }
+
+  .centeredBlock {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    width: 100%;
+
+    @media (max-width: $screen-xs) {
+      flex-direction: column;
+
+      & > div + div {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .providersList {
+    margin: 20px 0 0;
+    align-items: center;
+    // justify-content: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    @media (max-width: $screen-sm) {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .providerItem {
+      font-size: 12px;
+      padding: 11px 16px;
+      width: 100%;
+      max-width: 160px;
+      height: 60px;
+
+      img {
+        height: 35px;
+        max-width: 120px;
+        object-fit: contain;
       }
     }
   }
