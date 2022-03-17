@@ -111,7 +111,8 @@ const updateData = makeActionCreator(AuthenticationTypes.UPDATE_DATA, {
   preferences: null,
   aboutMe: null,
   emailConfirmed: null,
-  phoneConfirmed: null
+  phoneConfirmed: null,
+  country: null,
 });
 
 const verifySms = makeActionCreator(AuthenticationTypes.VERIFY_SMS, {
