@@ -14,6 +14,11 @@ import classNames from 'classnames';
 import BackgroundFirst from '../../data/images/carousel/bg-first.png';
 import BackgroundSecond from '../../data/images/carousel/bg-second.png';
 import BackgroundThird from '../../data/images/carousel/bg-third.png';
+import Fairy from '../../data/images/carousel/fairy2.png';
+import NobullshitIcon from '../../data/images/carousel/nobullshit-icon.png';
+import FireIcon from '../../data/images/carousel/fire-icon.png';
+import SlotIcon from '../../data/images/carousel/slot-icon.png';
+import MoneyIcon from '../../data/images/carousel/money-icon.png';
 import BannerImage1 from '../../data/images/carousel/banner-img1.png';
 import CardBg from '../../data/images/carousel/bg-card2.png';
 import Coins from '../../data/images/carousel/coins.png';
@@ -28,17 +33,20 @@ import { useNotificationFilter } from 'components/Events/hooks/useNotificationFi
 import { TOKEN_NAME } from 'constants/Token';
 import { currencyDisplay } from 'helper/Currency';
 import HowToStartBanner from './HowToStartBanner';
+import { numberWithCommas } from 'utils/common';
+import { formatToFixed } from 'helper/FormatNumbers';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
 const BottomBanner = ({title, price}) => {
+  const formattedPrice = numberWithCommas(formatToFixed(price, 0));
   return (
     <div className={styles.bottomBanner}>
       {/* <img src={BannerImage1} alt='' /> */}
       <div className={styles.bottomBannerContent}>
         <a href={`/activities`} >
           <p className={styles.title}>{title}<br />just earned</p>
-          <p className={styles.price}>{price}</p>
+          <p className={styles.price}>{`${formattedPrice} ${currencyDisplay(TOKEN_NAME)}`}</p>
         </a>
       </div>
     </div>
@@ -51,7 +59,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
   const location = useLocation();
 
   const { events } = useEventsFilter([BetState.active], 'all', null, true);
-  const { events : eventsByCreationDate } = useEventsFilter([BetState.active], 'all', null, false, 15, '', 'most_popular');
+  const { events : eventsByCreationDate } = useEventsFilter([BetState.active], 'all', null, false, 200, '', 'most_popular');
 
   const {notifications} = useNotificationFilter('Notification/EVENT_USER_REWARD');
 
@@ -242,7 +250,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
               return (
                 <BottomBanner
                   title={`${activity.data?.user?.username}`}
-                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                  price={activity.data?.winToken}
                 />
               )
             })}
@@ -276,7 +284,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
               return (
                 <BottomBanner
                   title={`${activity.data?.user?.username}`}
-                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                  price={activity.data?.winToken}
                 />
               )
             })}
@@ -311,7 +319,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
               return (
                 <BottomBanner
                   title={`${activity.data?.user?.username}`}
-                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                  price={activity.data?.winToken}
                 />
               )
             })}
@@ -326,7 +334,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
   const TextItem = ({emoji, children}) => {
     return (
       <div className={styles.textItem}>
-        <span className={styles.emoji}>{emoji}</span>
+        <span className={styles.emoji}><img src={emoji} alt="no bullshit"/></span>
         {' '}{children}
         {/* <span className={styles.prize}></span> */}
       </div>
@@ -337,9 +345,9 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
     return (
       <div className={styles.textItemsContainer}>
         {/* <span className={styles.title}>The 3 daily winners</span> */}
-        <TextItem emoji={'💩'}><span><span className={styles.highlighted}>No bullshit</span>: Web 3.0 - Instant MetaMask deposit &amp; withdrawal instead of sign up, KYC and deposit limits</span></TextItem>
-        <TextItem emoji={'🥸'}><span><span className={styles.highlighted}>Fun</span>: Over 500 fun games and the first platform to bet on user generated events</span></TextItem>
-        <TextItem emoji={'💰'}><span><span className={styles.highlighted}>Make money</span>: Create your own bets and earn 10% of the trading volume (Limit: 500,000 USD per event)</span></TextItem>
+        <TextItem emoji={NobullshitIcon}><span><span className={styles.highlighted}>No bullshit</span>: Web 3.0 - Instant MetaMask deposit &amp; withdrawal instead of sign up, KYC and deposit limits</span></TextItem>
+        <TextItem emoji={SlotIcon}><span><span className={styles.highlighted}>Fun</span>: Over 500 fun games and the first platform to bet on user generated events</span></TextItem>
+        <TextItem emoji={MoneyIcon}><span><span className={styles.highlighted}>Make money</span>: Create your own bets and earn 10% of the trading volume (Limit: 500,000 USD per event)</span></TextItem>
       </div>
     )
   }
@@ -364,7 +372,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
 
       <HowToStartBanner />
 
-      <div className={styles.container}>
+      {/* <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
             className={styles.backgroundImg}
@@ -387,13 +395,59 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
               return (
                 <BottomBanner
                   title={`${activity.data?.user?.username}`}
-                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                  price={activity.data?.winToken}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div> */}
+
+
+      <div className={styles.container}>
+        <div className={styles.topContainer}>
+          <img
+            className={styles.backgroundImg}
+            alt=""
+            src={BackgroundFirst}
+          />
+          <div className={styles.firstContainer}>
+            <div>
+              <h2>WALLFAIR IS MAKING<br/>MONEY <span className={styles.secondTitle}>FUN</span> AGAIN<br /><span className={styles.secondTitle}>WITHOUT BULLSHIT</span></h2>
+              <div className={styles.content}>
+                <div className={styles.row}><span className={styles.emoji}><img src={NobullshitIcon} alt="no bullshit"/></span><span className={styles.text}><span className={styles.highlighted}>No bullshit</span>: Web 3.0 - Instant MetaMask deposit &amp; withdrawal instead of sign up, KYC and deposit limits</span></div>
+                <div className={styles.row}><span className={styles.emoji}><img src={SlotIcon} alt="slot game"/></span><span className={styles.text}><span className={styles.highlighted}>Fun</span>: Over 500 fun games and the first platform to bet on user generated events</span></div>
+                <div className={styles.row}><span className={styles.emoji}><img src={MoneyIcon} alt="money bag"/></span><span className={styles.text}><span className={styles.highlighted}>Make money</span>: Create your own bets and earn 10% of the trading volume (Limit: 500,000 USD per event)</span></div>
+              </div>
+              <div className={styles.buttonWrapper}>
+                {/* <Button className={styles.button} onClick={onClickItemFirstBanner}>Create an event</Button> */}
+                <Button className={styles.button} theme={ButtonTheme.secondaryButton} onClick={() => { history.push('/how-it-works')}}>How it works</Button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.secondContainer}>
+            {/* {renderBetCard()} */}
+            {/* <img src={Coins} className={styles.coins} alt="coins" /> */}
+            <img src={Fairy} className={styles.desktopOnly} alt="fairy" />
+            
+
+            <div className={styles.mobileOnly}>
+              {renderTextItems()}
+            </div>
+          </div>
+          <div className={styles.bottomBannerContainner}>
+            {notifications && notifications.slice(0, 5).map(activity => {
+              return (
+                <BottomBanner
+                  title={`${activity.data?.user?.username}`}
+                  price={activity.data?.winToken}
                 />
               )
             })}
           </div>
         </div>
       </div>
+
 
       <div className={styles.container}>
         <div className={styles.topContainer}>
@@ -423,7 +477,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
               return (
                 <BottomBanner
                   title={`${activity.data?.user?.username}`}
-                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                  price={activity.data?.winToken}
                 />
               )
             })}
@@ -459,7 +513,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
               return (
                 <BottomBanner
                   title={`${activity.data?.user?.username}`}
-                  price={`${Math.floor(activity.data?.winToken)} ${currencyDisplay(TOKEN_NAME)}`}
+                  price={activity.data?.winToken}
                 />
               )
             })}
