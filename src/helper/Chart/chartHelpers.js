@@ -92,7 +92,7 @@ export const calcDohnutDatasets = data => {
   };
 
   const datas = data.map((item, index) => {
-    return +item.data[item.data.length - 2].y * 100;
+    return +item.data[item.data.length - 1].y * 100;
   });
 
   const colors = data.map((item, index) => {
