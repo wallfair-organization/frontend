@@ -9,6 +9,7 @@ import {
   convertCurrency,
 } from '../../../api/index';
 import classNames from 'classnames';
+import { ethers } from 'ethers';
 import { numberWithCommas } from '../../../utils/common';
 import { addMetaMaskEthereum } from 'utils/helpers/ethereum';
 import WithdrawalSuccessPopup from 'components/WithdrawalSuccessPopup';
@@ -35,7 +36,7 @@ const WithdrawTab = () => {
   let addressRef = useRef(null);
   let amountRef = useRef(null);
 
-  const account = window.ethereum?.selectedAddress;
+  const account = ethers.utils.getAddress(window.ethereum?.selectedAddress);
   const [address, setAddress] = useState('');
   const [tokenAmount, setTokenAmount] = useState(0);
   const [withdrawAmount, setWithdrawAmount] = useState(0);
@@ -177,10 +178,8 @@ const WithdrawTab = () => {
         return;
       }
 
-      const {
-        withdraw_amount: withdrawAmount,
-        withdraw_fee: withdrawFee,
-      } = response?.data;
+      const { withdraw_amount: withdrawAmount, withdraw_fee: withdrawFee } =
+        response?.data;
       const parsedWithdrawAmount = parseFloat(withdrawAmount).toFixed(4);
       const parsedFees = parseFloat(withdrawFee).toFixed(4);
 
@@ -213,7 +212,6 @@ const WithdrawTab = () => {
   };
 
   const handleWithdraw = async () => {
-
     const payload = {
       amount: tokenAmount,
       network: activeNetwork,
@@ -262,7 +260,9 @@ const WithdrawTab = () => {
             <div
               className={classNames(
                 styles.cryptoTab,
-                activeNetwork === networkName.polygon ? styles.cryptoTabActive : styles.cryptoTabInactive
+                activeNetwork === networkName.polygon
+                  ? styles.cryptoTabActive
+                  : styles.cryptoTabInactive
               )}
               onClick={() => setActiveNetwork(networkName.polygon)}
             >
@@ -275,7 +275,9 @@ const WithdrawTab = () => {
             <div
               className={classNames(
                 styles.cryptoTab,
-                activeNetwork === networkName.ethereum ? styles.cryptoTabActive : styles.cryptoTabInactive
+                activeNetwork === networkName.ethereum
+                  ? styles.cryptoTabActive
+                  : styles.cryptoTabInactive
               )}
               onClick={() => setActiveNetwork(networkName.ethereum)}
             >
@@ -390,7 +392,8 @@ const WithdrawTab = () => {
               <div className={styles.labelContainer}>
                 <span>You receive (estimate)</span>
                 <span className={styles.gasFeeLabel}>
-                  {amountFees > 0 && `Fee: ±${parseFloat(amountFees).toFixed(2)} ${TOKEN_NAME}`}
+                  {amountFees > 0 &&
+                    `Fee: ±${parseFloat(amountFees).toFixed(2)} ${TOKEN_NAME}`}
                 </span>
               </div>
               <input disabled readOnly value={withdrawAmount} />
