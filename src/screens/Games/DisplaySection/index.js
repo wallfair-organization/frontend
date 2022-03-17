@@ -10,9 +10,11 @@ import _ from 'lodash';
 const DisplaySection = (props) => {
 //   let history = useHistory();
   const user = useSelector(selectUser);
+  console.log(user);
   const dispatch = useDispatch();
-  const {smartsoftGames, evoplayGames, softswissGames, selectedGamesNames, selectedGamesLabel} = props;
-
+  const {smartsoftGames, evoplayGames, selectedGamesNames, selectedGamesLabel} = props;
+  let {softswissGames} = props;
+  softswissGames = softswissGames.filter((x)=>!x._cfg.restrictions?.default?.blacklist?.includes(user.country));
   const [games, setGames] = useState([]);
   const getGameItemSizeClass = () => {
     switch (games.length) {
@@ -76,7 +78,12 @@ const DisplaySection = (props) => {
     }
     if (game.GameProvider === 'softswiss') {
       const cfg = game._cfg;
-      const name = cfg.title;
+      //console.log(cfg.restrictions?.default?.blacklist);
+      //if(cfg.restrictions?.default?.blacklist?.includes(user.country)){
+      //  console.log('match'+ user.country);
+      //  return;
+      //}
+      const name = 'cfg.title';
       const softswissUrl = `/softswiss-game/${cfg.identifier}`;
       return <div onClick={(e) => {
         handleGameClick(e, softswissUrl, game);
@@ -149,7 +156,9 @@ const DisplaySection = (props) => {
         let map = new Map();
         smartsoftGames.forEach((x) => map.set(x.TechnicalName, { ...x }));
         evoplayGames.forEach((x) => map.set(x.TechnicalName, { ...x }));
+        //softswissGames.filter((x)=>x._cfg.restrictions.default?.blacklist)
         softswissGames.forEach((x) => map.set(x.TechnicalName, { ...x }));
+
         ret = [...map.values()];
         ret.sort(function (a, b) {
           if (a.TechnicalName < b.TechnicalName) {
@@ -170,7 +179,7 @@ const DisplaySection = (props) => {
   }, [smartsoftGames, evoplayGames, softswissGames])
 
   let categories = games.reduce((gs, g) => { return gs.includes(g.GameCategory) ? gs :gs.concat(g.GameCategory) },[]);
-  
+
   let preferredCategoriesOrder = ["Slot Games", "Casino Games", "Instant Win Games", "Roulette Games", "Keno Games", "Card Games"];
 
   categories = preferredCategoriesOrder.filter(item => categories.includes(item));
