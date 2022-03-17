@@ -139,7 +139,6 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
 
         <div className={styles.logosBlock}>
           <div className={styles.logosSeparator}></div>
-
           <RealMoneyOnly>
             <div className={styles.centeredBlock}>
               <div className={styles.logoContainer}>
