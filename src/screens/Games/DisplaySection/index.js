@@ -5,6 +5,7 @@ import { Link, } from 'react-router-dom';
 import { OnboardingActions } from 'store/actions/onboarding';
 import styles from '../styles.module.scss';
 import _ from 'lodash';
+import { selectUser } from 'store/selectors/authentication';
 
 const DisplaySection = ({
   smartsoftGames,
@@ -14,7 +15,7 @@ const DisplaySection = ({
   selectedGamesLabel,
 }) => {
   //   let history = useHistory();
-  const user = useSelector(state => state.authentication);
+  const user = useSelector(selectUser);
   console.log(user);
   const dispatch = useDispatch();
 
