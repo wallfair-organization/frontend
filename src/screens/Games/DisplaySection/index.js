@@ -1,19 +1,30 @@
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import { OnboardingActions } from 'store/actions/onboarding';
-import { selectUser } from 'store/selectors/authentication';
 import styles from '../styles.module.scss';
 import _ from 'lodash';
+import { selectUser } from 'store/selectors/authentication';
 
-const DisplaySection = (props) => {
-//   let history = useHistory();
+const DisplaySection = ({
+  smartsoftGames,
+  softswissGames,
+  evoplayGames,
+  selectedGamesNames,
+  selectedGamesLabel,
+}) => {
+  //   let history = useHistory();
   const user = useSelector(selectUser);
+  console.log(user);
   const dispatch = useDispatch();
-  const {smartsoftGames, evoplayGames, softswissGames, selectedGamesNames, selectedGamesLabel} = props;
 
   const [games, setGames] = useState([]);
+
+  const softswissGamesFiltered = softswissGames.filter(
+    x => !x._cfg.restrictions?.default?.blacklist?.includes(user.country)
+  );
+
   const getGameItemSizeClass = () => {
     switch (games.length) {
       case 3:
@@ -26,7 +37,7 @@ const DisplaySection = (props) => {
   };
 
   const handleGameClick = (e, gameUrl, gameCfg) => {
-    if(!user.isLoggedIn) {
+    if (!user.isLoggedIn) {
       dispatch(OnboardingActions.start());
     } else {
       // history.push(gameUrl)
@@ -44,112 +55,131 @@ const DisplaySection = (props) => {
       //   })
       // );
     }
-
-  }
+  };
 
   const renderLinkByProvider = (game, index) => {
-    if(game.GameProvider === 'evoplay') {
+    if (game.GameProvider === 'evoplay') {
       const cfg = game._cfg;
-      const name = cfg.absolute_name.substring(cfg.absolute_name.lastIndexOf("\\") + 1);
+      const name = cfg.absolute_name.substring(
+        cfg.absolute_name.lastIndexOf('\\') + 1
+      );
       const evoPlayUrl = `/evoplay-game/${cfg.name}/${cfg.game_sub_type}/${game.gameKey}`;
-      return <div onClick={(e) => {
-        handleGameClick(e,evoPlayUrl, game);
-      }} key={name + game.GameProvider}>
-        <Link
-        to={user.isLoggedIn ? evoPlayUrl : undefined}
-        className={classNames(
-          styles.game,
-          styles.gameLink
-        )}
-      >
+      return (
         <div
-          key={index}
-          className={classNames(
-            styles.gameItem,
-            getGameItemSizeClass()
-          )}
+          onClick={e => {
+            handleGameClick(e, evoPlayUrl, game);
+          }}
+          key={name + game.GameProvider}
         >
-          <img src={`/images/evoplay/${name}_360x360.jpg`} alt={`${name}`}/>
-          <p className={styles.title}>{cfg.name}</p>
+          <Link
+            to={user.isLoggedIn ? evoPlayUrl : undefined}
+            className={classNames(styles.game, styles.gameLink)}
+          >
+            <div
+              key={index}
+              className={classNames(styles.gameItem, getGameItemSizeClass())}
+            >
+              <img
+                src={`/images/evoplay/${name}_360x360.jpg`}
+                alt={`${name}`}
+              />
+              <p className={styles.title}>{cfg.name}</p>
+            </div>
+          </Link>
         </div>
-      </Link></div>
+      );
     }
     if (game.GameProvider === 'softswiss') {
       const cfg = game._cfg;
+      //console.log(cfg.restrictions?.default?.blacklist);
+      //if(cfg.restrictions?.default?.blacklist?.includes(user.country)){
+      //  console.log('match'+ user.country);
+      //  return;
+      //}
       const name = cfg.title;
       const softswissUrl = `/softswiss-game/${cfg.identifier}`;
-      return <div onClick={(e) => {
-        handleGameClick(e, softswissUrl, game);
-      }} key={name + game.GameProvider}>
-        <Link
-          to={user.isLoggedIn ? softswissUrl : undefined}
-          className={classNames(
-            styles.game,
-            styles.gameLink
-          )}
+      return (
+        <div
+          onClick={e => {
+            handleGameClick(e, softswissUrl, game);
+          }}
+          key={name + game.GameProvider}
         >
-          <div
-            key={index}
-            className={classNames(
-              styles.gameItem,
-              getGameItemSizeClass()
-            )}
+          <Link
+            to={user.isLoggedIn ? softswissUrl : undefined}
+            className={classNames(styles.game, styles.gameLink)}
           >
-            <img src={`${game.GameThumb}`} alt={`img`} />
-            <p className={styles.title}>{name}</p>
-          </div>
-        </Link></div>
+            <div
+              key={index}
+              className={classNames(styles.gameItem, getGameItemSizeClass())}
+            >
+              <img src={`${game.GameThumb}`} alt={`img`} />
+              <p className={styles.title}>{name}</p>
+            </div>
+          </Link>
+        </div>
+      );
     }
     if (game.TechnicalName !== undefined) {
-    const smartSoftUrl = `/external-game/${game.TechnicalName}/${game.TechnicalCategory}`;
+      const smartSoftUrl = `/external-game/${game.TechnicalName}/${game.TechnicalCategory}`;
 
-    return <div onClick={(e) => {
-      handleGameClick(e, smartSoftUrl, game);
-    }} key={game.TechnicalName + game.GameProvider}>
-
-      <Link
-      to={user.isLoggedIn ? smartSoftUrl : undefined}
-      className={classNames(
-        styles.game,
-        styles.gameLink
-      )}
-    >
-      <div
-        key={index}
-        className={classNames(
-          styles.gameItem,
-          getGameItemSizeClass()
-        )}
-      >
-        <img src={game.picture ? game.picture : `https://www.smartsoftgaming.com/Content/Images/GameIcons/${game.TechnicalName}.png`} alt={`${game.TechnicalName}`}/>
-        <p className={styles.title}>{game.TechnicalName}</p>
-      </div>
-    </Link></div>
-  }
-}
+      return (
+        <div
+          onClick={e => {
+            handleGameClick(e, smartSoftUrl, game);
+          }}
+          key={game.TechnicalName + game.GameProvider}
+        >
+          <Link
+            to={user.isLoggedIn ? smartSoftUrl : undefined}
+            className={classNames(styles.game, styles.gameLink)}
+          >
+            <div
+              key={index}
+              className={classNames(styles.gameItem, getGameItemSizeClass())}
+            >
+              <img
+                src={
+                  game.picture
+                    ? game.picture
+                    : `https://www.smartsoftgaming.com/Content/Images/GameIcons/${game.TechnicalName}.png`
+                }
+                alt={`${game.TechnicalName}`}
+              />
+              <p className={styles.title}>{game.TechnicalName}</p>
+            </div>
+          </Link>
+        </div>
+      );
+    }
+  };
 
   useEffect(() => {
-
-    if(smartsoftGames && evoplayGames && softswissGames) {
-      if(selectedGamesNames && selectedGamesNames.length) {
-        const allGames = [...smartsoftGames, ...evoplayGames, ...softswissGames];
+    if (smartsoftGames && evoplayGames && softswissGames) {
+      if (selectedGamesNames && selectedGamesNames.length) {
+        const allGames = [
+          ...smartsoftGames,
+          ...evoplayGames,
+          ...softswissGamesFiltered,
+        ];
         const selectedGames = [];
 
-        selectedGamesNames.forEach((item)=> {
-          const findGame = _.find(allGames, {TechnicalName: item});
+        selectedGamesNames.forEach(item => {
+          const findGame = _.find(allGames, { TechnicalName: item });
 
-          if(findGame) {
+          if (findGame) {
             selectedGames.push(findGame);
           }
-        })
+        });
 
         setGames(selectedGames);
       } else {
         let ret = [];
         let map = new Map();
-        smartsoftGames.forEach((x) => map.set(x.TechnicalName, { ...x }));
-        evoplayGames.forEach((x) => map.set(x.TechnicalName, { ...x }));
-        softswissGames.forEach((x) => map.set(x.TechnicalName, { ...x }));
+        smartsoftGames.forEach(x => map.set(x.TechnicalName, { ...x }));
+        evoplayGames.forEach(x => map.set(x.TechnicalName, { ...x }));
+        softswissGamesFiltered.forEach(x => map.set(x.TechnicalName, { ...x }));
+
         ret = [...map.values()];
         ret.sort(function (a, b) {
           if (a.TechnicalName < b.TechnicalName) {
@@ -160,62 +190,76 @@ const DisplaySection = (props) => {
           }
           return 0;
         });
-        setGames([...ret,""]);
+        setGames([...ret, '']);
       }
     }
 
     return () => {
-      setGames([])
-    }
-  }, [smartsoftGames, evoplayGames, softswissGames])
+      setGames([]);
+    };
+  }, [smartsoftGames, evoplayGames, softswissGames]);
 
-  let categories = games.reduce((gs, g) => { return gs.includes(g.GameCategory) ? gs :gs.concat(g.GameCategory) },[]);
-  
-  let preferredCategoriesOrder = ["Slot Games", "Casino Games", "Instant Win Games", "Roulette Games", "Keno Games", "Card Games"];
+  let categories = games.reduce((gs, g) => {
+    return gs.includes(g.GameCategory) ? gs : gs.concat(g.GameCategory);
+  }, []);
 
-  categories = preferredCategoriesOrder.filter(item => categories.includes(item));
+  let preferredCategoriesOrder = [
+    'Slot Games',
+    'Casino Games',
+    'Instant Win Games',
+    'Roulette Games',
+    'Keno Games',
+    'Card Games',
+  ];
+
+  categories = preferredCategoriesOrder.filter(item =>
+    categories.includes(item)
+  );
 
   return (
     <div className={styles.gamesContainer}>
-      {selectedGamesNames ? <div className={classNames(styles.gamesCategorySelected)}>
-        <div className={styles.gamesCategory}>
-          <h2>{selectedGamesLabel}</h2>
-        </div>
-        <div className={classNames(styles.games)}>
-          {games.map((game, index) => {
-              let entryKey = `gamecard-${index}-${game.TechnicalName}`;
-              return <div
-                className={styles.wrapper}
-                key={entryKey}
-              >
-                {renderLinkByProvider(game, index)}
-              </div>
-            }
-          )}
-        </div>
-      </div> : (categories.map((category1, index) => {
-         return <div key={category1 + index}>
-            <div className={styles.gamesCategory}>
-              <h2>{category1}</h2>
-            </div>
-
-            <div className={classNames(styles.games)}>
-              {games.filter(g => g.GameCategory===category1).map((game, index) => {
-
-                  return <div
-                    className={styles.wrapper}
-                    key={`gamecard-${index}-${game.TechnicalName}`}
-                  >
-                    {renderLinkByProvider(game, index)}
-                  </div>
-
-                }
-              )}
-            </div>
+      {selectedGamesNames ? (
+        <div className={classNames(styles.gamesCategorySelected)}>
+          <div className={styles.gamesCategory}>
+            <h2>{selectedGamesLabel}</h2>
           </div>
-      }
+          <div className={classNames(styles.games)}>
+            {games.map((game, index) => {
+              let entryKey = `gamecard-${index}-${game.TechnicalName}`;
+              return (
+                <div className={styles.wrapper} key={entryKey}>
+                  {renderLinkByProvider(game, index)}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        categories.map((category1, index) => {
+          return (
+            <div key={category1 + index}>
+              <div className={styles.gamesCategory}>
+                <h2>{category1}</h2>
+              </div>
 
-      ))}
+              <div className={classNames(styles.games)}>
+                {games
+                  .filter(g => g.GameCategory === category1)
+                  .map((game, index) => {
+                    return (
+                      <div
+                        className={styles.wrapper}
+                        key={`gamecard-${index}-${game.TechnicalName}`}
+                      >
+                        {renderLinkByProvider(game, index)}
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          );
+        })
+      )}
     </div>
   );
 };
