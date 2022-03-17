@@ -1,8 +1,8 @@
 
 import { Carousel } from 'react-responsive-carousel';
 import styles from './styles.module.scss';
-import { useHistory, useLocation } from 'react-router-dom';
-import { connect, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { PopupActions } from 'store/actions/popup';
 import authState from 'constants/AuthState';
 import Routes from 'constants/Routes';
@@ -10,24 +10,22 @@ import classNames from 'classnames';
 
 import BackgroundFirst from '../../data/images/carousel/elon-bg-2x.png';
 import BackgroundSecond from '../../data/images/carousel/unlimited-wishes-bg.jpg';
-import { useEventsFilter } from 'components/Events/hooks/useEventsFilter';
-import BetState from 'constants/BetState';  
 import { useCallback } from 'react';
 import { useNotificationFilter } from 'components/Events/hooks/useNotificationFilter';
 import Button from 'components/Button';
-import { currencyDisplay } from 'helper/Currency';
-import { TOKEN_NAME } from 'constants/Token';
-import HowToStartBanner from 'components/CustomCarousel/HowToStartBanner';
+import { numberWithCommas } from 'utils/common';
+import { formatToFixed } from 'helper/FormatNumbers';
 
 
-const BottomBanner = ({title, price}) => {
+const BottomBanner = ({title, price, currency}) => {
+  const formattedPrice = numberWithCommas(formatToFixed(price, 2));
   return (
     <div className={styles.bottomBanner}>
       {/* <img src={BannerImage1} alt='' /> */}
       <div className={styles.bottomBannerContent}>
         <a href={`/activities`} >
           <p className={styles.title}>{title}<br />just earned</p>
-          <p className={styles.price}>{price}</p>
+          <p className={styles.price}>{`${formattedPrice} ${currency}`}</p>
         </a>
       </div>
     </div>
@@ -99,11 +97,13 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
           <div className={styles.secondContainer}>
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map(activity => {
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
+                  key={index}
                   title={`${activity.data?.username}`}
-                  price={`${Math.floor(activity.data?.reward * 100) / 100} ${activity.data?.gamesCurrency}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
                 />
               )
             })}
@@ -166,11 +166,13 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
           <div className={styles.secondContainer}>
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map(activity => {
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
+                  key={index}
                   title={`${activity.data?.username}`}
-                  price={`${Math.floor(activity.data?.reward * 100) / 100} ${activity.data?.gamesCurrency}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
                 />
               )
             })}

@@ -1,7 +1,7 @@
 import { Carousel } from 'react-responsive-carousel';
 import styles from './styles.module.scss';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { OnboardingActions } from 'store/actions/onboarding';
 import { dataLayerPush, trackWalletAddWfair } from 'config/gtm';
 import { PopupActions } from 'store/actions/popup';
@@ -31,22 +31,24 @@ import _ from 'lodash';
 import { useCallback } from 'react';
 import { useNotificationFilter } from 'components/Events/hooks/useNotificationFilter';
 import { TOKEN_NAME } from 'constants/Token';
-import { currencyDisplay } from 'helper/Currency';
+import { convertAmount, currencyDisplay } from 'helper/Currency';
 import HowToStartBanner from './HowToStartBanner';
 import { numberWithCommas } from 'utils/common';
 import { formatToFixed } from 'helper/FormatNumbers';
+import { selectPrices } from 'store/selectors/info-channel';
+import { selectUser } from 'store/selectors/authentication';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
-const BottomBanner = ({title, price}) => {
-  const formattedPrice = numberWithCommas(formatToFixed(price, 0));
+const BottomBanner = ({title, price, currency}) => {
+  const formattedPrice = numberWithCommas(formatToFixed(price, 2));
   return (
     <div className={styles.bottomBanner}>
       {/* <img src={BannerImage1} alt='' /> */}
       <div className={styles.bottomBannerContent}>
         <a href={`/activities`} >
           <p className={styles.title}>{title}<br />just earned</p>
-          <p className={styles.price}>{`${formattedPrice} ${currencyDisplay(TOKEN_NAME)}`}</p>
+          <p className={styles.price}>{`${formattedPrice} ${currency}`}</p>
         </a>
       </div>
     </div>
@@ -61,7 +63,8 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
   const { events } = useEventsFilter([BetState.active], 'all', null, true);
   const { events : eventsByCreationDate } = useEventsFilter([BetState.active], 'all', null, false, 200, '', 'most_popular');
 
-  const {notifications} = useNotificationFilter('Notification/EVENT_USER_REWARD');
+  // const {notifications} = useNotificationFilter('Notification/EVENT_USER_REWARD']);
+  const {notifications} = useNotificationFilter('Casino/CASINO_CASHOUT');
 
   const onClickItemFirstBanner = () => {
     if (loggedIn) {
@@ -246,11 +249,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             <img src={Coins} className={styles.coins} alt="coins" />
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map(activity => {
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
-                  title={`${activity.data?.user?.username}`}
-                  price={activity.data?.winToken}
+                  key={index}
+                  title={`${activity.data?.username}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
                 />
               )
             })}
@@ -315,11 +320,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             {render3BetCards()}
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map(activity => {
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
-                  title={`${activity.data?.user?.username}`}
-                  price={activity.data?.winToken}
+                  key={index}
+                  title={`${activity.data?.username}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
                 />
               )
             })}
@@ -370,7 +377,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
         
       >
 
-      <HowToStartBanner />
+      <HowToStartBanner notifications={notifications} />
 
       {/* <div className={styles.container}>
         <div className={styles.topContainer}>
@@ -391,11 +398,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             {renderTextItems()}
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map(activity => {
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
-                  title={`${activity.data?.user?.username}`}
-                  price={activity.data?.winToken}
+                  key={index}
+                  title={`${activity.data?.username}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
                 />
               )
             })}
@@ -436,11 +445,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             </div>
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map(activity => {
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
-                  title={`${activity.data?.user?.username}`}
-                  price={activity.data?.winToken}
+                  key={index}
+                  title={`${activity.data?.username}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
                 />
               )
             })}
@@ -473,11 +484,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             <img src={Coins} className={styles.coins} alt="coins" />
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map(activity => {
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
-                  title={`${activity.data?.user?.username}`}
-                  price={activity.data?.winToken}
+                  key={index}
+                  title={`${activity.data?.username}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
                 />
               )
             })}
@@ -509,11 +522,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             {render3BetCards()}
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map(activity => {
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
-                  title={`${activity.data?.user?.username}`}
-                  price={activity.data?.winToken}
+                  key={index}
+                  title={`${activity.data?.username}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
                 />
               )
             })}
