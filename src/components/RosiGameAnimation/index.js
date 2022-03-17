@@ -18,6 +18,7 @@ import RosiGameAnimationController from './canvas/RosiGameAnimationController';
 import { RosiGameActions } from '../../store/actions/rosi-game';
 import GameAudioControls from '../GameAudioControls';
 import GameOffline from '../GameOffline';
+import { selectUser } from 'store/selectors/authentication';
 
 const PreparingRound = ({ nextGameAt }) => (
   <div className={styles.preparingRound}>
@@ -42,6 +43,7 @@ const RosiGameAnimation = ({
   animationIndex,
   onInit,
 }) => {
+  const { gamesCurrency } = useSelector(selectUser);
   const canvasRef = useRef(null);
   const lastCrashValue = useSelector(selectLastCrash);
   const gameStarted = useSelector(selectHasStarted);
@@ -86,7 +88,7 @@ const RosiGameAnimation = ({
 
       if (cashedOut.length > 0) {
         for (const cashOut of cashedOut) {
-          RosiGameAnimationController.doCashedOutAnimation(cashOut);
+          RosiGameAnimationController.doCashedOutAnimation(cashOut, gamesCurrency);
         }
       }
 

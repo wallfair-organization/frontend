@@ -1,0 +1,2968 @@
+[
+    {
+        "title": "1429 Uncharted Seas",
+        "identifier": "thunderkick:1429UnchartedSeas_tk",
+        "identifier2": "tk-uncharted",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 98.63,
+        "volatility_rating": "low",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 700,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Arcader",
+        "identifier": "thunderkick:arcader_tk",
+        "identifier2": "tk-astronaut",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.1,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 2800,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Babushkas",
+        "identifier": "thunderkick:Babushkas_tk",
+        "identifier2": "tk-s1-g5",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 17,
+        "payout": 95.8,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 390,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Barbershop: Uncut",
+        "identifier": "thunderkick:Barbershop_Uncut_tk",
+        "identifier2": "tk-barbershop-a",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2355,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Baron Bloodmore and the Crimson Castle",
+        "identifier": "thunderkick:BaronBloodmoreandtheCrimsonCastle_tk",
+        "identifier2": "tk-s1-g38",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.07,
+        "hd": true,
+        "multiplier": 25000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Beat the Beast: Cerberus' Inferno",
+        "identifier": "thunderkick:BeattheBeastCerberusInferno",
+        "identifier2": "tk-s1-g32",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96.15,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 6666,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Beat the Beast: Griffin's Gold",
+        "identifier": "thunderkick:BeattheBeastGriffinsGold_de",
+        "identifier2": "tk-s1-g34-90",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basicde",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.14,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 22222,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Beat the Beast: Griffin's Gold",
+        "identifier": "thunderkick:BeattheBeastGriffinsGold_tk",
+        "identifier2": "tk-s1-g34",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.14,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 22222,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Beat the Beast: Mighty Sphinx",
+        "identifier": "thunderkick:BeattheBeastMightySphinx",
+        "identifier2": "tk-s1-g31",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.14,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 4444,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Beat the Beast: Quetzalcoatl's Trial",
+        "identifier": "thunderkick:BeattheBeastQuetzalcoatlsTrial",
+        "identifier2": "tk-s1-g33",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.16,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5555,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Big Fin Bay",
+        "identifier": "thunderkick:BigFinBay_de",
+        "identifier2": "tk-s1-g37-90",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basicde",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 5040,
+        "payout": 96.14,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 15040,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Big Fin Bay",
+        "identifier": "thunderkick:BigFinBay_tk",
+        "identifier2": "tk-s1-g37",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 5040,
+        "payout": 96.14,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-03-31T00:00:00.000Z",
+        "multiplier": 15040,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Birds On A Wire",
+        "identifier": "thunderkick:BirdsOnAWire_tk",
+        "identifier2": "tk-birds-a",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 17,
+        "payout": 96,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 9000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Bork The Berzerker - Hack ‘N’ Slash Edition",
+        "identifier": "thunderkick:BorkTheBerzerker_tk",
+        "identifier2": "tk-berzerker-a",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97.3,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 2100,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Carnival Queen",
+        "identifier": "thunderkick:CarnivalQueen",
+        "identifier2": "tk-s1-g21-90",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basicde",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 22700,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Carnival Queen",
+        "identifier": "thunderkick:CarnivalQueen_tk",
+        "identifier2": "tk-s1-g21",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 22700,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Cosmic Voyager",
+        "identifier": "thunderkick:CosmicVoyager_tk",
+        "identifier2": "tk-s1-g36",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.14,
+        "description": "Cosmic Voyager is a video slot with 5 reels and 10 pay lines. The game features\r\nWild Scatters, an Expanding symbols feature and a Bonus game with free spins\r\nand retriggers. The theoretical return to player is 96.14%",
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-01-27T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crystal Quest: Arcane Tower",
+        "identifier": "thunderkick:CrystalQuestArcaneTower_tk",
+        "identifier2": "tk-s1-g41",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.17,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crystal Quest: Deep Jungle",
+        "identifier": "thunderkick:CrystalQuestDeepJungle_tk",
+        "identifier2": "tk-s1-g40",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.14,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crystal Quest: Frostlands",
+        "identifier": "thunderkick:CrystalQuestFrostlands_tk",
+        "identifier2": "tk-s1-g42",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.16,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-04-21T00:00:00.000Z",
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Divine Lotus",
+        "identifier": "thunderkick:DivineLotus_tk",
+        "identifier2": "tk-s1-g26",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.14,
+        "description": "Summon your players up to the Dragon-Islands to behold the ritual of the Divine Lotus and explore a BONUS GAME that awards you with retriggable free spins! Experience the Mystery Lotus symbols turn into Little Dragons and watch the Symbol Meter count all the transformations towards the Elder Dragon and your BIG WIN!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 87089,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dragon Horn",
+        "identifier": "thunderkick:DragonHorn_tk",
+        "identifier2": "tk-s1-g23",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96.1,
+        "description": "Embark on a mysterious journey along with knights, elves and orcs in our upcoming slot - Dragon Horn. With  243 ways to win (pay ways) and a highly volatile bonus game consisting of 5 different levels for those who dare.\r\nGet ready to meet the Dragon!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 8282,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Esqueleto Explosivo 2",
+        "identifier": "thunderkick:EsqueletoExplosivo2_de",
+        "identifier2": "tk-s1-g27-90",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basicde",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 99,
+        "payout": 96.13,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Esqueleto Explosivo 2",
+        "identifier": "thunderkick:EsqueletoExplosivo2_tk",
+        "identifier2": "tk-s1-g27",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 99,
+        "payout": 96.13,
+        "description": "AY AY AY! Gear up for the day of dead celebrations and lose yourself to the mariachi rhythms!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Esqueleto Explosivo",
+        "identifier": "thunderkick:EsqueletoExplosivo_tk",
+        "identifier2": "tk-esqueleto-a",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 17,
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 700,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Flame Busters",
+        "identifier": "thunderkick:FlameBusters_tk",
+        "identifier2": "tk-s1-g10",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96.1,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5280,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Flux",
+        "identifier": "thunderkick:Flux_tk",
+        "identifier2": "tk-starvector",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.2,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2600,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fortune Cats Golden Stacks",
+        "identifier": "thunderkick:FortuneCatsGoldenStacks",
+        "identifier2": "tk-s1-g47-96",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.14,
+        "description": "Fortune Cats Golden Stacks is a video slot with 5 reels and 40 pay lines in the Base  game and up to 120 pay lines in the Bonus game. The game features a Mystery  symbol, Golden stacks and a Bonus game with free spins and additional game  areas. The theoretical return to player is 96,14%",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fortune Cats Golden Stacks",
+        "identifier": "thunderkick:FortuneCatsGoldenStacks90",
+        "identifier2": "tk-s1-g47-90",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basicde",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 90.15,
+        "description": "Fortune Cats Golden Stacks is a video slot with 5 reels and 40 pay lines in the Base  game and up to 120 pay lines in the Bonus game. The game features a Mystery  symbol, Golden stacks and a Bonus game with free spins and additional game  areas. The theoretical return to player is 90,15%",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fortune Cats Golden Stacks",
+        "identifier": "thunderkick:FortuneCatsGoldenStacks92",
+        "identifier2": "tk-s1-g47-92",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic_rtp",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 92.14,
+        "description": "Fortune Cats Golden Stacks is a video slot with 5 reels and 40 pay lines in the Base  game and up to 120 pay lines in the Bonus game. The game features a Mystery  symbol, Golden stacks and a Bonus game with free spins and additional game  areas. The theoretical return to player is 92,14%",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fortune Cats Golden Stacks",
+        "identifier": "thunderkick:FortuneCatsGoldenStacks94",
+        "identifier2": "tk-s1-g47-94",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic_rtp94",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 94.14,
+        "description": "Fortune Cats Golden Stacks is a video slot with 5 reels and 40 pay lines in the Base  game and up to 120 pay lines in the Bonus game. The game features a Mystery  symbol, Golden stacks and a Bonus game with free spins and additional game  areas. The theoretical return to player is 94,14%",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Frog Grog",
+        "identifier": "thunderkick:FrogGrog_tk",
+        "identifier2": "tk-s1-g8",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 23,
+        "payout": 96.1,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 1616,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fruit Warp",
+        "identifier": "thunderkick:FruitWarp_tk",
+        "identifier2": "tk-fruittime",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 97.04,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 11000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Full Moon Romance",
+        "identifier": "thunderkick:FullMoonRomance_tk",
+        "identifier2": "tk-s1-g12",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 830,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gods of Rock!",
+        "identifier": "thunderkick:GodsofRock_tk",
+        "identifier2": "tk-s1-g46",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 466,
+        "payout": 96.05,
+        "description": "In this high voltage rock game, the gods have descended to shake the earth with their thunder riffs. So, throw your hands in the air, put your tongues out and get ready to rock out like never before!",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-09-29T00:00:00.000Z",
+        "multiplier": 20000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jaguar Temple",
+        "identifier": "thunderkick:JaguarTemple_tk",
+        "identifier2": "tk-s1-g19",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2045,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jin Chan’s Pond of Riches",
+        "identifier": "thunderkick:JinChansPondofRiches",
+        "identifier2": "tk-s1-g35",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 94.27,
+        "description": "Jin Chan's Pond of Riches is a 3x5 video slot with 15 fixed pay lines, multiplier Wilds and a Bonus game with a Sticky win feature.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jin Chan’s Pond of Riches",
+        "identifier": "thunderkick:JinChansPondofRiches_de",
+        "identifier2": "tk-s1-g35-90",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basicde",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 94.27,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Beat the Beast: Kraken's Lair",
+        "identifier": "thunderkick:KrakensLair_tk",
+        "identifier2": "tk-s1-g30",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.12,
+        "description": "BEAT THE EIGHT-ARMED KRAKEN TO RESURRECT GREAT TREASURES LOST TO THE DEPTHS.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 7777,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Lava Lava",
+        "identifier": "thunderkick:LavaLava_tk",
+        "identifier2": "tk-s1-g49-96",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.14,
+        "description": "Get ready for a scorching hot adventure in this 3x5 video slot erupting with win potential. With features like Multiplier Wilds, an Avalanche and Scatter explosions, enter the realm of the volcano goddess and play for your fortune.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Luchadora",
+        "identifier": "thunderkick:Luchadora_tk",
+        "identifier2": "tk-s1-g11",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.2,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1995,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Magicious",
+        "identifier": "thunderkick:Magicious_tk",
+        "identifier2": "tk-magicians-a",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 1400,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Midas Golden Touch",
+        "identifier": "thunderkick:MidasGoldenTouch_de",
+        "identifier2": "tk-s1-g22-90",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basicde",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-03-10T00:00:00.000Z",
+        "multiplier": 10100,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Midas Golden Touch",
+        "identifier": "thunderkick:MidasGoldenTouch_tk",
+        "identifier2": "tk-s1-g22",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 10100,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Not Enough Kittens",
+        "identifier": "thunderkick:NotEnoughKittens_tk",
+        "identifier2": "tk-s1-g14",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 35,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 3650,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Odin’s Gamble",
+        "identifier": "thunderkick:OdinsGamble_tk",
+        "identifier2": "tk-s1-g39-96",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 466,
+        "payout": 96.17,
+        "description": "In this 4x6 video slot set against a backdrop of Norse mythology, you find yourself at the roots of Yggdrasil, closing in on the entrance to the shrine of Mimir’s Well. With Wild multipliers and a Bonus game with Sticky Wins and Roaming Wild Stack, Odin’s gamble is crammed with win potential!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 19333,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Pink Elephants 2",
+        "identifier": "thunderkick:PinkElephants2_de",
+        "identifier2": "tk-s1-g29-90",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basicde",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.13,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Pink Elephants 2",
+        "identifier": "thunderkick:PinkElephants2_tk",
+        "identifier2": "tk-s1-g29",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.13,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Pink Elephants",
+        "identifier": "thunderkick:PinkElephants_tk",
+        "identifier2": "tk-s1-g13",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 8200,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Pyramyth",
+        "identifier": "thunderkick:Pyramyth_tk",
+        "identifier2": "tk-s1-g45",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.17,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Ravens Eye",
+        "identifier": "thunderkick:RavensEye_tk",
+        "identifier2": "tk-s1-g24",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.1,
+        "description": "Uncover the secret bound between the mysterious Druid and her hallowed Raven. With 30 Pay Lines and a Mystery Feature only your imagination sets the limit in the enchanted Bonus Game.\r\nThe power lays within the Ravens Eye!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1780,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Riders of the Storm",
+        "identifier": "thunderkick:RidersoftheStorm_de",
+        "identifier2": "tk-s1-g25-90",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basicde",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 26426,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Riders of the Storm",
+        "identifier": "thunderkick:RidersoftheStorm_tk",
+        "identifier2": "tk-s1-g25",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96.1,
+        "description": "Get ready for a wild expedition among gigantic eels and thunder! The Riders of the Storm promise wealth among the dark clouds, to those who play with 243 ways to win, a Mystery Feature, Walking Wilds and a Wild Multiplier!",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 26426,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Rocket Fellas Inc",
+        "identifier": "thunderkick:RocketFellas_tk",
+        "identifier2": "tk-s1-g20",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.1,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 7325,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Spectra",
+        "identifier": "thunderkick:Spectra_tk",
+        "identifier2": "tk-s1-g6",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.4,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2400,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Sunset Delight",
+        "identifier": "thunderkick:SunsetDelight_tk",
+        "identifier2": "tk-s1-g3",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.3,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 413,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Sword of Khans",
+        "identifier": "thunderkick:SwordofKhans_de",
+        "identifier2": "tk-s1-g28-90",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basicde",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.36,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Sword of Khans",
+        "identifier": "thunderkick:SwordofKhans_tk",
+        "identifier2": "tk-s1-g28",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.36,
+        "description": "Climb the treacherous Mongolian mountains in search of adventure and absolute command in Sword of Khans! Proof yourself worthy to unleash the powers of the sword in a thrilling Bonus Game that escalate with expanding wins and increasing multipliers!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Falcon Huntress",
+        "identifier": "thunderkick:TheFalconHuntress_tk",
+        "identifier2": "tk-s1-g15",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 10050,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "The Rift",
+        "identifier": "thunderkick:TheRift_tk",
+        "identifier2": "tk-s1-g1",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 17,
+        "payout": 96.3,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 815,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Tiger Rush",
+        "identifier": "thunderkick:TigerRush_tk",
+        "identifier2": "tk-s1-g18",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.3,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 1783,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Toki Time",
+        "identifier": "thunderkick:TokiTime_tk",
+        "identifier2": "tk-tokitime",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 11,
+        "payout": 97.11,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 700,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Turning Totems",
+        "identifier": "thunderkick:TurningTotems_tk",
+        "identifier2": "tk-s1-g7",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 11,
+        "payout": 96.1,
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 999,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Well of Wonders",
+        "identifier": "thunderkick:WellOfWonders_tk",
+        "identifier2": "tk-s1-g9",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 7,
+        "payout": 96.1,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 2280,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wild Heist at Peacock Manor",
+        "identifier": "thunderkick:WildHeist_tk",
+        "identifier2": "tk-s1-g16",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 17,
+        "payout": 96.1,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 8500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Yeti Battle of Greenhat peak",
+        "identifier": "thunderkick:YetiBattle_tk",
+        "identifier2": "tk-s1-g17",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 11,
+        "payout": 96.1,
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 845,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Zoom",
+        "identifier": "thunderkick:Zoom_tk",
+        "identifier2": "tk-s1-g4",
+        "provider": "thunderkick",
+        "producer": "thunderkick",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 64,
+        "payout": 96.2,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1500,
+        "restrictions": {
+            "default": {
+                "blacklist": [
+                    "AU",
+                    "BE",
+                    "CZ",
+                    "DK",
+                    "ES",
+                    "FR",
+                    "GB",
+                    "IR",
+                    "IT",
+                    "KP",
+                    "LY",
+                    "MM",
+                    "PT",
+                    "RO",
+                    "SD",
+                    "SY",
+                    "US",
+                    "VE",
+                    "ZW"
+                ]
+            }
+        }
+    }
+]

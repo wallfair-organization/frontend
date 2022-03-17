@@ -222,14 +222,16 @@ const RosiGame = ({
       updateUserBalance(userId);
       //AlertActions.showSuccess(JSON.stringify(response));
 
-      const roundedMultiplier = Math.floor(parseFloat(crashFactorCashout) * 100) / 100;
-      const roundedReward = Math.floor(parseFloat(reward));
+      // const roundedMultiplier = Math.floor(parseFloat(crashFactorCashout) * 100) / 100;
+      // const roundedReward = Math.floor(parseFloat(reward));
 
-      showPopup(PopupTheme.cashoutPopupView, {
-        multiplier: numberWithCommas(roundedMultiplier),
-        amount: numberWithCommas(roundedReward),
-        game: game.name
-      });
+      
+      // showPopup(PopupTheme.cashoutPopupView, {
+      //   multiplier: numberWithCommas(roundedMultiplier),
+      //   amount: numberWithCommas(roundedReward),
+      //   game: game.name
+      // });
+      
 
       return response;
     } catch (e) {
