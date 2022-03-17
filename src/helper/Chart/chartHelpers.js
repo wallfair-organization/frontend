@@ -69,7 +69,7 @@ export const calcDohnutDatasets = data => {
   };
 
   const datas = data.map((item, index) => {
-    return Math.floor(item.data[item.data.length - 1].y * 100);
+    return parseFloat(item.data[item.data.length - 2].y * 100).toFixed(0);
   });
   const colors = data.map((item, index) => {
     return colorSchema.main[index];

@@ -9,7 +9,7 @@ const initialState = {
   name: '',
   username: '',
   phone: '',
-  country: '49',
+  country: 'DE',
   email: '',
   aboutMe: '',
   emailVerificationState: null,
@@ -186,7 +186,10 @@ const updateData = (action, state) => {
     },
     phoneConfirmed: {
       $set: action.phoneConfirmed,
-    }
+    },
+    country: {
+      $set: action.country,
+    },
   });
 };
 

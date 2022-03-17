@@ -27,7 +27,12 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) =
 
   for (let key in softswissGames) {
     const gameInfo = softswissGames[key];
+    //Skips providers that are not working
     if(blockedProducers.indexOf(gameInfo.producer)>-1){
+      continue;
+    }
+    //Skips games that are not on the basic feature group
+    if(gameInfo.feature_group!=='basic' && gameInfo.feature_group!=='new'){
       continue;
     }
 
