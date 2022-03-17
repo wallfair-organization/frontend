@@ -46,6 +46,29 @@ export const calcDohnutLabels = data => {
   });
   return labels;
 };
+
+const dataErrorCuts = input => {
+  const rounded = input.map(x => Math.floor(x));
+  const afterRoundSum = rounded.reduce((pre, curr) => pre + curr, 0);
+  const countMutableItems = rounded.filter(x => x >= 1).length;
+  const errRate = 100 - afterRoundSum;
+  const deduct = Math.ceil(errRate / countMutableItems);
+
+  const biggest = [...rounded]
+    .sort((a, b) => b - a)
+    .slice(0, Math.min(Math.abs(errRate), countMutableItems));
+  const result = rounded.map(x => {
+    const indexOfX = biggest.indexOf(x);
+    if (indexOfX >= 0) {
+      x += deduct;
+      biggest.splice(indexOfX, 1);
+      return x;
+    }
+    return x;
+  });
+  return result;
+};
+
 export const calcDohnutDatasets = data => {
   /**
    * colors ordered according to order of colors from outcome choice themes
@@ -60,17 +83,18 @@ export const calcDohnutDatasets = data => {
     },
     fill: {
       above: {
-      0: ['rgba(157, 255, 197, 0.2)'],
-      1: ['rgba(172, 196, 255, 0.2)'],
-      2: ['rgba(253, 142, 255, 0.2)'],
-      3: ['rgba(255, 166, 84, 0.2)'],
+        0: ['rgba(157, 255, 197, 0.2)'],
+        1: ['rgba(172, 196, 255, 0.2)'],
+        2: ['rgba(253, 142, 255, 0.2)'],
+        3: ['rgba(255, 166, 84, 0.2)'],
       },
     },
   };
 
   const datas = data.map((item, index) => {
-    return parseFloat(item.data[item.data.length - 2].y * 100).toFixed(0);
+    return +item.data[item.data.length - 2].y * 100;
   });
+
   const colors = data.map((item, index) => {
     return colorSchema.main[index];
   });
@@ -78,9 +102,15 @@ export const calcDohnutDatasets = data => {
   return [
     {
       label: '',
-      data: datas,
+      data: dataErrorCuts(datas),
       backgroundColor: colors,
-      borderColor: ['rgba(255,255,255, 0.2)', 'rgba(255,255,255, 0.2)', 'rgba(255,255,255, 0.2)', 'rgba(255,255,255, 0.2)', 'rgba(255,255,255, 0.2)'],
+      borderColor: [
+        'rgba(255,255,255, 0.2)',
+        'rgba(255,255,255, 0.2)',
+        'rgba(255,255,255, 0.2)',
+        'rgba(255,255,255, 0.2)',
+        'rgba(255,255,255, 0.2)',
+      ],
       hoverOffset: 4,
     },
   ];
