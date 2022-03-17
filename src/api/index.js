@@ -800,6 +800,15 @@ const loginWeb3 = payload => {
     });
 };
 
+const confirmDeposit = payload => {
+  return Api.post('/api/user/deposits', payload)
+    .then(res => res.data)
+    .catch(e => {
+      console.log('[API-Error]: confirmDeposit', e);
+      throw e;
+    });
+}
+
 export {
   Api,
   createBet,
@@ -889,4 +898,5 @@ export {
   getDisputes,
   claimTokens,
   uploadImage,
+  confirmDeposit,
 };

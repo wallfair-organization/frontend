@@ -1,10 +1,8 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import styles from './styles.module.scss';
 import {ReactComponent as BitcoinIcon} from '../../../data/icons/deposit/bitcoin-icon.svg';
-import {ReactComponent as EuroIcon} from '../../../data/icons/deposit/banktransfer-icon.svg';
 import {ReactComponent as WalletIcon} from '../../../data/icons/deposit/metamask-logo.svg';
 import {ReactComponent as Arrow} from '../../../data/icons/deposit/thin-arrow-right.svg';
-import {ReactComponent as WFAIRIcon} from '../../../data/icons/deposit/wfair-symbol.svg';
 import {ReactComponent as ApplePay} from '../../../data/icons/deposit/applepay-icon.svg';
 import {ReactComponent as Ethereum} from '../../../data/icons/deposit/ethereum-icon.svg';
 import {ReactComponent as GooglePay} from '../../../data/icons/deposit/googlepay-icon.svg';
@@ -13,6 +11,7 @@ import { ReactComponent as USDT } from '../../../data/icons/deposit/usdt-logo.sv
 import { ReactComponent as DAI } from '../../../data/icons/deposit/dai-logo.svg';
 import { ReactComponent as USDC } from '../../../data/icons/deposit/usdc-logo.svg';
 import { ReactComponent as XRP } from '../../../data/icons/deposit/xrp-logo.svg';
+import { ReactComponent as MATIC } from '../../../data/icons/deposit/matic-logo.svg';
 import {ReactComponent as VisaMaster} from '../../../data/icons/deposit/visamaster-icon.svg';
 import { connect } from 'react-redux';
 import { PopupActions } from 'store/actions/popup';
@@ -35,6 +34,12 @@ const DepositSelection = ({showWalletDepositCrypto, showWalletDepositFiat, showW
     {
       label: 'Ethereum',
       icon: <Ethereum />,
+      depositCurrency: 'ETH',
+    },
+    {
+      label: 'Matic',
+      icon: <MATIC />,
+      depositCurrency: 'MATIC',
     },
     {
       label: 'Litecoin',
@@ -62,7 +67,7 @@ const DepositSelection = ({showWalletDepositCrypto, showWalletDepositFiat, showW
     <div className={styles.depositSelectionContainer}>
       <h3>Choose your deposit method</h3>
 
-      <div className={styles.selectorButton} onClick={showWalletConnectWallet}>
+      <div className={styles.selectorButton} onClick={() => showWalletConnectWallet()}>
         <div className={styles.iconWrapper}>
           <WalletIcon />
         </div>
@@ -77,12 +82,14 @@ const DepositSelection = ({showWalletDepositCrypto, showWalletDepositFiat, showW
         return (
           <div
             className={styles.selectorButton}
-            onClick={() => showWalletDepositCrypto(option.label.toUpperCase())}
+            onClick={() =>
+              option.depositCurrency
+                ? showWalletConnectWallet(option.depositCurrency)
+                : showWalletDepositCrypto(option.label.toUpperCase())
+            }
             key={option.label}
           >
-            <div className={styles.iconWrapper}>
-              {option.icon}
-            </div>
+            <div className={styles.iconWrapper}>{option.icon}</div>
             <div className={styles.buttonText}>
               <p className={styles.title}>{option.label}</p>
             </div>
@@ -149,9 +156,12 @@ const mapDispatchToProps = dispatch => {
       trackWalletBuyWithFiatButton();
       dispatch(PopupActions.show({ popupType: PopupTheme.walletDepositFiat }));
     },
-    showWalletConnectWallet: () => {
+    showWalletConnectWallet: (currency) => {
       trackWalletBuyWfair();
-      dispatch(PopupActions.show({ popupType: PopupTheme.walletConnectWallet }));
+      dispatch(PopupActions.show({
+        popupType: PopupTheme.walletConnectWallet,
+        options: { currency }
+      }));
     },
     fetchWalletTransactions: () => {
       dispatch(TransactionActions.fetchWalletTransactions());

@@ -1,26 +1,22 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import _ from 'lodash';
 import { numberWithCommas } from '../../utils/common';
-import TxModal from '../TxModal';
 import WFAIRTransfer from '../WFAIRTransfer';
 import styles from './styles.module.scss';
-import Loader from 'components/Loader/Loader';
 import TokenNumberInput from 'components/TokenNumberInput';
-import { formatToFixed } from 'helper/FormatNumbers';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import PopupTheme from 'components/Popup/PopupTheme';
 import { PopupActions } from 'store/actions/popup';
 import { TxDataActions } from 'store/actions/txProps';
-import { TOKEN_NAME } from 'constants/Token';
 import Button from 'components/Button';
-import useDepositsCounter from 'hooks/useDepositsCounter';
-import { LIMIT_BONUS } from 'constants/Bonus';
-// import AddTokens from 'components/AddTokens';
+import { convertCurrency } from 'api';
+import { TOKEN_NAME } from 'constants/Token';
 
 const TokenTransfer = ({
   provider,
-  hash,
   balance,
+  currency,
   showCancel = false,
   tranferAddress,
   contractAddress,
@@ -33,27 +29,41 @@ const TokenTransfer = ({
   setTransactionAmount
 }) => {
   const [transferValue, setTransferValue] = useState('0');
-  // const [blocked, setBlocked] = useState(false);
-  const [isloading, setIsLoading] = useState(true);
-
-  // const [TXSuccess, setTXSuccess] = useState(false);
+  const [wfairValue, setWfairValue] = useState('0');
   const [modalOpen, setModalOpen] = useState(false);
-  // const [formError, setformError] = useState('');
 
   useEffect(() => {
-    setIsLoading(false);
-  }, []);
-
-  useEffect(() => {
-    if (!modalOpen) {
+    if (modalOpen) {
+      showTxModal();
+    } else {
       setBlocked(false);
       setTXSuccess(false);
       setter(false);
     }
-    if (modalOpen) {
-      showTxModal();
-    }
   }, [modalOpen]);
+
+  const calculateConversion = useCallback(
+    _.debounce((value) => {
+      convertCurrency({
+        convertFrom: currency,
+        convertTo: TOKEN_NAME,
+        amount: value,
+      })
+        .then(({ response }) => {
+          const convertedAmount = response.data?.convertedAmount;
+          if (convertedAmount) {
+            setWfairValue(parseFloat(convertedAmount).toFixed(4));
+          }
+        })
+        .catch(() => console.error('Failed to convert to wfair'));
+    }, 500), []);
+
+  const setInputValue = (value) => {
+    setTransferValue(value);
+    if (currency !== TOKEN_NAME) {
+      calculateConversion(value);
+    }
+  }
 
   const handleTransaction = useCallback(() => {
     setBlocked(true);
@@ -62,6 +72,7 @@ const TokenTransfer = ({
       provider,
       setter,
       contractAddress,
+      currency,
       tokenAmount: transferValue,
       to_address: tranferAddress,
       setBlocked: setBlocked,
@@ -73,26 +84,8 @@ const TokenTransfer = ({
     setTransferValue('0');
   }, [provider, setter, tranferAddress, transferValue]);
 
-  if (balance < 1) {
-    return isloading ? (
-      <Loader />
-    ) : (
-      <div className={styles.transfer}>Insufficient balance for a deposit</div>
-    );
-  }
-
   const renderBody = () => (
     <>
-      {/* {modalOpen && (
-        <TxModal
-          hash={hash}
-          blocked={blocked}
-          success={TXSuccess}
-          setModalOpen={setModalOpen}
-          action={'Token Transfer'}
-          lookupLabel={getLookupLabel}
-        />
-      )} */}
       <div className={styles.transferWrapper}>
         {formError && (
           <div className={styles.transferFormErrors}>
@@ -106,29 +99,36 @@ const TokenTransfer = ({
               className={styles.tokenNumberInput}
               key="transferValue"
               value={transferValue}
-              currency={'WFAIR'}
-              setValue={setTransferValue}
+              currency={currency}
+              setValue={setInputValue}
               minValue={0}
-              decimalPlaces={0}
-              maxValue={formatToFixed(balance)}
+              decimalPlaces={4}
+              maxValue={balance}
               halfIcon={false}
               doubleIcon={false}
             />
 
             <div className={styles.overview}>
-              <p className={styles.title}>
-                Deposit Overview
-              </p>
+              <p className={styles.title}>Deposit Overview</p>
               <div className={styles.overviewItem}>
-                <span>Amount</span><span>{numberWithCommas(transferValue)} {TOKEN_NAME}</span>
+                <span>Amount</span>
+                <span>
+                  {numberWithCommas(transferValue)} {currency}
+                </span>
               </div>
-              <hr/>
-              <div className={styles.overviewItem}>
-                <span className={styles.total}>Total</span><span className={styles.total}>{numberWithCommas(parseFloat(transferValue))} {TOKEN_NAME}</span>
-              </div>
-              <hr/>
+              <hr />
+              {currency !== TOKEN_NAME && (
+                <>
+                  <div className={styles.overviewItem}>
+                    <span>WFAIR</span>
+                    <span>
+                      {numberWithCommas(wfairValue)} {TOKEN_NAME}
+                    </span>
+                  </div>
+                  <hr />
+                </>
+              )}
             </div>
-
 
             <div className={styles.buttonWrapper}>
               <Button
@@ -153,7 +153,6 @@ const TokenTransfer = ({
                 </Button>
               )}
             </div>
-            {/* <AddTokens /> */}
           </>
         ) : (
           <div className={styles.transfer}>
@@ -164,7 +163,7 @@ const TokenTransfer = ({
     </>
   );
 
-  return isloading ? <Loader /> : renderBody();
+  return renderBody();
 };
 
 const mapStateToProps = state => {
