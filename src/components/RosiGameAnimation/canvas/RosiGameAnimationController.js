@@ -304,10 +304,10 @@ class RosiAnimationController {
     this.audio.stopBgm();
   }
 
-  doCashedOutAnimation(data) {
+  doCashedOutAnimation(data, currency) {
     const point = this.coinAndTrajectory.getCoinCrashPosition();
     const elapsed = Date.now() - this.gameStartTime;
-    this.cashedOut.animate(point.x, data.amount, data.crashFactor, elapsed);
+    this.cashedOut.animate(point.x, data.amount, data.crashFactor, elapsed, currency);
   }
 }
 

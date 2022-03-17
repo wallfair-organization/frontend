@@ -41,6 +41,8 @@
           justify-content: center;
           padding: 0 20px;
         }
+
+        .content,
         .contentWrapper {
           display: flex;
           flex-direction: column;
@@ -51,6 +53,41 @@
             align-items: center;
             max-width: 500px;
           }
+
+          &.content {
+            display: flex;
+            @media (max-width: $screen-lg) {
+              display: none;
+            }
+          }
+
+          .row {
+            display: flex;
+            justify-content: flex-start;
+            column-gap: 5px;
+
+            .emoji {
+              padding: 0;
+
+              & > img {
+                width: 20px;
+                height: auto;
+                padding: 2px 0 0;
+                margin-right: 5px;
+              }
+            }
+
+            .text {
+              text-align: left;
+              padding-top: 4px;
+              color: $colorWhite;
+            }
+
+            .highlighted {
+              font-weight: 700;
+            }
+          }
+
           .title {
             font-size: 12px;
             color: white;
@@ -96,6 +133,7 @@
         }
       }
       .secondContainer {
+        position: relative;
         display: flex;
         align-items: center;
         position: relative;
@@ -106,16 +144,92 @@
           padding: 30px 0;
           justify-content: center;
         }
+
+        img {
+          height: 100%;
+          padding: 40px 0 0;
+          object-fit: cover;
+        }
+
+        .textItemsContainer {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          margin: 20px auto 0;
+          @media (max-width: $screen-sm) {
+            margin: 20px auto 0;
+            width: 90%;
+          }
+
+          .title {
+            font-size: 12px;
+            color: white;
+            opacity: 0.54;
+            margin-bottom: 12px;
+          }
+
+          .textItem {
+            background: rgba(172, 196, 255, 0.10077);
+            border-radius: 4px;
+            padding: 8px 16px;
+            margin-bottom: 8px;
+            max-width: 400px;
+            display: flex;
+            @media (max-width: $screen-sm) {
+              margin: 0 15px 8px;
+              padding: 15px 20px;
+            }
+            span {
+              font-size: 16px;
+              color: white;
+              opacity: 0.8;
+              // text-align: justify;
+
+              .highlighted {
+                color: $colorLightYellow;
+              }
+            }
+
+            .emoji {
+              padding: 0;
+
+              & > img {
+                width: 15px;
+                height: auto;
+                padding: 2px 0 0;
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+
+        .desktopOnly {
+          display: block;
+          @media (max-width: $screen-lg) {
+            display: none;
+          }
+        }
+
+        .mobileOnly {
+          // width: 100%;
+          display: none;
+          align-items: center;
+          margin: 0 auto;
+          @media (max-width: $screen-lg) {
+            display: block;
+          }
+        }
+
         .coins {
           position: absolute;
-          top: 25%;
+          top: 15%;
           left: -15%;
           width: 402px;
-          height: 234px;
+          height: 300px;
           animation: floating 10s ease-in-out infinite;
 
           @media (max-width: $screen-sm) {
-            top: 15%;
+            top: 0%;
             left: 0;
           }
         }
@@ -329,50 +443,6 @@
 
     .thumbs-wrapper {
       display: none !important;
-    }
-  }
-}
-
-.textItemsContainer {
-  margin-top: 40px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  @media (max-width: $screen-sm) {
-    width: 90%;
-  }
-
-  .title {
-    font-size: 12px;
-    color: white;
-    opacity: 0.54;
-    margin-bottom: 12px;
-  }
-
-  .textItem {
-    background: rgba(172, 196, 255, 0.10077);
-    border-radius: 4px;
-    padding: 8px 16px;
-    margin-bottom: 8px;
-    max-width: 400px;
-    display: flex;
-    @media (max-width: $screen-sm) {
-      margin: 0 15px 8px;
-      padding: 15px 20px;
-    }
-    span {
-      font-size: 16px;
-      color: white;
-      opacity: 0.8;
-      // text-align: justify;
-
-      .highlighted {
-        color: $colorLightYellow;
-      }
-    }
-
-    .emoji {
-      padding-right: 5px;
     }
   }
 }

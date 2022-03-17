@@ -1,1837 +1,3231 @@
 [
-  {
-    "title": "All Lucky Clovers",
-    "identifier": "softswiss:AllLuckyClover",
-    "identifier2": "AllLuckyClover",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": false,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 100,
-    "payout": 97,
-    "volatility_rating": "high",
-    "hd": true,
-    "multiplier": 3000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
+	{
+        "title": "All Lucky Clovers",
+        "identifier": "softswiss:AllLuckyClover",
+        "identifier2": "AllLuckyClover",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": false,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Aloha King Elvis",
+        "identifier": "softswiss:AlohaKingElvis",
+        "identifier2": "AlohaKingElvis",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.92,
+        "description": "Have you met a charismatic Elvis Frog performing in Las Vegas? We’re sure, you have! The Elvis Frog in Vegas slot, released in May 2020, is a true hit and favourite game for many players worldwide. BGaming is going to release a sequel of its most popular title! The slot called Aloha King Elvis! will be launched in July!\r\n\r\nThis time the cute Elvis Frog will pack the luggage, leave noisy Las Vegas and go to Hawaii! Tropical islands are full of relaxing summer vibes, melodic guitar rhythms and breathtaking views. Isn’t it a perfect place for a great beach party with Elvis Frog as a headliner?",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2021-07-22T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "American Roulette",
+        "identifier": "softswiss:AmericanRoulette",
+        "identifier2": "AmericanRoulette",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94.74,
+        "description": "American Roulette features a ball, a wheel and numbers colored black and red and marked from 1to 36. There is also one green slot numbered 0. This variation of roulette features two zeropockets: 0 and 00 (as opposed to the European variant with only 0) which increases the house' sadvantage on even money bets. A player can bet on any single number or the range or numbers,segments of the field like columns and dozens and also odd/even, black/red and low/high numbersthat are called \"even money\" bets.",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Avalon: The Lost Kingdom",
+        "identifier": "softswiss:Avalon",
+        "identifier2": "Avalon",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95,
+        "description": "Medieval adventures on a magic island far away await you in Avalon:The Lost Kingdom. Thegame is a 5 reels and 20 paylines slot full of action entertainment, packed with opportunitiesfor winning, and immersing the player deeply into the mysterious atmosphere. There is aplethora of features that guarantee exciting gaming and winnings galore: Free Spins,Multipliers, Additional Wilds and even Fateful Wild. Visit the mysterious kingdom of Avalon,which can disclose its big treasures.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Aztec Magic",
+        "identifier": "softswiss:AztecMagic",
+        "identifier2": "AztecMagic",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.96,
+        "description": "Aztec Magic is 5-reel 15-payline slot which is devoted tothe ancient civilization of South American Indians. It's all about the nature and culture of the powerful tribe: stonecut reels, forests and mountains of Mexico in thebackground, and Indian masks depicting gods andwarriors. All symbols are designed in the cave paintingstyle to create the authentic atmosphere of Aztec living.Aztec warrior as a Wild symbol triples all winnings andIndian priestess as a Scatter brings a number of free spins bonus features which bring additionalfun to playing.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Aztec Magic Bonanza",
+        "identifier": "softswiss:AztecMagicBonanza",
+        "identifier2": "AztecMagicBonanza",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "description": "Behold everyone’s favorite slot now seasoned with some Aztec style and magic vibes. BGaming introduces a magnificent transformation of best games and their mechanics into a single game - Aztec Magic Bonanza! This extraordinary slot will surprise you with new gaming experience and catch you for many hours. Test your luck and win great prizes.\r\nAztec Magic Bonanza is a 6х5 slot with a group payout system. All great features, Scatter symbols, free spins and other cool stuff together with addictive gameplay awaits you inside this wonderful slot. Take a step to new adventures and find the ancient treasures!",
+        "volatility_rating": "high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 10200,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Aztec Magic Deluxe",
+        "identifier": "softswiss:AztecMagicDeluxe",
+        "identifier2": "AztecMagicDeluxe",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.96,
+        "description": "The Aztec were a Mesoamerican civilization that flourishedduring the 14th, 15th centuries in the region of Mexico. Theirinfluence stretched throughout most of the northernMesoamerica. This unique society left a significant footprinton the map of Mesoamerican civilizations and built anempire with its own culture and political system.Aztec Magic is devoted to the ancient civilization of SouthAmerican Indians. It's all about the nature and culture of the powerful tribe: stone cut reels, forestsand mountains of Mexico in the background, and Indian masks depicting gods and warriors. Allsymbols are designed in the cave painting style to create the authentic atmosphere of Aztec living.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Aztec Magic Megaways",
+        "identifier": "softswiss:AztecMagicMegaways",
+        "identifier2": "AztecMagicMegaways",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96.69,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2022-01-27T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 12960,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Baccarat",
+        "identifier": "softswiss:Baccarat",
+        "identifier2": "Baccarat",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.76,
+        "description": "The game enjoys great popularity all over the world's brick-and-mortar casinos, especially in Macau, and we are happy to bring the atmosphere right on your device wherever you are now.The rules are quite straightforward: collect a hand of value as close to 9 as possible. Aces count 1, while faces and tens 0. The games opposes player to banker, and they both are dealt two cards each. The one who approaches 9 closer than the opponent wins. In certain cases, a third card can be dealt.In Baccarat by Bgaming you will see only what is required to concentrate on your luck.The gameplay is smooth and relaxing, dimmed music and background voices immerse you into the atmosphere of a gambling house and the dealer's slight accent hints you are somewhere in Asia.",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "BC Bonanza",
+        "identifier": "softswiss:BCBonanza",
+        "identifier2": "BCBonanza",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "bcgame",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "BC.Million",
+        "identifier": "softswiss:BCMillion",
+        "identifier2": "BCMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "bcgame",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Betfury Million",
+        "identifier": "softswiss:BetfuryMillion",
+        "identifier2": "BetfuryMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "betfury",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bitcoin Million",
+        "identifier": "softswiss:BitcoinMillion",
+        "identifier2": "BitcoinMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "bitcoincasinoio",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "description": "Bitcoin Million will definitely shower you with fabulous winnings. Good old fruits, Wilds and Scatters are about to hit your screen once again this time modified with the latest crypto symbols. Expanding Wilds, Gamble round and more magnificent features will also attend you in this fascinating game! Stop fulfilling your wallet with digital currencies, top it up with real money!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bitsler Book of Cats",
+        "identifier": "softswiss:BitslerBookOfCats",
+        "identifier2": "BitslerBookOfCats",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "bitsler",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bitsler Million",
+        "identifier": "softswiss:BitslerMillion",
+        "identifier2": "BitslerMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "bitsler",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bitstarz Billion",
+        "identifier": "softswiss:BitstarzBillion",
+        "identifier2": "BitstarzBillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "bitstarz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2021-04-22T00:00:00.000Z",
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Multihand Blackjack Pro",
+        "identifier": "softswiss:BlackjackPro",
+        "identifier2": "BlackjackPro",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99.23,
+        "description": "Blackjack Pro is a variation of Blackjack with increased payout ratio and one of the lowest houseedges for any casino game. It originates from the Las Vegas Strip set of rules from in Las Vegascasinos back in the 1970s.This one is played with 6 decks, each with a card count of 52. The player can make a prior bonusbet before any cards are dealt. Should any of the cards be a Jack, the player can significantlymultiply their Bet winnings, regardless of the outcome of the regular game. Look out for acombination of Two Jacks of Spades to get a Bet multiplier of x100.Worth mentioning are the Double and Split features. You can split your hand up to 3 hands. Dealeralways stands on soft or hard 17. A tie results in a Push and your hand is returned.This Las Vegas version of the game definitely deserves the attention of savvy players or just thoseseeking additional thrills from more bets per round!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Blackjack Surrender",
+        "identifier": "softswiss:BlackjackSurrender",
+        "identifier2": "BlackjackSurrender",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99.41,
+        "description": "Blackjack Surrender permits to play it safe on most occasions: whether you have been dealt a tricky hand or are simply unsure of the outcome, you can still gain back half of the initial bet, leaving the other half to the House. In other words, the rules allow the player to forfeit their hand early on, while still retaining a part of the bet. This opens the door for new betting strategies and a different approach to the game on the whole.Much to the enjoyment of returning players the Split and Double features are available. Not straying far from tradition, the dealer receives one card face up, the other face down. A player can face the house with up to 3 hands. Expect a regular game to payout 1 to 1, while a Blackjack combinations pays 3 to 2. Whether you are honing your skills for the bigger game or are new to blackjack in general, this one is a must to try!",
+        "hd": true,
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Blaze Bonanza",
+        "identifier": "softswiss:BlazeBonanza",
+        "identifier2": "BlazeBonanza",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "blazecom",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Blaze Million",
+        "identifier": "softswiss:BlazeMillion",
+        "identifier2": "BlazeMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "blazecom",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bob's Coffee Shop",
+        "identifier": "softswiss:BobsCoffeeShop",
+        "identifier2": "BobsCoffeeShop",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.5,
+        "description": "Bob's Coffee Shop is a slot with 5 reels and 10 paylines. The main character of this game is Bob,who knows all the pleasures of life, just cheerful and funny guy, a big fun of Bob Marley by the way.Playing this game you never get bored! Relaxing background music, bright colors, smiling Bob andhis best friend Lion, continuous joy, and what's more, great opportunities to play and win! Embracethe atmosphere of Amsterdam with the game Bob's Coffee Shop!",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bonanza Billion",
+        "identifier": "softswiss:BonanzaBillion",
+        "identifier2": "BonanzaBillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "description": "Christmas is coming and it’s high time to get ready for the most magical holiday in a year! What is the best way to convey the atmosphere of Christmas? That’s right, by bringing the holiday's mood into the good old classics. Gather around a lovely Bonanza game, this time Xmas edition and feel the vibe of the upcoming holiday!\r\n",
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-12-02T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 20000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Book of Blaze",
+        "identifier": "softswiss:BookOfBlaze",
+        "identifier2": "BookOfBlaze",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "blazecom",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Book Of Cats",
+        "identifier": "softswiss:BookOfCats",
+        "identifier2": "BookOfCats",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94,
+        "description": "The slot Book of Cats will take the player back through ages when gods and goddesses stillwalked the earth. BGaming has created an opulent and luxurious feel in the slot with golden,treasure-like symbols and graphics. The greatest characters of the mystical history have beenillustrated in the Book of Cats slot, for example: The Cat Queen, Bastet and the magic Mask, whichcomes alive. In addition, the player meets the Golden Book in the role of Scatter and Wild symbolin the game. This symbol gives enormous opportunities to win big, as it starts free spins that canbe re-triggered. We can't but mention the surprisingly pleasant feature of the main game, wherethe 6th reel is waiting to be wide opened. So let's start spinning the reels and open up a world ofgolden treasure that will bring glory and gold.",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Book of King Billy",
+        "identifier": "softswiss:BookOfKingBilly",
+        "identifier2": "BookOfKingBilly",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "kingbilly",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Book of mBit",
+        "identifier": "softswiss:BookOfMBit",
+        "identifier2": "BookOfMBit",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "mbit",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Book of Pyramids",
+        "identifier": "softswiss:BookOfPyramids",
+        "identifier2": "BookOfPyramids",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 97.13,
+        "description": "Book of Pyramids is a full HD 5-reel non-progressive 9 payline slot devoted toAncient Egypt and featuring its traditional characters and symbols.Tutankhamen, Bastet the Goddess of Cats, the Eye of Ra, and Ankh, Symbolof eternal life, accompany the player into the world of Gods and Pharaohs.Scarab standing for a Special symbol activates the bonus feature of freespins.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Brave Viking",
+        "identifier": "softswiss:BraveViking",
+        "identifier2": "BraveViking",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 97.09,
+        "description": "Brave Viking is a Nordic fantasy type of slot displaying Vikings andall attributes of this history period: brutal warrior as a Wild, Rune as aScatter, as well as read-haired beauty and crossed axes toaccomplish the theme. The most exciting bonus game in which youneed to guess which of the three ships is coming first won't leavereal gamblers indifferent. The game is now available in HTML5 andcan be played on any mobile device!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 6000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Candy Monsta",
+        "identifier": "softswiss:CandyMonsta",
+        "identifier2": "CandyMonsta",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 94.06,
+        "description": "Less spooky moments, more sweet gifts! BGaming is going to celebrate Halloween all year long! Candy Monsta, the new slot in the brand’s lineup, shares festive vibes with players. Collect all sweets with a cute Candy Monsta!\r\n\r\nColorful candy is the Wild symbol in the game. It transforms into any symbol to complete your winning combination! We know what you think… No Halloween party is complete without carving pumpkins! BGaming didn’t forget about that. Moreover, we made the tradition more intriguing. Pumpkins-bombs dropped on the reels explode and trigger Free spins! Don’t be afraid to burn yourself with hot winnings!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2021-10-12T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Caribbean Poker",
+        "identifier": "softswiss:CaribbeanPoker",
+        "identifier2": "CaribbeanPoker",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94.78,
+        "description": "Don't let a fancy name confuse you if you're familiar with the fundamentals of stud poker, you'll get the hang of this poker variant easily!In the Caribbean Poker you place a bet on the circle space called Ante with an opportunity to Raise(to set a bet twice as size of Ante) or Fold (therefore, to lose the bet) later on. You can see all fivecards at once at your side, while the Dealer shows one of theirs. As always in our games, the full setof rules is at a single clic's length.Playing poker against the Dealer in online casinos has its advantage: you don't have to figure outeveryone else's strategy or bluffing. Instead, you can fully focus on the balanced rules and gameplayof this version of poker. Alternatively, you can easily switch to other sharp-looking BGAMING pokergames and experience poker from a different angle.Now sit down at the Caribbean Poker table with the confidence of a pro-player we got your backwith a comfortable chair!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Casino Hold`em",
+        "identifier": "softswiss:CasinoHoldem",
+        "identifier2": "CasinoHoldem",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.75,
+        "description": "There can never be an enjoyable casino experience without a game of poker. Some traditionalrules for those standing firmly on their feet  here we've got them.In the beginning of each round you are dealt with two cards that will form the hand incombination with the five cards on the table. The ultimate goal is collecting the best 5-cardhand. Achieve this goal with Call or test your luck and skill in another round by Fold.The game will take into consideration the two cards on your hand and the three flop cards,and calculate the best winning combination. To take a look at the paytables of the winninghands, check the rules inside the game.Furthermore, you can set an additional bonus AA bet on the side. In order to collect thegenerous AA bonus, you will need to have at least a pair of Aces or higher at your hand. Bestof luck!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Cherry Fiesta",
+        "identifier": "softswiss:CherryFiesta",
+        "identifier2": "CherryFiesta",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.98,
+        "description": "Cherry Fiesta is a fruit-themed video slot game with 5 reels and 9 paylines which involves 13 different symbols. In addition to glittering fruits,the slot also features a gorgeous Cherry Girl as Scatter and Cherrybasket as a Wild. The game offers a variety of bonus features such as30, 40 and 50 free spins triggered by 3, 4 and 5 Scatter symbolsrespectively, an advanced autospin option and a gambling round toincrease the win up to 5 times by guessing the color and suit of theface-down card.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Cleopatra Million",
+        "identifier": "softswiss:CleopatraMillion",
+        "identifier2": "CleopatraMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "cleopatra",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "description": "Time to go walk like an Egyptian once again! Bgaming is ready to take you to wonderful sandy lands together with Cleopatra million. A classic slot which brings enormous riches! A row of great features, Gamble round and distinctive symbols like Bells and Diamonds will surprise with big wins more than once. Follow your destiny, fulfill Cleopatra’s order to get showered with gold.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Clover Bonanza",
+        "identifier": "softswiss:CloverBonanza",
+        "identifier2": "CloverBonanza",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "description": "Clover Bonanza - is an entertaining slot that can boast of a row of amazing bonuses and marvelous features. Free spins, Scatter symbols, refilling and many more exciting features won’t leave any player indifferent. Bright color and spectacular graphics all-in-all a perfect match for any fortune-tempter!",
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-03-03T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Crazy Starter",
+        "identifier": "softswiss:CrazyStarter",
+        "identifier2": "CrazyStarter",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.04,
+        "description": "Crazy Starter is a fruit and vegetable-themed 5-reel non-progressive 25 payline slot. The reels arepacked with a variety of fruit and vegetables, each having its one character and mood. The gameboasts a special Free Spin button featuring a happy worm to activate 15 free spins.",
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Deep Sea",
+        "identifier": "softswiss:DeepSea",
+        "identifier2": "DeepSea",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 94,
+        "description": "Meet a superbly crafted video slot from BGaming - Deep Sea, standingout from the crowd and giving an exceptional psychedelic feel. It ispacked with muted neon colours, dancing on the waves underwatercreatures and deep dark features in the inky, black stillness. All worktogether to create an immersive, relaxing effect. This 5-reel slot with 15paylines has brilliant features: free spins, scatters and additional wilds,that might interest a slots' enthusiast who is looking for a traditional game that looks special and gives big wins.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 35000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Desert Treasure",
+        "identifier": "softswiss:DesertTreasure",
+        "identifier2": "DesertTreasure",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 95.95,
+        "description": "Desert Treasure is a full HD 5-reel 9-payline slot based onthe theme of the Middle Eastern folk tale of Aladdin. Theregular symbols that appear on the reels are all related toAncient Arabs lifestyle: crossed swords, ancient coins,Arab letters, and the enchanted oil lamp. Accompanied byauthentic music, they create a feeling that you are one ofthe tale protagonists. The game offers unusual bonusfeatures, such as triple wins in free spins triggered by theArab Warrior Scatter symbol.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 8000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Dig Dig Digger",
+        "identifier": "softswiss:DigDigDigger",
+        "identifier2": "DigDigDigger",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.5,
+        "description": "It is said that the golden sands of the Egyptian deserts still hide the treasures of the ancient civilization. Only brave and… lucky can find them! BGaming goes in search of riches in the Dig Dig Digger slot! Join the crazy archeologist looking for wealth in the heart of Egypt! The charismatic and hilarious character will help you to grab all the gold!",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-06-17T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 5500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Domnitors",
+        "identifier": "softswiss:Domnitors",
+        "identifier2": "Domnitors",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 97.3,
+        "description": "This 9 paylines slot Domnitors slot game draws inspiration from Romanian medieval history. Thesymbols of the reels are connected with the historical background of the slot. They depict medievalweapons, execution tools, historical Romanian castles and, most importantly, the three mostoutstanding rulers of the period: John Hunyadi of Transylvania, Stephen the Great of Moldavia, and Vlad the Impaler of Walachia.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Domnitors Deluxe",
+        "identifier": "softswiss:DomnitorsDeluxe",
+        "identifier2": "DomnitorsDeluxe",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 97.31,
+        "description": "Domnitors Deluxe slot takes players to the brutal Medieval times where the main charactersrepresented by John Hunyadi, Stephen the Great and Vlad the Impaler use their military strategiesto survive and conquer new territories. This graphically updated, animated 5-reel, 3-row video slotwith Vlad as Wild Symbol and the map as a Scatter gives a particular excitement, an overwhelmingdesire to spin the reels and feel the spirit of this mysterious historical period more and more.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Double Exposure",
+        "identifier": "softswiss:DoubleExposure",
+        "identifier2": "DoubleExposure",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.07,
+        "description": "As the name of the game suggests, Double Exposure refers to a modified version of blackjackwherein the Dealer's cards are visible from the get go. With such an upper hand for the Player, theDealer is able to compensate by other means.Though the advantage is in favour of the player in terms of adapting their strategy from the onset,the house edge is typically greater, hence paying out even money instead of the typical 3 to 2 onBlackjack. The Dealer also wins on all ties, except for a Blackjack combination.Better still, the player retains the classic benefit of Doubling Down and Splitting, although the latteris only reserved to one time only. Players can expect the Dealer to stand on both hard and soft 17.If you love blackjack in all shapes and forms, you will definitely not want to miss giving this versiona go!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Dragon's Gold 100",
+        "identifier": "softswiss:DragonsGold100",
+        "identifier2": "DragonsGold100",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 96.9,
+        "description": "BGaming invites players on a journey to the mysterious East! Brand’s new slot called Dragon’s gold 100 received into itself the most recognizable and unique attributes which Asia famous for! Eastern Dragon, also known as Loong, is a legendary creature in Asian mythology. Being the key figure in the game, the symbol of power and luck shares fortune with players! Moreover, you will find Chinese lanterns, golden coins, and even imperial palaces. Colorful graphics and traditional music create a magic atmosphere!\r\n\r\nThe online slot is fully packed with lavish features! Wild and Scatters Symbols convert into one hundred pay lines giving players more and more chances to have a winning combination! Furthermore, Wild symbols can expand on the whole reel, occupying the upper and lower tiles. The maximum exposure of the slot goes as high as x3000 to bring terrific moments!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2021-09-09T00:00:00.000Z",
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Dragon’s Million",
+        "identifier": "softswiss:DragonsMillion",
+        "identifier2": "DragonsMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "drgn",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elvis Frog & Golden Crown",
+        "identifier": "softswiss:ElvisFrogAndGoldenCrown",
+        "identifier2": "ElvisFrogAndGoldenCrown",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "goldencrown",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elvis Frog at Joka Room",
+        "identifier": "softswiss:ElvisFrogAtJokaRoom",
+        "identifier2": "ElvisFrogAtJokaRoom",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "joka",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "description": "Time for a little more action with the King in the company of Elvis Frog at Joka Room slot! Missed your 25 paylines with bright graphics and shiny symbols like the whole lights of Vegas are pointed at you? You won’t miss it again. A 5х3 slot with breathtaking features and an unchained playground to fulfill your desires and shower with magnificent riches! Shake, rattle and roll like a slot machine just don’t forget your good luck charm, have fun and big winnings.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elvis in Casino Rocket",
+        "identifier": "softswiss:ElvisFrogInCasinoRocket",
+        "identifier2": "ElvisFrogInCasinoRocket",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "rocketcasino",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2022-01-24T00:00:00.000Z",
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elvis Frog in LevelUp Casino",
+        "identifier": "softswiss:ElvisFrogInLevelUpCasino",
+        "identifier2": "ElvisFrogInLevelUpCasino",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "levelup",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elvis Frog In Playamo",
+        "identifier": "softswiss:ElvisFrogInPlayamo",
+        "identifier2": "ElvisFrogInPlayamo",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "playamo",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elvis Frog in Spinago",
+        "identifier": "softswiss:ElvisFrogInSpinago",
+        "identifier2": "ElvisFrogInSpinago",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "spinago",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elvis Frog in Spin Samurai",
+        "identifier": "softswiss:ElvisFrogInSpinSamurai",
+        "identifier2": "ElvisFrogInSpinSamurai",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "spinsamurai",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elvis Frog in Syndicate",
+        "identifier": "softswiss:ElvisFrogInSyndicate",
+        "identifier2": "ElvisFrogInSyndicate",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "syndicate",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elvis Frog in Vegas",
+        "identifier": "softswiss:ElvisFroginVegas",
+        "identifier2": "ElvisFrog",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94,
+        "description": "Elvis Frog in Vegas is a slot that associates with plenty of marvelous music and rock and roll. Thegame has five reels, three rows and 25 paylines with free spins, respins and a special bonus roundwhere a player can hit a Major and Mega Jackpots with a Tutti-Frutti Feature. In addition to theamazing assets of the game, the cartoonish style and positive general thrust, the enhanced soundpresentation will make the game especially delightful, because enjoying Elvis's motives is apleasure no one would resist. Welcome to the slot full of fun and perfect gaming experiencecombined with legendary musical hits.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elvis Frog In Woo Casino",
+        "identifier": "softswiss:ElvisFrogInWooCasino",
+        "identifier2": "ElvisFrogInWooCasino",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "woocasino",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "European Roulette",
+        "identifier": "softswiss:EuropeanRoulette",
+        "identifier2": "EuropeanRoulette",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "description": "Roulette's simple but highly attractive gameplay won its deserved popularity among gamblinghouses and saloons which later on transformed into land-based casinos as we know them today.Just try to think up one without a roulette table instantly popping up in the mind. Impossible!Increased chances of winning are what makes the European version of the game stand out fromthe rest of its versions worldwide. Here comes the diversity: unlike its American distant relative,European roulette has only one green pocket marked 0. The numbers layout on the wheel is alsodifferent. What is more to notice, there is a huge space for racetrack bets to add to the generalinside and outside bets: Vousins du Zero, Black Splites, Red Splites and Tiers du Cylindre. Therules are always at hand within the game. Spin the wheel indefinitely  thus a believable theory ofthe roulette's invention during the searches of perpetuum mobile will be proved!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Fantasy Park",
+        "identifier": "softswiss:FantasyPark",
+        "identifier2": "FantasyPark",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.65,
+        "description": "Fantasy Park is a slot game recreating the atmosphereof an amusement park with its roller coasters, ferriswheels and cotton candy. The slot has 5 reels and 9paylines. A special bonus feature is the Expanding Wildsubstituting any Scatter and awarding you with 10 freespins if you trigger two Expanding Wilds at once.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Fire Lightning",
+        "identifier": "softswiss:FireLightning",
+        "identifier2": "FireLightning",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 93.9,
+        "description": "Fire Lightning is a full HD 5 reel non-progressive 20payline slot. The theme of the slot is based on themotives of ancient Greek mythology. Figures from Greekmythology, such as Zeus, Themis, Ares and Hephaestusare represented in the game. The gameplay takes placeon the background of Olympus - the sacred mountain,the place of the gods' residence, headed by Zeus. Inancient Greek mythology Zeus is the god of lightning, thunder and heaven. Lightning is the mainweapon and the main attribute of the supreme god.Game is packed with special features which make the game more attractive to the users: scatterswhich multiply winnings by total bets, wild symbols, bonuses, free spins with frozen wild symbols and a gambling round.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Four Lucky Clover",
+        "identifier": "softswiss:FourLuckyClover",
+        "identifier2": "FourLuckyClover",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94,
+        "description": "Four Lucky Clover is a slot inspired by a classy Irish vibes. The game has five reels,three rows and 10 paylines with bonus round and features that are both entertainingand engaging for players. The highlights of the game are the lucky spins, stacked wildfeatures and like a cherry on top - the 4 reels bonus game where the player canconsiderably increase the winnings. In addition to the amazing assets of the game, thegraphics, vibrant symbols and animations are kept captivating as well as charming.Welcome to the slot, which is truly old-school and perfect for players who like to keep itsimple.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Four Lucky Diamonds",
+        "identifier": "softswiss:FourLuckyDiamonds",
+        "identifier2": "FourLuckyDiamonds",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94,
+        "description": "“Diamonds are a girl’s best friend…” You’ve probably heard the famous saying before. It’s time to dispel the stereotype! Four Lucky Diamonds by BGaming is created to make every player happy. The 5х3 scheme video slot is a mix of colourful gems and classical gambling symbols such as bells, stars, and the number 7. Collect the entire set of diamonds to feel the magic of luxury and richness!",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "French Roulette",
+        "identifier": "softswiss:FrenchRoulette",
+        "identifier2": "FrenchRoulette",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "description": "The French roulette rules have a distinguishing feature of La Partage which stands for returning the bets of even value in case the winning number is 0. The relaxing soundtrack mixed with soft crowd chatter in the background will immerse you into the atmosphere of a real brick-and-mortar casino. Select the value of a chip for a bet and enjoy the experience!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Fruit Million",
+        "identifier": "softswiss:FruitMillion",
+        "identifier2": "FruitMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "description": "Classics is always a trend, - thought BGaming's team and decided to create one more fascinating traditional-style slot�� A few weeks and here it is! BGaming invites you to the Fruit Million slot! One hundred paylines and millions of chances to win are hidden in this game. Try to catch them all! On your way to impressive winnings you will find recognizable slot symbols such as fruits, diamonds, horseshoes, and of course 4-leaf clovers which are going to bring a lot of luck for both newcomers and experienced players. The game also attracts casino lovers with its pleasant features and convenient interface!Plunge into the atmosphere of pure entertainment and joy! Spin and win a Fruit Mill",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Goldenstar Million",
+        "identifier": "softswiss:GoldenstarMillion",
+        "identifier2": "GoldenstarMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "goldenstar",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Hawaii Cocktails",
+        "identifier": "softswiss:HawaiiCocktails",
+        "identifier2": "HawaiiCocktails",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 97.3,
+        "description": "Hawaii Cocktails is another colorful slot game from the chill out series. It steals you away from the routine to put on hot sand by theOcean with tropical sun high above and warm breeze in your hair. Feelthe sunshine on your face and grab one of those famous cocktails toenjoy the vacation. You deserved it!The symbols on the reels are exotic cocktails known for theirextraordinary taste and style. A Calibri  the smallest and the cutes birdin the world, introduces Scatter symbol here. This little symbol ofbeauty and elegance can bring 10 free spins if 3 or more Calibri pop upon the reels. Winning combinations with 3, 4 and 5 Scatters are multiplied x10, x100 and x1000accordingly.Coconut is a Wild and can replace any other symbol on the reels except Scatter. The more Wilds the better: 5 Wilds carry a flabbergasting multiplier of x50000!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 50000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Heads and Tails",
+        "identifier": "softswiss:HeadsTails",
+        "identifier2": "HeadsTails",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "casual",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98,
+        "description": "Are you a little on the tired side after having to wrap you headaround Paylines, Scatters, Wilds and Free Rounds? Then settle infor a game that does not stress you with any of that and brings yousheer fun as easy as 1,2... and that's it, there really is no thirdoption.Heads and Tails is pretty self-explanatory: a simple coin flip basedon a game perhaps centuries old. The Heads side of the coin isrepresented by the minted Bitcoin sign, while the Tails sideresembles an ASIC chip on a printed circuit board. Both call backthe origins of Bgaming as pioneers in Bitcoin gaming.Bet amounts can be configured in the settings, therefore the screenis left uncluttered and free of buttons, save for the Heads betbutton on the left-hand side and the Tails bet button respectivelyon the right-hand side.It really does not get simpler that this. The chances are 50/50 here, and each win pays out 1.98Xmaking the house edge as little as 1%. So just toss the coin for big easy wins and tons of fun!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Hello Easter",
+        "identifier": "softswiss:HelloEaster",
+        "identifier2": "HelloEaster",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.5,
+        "description": "Hello Easter video game will get anyone in the Easter spirit, obviously. This is another classic5-reel slot with 9 paylines, which never fails to keep the player interested when it comes to lovelygraphics and playability. While playing Hello Easter, a gamer can grab a nice Easter treat in theform of a bonus game with quite generous cash prizes. It has never been so simple to win extramoney, as chances are 50/50, just try to guess a card. The reels in this game include suitablyEaster themed symbols such as a bunny rabbit, a chicken, and candy-sweet letters. Time to havefun has come, but just remember, don't spend all the winnings on more chocolate!",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 9000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Hi-Lo Switch",
+        "identifier": "softswiss:HiLoSwitch",
+        "identifier2": "HiLoSwitch",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "description": "Hi-Lo really does not get any simpler than the name suggests. In terms of game rules, it isessentially the coin-flip of card games. And yet the gameplay can be extremely addictive,especially the more wins you get.The player is dealt 3 cards and the goal is to predict, using any of the 3 cards, whether the nextcard from the deck is going to be higher or lower in value than the one selected. Clear and simple,right? Of course it is.The payout depends entirely on the probability of the next card being higher or lower, with the oddslocated directly on the playing field. Let's not forget the name of the game involves Switch, whichrefers you have the chance to re-shuffle and get 3 new cards on which to wager the outcome.Just keep in mind: the higher the probability, the lower the payout. So it makes sense tooccasionally wager against the odds. Oh and don't forget: the same value card will not end in a tie.So are you up for the challenge of stringing the best winning streak of guessing the odds?",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Hit The Route",
+        "identifier": "softswiss:HitTheRoute",
+        "identifier2": "HitTheRoute",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 97,
+        "description": "Colorful billboards, retro cars and thousands of miles to make dreams come true! It's all about our new journey. We invite you to hit the legendary Route 66. The main street of America - that's what the road was called decades ago - is full of adventures. Connecting stylish Chicago with sunny Los-Angeles, the route passes through the geographical heart of the U.S. BGaming wants you to feel the authentical vibe of the old west.Our new 5x4 machine with free spins and impressive bonuses is going to be your ticket to an unforgettable trip. Don't hesitate and always remember that the main rule of the traveler is to enjoy every moment! So, start the engine, turn up the music and let your passion go! Big winnings aren't far behind!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Hunny Million",
+        "identifier": "softswiss:HunnyMillion",
+        "identifier2": "HunnyMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "hunny",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Jackpot Jill: Realm of Fortune",
+        "identifier": "softswiss:JackpotJillRealmOfFortune",
+        "identifier2": "JackpotJillRealmOfFortune",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "jackpotjill",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-02-22T00:00:00.000Z",
+        "multiplier": 27000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Jacks or Better",
+        "identifier": "softswiss:JacksOrBetter",
+        "identifier2": "JacksOrBetter",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "video_poker",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95,
+        "description": "First videopoker games were already present across casinos in the United States of America in the1970s. Since then the game has become known and loved all over the globe.What makes it significantly different from slot games is that it's a combination of the slot machineexperience and an opportunity to test out your abilities in the game of skill which is poker. You know, noteverything depends on sheer luck!In Draw poker, as Jacks or Better is often referred to, you are dealt a complete hand before the firstround of bets. Choose your bet amount and amount of the Hands available in the round carefully. Youcan develop the Hand later on by drawing other cards, i.e. replacing your current ones. The lowestwinning hand is a pair of Jacks.We really didn't want to design yet another videopoker, so our Jacks or Better game unfolds in amedieval setting, with the castle in the background surrounded by meadows and the sounds of acharming traditional flute. This will undoubtedly add to your enjoyment of the game, and we wish you bestof luck at it!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Jogo Do Bicho",
+        "identifier": "softswiss:JogoDoBicho",
+        "identifier2": "JogoDoBicho",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94,
+        "description": "Never the process of guessing the draw has been so exciting: welcome to Jogo DoBicho, the lottery created exclusively by BGaming to show a fragment of Brazilian culture online.The lottery game escaped right from the Zoo in Rio De Janeiro to its streets a long time ago andnow it can be played, with a little help from us, in each corner of the planet. The game is basedaround the 25 different animals, with each of them representing 4 numbers from 00 to 99. So,for example, the ostrich was 01/02/03/04, the elephant 45/46/47/48, and so on. Whencustomers entered the zoo they purchased a ticket, and the last two digits of the ticketcorresponded to a particular animal. The game rules remained the same to this day, we've made this lottery likable and adrenaline rushing keeping the spirit of the past and present. So,make a bet on a favorite lucky animal or number and feel all the emotion of the draw.",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Jogo Do Bicho Simple",
+        "identifier": "softswiss:JogoDoBichoSimple",
+        "identifier2": "JogoDoBichoSimple",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "lottery",
+        "has_freespins": true,
+        "feature_group": "bitstarzplus",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Johnny Cash",
+        "identifier": "softswiss:JohnnyCash",
+        "identifier2": "JohnnyCash",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 93.9,
+        "description": "While the wind is blowing a tumbleweed out of the window, another fight is breaking out in the saloon where whiskey and tequila never stop flowing. Johnny Cash won't miss a win, whatever it takes! This is the hero of our new slot - a daring adventurer searching for bags full of money and gold. The name of the crazy cowboy speaks for itself! There are many obstacles on his way to the cherished riches, but he knows how to get through them all! And he invites you to join him on an exciting journey through the Wild West! BGaming's brand new slot is inspired by the times of the gold rush. So, we know exactly where to go for wealth! The game is a 5x3 scheme machine with impressive features giving you more and more chances to line your own pockets! If you are as fearless as Johnny Cash, you will definitely fin",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Journey Flirt",
+        "identifier": "softswiss:JourneyFlirt",
+        "identifier2": "JourneyFlirt",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 96.6,
+        "description": "Journey Flirt is the online slot of BGaming beautifully rendered,superbly designed for maximum entertainment. Besides its greatlooks, the game can also yield spectacular winnings especiallythanks to its remarkable features. Having a 5x3 scheme with 243winning lines, the slot provides a huge amount of chances to win.The bonus rounds are represented by 4 cities. On the reels, playerswill come across traditional lower-valued symbols andhigher-valued symbols like the boy and the girl, who not only travelaround the world, but tell a fine love story. All players, interested invirtual exploring of the world's unique cities will definitely have agreat time on this online journey.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "King Johnnie Millions",
+        "identifier": "softswiss:KingJohnnieMillions",
+        "identifier2": "KingJohnnieMillions",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "kingjohnnie",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lady Muerta in Slotvibe",
+        "identifier": "softswiss:LadyMuertaInSlotvibe",
+        "identifier2": "LadyMuertaInSlotvibe",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "slotvibe",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.16,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 2750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Legacy of Cobra",
+        "identifier": "softswiss:LegacyOfCobra",
+        "identifier2": "LegacyOfCobra",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "cobra",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2022-03-10T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Blue",
+        "identifier": "softswiss:LuckyBlue",
+        "identifier2": "LuckyBlue",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.96,
+        "description": "Inspired by real-world snorkeling and deep sea gold hunting, Lucky Blue submerges you into anunderwater adventure. Many a diver have tried to uncover the sunken treasures of the deep, butnot all have succeeded. Now is your chance to dive into the depths to try your luck at striking gold!Bet on 9 paylines in this 5-reel video slot. Gold Bars serve as the Wild symbol that can take theplace of any other symbol in the game, while doubling your winnings. Accumulate 2, 3, 4 and 5Wilds in order to x50, x200, x1000 and x5000 respectively.Should the gold bars prove to be a scarce treat, look out for the Shark, the game's freespin-triggering Scatter symbol. Put 3, 4 and 5 Scatter symbols into your nets and enjoy a x10,x50 and x 200 multiplier as well.Encounter the lovely marine life in this underwater swim through the sea as you search for richesand big wins!",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Dama Muerta",
+        "identifier": "softswiss:LuckyDamaMuerta",
+        "identifier2": "LuckyDamaMuerta",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.1,
+        "description": "Lucky Dama Muerta brings the dead to life (in this 5x3 slot)! Fun and vibrant symbols, music that sets the scene and features such as unlimited Free Spins, Wild Multipliers and Gamble rounds promises rewards that will make all turn in their graves! \r\n\r\nIn this 5x3 slot game more than just the deceased return from the afterlife, it’s packed with colourful characters, features and exciting rewards. Celebrating death can’t be a more spectacular affair with piñatas, calaveras, vihuelas and the Lucky Dama Muerta herself.\r\n\r\nThe beautiful Dama Muerta is your lucky and WILD symbol, substituting any symbols in a line except the Scatter to complete a winning combination. All winnings obtained from the WILD symbols are multiplied by 2x.\r\nThe piñata is the Scatter Symbol, catch 3, 4 or 5 of these and it will rain sweet rewards by triggering 15 Free Spins. Free spins can be endless, retrigger more with as little as 3 Scatter symbols on any position. You are in for a sweet treat, all Free Spin winnings are tripled!\r\n \r\nThe Gamble round offers players an opportunity to double the fun and their winnings by guessing the colour or suite of the cards.\r\n \r\nCome celebrate life with Mexican-flair in this 10-payline game packed with exciting winning chances!",
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-10-18T00:00:00.000Z",
+        "multiplier": 2750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Lady Cat",
+        "identifier": "softswiss:LuckyLadyCat",
+        "identifier2": "LuckyLadyCat",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "cat",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 27000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Lady Chance",
+        "identifier": "softswiss:LuckyLadyChance",
+        "identifier2": "LuckyLadyChance",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "n1group",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 27000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Lady's Clover",
+        "identifier": "softswiss:LuckyLadyClover",
+        "identifier2": "LuckyLadyClover",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 97.31,
+        "description": "Lucky lady clover is a slot with 5 reels and 9 paylines based on the theme of magic symbols.Alongside with standard letters and numbers, it depicts four - leaved clover, golden coin, rainbow,lucky horseshoe, pot with golden coins, magician hat, and fairy. It offers a variety of bonusesincluding 15 free spins triggered by 3 or more Scatters and Wilds doubling the winnings.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Lady Moon",
+        "identifier": "softswiss:LuckyLadyMoon",
+        "identifier2": "LuckyLadyMoon",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "description": "When the sun goes below the horizon and the dark comes around, the majestic moon becomes the lady of the night. Have you ever heard that it has a special energy and magic power? Lucky Lady Moon is here to prove it!A 5x3 slot machine with alluring graphics and music creates a world hiding a lot of surprises. The game includes unlimited Free Spins, Wild Multiplier and a Gamble round to increase your winnings! Catch the magnetic vibes of the night and find all the treasures of Lucky Lady Moon!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 27000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Lady Pin-Up",
+        "identifier": "softswiss:LuckyLadyPinUp",
+        "identifier2": "LuckyLadyPinUp",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "pinup",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 27000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Sweets",
+        "identifier": "softswiss:LuckySweets",
+        "identifier2": "LuckySweets",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 96.54,
+        "description": "Do you ever dream of a freshly baked tiramisu or a glazed sweet roll? We know you do. Perhapsyour appetite is yearning for a cupcake and a French brioche, too? Well, now you can have themall at the same time as part of an entertaining and user-friendly Lucky Sweets video slot.Take in the simple pleasures of life and its sweet treats while basking in the sun by the Seine.Designed to be a purely relaxing experience, Lucky Sweets is meant for the gastro-connoisseursand bon vivants alike. The 5-reel non-progressive slot with 5 payout combinations comes sansScatters and Wilds. It is as scrumptious as it is simple.The icing on the cake is a Simple card-guessing Gamble Round that amplifies your taste buds andanticipation with a mouth-watering chance to double your winnings up.Enjoy the luscious taste of victory with Lucky Sweets!",
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 9000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Mechanical Clover",
+        "identifier": "softswiss:MechanicalClover",
+        "identifier2": "MechanicalClover",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.42,
+        "description": "Could you imagine modern devices powered by steam? Weird, right? Futuristic, yet retro at the same time, steampunk is truly one of a kind. Created about 30 years ago, it was inspired by the Victorian era and turned into an alternate reality where technological progress is based not on electricity, but on steam. The unique elements of the steampunk can be found in literature, fashion, cinema, and, of course, games! You’ve probably already guessed… BGaming takes on the steampunk style!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 24360,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Mechanical Orange",
+        "identifier": "softswiss:MechanicalOrange",
+        "identifier2": "MechanicalOrange",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1,
+        "payout": 96,
+        "description": "Mechanical Orange with its retro elements will take you to the alternative world of great beauty:quaint, old, nostalgic in combination with surprisingly bright colors. With anachronistic invention as thecentral symbol of the game players can totally get into the steampunk fantasy, along with finely craftedand visually appealing details and characters of the game - professor and his daughter. The slot ispresented in the form of the orange slice, has 3 reels and 1 payline, available to play on any deviceseven with a portrait mode on. It's not just magic with symbols appearing out of the slot, it is ultimatelyfantastical to actually make spins. Escape and enjoy the alternate story filled with excitement andeccentric characters!",
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Million Joka Fruits",
+        "identifier": "softswiss:MillionJokaFruits",
+        "identifier2": "MillionJokaFruits",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "joka",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "description": "Millions of wins, millions of fruits, millions of bright moments - a new and yet so familiar slot is ready to shine on your screen once again, get ready for Million Joka Fruits. A familiar slot full of surprises, want to become rich as a leader of the banana republic? Then it’s high time to jump into this pool of great features and colorful symbols. Take a sip of this magnificent tropical cocktail seasoned with tremendous winnings.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Minesweeper",
+        "identifier": "softswiss:Minesweeper",
+        "identifier2": "Minesweeper",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "casual",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.1,
+        "description": "\"Walk softly\" could be the motto of Minesweeper, a casual game by Bgaming. In fact it is a variationof a well-known timekiller-procrastinator computer game but this one can really bring some benefitsto an experienced sapper. Recollect all your skills and tune up the sensors! No reels, no cards thistime. Just a lined green field hovering over the abyss and bombs distributed all over somewhere inthe grass. Each step leads either to an explosion or to a clear block marked with a red flag. Makeyour way through the field step-by-step, maneuvering around the hidden bombs and multiply yourwinnings with each safe move. The game can be adjusted to your personal luck levels: field sizesvary from tiny 2X3 to big 6X15. Bet amounts are configurable as well. The gameplay is simple yetabsorbing: proceed to the opposite end of the playfield and try not to blow yourself up. However, thedesign and the sounds are so cool that even losing is fun here! Check out the juicy BOOM and thelight smoke going up should you land on a mine. Minesweeper definitely stands out in Bgaming's portfolio of slots and card games and is absolutely worth trying if you are nostalgic about thosehours spent in vain playing the original version. Choose the winning path, but remember: sappernever makes two mistakes!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Miss Cherry Fruits",
+        "identifier": "softswiss:MissCherryFruits",
+        "identifier2": "MissCherryFruits",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.13,
+        "description": "Well-designed fruit slots are never enough! BGaming is delighted to add one more traditional-style game to its collection! The brand’s new title Miss Cherry Fruits surprises players with fresh gorgeous graphics and impressive features!\r\n\r\n20 lines hidden in the slot are paid both from left to right and from right to left! At the same time, Wild symbols dropped on the reels always expand occupying upper and lower spots and gifting one respin which can be re-triggered up to 3 times!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-09-30T00:00:00.000Z",
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Multihand Blackjack",
+        "identifier": "softswiss:MultihandBlackjack",
+        "identifier2": "MultihandBlackjack",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99.22,
+        "description": "Blackjack is by far the most popular casino card game also known as twenty-one. Regardless ofthe simplicity of the game rules it boasts high winning chances and a great deal of excitement.With 6 decks, 52 cards each, this game is played against the House, with one of the Dealer's cardsface down at the start.Players are able to split their hand upon initial dealing, provided they receive the same card value.This gives them the chance to make a foray with up to three hands playable. Should the total valueof the initial cards be equal to 9, 10 or 11, the player will be prompted to double their bet for achance to shoot for an even higher win. In any scenario the Dealer will stand on either a soft orhard 17.Playing against the House grants a 1:1 chance of winning and a 3:2 pay on Blackjack. Push ordraw returns the original bet.The subtle tones, smooth card and chip animations, and relaxing music make this the go-to cardgame for all blackjack aficionados.",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "N1 Million",
+        "identifier": "softswiss:N1Million",
+        "identifier2": "N1Million",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "n1casino",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 94,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Nomini Million",
+        "identifier": "softswiss:NominiMillion",
+        "identifier2": "NominiMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "soft2bet_nomini",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Oasis Poker",
+        "identifier": "softswiss:OasisPoker",
+        "identifier2": "OasisPoker",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.96,
+        "description": "The Oasis Poker is not to be confused with the Caribbean Stud Poker (we have a game for that aswell, don't you worry!). It has its origin from the traditional player versus player type, but here youcan play against the house with just the same efficiency.In the beginning of the round, after placing the bet on the Ante, you receive all five cards face up atonce, while the Dealer exposes one of their cards.What makes it similar to the Caribbean Poker is that you're able to discard the cards you wouldn't want for your Hand, and replace them with, hopefully, something better from a standard 52-carddeck. This can be done with a fee of the single Ante bet.If you like Poker in all its variety of rules and variations, why not take pleasure in a relaxing round of Oasis Poker!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "1Win Million",
+        "identifier": "softswiss:OneWinMillion",
+        "identifier2": "OneWinMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "1winpro",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Parimatch Million",
+        "identifier": "softswiss:ParimatchMillion",
+        "identifier2": "ParimatchMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "parimatch",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2021-09-24T00:00:00.000Z",
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Pasino Bonanza",
+        "identifier": "softswiss:PasinoBonanza",
+        "identifier2": "PasinoBonanza",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "pasino",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-03-14T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Pin-up Bonanza",
+        "identifier": "softswiss:PinUpBonanza",
+        "identifier2": "PinUpBonanza",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "pinup",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-01-20T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Pin-Up Million",
+        "identifier": "softswiss:PinUpMillion",
+        "identifier2": "PinUpMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "pinup",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Platinum Lightning",
+        "identifier": "softswiss:PlatinumLightning",
+        "identifier2": "PlatinumLightning",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.29,
+        "description": "This 25 paylines slot features figures from theAncient Greek mythology and is packed withspecial features which make the game moreattractive to the users: scatters which multiplywinnings by total bets, wild symbols, bonuses,free spins and a gambling round.Grab hold of the all-powerful Zeus LightningScatter. A combination of 3, 4 and 5 Boltsmultiply winnings by x7, x77 and x777 inascending order. Sail the high winds with theGreek galley, an ancient ship, that is the Wild. AWild can substitute any symbol, but for theScatter, amplifying wins by the x88, x888 and x8888 as well. The Minotaur is a ferocious sticky reelbonus that, when appearing on reels 1 and 5, triggers 10 free spins.Borrowing from the Ancient and recent folklore of Greece, the games catchy Sirtaki music is boundto stay with you long after you stop playing. Enjoy meeting the Pantheon of Gods and Heroes aswell as the gifts they have to offer with Platinum Lightning!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 8888,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Platinum Lightning Deluxe",
+        "identifier": "softswiss:PlatinumLightningDeluxe",
+        "identifier2": "PlatinumLightningDeluxe",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.29,
+        "description": "The slot game is based on the motifs of ancient Greek mythology.The main heroes of the game are heroes and gods of Greece -Hercules, Themis, Medusa and others.Greek mythology has had an extensive influence on the culture,arts, and literature of Western civilization and remains part ofEuropean heritage and language. From ancient times to thepresent numerous poets and artists have been seekinginspiration in Greek mythology and bringing it to theirmasterpieces of today.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 8888,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Plinko",
+        "identifier": "softswiss:Plinko",
+        "identifier2": "Plinko",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "casual",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99,
+        "description": "Welcome to Plinko - BGaming version of the casual game with high winning odds. Plinko is a mix ofarcade games and online gaming: resembles pinball or the Japanese pachinko game, the basicprinciple has much in common with these ones. The player receives the payouts with thecorresponding coefficients. The size of the win depends on the hole the ball falls into. The game isincredibly simple and does not require special skills. During the game Plinko, the trajectory of theball can't be affected, there are no strategies for this game.",
+        "hd": true,
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Pokiepop Million",
+        "identifier": "softswiss:PokiepopMillion",
+        "identifier2": "PokiepopMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "pokiepop",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Pontoon",
+        "identifier": "softswiss:Pontoon",
+        "identifier2": "Pontoon",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "card",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99.51,
+        "description": "Pontoon is the ultimate version of Blackjack for the more experienced player. This British variety hasa somewhat modified rulebook as opposed to the classic version of Blackjack.Played with 8 decks and 52 cards each, the player does not, in fact, see the Dealer's hand up untilthey finish the first round. Pontoon, another term for blackjack, is the traditional ace and face cardcombination that pays 2 to 1. However, players have the added chance of scoring a Five Card Trick,a sum 5 cards in a hand not exceeding 21, which automatically grants a similar 2 to 1 win.Unlike in its traditional counterpart, in Pontoon the dealer has to hit on 16 and a soft 17. Bear in mindthat should the game round end in a tie, the dealer shall be the winner.If you are a newcomer to Blackjack, it might make sense to try the classic version or BlackjackSurrender first. What if you're up for the new challenge? Then wait no more, double down on yourskill and strategy in Pontoon!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Premier Million",
+        "identifier": "softswiss:PremierMillion",
+        "identifier2": "PremierMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "premier1",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Princess of Sky",
+        "identifier": "softswiss:PrincessOfSky",
+        "identifier2": "PrincessOfSky",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 95.99,
+        "description": "Princess of Sky is a full HD 5-reel 9 payline slot based on thetraditional tale of princess and her fairy kingdom. With the fabpalace behind the reels and white pigeons in the sky, the slotcreates a true atmosphere of the medieval fairy tale. It ispacked with the glittering symbols of jewels, diamond rings,roses, gift boxes, golden crowns, and magic keys. It alsobrings a lot of magic to the scene: the blond Scatter princesstriggering bonus free spins and the Wild ruby heartsubstituting any symbol to complete the winning combination.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Princess Royal",
+        "identifier": "softswiss:PrincessRoyal",
+        "identifier2": "PrincessRoyal",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 97.1,
+        "description": "Princess Royal is a slot with 5 reels and 9 paylines based on the theme of luxury lifestyle of royalty.Alongside with standard letters and numbers, it depicts four - leaved clover ring, gold withdiamantes horseshoe, ruby heart, luxury car, smart hotel, gold crown, and a gorgeous princess. Itoffers a variety of bonuses including 15 free spins triggered by 3, 4 or 5 Scatters and Wildsdoubling the winnings.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 9000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Road 2 Riches",
+        "identifier": "softswiss:Road2Riches",
+        "identifier2": "Road2Riches",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96.24,
+        "description": "Full of adventures, sometimes dangerous, but still alluring, Route 66 invites you to start your journey to riches! The main street of America, leading to full life Chicago, has always attracted travelers who are looking for vivid impressions and, of course\r\n, big money. Inspired by the legend, BGaming presents its brand new\r\nRoad2Riches slot!\r\nThe HD graphics of the slot along with energetic music brings excitement and lead to great winnings! With a 5x4 scheme and 50 winning lines, Road2Riche\r\ns surprises players with a set of features such as three kinds of Jackpots, suddenly appearing Mystery Wilds, and Free Spins that can be retriggered! Moreover, you can manage your luck with the Buy Bonus feature! If you are daring enough, join the breathtaking adventure with BGaming!",
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2021-11-11T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Rocket Dice",
+        "identifier": "softswiss:RocketDice",
+        "identifier2": "RocketDice",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "craps",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 99,
+        "description": "Dice is one of the famous and ancient games. It appeared long time ago, the principle of the gamestayed almost unchanged. The tools of the game are the dices (bones). The dice has six playingfaces, which are numbered from 1 to 6. During the game the dices are rolled, then the points arecalculated, which determine the winner.The goal of the game Rocket dice - to guess if the number that will drop is bigger or smaller the onechosen by the player. Two dices are used in the game. The player makes a bet, chooses over or under and the desired number, after he makes a throw. If the player guessed well, he wins.",
+        "hd": true,
+        "accumulating": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Scratch Dice",
+        "identifier": "softswiss:ScratchDice",
+        "identifier2": "ScratchDice",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "casual",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.2,
+        "description": "Scratch Dice is a mobile-first game of luck by Bgaming. A fusion of dice and instant lottery, thisgame has been designed to deliver a bit of elegant simplicity into the gambling process.The rules are simple enough to get you in the game immediately. There are lottery tickets withscratch zone and dice symbols under it. Clear the scratch zone to reveal the dice.A combination of 3 identical symbols (1-1-1 to 6-6-6) brings instant winnings, while a consequent setof symbols (1-2-3 to 4-5-6) is called Street and opens a Golden Ticket. This special one introduceshigher multipliers in case of a winning combination.The game is all about how it feels. The HD graphics, matching music and sounds, bright colors andvery natural scratching process all make gameplay really enjoyable.We recommend playing Scratch Dice on your mobile touchscreen device and clear the scratch zonewith your finger  just the way you would do with a real instant lottery. If tired of scratching, there is aReveal feature that clears the ticket for you. The funny thing is that it imitates your own scratchingstyle!Try it. It's fun. We guarantee!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Scroll of Adventure",
+        "identifier": "softswiss:ScrollOfAdventure",
+        "identifier2": "ScrollOfAdventure",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 97.13,
+        "description": "Scroll of Adventure is a slot with 5 reels and 5 paylines based on the traditional Egyptian theme ofPharaohs treasure hunting. Alongside standard slot symbols which are all presented in anauthentic Egyptian font, the game also depicts mask of Tutankhamun's mummy, ancient papyrusscroll, winged goddess Isis, dung beetles and treasure thief. It offers a variety of bonuses including10 free spins triggered by 3 or more Scatters.",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "7Bit Million",
+        "identifier": "softswiss:SevenBitMillion",
+        "identifier2": "SevenBitMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "7bit_mars",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Sic Bo",
+        "identifier": "softswiss:SicBo",
+        "identifier2": "SicBo",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "craps",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.22,
+        "description": "Sic Bo originates from the games of chance invented in China and went a long way from traditionaldicing to the table game that decorates today land-based casinos worldwide. Sic Bo has trulyentered the digital age nowadays and BGaming is keeping up with current online gaming trends,that's why it has created an updated version of online Sic Bo with all its amusing and interestingaspects. Sic Bo comes with a lot of risky bets, and the betting options are formed by the variouscombinations obtained with three dice. Wagers per game are made on as many combinations asyou want. The likable thing is the lightening of the winning table combinations made for betterunderstanding of the game results. Also the odds, big payouts are the other great thing of Sic Bo.Anyway, you'll never know unless you try, so there is no sense in time wasting, try your luck and rollthe dice!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Sic Bo Macau",
+        "identifier": "softswiss:SicBoMacau",
+        "identifier2": "SicBoMacau",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "craps",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.22,
+        "description": "Sic Bo Macau is a dice game originated from China and is considered to be a precursorof Craps. BGaming created Sic Bo Macau version with colorful backgrounds and wonderfulsound effects which are always thought trough based on the theme of the game. Every singlewinning in this game is incredibly awesome. The main difference between Sic Bo AtlanticVersion and Macau is that in the latter the even/odd bet is available, but it is essentially thesame thing as the small/big bet in that it only loses against triples of one number (other than itsopposite, of course) and, therefore, has the same house edge as the even/odd bet. As manybets as wanted can be placed at the same time, provided that their total sum does not exceedthe maximum allowed. The winning betting areas are highlighted for convenience.",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Slotman Million",
+        "identifier": "softswiss:SlotmanMillion",
+        "identifier2": "SlotmanMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "slotman",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 94,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2021-09-28T00:00:00.000Z",
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Slotomon Go",
+        "identifier": "softswiss:SlotomonGo",
+        "identifier2": "SlotomonGo",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 97.13,
+        "description": "Slotomon Go is a slot with fun take on your beloved pocket monsters with vivid animations andmemorable characters. You don't have to walk for miles to catch your favourite Slotomon, here youjust spin the reels to discover each one's unique personality and animation. Each little monstercarries its own multiplier and is ready to reward your playing experience with fun and wins.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Slottica Bonanza",
+        "identifier": "softswiss:SlotticaBonanza",
+        "identifier2": "SlotticaBonanza",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "atlantic_management",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "description": "Tired of a boring gray everyday life that haunts you time after time? Ignite the fire of bright emotions with the new exciting Blaze Bonanza slot! The new design, made in fiery colors with tongues of flame, will certainly create an atmosphere of a real flame burning in the winners hearts! Inside you will find a raging whirlwind of great features, colorful symbols and numerous winnings! Immerse yourself in the flames of fantastic moments with Blaze Bonanza!",
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-03-01T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Space XY",
+        "identifier": "softswiss:SpaceXY",
+        "identifier2": "SpaceXY",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "casual",
+        "has_freespins": false,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97,
+        "hd": true,
+        "released_at": "2022-01-13T00:00:00.000Z",
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Spin and Spell",
+        "identifier": "softswiss:SpinAndSpell",
+        "identifier2": "SpinAndSpell",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.8,
+        "description": "BGaming inspired by the spookiest night of the year created a special video slot - Spin and Spell.The game has with 5x3 scheme and 20 paylines. This Halloween themed slot features all thosefamous symbols related to Halloween such as pumpkins, bats and black cats, witches and hauntedcastles, while there are lots of features to enjoy such as free spins, expanding wild, special bonusgames to award plenty of winning opportunities while you make the most of ghostly night. Thegraphics, music and effects will really make anyone feel like it is all hallows eve.",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Squidpot",
+        "identifier": "softswiss:Squidpod",
+        "identifier2": "Squidpod",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "bitstarz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-02-03T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Squidpot",
+        "identifier": "softswiss:Squidpot",
+        "identifier2": "Squidpot",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 95.3,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "released_at": "2022-02-10T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Stake Book Of Cats",
+        "identifier": "softswiss:StakeBookOfCats",
+        "identifier2": "StakeBookOfCats",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "easygo",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-09-15T00:00:00.000Z",
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Stake Million",
+        "identifier": "softswiss:StakeMillion",
+        "identifier2": "StakeMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "easygo",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Texas Hold`em",
+        "identifier": "softswiss:TexasHoldem",
+        "identifier2": "TexasHoldem",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 98.75,
+        "description": "Casino variation of Texas Hold'em Poker is derived from a classic poker game played in pokerrooms worldwide. However, unlike poker rooms the game is played against the dealer, whichprevents any forfeiting and bluffing. As for the course of the game, it consists of the conventionalpoker betting stages: Preflop, Flop, Turn and River and features the options of folding, calling,betting and raising.Texas Hold'em is one of the most dramatic and popular variations of poker in the world with a widevariety of strategies. Texas Hold'em typically accommodates up to 10 players, but here you playagainst the dealer.",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The King Billyon",
+        "identifier": "softswiss:TheKingBillyon",
+        "identifier2": "TheKingBillyon",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "kingbilly",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Tornado Fruits",
+        "identifier": "softswiss:TornadoFruits",
+        "identifier2": "TornadoFruits",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "wildtornado",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Trey Poker",
+        "identifier": "softswiss:TreyPoker",
+        "identifier2": "TreyPoker",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "poker",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.99,
+        "description": "Trey Poker is another poker game in the Bgaming family. This variant of the world's renowned cardgame actually includes two different options: Pair Up and Ante.Pair Up is a simple draw and win type of game where the player is dealt 3 cards, with high hopesthere will be a pair or better on the hand. The result of the current deal is revealed instantly, sincethe player sees the entire hand immediately.Ante is a more Poker-style game mode where the player is put against the dealer. Each party isdealt 3 cards and the one who has a better hand wins. Once dealt, the player evaluates the handand either folds to end the round or plays, in which case the playe's hand is compared with thedealer's. Whoever collects a stronger hand wins.Since there are only 3 cards dealt per round, combinations collected in a hand are valued a bitdifferent than in more common poker variations: Straight pays out higher than Flush and Three of aKind beats them both.Trey Poker by Bgaming is a \"blitz\" card game for those who think fast or would love to trainthemselves to!",
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Vbet Million",
+        "identifier": "softswiss:VbetMillion",
+        "identifier2": "VbetMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "betconstruct",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "WBC Ring of Riches",
+        "identifier": "softswiss:WbcRingOfRiches",
+        "identifier2": "WbcRingOfRiches",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "new",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.48,
+        "description": "BGaming strives to bring sport-themed slots to the next level of entertainment! We launch the new slot in association with the World Boxing Council! Meet WBC Ring of Riches!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "accumulating": true,
+        "multiplier": 9200,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "West Town",
+        "identifier": "softswiss:WestTown",
+        "identifier2": "WestTown",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.95,
+        "description": "West Town is a traditional western-themed slot. It gets the players to the most iconic times in theAmerican history. The game depicts different Wild West symbols, like sheriff's badge, guns, boxeswith gold coins, glass of whiskey, Wanted-sticker, bandit, Joker and playing card symbols. Unlikein many slot games, the card symbols make a lot of sense here, as poker is a common theme inwesterns",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Wild Texas",
+        "identifier": "softswiss:WildTexas",
+        "identifier2": "WildTexas",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "video_poker",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Wild Tornado Bonanza",
+        "identifier": "softswiss:WildTornadoBonanza",
+        "identifier2": "WildTornadoBonanza",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "wildtornado",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 96,
+        "volatility_rating": "high",
+        "hd": true,
+        "released_at": "2022-02-03T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 15000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "YYY Million",
+        "identifier": "softswiss:YYYMillion",
+        "identifier2": "YYYMillion",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "yyycasino",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 97.1,
+        "description": "Buckle up rocketman and let’s go seek fortune around the stardust! Be ready to join us on a new journey across the universe-divine with YYY Million. Refreshed design with cosmic thematics, all well-known symbols wrapped in new spectacular graphics. All familiar features like expanded wilds and gamble rounds will assist you in this journey as well. The algorithm of pleasantly spent time is simple - enjoy catchy music, play the slot and get your wins! \r\n",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Zorro Wild Heart",
+        "identifier": "softswiss:ZorroWildHeart",
+        "identifier2": "ZorroWildHeart",
+        "provider": "softswiss",
+        "producer": "bgaming",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "promo",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.93,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "recalled": true,
+        "recalled_at": "2022-03-11T00:00:00.000Z",
+        "accumulating": true,
+        "multiplier": 2800,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
     }
-  },
-  {
-    "title": "All Lucky Clovers 100",
-    "identifier": "softswiss:AllLuckyClover100",
-    "identifier2": "AllLuckyClover100",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 100,
-    "payout": 97,
-    "volatility_rating": "high",
-    "hd": true,
-    "multiplier": 3000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "All Lucky Clovers 20",
-    "identifier": "softswiss:AllLuckyClover20",
-    "identifier2": "AllLuckyClover20",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 20,
-    "payout": 97,
-    "volatility_rating": "high",
-    "hd": true,
-    "multiplier": 3000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "All Lucky Clovers 40",
-    "identifier": "softswiss:AllLuckyClover40",
-    "identifier2": "AllLuckyClover40",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 40,
-    "payout": 97,
-    "volatility_rating": "high",
-    "hd": true,
-    "multiplier": 3000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "All Lucky Clovers 5",
-    "identifier": "softswiss:AllLuckyClover5",
-    "identifier2": "AllLuckyClover5",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 5,
-    "payout": 97,
-    "volatility_rating": "medium",
-    "hd": true,
-    "multiplier": 3000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Aloha King Elvis",
-    "identifier": "softswiss:AlohaKingElvis",
-    "identifier2": "AlohaKingElvis",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 25,
-    "payout": 94.92,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "released_at": "2021-07-22T00:00:00.000Z",
-    "bonus_buy": true,
-    "multiplier": 2000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "American Roulette",
-    "identifier": "softswiss:AmericanRoulette",
-    "identifier2": "AmericanRoulette",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "roulette",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 94.74,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Avalon: The Lost Kingdom",
-    "identifier": "softswiss:Avalon",
-    "identifier2": "Avalon",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 20,
-    "payout": 95,
-    "volatility_rating": "high",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Aztec Magic",
-    "identifier": "softswiss:AztecMagic",
-    "identifier2": "AztecMagic",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 15,
-    "payout": 96.96,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Aztec Magic Deluxe",
-    "identifier": "softswiss:AztecMagicDeluxe",
-    "identifier2": "AztecMagicDeluxe",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 25,
-    "payout": 96.96,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Baccarat",
-    "identifier": "softswiss:Baccarat",
-    "identifier2": "Baccarat",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "card",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 98.76,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Multihand Blackjack Pro",
-    "identifier": "softswiss:BlackjackPro",
-    "identifier2": "BlackjackPro",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "card",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 99.23,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Blackjack Surrender",
-    "identifier": "softswiss:BlackjackSurrender",
-    "identifier2": "BlackjackSurrender",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "card",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 99.41,
-    "hd": true,
-    "accumulating": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Bob's Coffee Shop",
-    "identifier": "softswiss:BobsCoffeeShop",
-    "identifier2": "BobsCoffeeShop",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 10,
-    "payout": 96.5,
-    "volatility_rating": "very-high",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Bonanza Billion",
-    "identifier": "softswiss:BonanzaBillion",
-    "identifier2": "BonanzaBillion",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 96,
-    "volatility_rating": "high",
-    "hd": true,
-    "released_at": "2021-12-02T00:00:00.000Z",
-    "bonus_buy": true,
-    "multiplier": 20000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Book Of Cats",
-    "identifier": "softswiss:BookOfCats",
-    "identifier2": "BookOfCats",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 10,
-    "payout": 94,
-    "volatility_rating": "very-high",
-    "hd": true,
-    "multiplier": 10000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Book of Pyramids",
-    "identifier": "softswiss:BookOfPyramids",
-    "identifier2": "BookOfPyramids",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 97.13,
-    "volatility_rating": "high",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Brave Viking",
-    "identifier": "softswiss:BraveViking",
-    "identifier2": "BraveViking",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 97.09,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "multiplier": 6000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Candy Monsta",
-    "identifier": "softswiss:CandyMonsta",
-    "identifier2": "CandyMonsta",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 20,
-    "payout": 94.06,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "released_at": "2021-10-12T00:00:00.000Z",
-    "multiplier": 1000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Caribbean Poker",
-    "identifier": "softswiss:CaribbeanPoker",
-    "identifier2": "CaribbeanPoker",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "poker",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 94.78,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Casino Hold`em",
-    "identifier": "softswiss:CasinoHoldem",
-    "identifier2": "CasinoHoldem",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "poker",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 98.75,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Cherry Fiesta",
-    "identifier": "softswiss:CherryFiesta",
-    "identifier2": "CherryFiesta",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 96.98,
-    "volatility_rating": "medium",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Crazy Starter",
-    "identifier": "softswiss:CrazyStarter",
-    "identifier2": "CrazyStarter",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 25,
-    "payout": 96.04,
-    "volatility_rating": "low-medium",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Deep Sea",
-    "identifier": "softswiss:DeepSea",
-    "identifier2": "DeepSea",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 15,
-    "payout": 94,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 35000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Desert Treasure",
-    "identifier": "softswiss:DesertTreasure",
-    "identifier2": "DesertTreasure",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 95.95,
-    "volatility_rating": "medium",
-    "hd": true,
-    "multiplier": 8000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Dig Dig Digger",
-    "identifier": "softswiss:DigDigDigger",
-    "identifier2": "DigDigDigger",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 10,
-    "payout": 95.5,
-    "volatility_rating": "very-high",
-    "hd": true,
-    "released_at": "2021-06-17T00:00:00.000Z",
-    "bonus_buy": true,
-    "multiplier": 5500,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Domnitors",
-    "identifier": "softswiss:Domnitors",
-    "identifier2": "Domnitors",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 97.3,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 10000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Domnitors Deluxe",
-    "identifier": "softswiss:DomnitorsDeluxe",
-    "identifier2": "DomnitorsDeluxe",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 97.31,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 10000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Double Exposure",
-    "identifier": "softswiss:DoubleExposure",
-    "identifier2": "DoubleExposure",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "card",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 97.07,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Dragon's Gold 100",
-    "identifier": "softswiss:DragonsGold100",
-    "identifier2": "DragonsGold100",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 100,
-    "payout": 96.9,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "released_at": "2021-09-09T00:00:00.000Z",
-    "multiplier": 3000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Elvis Frog in Vegas",
-    "identifier": "softswiss:ElvisFroginVegas",
-    "identifier2": "ElvisFrog",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 25,
-    "payout": 94,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "multiplier": 2500,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "European Roulette",
-    "identifier": "softswiss:EuropeanRoulette",
-    "identifier2": "EuropeanRoulette",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "roulette",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 97.3,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Fantasy Park",
-    "identifier": "softswiss:FantasyPark",
-    "identifier2": "FantasyPark",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 25,
-    "payout": 96.65,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Fire Lightning",
-    "identifier": "softswiss:FireLightning",
-    "identifier2": "FireLightning",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 20,
-    "payout": 93.9,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "multiplier": 1000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Four Lucky Clover",
-    "identifier": "softswiss:FourLuckyClover",
-    "identifier2": "FourLuckyClover",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 10,
-    "payout": 94,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 2500,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Four Lucky Diamonds",
-    "identifier": "softswiss:FourLuckyDiamonds",
-    "identifier2": "FourLuckyDiamonds",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 10,
-    "payout": 94,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 2500,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "French Roulette",
-    "identifier": "softswiss:FrenchRoulette",
-    "identifier2": "FrenchRoulette",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "roulette",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 97.3,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Fruit Million",
-    "identifier": "softswiss:FruitMillion",
-    "identifier2": "FruitMillion",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 100,
-    "payout": 97.1,
-    "volatility_rating": "medium",
-    "hd": true,
-    "multiplier": 3000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Hawaii Cocktails",
-    "identifier": "softswiss:HawaiiCocktails",
-    "identifier2": "HawaiiCocktails",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 97.3,
-    "volatility_rating": "high",
-    "hd": true,
-    "multiplier": 50000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Heads and Tails",
-    "identifier": "softswiss:HeadsTails",
-    "identifier2": "HeadsTails",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "casual",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 98,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Hello Easter",
-    "identifier": "softswiss:HelloEaster",
-    "identifier2": "HelloEaster",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 96.5,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 9000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Hi-Lo Switch",
-    "identifier": "softswiss:HiLoSwitch",
-    "identifier2": "HiLoSwitch",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "card",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 96,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Hit The Route",
-    "identifier": "softswiss:HitTheRoute",
-    "identifier2": "HitTheRoute",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 40,
-    "payout": 97,
-    "volatility_rating": "medium",
-    "hd": true,
-    "multiplier": 15000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Jacks or Better",
-    "identifier": "softswiss:JacksOrBetter",
-    "identifier2": "JacksOrBetter",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "video_poker",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 95,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Jogo Do Bicho",
-    "identifier": "softswiss:JogoDoBicho",
-    "identifier2": "JogoDoBicho",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "lottery",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 94,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Johnny Cash",
-    "identifier": "softswiss:JohnnyCash",
-    "identifier2": "JohnnyCash",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 20,
-    "payout": 93.9,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "multiplier": 1000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Journey Flirt",
-    "identifier": "softswiss:JourneyFlirt",
-    "identifier2": "JourneyFlirt",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "ways": 243,
-    "payout": 96.6,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 15000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Lucky Blue",
-    "identifier": "softswiss:LuckyBlue",
-    "identifier2": "LuckyBlue",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 96.96,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Lucky Dama Muerta",
-    "identifier": "softswiss:LuckyDamaMuerta",
-    "identifier2": "LuckyDamaMuerta",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 10,
-    "payout": 96.1,
-    "volatility_rating": "high",
-    "hd": true,
-    "released_at": "2021-10-18T00:00:00.000Z",
-    "multiplier": 2750,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Lucky Lady's Clover",
-    "identifier": "softswiss:LuckyLadyClover",
-    "identifier2": "LuckyLadyClover",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 97.31,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 10000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Lucky Lady Moon",
-    "identifier": "softswiss:LuckyLadyMoon",
-    "identifier2": "LuckyLadyMoon",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "new",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 10,
-    "payout": 97,
-    "volatility_rating": "medium",
-    "hd": true,
-    "multiplier": 27000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Lucky Sweets",
-    "identifier": "softswiss:LuckySweets",
-    "identifier2": "LuckySweets",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 5,
-    "payout": 96.54,
-    "volatility_rating": "low-medium",
-    "hd": true,
-    "multiplier": 9000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Mechanical Clover",
-    "identifier": "softswiss:MechanicalClover",
-    "identifier2": "MechanicalClover",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 5,
-    "payout": 95.42,
-    "volatility_rating": "high",
-    "hd": true,
-    "multiplier": 24360,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Mechanical Orange",
-    "identifier": "softswiss:MechanicalOrange",
-    "identifier2": "MechanicalOrange",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 1,
-    "payout": 96,
-    "volatility_rating": "low-medium",
-    "hd": true,
-    "multiplier": 1000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Minesweeper",
-    "identifier": "softswiss:Minesweeper",
-    "identifier2": "Minesweeper",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "casual",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 98.1,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Miss Cherry Fruits",
-    "identifier": "softswiss:MissCherryFruits",
-    "identifier2": "MissCherryFruits",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 20,
-    "payout": 96.13,
-    "volatility_rating": "medium",
-    "hd": true,
-    "released_at": "2021-09-30T00:00:00.000Z",
-    "multiplier": 1000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Multihand Blackjack",
-    "identifier": "softswiss:MultihandBlackjack",
-    "identifier2": "MultihandBlackjack",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "card",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 99.22,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Oasis Poker",
-    "identifier": "softswiss:OasisPoker",
-    "identifier2": "OasisPoker",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "poker",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 98.96,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Platinum Lightning",
-    "identifier": "softswiss:PlatinumLightning",
-    "identifier2": "PlatinumLightning",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 25,
-    "payout": 96.29,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "multiplier": 8888,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Platinum Lightning Deluxe",
-    "identifier": "softswiss:PlatinumLightningDeluxe",
-    "identifier2": "PlatinumLightningDeluxe",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 25,
-    "payout": 96.29,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "multiplier": 8888,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Plinko",
-    "identifier": "softswiss:Plinko",
-    "identifier2": "Plinko",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "casual",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 99,
-    "hd": true,
-    "accumulating": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Pontoon",
-    "identifier": "softswiss:Pontoon",
-    "identifier2": "Pontoon",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "card",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 99.51,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Princess of Sky",
-    "identifier": "softswiss:PrincessOfSky",
-    "identifier2": "PrincessOfSky",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 95.99,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "multiplier": 10000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Princess Royal",
-    "identifier": "softswiss:PrincessRoyal",
-    "identifier2": "PrincessRoyal",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 97.1,
-    "volatility_rating": "high",
-    "hd": true,
-    "multiplier": 9000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Road 2 Riches",
-    "identifier": "softswiss:Road2Riches",
-    "identifier2": "Road2Riches",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 50,
-    "payout": 96.24,
-    "volatility_rating": "high",
-    "hd": true,
-    "released_at": "2021-11-11T00:00:00.000Z",
-    "bonus_buy": true,
-    "multiplier": 2000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Rocket Dice",
-    "identifier": "softswiss:RocketDice",
-    "identifier2": "RocketDice",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "craps",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 99,
-    "hd": true,
-    "accumulating": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Scratch Dice",
-    "identifier": "softswiss:ScratchDice",
-    "identifier2": "ScratchDice",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "casual",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 97.2,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Scroll of Adventure",
-    "identifier": "softswiss:ScrollOfAdventure",
-    "identifier2": "ScrollOfAdventure",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 5,
-    "payout": 97.13,
-    "volatility_rating": "very-high",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Sic Bo",
-    "identifier": "softswiss:SicBo",
-    "identifier2": "SicBo",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "craps",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 97.22,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Sic Bo Macau",
-    "identifier": "softswiss:SicBoMacau",
-    "identifier2": "SicBoMacau",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "craps",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 97.22,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Slotomon Go",
-    "identifier": "softswiss:SlotomonGo",
-    "identifier2": "SlotomonGo",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 5,
-    "payout": 97.13,
-    "volatility_rating": "high",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Space XY",
-    "identifier": "softswiss:SpaceXY",
-    "identifier2": "SpaceXY",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "casual",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 97,
-    "hd": true,
-    "released_at": "2022-01-13T00:00:00.000Z",
-    "multiplier": 10000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Spin and Spell",
-    "identifier": "softswiss:SpinAndSpell",
-    "identifier2": "SpinAndSpell",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 20,
-    "payout": 95.8,
-    "volatility_rating": "very-high",
-    "hd": true,
-    "multiplier": 1000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Texas Hold`em",
-    "identifier": "softswiss:TexasHoldem",
-    "identifier2": "TexasHoldem",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "poker",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 98.75,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Trey Poker",
-    "identifier": "softswiss:TreyPoker",
-    "identifier2": "TreyPoker",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "poker",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 97.99,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "WBC Ring of Riches",
-    "identifier": "softswiss:WbcRingOfRiches",
-    "identifier2": "WbcRingOfRiches",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 20,
-    "payout": 95.48,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "multiplier": 9200,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "West Town",
-    "identifier": "softswiss:WestTown",
-    "identifier2": "WestTown",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 9,
-    "payout": 96.95,
-    "volatility_rating": "low",
-    "hd": true,
-    "multiplier": 5000,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Wild Texas",
-    "identifier": "softswiss:WildTexas",
-    "identifier2": "WildTexas",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "video_poker",
-    "has_freespins": false,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "payout": 95,
-    "hd": true,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  },
-  {
-    "title": "Zorro Wild Heart",
-    "identifier": "softswiss:ZorroWildHeart",
-    "identifier2": "ZorroWildHeart",
-    "provider": "softswiss",
-    "producer": "bgaming",
-    "category": "slots",
-    "has_freespins": true,
-    "feature_group": "basic",
-    "devices": [
-      "desktop",
-      "mobile"
-    ],
-    "lines": 25,
-    "payout": 96.93,
-    "volatility_rating": "medium-high",
-    "hd": true,
-    "released_at": "2021-11-18T00:00:00.000Z",
-    "multiplier": 2800,
-    "restrictions": {
-      "default": {
-        "blacklist": []
-      }
-    }
-  }
 ]
