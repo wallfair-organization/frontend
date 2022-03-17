@@ -151,6 +151,63 @@
       }
     }
 
+    .bottomBannerContainner {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      height: 73px;
+      width: 100%;
+      background: rgba(14, 9, 39, 0.803032);
+      align-items: center;
+      justify-content: center;
+      overflow: auto;
+      column-gap: 60px;
+
+      @media (max-width: $screen-sm) {
+        // justify-content: flex-start;
+        column-gap: 20px;
+      }
+
+      @media (max-width: $screen-sm) {
+        justify-content: flex-start;
+        column-gap: 0;
+      }
+
+      .bottomBanner {
+        margin: 0 16px;
+        display: flex;
+
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 6px;
+        }
+        .bottomBannerContent {
+          margin-left: 8px;
+          @media (max-width: $screen-sm) {
+            width: 120px;
+          }
+
+          a {
+            .title {
+              font-size: 14px;
+              color: white;
+            }
+            .price {
+              font-size: 18px;
+              color: #3aff1d;
+            }
+
+            &:hover {
+              & > * {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+
     .buttonWrapper {
       margin-top: 33px;
       display: flex;
