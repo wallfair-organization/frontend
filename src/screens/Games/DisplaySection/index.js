@@ -95,7 +95,7 @@ const DisplaySection = ({
       //  console.log('match'+ user.country);
       //  return;
       //}
-      const name = 'cfg.title';
+      const name = cfg.title;
       const softswissUrl = `/softswiss-game/${cfg.identifier}`;
       return (
         <div
