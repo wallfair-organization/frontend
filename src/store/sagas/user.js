@@ -78,6 +78,7 @@ const fetchSucceeded = function* (action) {
       const kyc = user.kyc;
       const emailConfirmed = user.emailConfirmed;
       const phoneConfirmed = user.phoneConfirmed;
+      const country = user.country;
       yield put(
         AuthenticationActions.updateData({
           profilePicture,
@@ -97,6 +98,7 @@ const fetchSucceeded = function* (action) {
           kyc,
           emailConfirmed,
           phoneConfirmed,
+          country,
         })
       );
     }
