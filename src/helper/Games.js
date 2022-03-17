@@ -109,7 +109,7 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) =
       gameProvider='onespin4win';
     }
     if( !enabledSoftswissProviders[gameProvider]?.feature_group.includes(gameInfo.feature_group)){
-      console.log(`Game: ${gameInfo.identifier} of game provider ${gameInfo.provider}, with feature group: ${gameInfo.feature_group} was hidden`);
+      //console.log(`Game: ${gameInfo.identifier} of game provider ${gameInfo.provider}, with feature group: ${gameInfo.feature_group} was hidden`);
       continue;
     }
 
