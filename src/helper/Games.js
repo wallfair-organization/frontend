@@ -19,7 +19,79 @@ export const ObjectId = (gamename) => {
     ((parseInt(encoded[(i*2)%encoded.length], 16) + parseInt(i*2, 16))%16).toString(16)
   )
 }
+const enabledSoftswissProviders = {
 
+    onespin4win:{
+        feature_group:['basic']
+    },
+    absoluteLiveGaming:{
+      feature_group:['basic','ajz','ait']
+    },
+    atmosphera:{
+      feature_group:['basic','liveslots']
+    },
+    everymatrix:{
+      feature_group:['spearhead_basic']
+    },
+    evolution:{
+      feature_group:['extra','live','live_vip','live_classic','lightning','premium','rng']
+    },
+    ezugi:{
+      feature_group:['jackpot','live','premium']
+    },
+    gameart:{
+      feature_group:['basic','branded','premium']
+    },
+    groove:{
+      feature_group:['basic','felixgaming']
+    },
+    habanero:{
+      feature_group:['basic']
+    },
+    kagaming:{
+      feature_group:['basic']
+    },
+    kalamba:{
+      feature_group:['basic']
+    },
+    mascot:{
+      feature_group:['basic']
+    },
+    mrslotty:{
+      feature_group:['basic','eagaming','fazi']
+    },
+    eagaming:{
+      feature_group:['eagaming']
+    },
+    fazi:{
+      feature_group:['fazi']
+    },
+    pariplay:{
+      feature_group:['basic','branded']
+    },
+    pushgaming:{
+      feature_group:['basic']
+    },
+    quickspin:{
+      feature_group:['basic','rtp']
+    },
+    slotmill:{
+      feature_group:['basic']
+    },
+    softswiss:{
+      feature_group:['basic','new']
+    },
+    thunderkick:{
+      feature_group:['basic']
+    },
+    yggdrasil:{
+      feature_group:['basic']
+    },
+    wazdan:{
+      feature_group:['basic']
+    },
+
+}
 export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) => {
   const output = [];
   const thumbUrl = "https://cdn.softswiss.net/i/s3/";
@@ -31,8 +103,13 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) =
     if(blockedProducers.indexOf(gameInfo.producer)>-1){
       continue;
     }
-    //Skips games that are not on the basic feature group
-    if(gameInfo.feature_group!=='basic' && gameInfo.feature_group!=='new'){
+    //Skips games that are not on the enabled feature groups
+    let gameProvider = gameInfo.provider;
+    if(gameProvider==='1spin4win'){
+      gameProvider='onespin4win';
+    }
+    if( !enabledSoftswissProviders[gameProvider]?.feature_group.includes(gameInfo.feature_group)){
+      console.log(`Game: ${gameInfo.identifier} of game provider ${gameInfo.provider}, with feature group: ${gameInfo.feature_group} was hidden`);
       continue;
     }
 
@@ -93,7 +170,7 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) =
     }
     output.push(gameEntry);
   }
-
+  console.log(output);
   return output;
 }
 
