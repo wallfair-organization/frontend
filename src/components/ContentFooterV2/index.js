@@ -283,6 +283,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
             <div className={styles.providersList}>
             {
               GAME_PROVIDERS.map((providerItem, index) => (
+                providerItem.value !== 'all' &&
               <div 
                 key={index}
                 className={styles.providerItem} 
