@@ -12,6 +12,7 @@ import EventScreen from './EventScreen';
 import OutcomesScreen from './OutcomesScreen';
 import { BetActions } from 'store/actions/bet';
 import { trackCreateEvent } from 'config/gtm';
+import useCurrentUser from 'hooks/useCurrentUser';
 
 const EventForms = ({
   event = null,
@@ -30,6 +31,8 @@ const EventForms = ({
   const [betData, setBetData] = useState(null);
   const [eventData, setEventData] = useState(null);
   const [formStep, setFormStep] = useState(step);
+
+  const user = useCurrentUser();
 
   const proceedEvent = ev => {
     setEventData(ev);
@@ -105,6 +108,10 @@ const EventForms = ({
   };
 
   const renderStep = () => {
+    if (!user.admin) {
+      return <p>Event creation is deactivated due to a maintenance and will be reactivated again next Monday, March 23rd.</p> 
+    }
+
     switch (formStep) {
       case 0:
         return (
