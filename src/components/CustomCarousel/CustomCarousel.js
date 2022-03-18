@@ -15,6 +15,13 @@ import BackgroundFirst from '../../data/images/carousel/bg-first.png';
 import BackgroundSecond from '../../data/images/carousel/bg-second.png';
 import BackgroundThird from '../../data/images/carousel/bg-third.png';
 import Fairy from '../../data/images/carousel/fairy2.png';
+import BannerOne from '../../data/images/carousel/banner-bg1.png';
+import BannerTwo from '../../data/images/carousel/banner-bg2.png';
+import BannerThree from '../../data/images/carousel/banner-bg3.png';
+import BannerFour from '../../data/images/carousel/banner-bg4.png';
+
+import {ReactComponent as ContentBackground} from '../../data/images/carousel/content-bg.svg';
+
 import NobullshitIcon from '../../data/images/carousel/nobullshit-icon.png';
 import FireIcon from '../../data/images/carousel/fire-icon.png';
 import SlotIcon from '../../data/images/carousel/slot-icon.png';
@@ -341,7 +348,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
   const TextItem = ({emoji, children}) => {
     return (
       <div className={styles.textItem}>
-        <span className={styles.emoji}><img src={emoji} alt="no bullshit"/></span>
+        {emoji && <span className={styles.emoji}><img src={emoji} alt="no bullshit"/></span>}
         {' '}{children}
         {/* <span className={styles.prize}></span> */}
       </div>
@@ -413,7 +420,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
       </div> */}
 
 
-      <div className={styles.container}>
+      {/* <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
             className={styles.backgroundImg}
@@ -429,17 +436,57 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
                 <div className={styles.row}><span className={styles.emoji}><img src={MoneyIcon} alt="money bag"/></span><span className={styles.text}><span className={styles.highlighted}>Make money</span>: Create your own bets and earn 10% of the trading volume (Limit: 500,000 USD per event)</span></div>
               </div>
               <div className={styles.buttonWrapper}>
-                {/* <Button className={styles.button} onClick={onClickItemFirstBanner}>Create an event</Button> */}
                 <Button className={styles.button} theme={ButtonTheme.secondaryButton} onClick={() => { history.push('/how-it-works')}}>How it works</Button>
               </div>
             </div>
           </div>
           <div className={styles.secondContainer}>
-            {/* {renderBetCard()} */}
-            {/* <img src={Coins} className={styles.coins} alt="coins" /> */}
             <img src={Fairy} className={styles.desktopOnly} alt="fairy" />
-            
 
+            <div className={styles.mobileOnly}>
+              {renderTextItems()}
+            </div>
+          </div>
+          <div className={styles.bottomBannerContainner}>
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
+              return (
+                <BottomBanner
+                  key={index}
+                  title={`${activity.data?.username}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div> */}
+
+
+      <div className={styles.container}>
+        <div className={styles.topContainer}>
+          <img
+            className={styles.backgroundImg}
+            alt=""
+            src={BannerOne}
+          />
+          <div className={styles.overlayMobile}></div>
+          <div className={classNames(styles.firstContainer, styles.bannerWithContentBg)}>
+            <div className={styles.contentContainer}>
+              <h2>WALLFAIR IS MAKING<br/>MONEY <span className={styles.secondTitle}>FUN</span> AGAIN<br /><span className={styles.secondTitle}>WITHOUT BULLSHIT</span></h2>
+              <div className={styles.content}>
+                <div className={styles.row}><span className={styles.emoji}><img src={NobullshitIcon} alt="no bullshit"/></span><span className={styles.text}><span className={styles.highlighted}>No bullshit</span>: Web 3.0 - Instant MetaMask deposit &amp; withdrawal instead of sign up, KYC and deposit limits</span></div>
+                <div className={styles.row}><span className={styles.emoji}><img src={SlotIcon} alt="slot game"/></span><span className={styles.text}><span className={styles.highlighted}>Fun</span>: Over 500 fun games and the first platform to bet on user generated events</span></div>
+                <div className={styles.row}><span className={styles.emoji}><img src={MoneyIcon} alt="money bag"/></span><span className={styles.text}><span className={styles.highlighted}>Make money</span>: Create your own bets and earn 10% of the trading volume (Limit: 500,000 USD per event)</span></div>
+              </div>
+              <div className={styles.buttonWrapper}>
+                {/* <Button className={styles.button} onClick={onClickItemFirstBanner}>Create an event</Button> */}
+                <Button className={styles.button} theme={ButtonTheme.secondaryButton} onClick={() => { history.push('/how-it-works')}}>How it works</Button>
+              </div>
+            </div>
+            <ContentBackground />
+          </div>
+          <div className={styles.secondContainer}>
             <div className={styles.mobileOnly}>
               {renderTextItems()}
             </div>
@@ -461,6 +508,149 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
 
 
       <div className={styles.container}>
+        <div className={styles.topContainer}>
+          <img
+            className={styles.backgroundImg}
+            alt=""
+            src={BannerTwo}
+          />
+          <div className={styles.overlayMobile}></div>
+          <div className={classNames(styles.firstContainer, styles.bannerWithContentBg)}>
+            <div className={styles.contentContainer}>
+              <h2>MAKE MONEY BY<br />CREATING AND SHARING<br />YOUR OWN EVENT <span className={styles.secondTitle}>FOR FREE</span> AND <span className={styles.secondTitle}>GET 10% COMISSION</span></h2>
+              <div className={styles.content}>
+                <div className={styles.row}><span className={styles.text}>– Just like a sports bet you can create a bet on pretty much any event</span></div>
+                <div className={styles.row}><span className={styles.text}>– Limited time: Creating an event is completely free</span></div>
+                <div className={styles.row}><span className={styles.text}>– 10% of all traded volume goes directly to you as compensation</span></div>
+                
+              </div>
+              <div className={styles.buttonWrapper}>
+                <Button className={styles.button} theme={ButtonTheme.primaryButtonM} onClick={onClickItemFirstBanner}>Create an event</Button>
+              </div>
+            </div>
+            <ContentBackground />
+          </div>
+          <div className={styles.secondContainer}>
+            <div className={styles.mobileOnly}>
+               <div className={styles.textItemsContainer}>
+                <TextItem><span>– Just like a sports bet you can create a bet on pretty much any event</span></TextItem>
+                <TextItem><span>– Limited time: Creating an event is completely free</span></TextItem>
+                <TextItem><span>– 10% of all traded volume goes directly to you as compensation</span></TextItem>
+              </div>
+            </div>
+          </div>
+          <div className={styles.bottomBannerContainner}>
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
+              return (
+                <BottomBanner
+                  key={index}
+                  title={`${activity.data?.username}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+
+
+      <div className={styles.container}>
+        <div className={styles.topContainer}>
+          <img
+            className={styles.backgroundImg}
+            alt=""
+            src={BannerThree}
+          />
+          <div className={styles.overlayMobile}></div>
+          <div className={classNames(styles.firstContainer, styles.bannerWithContentBg)}>
+            <div className={styles.contentContainer}>
+              <h2>MAKE MONEY BY TRADING <span className={styles.secondTitle}>FUN EVENTS!</span></h2>
+              <div className={styles.content}>
+                <div className={styles.row}><span className={styles.text}>– Find fun events to bet on and make money in betting correctly</span></div>
+                <div className={styles.row}><span className={styles.text}>– You can sell your position at any time before event expiry</span></div>
+                <div className={styles.row}><span className={styles.text}>– Coming soon: Live Events and Private Events</span></div>
+                
+              </div>
+              <div className={styles.buttonWrapper}>
+                <Button className={styles.button} theme={ButtonTheme.primaryButtonM} onClick={onClickItemSecondBanner}>Discover Fun Events</Button>
+              </div>
+            </div>
+            <ContentBackground />
+          </div>
+          <div className={styles.secondContainer}>
+            <div className={styles.mobileOnly}>
+               <div className={styles.textItemsContainer}>
+                <TextItem><span>– Find fun events to bet on and make money in betting correctly</span></TextItem>
+                <TextItem><span>– You can sell your position at any time before event expiry</span></TextItem>
+                <TextItem><span>– Coming soon: Live Events and Private Events</span></TextItem>
+              </div>
+            </div>
+          </div>
+          <div className={styles.bottomBannerContainner}>
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
+              return (
+                <BottomBanner
+                  key={index}
+                  title={`${activity.data?.username}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+
+
+      <div className={styles.container}>
+        <div className={styles.topContainer}>
+          <img
+            className={styles.backgroundImg}
+            alt=""
+            src={BannerFour}
+          />
+          <div className={styles.overlayMobile}></div>
+          <div className={classNames(styles.firstContainer, styles.bannerWithContentBg)}>
+            <div className={styles.contentContainer}>
+              <h2>MAKE MONEY BY PLAYING <span className={styles.secondTitle}>FUN GAMES!</span></h2>
+              <div className={styles.content}>
+                <div className={styles.row}><span className={styles.emoji}><img src={FireIcon} alt="no bullshit"/></span><span className={styles.text}>We have it all: Over 1,000 Games – more games, more fun</span></div>
+                <div className={styles.row}><span className={styles.emoji}><img src={SlotIcon} alt="slot game"/></span><span className={styles.text}>House Games, Slots, Live Casino – all gluten free</span></div>
+                <div className={styles.row}><span className={styles.emoji}><img src={NobullshitIcon} alt="money bag"/></span><span className={styles.text}>No limits, no fine print, no bullshit</span></div>
+              </div>
+              <div className={styles.buttonWrapper}>
+                <Button className={styles.button} theme={ButtonTheme.primaryButtonM} onClick={onClickItemSecondBanner}>Discover Fun Events</Button>
+              </div>
+            </div>
+            <ContentBackground />
+          </div>
+          <div className={styles.secondContainer}>
+            <div className={styles.mobileOnly}>
+               <div className={styles.textItemsContainer}>
+                <TextItem emoji={FireIcon}><span>We have it all: Over 1,000 Games – more games, more fun</span></TextItem>
+                <TextItem emoji={SlotIcon}><span>House Games, Slots, Live Casino – all gluten free</span></TextItem>
+                <TextItem emoji={NobullshitIcon}><span>No limits, no fine print, no bullshit</span></TextItem>
+              </div>
+            </div>
+          </div>
+          <div className={styles.bottomBannerContainner}>
+            {notifications && notifications.slice(0, 5).map((activity, index) => {
+              return (
+                <BottomBanner
+                  key={index}
+                  title={`${activity.data?.username}`}
+                  price={activity.data?.reward}
+                  currency={activity.data?.gamesCurrency}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </div>
+
+
+      {/* <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
             className={styles.backgroundImg}
@@ -534,7 +724,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             })}
           </div>
         </div>        
-      </div>
+      </div> */}
 
     </Carousel>
     )
