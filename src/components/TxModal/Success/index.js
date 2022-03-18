@@ -8,6 +8,7 @@ import InputBoxTheme from 'components/InputBox/InputBoxTheme';
 import {NETWORK_TYPES} from 'utils/constants';
 import { TOKEN_NAME } from 'constants/Token';
 import Button from 'components/Button';
+import { useSelector } from 'react-redux';
 
 const Success = ({
   setModalOpen,
@@ -17,6 +18,9 @@ const Success = ({
   notActiveNetwork,
   transactionAmmount,
 }) => {
+
+  const currency = useSelector(state => state.txProps.currency);
+
   const updateModalAndArea = () => {
     if (setTokenAreaOpen && typeof setTokenAreaOpen === 'function') {
       setTokenAreaOpen(false);
@@ -60,7 +64,7 @@ const Success = ({
         </div>
         <div className={styles.row}>
           <div className={styles.key}>Amount</div>
-          <div className={styles.value}>{transactionAmmount} {TOKEN_NAME}</div>
+          <div className={styles.value}>{transactionAmmount} {currency || TOKEN_NAME}</div>
         </div>
       </div>
 

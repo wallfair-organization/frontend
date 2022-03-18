@@ -22,13 +22,12 @@ import {
   accountMappingChallenge,
   isUserOwner,
 } from 'api/third-party';
-
+import _ from 'lodash';
 import { WallfairActions } from 'store/actions/wallfair';
 import { TxDataActions } from 'store/actions/txProps';
 import useWeb3Network from '../../../hooks/useWeb3Network';
 import Loader from 'components/Loader/Loader';
 import { currentChainId, WFAIRAddress } from 'config/config';
-import { numberWithCommas } from 'utils/common';
 import { TOKEN_NAME } from 'constants/Token';
 import Button from 'components/Button';
 import { trackWalletConnect } from 'config/gtm';
@@ -251,7 +250,7 @@ const DepositToken = ({
             <div className={styles.balanceContainer}>
               <span>
                 Current balance:{' '}
-                {numberWithCommas(parseFloat(balance).toFixed(4))} {currency}
+                {_.floor(balance, 4)} {currency}
               </span>
             </div>
             <TokenTransfer

@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import _ from 'lodash';
-import { numberWithCommas } from '../../utils/common';
 import WFAIRTransfer from '../WFAIRTransfer';
 import styles from './styles.module.scss';
 import TokenNumberInput from 'components/TokenNumberInput';
@@ -115,7 +114,7 @@ const TokenTransfer = ({
               <div className={styles.overviewItem}>
                 <span>Amount</span>
                 <span>
-                  {numberWithCommas(transferValue)} {currency}
+                  {_.floor(transferValue, 4)} {currency}
                 </span>
               </div>
               <hr />
@@ -124,7 +123,7 @@ const TokenTransfer = ({
                   <div className={styles.overviewItem}>
                     <span>WFAIR</span>
                     <span>
-                      {numberWithCommas(wfairValue)} {TOKEN_NAME}
+                      {_.floor(wfairValue, 4)} {TOKEN_NAME}
                     </span>
                   </div>
                   <hr />
