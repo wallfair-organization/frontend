@@ -2979,9 +2979,19 @@ export const TOP_PICKS_GAMES = {
   names: ['Crazy Time', 'Plinko', 'Monopoly', 'Unlimited Wishes', 'Tree Of Light', 'JetX']
 }
 
-export const HOMEPAGE_TOP_PICKS_GAMES = {
-  header: 'Top picks',
-  names: ['Crazy Time', 'Plinko', 'Monopoly', 'Unlimited Wishes', 'Tree Of Light', 'JetX', 'Bonanza Billion', 'BookOfWin', 'Minesweeper', 'FunFruit', 'JetX3', 'Craps']
+export const HOMEPAGE_SLOT_GAMES = {
+  header: 'Slot Games',
+  names: ['Unlimited Wishes', 'Big Bamboo', 'Bison Battle', 'Bonanza Billion', 'Razor Shark', 'Beat the Beast: Mighty Sphinx']
+}
+
+export const HOMEPAGE_GAME_SHOWS = {
+  header: 'Game Shows',
+  names: ['Crazy Time', 'Monopoly', 'Lightning Roulette', 'Cash or Crash', 'Deal or No Deal', 'Lightning Dice']
+}
+
+export const HOMEPAGE_INSTANT_WIN_GAMES = {
+  header: 'Instant Win Games',
+  names: ['Plinko', 'Balloon', 'Cappadocia', 'PlingoBall', 'JetX', 'Minesweeper']
 }
 
 export const GAME_CATEGORIES = [
