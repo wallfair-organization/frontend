@@ -94,13 +94,12 @@ export const networkInfo = {
   },
 };
 
-export const currentChainId = async () => {
-  const currentChainSelected = await window?.ethereum?.networkVersion;
-  return currentChainSelected;
+export const currentChainId = () => {
+  return window.ethereum?.networkVersion;
 };
 
-export const currentNetwork = async () => {
-  const currentChainSelected = await window?.ethereum?.networkVersion;
+export const currentNetwork = () => {
+  const currentChainSelected = window.ethereum?.networkVersion;
 
   const currentNetworkKey = Object.keys(networkInfo).find(
     value =>
@@ -117,8 +116,6 @@ export const getNetworkInfoByChainId = (chainId) => {
   return networkInfo[networkKey];
 }
 
-export const WFAIRAddress = async () => {
-  const network = await currentNetwork();
-  return network?.contractAddress;
+export const WFAIRAddress = () => {
+  return currentNetwork()?.contractAddress;
 };
-

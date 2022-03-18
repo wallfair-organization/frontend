@@ -18,7 +18,7 @@ const WalletDepositPopup = ({ visible, type, amount, currency }) => {
       case PopupTheme.walletDepositFiat:
         return <DepositFiat />;
       case PopupTheme.walletConnectWallet:
-        return <DepositToken />;
+        return <DepositToken currency={currency} />;
       case PopupTheme.walletWithdraw:
         return <WithdrawTab />
       default:

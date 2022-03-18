@@ -14,13 +14,10 @@ const Error = ({ setModalOpen, hash, showWalletBuyWfairPopup, notActiveNetwork }
 
 
   useEffect(() => {
-    const updatedNetwork = async () => {
-      const networkSelected = await currentNetwork()
-      setMainUrl(networkSelected.explorer)
-      setMainLabel(networkSelected.label);
-    }
-    updatedNetwork()
-  }, [])
+    const networkSelected = currentNetwork();
+    setMainUrl(networkSelected.explorer);
+    setMainLabel(networkSelected.label);
+  }, []);
 
   return (
     <div className={styles.promoMessage}>

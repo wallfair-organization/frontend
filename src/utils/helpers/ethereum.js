@@ -33,7 +33,7 @@ export const switchMetaMaskNetwork = async (switchTo) => {
 
 export const addMetaMaskEthereum = async () => {
   const { ethereum } = window;
-  const tokenAddr = await WFAIRAddress();
+  const tokenAddr = WFAIRAddress();
   try {
     await ethereum.request({
       method: 'wallet_watchAsset',

@@ -81,6 +81,11 @@ export const CRYPTOS_EXPLORERS = {
   },
 };
 
+export const DEPOSIT_CURRENCIES = {
+  ETH: netWorkTypes.ETH,
+  MATIC: netWorkTypes.POLY,
+}
+
 export const getTransactionURL = (network, txHash) => {
   const environment = process.env.REACT_APP_ENVIRONMENT;
   return `${EXPLORERS[environment][network]}${txHash}`;

@@ -1,4 +1,3 @@
-import TokenSlider from '../TokenSlider';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
 import _ from 'lodash';
@@ -11,7 +10,7 @@ const TokenNumberInput = ({
   setValue,
   maxValue,
   minValue,
-  decimalPlaces,
+  decimalPlaces = 0,
   currency,
   errorText,
   className,
@@ -47,7 +46,7 @@ const TokenNumberInput = ({
   };
 
   const onBetAmountMax = () => {
-    setValue(_.floor(maxValue, 0));
+    setValue(_.floor(maxValue, 4));
   };
 
   return (
@@ -55,11 +54,11 @@ const TokenNumberInput = ({
       <div className={classNames(styles.tokenNumberInputContainer, className)}>
         <NumberCommaInput
           min={minValue}
-          max={_.floor(maxValue, 0)}
+          max={_.floor(maxValue, 4)}
           className={styles.input}
           value={value}
           onChange={onChange}
-          withoutDecimals
+          withoutDecimals={decimalPlaces === 0}
           {...props}
         />
         <span className={styles.eventTokenLabel}>{currencyDisplay(currency)}</span>
@@ -97,13 +96,6 @@ const TokenNumberInput = ({
         className={styles.tokenNumberErrorHint}
         errorText={errorText}
       />
-      {/* <TokenSlider
-        value={Number(value)}
-        setValue={setValue}
-        maxValue={maxValue}
-        minValue={minValue}
-        decimalPlaces={decimalPlaces}
-      /> */}
     </>
   );
 };

@@ -1,3 +1,4 @@
+import { confirmDeposit } from "api";
 import { ethers } from "ethers";
 import WFAIRAbi from "../../config/abi/WFAIRToken.json";
 import SafeCall from "../SafeContractCall";
@@ -7,6 +8,7 @@ const WFAIRTransfer = ({
   setter,
   contractAddress,
   tokenAmount,
+  currency,
   to_address: toAddress,
   setBlocked,
   setTXSuccess,
@@ -28,11 +30,6 @@ const WFAIRTransfer = ({
     console.log("Gas price in Gwei:", gas_price);
 
     const signer = provider?.getSigner();
-    const wfairToken = new ethers.Contract(
-      contractAddress,
-      WFAIRAbi.abi,
-      signer
-    );
 
     // .5 => 0.5 || 6. => 6.0
     tokenAmount =
@@ -42,24 +39,46 @@ const WFAIRTransfer = ({
         ? tokenAmount + "0"
         : tokenAmount;
 
-    wfairToken
-      .transfer(toAddress, ethers.utils.parseEther(String(tokenAmount))) // transfer tokens
-      .then((tx) => {
+    const transfer = contractAddress
+      ? new ethers.Contract(contractAddress, WFAIRAbi.abi, signer).transfer(
+          toAddress,
+          ethers.utils.parseEther(String(tokenAmount))
+        )
+      : signer.sendTransaction({
+          to: toAddress,
+          value: ethers.utils.parseEther(String(tokenAmount)),
+        }); // transfer tokens
+    transfer
+      .then(tx => {
         // Waiting for transaction receipt
         SafeCall({
-          tx: tx,
-          callback: (success) => {
-            console.log("SafeCall -> callback()", success);
-            setTXSuccess(success);
+          tx,
+          callback: success => {
+            console.log('SafeCall -> callback()', success);
+            
+            if (contractAddress) {
+              setTXSuccess(success);
+              setter(tx.hash);
+            } else {
+              confirmDeposit({
+                hash: tx.hash,
+                networkCode: currency,
+              }).then(() => {
+                setTXSuccess(success);
+                setter(tx.hash);
+              }).catch(() => {
+                setter('Deposit confirmation failed');
+              });
+            }
+
             setBlocked(false);
-            setter(tx.hash);
           },
           setter: setter,
         });
       })
-      .catch((err) => {
+      .catch(err => {
         // Transaction did fail, unblocking
-        setter("Tx Failed");
+        setter('Tx Failed');
         setBlocked(false);
       });
   });
