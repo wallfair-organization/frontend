@@ -26,7 +26,8 @@ const TokenTransfer = ({
   setTXSuccess,
   setformError,
   formError,
-  setTransactionAmount
+  setTransactionAmount,
+  setCurrency
 }) => {
   const [transferValue, setTransferValue] = useState('0');
   const [wfairValue, setWfairValue] = useState('0');
@@ -68,6 +69,7 @@ const TokenTransfer = ({
   const handleTransaction = useCallback(() => {
     setBlocked(true);
     setformError('');
+    setCurrency(currency);
     WFAIRTransfer({
       provider,
       setter,
@@ -190,9 +192,11 @@ const mapDispatchToProps = dispatch => {
       dispatch(TxDataActions.setTXSuccess(formError));
     },
     setTransactionAmount: transactionAmount => {
-      dispatch(TxDataActions.setTransactionAmount(transactionAmount))
-    }
-
+      dispatch(TxDataActions.setTransactionAmount(transactionAmount));
+    },
+    setCurrency: currency => {
+      dispatch(TxDataActions.setCurrency(currency));
+    },
   };
 };
 

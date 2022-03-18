@@ -5,6 +5,7 @@ export const TxDataTypes = {
   SET_FORM_ERROR: 'TX_DATA/SET_FORM_ERROR',
   SET_ACTIVE_NETWORK: 'TX_DATA/SET_ACTIVE_NETWORK',
   SET_TRANSACTION_AMOUNT: 'TX_DATA/SET_TRANSACTION_AMOUNT',
+  SET_CURRENCY: 'TX_DATA/SET_CURRENCY',
 };
 
 const txActions = {
@@ -32,6 +33,10 @@ const txActions = {
   setTransactionAmount: payload => ({
     type: TxDataTypes.SET_TRANSACTION_AMOUNT,
     payload,
+  }),
+  setCurrency: currency => ({
+    type: TxDataTypes.SET_CURRENCY,
+    currency,
   }),
 };
 
