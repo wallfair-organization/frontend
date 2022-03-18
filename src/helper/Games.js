@@ -170,7 +170,6 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) =
     }
     output.push(gameEntry);
   }
-  console.log(output);
   return output;
 }
 

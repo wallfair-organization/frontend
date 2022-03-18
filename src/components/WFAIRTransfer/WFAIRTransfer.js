@@ -56,6 +56,8 @@ const WFAIRTransfer = ({
           callback: success => {
             console.log('SafeCall -> callback()', success);
             
+            setBlocked(false);
+
             if (contractAddress) {
               setTXSuccess(success);
               setter(tx.hash);
@@ -70,8 +72,6 @@ const WFAIRTransfer = ({
                 setter('Deposit confirmation failed');
               });
             }
-
-            setBlocked(false);
           },
           setter: setter,
         });

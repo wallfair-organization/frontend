@@ -28,10 +28,7 @@ import { TxDataActions } from 'store/actions/txProps';
 import useWeb3Network from '../../../hooks/useWeb3Network';
 import Loader from 'components/Loader/Loader';
 import { currentChainId, WFAIRAddress } from 'config/config';
-import { TOKEN_NAME } from 'constants/Token';
 import Button from 'components/Button';
-import { trackWalletConnect } from 'config/gtm';
-// import AddTokens from 'components/AddTokens';
 import {ReactComponent as LeftArrow} from '../../../data/icons/deposit/left-arrow.svg';
 import { PopupActions } from 'store/actions/popup';
 import PopupTheme from 'components/Popup/PopupTheme';
@@ -55,19 +52,19 @@ const DepositToken = ({
   const [isLoadingTransferToken, setIsLoadingTransferToken] = useState(true);
   const [notSelectedNetworkId, setNotSelectedNetworkId] = useState('');
   const [activeNetwork, setActiveNetwork] = useState('');
+  const [activated, setActivated] = useState(false);
+  const [transferCurrency, setTransferCurrency] = useState(currency);
   const signer = library?.getSigner();
   
-  const isNative = !!Object.keys(DEPOSIT_CURRENCIES)
-    .find((k) => currency === k);
+  const isNative = !!Object.keys(DEPOSIT_CURRENCIES).find(
+    k => currency === k
+  );
 
   useEffect(() => {
     fetchWalletTransactions();
-    if (isNative && currentNetwork?.nativeCurrency?.symbol !== currency) {
-      const network = Object.keys(SWITCH_NETWORKS).find(
-        sn => sn !== window.ethereum?.chainId
-      );
-      const changeNetwork = async () => await switchMetaMaskNetwork(network);
-      changeNetwork();
+    if (window.ethereum?.isConnected()) {
+      setVisibleWalletForm(true);
+      setTokenAreaOpen(true);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -83,6 +80,25 @@ const DepositToken = ({
       );
     }
   }, [visibleWalletForm, account]);
+
+  useEffect(() => {
+    if (!currentNetwork || !active) return;
+
+    setActivated(true);
+
+    if (
+      !activated &&
+      isNative &&
+      currentNetwork.nativeCurrency.symbol !== currency
+    ) {
+      const network = Object.keys(SWITCH_NETWORKS).find(
+        sn => sn !== window.ethereum?.chainId
+      );
+      const changeNetwork = async () => await switchMetaMaskNetwork(network);
+      changeNetwork();
+    }
+    setTransferCurrency(currentNetwork.nativeCurrency.symbol);
+  }, [currentNetwork, isNative, active, currency, activated]);
 
   useEffect(() => {
     async function checkActive() {
@@ -167,7 +183,7 @@ const DepositToken = ({
     )
   }
 
-  const renderNetworktTab = (networkType, logo, imageSize) => {
+  const renderNetworkTab = (networkType, logo, imageSize) => {
     return (
       <div
         className={classNames(
@@ -201,31 +217,18 @@ const DepositToken = ({
           <>
             <p>Select your preferred network</p>
             <div className={styles.depositHeader}>
-              {renderNetworktTab(NETWORK_TYPES.POLY, PolygonLogoActive, styles.imageSizePolygon)}
-              {renderNetworktTab(NETWORK_TYPES.ETH, EthereumLogoActive, styles.imageSizeEther)}
+              {renderNetworkTab(
+                NETWORK_TYPES.POLY,
+                PolygonLogoActive,
+                styles.imageSizePolygon
+              )}
+              {renderNetworkTab(
+                NETWORK_TYPES.ETH,
+                EthereumLogoActive,
+                styles.imageSizeEther
+              )}
             </div>
           </>
-        )}
-
-        {!visibleWalletForm && !account && (
-          <div className={styles.connectWalletContainer}>
-            <h2>Deposit WFAIR</h2>
-            <p>
-              You can add {TOKEN_NAME} to your account by connecting your
-              existing wallet with {TOKEN_NAME} tokens. Click the button below
-              to select one of the supported providers.
-            </p>
-            <Button
-              className={styles.button}
-              onClick={() => {
-                setVisibleWalletForm(true);
-                setTokenAreaOpen(true);
-                trackWalletConnect();
-              }}
-            >
-              Connect Wallet
-            </Button>
-          </div>
         )}
 
         {account && !notSelectedNetworkId.length ? (
@@ -249,15 +252,14 @@ const DepositToken = ({
           <>
             <div className={styles.balanceContainer}>
               <span>
-                Current balance:{' '}
-                {_.floor(balance, 4)} {currency}
+                Current balance: {_.floor(balance, 4)} {transferCurrency}
               </span>
             </div>
             <TokenTransfer
               provider={library}
               showCancel={false}
               balance={balance}
-              currency={currency}
+              currency={transferCurrency}
               tranferAddress={walletAddress}
               contractAddress={
                 !isNative ? currentNetwork?.contractAddress : undefined
