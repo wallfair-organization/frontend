@@ -6,7 +6,7 @@ export function useNotificationFilter(category, typeNotification = 'game') {
   const [notifications, setNotifications] = useState([]);
 
   const filterByCategory = (notificationArr) => {
-    return notificationArr.filter(item => category === item.type && item.data?.reward > 10 && ['EUR', 'USD'].includes(item.data?.gamesCurrency));
+    return notificationArr.filter(item => category === item.type && item.data?.reward > 1 && ['EUR', 'USD'].includes(item.data?.gamesCurrency));
   }
 
   useEffect(() => {
