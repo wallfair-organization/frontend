@@ -97,7 +97,7 @@ const DepositToken = ({
       const changeNetwork = async () => await switchMetaMaskNetwork(network);
       changeNetwork();
     }
-    setTransferCurrency(currentNetwork.nativeCurrency.symbol);
+    isNative && setTransferCurrency(currentNetwork.nativeCurrency.symbol);
   }, [currentNetwork, isNative, active, currency, activated]);
 
   useEffect(() => {
