@@ -7,20 +7,17 @@ import styles from "./styles.module.scss";
 import WfairLogo from '../../../data/images/wfair-logo-splash.png';
 
 
-const Error = ({ setModalOpen, hash, showWalletBuyWfairPopup, notActiveNetwork }) => {
+const Error = ({ setModalOpen, hash, showWalletBuyWfairPopup, notActiveNetwork, currency }) => {
 
   const [mainUrl, setMainUrl] = useState()
   const [mainLabel, setMainLabel] = useState();
 
 
   useEffect(() => {
-    const updatedNetwork = async () => {
-      const networkSelected = await currentNetwork()
-      setMainUrl(networkSelected.explorer)
-      setMainLabel(networkSelected.label);
-    }
-    updatedNetwork()
-  }, [])
+    const networkSelected = currentNetwork();
+    setMainUrl(networkSelected.explorer);
+    setMainLabel(networkSelected.label);
+  }, []);
 
   return (
     <div className={styles.promoMessage}>
@@ -58,7 +55,7 @@ const Error = ({ setModalOpen, hash, showWalletBuyWfairPopup, notActiveNetwork }
         className={styles.keepGoing}
         onClick={() => {
           setModalOpen(false);
-          showWalletBuyWfairPopup();
+          showWalletBuyWfairPopup(currency);
         }}
       >
         Close
@@ -69,8 +66,11 @@ const Error = ({ setModalOpen, hash, showWalletBuyWfairPopup, notActiveNetwork }
 
 const mapDispatchToProps = dispatch => {
   return {
-    showWalletBuyWfairPopup: () => {
-      dispatch(PopupActions.show({ popupType: PopupTheme.walletConnectWallet }));
+    showWalletBuyWfairPopup: (currency) => {
+      dispatch(PopupActions.show({
+        popupType: PopupTheme.walletConnectWallet,
+        options: { currency }
+      }));
     },
   };
 };

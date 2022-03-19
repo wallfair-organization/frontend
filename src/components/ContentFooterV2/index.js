@@ -7,6 +7,7 @@ import SmartsoftLogo from '../../data/icons/footer/smartsoft.png';
 import EvoplayLogo from '../../data/icons/footer/evoplay.png';
 import bitcoinLogo from '../../data/icons/footer/bitcoin-btc-logo.svg';
 import ethereumLogo from '../../data/icons/footer/ethereum-eth-logo.svg';
+import maticLogo from '../../data/icons/deposit/matic-logo.svg';
 import litecoinLogo from '../../data/icons/footer/litecoin-ltc-logo.svg';
 import metamaskLogo from '../../data/icons/footer/metamask-fox.svg';
 import usdtLogo from '../../data/icons/footer/tether-usdt-logo.svg';
@@ -79,26 +80,16 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
             </div>
 
             <div className={styles.linksGroup}>
-              <Link
-                data-tracking-id="footer-terms"
-                to={Routes.terms}
-              >
+              <Link data-tracking-id="footer-terms" to={Routes.terms}>
                 <p>{'Terms & Conditions'}</p>
               </Link>
-              <Link
-                data-tracking-id="footer-imprint"
-                to={Routes.imprint}
-              >
+              <Link data-tracking-id="footer-imprint" to={Routes.imprint}>
                 <p>Imprint</p>
               </Link>
 
-              <Link
-                data-tracking-id="footer-privacy"
-                to={Routes.privacy}
-              >
+              <Link data-tracking-id="footer-privacy" to={Routes.privacy}>
                 <p>Privacy Policy</p>
               </Link>
-              
             </div>
             <RealMoneyOnly>
               <div className={styles.linksGroup}>
@@ -115,7 +106,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                 >
                   <p>{'Responsible Gambling'}</p>
                 </Link>
-                
+
                 {/* <div id="lang-switcher" className={styles.langSwitcher}/> */}
               </div>
             </RealMoneyOnly>
@@ -132,10 +123,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
               </div>
             </div>
           </RealMoneyOnly> */}
-
         </div>
-
-
 
         <div className={styles.logosBlock}>
           <div className={styles.logosSeparator}></div>
@@ -148,7 +136,12 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   rel="noreferrer"
                   className={styles.wfairTokenEmblem}
                 >
-                  <img src={WfairTokenEmblem} className={styles.footerLogo} alt={'WFAIR Token emblem'} /><span>WFAIR</span>
+                  <img
+                    src={WfairTokenEmblem}
+                    className={styles.footerLogo}
+                    alt={'WFAIR Token emblem'}
+                  />
+                  <span>WFAIR</span>
                 </a>
 
                 <a
@@ -157,7 +150,8 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   rel="noreferrer"
                   className={styles.cryptoCoinWrapper}
                 >
-                  <img src={bitcoinLogo}  alt={'Bitcoin logo'} /> <span>Bitcoin</span>
+                  <img src={bitcoinLogo} alt={'Bitcoin logo'} />{' '}
+                  <span>Bitcoin</span>
                 </a>
 
                 <a
@@ -166,7 +160,8 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   rel="noreferrer"
                   className={styles.cryptoCoinWrapper}
                 >
-                  <img src={ethereumLogo} alt={'Ethereum loco'} /> <span>Ethereum</span>
+                  <img src={ethereumLogo} alt={'Ethereum loco'} />{' '}
+                  <span>Ethereum</span>
                 </a>
                 <a
                   href="https://wallfair.io/"
@@ -174,7 +169,8 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   rel="noreferrer"
                   className={styles.cryptoCoinWrapper}
                 >
-                  <img src={litecoinLogo} alt={'Litecoin loco'} /> <span>Litecoin</span>
+                  <img src={maticLogo} alt={'Matic logo'} />{' '}
+                  <span>Matic</span>
                 </a>
                 <a
                   href="https://wallfair.io/"
@@ -182,7 +178,17 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   rel="noreferrer"
                   className={styles.cryptoCoinWrapper}
                 >
-                  <img src={metamaskLogo} alt={'Metamask'} /> <span>Metamask</span>
+                  <img src={litecoinLogo} alt={'Litecoin loco'} />{' '}
+                  <span>Litecoin</span>
+                </a>
+                <a
+                  href="https://wallfair.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.cryptoCoinWrapper}
+                >
+                  <img src={metamaskLogo} alt={'Metamask'} />{' '}
+                  <span>Metamask</span>
                 </a>
                 <a
                   href="https://wallfair.io/"
@@ -222,7 +228,11 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   rel="noreferrer"
                   className={styles.cryptoTokenIcon}
                 >
-                  <img src={moonPayLogo} className={styles.moonpayLogo} alt={'MoonPay logo'} />
+                  <img
+                    src={moonPayLogo}
+                    className={styles.moonpayLogo}
+                    alt={'MoonPay logo'}
+                  />
                 </a>
 
                 <a
@@ -231,7 +241,11 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   rel="noreferrer"
                   className={styles.cryptoTokenIcon}
                 >
-                  <img src={cryptoPay} className={styles.cryptoPayLogo} alt={'CryptoPay logo'} />
+                  <img
+                    src={cryptoPay}
+                    className={styles.cryptoPayLogo}
+                    alt={'CryptoPay logo'}
+                  />
                 </a>
               </div>
             </div>
@@ -244,62 +258,88 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                 <a href="https://www.smartsoftgaming.com/" rel="noreferrer" target="_blank"><img src={SmartsoftLogo} className={styles.partnerLogoSmartsoft} alt="smartsoft games logo" /></a>
                 <a href="https://evoplay.games/" rel="noreferrer" target="_blank"><img src={EvoplayLogo} className={styles.partnerLogoEvoplay} alt="evoplay logo" /></a>
               </div> */}
-              
+
               <div className={styles.logoContainer}>
-                <a href="https://www.trustpilot.com/review/wallfair.io" target="_blank" rel="noopener noreferrer"><img src={trustPilotIcon} className={styles.handshakeIcon}/></a>
-                <iframe className={styles.license} title="license" src="https://licensing.gaming-curacao.com/validator/?lh=58e4868441e3bb0ff2fe2230d82a8091&amp;template=seal" width={125} height={50} style={{border:'none'}} />
+                <a
+                  href="https://www.trustpilot.com/review/wallfair.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={trustPilotIcon} className={styles.handshakeIcon} />
+                </a>
+                <iframe
+                  className={styles.license}
+                  title="license"
+                  src="https://licensing.gaming-curacao.com/validator/?lh=58e4868441e3bb0ff2fe2230d82a8091&amp;template=seal"
+                  width={125}
+                  height={50}
+                  style={{ border: 'none' }}
+                />
                 <Link
                   data-tracking-id="footer-provably-fair"
                   to={Routes.provablyfair}
                 >
-                  <img src={handshakeIcon} className={styles.handshakeIcon} alt={'handshake icon'} />
+                  <img
+                    src={handshakeIcon}
+                    className={styles.handshakeIcon}
+                    alt={'handshake icon'}
+                  />
                 </Link>
 
                 <Link
                   data-tracking-id="footer-provably-fair"
                   to={Routes.provablyfair}
                 >
-                  <img src={fair100Icon} className={styles.footerGenericIcons} alt={'fair 100 icon'} />
+                  <img
+                    src={fair100Icon}
+                    className={styles.footerGenericIcons}
+                    alt={'fair 100 icon'}
+                  />
                 </Link>
 
                 <Link
                   data-tracking-id="footer-responsible-gambling"
                   to={Routes.responsibleGambling}
                 >
-                  <img src={responsibleGamingIcon} className={styles.responsibleGamingIcon} alt={'responsible gaming icon'} />
+                  <img
+                    src={responsibleGamingIcon}
+                    className={styles.responsibleGamingIcon}
+                    alt={'responsible gaming icon'}
+                  />
                 </Link>
                 <Link
                   data-tracking-id="footer-18-plus"
                   to={{
                     pathname: Routes.terms,
-                    hash: "#restricted",
+                    hash: '#restricted',
                   }}
                 >
-                  <img src={adultPlusIcon} className={styles.footerGenericIcons} alt={'adult plus icon'} />
+                  <img
+                    src={adultPlusIcon}
+                    className={styles.footerGenericIcons}
+                    alt={'adult plus icon'}
+                  />
                 </Link>
               </div>
             </div>
             <div className={styles.logosSeparator}></div>
             <div className={styles.providersList}>
-            {
-              GAME_PROVIDERS.map((providerItem, index) => (
-                providerItem.value !== 'all' &&
-              <div 
-                key={index}
-                className={styles.providerItem} 
-              >
-                <img src={providerItem.image} alt={`${providerItem.label} logo`}  />
-              </div>
-            ))
-            }
+              {GAME_PROVIDERS.map(
+                (providerItem, index) =>
+                  providerItem.value !== 'all' && (
+                    <div key={index} className={styles.providerItem}>
+                      <img
+                        src={providerItem.image}
+                        alt={`${providerItem.label} logo`}
+                      />
+                    </div>
+                  )
+              )}
             </div>
             <div className={styles.logosSeparator}></div>
           </RealMoneyOnly>
         </div>
-
-
       </div>
-
 
       <div className={styles.poweredBy}>
         <a
@@ -308,26 +348,53 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
           rel="noreferrer"
           data-tracking-id="footer-wfair-logo"
         >
-          <img src={LogoFooter} className={styles.footerLogo} alt={'Wallfair Logo'} />
+          <img
+            src={LogoFooter}
+            className={styles.footerLogo}
+            alt={'Wallfair Logo'}
+          />
         </a>
       </div>
 
       <div className={styles.copyrightBlock}>
         <div>© 2022 Wallfair N.V. | All rights reserved.</div>
         <RealMoneyOnly>
-          <div>1 WFAIR = {selectedGamesCurrencyPrice} {gamesCurrency}</div>
+          <div>
+            1 WFAIR = {selectedGamesCurrencyPrice} {gamesCurrency}
+          </div>
         </RealMoneyOnly>
       </div>
-      
+
       <RealMoneyOnly>
         <p className={styles.footerDisclaimer}>
-          This website offers gaming with risk experience. To be a user of our site you must be over 18 y.o. We are not responsible for the violation of your local laws related to i-gaming. Play responsibly and have fun on Wallfair.
-          The platform providing the services is owned by Wallfair N.V, a limited liability company registered in Curacao with company registration number 159041, with its registered office at Zuikertuintjeweg Z/N (Zuikertuin Tower), Curacao (“Company”), licensed in Curaçao under the Licence no. 365/JAZ Sub-License GLH-OCCHKTW0712022021 issued by Gaming Services Provider N.V. for the provision of online games of chance.
+          This website offers gaming with risk experience. To be a user of our
+          site you must be over 18 y.o. We are not responsible for the violation
+          of your local laws related to i-gaming. Play responsibly and have fun
+          on Wallfair. The platform providing the services is owned by Wallfair
+          N.V, a limited liability company registered in Curacao with company
+          registration number 159041, with its registered office at
+          Zuikertuintjeweg Z/N (Zuikertuin Tower), Curacao (“Company”), licensed
+          in Curaçao under the Licence no. 365/JAZ Sub-License
+          GLH-OCCHKTW0712022021 issued by Gaming Services Provider N.V. for the
+          provision of online games of chance.
         </p>
       </RealMoneyOnly>
 
       <div className={styles.supportBlock}>
-        <div>Support: <b><a href='ma&#105;lt&#111;&#58;&#115;uppo&#114;t&#64;wallfair.io'>&#115;uppo&#114;t&#64;wallfair.io</a></b> | Partner: <b><a href='&#109;ailto&#58;p%6&#49;%7&#50;tne&#114;s&#64;wallfair&#46;i&#111;'>p&#97;r&#116;ners&#64;wallfair&#46;i&#111;</a></b></div>
+        <div>
+          Support:{' '}
+          <b>
+            <a href="ma&#105;lt&#111;&#58;&#115;uppo&#114;t&#64;wallfair.io">
+              &#115;uppo&#114;t&#64;wallfair.io
+            </a>
+          </b>{' '}
+          | Partner:{' '}
+          <b>
+            <a href="&#109;ailto&#58;p%6&#49;%7&#50;tne&#114;s&#64;wallfair&#46;i&#111;">
+              p&#97;r&#116;ners&#64;wallfair&#46;i&#111;
+            </a>
+          </b>
+        </div>
       </div>
     </div>
   );

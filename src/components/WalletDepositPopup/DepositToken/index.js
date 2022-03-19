@@ -1,12 +1,10 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { useWeb3React } from '@web3-react/core';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import EthereumLogoActive from '../../../data/icons/ethereum-logo-icon-active.svg';
-import EthereumLogo from '../../../data/icons/ethereum-logo-icon.svg';
 import PolygonLogoActive from '../../../data/icons/polygon-logo-active.svg';
-import PolygonLogo from '../../../data/icons/polygon-logo.svg';
 import ConnectWallet from 'components/ConnectWallet/ConnectWallet';
 import TokenTransfer from 'components/TokenTransfer';
 import { Contract, ethers } from 'ethers';
@@ -17,44 +15,57 @@ import {
   NETWORK_TYPES,
   ENV_NETWORK,
   networkSelection,
+  DEPOSIT_CURRENCIES,
 } from '../../../utils/constants';
 import {
   mapAccount,
   accountMappingChallenge,
   isUserOwner,
 } from 'api/third-party';
-
+import _ from 'lodash';
 import { WallfairActions } from 'store/actions/wallfair';
 import { TxDataActions } from 'store/actions/txProps';
 import useWeb3Network from '../../../hooks/useWeb3Network';
 import Loader from 'components/Loader/Loader';
 import { currentChainId, WFAIRAddress } from 'config/config';
-import { numberWithCommas } from 'utils/common';
-import { TOKEN_NAME } from 'constants/Token';
 import Button from 'components/Button';
-import { trackWalletConnect } from 'config/gtm';
-// import AddTokens from 'components/AddTokens';
 import {ReactComponent as LeftArrow} from '../../../data/icons/deposit/left-arrow.svg';
 import { PopupActions } from 'store/actions/popup';
 import PopupTheme from 'components/Popup/PopupTheme';
 import { TransactionActions } from 'store/actions/transaction';
 
-const DepositToken = ({ user, resetState, setNotSelectedNetwork, showWalletDepositPopup, fetchWalletTransactions }) => {
+const DepositToken = ({ 
+  currency = 'WFAIR', 
+  user, 
+  resetState, 
+  setNotSelectedNetwork, 
+  showWalletDepositPopup, 
+  fetchWalletTransactions 
+}) => {
   const walletAddress = process.env.REACT_APP_DEPOSIT_WALLET;
   const { active, library, account, chainId, deactivate } = useWeb3React();
   const { currentNetwork } = useWeb3Network();
   const [visibleWalletForm, setVisibleWalletForm] = useState(false);
   const [tokenAreaOpen, setTokenAreaOpen] = useState(false);
   const [signingInProcess, setSigningInProcess] = useState(false);
-  const [hash, setHash] = useState('');
   const [balance, setBalance] = useState(0);
   const [isLoadingTransferToken, setIsLoadingTransferToken] = useState(true);
   const [notSelectedNetworkId, setNotSelectedNetworkId] = useState('');
   const [activeNetwork, setActiveNetwork] = useState('');
+  const [activated, setActivated] = useState(false);
+  const [transferCurrency, setTransferCurrency] = useState(currency);
   const signer = library?.getSigner();
+  
+  const isNative = !!Object.keys(DEPOSIT_CURRENCIES).find(
+    k => currency === k
+  );
 
   useEffect(() => {
     fetchWalletTransactions();
+    if (window.ethereum?.isConnected()) {
+      setVisibleWalletForm(true);
+      setTokenAreaOpen(true);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -71,6 +82,25 @@ const DepositToken = ({ user, resetState, setNotSelectedNetwork, showWalletDepos
   }, [visibleWalletForm, account]);
 
   useEffect(() => {
+    if (!currentNetwork || !active) return;
+
+    setActivated(true);
+
+    if (
+      !activated &&
+      isNative &&
+      currentNetwork.nativeCurrency.symbol !== currency
+    ) {
+      const network = Object.keys(SWITCH_NETWORKS).find(
+        sn => sn !== window.ethereum?.chainId
+      );
+      const changeNetwork = async () => await switchMetaMaskNetwork(network);
+      changeNetwork();
+    }
+    isNative && setTransferCurrency(currentNetwork.nativeCurrency.symbol);
+  }, [currentNetwork, isNative, active, currency, activated]);
+
+  useEffect(() => {
     async function checkActive() {
       resetState();
       if (active) {
@@ -84,20 +114,25 @@ const DepositToken = ({ user, resetState, setNotSelectedNetwork, showWalletDepos
 
   useEffect(() => {
     const updateWallet = async () => {
-      const currentId = await currentChainId();
+      const currentId = currentChainId();
       if (parseInt(chainId) !== parseInt(currentId)) {
         setIsLoadingTransferToken(false);
         return;
       }
 
-      signer?.getAddress().then(address => {
-        getBalanceWFAIR({ address: address, provider: library }).then(
-          result => {
-            setBalance(result);
-            setIsLoadingTransferToken(false);
-          }
-        );
-      });
+      isNative
+        ? signer
+            .getBalance()
+            .then(result => {
+              setBalance(ethers.utils.formatEther(result));
+              setIsLoadingTransferToken(false);
+            })
+        : signer?.getAddress().then(address => {
+            getBalanceWFAIR({ address, provider: library }).then(result => {
+              setBalance(result);
+              setIsLoadingTransferToken(false);
+            });
+          });
     };
     updateWallet().catch(console.error);
   }, [account, library, signer, chainId, setBalance]);
@@ -128,7 +163,7 @@ const DepositToken = ({ user, resetState, setNotSelectedNetwork, showWalletDepos
   ]);
 
   const switchNetwok = async () => {
-    const network = activeNetwork ? activeNetwork : 'Polygon';
+    const network = activeNetwork || 'Polygon';
     const networkId = Object.entries(ENV_NETWORK).find(keyValue =>
       keyValue.includes(network)
     )[0];
@@ -148,117 +183,59 @@ const DepositToken = ({ user, resetState, setNotSelectedNetwork, showWalletDepos
     )
   }
 
+  const renderNetworkTab = (networkType, logo, imageSize) => {
+    return (
+      <div
+        className={classNames(
+          notSelectedNetworkId
+            ? networkType === SWITCH_NETWORKS[notSelectedNetworkId]
+              ? styles.inactiveButton
+              : styles.activeButton
+            : activeNetwork === networkType
+            ? styles.activeButton
+            : styles.inactiveButton
+        )}
+        onClick={async () => {
+          const networkId = notSelectedNetworkId;
+          if (networkType === SWITCH_NETWORKS[networkId] && !isNative) {
+            setIsLoadingTransferToken(true);
+            await switchMetaMaskNetwork(networkId);
+          }
+        }}
+      >
+        <img className={imageSize} src={logo} alt="network-logo" />
+      </div>
+    );
+  }
+
   return (
     <>
       <div className={styles.depositTabContainer}>
-
         {renderBackButton()}
 
         {!!account && !signingInProcess && (
           <>
             <p>Select your preferred network</p>
             <div className={styles.depositHeader}>
-              <div
-                className={classNames(
-                  notSelectedNetworkId
-                    ? NETWORK_TYPES.POLY ===
-                      SWITCH_NETWORKS[notSelectedNetworkId]
-                      ? styles.inactiveButton
-                      : styles.activeButton
-                    : activeNetwork === NETWORK_TYPES.POLY
-                    ? styles.activeButton
-                    : styles.inactiveButton
-                )}
-                onClick={async () => {
-                  const networkId = notSelectedNetworkId;
-                  if (NETWORK_TYPES.POLY === SWITCH_NETWORKS[networkId]) {
-                    setIsLoadingTransferToken(true);
-                    await switchMetaMaskNetwork(networkId);
-                  }
-                }}
-              >
-                <img
-                  className={styles.imageSizePolygon}
-                  src={
-                    notSelectedNetworkId
-                      ? NETWORK_TYPES.POLY ===
-                        SWITCH_NETWORKS[notSelectedNetworkId]
-                        ? PolygonLogoActive
-                        : PolygonLogoActive
-                      : activeNetwork === NETWORK_TYPES.POLY
-                      ? PolygonLogoActive
-                      : PolygonLogoActive
-                  }
-                  alt="Polygon-logo"
-                />
-              </div>
-              <div
-                className={classNames(
-                  notSelectedNetworkId
-                    ? NETWORK_TYPES.ETH ===
-                      SWITCH_NETWORKS[notSelectedNetworkId]
-                      ? styles.inactiveButton
-                      : styles.activeButton
-                    : activeNetwork === NETWORK_TYPES.ETH
-                    ? styles.activeButton
-                    : styles.inactiveButton
-                )}
-                onClick={async () => {
-                  const networkId = notSelectedNetworkId;
-
-                  if (NETWORK_TYPES.ETH === SWITCH_NETWORKS[networkId]) {
-                    setIsLoadingTransferToken(true);
-                    await switchMetaMaskNetwork(networkId);
-                  }
-                }}
-              >
-                <img
-                  className={styles.imageSizeEther}
-                  src={
-                    notSelectedNetworkId
-                      ? NETWORK_TYPES.ETH ===
-                        SWITCH_NETWORKS[notSelectedNetworkId]
-                        ? EthereumLogoActive
-                        : EthereumLogoActive
-                      : activeNetwork === NETWORK_TYPES.ETH
-                      ? EthereumLogoActive
-                      : EthereumLogoActive
-                  }
-                  alt="Ethereum-logo"
-                />
-              </div>
+              {renderNetworkTab(
+                NETWORK_TYPES.POLY,
+                PolygonLogoActive,
+                styles.imageSizePolygon
+              )}
+              {renderNetworkTab(
+                NETWORK_TYPES.ETH,
+                EthereumLogoActive,
+                styles.imageSizeEther
+              )}
             </div>
-            {/* <AddTokens /> */}
           </>
-        )}
-
-        {!visibleWalletForm && !account && (
-          <div className={styles.connectWalletContainer}>
-            <h2>Deposit WFAIR</h2>
-            <p>
-              You can add {TOKEN_NAME} to your account by connecting your existing wallet with {TOKEN_NAME} tokens. Click the button below to select one of the supported providers.
-            </p>
-            <Button
-              className={styles.button}
-              onClick={() => {
-                setVisibleWalletForm(true);
-                setTokenAreaOpen(true);
-                trackWalletConnect();
-              }}
-            >
-              Connect Wallet
-            </Button>
-          </div>
         )}
 
         {account && !notSelectedNetworkId.length ? (
           <div className={styles.connectWalletContainer}>
             <p>You have selected the wrong network</p>
             <p>Please click below to switch to the correct one</p>
-            <Button
-              className={styles.button}
-              onClick={switchNetwok}
-            >
+            <Button className={styles.button} onClick={switchNetwok}>
               Switch Network
             </Button>
           </div>
@@ -275,20 +252,21 @@ const DepositToken = ({ user, resetState, setNotSelectedNetwork, showWalletDepos
           <>
             <div className={styles.balanceContainer}>
               <span>
-                Current balance:{' '}
-                {numberWithCommas(parseFloat(balance).toFixed(2))} {'WFAIR'}
+                Current balance: {_.floor(balance, 4)} {transferCurrency}
               </span>
             </div>
             <TokenTransfer
               provider={library}
               showCancel={false}
               balance={balance}
+              currency={transferCurrency}
               tranferAddress={walletAddress}
-              contractAddress={currentNetwork?.contractAddress}
+              contractAddress={
+                !isNative ? currentNetwork?.contractAddress : undefined
+              }
             />
           </>
         ) : null}
-
       </div>
     </>
   );
@@ -328,7 +306,7 @@ const challengeHandler = async (
 };
 
 const getBalanceWFAIR = async ({ address, provider }) => {
-  const contractAddress = await WFAIRAddress();
+  const contractAddress = WFAIRAddress();
   const contract = new Contract(contractAddress, WFairABI.abi, provider);
   if (contract) {
     return await contract

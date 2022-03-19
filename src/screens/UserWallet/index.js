@@ -100,7 +100,7 @@ const UserWallet = ({
 
   const activityDataMap = {
     'FIAT DEPOSITS': 'ONRAMP',
-    'WFAIR DEPOSITS': 'DEPOSITS',
+    'METAMASK DEPOSITS': 'DEPOSITS',
     WITHDRAWALS: 'WITHDRAWALS',
     BETS: 'BETS',
     'CRYPTO DEPOSITS': 'CRYPTO',
@@ -110,7 +110,7 @@ const UserWallet = ({
 
   const tabOptions = [
     { name: 'FIAT DEPOSITS', index: 0 },
-    { name: 'WFAIR DEPOSITS', index: 1 },
+    { name: 'METAMASK DEPOSITS', index: 1 },
     { name: 'CRYPTO DEPOSITS', index: 2 },
     { name: 'WITHDRAWALS', index: 3 },
   ];

@@ -28,6 +28,9 @@ import DisplaySection from './DisplaySection';
 import {
   EVOPLAY_GAMES,
   EXTERNAL_GAMES,
+  HOMEPAGE_GAME_SHOWS,
+  HOMEPAGE_INSTANT_WIN_GAMES,
+  HOMEPAGE_SLOT_GAMES,
   HOMEPAGE_TOP_PICKS_GAMES,
   SOFTSWISS_GAMES,
 } from 'constants/Games';
@@ -236,9 +239,31 @@ const Home = authState => {
 
         {!isPlayMoney && (
           <DisplaySection
-            selectedGamesLabel={'Games'}
+            selectedGamesLabel={HOMEPAGE_SLOT_GAMES.header}
             showMore={true}
-            selectedGamesNames={HOMEPAGE_TOP_PICKS_GAMES.names}
+            selectedGamesNames={HOMEPAGE_SLOT_GAMES.names}
+            smartsoftGames={EXTERNAL_GAMES}
+            evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)}
+            softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}
+          />
+        )}
+
+         {!isPlayMoney && (
+          <DisplaySection
+            selectedGamesLabel={HOMEPAGE_GAME_SHOWS.header}
+            showMore={true}
+            selectedGamesNames={HOMEPAGE_GAME_SHOWS.names}
+            smartsoftGames={EXTERNAL_GAMES}
+            evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)}
+            softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}
+          />
+        )}
+
+         {!isPlayMoney && (
+          <DisplaySection
+            selectedGamesLabel={HOMEPAGE_INSTANT_WIN_GAMES.header}
+            showMore={true}
+            selectedGamesNames={HOMEPAGE_INSTANT_WIN_GAMES.names}
             smartsoftGames={EXTERNAL_GAMES}
             evoplayGames={prepareEvoplayGames(EVOPLAY_GAMES)}
             softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}

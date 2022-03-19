@@ -12,12 +12,9 @@ const Waiting = ({ setModalOpen, hash, action, notActiveNetwork }) => {
   const [mainLabel, setMainLabel] = useState();
 
   useEffect(() => {
-    const updatedNetwork = async () => {
-      const networkSelected = await currentNetwork();
-      setMainUrl(networkSelected.explorer);
-      setMainLabel(networkSelected.label);
-    };
-    updatedNetwork();
+    const networkSelected = currentNetwork();
+    setMainUrl(networkSelected.explorer);
+    setMainLabel(networkSelected.label);
   }, []);
 
   return (

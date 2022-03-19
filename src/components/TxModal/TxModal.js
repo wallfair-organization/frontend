@@ -13,6 +13,7 @@ const TxModal = ({
   hidePopup,
   notActiveNetwork,
   transactionAmmount,
+  currency,
   canAddToken = false,
 }) => {
   const getModalContent = () => {
@@ -29,7 +30,7 @@ const TxModal = ({
           />
         );
       } else {
-        return <Error setModalOpen={hidePopup} hash={hash} notActiveNetwork={notActiveNetwork} />;
+        return <Error setModalOpen={hidePopup} hash={hash} notActiveNetwork={notActiveNetwork} currency={currency} />;
       }
     }
   };
@@ -54,7 +55,8 @@ const mapStateToProps = state => {
     success: state.txProps.TXSuccess,
     blocked: state.txProps.blocked,
     notActiveNetwork: state.txProps.notActiveNetwork,
-    transactionAmmount: state.txProps.transactionAmmount
+    transactionAmmount: state.txProps.transactionAmmount,
+    currency: state.txProps.currency,
   };
 };
 

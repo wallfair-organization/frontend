@@ -65,8 +65,9 @@
     font-size: 20px;
     line-height: 20px;
     font-family: $fontDMSans;
+    line-height: 20px;
     @media (max-width: $screen-xs) {
-      font-size: 28px;
+      font-size: 20px;
     }
   }
 
@@ -125,7 +126,7 @@
 
   .wrapper {
     position: relative;
-    height: 148px;
+    height: 185px;
     overflow: hidden;
     border-radius: 20px;
     width: 185px;
@@ -135,7 +136,7 @@
 
     @media (max-width: $screen-sm) {
       width: 40vw;
-      height: 30vw;
+      height: 40vw;
       margin: 0 auto;
     }
 
@@ -172,6 +173,7 @@
       img {
         width: 100%;
         height: fit-content;
+        object-fit: cover;
       }
       .title {
         z-index: 3;
@@ -257,8 +259,8 @@
       }
 
       img {
-        width: 100%;
-        height: 100%;
+        // width: 100%;
+        height: 185px;
         object-fit: cover;
         border-radius: 20px;
         // @media (max-width: $screen-md) {

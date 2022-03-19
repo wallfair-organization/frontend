@@ -7,8 +7,9 @@ const initialState = {
   formError: '',
   hash: '',
   action: 'Token Transfer',
-notActiveNetwork: '',
+  notActiveNetwork: '',
   transactionAmmount: 0,
+  currency: '',
 };
 
 const setHash = (action, state) => {
@@ -51,6 +52,13 @@ const setTransactionAmount = (action, state) => {
   };
 };
 
+const setCurrency = (action, state) => {
+  return {
+    ...state,
+    currency: action.currency,
+  };
+};
+
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -66,6 +74,8 @@ export default function (state = initialState, action) {
       return setActiveNetwork(action, state);
     case TxDataTypes.SET_TRANSACTION_AMOUNT:
       return setTransactionAmount(action, state);
+    case TxDataTypes.SET_CURRENCY:
+      return setCurrency(action, state);
     default:
       return state;
   }
