@@ -95,6 +95,14 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
         });
   }, []);
 
+  const onClickItemGamesBanner = useCallback(() => {
+        history.push(Routes.getRouteWithParameters(Routes.games, {category: 'all'}));
+        dataLayerPush({
+          event:'gtm.click',
+          'gtm.elementId': 'banner--fun-games',
+        });
+  }, []);
+
   // const onClickItemThirdBanner = useCallback(() => {
   //       history.push(Routes.leaderboard);
   //       dataLayerPush({
@@ -620,7 +628,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
                 <div className={styles.row}><span className={styles.emoji}><img src={NobullshitIcon} alt="money bag"/></span><span className={styles.text}>No limits, no fine print, no bullshit</span></div>
               </div>
               <div className={styles.buttonWrapper}>
-                <Button className={styles.button} theme={ButtonTheme.primaryButtonM} onClick={onClickItemSecondBanner}>Discover Fun Events</Button>
+                <Button className={styles.button} theme={ButtonTheme.primaryButtonM} onClick={onClickItemGamesBanner}>Discover Fun Games</Button>
               </div>
             </div>
             <ContentBackground />
