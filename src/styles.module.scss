@@ -23,6 +23,7 @@ body,
 html {
   height: 100%;
   font-family: $fontDMSans, sans-serif;
+  scroll-behavior: smooth;
 
   // > div {
   //   width: 100%;

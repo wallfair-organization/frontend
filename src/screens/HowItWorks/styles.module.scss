@@ -10,84 +10,131 @@
   background-size: contain;
 }
 
-.supTitle {
-  text-transform: uppercase;
-  color: $colorWhite;
-  opacity: 0.5;
-  font-size: 16px;
-}
-
-.title {
-  font-size: 50px;
+.headline {
+  max-width: 940px;
+  width: 100%;
+  font-size: 30px;
+  line-height: 35px;
+  font-weight: bold;
   color: $colorWhite;
   position: relative;
   margin-bottom: 75px;
 
   @media (max-width: $screen-md) {
     margin: 0;
+    text-align: center;
   }
 }
 
-.video {
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    background-image: url('../../data/images/how-it-works/oval-gradient.png');
-    top: -50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: -1;
-  }
-}
-
-.steps {
-  margin-top: 75px;
+.container {
+  display: flex;
+  column-gap: 50px;
 
   @media (max-width: $screen-md) {
-    margin: 0;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
   }
 
-  .step {
+  .summaryContainer {
     display: flex;
-    flex-direction: row;
-    max-width: 920px;
-    margin-top: 80px;
+    flex-direction: column;
+    row-gap: 20px;
 
-    .content {
-      margin-right: 55px;
+    & > p {
+      color: $colorWhite;
 
-      @media (max-width: $screen-md) {
-        margin: 0;
-        padding: 0 50px;
+      & > a {
+        color: #f1ff54;
+        text-decoration: underline;
       }
+    }
 
-      &.right {
-        margin-right: 0;
-        margin-left: 55px;
+    .summaryBox {
+      width: 310px;
+      height: fit-content;
+      background: $colorLightPurple10;
+      border-radius: 6px;
 
-        @media (max-width: $screen-md) {
-          margin: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 25px 20px 20px;
+      row-gap: 20px;
+      margin: 0;
+
+      a {
+        color: $colorWhite50;
+
+        &:hover {
+          color: $colorWhite;
         }
       }
 
-      .number {
-        font-size: 77px;
-        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-        -webkit-text-fill-color: transparent;
+      @media (max-width: $screen-md) {
+        margin: 50px 0 0;
+      }
+    }
+  }
+
+  .steps {
+    @media (max-width: $screen-md) {
+      margin: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      max-width: 580px;
+      margin-bottom: 80px;
+      column-gap: 10px;
+
+      @media (max-width: $screen-md) {
+        margin: 20px 0 50px;
+        padding: 0 20px;
       }
 
-      .title {
+      .number {
         font-size: 36px;
-        color: $colorWhite;
-        margin-bottom: 20px;
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+        -webkit-text-fill-color: transparent;
 
-        .highlighted {
-          color: #F1FF54;
+        @media (max-width: $screen-md) {
+          font-size: 30px;
+        }
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+
+        & > .title {
+          font-size: 36px;
+          color: $colorWhite;
+          margin-bottom: 20px;
+
+          .highlighted {
+            color: #f1ff54;
+          }
+
+          @media (max-width: $screen-md) {
+            font-size: 30px;
+          }
+        }
+
+        .button {
+          max-width: 250px;
+          margin-top: 20px;
+          font-size: 16px;
+          margin-bottom: 15px;
+        }
+
+        a {
+          width: fit-content;
+        }
+
+        svg {
+          max-width: 100%;
         }
       }
 
@@ -96,67 +143,6 @@
         color: $colorWhite;
         opacity: 0.6;
       }
-
-      .ranking {
-        display: flex;
-        flex-direction: column;
-        margin-top: 20px;
-
-        .item {
-          width: 100%;
-          background-color: rgba(172, 196, 255, 0.10077);
-          padding: 10px;
-          color: $colorWhite;
-          display: flex;
-          align-items: center;
-          margin-bottom: 10px;
-          font-size: 14px;
-
-          img {
-            margin: 0;
-            margin-right: 10px;
-          }
-        }
-      }
-
-      .button {
-        max-width: 200px;
-        margin-top: 20px;
-        font-size: 16px;
-      }
-    }
-
-    .image {
-      max-width: 400px;
-      margin-top: 20px;
-
-      @media (max-width: $screen-md) {
-        display: none;
-      }
     }
   }
-}
-
-.leaderboard {
-  max-width: 920px;
-  margin-top: 50px;
-}
-
-.leaderboardLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  background: #0e0927;
-  box-sizing: border-box;
-  border: 2px solid rgba(172, 196, 255, 0.16);
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "DM Sans";
-  padding: 8px 30px;
-  text-transform: none;
-  -webkit-user-select: none;
-  user-select: none;
-  text-align: center;
 }
