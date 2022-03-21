@@ -1,6 +1,4 @@
 import BaseContainerWithNavbar from "components/BaseContainerWithNavbar";
-import Highlight from "../../components/Highlight";
-import HighlightType from '../../components/Highlight/HighlightType';
 import styles from './styles.module.scss';
 import Image1 from '../../data/images/how-it-works/group-1.png'
 import Image2 from '../../data/images/how-it-works/group-2.png';
@@ -10,7 +8,6 @@ import classNames from "classnames";
 import Button from "../../components/Button";
 import ButtonTheme from '../../components/Button/ButtonTheme';
 import { Link, useHistory } from "react-router-dom";
-import LeaderboardJackpot from "../../components/LeaderboardJackpot";
 import { useCallback } from "react";
 import { connect, useDispatch } from "react-redux";
 import { PopupActions } from "store/actions/popup";
@@ -18,165 +15,217 @@ import authState from "constants/AuthState";
 import Routes from "constants/Routes";
 import PopupTheme from "components/Popup/PopupTheme";
 import { OnboardingActions } from "store/actions/onboarding";
-import PlayMoneyOnly from "components/PlayMoneyOnly";
-import RealMoneyOnly from "components/RealMoneyOnly";
+import { isMobile } from 'react-device-detect';
+import { trackWalletAddWfair } from "config/gtm";
+import { ReactComponent as PaymentMethodIcon } from '../../data/icons/wallet/payment-icons.svg';
+import {ReactComponent as MetamaskIcon} from '../../data/icons/deposit/metamask-logo.svg';
 
-const HowItWorks = ({loggedIn, showPopup}) => {
+const HowItWorks = ({loggedIn, showPopup, showWithdrawPopup, showWalletDepositPopup}) => {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const handleConnectMetaMask = useCallback(() => {
+    if (!loggedIn) {
+      // history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
+
+      showPopup(PopupTheme.loginWeb3, {});
+    }
+  }, [loggedIn]);
   
   const handleCreateEvent = useCallback(() => {
     if (loggedIn) {
-      history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
+      // history.push(Routes.getRouteWithParameters(Routes.events, {category: 'all'}));
 
       showPopup(PopupTheme.eventForms, {});
     } else {
       dispatch(OnboardingActions.start());
     }
-  }, []);
+  }, [loggedIn]);
+
+  const handleWithdrawEvent = useCallback(() => {
+    if (loggedIn) {
+      // history.push(Routes.getRouteWithParameters(Routes.wallet, {}));
+
+      showWithdrawPopup();
+    } else {
+      dispatch(OnboardingActions.start());
+    }
+  }, [loggedIn]);
+
+  const handleDepositEvent = useCallback(() => {
+    if (loggedIn) {
+      // history.push(Routes.getRouteWithParameters(Routes.wallet, {}));
+
+      showWalletDepositPopup();
+    } else {
+      dispatch(OnboardingActions.start());
+    }
+  }, [loggedIn]);
+
+
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
       <div className={styles.howItWorks}>
-        <h4 className={styles.supTitle}>JOIN THE RIDE.</h4>
-        <h1 className={styles.title}>
-          How it works
-          <Highlight highlightType={HighlightType.highlightTitleUnderline} />
+        
+        <h1 className={styles.headline}>
+          How it works?
         </h1>
-        {/* <div className={styles.video}>
-          <video width="800" height="440" controls>
-            <source
-              src="https://files.wallfair.io/video-help/howto-playmoney.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div> */}
-        <div className={styles.steps}>
-          <div className={styles.step}>
-            <div className={styles.content}>
-              <div className={styles.number}>01</div>
-              <h1 className={styles.title}>
-                <PlayMoneyOnly>
-                  Create your Account and get{' '}
-                  <span className={styles.highlighted}>100 PFAIR for free</span>
-                </PlayMoneyOnly>
-                <RealMoneyOnly>
-                  Connect your wallet and{' '}
-                  <span className={styles.highlighted}>start betting</span>
-                </RealMoneyOnly>
-              </h1>
-              <div className={styles.description}>
-                <PlayMoneyOnly>
-                  You get 100 PFAIR for free and have the chance to win 150 USD
-                  every day. Keep in mind you can claim 100 PFAIR per day!
-                </PlayMoneyOnly>
-                <RealMoneyOnly>
-                  Sign up by connecting your Metamask wallet to start betting on fun events and enjoy playing on casino games.
-                </RealMoneyOnly>
-              </div>
-            </div>
-            <div>
-              <img src={Image1} className={styles.image} alt="Group 1" />
-            </div>
-          </div>
 
-          <div className={styles.step}>
-            <div>
-              <img src={Image2} className={styles.image} alt="Group 2" />
-            </div>
-            <div className={classNames(styles.content, styles.right)}>
-              <div className={styles.number}>02</div>
-              <h1 className={styles.title}>
-                Create an event and
-                <span className={styles.highlighted}>
-                  {' '}
-                  share with your friends &amp; community
-                </span>
-              </h1>
-              <div className={styles.description}>
-                <PlayMoneyOnly>
-                  Create a fun event on which you would like to have people
-                  betting on, and share it with your family, friends and community
-                  to start a fun competition. Besides the betting competition, you
-                  as an event creator can profit from the volume of trading, while
-                  your friends could bet on the correct outcome to make a profit
-                  in PFAIR and maybe reaching the highest cashout to earn the
-                  daily prize.
-                </PlayMoneyOnly>
-                <RealMoneyOnly>
-                  Create a fun event on which you would like to have people
-                  betting on, and share it with your family, friends and community
-                  to start a fun competition. You as an event creator can profit 
-                  from a % of the volume of trading, while your friends could earn money 
-                  by betting on the correct outcome.
-                </RealMoneyOnly>
-              </div>
-              <RealMoneyOnly>
-                <Button
-                  className={styles.button}
-                  theme={ButtonTheme.primaryButtonM}
-                  onClick={handleCreateEvent}
-                >
-                  Create Event now
-                </Button>
-              </RealMoneyOnly>
-            </div>
-          </div>
+        <div className={styles.container}>
 
-          <PlayMoneyOnly>
+          <div className={styles.summaryContainer}>
+            <div className={styles.summaryBox}>
+              <a href="#step1">
+                01 | Connect your MetaMask
+              </a>
+              <a href="#step2">
+                02 | Make a deposit
+              </a>
+              <a href="#step3">
+                03 | Play our Casino Games
+              </a>
+              <a href="#step4">
+                04 | Trade and create Events
+              </a>
+              <a href="#step5">
+                05 | Instant withdraw your earnings
+              </a>
+              <a href="#step6">
+                06 | Stake your WFAIR tokens
+              </a>
+            </div>
+            <p>
+              Do you have questions?<br />Contact us on <a href='https://discord.gg/VjYUYBKhTc' target='_blank' rel='noreferrer'>Discord</a>
+            </p>
+          </div>
+       
+          <div id="step1" className={styles.steps}>
             <div className={styles.step}>
+              <div className={styles.number}>01</div>
               <div className={styles.content}>
-                <div className={styles.number}>03</div>
                 <h1 className={styles.title}>
-                  You can win{' '}
-                  <span className={styles.highlighted}>
-                    1 out of 3 prizes per week
-                  </span>
+                    Connect your MetaMask
+                </h1>
+                 <div className={styles.description}>
+                    With your Metamask, you can connect in a single click, no KYC required. To install MetaMask, <a href={!isMobile
+                    ? 'https://metamask.io/download/'
+                    : `https://metamask.app.link/dapp/${window.location.origin}`}>click here</a>.
+                </div>
+                
+                {!loggedIn &&
+                  <Button
+                    className={styles.button}
+                    theme={ButtonTheme.secondaryButton}
+                    onClick={handleConnectMetaMask}
+                  >
+                    <MetamaskIcon />
+                    Connect MetaMask
+                  </Button>
+                }
+              </div>
+            </div>
+
+            <div id="step2" className={styles.step}>
+              <div className={styles.number}>02</div>
+              <div className={classNames(styles.content)}>
+                <h1 className={styles.title}>
+                  Make a deposit
                 </h1>
                 <div className={styles.description}>
-                  Wallfair will grant daily prizes worth US$ 150 (in ETH) for
-                  winners of our daily competition. Users who reach the 1st place
-                  in the following prize categories will earn $50 each.
+                  You can deposit WFAIR and many other cryptocurrencies directly from your MetaMask. If you don't have funds, you can use our services to make deposits with Bitcoin, Visa, Mastercard and even Google Pay and Apple pay.
                 </div>
-                <div className={styles.ranking}>
-                  <div className={styles.item}>
-                    <img src={Medal} alt="Medal" />
-                    Highest cashout value in an Event
-                  </div>
-                  <div className={styles.item}>
-                    <img src={Medal} alt="Medal" />
-                    Highest cashout value from Elon Game and Pump &amp; Dump
-                  </div>
-                  <div className={styles.item}>
-                    <img src={Medal} alt="Medal" />
-                    Creator of the event with highest volume
-                  </div>
+                
+                <Button
+                  className={styles.button}
+                  theme={ButtonTheme.primaryButtonM}
+                  onClick={handleDepositEvent}
+                >
+                  Deposit
+                </Button>
+                <PaymentMethodIcon />
+              </div>
+            </div>
+
+            <div id="step3" className={styles.step}>
+              <div className={styles.number}>03</div>
+              <div className={styles.content}>
+                <h1 className={styles.title}>
+                  Play our Casino Games
+                </h1>
+                <div className={styles.description}>
+                  We have the best providers in the market (more than 20) with the best games. We have Slots, Roulettes, Blackjack, Poker and many Live Games as well.
+                </div>
+                <Button
+                  className={styles.button}
+                  theme={ButtonTheme.secondaryButton}
+                  onClick={() => history.push(Routes.games)}
+                >
+                  Go to Games
+                </Button>
+              </div>
+            </div>
+
+            <div id="step4" className={styles.step}>
+              <div className={styles.number}>04</div>
+              <div className={styles.content}>
+                <h1 className={styles.title}>
+                  Trade and create Events
+                </h1>
+                <div className={styles.description}>
+                  Trade on existing events and create events to play with your friends, family and community to start fun competitions. You as an event creator can profit from a % of the volume of trading, while your friends could earn money by betting on the correct outcome.
                 </div>
                 <Button
                   className={styles.button}
                   theme={ButtonTheme.primaryButtonM}
                   onClick={handleCreateEvent}
                 >
-                  Create Event now
+                  Create an Event
                 </Button>
               </div>
-              <div>
-                <img src={Image3} className={styles.image} alt="Group 3" />
+            </div>
+
+            <div id="step5" className={styles.step}>
+              <div className={styles.number}>05</div>
+              <div className={styles.content}>
+                <h1 className={styles.title}>
+                  Instant withdraw your earnings
+                </h1>
+                <div className={styles.description}>
+                  We believe your gains are yours alone. You can always withdraw your funds, no hidden rules, no KYC, directly to your MetaMask.
+                </div>
+                <Button
+                  className={styles.button}
+                  theme={ButtonTheme.secondaryButton}
+                  onClick={handleWithdrawEvent}
+                >
+                  Withdraw
+                </Button>
               </div>
             </div>
-          </PlayMoneyOnly>
-        </div>
-        
-        <PlayMoneyOnly>
-          <div className={styles.leaderboard}> 
-              <LeaderboardJackpot fetch={true} />
-          </div>
 
-          <a href={'/#leaderboard'} className={styles.leaderboardLink}>
-            Go to daily leaderboard
-          </a>
-        </PlayMoneyOnly>
+            <div id="step6" className={styles.step}>
+              <div className={styles.number}>06</div>
+              <div className={styles.content}>
+                <h1 className={styles.title}>
+                  Stake your WFAIR tokens
+                </h1>
+                <div className={styles.description}>
+                  You have the possibility of depositing your WFAIR tokens in the Wallfair Staking platform to earn 35% APY as passive income.
+                </div>
+
+                <a href="https://staking.wallfair.io" target="_blank" rel="noreferrer">
+                  <Button
+                    className={styles.button}
+                    theme={ButtonTheme.secondaryButton}
+                  >
+                    Stake now
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </BaseContainerWithNavbar>
   );
@@ -199,6 +248,13 @@ const mapDispatchToProps = dispatch => {
           options,
         })
       );
+    },
+    showWalletDepositPopup: () => {
+      trackWalletAddWfair();
+      dispatch(PopupActions.show({ popupType: PopupTheme.walletDeposit }));
+    },
+    showWithdrawPopup: () => {
+      dispatch(PopupActions.show({ popupType: PopupTheme.walletWithdraw }));
     },
   };
 };
