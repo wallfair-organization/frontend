@@ -63,4 +63,5 @@ export default {
   oauth: '/oauth/:provider',
   winners: '/winners',
   howItWorks: '/how-it-works',
+  aml: '/aml-policy',
 };
