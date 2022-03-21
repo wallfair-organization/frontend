@@ -90,6 +90,9 @@ const enabledSoftswissProviders = {
     wazdan:{
       feature_group:['basic']
     },
+    epicmedia:{
+      feature_group:['augustgaming','blueprint','merkur','kiron']
+    }
 
 }
 export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) => {
