@@ -183,6 +183,10 @@ const Games = () => {
           'pushgaming',
           'quickspin',
           'spearhead',
+          'augustgaming',
+          'merkur',
+          'blueprint',
+          'kiron'
         ].includes(provider) ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory, provider) : [];
         // ['all', 'bgaming', 'evolution','yggdrasil', 'wazdan','1spin4win','thunderkick','playngo','slotmill','merkur'].includes(provider) ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory, provider) : [];
       // let ret = [];
@@ -237,7 +241,7 @@ const Games = () => {
 
         {renderGamesBanner()}
 
-        <DisplaySection 
+        <DisplaySection
           selectedGamesLabel={TOP_PICKS_GAMES.header}
           selectedGamesNames={TOP_PICKS_GAMES.names}
           smartsoftGames={EXTERNAL_GAMES}
@@ -293,10 +297,10 @@ const Games = () => {
           setExternalGames={setExternalGames}
         /> */}
 
-        <DisplaySection 
-          smartsoftGames={externalGames} 
-          evoplayGames={externalGamesEvoplay} 
-          softswissGames={externalGamesSoftswiss} 
+        <DisplaySection
+          smartsoftGames={externalGames}
+          evoplayGames={externalGamesEvoplay}
+          softswissGames={externalGamesSoftswiss}
         />
         {renderActivities()}
       </div>

@@ -50,6 +50,9 @@ import ProviderMrslotty from '../data/icons/games/gameproviders/mrslotty.png';
 import ProviderPushgaming from '../data/icons/games/gameproviders/pushgaming.png';
 import ProviderQuickspin from '../data/icons/games/gameproviders/quickspin.svg';
 import ProviderSpearhead from '../data/icons/games/gameproviders/spearhead.svg';
+import ProviderBlueprint from '../data/icons/games/gameproviders/blueprint.png'
+import ProviderKiron from '../data/icons/games/gameproviders/kiron.png'
+import ProviderAugustgaming from '../data/icons/games/gameproviders/augustgaming.png'
 
 
 const softswissAcceptanceTests = [
@@ -103,7 +106,7 @@ export const SOFTSWISS_GAMES =[
   ...require('../config/games-cfg/wazdan_top.json'),
   ...require('../config/games-cfg/yggdrasil_top.json'),
   ...require('../config/games-cfg/thunderkick.json'),
-  //...require('../config/games-cfg/epicmedia_top.json'),
+  ...require('../config/games-cfg/epicmedia.json'),
   ...require('../config/games-cfg/slotmill_top.json'),
   //...require('../config/games-cfg/playngo_top.json'),
   ...require('../config/games-cfg/spearhead_50.json'),
@@ -3102,11 +3105,11 @@ export const GAME_PROVIDERS = [
       label: 'Yggdrasil',
       image: ProviderYggdrasil,
     },
-    // {
-    //   value: 'merkur',
-    //   label: 'Merkur',
-    //   image: ProviderMerkur,
-    // },
+    {
+      value: 'merkur',
+      label: 'Merkur',
+      image: ProviderMerkur,
+    },
     {
       value: 'thunderkick',
       label: 'ThunderKick',
@@ -3187,4 +3190,19 @@ export const GAME_PROVIDERS = [
       label: 'Groove',
       image: ProviderGroove,
     },
+    {
+      value: 'augustgaming',
+      label: 'August Gaming',
+      image: ProviderAugustgaming,
+    },
+    {
+      value: 'blueprint',
+      label: 'Blueprint',
+      image: ProviderBlueprint,
+    },
+    {
+      value: 'kiron',
+      label: 'Kiron',
+      image: ProviderKiron,
+    }
 ]
