@@ -53,6 +53,9 @@ import ProviderSpearhead from '../data/icons/games/gameproviders/spearhead.svg';
 import ProviderBlueprint from '../data/icons/games/gameproviders/blueprint.png'
 import ProviderKiron from '../data/icons/games/gameproviders/kiron.png'
 import ProviderAugustgaming from '../data/icons/games/gameproviders/augustgaming.png'
+import ProviderBsg from '../data/icons/games/gameproviders/bsg.png'
+import ProviderIgtech from '../data/icons/games/gameproviders/igtech.png'
+import ProviderBelatra from '../data/icons/games/gameproviders/belatra.png'
 
 
 const softswissAcceptanceTests = [
@@ -122,7 +125,11 @@ export const SOFTSWISS_GAMES =[
   ...require('../config/games-cfg/fazi.json'),
   ...require('../config/games-cfg/ezugi_50'),
   ...require('../config/games-cfg/eagaming.json'),
-  ...require('../config/games-cfg/atmosphera.json')
+  ...require('../config/games-cfg/atmosphera.json'),
+  ...require('../config/games-cfg/bsg.json'),
+  ...require('../config/games-cfg/igtech.json'),
+  ...require('../config/games-cfg/belatra.json'),
+
 ]
 
 
@@ -3204,5 +3211,20 @@ export const GAME_PROVIDERS = [
       value: 'kiron',
       label: 'Kiron',
       image: ProviderKiron,
+    },
+    {
+      value: 'bsg',
+      label: 'BetSoft',
+      image: ProviderBsg,
+    },
+    {
+      value: 'belatra',
+      label: 'Belatra',
+      image: ProviderBelatra,
+    },
+    {
+      value: 'igtech',
+      label: 'Ig Tech',
+      image: ProviderIgtech,
     }
 ]

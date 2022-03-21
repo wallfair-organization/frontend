@@ -92,8 +92,16 @@ const enabledSoftswissProviders = {
     },
     epicmedia:{
       feature_group:['augustgaming','blueprint','merkur','kiron']
+    },
+    igtech:{
+      feature_group:['basic']
+    },
+    bsg:{
+      feature_group:['standard','vip']
+    },
+    belatra:{
+      feature_group:['basic']
     }
-
 }
 export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) => {
   const output = [];
