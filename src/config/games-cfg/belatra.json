@@ -1,0 +1,2478 @@
+[
+    {
+        "title": "100 Pin-Up Fruits",
+        "identifier": "belatra:100PinUpFruits",
+        "identifier2": "pin_up_100",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "pinup",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "20 Bitstarz",
+        "identifier": "belatra:20Bitstarz",
+        "identifier2": "bit_stars",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "bitstarz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 1024,
+        "payout": 95.52,
+        "has_jackpot": true,
+        "hd": true,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "20 Super Stars",
+        "identifier": "belatra:20SuperStars",
+        "identifier2": "super_stars",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.52,
+        "description": "\u001cFruit\u001d slots are the most popular slot machines among players all over the world. And that\u0019s a fact! Games in the style of \"fruit cocktail\" can be found in the TOP slot machines in any online casino. But even classics cannot stand still. It is changing, improving and modernizing, trying to meet the desires and needs of the modern player. The graphics quality is growing, the parameters and characteristics of the game are changing, the mathematics is improving, and the gameplay is becoming more and more intuitive and simple. The main thing that has not changed for more than 100 years is the bright fruit symbols that playfully appear on the reels. And new symbols are added to them - not less vivid and interesting symbols with their own features. That is how the spectacular original slot from Belatra Games “20 SUPER STARS” was born! Welco",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 300,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "500 Juicy Fruits",
+        "identifier": "belatra:500JuicyFruits",
+        "identifier2": "juicy_fruits",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 500,
+        "payout": 95.71,
+        "description": "If there are slots in the gaming world that all players know about, then these are definitely \"fruit\" slots. Once they used to be mechanical \"one-armed bandits\" that operated not only in casinos, but also in many other places throughout the USA. Precious \"cherries\" and \"lemons\" gathered in a line and brought a chewing gum as a win to a player. Oh yes, it was a chewing gum that was given to the winner as a prize during the ban on gambling activities in the US.\n\nOver the time, not only the prize in the form of a simple chewing gum was replaced with real money, but also slot machines switched from mechanical to electronic format, they received colorful graphics and a lot of various bonuses. But the \"fruit\" theme is eternal, it is still popular and beloved among players. BELATRA’s slot machine “500 Juicy Fruits” is modern classics. Favorite symbols in a new stylistic solution - the original bright design will not let players get bored in this gamin",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "7 Days Anotherland",
+        "identifier": "belatra:7DaysAnotherland",
+        "identifier2": "anland100_7days",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 94.26,
+        "description": "Parallel worlds, thousands of universes that exist simultaneously with our reality - it may seem fascinating to one person and frightening to another one ... But one thing is clear: there are practically no indifferent people to these topics. You are also captured by stories that begin with the words: \"Somewhere in a parallel universe ...\", aren’t you? In this case, “Anotherland” video slot is specially for you! And the attraction “7 days” makes the game even more int",
+        "hit_rate": 20.67,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "7 Days The Spanish Armada",
+        "identifier": "belatra:7DaysTheSpanishArmada",
+        "identifier2": "armada100_7days",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 94.26,
+        "description": "The Spanish Armada occupies a very special place not only in the history of Spain, but also in the world history. People gave it many names - Invincible, Great and Glorious. This is a truly important and significant part of the world history. BELATRA Company has created its own unique game that vividly and colorfully tells us about a challenging battle between the English and the Spanish fleets. This video slot quickly gained popularity among players from all over the world. And now we would like to bring to your attention the updated version of this game - with an attraction 7 days!\n",
+        "hit_rate": 20.67,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "88 Bingo 88",
+        "identifier": "belatra:88Bingo88",
+        "identifier2": "bingo88",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 90.01,
+        "description": "Online Bingo game is actively gaining popularity among online casino players. Intuitive interface, simple rules, a game idea different from classic online slots - what else does the game need to become the favorite one among many online casino users? Well, maybe an unexpected design!\n",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "88 Dragons Bounty",
+        "identifier": "belatra:88DragonsTreasure",
+        "identifier2": "treasure88",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 90.56,
+        "description": "Indescribable flavor of the mysterious East, incredible treasures and a fierce firedrake ... Do you think this happens only in movies? Have another guess coming! To make sure that such amazing adventures are closer than it seems, we invite all gaming fans to the new Belatra Games online slot - 88 DRAGONS BOUNTY. On the way to the dragon's cave, you will be collecting beautiful symbols of the East - and the more gold artifacts you manage to collect, the more treasures you will see! Are you ready to win? Well, then let's go! And may good fortune always keep your company!\n",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Action!",
+        "identifier": "belatra:Action!",
+        "identifier2": "action",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.3,
+        "description": "Everyone at least once in his/her life has dreamed of being on a movie set. After all, it’s always interesting to have a look on the place where your favorite movies are created. Find out what a fragile make-up girl carries in a huge suitcase, what a track is needed for right in the middle of the filming pavilion and why the largest wall in the room i\"decorated\" with green cloth! The process of filming a real movie is interesting, bewitching and intriguing. And if the main female character is played by a chic, spectacular blonde, then who can resist? Where to find such an ideal movie set? Of course, in BELATRA video slots! Lights! Camera! Action!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Africa Gold",
+        "identifier": "belatra:AfricaGold",
+        "identifier2": "africa10",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 91.97,
+        "description": "We continue to introduce you new online slots from BELATRA, which you can play for free on our website.\n\nToday we will talk about really hot game - Africa Gold. Online slot Africa Gold is an excellent combination of bright design, thematic soundtrack, accurate mathematics and an intuitive interface design. In addition this game offers free spins and risk-games. All players can play online for free and without registration.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 9000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Africa Gold II",
+        "identifier": "belatra:AfricaGoldII",
+        "identifier2": "africa2",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92,
+        "description": "Africa is one of the most amazing and truly mysterious continents. At first glance, it may seem that there is nothing but endless sandy deserts. But if dig deeper, then you can find huge deposits of gold and diamonds that are waiting for them to be finally mined! This is exactly what we suggest you do in the new online game from Belatra Games AFRICA GOLD 2. And don't be afraid of the locals! They are very friendly and always ready to help with your search activities! Are you ready for the search?",
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "American Roulette",
+        "identifier": "belatra:AmericanRoulette",
+        "identifier2": "american_roulette",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.37,
+        "description": "We cannot imagine a modern casino or gaming club without a roulette. During its 200-year history, the roulette has become the most popular gambling game in the world, the most interesting and dynamic game that leaves all card games behind.\n\nVideo roulettes developed by BELATRA have gained popularity among players long ago and are confidently competing with many slot games! On our website you can play roulette online absolutely free and without registration or SMS! You can play not just a roulette, but American Roulette!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Escape from Alcatraz",
+        "identifier": "belatra:AnEscapeFromAlcatraz",
+        "identifier2": "alc_old",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 92.2,
+        "description": "\"Chase! Do you know detective story without this action?\"\n\nDo you want to feel like someone who is running - welcome to the online slot An Escape From Alcatraz. Now you can easily play this slot machine for free and without registration. Many players love BELATRA’s slot Alcatra",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Anotherland",
+        "identifier": "belatra:Anotherland",
+        "identifier2": "anland20",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 94.45,
+        "description": "Somewhere in the Parallel Universe...\n\nWe know the theory in which we are not along in this world. There is an incredible multitude of other worlds in which everything is completely different from what we are used to. Perhaps in one of the parallel universe still live dinosaurs, in another - the immortal Gods live, and in the third - the fish fly in the sky... But we invite you today the most mysterious universe...",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Beauty and the Beast",
+        "identifier": "belatra:BeautyBeast",
+        "identifier2": "beauty_beast",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 95.96,
+        "description": "A fairy tale about beautiful Belle and terrible Beast, the master of an incredible castle, is one of those stories that are beloved by more than one generation. This lovely and romantic fairy tale has different versions, it was adapted to many cartoons and movies, and theatrical performances on this theme run all over the world - from France to Broadway. BELATRA Company decided to make a new step in development of this magical story – we created an online video slot based on the fairy tal\"Beauty and the Beast\"!\n",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 36,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bingo Soccer",
+        "identifier": "belatra:BingoSoccer",
+        "identifier2": "bingo_soccer",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 90.01,
+        "description": "Soccer is one of the most popular sports in the world. People play it in small yards and in huge stadiums, millions of fans watch soccer games in the stands, in sports bars or at home on TV. Plenty of bets are made every day – fans are trying to guess the score, the difference between the goals scored and missed and the time when a certain player may receive a red card ...\n\nYou also love soccer, but you don’t know which team to bet on? Don’t hesitate and choose “Bingo Soccer” from Belatra Games. There is no need to painfully choose what team to cheer for – just place your bet and try to catch the balls with the right numbers! Multilanguage of this online bingo will allow all the people in the world to enjoy this game - among 14 languages of the world everyone will find a suitable one. Besides, this slot also features a super jackpot “The Wheel of Fortune”, and if you decide to play the bingo game online, for free and without registration, you will get a great chance to w",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Blue Beard",
+        "identifier": "belatra:BlueBeard",
+        "identifier2": "bluebeard",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 92.3,
+        "description": "The history about of the Blue Beard is a real classic of fairytale tales. Numerous collections of fairy tales, translated into all languages of the world, can not do without a plot about Blue Beard. By this story, a dozen films have been shot, and theatrical productions of various genres invariably gather complete halls. And now the fairy tale about Blue beard appeared in a new format - an online video slot!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 100,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Customs Storage",
+        "identifier": "belatra:BondedWarehouse",
+        "identifier2": "customs",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 92.18,
+        "description": "What is hidden in simple cardboard boxes stored in a large customs warehouse? Gold or diamonds? Smuggled watches or perfume? Yes, yes, all that plus huge wins! New BELATRA’s online slot “Customs Storage” is a story about a customs warehouse, where every box can hide excellent sums of money. And a wild cat found in the box will make the win even cooler - the cat is a wild-symbol here! To play the online slot for real money or for free and without registration – it’s up to you! A pleasant crisp bill “cargo” that we’ve got here in our customs warehouse will be enoug",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Book of Doom",
+        "identifier": "belatra:BookofDoom",
+        "identifier2": "book",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92.61,
+        "description": "Hundreds and even thousands of years separate the modern world from one of the most important and largest civilizations in world history - Ancient Egypt. This civilization gave the world fantastic architecture and a lot of scientific knowledge, works of literature and art and, of course, writing. We have survived not only scrolls describing the life of that time, but whole books with predictions and prophecies. We suggest you to find one of these books in the new online slot from Belatra Games - BOOK OF DOOM! And only a select few will have a unique chance to open this book. And read the prophecy left to us by the divine priests!\n",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "New York",
+        "identifier": "belatra:buybonusNewYork",
+        "identifier2": "bb_newyork",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.13,
+        "description": "People say, New York is a city of contrasts. This is absolute truth. New York is also a city of temptations, a city of crazy rhythm and pacifying jazz, a city of seething passions and leisurely walks along the bright streets... New York is diverse, but it’s invariably bewitching and attractive! Would you like to find yourself in this amazing city? Then welcome to the new BELATRA online slot “New Yor",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "#buyBonus of Maya",
+        "identifier": "belatra:buyBonusofMaya",
+        "identifier2": "maya2",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 92.61,
+        "description": "Many years have passed since the end of the world was predicted by the Mayan Calendar. But something went wrong, and the end of the world was postponed. Well, all the better for us! Thus, we can afford to live joyously, merrily and the way we want, traveling around the world, discovering new beautiful countries and cities... But if you don’t feel like exploring the modern world, and would better prefer to have a look at the life of one of the oldest civilizations, then this spectacular and colorful online BELATRA slot #BuyBonus of Maya is exactly what you need! The Mayans are waiting for you in their amazing world",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Carousel",
+        "identifier": "belatra:Carousel",
+        "identifier2": "carousel",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 92.66,
+        "description": "Spring is coming! And with it the opening of a new season in bright amusement parks. Delicious ice cream in waffle cone, funny clowns with balls, crisp popcorn and dizzy rides are waiting for everyone who wants to relax and have fun. And, of course, the main attraction in any park has always been and will be the Carousel...\n\nBELATRA invites you to its own amusement park - a positive and colorful video slot Carousel. 100 lines, drums of different heights (4 or 5 symbols), bonus games - you will be very interesting! international game \"Carousel\" translated into 11 languages of the world. You have a great opportunity to play online for free and without registering in the slot machine BELATRA on our website. If you want to play BELATRA slot machines for real money, then you will easily find this game in various online casinos.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Chicago, bang, bang!",
+        "identifier": "belatra:Chicagobangbang",
+        "identifier2": "chicago",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94.31,
+        "description": "Cabarets and casinos, prohibition and control, mafia and tough gangster wars...Romantic of Chicago of 1930-s is breathtaking and mesmerizes imagination to present day. With the game Chicago Bang, Bang! you will feel yourself real gangstars, feel the pulse of that times and get a really gangster win! ",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Christmas Jackpot",
+        "identifier": "belatra:ChristmasJackpot",
+        "identifier2": "christmas",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 93.87,
+        "description": "Christmas is the most magical holiday of the year. And the pre-Christmas bustle is undoubtedly the most pleasant of all. Shopping for gifts, decorating the Christmas tree, walking around the festive city gazing at beautifully decorated shop windows. And, of course, at such a fabulous time, everyone is waiting for a miracle. And it will definitely happen! The main thing is to believe in him! For Christmas miracles, we invite you to the new themed online slot Christmas Jackpot, look for the most beautiful showcase and come visit us! You can be sure there will be enough Christmas miracles for everyone!\n\nEven if it is not very snowy outside the window and you cannot recharge with a festive mood, the online slot machine Christmas Jackpot will help you. Beautiful, bright, magical and intuitive, this slot is exactly what you need to create a Christmas mood. Here everyone can choose a convenient language (and the game has been translated into as many as 14 world languages!) And play online for free and without registration - this is the version of the game available on our website. It is as easy as possible to play online without SMS and downloading on the site free-slot.belatragames.com! And if you want to play online for real money, then look for the online slot Christmas Jackpot on the sites of our partners!",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 150,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Crazy Nuts",
+        "identifier": "belatra:CrazyNuts",
+        "identifier2": "nuts",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 92.29,
+        "description": "Classics is always actual! But no matter how strange it may sound, the classics can also change. Reinvention of the classics can be found in everything: in clothes, movies and even in slot machines! The game “Crazy Nuts” is a traditional slot game, which design reminds us of the fi\"one-armed bandits\" with a slight difference - the famous symbols \"cherries\", \"sevens\" and \"bells\" are replaced here with all kinds of nuts!\n",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 1500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Crystals Digger",
+        "identifier": "belatra:CrystalsDigger",
+        "identifier2": "digger",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 90.39,
+        "description": "Do you know who the diggers are? To answer this question, you need to dig deeper. In every sense of the word. Diggers are people who explore everything that is underground: natural dungeons formed over the years and abandoned underground objects of artificial origin. But just wandering through the dungeons is boring. It is much more interesting to look for treasures! And believe me, in order to get into the dungeons, you don't even have to leave the house. BELATRA and personally our charismatic digger invite you on an exciting journey to the new Crystals Digger cascade online slot!\n\nOutwardly, this game is similar to the very popular games now, where you need to collect crystals of the same type. Due to the cascading principle, Crystals Digger online slot machine has a similar gameplay. Falling on the reels, the same symbols disappear, the remaining ones fall down, and the empty spaces are occupied by new symbols. And this happens as long as there are winning combinations. The features of this online slot are bonus games, winnings multiplier, CraftBonus and \"Wheel of Fortune\". In addition, the game is traditionally translated into 14 languages of the world and allows you to search for crystals in almost any part of the planet!\n\nIntrigued? Do you want to play Crystals Digger Belatra slot machine online for free without registration, SMS and download? You can launch the game on our website and test your luck right now. Or you can find this game on our partners' websites and play for real money in Crystals Digger online in many online casinos around the world!",
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "accumulating": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Double Crazy Nuts",
+        "identifier": "belatra:DoubleCrazyNuts",
+        "identifier2": "nuts2",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92.61,
+        "description": "Classics are always relevant! But the classics can also change. And at this moment there is a new classic! A new classics can be in everything: in clothes, movies and even slot machines! In the collection of games BELATRA, available online, now there is slot-game like Double Crazy Nuts - novelty in online games BELATRA. You can play this slot machine online free of charge and without registration on our site! \n",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 9000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Dracula Riches",
+        "identifier": "belatra:DraculaRiches",
+        "identifier2": "dracula20",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 92.17,
+        "description": "The lands of Transylvania, mysterious and mesmerizing, have always been shrouded in mystery. There are a lot of legends about vampires and about the great Count Dracula: frightening and attractive, bloody and dramatic. If you are interest in the story of Vlad Dracula, we invite you to visit amazing places and plunge into the incredible atmosphere of Medieval Transylvania in our new online game! DRACULA RICHES - ENIGMATIC ONLINE SLOT!\n\nDracula Riches - a bewitching video slot with an original sound design and stylish graphics. Combinations with a win can fall out on 5 reels with 20 fixed lines. The game has a joker Bat - he allows you to make the most successful combination. With him, the winnings even more. \n",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "European Roulette",
+        "identifier": "belatra:EuropeanRoulette",
+        "identifier2": "european_roulette",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97.3,
+        "description": "A modern casino or a game club can not be imagined without a roulette. For its 200-year history, roulette has become the most popular gambling in the world, the most interesting and dynamic.\n\nThe game Roulette, developed by BELATRA, has long won popularity among players, and the slot machines with this game compete with many slot machines. Today we are happy to present your beloved Roulette in a new format - now online!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Fortune Craft",
+        "identifier": "belatra:FortuneCraft",
+        "identifier2": "fortune_craft",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 91.33,
+        "description": "Fortune, luck... How much in life depends on them. Sometimes they accompany us, sometimes they turn away. And it is impossible to find out at what moment luck will smile... Although... Why not ask a powerful sorceress? She is ready to answer any question. To do this, she has a variety of magical artifacts, but the main one is a magic ball, inside which you can read a huge number of prophecies. For example, if you ask: \"Will I be lucky in the new online slot Fortune Craft from BELATRA?\", she will immediately answer! Want to check it out? Welcome!\n",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Frog Creek",
+        "identifier": "belatra:FrogCreek",
+        "identifier2": "frog100",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 92.12,
+        "description": "No matter what the weather is outside - the scorching sun in the heart of summer, pouring autumn rain or cold snow in the middle of winter - at any of these moments we would like to find ourselves at a quiet and calm summer creek with its lovely inhabitants - butterflies, dragonflies, snails. And, of course, with its main local dwellers - huge frogs. You also wouldn’t mind, would you? Then welcome to the new online slot from BELATRA",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Mix Fruits",
+        "identifier": "belatra:FruitMix",
+        "identifier2": "fruit_mix",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 95.51,
+        "description": "A fresh-squeezed fruit cocktail - what could be tastier on a hot summer day? What are you saying? You don’t have any fruits or berries, do you? And you don't want to go after them? Don’t worry! Belatra Games will take care of you! We have a bar serving fresh fruit cocktails, mixing the ripest and juiciest fruits. And an automatic bonus to such a cocktail will becom\"tasty\" win! Well, are you intrigued? Then be sure to check out our bar! Where is it? Wherever it suits you - anywhere you can use your smartphone, tablet or computer! After all, this is an online bar – a slot “Mix Fruits” from Belatra G",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Ghost Walks",
+        "identifier": "belatra:GhostWalks",
+        "identifier2": "ghost20",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 92.25,
+        "description": "Halloween is coming, the eve of All Saints Day. On this night life is boiling in the streets of many cities around the world: all dress up in eerie suits, collect sweets and have fun in bars. But if you don´t want to leave the house at all, we have something interesting for you in the online casino of BELATRA...\n\nThe Ghost Walks! - a bright, cheerful and incredibly positive slot in the best traditions of Halloween. The action takes place in an old abandoned castle, where not a single dozen ghosts and spirits live. In the endless dark and gloomy rooms and corridors of the old castle is inhabited by the shadows of its former masters and servants who once worked in this house",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Golden Bucks",
+        "identifier": "belatra:GoldenBucks",
+        "identifier2": "s_golden_bucks",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 88.02,
+        "description": "Game ... Money ... Excitement ... These concepts are inseparable. A new video slot “Golden Bucks” confirms that. This classic slot game has been enhanced with new symbols, as well as fast, but very cash bonuses. All this goes in a package with the new graphics and nice jangling of coins as sound effe",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Golden Lemon",
+        "identifier": "belatra:GoldenLemon",
+        "identifier2": "lemon",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.36,
+        "description": "Do you know what online slot machines most often get to the TOP popular slots among players? No, not slots with a variety of complex bonuses, and not even games with the most spectacular graphics. For many years online casino’s gambling guests have called the classical “fruit” slots to be the most favorite ones. Their history began more than a hundred years ago, when a ban on slot machines was declared in the USA, and they were disguised as gum machines. “Golden Lemon” is the symbol of those American traditions of the beginning of the past century. But instead of a chewing gum - big wins, ",
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Golden Lemon Deluxe",
+        "identifier": "belatra:GoldenLemonDeluxe",
+        "identifier2": "lemon_deluxe",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 95.59,
+        "description": "Do you know what online slot machines most often get to the TOP popular slots among players? No, not slots with a variety of complex bonuses, and not even games with the most spectacular graphics. For many years online casino’s gambling guests have called the classical “fruit” slots to be the most favorite ones. Their history began more than a hundred years ago, when a ban on slot machines was declared in the USA, and they were disguised as gum machines. Golden Lemon DeLuxe is the symbol of those American traditions of the beginning of the past century. But instead of a chewing gum - big wins, of co",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Green Grocery",
+        "identifier": "belatra:GreenGrocery",
+        "identifier2": "vgt25",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 92.08,
+        "description": "The company \"BELATRA\" - for a healthy lifestyle! And when is to start it, if not in the summer, when everywhere we are surrounded by ripe fruit, fresh vegetables and beautiful greens! But if you do not want to go far to the market for behind it this useful harvest, we have a simple solution! We suggest you go to the best greengrocer in his wonderful vegetable shop in the game Green Grocery. Here It is full of juicy fruits, vegetables for every taste and a sea of greenery (and not only edible)! Here you will get not only a charge of positive emotions, but also chic winnings in bonuses.\n",
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Halloween",
+        "identifier": "belatra:Halloween",
+        "identifier2": "halloween",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 92.29,
+        "description": "Halloween is a holiday that becomes more and more popular every year in many countries around the world. On October 31, on All Saints' Eve, houses and apartments are decorated with cobwebs and ghosts, pumpkins with ominously burning candles and small spiders that are scattered around the house ... And little Frankensteins, witches and werewolves go trick-or-treating...\n",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 300,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Halloween Crystals",
+        "identifier": "belatra:HalloweenCrystals",
+        "identifier2": "digger_halloween",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94.23,
+        "description": "Remember our new friend - a funny and very hardworking digger? He works day and night underground, without days off and holidays, mining more and more crystals. And even on the eve of All Saints' Day, he goes down to find the most beautiful crystals, the brilliance of which cannot be hidden even by a huge black web. Nothing can stop our digger from doing what he loves! Will you keep him company? Spend Halloween bright, fun and unforgettable - in the new online slot from Belatra Games Halloween Crystals! Go down to the dungeon and fear nothing!",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-10-14T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Halloween Jackpot",
+        "identifier": "belatra:HalloweenJackpot",
+        "identifier2": "halloween2",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 94.11,
+        "description": "Halloween is one of the most atmospheric holidays in the world! On October 31, on the eve of All Saints Day, houses and apartments are decorated with cobwebs and ghosts, bright pumpkins with ominously burning candles in them and small spiders, which are scattered throughout the house ... And little Frankensteins, witches and werewolves wander the streets, collecting candy in buckets ... And of course, now is the time to start preparing for this holiday. Draw a scary ghost on the sheet, cut pumpkins and decorate your home with skulls and skeletons! But if you absolutely do not have time for all these complex preparations, and you want to feel the incredible atmosphere of Halloween, Belatra Games has a great solution! Welcome to the new online slot Halloween Jackpot!",
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Highway Stars",
+        "identifier": "belatra:HighwayStars",
+        "identifier2": "highway25",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 92.54,
+        "description": "The roar of the engine, the smoke from under the wheels, the adrenaline in the blood, the wind in your face and the smooth road for your favorite motorcycle - this is how we always draw the image of a biker. Beard, sunglasses, hard hats, skulls and Harley - if you imagine bikers like that, the new online slot of BELATRA is specially for you!",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Hot Wild Pepper",
+        "identifier": "belatra:HotWildPepper",
+        "identifier2": "hot_wild_pepper",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 95.59,
+        "description": "Hot Wild Pepper is a classic slot game with the most famous symbols in the history of slot machines. The game supports desktop and mobile versions.",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2022-02-03T00:00:00.000Z",
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Caterpillars",
+        "identifier": "belatra:HungryCaterpillars",
+        "identifier2": "worms",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.02,
+        "description": "Hungry Caterpillars - the good old game of Belatra games now is available online.A green meadow is inhabited by some not really friendly creatures: a hungry caterpillar which is craving to eat its apple, a hungry frog which wants to eat caterpillar, and patient crow which wants the frog for a meal.The good news is that caterpillar is not the most pathetic inhabitant of the meadow. Point on the best side of an apple and the caterpillar will not stay indebted!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Icy Fruits",
+        "identifier": "belatra:IcyFruits",
+        "identifier2": "icy_fruits",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 95.36,
+        "description": "Far-far away, in the Ice Mountains...fruits live! Unexpected, right? And these heat-loving lemons and cherries, and oranges with watermelons live, frozen in ice. And only the warmth of your winnings can remove this icy \"curse\" from them. Are you ready to help tasty fruits, and at the same time earn a couple of \"lemons\" for yourself? Belatra Games invites you to an exciting journey to the Ice Mountains - to the new winter online slot Icy Fruits! Try our new \"Iced Fruit Cocktail\" and be convinced that it is simply impossible to tear yourself away from it!\r\n\r\nColorful and bright, saturated with frosty freshness, this online slot machine will not leave indifferent any player! 20 pay lines, intuitive rules and a user-friendly interface - what else is needed in order for the slot to take a confident place in your personal TOP of games? Each player can easily choose the optimal pace of the game, favorite take and even the language in which it is more convenient to play. And there really is plenty to choose from: the Icy Fruits online slot has been translated into 14 languages of the world, so it will be available to players of all continents. Traditionally, the new winter online slot BELATRA can be played in two ways: for free, directly on our website, or online for real money in an online casino. Look for the Icy Fruits slot on the sites of our casino partners!",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2020-12-16T00:00:00.000Z",
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Jewels",
+        "identifier": "belatra:Jewels",
+        "identifier2": "jewels10",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92.48,
+        "description": "As you know the best girls friends are diamonds. And the best friends of all gambling fans are pearls. And rubies. And emeralds. Precious stones are always beautiful. And if they are getting together and bring great wins, it's just perfect!\n\nThe most precious slot is Jewels (Stones) - the online slot from Belatra. It's incredibly easy to play for free and without registration in our online casino. Like all online slots BELATRA GAMES this game supports 11 languages ​​of the world, including English, Spanish, German, Russian and many others, and also has high quality HD graphics, original soundtrack and a whole set of interesting additional game",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Jingle Bells",
+        "identifier": "belatra:JingleBells",
+        "identifier2": "s_jingle_bells",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 89.25,
+        "description": "Probably there is no one among us who has never heard one of the most popular Christmas songs “Jingle Bells” thatwas written in 1822-1823 by an American songwriter and composer James Lord Pierpont. No matter when you hear this melody - in the middle of a cold winter or at the height of a hot summer, it always evokes an association with Christmas and New Year’s holidays. Since it was written, this song has been translated into many languages, repeatedly covered by various performers and it always creates a joyful, positive and festively romantic mood for the liste",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "J. Monsters",
+        "identifier": "belatra:JMonsters",
+        "identifier2": "monsters",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 95.36,
+        "description": "Monsters are unique creatures: everyone is afraid of them, but is there anyone who hasn't ever dreamed of meeting such a creature? If the terrifying Yetis living in the most impassable places of snow-covered mountains do not attract you, if you are not going to Scotland to see the Loch Ness monster, if you are not eager to wait for the full moon to meet the Werewolf, then we've got a great, bright and absolutely not scary way for you to meet monsters! Welcome to the new BELATRA online slot J. Monsters",
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Just A Bingo",
+        "identifier": "belatra:JustABingo",
+        "identifier2": "bingo",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "lottery",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 90.01,
+        "description": "Slots, poker, roulette - these kinds of gambling have become a real classic in online casinos long ago. Every day millions of bets are made in online slots, thousands of card deals give gains to poker fans, tens of thousands virtual balls fall on red in online casinos video-roulettes... But sometimes you want something new, original, unusual...\n",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "King of Jumping Scratch",
+        "identifier": "belatra:KingOfJumpingScratch",
+        "identifier2": "lotto_scratch_frog_discount",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 95,
+        "description": "One of the most famous fairy tales in the world is the story of the Frog Princess. More than 20 years ago, it was this fairy tale that inspired the developers of the BELATRA company to create the Princess Of Swamp slot game, which instantly became incredibly popular among players and has not lost its position ever since. And now it was decided to create a sequel - a scratch game in a lottery format with simple rules, a favorite bonus and an intuitive interface. Welcome to King Of Jumping Scratch game!",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lavish Joker",
+        "identifier": "belatra:LavishJoker",
+        "identifier2": "joker",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 94.7,
+        "description": "Creating a new slot, the developers of the company \"BELATRA\" always study the interests of the players. Love crime stories - please! More adventurous? We have such slots! Adherents of classic \"fruits\"? A whole bar of our \"fruit cocktails\" is waiting for you! Do you like fairy tales? And we have enough of these games! And how can you surprise a player whose main passion is ... gambling? This is exactly the task our developers and game designers faced, and they successfully coped with it, creating a new bright slot - Lavish Joker!\n\nLavish Joker is a colorful and vibrant online slot, the main character of which, of course, is the Joker. He is surrounded by many symbols of gambling. There are card suits, slot machine drums, and even poker chips! A simple, intuitive game available to players all over the world - it is translated into 14 languages of the world and is ready to captivate and enrich players from all countries and continents. Traditionally, you can try this slot in free mode - play without registration, download and SMS right on our website. And when you are convinced that the new BELATRA Lavish Joker slot is worthy to play for real money in this slot online, look for it on the sites of our casino partners.",
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lazy Monkey",
+        "identifier": "belatra:LazyMonkey",
+        "identifier2": "lazy_monkey",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 92,
+        "description": "At first glance, it may seem that all monkeys are very active and mobile animals. But it is not so. Especially lazy monkeys, who are too lazy to get a banana and protect themselves from a snake, live in hot tropical jungles... We will tell you about one of such incredibly lazy monkeys in the new Belatra Games online slot - LAZY MONKEY. Welcome to the virtual tropics - here you can not only help the monkey, but also get a great win by chasing snakes and collecting bright and tasty bananas! And if you are lucky enough to collect a whole bag of them, your winnings will be incredible!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "released_at": "2021-01-14T00:00:00.000Z",
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Legacy of Doom",
+        "identifier": "belatra:LegacyofDoom",
+        "identifier2": "book_legacy",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.5,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2022-02-24T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Local Pub",
+        "identifier": "belatra:LocalPub",
+        "identifier2": "localpub",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 94.19,
+        "description": "Sometimes when you are tired of work and daily routine, all you need is just to relax. And that evening you go to your favorite pub and suddenly realize that you don’t need much for ordinary human happiness - a glass of foamy golden beer, a portion of incredibly tasty red crawfish, a couple of delicious sausages and several rounds of “21” or “Fool” with friends. If you are also tired of problems and worries, we are happy to invite you to our wonderful “Local Pub” - the best place not only for relaxation, but also for great wins!\n\nIn the “Local Pub” we are happy to offer you everything you need for a wonderful mood: you will find snacks of all kinds and beer never stops flowing here. All that – it is bright and original symbols of the online slot. It is very easy and a great fun to play online slot machines for free! Besides, you can do it right here and right now on our website. If you want to play online slot machines for real money, you can always find BELATRA’s slots on the websites o",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Love Magic",
+        "identifier": "belatra:LoveMagic",
+        "identifier2": "lovem10",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92,
+        "description": "We added a new online slot!\n\nLove Magic is a bright, interesting game. Love, romance, magic - these words enchant and fascinate in all the languages ​​of the world. In this game so easy to feel this emotions again and magically become rich!\n\n10 lines, 5 reels with an unexpected for the slots theme of the magic of love - an excellent set for the game to become popular among the most diverse admirers of excitement - from conservatives to fans of something original. In addition, in our online slot machines you can play for free in 5 languages: Russian, English, Spanish, Lithuanian and Belarusi",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucie's Cats",
+        "identifier": "belatra:Luciesats",
+        "identifier2": "lucie",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 90.29,
+        "description": "Do you like cats? Meet Lucie - the main character of the new slot machine from BELATRA. Lucie loves cats! Lucie has 4 cats of different breeds and colors at home. However, sorry, of course, we were mistaken. Lucie lives in the cat's house. Because they are the rightful owners of this big house. Here they are allowed everything: eat the most elite food and frolic with mice, drag fish from the table and innocently play with a ball, hide in boxes and even break aquariums! Do you want to see the most real cat paradise? Then welcome to this amazing home - Lucie's Cats Online Slot.",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-09-16T00:00:00.000Z",
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Bank Robbers",
+        "identifier": "belatra:LuckyBankRobbers",
+        "identifier2": "bank_robbers",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 92,
+        "description": "Bonnie and Clyde. Anyone who loves crime stories knows these names. This world-famous couple of robbers was quite successfully raiding banks, robbing large stores, and was completely wrapped up in the romance of the underworld. Bonnie and her beloved Clyde run their criminal business beautifully and professionally, and their love story was so romantic and unordinary, that later many books and films were based on it. Belatra Games offers you its own version of this romantic and crime plot – a slot machine “Lucky Bank Robber",
+        "volatility_rating": "low-medium",
+        "has_jackpot": true,
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Drink in Egypt",
+        "identifier": "belatra:LuckyDrink",
+        "identifier2": "lucky10",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92.61,
+        "description": "All people love the continuation of something good! When we finish reading an interesting book, we really hope that there is a second volume. And after watching the exciting film, we look forward to the release of the second part. Continuation is always a pleasant meeting with your favorite heroes in a new environment. BELATRA Company has a great game, which is so fond of the players that it was decided to create a new unique modern slot for well-known characters.\n\nLucky Drink in Egypt - a funny story about the adventures of the cunning Devil and another no less brilliant hero. This time the story takes place not in the usual pub, but in hot Egypt. Charming Cleopatra is walking here at every step, the Sphinx cats sweetly lying on the sand, and behind each sand dune a sarcophagus with the treasures of the ancient Egyptian rulers is hidden. In general, what's not going to happen after a couple of glasses of cold beer drunk under the scorching African sun",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Drink",
+        "identifier": "belatra:LuckyDrinkOld",
+        "identifier2": "lucky_old",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 91.82,
+        "description": "We continue introdusing you with the most popular BELATRA´s games, which are available online now. Already there were reviews on the slot machine Piggy Bank (play online), Alcatraz online (play for free and without registration) and many others. And today we will speak about the game which is the main symbol of BELATRA GAMES. Meet the online version of the super popular slot - Lucky Drink! Cheerful, bright and incredibly charismatic Davil invites all lovers of excitement to look to him after a couple of beer glasses and check his fortune! To do this, the crafty devil prepared a lot of original games and bonuses for you",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Lucky Roulette",
+        "identifier": "belatra:LuckyRoulette",
+        "identifier2": "lucky_roulette",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "roulette",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 97.3,
+        "description": "A modern casino or a game club can not be imagined without a roulette. For its 200-year history, roulette has become the most popular gambling in the world, the most interesting and dynamic.\n\nThe game Roulette, developed by BELATRA, has long won popularity among players, and the slot machines with this game compete with many slot machines. Today we are happy to present your beloved Roulette in a new format - now online!",
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Marswood Party 2",
+        "identifier": "belatra:MarswoodParty",
+        "identifier2": "mars100",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 92.05,
+        "description": "Is there life on Mars? Not only one generation of astrophysicists asked this question. And while scientists refuting the hypotheses, BELATRA is already ready to answer this question: Mars has its own life! Bright, positive and stormy! Video slot Marswood Party has become a classic slot machine. This colorful original game, populated by merry characters, has become popular with many players. And now we are pleased to present the improved game Marswood Party in an online format!\n",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Master Of Gold",
+        "identifier": "belatra:MasterOfGold",
+        "identifier2": "gold",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.36,
+        "description": "Admit it, which of you doesn't dream of getting rich? You can work long and hard, become the president of a large company, make a lot of money - and finally lead the Forbes hundred! You can get a huge inheritance from your aunt from Brazil... You can win a big sum in the lottery... But it is much more fun and interesting to get tons of gold coins from the mysterious Master of Gold, a gray-haired old man who lives on the forest edge. If you are intoxicated by the bewitching shine of gold and the mysterious play of light in the facets of diamonds and emeralds, then you have a direct road to the new BELATRA online slot - Master of Gold. A bit strange, but infinitely charming owner of gold gladly invites everyone to an exciting game, in which absolutely everyone can win!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Master of Starz",
+        "identifier": "belatra:MasterofStarz",
+        "identifier2": "gold_bitstars",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "bitstarz",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.36,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Master of Xmas",
+        "identifier": "belatra:MasterofXmas",
+        "identifier2": "gold_xmas",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.3,
+        "description": "Main Features:\r\n- Large symbol in Free Games;\r\n- Bonus Game with the ability to win credits and \r\njackpots;\r\n- the minimum amount on the jackpots that remains \r\neven after the jackpot is drawn;\r\n- Purchase of Bonus or Free Games.",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-12-09T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Maya Mystery",
+        "identifier": "belatra:MayaMystery",
+        "identifier2": "maya10",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92,
+        "description": "Do you know how many years have passed since the sensational Mayan Calendar predicted the end of the world? 10 years! The end of the world did not take place, but interest in the history of the most ancient civilization does not stop to this day. The books have been written, the films have been made, and the games are in progress. The collection of Belatra Games games already has a game in this style - #BuyBonus Of Maya - a bright online slot with the ability to buy bonus games at any time during the game. And now we offer you a new slot - MAYAN BOOK - original, colorful, modern, with unexpected bonuses and a new special #CraftBonus option. Intrigued? Then welcome - Maya are waiting!\n",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Mayan Book Multi Choice",
+        "identifier": "belatra:MayanBookMultiChoice",
+        "identifier2": "maya3",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92.29,
+        "description": "Do you know how many years have passed since the sensational Mayan Calendar predicted the end of the world? 10 years! The end of the world did not take place, but interest in the history of the most ancient civilization does not stop to this day. The books have been written, the films have been made, and the games are in progress. The collection of Belatra Games games already has a game in this style - #BuyBonus Of Maya - a bright online slot with the ability to buy bonus games at any time during the game. And now we offer you a new slot - MAYAN BOOK - original, colorful, modern, with unexpected bonuses and a new special #CraftBonus option. Intrigued? Then welcome - Maya are waiting!",
+        "volatility_rating": "very-high",
+        "hd": true,
+        "released_at": "2021-04-12T00:00:00.000Z",
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Monkey Jackpot",
+        "identifier": "belatra:MonkeyJackpot",
+        "identifier2": "monkey",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.35,
+        "description": "3 and more Scatters award Free Games.In Free Games 3x3 reels and 5 lines are used.The five biggest symbols on line in Free Games award one of the jackpots. For a series of Free Games it is possible to win all 5 jackpots . After the jackpot drawing there is a minimal sum remains.You can increase your winnings in risk game which you can choose in setup or switch it off.",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "MWA",
+        "identifier": "belatra:MWA",
+        "identifier2": "mwa",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.01,
+        "description": "Boxing is one of the most popular sports in the world. And among combat sports, it is definitely in the TOP list of contact sports. Besides, the passion for boxing can be very different - from participation in competitions and championships at different levels (both amateur and professional) or attending such events to the interest in sports betting. But what about trying to combine all the above in one even without leaving your home? Seems impossible? Don’t be so skeptical! Play BELATRA online slot “MWA”, and you will understand that everything is possible in the world of online ",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Neon Bar",
+        "identifier": "belatra:NeonBar",
+        "identifier2": "lt_neon",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 86.37,
+        "description": "If there are slots in the gaming world that all players know about, then these are definitely \"fruit\" slots. Once they used to be mechanical \"one-armed bandits\" that operated not only in casinos, but also in many other places throughout the USA. Precious \"cherries\" and \"lemons\" gathered in a line and brought a chewing gum as a win to a player. Oh yes, it was a chewing gum that was given to the winner as a prize during the ban on gambling activities in the US.\n\nOver the time, not only the prize in the form of a simple chewing gum was replaced with real money, but also slot machines switched from mechanical to electronic format, they received colorful graphics and a lot of various bonuses. But the \"fruit\" theme is eternal, it is still popular and beloved among players. BELATRA’s slot machine “Neon Bar” is modern classics. Favorite symbols in a new stylistic solution - the original bright neon will not let players get bored in this gamin",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 300,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Neptune's Kingdom",
+        "identifier": "belatra:NeptunesKingdom",
+        "identifier2": "neptune20",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 92.63,
+        "description": "The sea is fascinates. It’s mesmerize people with depth, vast expanses, unique beauty and, of course, its bright inhabitants. But few people know that in addition to colorful fish, friendly dolphins, giant octopuses and leisurely turtles, there are other inhabitants in the sea. And even their rulers...\n\nSomewhere in the inaccessible to man depths the sea king Neptune lives. He rules unchallenged in the water area of ​​our planet and beautiful Mermaid joyfully help him manage the Kingdom. You can easily get acquainted with these and many other characters if you decide toplay online Neptune's Kingdom BELATRA slot machine for free and without registration on our site or playing online for real money on many Internet sites.\n\nThe structure of this video slot is simple and understandable to any player: classic 20 lines and 5 reels with a height of 3 characters. A lot of colorful heroes, original animation and thematic sound design of the game will not leave indifferent any fan of gambling. And the opportunityoose one of 11 languages ​​makes this slot truly internatio",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "New Year Monkey Jackpot",
+        "identifier": "belatra:NewYearMonkeyJackpot",
+        "identifier2": "monkey_ny",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.35,
+        "description": "Have you ever celebrated the New Year in the hot tropics? No? But in vain! It is very unusual! Hot yellow sand mixed with cold snow, not only vines but also icicles hang from the trees, and fluffy Christmas trees, decorated with all kinds of balls and garlands, live next to the palms. Isn't it unusual? And you can arrange such a New Year for yourself anytime and anywhere! Launch the new BELATRA online slot New Year Monkey Jackpot, where toucans wrapped in tinsel and all kinds of monkeys in funny Santa hats are waiting for you. Happy and warm New Year in every sense!\n\nOnly pleasant surprises should happen in the New Year, so the monkeys are happy to invite you to spin the reels of this slot and try your luck. It has 5 classic reels with 25 classic lines - the golden mean for slot games. A funny joker - an orangutan with a Hollywood smile - will replace any symbols to make the most successful ",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Northern Boom",
+        "identifier": "belatra:NorthernBoom",
+        "identifier2": "northern_boom",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 94.3,
+        "description": "3 scatter symbols on the reels award Free Games. In the Free Games, 1 large symbol on the 3 central reels replaces 9 small ones. If you get 6 or more special credit-symbols, a Bonus game is awarded, in which you can win credits and jackpots.",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-12-29T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Ocean Bed",
+        "identifier": "belatra:OceanBed",
+        "identifier2": "oceanbed",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 94.19,
+        "description": "More than 250 countries get along quite peacefully on land. But have you ever wondered what happens in the depths of the ocean in the meantime? They also have their kingdoms and rulers. Some kingdoms are ruled by powerful representatives of the animal world, and some - by mysterious characters. A story about one of such kingdoms will be told in a 5-reel slot “Ocean Bed”. Despite the stern look and unshakable reputation, the sea master Neptune is a very cheerful character who will not let you get bored and will surely pack a couple of bags with sea gold for your tr",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Persian Nights 2",
+        "identifier": "belatra:PersianNights",
+        "identifier2": "pers100",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 92.66,
+        "description": "We all grew up with fairy tales. And if the stories about Red Ridden Hood, Pinokio and Cinderella are familiar and known almost by the heart, Eastern fairy tales always arouse interest, admiration and anticipation of magic. Especially when the night falls on a small town in the story...\n\nWe invite you to the atmosphere of \"1000 and 1 night\" by playing the new Belatra slot machine Persian Nights online. The king lives in a cozy eastern city, sparkling in the night with golden domes of magnificent palaces and temples. Next to him are always his loyal servants and tame lions. His treasuries are strewn with pearls, stones and other riches. But the main treasure of the king is a magic lamp...",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Piggy Bank",
+        "identifier": "belatra:PiggyBank",
+        "identifier2": "piggy_old",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92,
+        "description": "The bank robbery is one of the most interesting detective stories. A lot of books and films have been made about this. But you can be not only an outside observer, but also participate in the robbery process! And it’s absolutely legal... Meet the most famous and most loved detective slot by the players! \n\nNow BELATRA’s online game Piggy Bank in our online casino! Does the robbery of the century together with the crafty robber Jimmy, hide from the police and get a tidy sum in our classic slot Piggy B",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Piggy Bank Scratch",
+        "identifier": "belatra:PiggyBankScratch",
+        "identifier2": "lotto_scratch_piggy_discount",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "lottery",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 85,
+        "description": "Scratch games that resemble instant lotteries are not as widely known among online casino players as, for example, slots, poker, roulette or bingo games. Although scratch games are very fun and always intuitive. And if you choose the right style and design, then the game will be simply doomed to success. This is how the new game from Belatra Games was created - PIGGY BANK SCRATCH. Combining all the best from the most popular Piggy Bank slot and an interesting idea of the lottery format, this game is ready to become a favorite of many players around the world!",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Pirate Jackpots",
+        "identifier": "belatra:PirateJackpots",
+        "identifier2": "pirate_jackpots",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 92.13,
+        "volatility_rating": "very-high",
+        "has_jackpot": true,
+        "hd": true,
+        "bonus_buy": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Prehistoric Story",
+        "identifier": "belatra:PrehistoricStory",
+        "identifier2": "prehistoric",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 94.12,
+        "description": "Prehistoric Story is modern video slot based on the most ancient theme of the prehistoric era. It combines successfully themed sound effects, colorful characters, classic number of lines and lots of free games and card risk games! An interactive bonus will attract anyone who wants to visit the primitive hunting or just check his intuition in risk games.\n",
+        "volatility_rating": "medium-high",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Princess Of Swamp",
+        "identifier": "belatra:PrincessOfSwamp",
+        "identifier2": "frog_old",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 92.21,
+        "description": "What could be more wonderful than being in a fairy tale? You have a chance to find yourself in the real fairy tale with the online game Princess of Swamp, at the end of the story the frog turns into a beautiful princess, and you into a rich man! Now you can play online slot Princess of Swamp for free and without registration. Try your luck!\n",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 36,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Seadogs Story",
+        "identifier": "belatra:SeadogsStory",
+        "identifier2": "pirates20",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 92,
+        "description": "Pirate stories are always breathtaking and amazing. If you at once dreamed about a stormy sea, about a gusty wind with a salty taste of the sea, about treasure chests, then we know how to realize your dream in reality!\n\nSeadogs Story - online slot game from BELATRA. You can play for free and without registration on our website. Bright, atmospheric, fascinating - it's a video slot that tells you the story of one pirate ship...\n\n5 reels of 3 symbols each, 20 game lines - the game Seadogs Story is made in the best traditions of slots. In addition to the main game, there are several different bonuses and risk-games that will not let the player get bored and will increase the winnings. Like all BELATRA´s games, this online gaming machine is available in 11 languages: English, Spanish, French, Russian, German and many others",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Seven Fruits",
+        "identifier": "belatra:SevenFruits",
+        "identifier2": "seven_fruits",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 95.36,
+        "description": "There is eternal classics everywhere – in music, movies and clothes. And even slot machines have their own timeless classics. What immediately comes to your mind when you imagine a slot machine? Of course, “fruits” and “sevens”. What started the history of the slot machine 100 years ago, exists to this day and has millions of fans around the world. But even the most “classical classics” can’t remain unchanged. It improves, changes and modernizes. That is how the new BELATRA “7 Fruits” online slot appeared. Meet the traditional fruit cocktail machine w",
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Sevens",
+        "identifier": "belatra:Sevens",
+        "identifier2": "sevens",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 94,
+        "description": "There is a variety of games in BELATRA’s collection of online slot games - from classical to the most modern slots. The most traditional slot game i\"Sevens\". You can play this online slot machine for free and without registration on our website! “Sevens” is a classical slot game and its design reminds of the fi\"one-armed bandits.\" It has 5 lines and the most famous symbols in the history of slot machines - \"sevens\", \"cherries\", \"oranges\", \"bar\" and others. How long have you wanted to play “777” for free? The time has come",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Shogun's Fortune",
+        "identifier": "belatra:ShogunsFortune",
+        "identifier2": "shoguns_fortune",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 91.06,
+        "description": "The history of Japan is full of secrets and mysteries. Its culture is surprising and fascinating. And the traditions of this country are sometimes so incomprehensible, but so attractive. Today, the land of the rising sun is one of the most technologically advanced countries. But if you close your eyes for a second, and you can fly back into the past... There, where it all began... Where samurai bravely fought on their Japanese swords ... Where geisha with snow-white faces and scarlet bows-lips entertained their guests with dances and singing ... Where the cherry blossoms bloomed ... Where the history of modern Japan was created ... The time machine has not yet been invented, so we invite you to fly back in time with our new online slot Shogun's Fortune! Yokoso!",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-05-27T00:00:00.000Z",
+        "multiplier": 250,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Sic Bo",
+        "identifier": "belatra:SicBo",
+        "identifier2": "sic_bo",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "craps",
+        "has_freespins": false,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 97.22,
+        "description": "SIC BO\nThe history of the game Sic Bo dates back to ancient China. In translation, the name of the game literally means \"a pair of cubes\". It would seem that there is nothing easier than guessing that a pair of dice with numbers will decide the outcome of the game. But no! There are not two cubes in the game, but three. Otherwise, this game resembles the principles of roulette.\n\nThe essence of the game is to guess the amount of points that fall on 6-sided dice with numbers. In each game, three dice are thrown, and the player preliminarily makes bets on the numbers that will appear in this game. In this case, the player places his chips on numerous sectors of the playing field. The sectors correspond to the different types of rates that we will now get to know.",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Catch & Snatch",
+        "identifier": "belatra:SmackMe",
+        "identifier2": "smack_me",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94.06,
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2022-02-10T00:00:00.000Z",
+        "bonus_buy": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Spanish Armada",
+        "identifier": "belatra:SpanishArmada",
+        "identifier2": "armada100",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 100,
+        "payout": 92,
+        "description": "Meet a new online-slot from BELATRA - The Spanish Armada!\n\nThe Spanish Armada is a bright and dynamic game that tells us the story of the great battle of the Armada Invincible with the ships of the English fleet. Due to an incredible number of lines (there are 100 the game!), winnings will fall out very often!\n\nIn this game you will find the original free-games and risk-games will increase the chances of win! If you want to play online slot games for free and without registration, The Spanish Armada is your perfect choice!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Super Sevens",
+        "identifier": "belatra:SuperSevens",
+        "identifier2": "sevens2",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 94,
+        "description": "Classic style is always in trend – whether it’s films, clothes and even slot machines! In the online collection of BELATRA games the most traditional slot ga\"Seven\" appeared. You can play online for free and without registration on our site!\n\nSuper Sevens is classic slot game, which resemblethe first slot machines because of their design. There are only 5 lines and the most famous symbols in the history of slot machines - \"seven\", \"cherries\", \"oranges\", \"bar\" and others. Have you wanted to play for 777 for free? The time has come! SuperSevens has simple and intuitive interface, it’s suitable for players with any experience in slot games. Just click o\"START\" - and the drums will spin, stopping at some point and making up the winning combinations.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Super Sevens Happy Wheel",
+        "identifier": "belatra:SuperSevensHappyWheel",
+        "identifier2": "lt_sevens2",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 86.19,
+        "description": "Gambling has always been common to a human - from ancient times to present days. Over millions of years games of chance have changed a great deal and transformed, they have become more complex, diverse and interesting. But each era had such gambling games that became real classics and never lost their popularity. A mix of the most popular games of chance during their entire history is presented in a new game – “Super Sevens Happy Whee",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Elusive Gonzales",
+        "identifier": "belatra:TheElusiveGonzales",
+        "identifier2": "mex_old",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92,
+        "description": "The Elusive Gonzales is a bright, colorful, dynamic online slot with colorful characters!\n\nThe actions take place in the country of tequila, sombrero and cacti in a human growth. A Mexican temperament slot game combines a classic slot with a lot of gangster bonuses and risk-games! You can play online on The Elusive Gonzales in many online casinos!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "88 Golden 88",
+        "identifier": "belatra:TheGolden88",
+        "identifier2": "golden88",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 8,
+        "payout": 92.61,
+        "description": "Everything should be according to Feng Shui: furniture in the apartment, books on the shelves and even games in slot machines. If you belong to the adherents of this Eastern practice and love classic slots, then you are in the right place and you will surely enjoy BELATRA’s online slot machine “88 The Golden 8",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 750,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Moneymania",
+        "identifier": "belatra:TheMoneymania",
+        "identifier2": "moneymania",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 90.32,
+        "description": "\"In God We Trust\" is written on every 1 dollar banknote of the United States of America. \"In Money We Trust\" – is a slogan of the new online slot from Belatra Games. This is a game with money, for money and about money. To be precise, it’s about the currency in which 80% of the world trade is calculated - the US Dollar. If coin ringing from the treasure hunting adventure games no longer attracts you, welcome to our online slot game “The Moneyma",
+        "volatility_rating": "medium",
+        "has_jackpot": true,
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Night Racing",
+        "identifier": "belatra:TheNightRacing",
+        "identifier2": "night_racing",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 94.41,
+        "description": "The city falls asleep, wake up ... street racers! Night racing is its own special, absolutely amazing world, full of adrenaline, drive and romance. The roar of engines and the screeching of brakes, maximum speed on the speedometer and the smell of burned rubber, neon signs of the city and blinding headlights, fearless and charismatic racers, beautiful and charming queens of the race ... Admit it, for sure at least once in your life you wanted to experience these vivid emotions and plunge headlong into the incredible atmosphere of night racing? Then welcome to the BELATRA online slot The Night Racing! Perfect detailing and maximum realism - this game is captivating and mesmerizing from the first seconds! Ready for the most amazing adventure of your life? 3… 2… 1… GO!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Smart Rabbit",
+        "identifier": "belatra:TheSmartRabbit",
+        "identifier2": "garden20",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 92.11,
+        "description": "Very soon there will come a long-awaited summer - the time of leave, sun and heat. Someone heading off seaward to warm countries, but someone prefers a quiet cottage, surrounded by beautiful flowers and trees. And, of course, garden beds!\n\nIf instead of the scorching sun and crowds of tourists you prefer the second option of rest, then you can start right now by playing a new slot machine BELATRA online The Smart Rabbit. You can play for free without registration on our website. Also we invite you to play this BELATRA slot machine for real money in the online casino of our partners.\n\nAnd so that you do not get bored in our virtual dacha, we offer you a fascinating adventure - to expel a smart Rabbit, who encroaches not only on the garden beds, but also on stocks in the warehouse...",
+        "volatility_rating": "low-medium",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Wildlife",
+        "identifier": "belatra:TheWildlife",
+        "identifier2": "wildlife3",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 96.15,
+        "description": "Photographer's profession is one of the most interesting in the world. Don’t you believe? Well, judge for yourself. Only a photographer is always in the center of various events. Through the lens of his camera he watches a sports match from the best grandstand, at a rock concert he always comfortably settles down in a special sector for the press and when going to take a series of photos of wild animals, he gets to the most mysterious places of our planet. Intrigued? Would you like to be in his shoes? Then “The Wildlife” video slot is for",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 180,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "The Wildlife 2",
+        "identifier": "belatra:TheWildlife2",
+        "identifier2": "wildlife2",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 92.15,
+        "description": "Wildlife always fascinates and charms. With its boundless open spaces, unique beauty and incredibly vivid inhabitants. And it’s no surprise that everyone wants to see wild animals in their natural habitat - brown bears from the Siberian forests, exotic snakes from the African savanna and noble tigers from tropical places. Ideally, not just to see, but also to take a photo",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1500,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Venetian Rain",
+        "identifier": "belatra:VenetianRain",
+        "identifier2": "venice",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 92.28,
+        "description": "Venice is always associated with water - the city is located on the islands of the Venetian lagoon separated by multiple canals, and it often rains here... But if the water element does not inspire you at all, and Venice does not seem to you to be the best place to travel, then we’ll be glad to over-persuade you",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 200,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Win Shot",
+        "identifier": "belatra:WinShot",
+        "identifier2": "lt_shot",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 91.94,
+        "description": "The history of a gaming machine began a long while, more than 100 years ago, in the United States of America. The first, most simple, slot machines appeared in the bars of San Francisco and very quickly became popular with the city-folks. A few days later, these machines were called \"one-armed bandits.\" \"One-armed\" - because to start the reels you had to pull down a special lever that looked like a hand, and \"bandits\" - because they would rather pump out money from people than let them win. In the future this name only got stronger, since the gambling activity in the US of the 1930s was going side by side with real bandits — gangsters. It happened so that the sound of spinning reels was easily combined with the sound of gun shots ... That prompted BELATRA Company to create a new online slot machine – “Win S",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "X-mas Gifts",
+        "identifier": "belatra:XmasGifts",
+        "identifier2": "digger_xmas",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "payout": 94.23,
+        "description": "Main Features:\r\n- Cascade Reels\r\n- Counting winnings by the number of \r\nsymbols\r\n- Purchase of Free Games\r\n- Multipliers in Free Games\r\n- Maximum number of Free Games is \r\n300\r\n",
+        "volatility_rating": "high",
+        "has_jackpot": true,
+        "hd": true,
+        "released_at": "2021-12-16T00:00:00.000Z",
+        "multiplier": 10000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    },
+    {
+        "title": "Zombie Town",
+        "identifier": "belatra:ZombieTown",
+        "identifier2": "zombie_town",
+        "provider": "belatra",
+        "producer": "belatra",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 10,
+        "payout": 97.2,
+        "description": "\"It was the most ordinary evening, nothing foreshadowed trouble... I left the house and noticed a strange movement nearby. A man passed by. I called out to him. He turned and I froze with horror. A deathly pale face, empty eye sockets ... Before me stood zombies... \"- this is how many stories about the zombie apocalypse begin. Having appeared more than 50 years ago, they do not give up their positions today. Books are published in hundreds of languages and printed in millions of copies. Movies one after another become blockbusters... It's time to create a game where you can feel like a participant in the post-apocalypse events and fight with the real living dead! Welcome to Zombie Town!\nZombie Town is an incredibly atmospheric BELATRA online slot. It has its own storyline and vivid characters, excellent graphics and chilling sound effects. Having started playing the Zombie Town BELATRA slot machine online, it is impossible to stop. After all, this is a double passion - to escape from zombies and earn a good amount at the same time. Do you want to try Zombie slot for free without registration, SMS or download? Play directly on our official website free-slot.belatragames.com. Are you ready to take the risk and start playing big right now - play online for real money in Zombie Town? Nothing could be easier! Our partners - online casinos around the world - will easily provide you with this opportunity. The game has been translated into 14 languages of the world, so everyone can fight zombies!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "blacklist": []
+            }
+        }
+    }
+]

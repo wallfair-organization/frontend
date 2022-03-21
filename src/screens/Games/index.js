@@ -186,7 +186,10 @@ const Games = () => {
           'augustgaming',
           'merkur',
           'blueprint',
-          'kiron'
+          'kiron',
+          'igtech',
+          'belatra',
+          'bsg'
         ].includes(provider) ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory, provider) : [];
         // ['all', 'bgaming', 'evolution','yggdrasil', 'wazdan','1spin4win','thunderkick','playngo','slotmill','merkur'].includes(provider) ? prepareSoftSwissGames(SOFTSWISS_GAMES, gameCategory, provider) : [];
       // let ret = [];

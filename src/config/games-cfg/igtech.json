@@ -1,0 +1,1262 @@
+[
+    {
+        "title": "Aladdin",
+        "identifier": "igtech:Aladdin",
+        "identifier2": "vs50persianprince",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96.58,
+        "description": "Help the mischievous Aladdin stack the symbols on reels and find the Djinn's Lamp in Aladdin, the 4x5, 50 lines video slot. Once you discover the lamp, you can summon the Djinn and win up to 10,500 bonus points or enter the Free Spins round to pile up your wins in up to 50 free spins with 2x multipliers.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 745,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Amazing Kong",
+        "identifier": "igtech:AmazingKong",
+        "identifier2": "vs50amazingkong",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96.64,
+        "description": "Attack the giant gorilla in his own lair in Amazing Kong, the 4x5, 50 lines videoslot. If WILD is on the middle reel it expands to fill the whole reel and when you get the chance to meet Amazing Kong himself, he will take you on journey around the world in the Free Spins round, where you can select up to 40 Free Spins and up to 8x multiplier.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 955,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Ancient Giants",
+        "identifier": "igtech:AncientGiants",
+        "identifier2": "vs4096ancients",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 4096,
+        "payout": 96.03,
+        "description": "Explore the prehistoric jungles in Ancient Giants, the 4x6, 4096 ways to win videoslot. The fight is on between the fearless T-Rex and the mighty Mammoth. Hit the stacked Scatter symbols on all reels to win up to 250 free spins. And when the beasts meet in the free spins round, they multiply the total win of the spins by up to 5x.",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 15552,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Aztec Eclipse",
+        "identifier": "igtech:AztecEclipse",
+        "identifier2": "vs25eclipse",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.5,
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 99999,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Blue Reef",
+        "identifier": "igtech:BlueReef",
+        "identifier2": "vs25bluereef",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.64,
+        "description": "The stirring crowd of the deep ocean is watching out for the great shark. Meet the inhabitants in Blue Reef the 5 Reels, 25 Lines videoslot. Dive deep into the blue to hunt for pearl oysters to get up to 33 freespins and 6x multiplier in the Pearl Hunter Free Spins round.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Caishen's Fortune",
+        "identifier": "igtech:CaishensFortune",
+        "identifier2": "vs243caishen",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "ways": 243,
+        "payout": 97.08,
+        "description": "The God of Wealth is smiling upon you in Caishen's Fortune, the 3x5, 243 ways to win videoslot. Caishen is wild and every time it`s on the screen, it can randomly award the Jackpot Bonus Games where you have to pick and reveal items to win one of the awards. In Free Spins, all small value symbols are removed from the reel strips for extra big wins!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1378,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Candy Rush",
+        "identifier": "igtech:CandyRush",
+        "identifier2": "vs20candyrush",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.52,
+        "description": "Get your sweet tooth ready it's a Candy Rush! Candy Street is now open for business and you are invited to take part in the festivities. The candy stores have set out their goodies on 20 lines. Line up the Gummy Bears to win up to 20 free spins. The Gingerbread Man is WILD and helps you pile up more sugar. If you encounter the special Cupcakes, you are in for a treat in the Candy Shop bonus game, where you can fill up on sweets and win up to 9,000 Bonus Points.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 20000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Candy Rush Summer Time",
+        "identifier": "igtech:CandyRushSummerTime",
+        "identifier2": "vs20candyrushs",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.52,
+        "description": "Cozy afternoons, fun in the sun and relaxing cocktails await in Candy Rush  Summer Time. The Summer Fair on Candy Street is now open for business and you are invited to take part in the festivities. The candy stores have set out their goods on 20 lines. Line up the Scatter Beach Balls to win up to 20 Free Spins. The Gingerbread Man is WILD and helps you pile up more sugar. If you encounter the Cocktail, you are in for a treat in the Candyland Bonus Game, where you can fill up on sweets and win up to 9,000 Bonus Points.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 20000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Candy Rush Valentine's Day",
+        "identifier": "igtech:CandyRushValentinesDay",
+        "identifier2": "vs20candyrushv",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.52,
+        "description": "Love is the air! It's Candy Rush Valentine's Day. Candy Street is now open for business and you are invited to take part in the festivities. The candy stores have set out their goods on 20 lines. Line up the Scatter Hearts to win up to 20 Free Spins. The Gingerbread Man is WILD and helps you pile up more sugar. If you encounter the Heart Cupcakes, you are in for a treat in the Candyland Bonus Game, where you can fill up on sweets and win up to 9,000 Bonus Points.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 20000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Candy Rush Winter",
+        "identifier": "igtech:CandyRushWinter",
+        "identifier2": "vs20candyrushw",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.52,
+        "description": "The snow is falling and the ski lanes are open once again. The Holiday Spirit on running high on Candy Street. The candy stores have set out their goods on 20 lines. Line up the Scatter to win up to 20 Free Spins. The Gingerbread Man is WILD and helps you pile up more sugar. If you encounter the Bonus, you are in for a treat in the Candyland Bonus Game, where you can fill up on sweets and win up to 9,000 Bonus Points.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 20000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Chinese Dragons",
+        "identifier": "igtech:ChineseDragons",
+        "identifier2": "vs50chinesedragons",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 95.19,
+        "description": "As the Chinese Dragons soar the sky, the reels turn for amazing wins in the 4x5, 50 lines videoslot. The stacked dragons pay from two and up and you can win up to 40,000 when you hit them all. In the FREE SPINS feature, one WILD symbol is added on reels 2,3 and 4 before every spin and each SCATTER that hits during the round will award one more free spin!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 800,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Crazy Monkeys",
+        "identifier": "igtech:CrazyMonkeys",
+        "identifier2": "vs7crazymonkeys",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 7,
+        "payout": 92.71,
+        "description": "Get ready to stack primates in Crazy Monkeys, the 5 reel, 7 lines videoslot. Big line wins and up to 150 free spins with 3x mutiplier are ready for the taking. Monkey business? More like monkey riches.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 4500,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dragon Wilds",
+        "identifier": "igtech:DragonWilds",
+        "identifier2": "vs20dragonwilds",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.37,
+        "description": "Fly high in Dragon Wilds, the 3x5, 20 lines videoslot. The dragons are always stacked in groups of 2 and when they hit, the multiply the win by 2x. Make your own fortune in the Free Spins where the stacked dragons have a random multiplier up to 15x' based on your choice!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 7500,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Egyptian Tales",
+        "identifier": "igtech:EgyptianTales",
+        "identifier2": "vs20egypttales",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 94.11,
+        "description": "Egypt achieved amazing accomplishments throughout antiquity. Be part of their story in Egyptian Tales, a 20-line video slot. Keep an eye out for the two Wild symbols and decipher the hieroglyphs to uncover the treasure of the pharaohs in the Raiding the Pyramid Free Spins Round.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Enchanted Story",
+        "identifier": "igtech:EnchantedStory",
+        "identifier2": "vs15encstory",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.52,
+        "volatility_rating": "very-high",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Fairy Wings",
+        "identifier": "igtech:FairyWings",
+        "identifier2": "vs50fairy",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96.51,
+        "description": "The magical world of Fairy Wings, the 4x5, 50 lines videoslot, has opened its gates for you. Meet the royal family, stacked on all reels and choose your side in the struggle for the throne of the Pixie kingdom in the free spins round.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gangster Cats",
+        "identifier": "igtech:GangsterCats",
+        "identifier2": "vs9gangcats",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 98.1,
+        "description": "Meet the cat gang in Gangster Cats, the 3x5, 9 lines videoslot. The band of mischievous kitties pay everywhere you look, from left to right and right to left. During the Wild Night random expanded wild feature, wilds appear fully expanded horizontally on any combination of reels 1,2 and 3. Share the loot with the gang in the Free Spins round where all wins are multiplied by 4x.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 2251,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Gangster Cats 2",
+        "identifier": "igtech:GangsterCatsII",
+        "identifier2": "vs30gangcatstwo",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 30,
+        "payout": 96.07,
+        "description": "The gang is back in Gangster Cats 2, the 3x5, 30 lines videoslot. The Catfather and its acolytes pay both ways and on every spin, the WILD kittens can hit on random reels, expanding vertically to fill the whole reel. Catch the Bonus round where you can get 10 Free Spins with Random Wilds guaranteed to hit on every spin!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 5000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Genie Gone Wild",
+        "identifier": "igtech:GenieGoneWild",
+        "identifier2": "vs50wildgenie",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 96.53,
+        "description": "Genie Gone Wild is a 50 lines, 4x5 videoslot.  The Genie is stacked on all reels and substitutes for all symbols. When you find the magic lamp, he grants three wishes Raining Wilds Free Spins, Sticky Wilds Free Spins or a direct cash award.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 519,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Godiva",
+        "identifier": "igtech:Godiva",
+        "identifier2": "vs20gdva",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.54,
+        "description": "Relive the story of Godiva in the 3x5, 20 lines videoslot. The classic characters provide plenty wins on the stacked reels and during the Free Spins round you can pick one of the four options and try your luck in one of the highly exciting combinations.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 2400,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Golden Queen",
+        "identifier": "igtech:GoldenQueen",
+        "identifier2": "vs25goldqueen",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.5,
+        "description": "Follow the path to the treasure in Golden Queen, the 3x4 with WIN MULTIPLIER reel, 25 lines videoslot. To search the pyramid, select your lucky cell and hit the Queen symbol to gain points and continue your journey. As you progress the WIN MULTIPLIERS increase up to 100X  when you reach the Queen`s Chamber, in the Super Level! Riches are scattered all over the place, so hunt for the bonus symbols to win 10 FREE SPINS with the WIN MULTIPLIERS of the current level!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1520,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hercules",
+        "identifier": "igtech:Hercules",
+        "identifier2": "vs50herc",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 50,
+        "payout": 95.19,
+        "description": "Hercules, the great hero of the ancient world is stacked on all reels and pays from 2 and up in Hercules, the 4x5. 50 lines videoslot. Summon 3 Zeus symbols to be awarded the Free Spins round in which  WILDS are added on reels 2,3 and 4 before every spin and each Scatter hit during the round adds one more free spin!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 2000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hockey",
+        "identifier": "igtech:Hockey",
+        "identifier2": "vs20hockeyx",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 94.11,
+        "description": "Fire in your hearth and ice in your veins! Join the Hockey League, the 5-reel, 20 lines videoslot, and become the MVP in the Free Spins round where you can win up to 10 free spins with a mystery scatter symbol!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 5037,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hockey Wild Match",
+        "identifier": "igtech:HockeyWildMatch",
+        "identifier2": "vs9wildhockey",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 9,
+        "payout": 96.52,
+        "description": "The Wild Match is on in Hockey League, the 3x5, 9 lines videoslot. The teams are clashing from left to right and right to left and when The Gloves Are Off, wilds can fill the whole reels. Win the match in the Free Spins feature where all your wins are multiplied by 3x!",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 5037,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Hot 88",
+        "identifier": "igtech:Hot88",
+        "identifier2": "vs7hot88",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 7,
+        "payout": 95.47,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 902,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Inca Jewels",
+        "identifier": "igtech:IncaJewels",
+        "identifier2": "vs5incajewel",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 5,
+        "payout": 94.52,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1875,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Jungle Queen",
+        "identifier": "igtech:JungleQueen",
+        "identifier2": "vs25junglequeen",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.5,
+        "description": "Discover the treasure of the Amazons in Jungle Queen, the 3x5 + WIN MULTIPLIER reel videoslot. The jungle and it`s ancient temples are full of riches but also dangers! The WIN MULTIPLIER hit on the 6th reel applies to the total win of every spin. When you meet the Jungle Queen she will fill all the positions on the reel for extra big wins. And in the BLAZING REELS feature, reels 2, 3 and 4 spin together as a GIANT SYMBOL for GlANT WINS!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 4000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Karaoke",
+        "identifier": "igtech:Karaoke",
+        "identifier2": "vs15karaoke",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.38,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1396,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Leprachaun Gold Deluxe",
+        "identifier": "igtech:LeprachaunGoldDeluxe",
+        "identifier2": "vs25leprachaungold",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.47,
+        "description": "The lucky leprachauns are WILD in Leprachaun Gold Deluxe, the 3x5, 25 lines videoslot. Big wins await if you find the leprachaun treasure, and in the free spins round, before each spin, two more WILDS are added to the reels to stack them up for senzational wins!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Leprechaun Gold",
+        "identifier": "igtech:LeprechaunGold",
+        "identifier2": "vs25leprachaun",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.64,
+        "description": "Nibbles, Gibbles, Fillydook and Fenthwick have hidden their treasure on 25 lines while they are out partying. Let loose the WILD Cat to track the gold and capture the SCATTER Butterflies for clues' they know the way to the vault where you can win up to 33 free spins and a 6x multiplier.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 3000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Magic Gems",
+        "identifier": "igtech:MagicGems",
+        "identifier2": "vs243magicgems",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 243,
+        "payout": 96.36,
+        "description": "Prepare yourself for a trip into the world of shiny gems in Magic Gems, the 243 ways to win, 5-reel videoslot. All wild wins are multiplied by 2x and during the Free Spins round you can win up to 25 free spins with 3x multiplier!",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 459,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Magic Show",
+        "identifier": "igtech:MagicShow",
+        "identifier2": "vs20magicshow",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 96.08,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 3549,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Money Train",
+        "identifier": "igtech:MoneyTrain",
+        "identifier2": "vs3moneytrain",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 3,
+        "payout": 97.16,
+        "description": "Ride the Money Train, the 3x3, 5 lines videoslot. Earn the chance to board the train and win the progressive bonus where each wagon awards a random prize. Start with 5 wagons and collect UPGRADE golden tickets to add 5 more for each collected.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 513,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Monkey King",
+        "identifier": "igtech:MonkeyKing",
+        "identifier2": "vs25monkeyking",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.47,
+        "description": "Embark on the sacred Journey to the West alongside the classic heroes. Wukong, Xuanzang, Zhu and Sha are stacked in the 3x5, 25 Lines videoslot. Experience each character's adventures in the Free Spins round, where you can choose more of a symbol to be stacked on the reel strips and up to 5x multiplier!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 400,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Moon Goddess",
+        "identifier": "igtech:MoonGoddess",
+        "identifier2": "vs13moongoddess",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 13,
+        "payout": 96.52,
+        "description": "Explore the charm of ancient Chinese folktales in Moon Goddess, the 5 reel, 13 lines videoslot. Find Tschang O in the bonus game to win up to 3,300 bonus points or venture in the free spins round where you can win up to 13 free spins.",
+        "volatility_rating": "low",
+        "hd": true,
+        "multiplier": 1101,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Northern Gods",
+        "identifier": "igtech:NorthernGods",
+        "identifier2": "vs25northgod",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.48,
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 500,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Outback Heat",
+        "identifier": "igtech:OutbackHeat",
+        "identifier2": "vs25outback",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 95.54,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 12000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Queen and the Dragons",
+        "identifier": "igtech:QueenAndTheDragons",
+        "identifier2": "vs25dragonqueen",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.47,
+        "description": "Fight along the Queen and her dragons for glory and riches in Queen and the Dragons, the 3x5, 25 lines videoslot. All symbols are stacked and pay from 2 and up. When 3 Scatter portals open, choose you lucky symbol and multiplier for 5 free spins with the symbol SUPER STACKED.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 400,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Queen of the Sea",
+        "identifier": "igtech:QueenOfTheSea",
+        "identifier2": "vs1024seaqueen",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 1024,
+        "payout": 96.41,
+        "description": "The riches of the sunken kingdom of Atlantis are yours for the taking in Queen of the Sea, the 4x5, 1024 ways to win videoslot. The queen is stacked on all reels. Hunt for three or more pearl oysters to trigger the Free Spins. If you can find the black pearl, you are awarded Super Free Spins, in which Queen symbols are added to the reels. Pearl oysters are valuable and even two of them grant you the Second Chance bonus in which you get to pick to find Free Spins or Super Free Spins!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 4608,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Roman Empire",
+        "identifier": "igtech:RomanEmpire",
+        "identifier2": "vs20romanempire",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 20,
+        "payout": 94.11,
+        "description": "Take part in building the great society of the Roman Empire in Roman Empire, this 5-reel videoslot. Meet the Emperor, the Vestal Virgin, the Centurion and the Gladiator on 20 paylines. Let the games begin in the Jupiter Gift bonus round where you can win up to 10 free spins.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Safari Deluxe",
+        "identifier": "igtech:SafariDeluxe",
+        "identifier2": "vs25deluxesafari",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.17,
+        "description": "THE HOT 6TH REEL THAT WILL MAKE YOU GO WILD !!! The 3x5, 25 lines videoslot. When the lion hits on the middle row, it calls on the pack and expands vertically to fill the whole reel. The 6th reel is there to multiply your win or award you the super wild, which triggers a respin full of wilds. Hunt the Scatter to get 10 free spins in which Super Wild can be triggered!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 4000,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "3 Kings",
+        "identifier": "igtech:ThreeKings",
+        "identifier2": "vs25threekings",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.5,
+        "description": "Experience the rich history of China in 3 Kingdoms' Battle of Red Cliffs, the 3x5, 25 lines videoslot. The generals Cao Cao, Liu Bei and Sun Quan bring their entire army on stacked reels, When all three of them clash, gain points towards gaining the Spoils of War single player jackpot! Choose how the battle unfolds in the Free Spins round, where the generals become wild!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 200,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "3 Witches",
+        "identifier": "igtech:ThreeWitches",
+        "identifier2": "vs25threewitches",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 95.17,
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 1450,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Vegas Riches",
+        "identifier": "igtech:VegasRiches",
+        "identifier2": "vs25vegasriches",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96.03,
+        "description": "Enjoy the thrill of Vegas Riches, the 3x5, 25 lines videoslot. Play the tables and hunt the golden chip to get the EXTRA WILDS FEATURE where for three respins, all royals are turned to Wild. And when the heat is on in the FREE SPINS FEATURE, all wilds multiply the win by 2x or 3x, for a maximum multiplier of 81x. A night of a lifetime!",
+        "volatility_rating": "medium-high",
+        "hd": true,
+        "multiplier": 2558,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Viking Hero",
+        "identifier": "igtech:VikingHero",
+        "identifier2": "vs40vikinghero",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 40,
+        "payout": 96.5,
+        "description": "Embark on a classic Viking adventure in Viking Hero, the 4x5, 40 lines videoslot. When fully stacked Beowulf symbols hit on the first reel, it triggers the Super Respin feature in which only title characters symbols spin. Get wins up to 100,000. When three or more Scatter symbols hit, they trigger the Free Spins round in which you can get up to 20 free spins. Super Respin feature can hit during the Free Spins Round!",
+        "volatility_rating": "high",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wild Diamond",
+        "identifier": "igtech:WildDiamond",
+        "identifier2": "vs15wilddiamond",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 15,
+        "payout": 96.96,
+        "description": "Hit the jackpot in Wild Diamond, the 3x5, 15 lines videoslot. The diamonds are wild and stacked on all reels. More diamonds are added in the high reward FREE SPINS FEATURE. And when you hit 3 golden 7 symbols, you have the chance to win up to 1000 times your bet in the JACKPOT BONUS GAME.",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 1246,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    },
+    {
+        "title": "Wolf Treasure",
+        "identifier": "igtech:WolfTreasure",
+        "identifier2": "vs25wolftreasure",
+        "provider": "igtech",
+        "producer": "igtech",
+        "category": "slots",
+        "has_freespins": true,
+        "feature_group": "basic",
+        "devices": [
+            "desktop",
+            "mobile"
+        ],
+        "lines": 25,
+        "payout": 96,
+        "description": "Wild wolves are out to hunt in Wolf Treasure, the 3x5, 25 lines videoslot. The wolf pack is stacked on all reels and when you hit the Blazin Reels Free Spins feature, reels 2,3 and 5 spin together as a GIANT symbol. Moon symbols trigger the respin feature where all the values get added together and can win one of the three available jackpots for super big wins!",
+        "volatility_rating": "medium",
+        "hd": true,
+        "multiplier": 2500,
+        "restrictions": {
+            "default": {
+                "whitelist": [
+                    "AU"
+                ]
+            }
+        }
+    }
+]
