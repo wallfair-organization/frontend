@@ -109,7 +109,7 @@ const EventForms = ({
 
   const renderStep = () => {
     if (!user.admin) {
-      return <p>Event creation is deactivated due to a maintenance and will be reactivated again next Monday, March 23rd.</p> 
+      return <p>Event creation is deactivated due to a maintenance and will be reactivated soon.</p> 
     }
 
     switch (formStep) {
