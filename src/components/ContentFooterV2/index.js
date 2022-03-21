@@ -107,6 +107,10 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   <p>{'Responsible Gambling'}</p>
                 </Link>
 
+                <Link data-tracking-id="footer-aml" to={Routes.aml}>
+                  <p>{'AML Policy'}</p>
+                </Link>
+
                 {/* <div id="lang-switcher" className={styles.langSwitcher}/> */}
               </div>
             </RealMoneyOnly>

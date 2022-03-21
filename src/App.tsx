@@ -50,6 +50,7 @@ import PlayMoneyWallet from 'screens/PlayMoneyWallet';
 import Winners from 'screens/Winners';
 import HowItWorks from 'screens/HowItWorks';
 import Web3Listener from './components/Web3Listener';
+import AMLPolicy from 'screens/AMLPolicy';
 
 const { store, persistor } = configStore();
 
@@ -139,6 +140,7 @@ const App = () => {
               {/* <PrivateRoute path={Routes.rewards} component={Rewards} /> */}
               <Route exact path={Routes.provablyfair} component={Fair} />
               <Route exact path={Routes.terms} component={TermsConditions} />
+              <Route exact path={Routes.aml} component={AMLPolicy} />
               <Route exact path={Routes.imprint} component={Imprint} />
               <Route exact path={Routes.privacy} component={PrivacyPolicy} />
               <PrivateRoute exact path={Routes.wallet} component={realMoneyOnly ? UserWallet : PlayMoneyWallet} />
