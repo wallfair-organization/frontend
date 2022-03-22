@@ -106,14 +106,9 @@ const enabledSoftswissProviders = {
 export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) => {
   const output = [];
   const thumbUrl = "https://cdn.softswiss.net/i/s3/";
-  const blockedProducers = ['redtiger','netent','playngo','merkur'];
 
   for (let key in softswissGames) {
     const gameInfo = softswissGames[key];
-    //Skips providers that are not working
-    if(blockedProducers.indexOf(gameInfo.producer)>-1){
-      continue;
-    }
     //Skips games that are not on the enabled feature groups
     let gameProvider = gameInfo.provider;
     if(gameProvider==='1spin4win'){
