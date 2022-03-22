@@ -123,14 +123,25 @@
         }
 
         .button {
-          max-width: 250px;
+          max-width: 270px;
           margin-top: 20px;
           font-size: 16px;
           margin-bottom: 15px;
+
+          &.loggedIn {
+            cursor: default;
+          }
         }
 
         a {
-          width: fit-content;
+          max-width: 270px;
+
+          .button {
+            max-width: 270px;
+            margin-top: 20px;
+            font-size: 16px;
+            margin-bottom: 15px;
+          }
         }
 
         svg {
