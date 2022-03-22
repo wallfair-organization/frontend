@@ -70,6 +70,7 @@ export default {
   withdrawal: 'withdrawal',
   newsIcon: 'newsIcon',
   shareLink: 'shareLink',
+  starMenu: 'starMenu',
   star: 'star',
   starFull: 'starFull',
   pToken: 'pToken',
