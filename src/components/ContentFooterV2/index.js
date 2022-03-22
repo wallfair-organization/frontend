@@ -191,15 +191,6 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   rel="noreferrer"
                   className={styles.cryptoCoinWrapper}
                 >
-                  <img src={metamaskLogo} alt={'Metamask'} />{' '}
-                  <span>Metamask</span>
-                </a>
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.cryptoCoinWrapper}
-                >
                   <img src={usdtLogo} alt={'USDT'} /> <span>USDT</span>
                 </a>
                 <a
@@ -225,6 +216,15 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                   className={styles.cryptoCoinWrapper}
                 >
                   <img src={xrpLogo} alt={'Litecoin loco'} /> <span>XRP</span>
+                </a>
+                <a
+                  href="https://wallfair.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.cryptoCoinWrapper}
+                >
+                  <img src={metamaskLogo} alt={'Metamask'} />{' '}
+                  <span>Metamask</span>
                 </a>
                 <a
                   href="https://www.moonpay.com/"

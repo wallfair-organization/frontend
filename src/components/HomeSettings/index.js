@@ -3,6 +3,8 @@ import styles from './styles.module.scss';
 import Icon from '../Icon';
 import RealMoneyOnly from 'components/RealMoneyOnly';
 import PlayMoneyOnly from 'components/PlayMoneyOnly';
+import Routes from 'constants/Routes';
+import { useHistory } from 'react-router-dom';
 
 const HomeSettings = ({
   loggedIn,
@@ -24,6 +26,16 @@ const HomeSettings = ({
   return (
     <div className={styles.settings}>
       <div className={styles.settingContainer}>
+        <div
+          onClick={onHowItWorksClick}
+          className={classNames(styles.singleSettingHolder)}
+        >
+          <Icon
+            className={classNames(styles.referralIcon, styles.strokeIcon)}
+            iconType={'question'}
+          />
+          <p className={styles.settingTitle}>How it works</p>
+        </div>
         {loggedIn && (
           <>
             <div
@@ -43,8 +55,8 @@ const HomeSettings = ({
           className={classNames(styles.singleSettingHolder)}
         >
           <Icon
-            className={classNames(styles.referralIcon, styles.strokeIcon)}
-            iconType={'game'}
+            className={classNames(styles.referralIcon, styles.fillIcon)}
+            iconType={'starMenu'}
           />
           <p className={styles.settingTitle}>Events</p>
         </div>
@@ -119,17 +131,6 @@ const HomeSettings = ({
                 iconType={'referral'}
               />
               <p className={styles.settingTitle}>Referrals</p>
-            </div>
-
-            <div
-              onClick={onHowItWorksClick}
-              className={classNames(styles.singleSettingHolder)}
-            >
-              <Icon
-                className={classNames(styles.referralIcon, styles.strokeIcon)}
-                iconType={'info'}
-              />
-              <p className={styles.settingTitle}>How it works?</p>
             </div>
 
             <a
