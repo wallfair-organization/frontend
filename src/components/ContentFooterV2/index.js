@@ -14,8 +14,10 @@ import usdtLogo from '../../data/icons/footer/tether-usdt-logo.svg';
 import usdcLogo from '../../data/icons/footer/usd-coin-usdc-logo.svg';
 import daiLogo from '../../data/icons/footer/multi-collateral-dai-dai-logo.svg';
 import xrpLogo from '../../data/icons/footer/xrp-xrp-logo.svg';
-import moonPayLogo from '../../data/icons/footer/moon-pay-logo.png';
-import cryptoPay from '../../data/icons/footer/crypto-pay-logo.png';
+import mastercardLogo from '../../data/icons/footer/footer-mastercard.svg';
+import visaLogo from '../../data/icons/footer/footer-visa.svg';
+import applepayLogo from '../../data/icons/footer/footer-applepay.svg';
+import googlepayLogo from '../../data/icons/footer/footer-googlepay.svg';
 import handshakeIcon from '../../data/icons/footer/handshake-icon.png';
 import fair100Icon from '../../data/icons/footer/100-fair-icon.png';
 import responsibleGamingIcon from '../../data/icons/footer/responsible-gaming-icon.png';
@@ -134,10 +136,7 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
           <RealMoneyOnly>
             <div className={styles.centeredBlock}>
               <div className={styles.logoContainer}>
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
+                <span
                   className={styles.wfairTokenEmblem}
                 >
                   <img
@@ -146,111 +145,83 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                     alt={'WFAIR Token emblem'}
                   />
                   <span>WFAIR</span>
-                </a>
+                </span>
 
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
+                <span
                   className={styles.cryptoCoinWrapper}
                 >
                   <img src={bitcoinLogo} alt={'Bitcoin logo'} />{' '}
                   <span>Bitcoin</span>
-                </a>
+                </span>
 
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
+                <span
                   className={styles.cryptoCoinWrapper}
                 >
                   <img src={ethereumLogo} alt={'Ethereum loco'} />{' '}
                   <span>Ethereum</span>
-                </a>
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
+                </span>
+                <span
                   className={styles.cryptoCoinWrapper}
                 >
                   <img src={maticLogo} alt={'Matic logo'} />{' '}
                   <span>Matic</span>
-                </a>
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
+                </span>
+                <span
                   className={styles.cryptoCoinWrapper}
                 >
                   <img src={litecoinLogo} alt={'Litecoin loco'} />{' '}
                   <span>Litecoin</span>
-                </a>
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
+                </span>
+                <span
                   className={styles.cryptoCoinWrapper}
                 >
                   <img src={usdtLogo} alt={'USDT'} /> <span>USDT</span>
-                </a>
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
+                </span>
+                <span
                   className={styles.cryptoCoinWrapper}
                 >
                   <img src={usdcLogo} alt={'Litecoin loco'} /> <span>USDC</span>
-                </a>
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
+                </span>
+                <span
                   className={styles.cryptoCoinWrapper}
                 >
                   <img src={daiLogo} alt={'Litecoin loco'} /> <span>DAI</span>
-                </a>
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
+                </span>
+                <span
                   className={styles.cryptoCoinWrapper}
                 >
                   <img src={xrpLogo} alt={'Litecoin loco'} /> <span>XRP</span>
-                </a>
-                <a
-                  href="https://wallfair.io/"
-                  target="_blank"
-                  rel="noreferrer"
+                </span>
+                <span
                   className={styles.cryptoCoinWrapper}
                 >
-                  <img src={metamaskLogo} alt={'Metamask'} />{' '}
-                  <span>Metamask</span>
-                </a>
-                <a
-                  href="https://www.moonpay.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.cryptoTokenIcon}
-                >
-                  <img
-                    src={moonPayLogo}
-                    className={styles.moonpayLogo}
-                    alt={'MoonPay logo'}
-                  />
-                </a>
+                  <img src={metamaskLogo} alt={'Metamask'} />{' '}<span>MetaMask</span>
+                </span>
 
-                <a
-                  href="https://cryptopay.me/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.cryptoTokenIcon}
+                <span
+                  className={styles.cryptoCoinWrapper}
                 >
-                  <img
-                    src={cryptoPay}
-                    className={styles.cryptoPayLogo}
-                    alt={'CryptoPay logo'}
-                  />
-                </a>
+                  <img src={mastercardLogo} alt={'Mastercard Logo'} />{' '}<span>Mastercard</span>
+                </span>
+
+                <span
+                  className={styles.cryptoCoinWrapper}
+                >
+                  <img src={visaLogo} alt={'Visa logo'} />{' '}<span>Visa</span>
+                </span>
+
+                <span
+                  className={styles.cryptoCoinWrapper}
+                >
+                  <img src={applepayLogo} alt={'Apple Pay logo'} />{' '}<span>Apple Pay</span>
+                </span>
+
+                <span
+                  className={styles.cryptoCoinWrapper}
+                >
+                  <img src={googlepayLogo} alt={'Google Pay logo'} />{' '}<span>Google Pay</span>
+                </span>
+                
               </div>
             </div>
 

@@ -237,6 +237,8 @@ const ConnectWallet = props => {
           <span>{account}</span>
           <br />
           <span>{!isNaN(balance) && balance}</span>
+          <br />
+          <p className={styles.colorGrey}>Please ensure MetaMask is unlocked</p>
         </div>
       );
     }
@@ -246,6 +248,7 @@ const ConnectWallet = props => {
         {walletView === WALLET_VIEWS.PENDING
           ? getContentLoading()
           : getContentWithOptions()}
+        <p className={styles.colorGrey}>Please ensure MetaMask is unlocked</p>
       </>
     );
   };

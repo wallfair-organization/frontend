@@ -17,8 +17,10 @@ import PopupTheme from "components/Popup/PopupTheme";
 import { OnboardingActions } from "store/actions/onboarding";
 import { isMobile } from 'react-device-detect';
 import { trackWalletAddWfair } from "config/gtm";
-import { ReactComponent as PaymentMethodIcon } from '../../data/icons/wallet/payment-icons.svg';
+import { ReactComponent as PaymentMethodIcon } from '../../data/icons/payment-methods.svg';
 import {ReactComponent as MetamaskIcon} from '../../data/icons/deposit/metamask-logo.svg';
+import {ReactComponent as CheckedGreen} from '../../data/icons/checked-green.svg';
+
 
 const HowItWorks = ({loggedIn, showPopup, showWithdrawPopup, showWalletDepositPopup}) => {
   const history = useHistory();
@@ -113,16 +115,25 @@ const HowItWorks = ({loggedIn, showPopup, showWithdrawPopup, showWalletDepositPo
                     : `https://metamask.app.link/dapp/${window.location.origin}`}>click here</a>.
                 </div>
                 
-                {!loggedIn &&
+                
                   <Button
-                    className={styles.button}
+                    className={classNames(styles.button, loggedIn ? styles.loggedIn : null)}
                     theme={ButtonTheme.secondaryButton}
-                    onClick={handleConnectMetaMask}
+                    onClick={!loggedIn ? handleConnectMetaMask : null}
                   >
-                    <MetamaskIcon />
-                    Connect MetaMask
+                    {loggedIn ?
+                      <>
+                        <CheckedGreen />
+                        Connected to MetaMask
+                      </>
+                    :
+                      <>
+                        <MetamaskIcon />
+                        Connect to MetaMask
+                      </>
+                    }
                   </Button>
-                }
+                
               </div>
             </div>
 
@@ -177,10 +188,10 @@ const HowItWorks = ({loggedIn, showPopup, showWithdrawPopup, showWalletDepositPo
                 </div>
                 <Button
                   className={styles.button}
-                  theme={ButtonTheme.primaryButtonM}
+                  theme={ButtonTheme.secondaryButton}
                   onClick={handleCreateEvent}
                 >
-                  Create an Event
+                  Go to Events
                 </Button>
               </div>
             </div>
