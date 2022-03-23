@@ -16,7 +16,6 @@ const DisplaySection = ({
 }) => {
   //   let history = useHistory();
   const user = useSelector(selectUser);
-  console.log(user);
   const dispatch = useDispatch();
 
   const [games, setGames] = useState([]);
