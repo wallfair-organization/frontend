@@ -420,7 +420,17 @@
             display: flex;
             justify-content: space-between;
             max-width: 235px;
-            margin-top: 30px;
+            // margin-top: 30px;
+
+            &:nth-child(3) {
+              margin-top: 30px;
+            }
+
+            &:last-child {
+              // margin-top: 8px;
+              padding-top: 8px;
+              border-top: 1px solid $colorWhite;
+            }
 
             @media (max-width: $screen-xs) {
               width: 100%;

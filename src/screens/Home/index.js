@@ -38,6 +38,7 @@ import { prepareEvoplayGames, prepareSoftSwissGames } from 'helper/Games';
 import LeaderboardHome from 'components/LeaderboardHome';
 import LeaderboardJackpot from 'components/LeaderboardJackpot';
 import PlayMoneyOnly from 'components/PlayMoneyOnly';
+import ClaimBonusWidget from 'components/ClaimBonusWidget';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
@@ -198,6 +199,9 @@ const Home = authState => {
 
       <div className={styles.container}>
         <DiscordWidget />
+        
+        {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' && <ClaimBonusWidget />}
+
         <EventsCarouselContainer
           title={'🔥 Most popular Events'}
           titleLink={'Show all events'}

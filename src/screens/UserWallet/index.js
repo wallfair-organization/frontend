@@ -72,7 +72,8 @@ const UserWallet = ({
   
   const { active, library, account, chainId } = useWeb3React();
 
-  const { balance, gamesCurrency } = useSelector(selectUser);
+  const { balance, gamesCurrency, balances } = useSelector(selectUser);
+
   const prices = useSelector(selectPrices);
   const [selectedGamesCurrency, setSelectedGamesCurrency] = useState(gamesCurrency);
 
@@ -125,6 +126,10 @@ const UserWallet = ({
   const handleActivitySwitchTab = ({ index }) => {
     setActivityTab(activityTabOptions[index]);
   };
+
+  const getBalanceByCurrency = (currencyName) => {
+    return balances.find(currencyObj => currencyObj.symbol === currencyName).balance || 0;
+  }
 
   const handleResendEmailConfirmation = async () => {
     const result = await resendEmailVerification(user.userId);
@@ -254,10 +259,26 @@ const UserWallet = ({
                       </p>
                       {renderWalletPreferencesSection()}
                     </div>
+
+                    {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' &&
+                      <>
+                        <div className={styles.balanceToken}>
+                          <span>Balance WFAIR</span>
+                          <span>{`${formatToFixed(getBalanceByCurrency('WFAIR'), 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
+                        </div>
+                        <div className={styles.balanceToken}>
+                          <span>Bonus</span>
+                          <span>{`${formatToFixed(getBalanceByCurrency('BFAIR'), 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
+                        </div>
+                      </>
+                    }
+
                     <div className={styles.balanceToken}>
-                      <span>Balance in WFAIR</span>
+                      <span>Total Balance in WFAIR</span>
                       <span>{`${formatToFixed(balance, 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
-                    </div>
+                    </div>      
+                    
+                    
                   </div>
                 )}
               </div>
