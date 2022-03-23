@@ -3222,9 +3222,12 @@ export const GAME_PROVIDERS = [
       label: 'Belatra',
       image: ProviderBelatra,
     },
+
+    //Ig Tech only works in Australia
+    /*
     {
       value: 'igtech',
       label: 'Ig Tech',
       image: ProviderIgtech,
-    }
+    }*/
 ]
