@@ -809,6 +809,35 @@ const confirmDeposit = payload => {
     });
 }
 
+const getPromoCodes = statuses => {
+  return Api.get(_.replace(ApiUrls.API_GET_PROMO_CODES, ':statuses', statuses.join(',')))
+    .then(res => res.data)
+    .catch(error => {
+      console.log('[API Error] called: getPromoCodes', error);
+    });
+};
+
+const claimPromoCode = (promoCode) => {
+  return Api.post(ApiUrls.API_POST_PROMO_CODES, {
+    promoCode
+  })
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: claimPromoCode ', err);
+      return err;
+    });
+};
+
+const cancelPromoCode = (promoCode) => {
+  return Api.patch(_.replace(ApiUrls.API_PATCH_CANCEL_PROMO_CODES, ':promoCode', promoCode))
+    .catch(
+      error => {
+        console.log('[API Error] called: cancelPromoCode', error);
+        return error;
+      }
+    );
+};
+
 export {
   Api,
   createBet,
@@ -899,4 +928,7 @@ export {
   claimTokens,
   uploadImage,
   confirmDeposit,
+  getPromoCodes,
+  claimPromoCode,
+  cancelPromoCode,
 };
