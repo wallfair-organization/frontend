@@ -21,7 +21,7 @@ const DisplaySection = ({
   const [games, setGames] = useState([]);
 
   const softswissGamesFiltered = softswissGames.filter(
-    x => !x._cfg.restrictions?.default?.blacklist?.includes(user.country)
+    x => (x._cfg.restrictions?.default?.blacklist && !x._cfg.restrictions?.default?.blacklist?.includes(user.country)) || (x._cfg.restrictions?.default?.whitelist && x._cfg.restrictions?.default?.whitelist.includes(user.country))
   );
 
   const getGameItemSizeClass = () => {
