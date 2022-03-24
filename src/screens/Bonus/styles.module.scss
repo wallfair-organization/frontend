@@ -46,7 +46,7 @@
     flex-wrap: wrap;
     gap: 16px;
     justify-self: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 409px));
     margin: 0 auto;
 
     @media (max-width: $screen-sm) {
