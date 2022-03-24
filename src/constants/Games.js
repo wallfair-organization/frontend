@@ -2988,12 +2988,12 @@ export const EXTERNAL_GAMES = [
 
 export const TOP_PICKS_GAMES = {
   header: 'Top picks',
-  names: ['Crazy Time', 'Plinko', 'Monopoly', 'Unlimited Wishes', 'Tree Of Light', 'JetX']
+  names: ['Crazy Time', 'Plinko', 'Monopoly', 'Unlimited Wishes', 'Tree Of Light', 'JetX', 'The Dog House Megaways', 'Buffalo King Megaways', 'Elemental Gems Megaways', 'Gates of Olympus', 'Great Rhino Megaways', 'Sweet Bonanza']
 }
 
 export const HOMEPAGE_SLOT_GAMES = {
   header: 'Slot Games',
-  names: ['Unlimited Wishes', 'Big Bamboo', 'Bison Battle', 'Bonanza Billion', 'Razor Shark', 'Beat the Beast: Mighty Sphinx']
+  names: ['Unlimited Wishes', 'Diamond Strike', "888 Dragons", 'Bonanza Billion', 'Gates of Valhalla', 'Beat the Beast: Mighty Sphinx', 'The Dog House Megaways', 'Buffalo King Megaways', 'Elemental Gems Megaways', 'Gates of Olympus', 'Great Rhino Megaways', 'Sweet Bonanza']
 }
 
 export const HOMEPAGE_GAME_SHOWS = {

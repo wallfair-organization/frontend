@@ -202,35 +202,6 @@ const Home = authState => {
         
         {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' && <ClaimBonusWidget />}
 
-        <EventsCarouselContainer
-          title={'🔥 Most popular Events'}
-          titleLink={'Show all events'}
-          orderBy={'most_popular'}
-          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {
-            category: 'all',
-          })}
-        />
-
-        <EventsCarouselContainer
-          title={'✨ Latest Events Added'}
-          titleLink={'Show all events'}
-          category={'all'}
-          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {
-            category: 'all',
-          })}
-        />
-
-        <EventsCarouselContainer
-          title={'⏱️ Events ending soon'}
-          titleLink={'Show all events'}
-          category={'all'}
-          orderBy={'bet_end_date'}
-          order={'ASC'}
-          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {
-            category: 'all',
-          })}
-        />
-
         {isPlayMoney && (
           <GainBanner
             isLoggedIn={isLoggedIn}
@@ -273,6 +244,35 @@ const Home = authState => {
             softswissGames={prepareSoftSwissGames(SOFTSWISS_GAMES)}
           />
         )}
+
+        <EventsCarouselContainer
+          title={'🔥 Most popular Events'}
+          titleLink={'Show all events'}
+          orderBy={'most_popular'}
+          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {
+            category: 'all',
+          })}
+        />
+
+        <EventsCarouselContainer
+          title={'✨ Latest Events Added'}
+          titleLink={'Show all events'}
+          category={'all'}
+          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {
+            category: 'all',
+          })}
+        />
+
+        <EventsCarouselContainer
+          title={'⏱️ Events ending soon'}
+          titleLink={'Show all events'}
+          category={'all'}
+          orderBy={'bet_end_date'}
+          order={'ASC'}
+          titleLinkTo={Routes.getRouteWithParameters(Routes.events, {
+            category: 'all',
+          })}
+        />
 
         {renderActivities()}
         {renderLeaderboards()}
