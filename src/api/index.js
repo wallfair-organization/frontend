@@ -828,8 +828,12 @@ const claimPromoCode = (promoCode) => {
     });
 };
 
-const cancelPromoCode = (promoCode) => {
-  return Api.patch(_.replace(ApiUrls.API_PATCH_CANCEL_PROMO_CODES, ':promoCode', promoCode))
+const cancelPromoCode = (promoCode, ref = 'default') => {
+  return Api.patch(
+    ApiUrls.API_PATCH_CANCEL_PROMO_CODES.replace(':promoCode', promoCode), {
+      ref
+    }
+  )
     .catch(
       error => {
         console.log('[API Error] called: cancelPromoCode', error);

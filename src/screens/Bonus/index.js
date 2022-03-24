@@ -30,12 +30,12 @@ const Bonus = () => {
     dispatch(PopupActions.show({popupType, options}));
   }, [dispatch]);
 
-  useEffect(() => {
-    const fetchBonus = async () => {
-      const result = await getPromoCodes(['CLAIMED', 'FINALIZED', 'CANCELLED']);
-      setBonusList(result);
-    }
+  const fetchBonus = async () => {
+    const result = await getPromoCodes(['CLAIMED', 'FINALIZED', 'CANCELLED']);
+    setBonusList(result);
+  }
 
+  useEffect(() => {
     fetchBonus();
   }, [])
 
@@ -52,10 +52,13 @@ const Bonus = () => {
           </div> */}
         </div>
 
-        <ClaimBonusWidget />
+        <ClaimBonusWidget fetchBonus={fetchBonus} />
 
         <div className={styles.itemGrid}>
-          {bonusList.map(bonusItemData => <BonusItem data={bonusItemData} />)}
+          {bonusList
+            .filter(bonusItemData => bonusItemData.type === 'BONUS')
+            .map(bonusItemData => <BonusItem fetchBonus={fetchBonus} data={bonusItemData} />)
+          }
         </div>
         
         

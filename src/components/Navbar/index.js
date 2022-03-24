@@ -537,18 +537,12 @@ const Navbar = ({
           
           {renderNavbarLink(`/how-it-works`, 'How it works', null, 'menu-howitworks')}
           {renderNavbarLink(`/events`, 'Events', null, 'menu-events')}
-          <RealMoneyOnly>
-            {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
-          </RealMoneyOnly>
           
-          <PlayMoneyOnly>
-            <a
-              href={'/#games'}
-              data-tracking-id={'menu-games'}
-            >
-              Games
-            </a>
-          </PlayMoneyOnly>
+          {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
+          {renderNavbarLink(`/activities`, 'Activities', null, 'menu-activities')}
+          
+          
+          
         </div>
         {/* <div className={style.linkWrapper}>
           

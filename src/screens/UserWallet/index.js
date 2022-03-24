@@ -128,7 +128,7 @@ const UserWallet = ({
   };
 
   const getBalanceByCurrency = (currencyName) => {
-    return balances.find(currencyObj => currencyObj.symbol === currencyName).balance || 0;
+    return balances.find(currencyObj => currencyObj.symbol === currencyName)?.balance || 0;
   }
 
   const handleResendEmailConfirmation = async () => {
