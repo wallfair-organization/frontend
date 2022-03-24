@@ -54,6 +54,8 @@ import ProviderBlueprint from '../data/icons/games/gameproviders/blueprint.png'
 import ProviderKiron from '../data/icons/games/gameproviders/kiron.png'
 import ProviderAugustgaming from '../data/icons/games/gameproviders/augustgaming.png'
 import ProviderBsg from '../data/icons/games/gameproviders/bsg.png'
+import ProviderPragmaticplay from '../data/icons/games/gameproviders/pragmaticplay.png'
+
 import ProviderIgtech from '../data/icons/games/gameproviders/igtech.png'
 import ProviderBelatra from '../data/icons/games/gameproviders/belatra.png'
 
@@ -129,7 +131,7 @@ export const SOFTSWISS_GAMES =[
   ...require('../config/games-cfg/bsg.json'),
   ...require('../config/games-cfg/igtech.json'),
   ...require('../config/games-cfg/belatra.json'),
-
+  ...require('../config/games-cfg/pragmaticexternal.json')
 ]
 
 
@@ -3221,6 +3223,11 @@ export const GAME_PROVIDERS = [
       value: 'belatra',
       label: 'Belatra',
       image: ProviderBelatra,
+    },
+    {
+      value: 'pragmaticexternal',
+      label: 'Pragmatic Play',
+      image: ProviderPragmaticplay,
     },
 
     //Ig Tech only works in Australia

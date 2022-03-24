@@ -22,7 +22,7 @@ export const ObjectId = (gamename) => {
 const enabledSoftswissProviders = {
 
     onespin4win:{
-        feature_group:['basic']
+      feature_group:['basic']
     },
     absoluteLiveGaming:{
       feature_group:['basic','ajz','ait']
@@ -101,6 +101,9 @@ const enabledSoftswissProviders = {
     },
     belatra:{
       feature_group:['basic']
+    },
+    pragmaticexternal:{
+      feature_group:['basic','live']
     }
 }
 export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) => {
@@ -119,7 +122,8 @@ export const prepareSoftSwissGames = (softswissGames, gamesCategory, provider) =
       continue;
     }
 
-    if (provider !== undefined && provider !== gameInfo.producer) {
+    if (provider !== undefined && provider !== gameInfo.provider && provider !== gameInfo.producer) {
+      //console.log(`Provider: ${provider} with producer ${gameInfo.producer} was hidden`);
       continue;
     }
 
