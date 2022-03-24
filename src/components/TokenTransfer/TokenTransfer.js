@@ -4,13 +4,16 @@ import WFAIRTransfer from '../WFAIRTransfer';
 import styles from './styles.module.scss';
 import TokenNumberInput from 'components/TokenNumberInput';
 import classNames from 'classnames';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import PopupTheme from 'components/Popup/PopupTheme';
 import { PopupActions } from 'store/actions/popup';
 import { TxDataActions } from 'store/actions/txProps';
 import Button from 'components/Button';
 import { convertCurrency } from 'api';
 import { TOKEN_NAME } from 'constants/Token';
+import { selectUser } from 'store/selectors/authentication';
+import { convertAmount } from 'helper/Currency';
+import { selectPrices } from 'store/selectors/info-channel';
 
 const TokenTransfer = ({
   provider,
@@ -31,6 +34,9 @@ const TokenTransfer = ({
   const [transferValue, setTransferValue] = useState('0');
   const [wfairValue, setWfairValue] = useState('0');
   const [modalOpen, setModalOpen] = useState(false);
+
+  const { gamesCurrency } = useSelector(selectUser);
+  const prices = useSelector(selectPrices);
 
   useEffect(() => {
     if (modalOpen) {
@@ -118,7 +124,22 @@ const TokenTransfer = ({
                 </span>
               </div>
               <hr />
-              {currency !== TOKEN_NAME && (
+
+              {currency !== 'MATIC' && currency !== 'ETH' && gamesCurrency !== TOKEN_NAME && <>
+                <div className={styles.overviewItem}>
+                  <span>Amount in {gamesCurrency}</span>
+                  <span>
+                    {convertAmount(
+                      _.floor(transferValue, 4),
+                      prices[gamesCurrency]
+                    )}{' '}
+                    {gamesCurrency}
+                  </span>
+                </div>
+                <hr />
+              </>}
+              
+              {/* {currency !== TOKEN_NAME && (
                 <>
                   <div className={styles.overviewItem}>
                     <span>WFAIR</span>
@@ -128,7 +149,7 @@ const TokenTransfer = ({
                   </div>
                   <hr />
                 </>
-              )}
+              )} */}
             </div>
 
             <div className={styles.buttonWrapper}>
