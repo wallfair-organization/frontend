@@ -103,6 +103,10 @@ export const API_GET_EVOPLAY_URLGAME = '/api/evoplay/urlgame';
 export const API_GET_SOFTSWISS_URLGAME = '/api/softswiss/urlgame';
 export const API_GET_EVOPLAY_GAMES = '/api/evoplay/listgames';
 
+export const API_GET_PROMO_CODES = '/api/user/promo-codes/all?statuses=:statuses';
+export const API_POST_PROMO_CODES = '/api/user/promo-codes';
+export const API_PATCH_CANCEL_PROMO_CODES = '/api/user/promo-codes/:promoCode';
+
 //3rd parties
 export const TINYURL_SHORTENER = 'https://tinyurl.com/api-create.php';
 export const CRASH_GAME_API_GET_GAME_DETAILS = 'api/elon-game/match/:gameHash';
