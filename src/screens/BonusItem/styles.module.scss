@@ -1,25 +1,49 @@
 @import '../../styles/all';
 
 .bonusItem {
+  position: relative;
   display: flex;
   flex-direction: column;
   max-width: 410px;
   width: 100%;
-  height: 348px;
+  height: auto;
+  justify-self: start;
+  background: $colorBgCardItem;
+  border-radius: 6px;
+  overflow: hidden;
 
   @media (max-width: $screen-sm) {
     height: auto;
   }
 
-  background: $colorBgCardItem;
-  border-radius: 6px;
-  overflow: hidden;
+  .statusLabel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: $colorGreenLight;
+    padding: 5px 8px;
+    border-radius: 4px;
+    color: $colorPrimary;
+    font-weight: bold;
+    font-size: 12px;
+
+    &.active {
+      background: $colorGreenLight;
+    }
+    &.cancelled {
+      background: $colorRedLight;
+    }
+    &.finalized {
+      background: $colorOrangeLight;
+    }
+  }
 
   .imageContainer {
     width: 100%;
     height: 160px;
     img {
       width: 100%;
+      height: 160px;
       object-fit: cover;
     }
   }
@@ -58,10 +82,48 @@
       justify-content: space-between;
       align-items: center;
 
+      span:first-child {
+        word-wrap: break-word;
+        width: 50%;
+      }
+
       @media (max-width: $screen-sm) {
         flex-direction: column;
         gap: 15px;
       }
     }
+  }
+}
+
+.inputContainer,
+.inputContainerCopied {
+  .container {
+    margin-bottom: 0;
+
+    & > div {
+      background: $colorWhite20 !important;
+      padding: 5px;
+      height: 30px;
+
+      & > div {
+        right: 0 !important;
+        height: auto !important;
+      }
+    }
+  }
+
+  & > div {
+    margin-bottom: 5px;
+  }
+
+  &.inputContainerCopied {
+    input {
+      color: $colorGreenDarker !important;
+    }
+  }
+
+  input {
+    color: $colorWhite !important;
+    font-size: 14px;
   }
 }

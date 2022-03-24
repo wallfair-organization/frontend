@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import { AlertActions } from 'store/actions/alert';
 import { useDispatch } from 'react-redux';
 
-const ClaimBonusWidget = () => {
+const ClaimBonusWidget = ({ fetchBonus }) => {
   const history = useHistory();
   const [bonusCode, setBonusCode] = useState();
   const [errorMessage, setErrorMessage] = useState(null);
@@ -19,21 +19,25 @@ const ClaimBonusWidget = () => {
   const handleConfirm = useCallback(async () => {
     console.log(bonusCode);
 
-      const result = await claimPromoCode(bonusCode);
+    const result = await claimPromoCode(bonusCode);
 
-      if (result?.response?.data?.status === 'error') {
-        setErrorMessage(result.response.data.message);
-        console.error(result.response.data.message);
+    if (result?.response?.data?.status === 'error') {
+      setErrorMessage(result.response.data.message);
+      console.error(result.response.data.message);
 
-        dispatch(AlertActions.showError({ message: result.response.data.message }));
-        return;
-      }
-      
-      dispatch(AlertActions.showSuccess('Bonus claimed successfully!'));
-      console.log('bonusCode claimed!');
-      history.push(Routes.bonus);
+      dispatch(AlertActions.showError({ message: result.response.data.message }));
+      return;
+    }
     
-  }, [bonusCode, history]); 
+    dispatch(AlertActions.showSuccess('Bonus claimed successfully!'));
+    console.log('bonusCode claimed!');
+    history.push(Routes.bonus);
+    
+    if (fetchBonus) {
+      fetchBonus();
+    } 
+    
+  }, [bonusCode, history, dispatch, fetchBonus]); 
   
   return (
     <div className={styles.claimBonusContainer}>
