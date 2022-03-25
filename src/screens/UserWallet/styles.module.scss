@@ -684,3 +684,33 @@
     }
   }
 }
+
+/* ACTIVITY TRACKER */
+.activitiesTracker {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  margin-top: 50px;
+  padding: 20px;
+
+  .title {
+    display: flex;
+    align-items: center;
+    color: $colorWhite;
+
+    h2 {
+      color: $colorWhite;
+      font-size: 25px;
+      font-weight: bold;
+      padding: 0;
+
+      @media (max-width: $screen-xs) {
+        font-size: 20px;
+      }
+    }
+
+    img {
+      margin-right: 30px;
+    }
+  }
+}

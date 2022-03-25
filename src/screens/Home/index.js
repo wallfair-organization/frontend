@@ -39,6 +39,7 @@ import LeaderboardHome from 'components/LeaderboardHome';
 import LeaderboardJackpot from 'components/LeaderboardJackpot';
 import PlayMoneyOnly from 'components/PlayMoneyOnly';
 import ClaimBonusWidget from 'components/ClaimBonusWidget';
+import EventActivitiesTabs from 'components/EventActivitiesTabs';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
@@ -143,7 +144,7 @@ const Home = authState => {
           <h2>Activities</h2>
         </div>
         <Grid item xs={12}>
-          <ActivitiesTracker
+          {/* <ActivitiesTracker
             preselectedCategory={isPlayMoney ? 'bets' : 'all'}
             showCategories={false}
             activitiesLimit={30}
@@ -152,15 +153,15 @@ const Home = authState => {
               ' activities-tracker-swiper'
             }
             showBets={true}
-          />
-          {/* <EventActivitiesTabs
+          /> */}
+          <EventActivitiesTabs
             activitiesLimit={50}
             className={styles.activitiesTrackerGamesBlock}
-            preselectedCategory={'bets'}
+            preselectedCategory={'game'}
             hideSecondaryColumns={true}
             hideFirstColumn={true}
             layout="wide"
-          ></EventActivitiesTabs> */}
+          />
         </Grid>
       </div>
     );
@@ -170,7 +171,7 @@ const Home = authState => {
     return (
         <div className={styles.leaderboards}>
           <div className={styles.title}>
-            <h2 id="leaderboard">Leaderboard</h2>
+            <h2 id="leaderboard">Daily Leaderboard</h2>
           </div>
           <div className={styles.leaderboardBlock}>
             {LEADERBOARD_TYPES.map(type => {

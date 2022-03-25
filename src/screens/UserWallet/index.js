@@ -52,6 +52,8 @@ import { convertAmount, currencyDisplay } from 'helper/Currency';
 import { selectPrices } from 'store/selectors/info-channel';
 import { red } from '@material-ui/core/colors';
 import WalletFAQ from 'components/FAQ/WalletFAQ';
+import EventActivitiesTabs from 'components/EventActivitiesTabs';
+import ActivitiesTracker from 'components/ActivitiesTracker';
 
 const UserWallet = ({
   connected,
@@ -375,261 +377,6 @@ const UserWallet = ({
     );
   };
 
-  // const renderDepositBonusSection = () => {
-  //   return (
-  //     <div className={styles.currentBalanceSection}>
-  //       {depositCount != null && depositCount === 0 && (
-  //         <Grid
-  //           className={styles.balanceCard}
-  //           item
-  //           lg={12}
-  //           md={12}
-  //         >
-  //           <div className={styles.currentBalanceDescription}>
-  //             <img
-  //               src={Bonus100kDesktop}
-  //               className={styles.bonusDesktop}
-  //               alt="bonus desktop"
-  //             />
-  //             <img
-  //               src={Bonus100kMobile}
-  //               className={styles.bonusMobile}
-  //               alt="bonus mobile"
-  //             />
-  //           </div>
-  //         </Grid>
-  //       )}
-
-  //       {!user.emailConfirmed && (
-  //         <Grid
-  //           className={styles.balanceCard}
-  //           item
-  //           lg={12}
-  //           md={12}
-  //           style={{ width: '100%' }}
-  //         >
-  //           <div
-  //             style={{ width: '100%' }}
-  //             className={styles.currentBalanceDescription}
-  //           >
-  //             <div className={styles.currentBalanceCard}>
-  //               <div
-  //                 className={classNames(
-  //                   styles.buttonContainer,
-  //                   styles.rowContainer
-  //                 )}
-  //               >
-  //                 <div>
-  //                   <h2>Verify your e-mail</h2>
-  //                   <p className={styles.label}>
-  //                     In order to activate full functionality of your account,
-  //                     you must verify your email.
-  //                   </p>
-  //                 </div>
-  //                 <Button
-  //                   className={styles.buttonBanner}
-  //                   onClick={handleResendEmailConfirmation}
-  //                   disabled={emailSent}
-  //                   theme={ButtonTheme.alternativeButton}
-  //                 >
-  //                   {!emailSent ? 'Resend Email' : 'Email sent'}
-  //                 </Button>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </Grid>
-  //       )}
-
-  //       {user.emailConfirmed && showKycBanner() && (
-  //         <Grid
-  //           className={styles.balanceCard}
-  //           item
-  //           lg={12}
-  //           md={12}
-  //           style={{ width: '100%' }}
-  //         >
-  //           <div
-  //             style={{ width: '100%' }}
-  //             className={styles.currentBalanceDescription}
-  //           >
-  //             <div className={styles.currentBalanceCard}>
-  //               <div
-  //                 className={classNames(
-  //                   styles.buttonContainer,
-  //                   styles.rowContainer
-  //                 )}
-  //               >
-  //                 <div>
-  //                   <h2>Verify your identity</h2>
-  //                   <p className={styles.label}>
-  //                     In order to activate full functionality of your account,
-  //                     you must provide a proof-of-identity. To ensure your
-  //                     safety and privacy, we use an external provider for this
-  //                     procedure.
-  //                   </p>
-  //                 </div>
-  //                 <Button
-  //                   className={styles.buttonBanner}
-  //                   onClick={openFractal}
-  //                   theme={ButtonTheme.alternativeButton}
-  //                 >
-  //                   Start
-  //                 </Button>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </Grid>
-  //       )}
-  //       <Grid
-  //         container
-  //         justifyContent="flex-start"
-  //         alignContent="center"
-  //         spacing={1}
-  //       >
-  //         <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
-  //           <div
-  //             className={classNames(
-  //               styles.currentBalanceDescription,
-  //               styles.smallCurrentBalanceDescription
-  //             )}
-  //           >
-  //             <div
-  //               className={classNames(
-  //                 styles.currentBalanceCard,
-  //                 styles.smallCard
-  //               )}
-  //             >
-  //               <div
-  //                 className={styles.depositCardContainer}
-  //                 onClick={showWalletDepositCrypto}
-  //               >
-  //                 <BitcoinIcon />
-  //                 <p className={styles.depositTitle}>Deposit with Crypto</p>
-  //                 <div className={styles.depositDescriptionSection}>
-  //                   <p className={styles.depositDescription}>
-  //                     Deposit ETH or BTC and start playing <br />
-  //                     immediately.
-  //                   </p>
-  //                   <RightArrow />
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </Grid>
-
-  //         <Grid
-  //           className={styles.balanceCard}
-  //           item
-  //           lg={4}
-  //           md={4}
-  //           xs={12}
-  //         >
-  //           <div
-  //             className={classNames(
-  //               styles.currentBalanceDescription,
-  //               styles.smallCurrentBalanceDescription
-  //             )}
-  //           >
-  //             <div
-  //               className={classNames(
-  //                 styles.currentBalanceCard,
-  //                 styles.smallCard
-  //               )}
-  //             >
-  //               <div
-  //                 className={styles.depositCardContainer}
-  //                 onClick={showWalletDepositFiat}
-  //               >
-  //                 <EuroIcon />
-  //                 <p className={styles.depositTitle}>Deposit with EUR / USD</p>
-  //                 <div className={styles.depositDescriptionSection}>
-  //                   <p className={styles.depositDescription}>
-  //                     Deposit EUR or USD to start playing in a<br /> few hours.
-  //                   </p>
-  //                   <RightArrow />
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </Grid>
-
-  //         <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
-  //           <div
-  //             className={classNames(
-  //               styles.currentBalanceDescription,
-  //               styles.smallCurrentBalanceDescription
-  //             )}
-  //           >
-  //             <div
-  //               className={classNames(
-  //                 styles.currentBalanceCard,
-  //                 styles.smallCard
-  //               )}
-  //             >
-  //               <div
-  //                 className={styles.depositCardContainer}
-  //                 onClick={showWalletConnectWallet}
-  //               >
-  //                 <WalletIcon />
-  //                 <p className={styles.depositTitle}>Connect your Wallet</p>
-  //                 <div className={styles.depositDescriptionSection}>
-  //                   <p className={styles.depositDescription}>
-  //                     Connect your existing wallet with WFAIR
-  //                     <br /> your bought and start immediately
-  //                   </p>
-  //                   <RightArrow />
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </Grid>
-  //       </Grid>
-  //       <Grid
-  //         container
-  //         alignContent="center"
-  //         justifyContent="flex-start"
-  //         spacing={1}
-  //       >
-  //         <Grid className={styles.balanceCard} item lg={4} md={4} xs={12}>
-  //           <div
-  //             className={classNames(
-  //               styles.currentBalanceDescription,
-  //               styles.smallCurrentBalanceDescription
-  //             )}
-  //           >
-  //             <div
-  //               className={classNames(
-  //                 styles.currentBalanceCard,
-  //                 styles.smallCard
-  //               )}
-  //             >
-  //               <div className={styles.buttonContainer}>
-  //                 <h2>Withdraw</h2>
-  //                 <p className={styles.label}>
-  //                   You can withdraw your funds directly to your
-  //                   crypto wallet. You can then convert your WFAIR to other
-  //                   cryptocurrencies or hold it to have early access to the
-  //                   upcoming utilities.
-  //                 </p>
-  //                 <Button
-  //                   className={styles.button}
-  //                   // disabled={!isKycVerified() || !user.emailConfirmed}
-  //                   disabledWithOverlay={false}
-  //                   onClick={showWithdrawPopup}
-  //                   title="Instant withdraw up to 100,000 WFAIR"
-  //                   theme={ButtonTheme.secondaryButton}
-  //                 >
-  //                   Instant Withdraw
-  //                 </Button>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </Grid>
-  //       </Grid>
-  //     </div>
-  //   );
-  // };
-
 
   const renderDepositBonusSection = () => {
     return (
@@ -660,6 +407,26 @@ const UserWallet = ({
       </div>
     )
   }
+
+  const renderActivities = () => {
+    return (
+      <div className={styles.activitiesTracker}>
+        <div className={styles.title}>
+          <h2>Activities</h2>
+        </div>
+        <Grid item xs={12}>
+          <EventActivitiesTabs
+            activitiesLimit={50}
+            className={styles.activitiesTrackerGamesBlock}
+            preselectedCategory={'game'}
+            hideSecondaryColumns={true}
+            hideFirstColumn={true}
+            layout="wide"
+          />
+        </Grid>
+      </div>
+    );
+  };
 
 
   return (
@@ -693,6 +460,8 @@ const UserWallet = ({
           </div>
 
           <WalletFAQ className={styles.walletFAQ}/>
+
+          {renderActivities()}
         </div>
       </div>
     </BaseContainerWithNavbar>

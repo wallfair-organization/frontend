@@ -108,10 +108,11 @@
 
     .reward {
       color: $colorGreen;
+      font-weight: bold;
     }
 
     .loss {
-      color: $colorRed;
+      color: $colorWhite50;
     }
 
     .rewardMulti {
@@ -219,7 +220,7 @@
     }
 
     > :nth-child(odd) {
-      background: colorLightPurple10;
+      background: $colorLightPurple10;
     }
   }
 
