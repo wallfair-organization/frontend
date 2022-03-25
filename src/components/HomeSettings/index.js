@@ -23,6 +23,9 @@ const HomeSettings = ({
   onProfileClick,
   onHowItWorksClick,
 }) => {
+
+  const history = useHistory();
+
   return (
     <div className={styles.settings}>
       <div className={styles.settingContainer}>
@@ -86,6 +89,19 @@ const HomeSettings = ({
             <p className={styles.settingTitle}>Wallet</p>
           </div>
         )}
+
+        {loggedIn && process.env.REACT_APP_SHOW_UPCOMING_FEATURES === "true" &&
+          <div
+            onClick={() => {history.pushState(Routes.bonus)}}
+            className={classNames(styles.singleSettingHolder)}
+          >
+            <Icon
+              className={classNames(styles.referralIcon, styles.strokeIcon)}
+              iconType={'wallet3'}
+            />
+            <p className={styles.settingTitle}>Bonus</p>
+          </div>
+        }
 
         <div
           onClick={onActivitiesClick}

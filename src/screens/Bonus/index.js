@@ -16,6 +16,8 @@ import { selectUser } from "store/selectors/authentication";
 import ClaimBonusWidget from "components/ClaimBonusWidget";
 import BonusItem from "screens/BonusItem";
 import { getPromoCodes } from "api";
+import { Grid } from "@material-ui/core";
+import EventActivitiesTabs from "components/EventActivitiesTabs";
 
 const Bonus = () => {
   const history = useHistory();
@@ -37,7 +39,27 @@ const Bonus = () => {
 
   useEffect(() => {
     fetchBonus();
-  }, [])
+  }, []);
+
+  const renderActivities = () => {
+    return (
+      <div className={styles.activitiesTracker}>
+        <div className={styles.title}>
+          <h2>Activities</h2>
+        </div>
+        <Grid item xs={12}>
+          <EventActivitiesTabs
+            activitiesLimit={50}
+            className={styles.activitiesTrackerGamesBlock}
+            preselectedCategory={'game'}
+            hideSecondaryColumns={true}
+            hideFirstColumn={true}
+            layout="wide"
+          />
+        </Grid>
+      </div>
+    );
+  };
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
@@ -61,6 +83,8 @@ const Bonus = () => {
           }
         </div>
         
+
+        {renderActivities()}
         
       </div>
 

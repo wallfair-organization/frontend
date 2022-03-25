@@ -29,6 +29,8 @@ import EventActivitiesTabs from 'components/EventActivitiesTabs';
 import { LOGGED_IN } from 'constants/AuthState';
 import { getMarketEvents } from 'api';
 import { isMobileOnly } from 'react-device-detect';
+import ActivitiesTracker from 'components/ActivitiesTracker';
+import { Grid } from '@material-ui/core';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
@@ -152,6 +154,36 @@ const NonStreamedEventsContent = ({
     startOnboarding();
   }, []);
 
+  const renderActivities = () => {
+    return (
+      <div className={styles.activitiesTracker}>
+        <div className={styles.title}>
+          <h2>Activities</h2>
+        </div>
+        <Grid item xs={12}>
+          <ActivitiesTracker
+            preselectedCategory={'bets'}
+            showCategories={false}
+            activitiesLimit={30}
+            className={
+              styles.activitiesTrackerContainerFull +
+              ' activities-tracker-swiper'
+            }
+            showBets={true}
+          />
+          {/* <EventActivitiesTabs
+            activitiesLimit={50}
+            className={styles.activitiesTrackerGamesBlock}
+            preselectedCategory={'game'}
+            hideSecondaryColumns={true}
+            hideFirstColumn={true}
+            layout="wide"
+          /> */}
+        </Grid>
+      </div>
+    );
+  };
+
   return (
     <>
       <section className={styles.title}>
@@ -262,13 +294,7 @@ const NonStreamedEventsContent = ({
 
         <BuyWFAIRWidget />
 
-        <EventActivitiesTabs
-          activitiesLimit={50}
-          className={styles.activities}
-          preselectedCategory={'game'}
-          hideSecondaryColumns={true}
-          layout="wide"
-        />
+        {renderActivities()}
       </section>
     </>
   );

@@ -117,7 +117,7 @@ const LeaderboardHome = ({
             (users.length ? (
               renderItems()
             ) : (
-              <span className={style.emptyRanks}>Nothing here.</span>
+              <span className={style.emptyRanks}>Nobody here!<br />Be the first one!</span>
             ))}
         </div>
       )}
