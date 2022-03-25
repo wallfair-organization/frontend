@@ -32,9 +32,7 @@ const BottomBanner = ({title, price, currency}) => {
   )
 }
 
-const HowToStartBanner = ({loggedIn, showWalletDepositPopup, showPopup, notifications}) => {
-    const dispatch = useDispatch();
-
+const HowToStartBanner = ({loggedIn, showWalletDepositPopup, showPopup, activities}) => {
     const handlePolygon = async () => {
         await switchMetaMaskNetwork('0x89');
     }
@@ -82,13 +80,13 @@ const HowToStartBanner = ({loggedIn, showWalletDepositPopup, showPopup, notifica
                     {renderHowtoCards()}
                 </div>
                 <div className={styles.bottomBannerContainner}>
-                  {notifications && notifications.slice(0, 5).map((activity, index) => {
+                  {activities && activities.slice(0, 5).map((activity, index) => {
                     return (
                       <BottomBanner
                         key={index}
-                        title={`${activity.data?.username}`}
-                        price={activity.data?.reward}
-                        currency={activity.data?.gamesCurrency}
+                        title={`${activity?.username}`}
+                        price={activity?.reward}
+                        currency={activity?.gamesCurrency}
                       />
                     )
                   })}
