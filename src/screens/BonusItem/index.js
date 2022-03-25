@@ -83,7 +83,7 @@ const BonusItem = ({ data, fetchBonus }) => {
           </span>
         </div>
         <div className={styles.bonusSpec}>
-          <span className={styles.label}>Wagering conditions</span><span className={styles.value}>{data?.wagering}</span>
+          <span className={styles.label}>Wagering conditions</span><span className={styles.value}>{data?.wagering}x</span>
         </div>
         <div className={styles.bonusSpec}>
           <span className={styles.label}>% of wagering reached</span><span className={styles.value}>{+data?.wagering > 0 ? (Math.min(100, +data?.wagering_reached * 100 / +data?.wagering) + '%') : '-'}</span>
@@ -107,12 +107,12 @@ const BonusItem = ({ data, fetchBonus }) => {
             />
           </div>
           {data?.status === bonusStatus.CLAIMED &&
-            <Button 
-              theme={ButtonTheme.secondaryButton}
+            <button 
+              className={styles.cancelLink}
               onClick={handleCancelBonus}
             >
               Cancel
-            </Button>
+            </button>
           }
         </div>
       </div>

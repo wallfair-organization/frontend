@@ -11,10 +11,11 @@ import classNames from 'classnames';
 import BackgroundFirst from '../../data/images/carousel/elon-bg-2x.png';
 import BackgroundSecond from '../../data/images/carousel/unlimited-wishes-bg.jpg';
 import { useCallback } from 'react';
-import { useNotificationFilter } from 'components/Events/hooks/useNotificationFilter';
+// import { useNotificationFilter } from 'components/Events/hooks/useNotificationFilter';
 import Button from 'components/Button';
 import { numberWithCommas } from 'utils/common';
 import { formatToFixed } from 'helper/FormatNumbers';
+import { useLuckyWins } from 'components/Events/hooks/useLuckyWins';
 
 
 const BottomBanner = ({title, price, currency}) => {
@@ -40,7 +41,8 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
   // const { events } = useEventsFilter([BetState.active], 'all', null, true);
   // const { events : eventsByCreationDate } = useEventsFilter([BetState.active], 'all', null, false, 15, '', 'most_popular');
 
-  const {notifications} = useNotificationFilter('Casino/CASINO_CASHOUT', 'game');
+  // const {notifications} = useNotificationFilter('Casino/CASINO_CASHOUT', 'game');
+   const { activities } = useLuckyWins();
 
   const onClickItemFirstBanner = useCallback(() => {
     history.push(Routes.elonGame);
@@ -97,13 +99,13 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
           <div className={styles.secondContainer}>
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
+            {activities && activities.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
                   key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
+                  title={`${activity?.username}`}
+                  price={activity?.reward}
+                  currency={activity?.gamesCurrency}
                 />
               )
             })}
@@ -166,13 +168,13 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
           <div className={styles.secondContainer}>
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
+            {activities && activities.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
                   key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
+                  title={`${activity?.username}`}
+                  price={activity?.reward}
+                  currency={activity?.gamesCurrency}
                 />
               )
             })}

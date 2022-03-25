@@ -539,7 +539,14 @@ const Navbar = ({
           {renderNavbarLink(`/events`, 'Events', null, 'menu-events')}
           
           {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
+
+          {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === "true" &&
+            renderNavbarLink(`/bonus`, 'Bonus', null, 'menu-bonus')
+          }
+
           {renderNavbarLink(`/activities`, 'Activities', null, 'menu-activities')}
+
+          
           
           
           

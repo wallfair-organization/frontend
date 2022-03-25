@@ -44,6 +44,7 @@ import { numberWithCommas } from 'utils/common';
 import { formatToFixed } from 'helper/FormatNumbers';
 import { selectPrices } from 'store/selectors/info-channel';
 import { selectUser } from 'store/selectors/authentication';
+import { useLuckyWins } from 'components/Events/hooks/useLuckyWins';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
@@ -70,8 +71,9 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
   const { events } = useEventsFilter([BetState.active], 'all', null, true);
   const { events : eventsByCreationDate } = useEventsFilter([BetState.active], 'all', null, false, 200, '', 'most_popular');
 
-  // const {notifications} = useNotificationFilter('Notification/EVENT_USER_REWARD']);
-  const {notifications} = useNotificationFilter('Casino/CASINO_CASHOUT');
+  // const {activities} = useNotificationFilter('Notification/EVENT_USER_REWARD']);
+  // const {activities} = useNotificationFilter('Casino/CASINO_CASHOUT');
+  const { activities } = useLuckyWins();
 
   const onClickItemFirstBanner = () => {
     if (loggedIn) {
@@ -223,136 +225,6 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
     )
   }
 
-  const renderSlidesPlayMoney = () => {
-    return (
-      <Carousel
-        className={styles.carousel}
-        autoPlay={true}
-        interval={6500}
-        transitionTime={800}
-        infiniteLoop={true}
-        preventMovementUntilSwipeScrollTolerance={true}
-        swipeable={false}
-        stopOnHover={true}
-        showArrows={true}
-        showStatus={false}
-        showIndicators={false}
-        showThumbs={false}
-        
-      >
-      <div className={styles.container}>
-        <div className={styles.topContainer}>
-          <img
-            className={styles.backgroundImg}
-            alt=""
-            src={BackgroundFirst}
-          />
-          <div className={styles.firstContainer}>
-            <div>
-              <h2>CREATE YOUR<br/>OWN EVENT AND<br/><span className={styles.secondTitle}>MAKE MONEY!</span></h2>
-              <p className={styles.description}>
-                Create events within 2 minutes, share them<br />with 
-                your friends and earn real money.
-              </p>
-              <div className={styles.buttonWrapper}>
-                <Button className={styles.button} onClick={onClickItemFirstBanner}>Create an event</Button>
-              </div>
-            </div>
-          </div>
-          <div className={styles.secondContainer}>
-            {renderBetCard()}
-            <img src={Coins} className={styles.coins} alt="coins" />
-          </div>
-          <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
-              return (
-                <BottomBanner
-                  key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
-                />
-              )
-            })}
-          </div>
-        </div>
-      </div>
-      <div className={styles.container}>
-        <div className={styles.topContainer}>
-          <img
-            className={styles.backgroundImg}
-            alt=""
-            src={BackgroundThird}
-          />
-          <div className={styles.firstContainer}>
-            <div className={styles.contentWrapper}>
-              <span className={styles.title}>MARCH COMPETITION</span>
-              <h2>
-                WE WILL DRAW 3 WINNERS <span className={styles.highlightWinner}>EVERY DAY!</span><br/>
-                THE DAILY PRIZE POOL IS WORTH <span className={styles.highlightWinner}>150 USD IN ETH.</span>
-              </h2>
-              <div className={classNames(styles.buttonWrapper, styles.mobile)}>
-                <Button className={styles.button} onClick={onClickItemFirstBanner}>Create an Event</Button>
-              </div>
-            </div>
-          </div>
-          <div className={styles.secondContainer}>
-            {renderWinners()}
-          </div>
-          {/* <div className={styles.bottomBannerContainner}>
-            {notifications.slice(0, 5).map(activity => {
-              return (
-                <BottomBanner
-                  title={`${activity.data?.user?.username}`}
-                  price={activity.data?.winToken}
-                />
-              )
-            })}
-          </div> */}
-        </div>
-      </div>
-
-      <div className={styles.container}>
-        <div className={styles.topContainer}>
-          <img
-            className={styles.backgroundImg}
-            alt=""
-            src={BackgroundSecond}
-          />
-          <div className={styles.firstContainer}>
-            <div>
-              <h2>TRADE ON<br/><span className={styles.secondTitle}>FUN EVENTS!</span></h2>
-              <p className={styles.description}>
-                Share the events with your friends or community. <br/>
-                The best and most interesting events will be rewarded.
-              </p>
-              <div className={styles.buttonWrapper}>
-                <Button className={styles.button} theme={ButtonTheme.secondaryButton} onClick={onClickItemSecondBanner}>Discover all Events</Button>
-              </div>
-            </div>
-          </div>
-          <div className={styles.secondContainer}>
-            {render3BetCards()}
-          </div>
-          <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
-              return (
-                <BottomBanner
-                  key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
-                />
-              )
-            })}
-          </div>
-        </div>
-        
-      </div>
-    </Carousel>
-    )
-  }
-
   const TextItem = ({emoji, children}) => {
     return (
       <div className={styles.textItem}>
@@ -392,7 +264,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
         
       >
 
-      <HowToStartBanner notifications={notifications} />
+      <HowToStartBanner activities={activities} />
 
       {/* <div className={styles.container}>
         <div className={styles.topContainer}>
@@ -413,13 +285,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             {renderTextItems()}
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
+            {activities && activities.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
                   key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
+                  title={`${activity?.username}`}
+                  price={activity?.reward}
+                  currency={activity?.gamesCurrency}
                 />
               )
             })}
@@ -456,13 +328,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             </div>
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
+            {activities && activities.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
                   key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
+                  title={`${activity?.username}`}
+                  price={activity?.reward}
+                  currency={activity?.gamesCurrency}
                 />
               )
             })}
@@ -500,13 +372,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             </div>
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
+            {activities && activities.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
                   key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
+                  title={`${activity?.username}`}
+                  price={activity?.reward}
+                  currency={activity?.gamesCurrency}
                 />
               )
             })}
@@ -548,13 +420,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             </div>
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
+            {activities && activities.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
                   key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
+                  title={`${activity?.username}`}
+                  price={activity?.reward}
+                  currency={activity?.gamesCurrency}
                 />
               )
             })}
@@ -596,13 +468,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             </div>
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
+            {activities && activities.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
                   key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
+                  title={`${activity?.username}`}
+                  price={activity?.reward}
+                  currency={activity?.gamesCurrency}
                 />
               )
             })}
@@ -643,13 +515,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             </div>
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
+            {activities && activities.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
                   key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
+                  title={`${activity?.username}`}
+                  price={activity?.reward}
+                  currency={activity?.gamesCurrency}
                 />
               )
             })}
@@ -682,13 +554,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             <img src={Coins} className={styles.coins} alt="coins" />
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
+            {activities && activities.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
                   key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
+                  title={`${activity?.username}`}
+                  price={activity?.reward}
+                  currency={activity?.gamesCurrency}
                 />
               )
             })}
@@ -720,13 +592,13 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
             {render3BetCards()}
           </div>
           <div className={styles.bottomBannerContainner}>
-            {notifications && notifications.slice(0, 5).map((activity, index) => {
+            {activities && activities.slice(0, 5).map((activity, index) => {
               return (
                 <BottomBanner
                   key={index}
-                  title={`${activity.data?.username}`}
-                  price={activity.data?.reward}
-                  currency={activity.data?.gamesCurrency}
+                  title={`${activity?.username}`}
+                  price={activity?.reward}
+                  currency={activity?.gamesCurrency}
                 />
               )
             })}
@@ -740,7 +612,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
 
   return (
     <div className={classNames(styles.carouselContainer)}>
-      {isPlayMoney ? renderSlidesPlayMoney() : renderSlidesRealMoney()}
+      {renderSlidesRealMoney()}
     </div>
   )
 };

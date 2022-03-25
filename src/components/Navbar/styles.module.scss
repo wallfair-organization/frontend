@@ -300,7 +300,7 @@
       }
 
       &.hideOnMobile {
-        @media (max-width: $screen-md) {
+        @media (max-width: 1200px) {
           display: none;
         }
       }
@@ -709,7 +709,7 @@
     }
 
     .logoMobileWrapper {
-      @media (min-width: $screen-md) {
+      @media (min-width: 1201px) {
         display: none;
       }
     }
