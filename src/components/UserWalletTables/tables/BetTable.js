@@ -7,7 +7,7 @@ import {getReadableAmount, roundToTwo} from '../../../helper/FormatNumbers';
 import { toNumericString } from 'helper/FormatNumbers';
 import { TOKEN_NAME } from '../../../constants/Token';
 import { GAMES } from 'constants/Games';
-import {getGameById, getExternalGames} from "../../../helper/Games";
+import {getGameById, getExternalGames,getSoftswissGameName,getEvoplayGameName} from "../../../helper/Games";
 import { currencyDisplay } from 'helper/Currency';
 
 const BetsRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
@@ -16,10 +16,16 @@ const BetsRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
 
   if(!gameLabel) {
     const topGames = getExternalGames();
-    const topGameEntry = _.find(topGames, {id: gameId});
+    const topGameEntry = _.find(topGames, {TechnicalName: gameId});
     gameLabel = topGameEntry?.TechnicalName;
   }
-
+  if(!gameLabel){
+    //console.log(`Softswiss game name ${getSoftswissGameName(gameId)}`);
+    gameLabel = getSoftswissGameName(gameId);
+  }
+  if(!gameLabel){
+    gameLabel = getEvoplayGameName(gameId);
+  }
   if(!gameLabel) {
     gameLabel = "Game";
   }

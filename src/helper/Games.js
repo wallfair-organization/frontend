@@ -1,4 +1,4 @@
-const { GAMES, EXTERNAL_GAMES } = require('../constants/Games');
+const { GAMES, EXTERNAL_GAMES,SOFTSWISS_GAMES,EVOPLAY_GAMES } = require('../constants/Games');
 const _ = require('lodash');
 
 export const getGameById = gameTypeId => {
@@ -10,6 +10,15 @@ export const getExternalGames = () => {
     game.id = ObjectId(game.TechnicalName);
     return game;
   })
+}
+export const getSoftswissGameName = (identifier) => {
+  return SOFTSWISS_GAMES.find((game)=>
+    game.identifier===identifier
+  )?.title;
+}
+
+export const getEvoplayGameName = (identifier) => {
+  return EVOPLAY_GAMES[identifier]?.name;
 }
 
 export const ObjectId = (gamename) => {
