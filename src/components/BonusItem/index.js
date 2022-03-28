@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import classNames from "classnames";
-import Button from "../../components/Button";
-import ButtonTheme from '../../components/Button/ButtonTheme';
+import Button from "components/Button";
+import ButtonTheme from 'components/Button/ButtonTheme';
 import placeholderImg from '../../data/images/bonus/placeholder.png';
 import { useCallback, useState } from 'react';
 import { cancelPromoCode } from 'api';
@@ -86,7 +86,7 @@ const BonusItem = ({ data, fetchBonus }) => {
           <span className={styles.label}>Wagering conditions</span><span className={styles.value}>{data?.wagering}x</span>
         </div>
         <div className={styles.bonusSpec}>
-          <span className={styles.label}>% of wagering reached</span><span className={styles.value}>{+data?.wagering > 0 ? (Math.min(100, +data?.wagering_reached * 100 / +data?.wagering) + '%') : '-'}</span>
+          <span className={styles.label}>% of wagering reached</span><span className={styles.value}>{+data?.wagering > 0 ? (Math.min(100, +data?.wagering_reached * 100) + '%') : '-'}</span>
         </div>
         <div className={styles.bonusSpec}>
           <span className={styles.label}>Expiration Date</span><span className={styles.value}>{data?.expires_at && DateText.formatDate(data?.expires_at)}</span>

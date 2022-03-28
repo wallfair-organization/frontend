@@ -14,7 +14,7 @@ import { OnboardingActions } from "store/actions/onboarding";
 import { isMobile } from 'react-device-detect';
 import { selectUser } from "store/selectors/authentication";
 import ClaimBonusWidget from "components/ClaimBonusWidget";
-import BonusItem from "screens/BonusItem";
+import BonusItem from "components/BonusItem";
 import { getPromoCodes } from "api";
 import { Grid } from "@material-ui/core";
 import EventActivitiesTabs from "components/EventActivitiesTabs";
@@ -27,6 +27,32 @@ const Bonus = () => {
   const isLoggedIn = user.isLoggedIn;
 
   const [bonusList, setBonusList] = useState([]);
+  
+  const [tabIndex, setTabIndex] = useState(0);
+  let tabOptions = [
+    { name: 'Money Bonus', index: 0 },
+    { name: 'Freespin Bonus', index: 1 },
+    { name: 'Currently active', index: 2 },
+    { name: 'History of activated bonus', index: 3 },
+  ];
+
+  const handleActivitySwitchTab = ({ index }) => {
+    switch (index) {
+      case 0: 
+        
+        break;
+      case 1:
+        
+        break;
+      case 2:
+        
+        break;
+      case 3:
+        
+        break;
+    }
+    setTabIndex(index);
+  };
 
   const showPopup = useCallback((popupType, options) => {
     dispatch(PopupActions.show({popupType, options}));
