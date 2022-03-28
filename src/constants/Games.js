@@ -2372,6 +2372,26 @@ export const EVOPLAY_GAMES = {
       ],
       "release_date": "2021-12-23"
     },
+    "5865": {
+
+      "name": "Lucky Card",
+      "absolute_name": "instant\\html5\\evoplay\\luckycard",
+      "developer_id": 13,
+      "type_id": 1,
+      "game_sub_type": "Slot",
+      "mobile": 1,
+      "desktop": 1,
+      "fullstate": 1,
+      "denominations_override_allowed": 0,
+      "release_date": "2021-12-23"
+    },
+    "5863": {
+      "type_id": 1,
+      "game_sub_type": "Slot",
+      "name": "Patrick's Magic Field",
+      "absolute_name": "instant\\html5\\evoplay\\patricksmagicfield",
+      "title": "Patrick's Magic Field"
+    },
     /*
     "5829": {
         "name": "Dragon's Tavern",
