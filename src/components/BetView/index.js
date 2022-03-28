@@ -54,7 +54,11 @@ const BetView = ({
   // Static balance amount to simulate for non-logged users
   // Slider is also using 2800 as max value
   const BALANCE_NOT_LOGGED = 2800;
-  const { currency, balance } = useSelector(selectUser);
+
+  const user = useSelector(selectUser);
+  const balance = parseInt(user?.balance || 0, 10);
+  const currency = user.gamesCurrency;
+
   const defaultBetValue = 10;
   const bet = event.bet;
   const state = _.get(bet, 'status');
@@ -273,7 +277,7 @@ const BetView = ({
             dataTrackingId="nonstreamed-event-trade-help"
           >
             You need to have a sufficient amount of{' '}
-            {currencyDisplay(TOKEN_NAME)} tokens to participate in events
+            {currencyDisplay(currency)} to participate in events
             {/* How to buy {TOKEN_NAME} token? */}
           </InfoBox>
         </div>
@@ -460,12 +464,12 @@ const BetView = ({
               >
                 <p>How to place a bet?</p>
                 <p>
-                  - First enter the amount (in {currencyDisplay(TOKEN_NAME)})
+                  - First enter the amount (in {currencyDisplay(currency)})
                   you want to put into this bet by typing in the amount.
                 </p>
                 <p>
                   - After that, select the outcome you think will become true.
-                  The potential gains in {currencyDisplay(TOKEN_NAME)} and
+                  The potential gains in {currencyDisplay(currency)} and
                   percent will automatically adjust according to your placed bet
                   amount.
                 </p>

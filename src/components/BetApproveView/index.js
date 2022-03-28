@@ -18,8 +18,6 @@ import { toNumericString } from 'helper/FormatNumbers';
 import ButtonTheme from 'components/Button/ButtonTheme';
 
 const BetApproveView = ({ visible, hidePopup, options }) => {
-  const { currency } = useSelector(selectUser);
-
   const { getAnimationInstance, canvasStyles } = useConfettiAnimation({
     visible,
   });
@@ -28,8 +26,8 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
   const bet = _.get(options, 'data.bet');
   const event = _.get(options, 'data.event');
 
-  const amountPlaced = convert(_.get(trade, 'investment_amount', 0), currency);
-  const potentialOutcome = convert(_.get(trade, 'outcome_tokens', 0), currency);
+  const amountPlaced = _.get(trade, 'currency_investment', 0);
+  const potentialOutcome = _.get(trade, 'currency_outcome_tokens', 0);
   const potentialPercent = calculateGain(amountPlaced, potentialOutcome);
   const potentialPercentGain = _.get(potentialPercent, 'value');
   const potentialPercentType = _.get(potentialPercent, 'negative', false);
@@ -62,14 +60,13 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
         <div className={classNames(styles.entry)}>
           <div className={styles.label}>Amount placed</div>
           <div className={classNames(styles.value, styles.alignRight)}>
-            {toNumericString(amountPlaced)} <span>{currencyDisplay(currency)}</span>
+            {toNumericString(amountPlaced)} <span>{trade.currency}</span>
           </div>
         </div>
         <div className={classNames(styles.entry)}>
           <div className={styles.label}>Potential outcome</div>
           <div className={classNames(styles.value, styles.alignRight)}>
-            {toNumericString(potentialOutcome)}{' '}
-            <span>{currencyDisplay(currency)}</span>
+            {toNumericString(potentialOutcome)} <span>{trade.currency}</span>
           </div>
         </div>
         <div className={classNames(styles.entry, styles.alignRight)}>

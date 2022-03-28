@@ -104,8 +104,12 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
             <b>{getUserProfileUrl(data)}</b> has been rewarded with{' '}
             <div className={'global-token-currency'}>
               <b>
-                {formatToFixed(_.get(data, 'winToken'), 0, true)}{' '}
-                {TOKEN_DISPLAY_NAME}
+                {formatToFixed(
+                  _.get(data, 'currencyWinToken') || _.get(data, 'winToken'),
+                  0,
+                  true
+                )}{' '}
+                {_.get(data, 'currency') || TOKEN_DISPLAY_NAME}
               </b>
             </div>{' '}
             from <b>{_.get(event, 'name')}</b>.
@@ -152,8 +156,13 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
           <div>
             <b>{getUserProfileUrl(data)}</b> has bet{' '}
             <div className={'global-token-currency'}>
-              {formatToFixed(_.get(data, 'trade.investment_amount'), 0, true)}{' '}
-              {TOKEN_DISPLAY_NAME}
+              {formatToFixed(
+                _.get(data, 'trade.currency_investment') ||
+                  _.get(data, 'trade.investment_amount'),
+                0,
+                true
+              )}{' '}
+              {_.get(data, 'trade.currency') || TOKEN_DISPLAY_NAME}
             </div>{' '}
             {showBetName && (
               <>
@@ -176,7 +185,7 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
             <div className={'global-token-currency'}>
               <b>
                 {formatToFixed(_.get(data, 'amount'), 0, true)}{' '}
-                {TOKEN_DISPLAY_NAME}
+                {_.get(data, 'currency') || TOKEN_DISPLAY_NAME}
               </b>
             </div>{' '}
             {gainValueEvent && (
@@ -194,7 +203,7 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
               <>
                 from{' '}
                 <ActivityLink
-                  path={'/trade/' +data.bet?.market_event?.slug}
+                  path={'/trade/' + data.bet?.market_event?.slug}
                   text={data.bet?.market_question}
                 />
                 .
