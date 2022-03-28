@@ -24,7 +24,7 @@ import { formatToFixed } from '../../helper/FormatNumbers';
 import { TOKEN_NAME } from '../../constants/Token';
 import ReactTooltip from 'react-tooltip';
 import { selectUser } from 'store/selectors/authentication';
-import { currencyDisplay } from 'helper/Currency';
+import { currencyDisplay, convertAmount } from 'helper/Currency';
 import DateText from 'helper/DateText';
 import StateBadge from 'components/StateBadge';
 import AuthedOnly from 'components/AuthedOnly';
@@ -39,6 +39,7 @@ import ButtonTheme from 'components/Button/ButtonTheme';
 import { EVENT_CATEGORIES } from 'constants/EventCategories';
 import { AlertActions } from 'store/actions/alert';
 import EmbedVideo from 'components/EmbedVideo';
+import { selectPrices } from 'store/selectors/info-channel';
 
 const BetView = ({
   event,
@@ -54,11 +55,9 @@ const BetView = ({
   // Static balance amount to simulate for non-logged users
   // Slider is also using 2800 as max value
   const BALANCE_NOT_LOGGED = 2800;
-
   const user = useSelector(selectUser);
   const balance = parseInt(user?.balance || 0, 10);
   const currency = user.gamesCurrency;
-
   const defaultBetValue = 10;
   const bet = event.bet;
   const state = _.get(bet, 'status');
@@ -66,6 +65,7 @@ const BetView = ({
   const userLoggedIn = auth.authState === 'LOGGED_IN';
   const isAdmin = auth.admin;
   const isCreator = auth.userId === bet.creator;
+  const prices = useSelector(selectPrices);
 
   // LOCAL
   const [validInput, setValidInput] = useState(false);
@@ -101,7 +101,6 @@ const BetView = ({
 
     if (userLoggedIn && _.toNumber(commitment) > 10000) {
       valid = false;
-    
     } else if (userLoggedIn && _.toNumber(commitment) > _.toNumber(balance)) {
       valid = false;
 
@@ -170,7 +169,11 @@ const BetView = ({
     const validInput = validateInput();
 
     if (validInput) {
-      placeBet(bet.id, commitment, choice)
+      const amount =
+        currency !== TOKEN_NAME
+          ? `${convertAmount(+commitment, prices[currency], true)}`
+          : `${formatToFixed(+commitment, 0, true)}`;
+      placeBet(bet.id, amount, choice)
         .then(res => {
           showPopup(PopupTheme.betApprove, {
             data: {
@@ -276,8 +279,8 @@ const BetView = ({
             iconType={IconType.question}
             dataTrackingId="nonstreamed-event-trade-help"
           >
-            You need to have a sufficient amount of{' '}
-            {currencyDisplay(currency)} to participate in events
+            You need to have a sufficient amount of {currencyDisplay(currency)}{' '}
+            to participate in events
             {/* How to buy {TOKEN_NAME} token? */}
           </InfoBox>
         </div>
@@ -383,27 +386,24 @@ const BetView = ({
         }
 
         if (userLoggedIn && _.toNumber(commitment) > _.toNumber(balance)) {
-          return `Not enough funds to place a bet. Add more funds.}`
+          return `Not enough funds to place a bet. Add more funds.}`;
         }
 
         if (userLoggedIn && _.toNumber(commitment) > 10000) {
           return `Maximum bet amount is 10,000 WFAIR`;
         }
-        
+
         if (userLoggedIn && !isCreator) {
           return 'You need to select an option first';
         }
 
         return null;
-      }
+      };
 
       return (
         <>
           {/* {renderTradeDesc()} */}
-          <span
-            data-for="tool-tip"
-            data-tip={errorMsg()}
-          >
+          <span data-for="tool-tip" data-tip={errorMsg()}>
             <Button
               theme={ButtonTheme.primaryButtonXL}
               className={styles.betButton}
@@ -464,14 +464,13 @@ const BetView = ({
               >
                 <p>How to place a bet?</p>
                 <p>
-                  - First enter the amount (in {currencyDisplay(currency)})
-                  you want to put into this bet by typing in the amount.
+                  - First enter the amount (in {currencyDisplay(currency)}) you
+                  want to put into this bet by typing in the amount.
                 </p>
                 <p>
                   - After that, select the outcome you think will become true.
-                  The potential gains in {currencyDisplay(currency)} and
-                  percent will automatically adjust according to your placed bet
-                  amount.
+                  The potential gains in {currencyDisplay(currency)} and percent
+                  will automatically adjust according to your placed bet amount.
                 </p>
                 <p>
                   - To finalize your bet, click on the "Place Trade" button and
@@ -532,7 +531,12 @@ const BetView = ({
         </>
       );
     } else if (
-      [BetState.resolved, BetState.disputed, BetState.closed, BetState.waitingResolution].includes(state)
+      [
+        BetState.resolved,
+        BetState.disputed,
+        BetState.closed,
+        BetState.waitingResolution,
+      ].includes(state)
     ) {
       const isResolved = [BetState.resolved, BetState.disputed].includes(state);
       const outcomeNames = _.map(bet.outcomes, 'name') || [];

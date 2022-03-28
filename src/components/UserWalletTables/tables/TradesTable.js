@@ -7,9 +7,13 @@ import moment from "moment";
 import BetState from 'constants/BetState';
 import { calculateGain } from '../../../helper/Calculation';
 import { formatToFixed } from "helper/FormatNumbers";
-import { connect } from "react-redux";
+import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../../store/actions/popup';
 import PopupTheme from '../../Popup/PopupTheme';
+import { selectPrices } from 'store/selectors/info-channel';
+import { selectUser } from 'store/selectors/authentication';
+import { TOKEN_NAME } from '../../../constants/Token';
+import { convertAmount } from 'helper/Currency';
 
 const isFinalizedTrade = status =>
   [BetState.closed, BetState.canceled, BetState.resolved].includes(status);
@@ -54,6 +58,15 @@ const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout })
     direction,
   } = data;
   const gain = getGain(data);
+    const prices = useSelector(selectPrices);
+      const user = useSelector(selectUser);
+      const currency = user.gamesCurrency;
+
+  const convert = amount => {
+    return currency !== TOKEN_NAME
+      ? `${convertAmount(amount, prices[currency])}`
+      : `${formatToFixed(amount, 0, true)}`;
+  }
 
   return (
     <div className={styles.messageItem}>
@@ -87,18 +100,14 @@ const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout })
         <Grid item xs>
           <div className={styles.messageCenter}>
             <p>
-              {formatToFixed(
-                direction === 'SELL' ? outcomeTokens : investmentAmount
-              )}
+              {convert(direction === 'SELL' ? outcomeTokens : investmentAmount)}
             </p>
           </div>
         </Grid>
         <Grid item xs>
           {allowCashout ? (
             <div className={styles.messageCenter}>
-              <p>
-                {formatToFixed(status === 'sold' ? sellAmount : outcomeTokens)}
-              </p>
+              <p>{convert(status === 'sold' ? sellAmount : outcomeTokens)}</p>
             </div>
           ) : (
             <div className={styles.messageCenter}>
@@ -137,24 +146,23 @@ const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout })
             <div
               className={classNames(styles.messageLast, styles.messageRight)}
             >
-              {bet.status === BetState.active &&
-                !isFinalizedTrade(bet.status) && (
-                  <button
-                    className={styles.styledButton}
-                    onClick={() =>
-                      showPulloutBetPopup(
-                        bet.id,
-                        outcomeIndex,
-                        sellAmount,
-                        bet.outcome,
-                        onApproveCashout
-                      )
-                    }
-                    data-tracking-id="wallet-cashout"
-                  >
-                    Cashout
-                  </button>
-                )}
+              {bet.status === BetState.active && !isFinalizedTrade(bet.status) && (
+                <button
+                  className={styles.styledButton}
+                  onClick={() =>
+                    showPulloutBetPopup(
+                      bet.id,
+                      outcomeIndex,
+                      convert(sellAmount),
+                      bet.outcome,
+                      onApproveCashout
+                    )
+                  }
+                  data-tracking-id="wallet-cashout"
+                >
+                  Cashout
+                </button>
+              )}
             </div>
           </Grid>
         )}

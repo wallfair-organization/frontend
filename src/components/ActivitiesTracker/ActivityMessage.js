@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import { useCallback, useEffect } from 'react';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import DateText from '../../helper/DateText';
 import styles from './styles.module.scss';
 import State from '../../helper/State';
@@ -8,11 +8,13 @@ import { roundToTwo } from '../../helper/FormatNumbers';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { formatToFixed } from 'helper/FormatNumbers';
-import { TOKEN_DISPLAY_NAME, TOKEN_NAME } from '../../constants/Token';
+import { TOKEN_NAME } from '../../constants/Token';
 import { calculateGain } from '../../helper/Calculation';
 import { getGameById } from '../../helper/Games';
 import { currencyDisplay } from 'helper/Currency';
 import moment from 'moment';
+import { selectPrices } from 'store/selectors/info-channel';
+import { convertAmount } from 'helper/Currency';
 
 const isPlayMoney = process.env.REACT_APP_PLAYMONEY === 'true';
 
@@ -29,8 +31,16 @@ const ActivityLink = ({ path, text }) => (
   </b>
 );
 
-const ActivityMessage = ({ activity, date, users, events, showBetName = true }) => {
+const ActivityMessage = ({
+  activity,
+  date,
+  users,
+  events,
+  showBetName = true,
+  currency
+}) => {
   const [dateString, setDateString] = useState('');
+  const prices = useSelector(selectPrices);
 
   const updateDateText = useCallback(() => {
     const dateText = DateText.getChatTimeText(date);
@@ -79,6 +89,12 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
     );
   };
 
+  const convertCurrency = value => {
+    return currency !== TOKEN_NAME
+      ? `${convertAmount(+value, prices[currency])}`
+      : `${formatToFixed(+value, 0, true)}`;
+  };
+
   const prepareMessageByType = (activity, user) => {
     const data = activity.data;
     let event = _.get(data, 'event');
@@ -103,14 +119,7 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
           <div>
             <b>{getUserProfileUrl(data)}</b> has been rewarded with{' '}
             <div className={'global-token-currency'}>
-              <b>
-                {formatToFixed(
-                  _.get(data, 'currencyWinToken') || _.get(data, 'winToken'),
-                  0,
-                  true
-                )}{' '}
-                {_.get(data, 'currency') || TOKEN_DISPLAY_NAME}
-              </b>
+              <b>{`${convertCurrency(_.get(data, 'winToken'))} ${currency}`}</b>
             </div>{' '}
             from <b>{_.get(event, 'name')}</b>.
           </div>
@@ -156,13 +165,9 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
           <div>
             <b>{getUserProfileUrl(data)}</b> has bet{' '}
             <div className={'global-token-currency'}>
-              {formatToFixed(
-                _.get(data, 'trade.currency_investment') ||
-                  _.get(data, 'trade.investment_amount'),
-                0,
-                true
-              )}{' '}
-              {_.get(data, 'trade.currency') || TOKEN_DISPLAY_NAME}
+              {`${convertCurrency(
+                _.get(data, 'trade.investment_amount')
+              )} ${currency}`}
             </div>{' '}
             {showBetName && (
               <>
@@ -183,10 +188,7 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
           <div>
             <b>{getUserProfileUrl(data)}</b> has cashed out{' '}
             <div className={'global-token-currency'}>
-              <b>
-                {formatToFixed(_.get(data, 'amount'), 0, true)}{' '}
-                {_.get(data, 'currency') || TOKEN_DISPLAY_NAME}
-              </b>
+              <b>{`${convertCurrency(_.get(data, 'amount'))} ${currency}`}</b>
             </div>{' '}
             {gainValueEvent && (
               <div
@@ -297,10 +299,9 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has placed{' '}
-              <b>
-                {formatToFixed(stakedAmount, numDecimals, true)} {gamesCurrency}
-              </b>
-            {' '}
+            <b>
+              {formatToFixed(stakedAmount, numDecimals, true)} {gamesCurrency}
+            </b>{' '}
             bet on {gameLabel}.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
@@ -317,18 +318,13 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has cashed out{' '}
-            
-              <b>
-                {formatToFixed(_.get(data, 'reward'), numDecimals, true)} {gamesCurrency}
-              </b>
-            {' '}
+            <b>
+              {formatToFixed(_.get(data, 'reward'), numDecimals, true)}{' '}
+              {gamesCurrency}
+            </b>{' '}
             {gainValueCasino && (
               <div
-                className={
-                  gainNegativeCasino
-                    ? null
-                    : 'global-cashout-profit'
-                }
+                className={gainNegativeCasino ? null : 'global-cashout-profit'}
               >
                 ({gainValueCasino})
               </div>
@@ -381,19 +377,14 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
           ? _.get(data, 'stakedAmountWfair')
           : _.get(data, 'stakedAmount');
         const numDecimals = gamesCurrency === TOKEN_NAME ? 0 : 2;
-        
+
         return (
           <div>
             <b>{getUserProfileUrl(data)}</b> has lost{' '}
-            
-              <b>
-                {formatToFixed(stakedAmount, numDecimals, true)} {gamesCurrency}
-              </b>
-            {' '}
-            at{' '}
-            {roundToTwo(multiplier)}
-            {' '}
-            {multiplierLabel} on {gameLabel}.{' '}
+            <b>
+              {formatToFixed(stakedAmount, numDecimals, true)} {gamesCurrency}
+            </b>{' '}
+            at {roundToTwo(multiplier)} {multiplierLabel} on {gameLabel}.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
         );
@@ -432,7 +423,10 @@ const ActivityMessage = ({ activity, date, users, events, showBetName = true }) 
 };
 
 const mapStateToProps = (state, ownProps) => {
+  const gamesCurrency = state.authentication.preferences.gamesCurrency;
+
   return {
+    currency: gamesCurrency,
     users: _.get(state, 'user.users', []),
     events: _.get(state, 'event.events', []),
   };
