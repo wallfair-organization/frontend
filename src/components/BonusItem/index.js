@@ -4,7 +4,7 @@ import Button from "components/Button";
 import ButtonTheme from 'components/Button/ButtonTheme';
 import placeholderImg from '../../data/images/bonus/placeholder.png';
 import { useCallback, useState } from 'react';
-import { cancelPromoCode } from 'api';
+import { Api, cancelPromoCode, withdrawBonus } from 'api';
 import { useDispatch, useSelector } from 'react-redux';
 import { AlertActions } from 'store/actions/alert';
 import { selectUser } from 'store/selectors/authentication';
@@ -15,6 +15,11 @@ import { formatToFixed } from 'helper/FormatNumbers';
 import DateText from 'helper/DateText';
 import InputBox from 'components/InputBox';
 import InputBoxTheme from 'components/InputBox/InputBoxTheme';
+import PopupTheme from 'components/Popup/PopupTheme';
+import { PopupActions } from 'store/actions/popup';
+import { useHistory } from 'react-router-dom';
+import Routes from 'constants/Routes';
+import { calculateTimeLeft } from 'utils/common';
 
 const bonusTypes = {
   FREESPIN: 'FREESPIN',
@@ -33,21 +38,28 @@ const BonusItem = ({ data, fetchBonus }) => {
   const [copied, setCopied] = useState(false);
   const prices = useSelector(selectPrices);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleCancelBonus = useCallback(async () => {
-    const result = await cancelPromoCode(data?.name, data?.ref_id || 'default');
+    dispatch(PopupActions.show({popupType: PopupTheme.cancelBonus, options: {bonus: {...data, fetchBonus}} }));
+  }, [data, fetchBonus, dispatch]);
 
-    if (result?.data?.response?.status === 'error') {
-      console.log('error cancelling bonus');
-      dispatch(AlertActions.showError({ message: result.response.data.message }));
+  const handleWithdrawBonus = useCallback(async () => {
+    //dispatch(PopupActions.show({popupType: PopupTheme.withdrawBonus, options: {bonus: {...data, fetchBonus}} }));
+    const result = await withdrawBonus(data?.name, data?.ref_id || 'default');
+    if (result?.response?.data?.status === 'error') {
+      console.log('error withdraw bonus');
+      dispatch(AlertActions.showError({ message: result?.response?.data?.message }));
       return;
     }
+
+    dispatch(AlertActions.showSuccess({ message: 'The Bonus amount was successfully added to your balance.' }));
+    history.push(Routes.wallet);
 
     if (fetchBonus) {
       fetchBonus();
     }
-
-  }, [])
+  }, [data, fetchBonus, dispatch, history])
 
   const renderContentByType = () => {
 
@@ -86,10 +98,19 @@ const BonusItem = ({ data, fetchBonus }) => {
           <span className={styles.label}>Wagering conditions</span><span className={styles.value}>{data?.wagering}x</span>
         </div>
         <div className={styles.bonusSpec}>
-          <span className={styles.label}>% of wagering reached</span><span className={styles.value}>{+data?.wagering > 0 ? (Math.min(100, +data?.wagering_reached * 100) + '%') : '-'}</span>
+          <span className={styles.label}>% of wagering reached</span><span className={styles.value}>{+data?.wagering > 0 ? (Math.min(100, +formatToFixed(data?.wagering_reached * 100,)) + '%') : '-'}</span>
         </div>
         <div className={styles.bonusSpec}>
-          <span className={styles.label}>Expiration Date</span><span className={styles.value}>{data?.expires_at && DateText.formatDate(data?.expires_at)}</span>
+          <span className={styles.label}>Expires in</span>
+          <span className={styles.value} title={DateText.formatDate(data?.expires_at)}>
+            {/* {data?.expires_at && DateText.formatDate(data?.expires_at)} */}
+            {' '}{timeLeftObj?.days > 0 && <span className={styles.timerValue}>{timeLeftObj?.days || 0} </span>}
+            {timeLeftObj?.days > 0 && <span className={styles.timerUnit}>{timeLeftObj?.days > 1 ? 'days ' : 'day '}</span>}
+            {timeLeftObj?.hours > 0 && <span className={styles.timerValue}>{timeLeftObj?.hours || 0} </span>}
+            {timeLeftObj?.hours > 0 &&<span className={styles.timerUnit}>hrs </span>}
+            {timeLeftObj?.minutes && <span className={styles.timerValue}>{timeLeftObj?.minutes || 0} </span>}
+            {timeLeftObj?.minutes &&<span className={styles.timerUnit}>min</span>}
+          </span>
         </div>
         <div className={styles.actions}>
           <div
@@ -107,6 +128,7 @@ const BonusItem = ({ data, fetchBonus }) => {
             />
           </div>
           {data?.status === bonusStatus.CLAIMED &&
+          +data?.wagering_reached < 1 &&
             <button 
               className={styles.cancelLink}
               onClick={handleCancelBonus}
@@ -114,10 +136,27 @@ const BonusItem = ({ data, fetchBonus }) => {
               Cancel
             </button>
           }
+
+          {data?.status === bonusStatus.CLAIMED &&
+          +data?.wagering_reached >= 1 &&
+            <Button 
+              theme={ButtonTheme.primaryButtonS}
+              onClick={handleWithdrawBonus}
+              className={styles.withdrawButton}
+            >
+              Withdraw Bonus
+            </Button>
+          }
         </div>
       </div>
     )
   }
+
+  const timeLeftObj = calculateTimeLeft(new Date(data?.expires_at));
+  console.log(timeLeftObj);
+  const timeLeft = <>
+    
+  </>
 
 
   const renderFreeSpinBonus = () => {
@@ -134,6 +173,14 @@ const BonusItem = ({ data, fetchBonus }) => {
         </div>
         <div className={styles.bonusSpec}>
           <span className={styles.label}>Expiration Date</span><span className={styles.value}>{data?.expires_at && DateText.formatDate(data?.expires_at)}</span>
+          <span className={styles.value}>
+            <span className={styles.timerValue}>{timeLeftObj?.days || 0}</span>
+            <span className={styles.timerUnit}>days </span>
+            <span className={styles.timerValue}>{timeLeftObj?.hours || 0}</span>
+            <span className={styles.timerUnit}>hrs </span>
+            <span className={styles.timerValue}>{timeLeftObj?.minutes || 0}</span>
+            <span className={styles.timerUnit}>min </span>
+          </span>
         </div>
         <div className={styles.actions}>
           <span>{data?.name}</span>

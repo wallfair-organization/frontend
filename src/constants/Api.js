@@ -106,6 +106,7 @@ export const API_GET_EVOPLAY_GAMES = '/api/evoplay/listgames';
 export const API_GET_PROMO_CODES = '/api/user/promo-codes/all?statuses=:statuses';
 export const API_POST_PROMO_CODES = '/api/user/promo-codes';
 export const API_PATCH_CANCEL_PROMO_CODES = '/api/user/promo-codes/:promoCode';
+export const API_POST_WITHDRAW_BONUS = '/api/user/promo-codes/withdraw';
 
 //3rd parties
 export const TINYURL_SHORTENER = 'https://tinyurl.com/api-create.php';

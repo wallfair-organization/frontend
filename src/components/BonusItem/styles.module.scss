@@ -49,7 +49,7 @@
   }
 
   .content {
-    padding: 30px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
 
@@ -81,6 +81,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      .withdrawButton {
+        width: 140px;
+      }
 
       .cancelLink {
         color: $colorRedLight;
