@@ -57,6 +57,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
   const small = _.get(options, 'small', false);
   const maxWidth = _.get(options, 'maxWidth', false);
 
+  console.log(type);
+
   useEffect(() => {
     const close = e => {
       if ([PopupTheme.disclaimer, PopupTheme.acceptToS].includes(type)) return;
@@ -238,6 +240,14 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
           <DialogActionPopup
             data={options?.bet}
             actionType={DialogActions.deleteBet}
+          />
+        );
+      case PopupTheme.cancelBonus:
+        console.log('cancelBonus');
+        return (
+          <DialogActionPopup
+            data={options?.bonus}
+            actionType={DialogActions.cancelBonus}
           />
         );
       case PopupTheme.auth:

@@ -1,7 +1,7 @@
 import * as Api from 'api';
 import Button from 'components/Button';
 import _ from 'lodash';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { PopupActions } from 'store/actions/popup';
 import styles from './styles.module.scss';
 import HighlightType from 'components/Highlight/HighlightType';
@@ -11,6 +11,7 @@ import actions from './DialogActions';
 import { EventActions } from 'store/actions/event';
 import { useHistory } from 'react-router-dom';
 import Routes from 'constants/Routes';
+import { AlertActions } from 'store/actions/alert';
 
 const actionTypes = {
   [actions.cancelBet]: {
@@ -73,6 +74,33 @@ const actionTypes = {
     acceptLabel: 'Ok',
     declineLabel: 'Disabled',
     onAccept: (data, { hidePopup }) => hidePopup(),
+  },
+  [actions.cancelBonus]: {
+    title: 'Cancel Bonus',
+    text: 'Are you sure you want to cancel the bonus?',
+    acceptLabel: 'Yes',
+    declineLabel: 'No',
+    onAccept: async (data, {showErrorPopup, hidePopup}, _form, history) => {
+      const result = await Api.cancelPromoCode(data?.name, data?.ref_id || 'default');
+
+      if (result?.data?.response?.status === 'error') {
+        console.log('error cancelling bonus');
+        showErrorPopup({ message: result.response.data.message });
+        return;
+      }
+
+      if (data?.fetchBonus) {
+        data?.fetchBonus();
+      }
+
+      hidePopup();
+    },
+    getBody: e => (
+      <p className={styles.text}>
+        Are you sure you want to cancel the bonus?
+        <strong>{e?.description}</strong>
+      </p>
+    ),
   },
 };
 
@@ -138,6 +166,10 @@ const mapDispatchToProps = dispatch => {
       },
       hidePopup: () => {
         dispatch(PopupActions.hide());
+      },
+      showErrorAlert: (message) => {
+        dispatch(AlertActions.showError({message}));
+        
       },
     },
   };
