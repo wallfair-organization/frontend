@@ -5,12 +5,27 @@ export const getGameById = gameTypeId => {
   return _.find(GAMES, { id: gameTypeId });
 };
 
+export const getGameNameById = (gameId) => {
+  return getSoftswissGameName(gameId) ?? getEvoplayGameName(gameId) ?? getGameById(gameId)?.name ?? getExternalGameById(gameId) ?? 'Game';
+}
+
 export const getExternalGames = () => {
   return EXTERNAL_GAMES.map((game)=> {
     game.id = ObjectId(game.TechnicalName);
     return game;
   })
 }
+
+export const getExternalGameById = (gameId) => {
+  
+  return EXTERNAL_GAMES.find((game)=> {
+    if (ObjectId(gameId) === ObjectId(game.TechnicalName)) {
+      console.log(`${ObjectId(gameId)} - ${ObjectId(game.TechnicalName)}`);
+    }
+    return ObjectId(gameId) === ObjectId(game.TechnicalName);
+  })?.TechnicalName;
+}
+
 export const getSoftswissGameName = (identifier) => {
   return SOFTSWISS_GAMES.find((game)=>
     game.identifier===identifier
