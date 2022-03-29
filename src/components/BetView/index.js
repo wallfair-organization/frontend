@@ -169,11 +169,7 @@ const BetView = ({
     const validInput = validateInput();
 
     if (validInput) {
-      const amount =
-        currency !== TOKEN_NAME
-          ? `${convertAmount(+commitment, prices[currency], true)}`
-          : `${formatToFixed(+commitment, 0, true)}`;
-      placeBet(bet.id, amount, choice)
+      placeBet(bet.id, convertToFrom(commitment, true), choice)
         .then(res => {
           showPopup(PopupTheme.betApprove, {
             data: {
@@ -188,6 +184,12 @@ const BetView = ({
         });
     }
   };
+
+  const convertToFrom = (val, rev) => {
+    return currency !== TOKEN_NAME
+      ? `${convertAmount(+val, prices[currency], rev)}`
+      : `${formatToFixed(+val, 0, true)}`;
+  }
 
   const showJoinPopup = () => {
     startOnboarding();
@@ -290,7 +292,9 @@ const BetView = ({
           setValue={onTokenNumberChange}
           currency={currency}
           errorText={commitmentErrorText}
-          maxValue={formatToFixed(userLoggedIn ? balance : BALANCE_NOT_LOGGED)}
+          maxValue={formatToFixed(
+            userLoggedIn ? convertToFrom(balance, false) : BALANCE_NOT_LOGGED
+          )}
           dataTrackingIds={{
             inputFieldHalf: 'nonstreamed-event-input-field-half',
             inputFieldDouble: 'nonstreamed-event-input-field-double',
@@ -390,7 +394,7 @@ const BetView = ({
         }
 
         if (userLoggedIn && _.toNumber(commitment) > 10000) {
-          return `Maximum bet amount is 10,000 WFAIR`;
+          return `Maximum bet amount is 10,000 ${currency}`;
         }
 
         if (userLoggedIn && !isCreator) {
