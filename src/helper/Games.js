@@ -19,9 +19,6 @@ export const getExternalGames = () => {
 export const getExternalGameById = (gameId) => {
   
   return EXTERNAL_GAMES.find((game)=> {
-    if (ObjectId(gameId) === ObjectId(game.TechnicalName)) {
-      console.log(`${ObjectId(gameId)} - ${ObjectId(game.TechnicalName)}`);
-    }
     return ObjectId(gameId) === ObjectId(game.TechnicalName);
   })?.TechnicalName;
 }
