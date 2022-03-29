@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import WfairLogo from 'data/images/wfair-logo-splash.png';
 
 
-const WithdrawalErrorPopup = ({errorMessage = "Something went wrong.", closeTransactionFailed }) => {
+const WithdrawalErrorPopup = ({errorMessage = "", closeTransactionFailed }) => {
 
   return (
     <div className={styles.promoMessage}>

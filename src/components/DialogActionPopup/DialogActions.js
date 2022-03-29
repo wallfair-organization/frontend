@@ -3,4 +3,5 @@ export default {
   deleteBet: 'deleteBet',
   deleteEvent: 'deleteEvent',
   disableSharing: 'disableSharing',
+  cancelBonus: 'cancelBonus',
 };

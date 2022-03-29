@@ -14,10 +14,11 @@ import { OnboardingActions } from "store/actions/onboarding";
 import { isMobile } from 'react-device-detect';
 import { selectUser } from "store/selectors/authentication";
 import ClaimBonusWidget from "components/ClaimBonusWidget";
-import BonusItem from "screens/BonusItem";
+import BonusItem from "components/BonusItem";
 import { getPromoCodes } from "api";
 import { Grid } from "@material-ui/core";
 import EventActivitiesTabs from "components/EventActivitiesTabs";
+import TabOptions from "components/TabOptions";
 
 const Bonus = () => {
   const history = useHistory();
@@ -27,18 +28,64 @@ const Bonus = () => {
   const isLoggedIn = user.isLoggedIn;
 
   const [bonusList, setBonusList] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
+  const [tabIndex, setTabIndex] = useState(0);
+  let tabOptions = [
+    // { name: 'Money Bonus', index: 0 },
+    // { name: 'Freespin Bonus', index: 1 },
+    { name: 'Currently Active', index: 0 },
+    { name: 'History of Activated Bonus', index: 1 },
+  ];
 
-  const showPopup = useCallback((popupType, options) => {
-    dispatch(PopupActions.show({popupType, options}));
-  }, [dispatch]);
+  const fetchBonus = (index = tabIndex) => {
+    switch (index) {
+      // case 0: 
+      //   fetchMoneyBonus();
+      //   break;
+      // case 1:
+      //   fetchFreespinBonus();
+      //   break;
+      // case 2:
+      case 0:
+        fetchActivatedBonus();
+        break;
+      case 1:
+        fetchAllBonus();
+        break;
+    }
+  }
 
-  const fetchBonus = async () => {
+  const handleSwitchTab = ({ index }) => {
+    fetchBonus(index);
+    setTabIndex(index);
+  };
+
+  const fetchAllBonus = async () => {
     const result = await getPromoCodes(['CLAIMED', 'FINALIZED', 'CANCELLED']);
-    setBonusList(result);
+    const filteredResult = result?.sort((a, b) => new Date(b.claimed_at) - new Date(a.claimed_at)) || [];
+    setBonusList(filteredResult);
+  }
+
+  const fetchMoneyBonus = async () => {
+    const result = await getPromoCodes(['CLAIMED', 'FINALIZED', 'CANCELLED']);
+    const filteredResult = result?.filter(bonusItemData => bonusItemData.type === 'BONUS')?.sort((a, b) => new Date(b.claimed_at) - new Date(a.claimed_at)) || [];
+    setBonusList(filteredResult);
+  }
+
+  const fetchFreespinBonus = async () => {
+    const result = await getPromoCodes(['CLAIMED', 'FINALIZED', 'CANCELLED']);
+    const filteredResult = result?.filter(bonusItemData => bonusItemData.type === 'FREESPIN')?.sort((a, b) => new Date(b.claimed_at) - new Date(a.claimed_at)) || [];
+    setBonusList(filteredResult);
+  }
+
+  const fetchActivatedBonus = async () => {
+    const result = await getPromoCodes(['CLAIMED']);
+    setBonusList(result || []);
   }
 
   useEffect(() => {
-    fetchBonus();
+    fetchActivatedBonus();
   }, []);
 
   const renderActivities = () => {
@@ -75,17 +122,37 @@ const Bonus = () => {
         </div>
 
         <ClaimBonusWidget fetchBonus={fetchBonus} />
-
-        <div className={styles.itemGrid}>
-          {bonusList
-            .filter(bonusItemData => bonusItemData.type === 'BONUS')
-            .map(bonusItemData => <BonusItem fetchBonus={fetchBonus} data={bonusItemData} />)
-          }
-        </div>
         
+        <TabOptions options={tabOptions} className={styles.tabLayout}>
+          {option => (
+            <div
+              className={
+                option.index === tabIndex
+                  ? styles.tabItemSelected
+                  : styles.tabItem
+              }
+              onClick={() => handleSwitchTab(option)}
+            >
+              {option.name}
+            </div>
+          )}
+        </TabOptions>
 
-        {renderActivities()}
-        
+        {bonusList.length > 0 &&
+          <div className={styles.itemGrid}>
+            {bonusList.map(bonusItemData => <BonusItem fetchBonus={fetchBonus} data={bonusItemData} />)}
+          </div>
+        }
+
+        {bonusList.length === 0 &&
+          (tabIndex === 0 ?
+            <p className={styles.noBonus}>You have no active bonus.</p>
+          :
+            <p className={styles.noBonus}>You have not claimed any bonus yet.</p>
+          )
+        }
+
+        {renderActivities()} 
       </div>
 
     </BaseContainerWithNavbar>

@@ -842,6 +842,20 @@ const cancelPromoCode = (promoCode, ref = 'default') => {
     );
 };
 
+const withdrawBonus = (promoCode, ref = 'default') => {
+  return Api.post(ApiUrls.API_POST_WITHDRAW_BONUS, {
+    promoCode,
+    ref
+  })
+  .then(res => res.data)
+  .catch(
+    error => {
+      console.log('[API Error] called: withdraw bonus', error);
+      return error;
+    }
+  );
+};
+
 export {
   Api,
   createBet,
@@ -935,4 +949,5 @@ export {
   getPromoCodes,
   claimPromoCode,
   cancelPromoCode,
+  withdrawBonus,
 };

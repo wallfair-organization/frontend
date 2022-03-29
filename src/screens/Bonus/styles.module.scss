@@ -13,6 +13,13 @@
     padding: 50px 20px 0;
   }
 
+  .noBonus {
+    width: 100%;
+    color: $colorWhite;
+    text-align: center;
+    padding: 20px;
+  }
+
   .headlineContainer {
     display: flex;
     column-gap: 10px;
@@ -82,5 +89,51 @@
     img {
       margin-right: 30px;
     }
+  }
+}
+
+.tabLayout {
+  display: flex;
+  align-items: flex-end;
+  color: $colorWhite;
+  font-family: $fontDMSans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  padding-top: 24px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid $colorWhite20;
+
+  @media (max-width: $screen-sm) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .tabItem {
+    text-align: center;
+    padding-bottom: 12px;
+    opacity: 0.3;
+    cursor: pointer;
+    text-transform: none;
+  }
+
+  .tabItemSelected {
+    text-align: center;
+    padding-bottom: 12px;
+    opacity: 1;
+    cursor: pointer;
+    border-bottom: 3px solid $colorYellow;
+    text-transform: none;
+  }
+}
+.tabOptionsContainer {
+  @media (max-width: $screen-md) {
+    margin-left: 0px;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 14px;
   }
 }

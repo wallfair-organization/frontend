@@ -197,7 +197,7 @@ const ConnectWallet = props => {
     if (walletError) {
       return (
         <div className={classNames(styles.optionsWrap, styles.optionsError)}>
-          <strong>{`Something went wrong`}</strong>
+          <strong>{`Your attention is needed`}</strong>
           <div>{walletError}</div>
         </div>
       );

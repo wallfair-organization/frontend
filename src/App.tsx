@@ -145,9 +145,9 @@ const App = () => {
               <Route exact path={Routes.imprint} component={Imprint} />
               <Route exact path={Routes.privacy} component={PrivacyPolicy} />
               <PrivateRoute exact path={Routes.wallet} component={realMoneyOnly ? UserWallet : PlayMoneyWallet} />
+              <PrivateRoute exact path={Routes.bonus} component={Bonus} />
               <Route exact path={Routes.howItWorks} component={HowItWorks} />
-              <Route exact path={Routes.bonus} component={Bonus} />
-
+              
               {realMoneyOnly && <>
                 <Route path={Routes.games} component={Games} />
                 {/* <Route exact path={Routes.rouletteGame} component={RouletteGame} /> */}
