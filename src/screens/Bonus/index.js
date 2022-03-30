@@ -21,16 +21,9 @@ import EventActivitiesTabs from "components/EventActivitiesTabs";
 import TabOptions from "components/TabOptions";
 
 const Bonus = () => {
-  const history = useHistory();
-  const dispatch = useDispatch();
-
-  const user = useSelector(selectUser);
-  const isLoggedIn = user.isLoggedIn;
-
   const [bonusList, setBonusList] = useState([]);
-  const [loading, setLoading] = useState(false);
-  
   const [tabIndex, setTabIndex] = useState(0);
+
   let tabOptions = [
     // { name: 'Money Bonus', index: 0 },
     // { name: 'Freespin Bonus', index: 1 },
@@ -62,7 +55,7 @@ const Bonus = () => {
   };
 
   const fetchAllBonus = async () => {
-    const result = await getPromoCodes(['CLAIMED', 'FINALIZED', 'CANCELLED']);
+    const result = await getPromoCodes(['FINALIZED', 'CANCELLED', 'EXPIRED']);
     const filteredResult = result?.sort((a, b) => new Date(b.claimed_at) - new Date(a.claimed_at)) || [];
     setBonusList(filteredResult);
   }
@@ -140,7 +133,7 @@ const Bonus = () => {
 
         {bonusList.length > 0 &&
           <div className={styles.itemGrid}>
-            {bonusList.map(bonusItemData => <BonusItem fetchBonus={fetchBonus} data={bonusItemData} />)}
+            {bonusList.map((bonusItemData, index) => <BonusItem key={index} fetchBonus={fetchBonus} data={bonusItemData} />)}
           </div>
         }
 

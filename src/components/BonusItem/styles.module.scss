@@ -72,6 +72,11 @@
       .value {
         font-size: 12px;
         color: $colorWhite;
+
+        &.expired {
+          opacity: 0.5;
+          color: $colorRedLight;
+        }
       }
     }
 
