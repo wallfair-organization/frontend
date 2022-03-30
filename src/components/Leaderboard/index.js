@@ -111,7 +111,7 @@ const Leaderboard = ({
       <div className={classNames(style.tableHeadings, headingClass)}>
         <p className={style.rankingHeading}>RANKING</p>
         <p className={style.userHeading}>USER</p>
-        <p className={style.tokenHeading}>TOKENS WON</p>
+        <p className={style.tokenHeading}>AMOUNT WON</p>
       </div>
       <div className={style.leaderboardRanking}>
         {!userRef &&

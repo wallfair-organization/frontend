@@ -107,7 +107,7 @@ const LeaderboardHome = ({
       <div className={classNames(style.tableHeadings, headingClass)}>
         <p className={style.rankingHeading}>RANK</p>
         <p className={style.userHeading}>USER</p>
-        <p className={style.tokenHeading}>TOKENS</p>
+        <p className={style.tokenHeading}>AMOUNT</p>
       </div>
       {loading ? (
         <Loader />

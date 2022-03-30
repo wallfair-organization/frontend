@@ -8,10 +8,19 @@ import { toNumericString } from 'helper/FormatNumbers';
 import { TOKEN_NAME } from '../../../constants/Token';
 import { GAMES } from 'constants/Games';
 import {getGameById, getExternalGames,getSoftswissGameName,getEvoplayGameName} from "../../../helper/Games";
-import { currencyDisplay } from 'helper/Currency';
+import { convertAmount, currencyDisplay } from 'helper/Currency';
+import { selectPrices } from 'store/selectors/info-channel';
+import { selectUser } from 'store/selectors/authentication';
+import { useSelector } from 'react-redux';
 
-const BetsRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
-  const { gameId,username, crashFactor, stakedAmount } = data;
+const BetsRow = ({ data, gameLabel, hideSecondaryColumns = false }) => {
+  const { gameId, username, crashFactor, stakedAmount } = data;
+
+  const prices = useSelector(selectPrices);
+  const { gamesCurrency: userCurrency } = useSelector(selectUser);
+
+  const gamesCurrency = data?.gamesCurrency;
+
   gameLabel = getGameById(gameId)?.name;
 
   if(!gameLabel) {
@@ -31,6 +40,20 @@ const BetsRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
   }
 
   const cashout = stakedAmount * crashFactor;
+
+  let convertedAmount = "";
+  let convertedCashout = "";
+
+  if (gamesCurrency === TOKEN_NAME) {
+    convertedAmount = `${roundToTwo(convertAmount(stakedAmount, prices[userCurrency]), 2)} ${userCurrency}`;
+    convertedCashout = `${roundToTwo(convertAmount(cashout, prices[userCurrency]), 2)} ${userCurrency}`;
+    
+  } else {
+  
+    convertedAmount = `${roundToTwo(stakedAmount, 2)} ${gamesCurrency}`;
+    convertedCashout = `${roundToTwo(cashout, 2)} ${gamesCurrency}`;
+  }
+  
 
   return (
     <div className={styles.messageItem}>
@@ -55,7 +78,7 @@ const BetsRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
           className={hideSecondaryColumns && styles.hideSecondaryColumns}
         >
           <div className={styles.messageCenter}>
-            {toNumericString(stakedAmount)} {currencyDisplay(TOKEN_NAME)}
+            {convertedAmount}
             </div>
         </Grid>
         <Grid
@@ -69,7 +92,7 @@ const BetsRow = ({ data, gameLabel,hideSecondaryColumns = false }) => {
         </Grid>
         <Grid item xs>
           <div className={classNames(styles.messageLast, styles.messageRight)}>
-            <p className={styles.reward}>{toNumericString(roundToTwo(cashout, 0))} {currencyDisplay(TOKEN_NAME)}</p>
+            <p className={styles.reward}>{convertedCashout}</p>
           </div>
         </Grid>
       </Grid>
