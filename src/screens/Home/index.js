@@ -50,7 +50,7 @@ const LEADERBOARD_TYPES = [
   },
   {
     key: 'high_games',
-    name: 'Highest cashouts from Games',
+    name: 'Total cashouts from Games',
   },
   {
     key: 'high_volume',
