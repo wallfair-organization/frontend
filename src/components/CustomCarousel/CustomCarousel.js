@@ -486,7 +486,7 @@ const CustomCarousel = ({loggedIn, showWalletDepositPopup, handleKycInfoVisible,
       <div className={styles.container}>
         <div className={styles.topContainer}>
           <img
-            className={styles.backgroundImg}
+            className={classNames(styles.backgroundImg, styles.gamesBg)}
             alt=""
             src={BannerFour}
           />
