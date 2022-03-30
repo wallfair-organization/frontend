@@ -3100,6 +3100,11 @@ export const GAME_PROVIDERS = [
         image: IconGameAll,
     },
     {
+      value: 'pragmaticexternal',
+      label: 'Pragmatic Play',
+      image: ProviderPragmaticplay,
+    },
+    {
         value: 'bgaming',
         label: 'BGAMING',
         image: ProviderBgaming,
@@ -3243,11 +3248,6 @@ export const GAME_PROVIDERS = [
       value: 'belatra',
       label: 'Belatra',
       image: ProviderBelatra,
-    },
-    {
-      value: 'pragmaticexternal',
-      label: 'Pragmatic Play',
-      image: ProviderPragmaticplay,
     },
 
     //Ig Tech only works in Australia

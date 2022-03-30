@@ -1,5 +1,5 @@
 import style from './styles.module.scss';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { formatToFixed } from 'helper/FormatNumbers';
 import classNames from 'classnames';
 import { getLeaderboard } from 'api';
@@ -57,7 +57,7 @@ const LeaderboardHome = ({
 
   const renderItem = (user, index) => {
     return (
-      <>
+      <React.Fragment key={index}>
         <div className={classNames(style.tableFirst)}>
           <p className={style.firstRank}>
             #{index + 1}
@@ -92,7 +92,7 @@ const LeaderboardHome = ({
               )}`}
           </p>
         </div>
-      </>
+      </React.Fragment>
     );
   };
 
