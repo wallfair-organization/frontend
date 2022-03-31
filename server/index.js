@@ -23,9 +23,9 @@ const indexPath = path.resolve(__dirname, '..', 'build', 'index.html');
 
 appendRoutes(apiEventsPath, listPaths).then(meta => {
   const routes = Object.keys(meta);
-  routes.forEach(route => {
-    app.get(route, (req, res) => {
-       
+  routes.forEach(r => {
+    app.get(r, (req, res) => {
+      let route = req.originalUrl;
       const indexFile = fs.readFileSync(indexPath, 'utf8');
       let data = route in meta ? meta[route] : meta['/']; 
       res.send(replaceMeta(indexFile, data));
