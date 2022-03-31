@@ -58,7 +58,7 @@ const GameEvoplay = ({ showHowtoLink, showPopup, allgames }) => {
                   key={`gamecard-${index}-`}
                 >
                   <Link
-                    to={`/evoplay-game/${game.name}/${game.game_sub_type}/${game.value}`}
+                    to={`/evoplay-game/${game.value}`}
                     className={classNames(
                       styles.game,
                       styles.gameLink
