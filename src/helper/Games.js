@@ -23,6 +23,12 @@ export const getExternalGameById = (gameId) => {
   })?.TechnicalName;
 }
 
+export const getExternalGameDataById = (gameId) => {
+  return EXTERNAL_GAMES.find((game)=> {
+    return ObjectId(gameId) === ObjectId(game.TechnicalName);
+  });
+}
+
 export const getSoftswissGameName = (identifier) => {
   return SOFTSWISS_GAMES.find((game)=>
     game.identifier===identifier
