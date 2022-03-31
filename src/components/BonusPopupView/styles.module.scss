@@ -1,0 +1,118 @@
+@import '../../styles/all';
+
+.bonusPopupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  // background-color: $colorWhite;
+  color: $colorPrimaryDark;
+  border-radius: 10px;
+  position: relative;
+  // min-width: 380px;
+
+  .cashoutContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 300px;
+    margin: 5px 0 20px;
+    padding: 0 40px;
+
+    .cashoutAmount {
+      position: relative;
+      white-space: nowrap;
+      font-size: 66px;
+      font-weight: bold;
+
+      .amount {
+        position: relative;
+        z-index: 1;
+      }
+
+      .shadow {
+        position: absolute;
+        bottom: 10%;
+        left: -5%;
+        width: 110%;
+        z-index: 0;
+      }
+    }
+
+    .multiplier {
+      font-size: 51px;
+      font-weight: bold;
+      text-shadow: 2px 2px $colorPurpleTextShadow;
+    }
+
+    @media (max-width: $screen-sm) {
+      font-size: 16px;
+    }
+    .congratsConfetti {
+      position: absolute;
+      top: 0;
+      left: -20%;
+      pointer-events: none;
+      width: 140%;
+      @media (max-width: $screen-sm) {
+        display: none;
+      }
+    }
+  }
+
+  .headLine {
+    font-size: 24px;
+    text-align: center;
+    font-family: $fontDMSans;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .shareContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span {
+      font-size: 12px;
+      padding-bottom: 10px;
+    }
+
+    .shareButtons {
+      display: flex;
+      flex-direction: row;
+      column-gap: 5px;
+
+      .shareIcon {
+        width: 49px;
+        height: 49px;
+
+        svg > * {
+          fill: $colorYellow;
+        }
+
+        button,
+        svg {
+          width: 49px;
+          height: 49px;
+        }
+
+        path {
+          fill: $colorPrimary;
+        }
+      }
+    }
+  }
+
+  .skipButton {
+    margin-top: 24px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    text-decoration-line: underline;
+    color: #120e27;
+    cursor: pointer;
+  }
+}
