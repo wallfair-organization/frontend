@@ -87,6 +87,9 @@ const BonusItem = ({ data, fetchBonus }) => {
       : `${formatToFixed(+value, 0, true)}`
   }
 
+  const closerExpirationTime = Math.min(new Date(data?.expires_at).getTime(), new Date(data?.valid_until).getTime());
+  const timeLeftObj = calculateTimeLeft(new Date(closerExpirationTime));
+
   const renderMoneyBonus = () => {
     return (
       <div className={styles.content}>
@@ -108,10 +111,11 @@ const BonusItem = ({ data, fetchBonus }) => {
           <span className={styles.label}>% of wagering reached</span><span className={styles.value}>{+data?.wagering > 0 ? (Math.min(100, +formatToFixed(data?.wagering_reached * 100,)) + '%') : '-'}</span>
         </div>
 
-        {!expired ?
+        {data?.status !== 'CANCELLED' && (
+        !expired && Object.keys(timeLeftObj).length > 0 ?
           <div className={styles.bonusSpec}>
             <span className={styles.label}>Expires in</span>
-            <span className={styles.value} title={DateText.formatDate(data?.expires_at)}>
+            <span className={styles.value} title={DateText.formatDate(new Date(closerExpirationTime))}>
               {/* {data?.expires_at && DateText.formatDate(data?.expires_at)} */}
               {' '}{timeLeftObj?.days > 0 && <span className={styles.timerValue}>{timeLeftObj?.days || 0} </span>}
               {timeLeftObj?.days > 0 && <span className={styles.timerUnit}>{timeLeftObj?.days > 1 ? 'days ' : 'day '}</span>}
@@ -125,10 +129,10 @@ const BonusItem = ({ data, fetchBonus }) => {
           <div className={styles.bonusSpec}>
             <span className={classNames(styles.label, styles.expired)}>Expired at</span>
             <span className={classNames(styles.value, styles.expired)}>
-              {data?.expires_at && DateText.formatDate(data?.expires_at)}
+              {closerExpirationTime && DateText.formatDate((new Date(closerExpirationTime)))}
             </span>
           </div>
-        }
+        )}
 
         {!expired &&
           <div className={styles.actions}>
@@ -172,13 +176,6 @@ const BonusItem = ({ data, fetchBonus }) => {
     )
   }
 
-  const timeLeftObj = calculateTimeLeft(new Date(data?.expires_at));
-  console.log(timeLeftObj);
-  const timeLeft = <>
-    
-  </>
-
-
   const renderFreeSpinBonus = () => {
     return (
       <div className={styles.content}>
@@ -191,10 +188,11 @@ const BonusItem = ({ data, fetchBonus }) => {
             {`${convert(data?.value)} ${gamesCurrency}`}
           </span>
         </div>
-       {!expired ?
+       {data?.status !== 'CANCELLED' && (
+        !expired && Object.keys(timeLeftObj).length > 0 ?
           <div className={styles.bonusSpec}>
             <span className={styles.label}>Expires in</span>
-            <span className={styles.value} title={DateText.formatDate(data?.expires_at)}>
+            <span className={styles.value} title={DateText.formatDate(new Date(closerExpirationTime))}>
               {/* {data?.expires_at && DateText.formatDate(data?.expires_at)} */}
               {' '}{timeLeftObj?.days > 0 && <span className={styles.timerValue}>{timeLeftObj?.days || 0} </span>}
               {timeLeftObj?.days > 0 && <span className={styles.timerUnit}>{timeLeftObj?.days > 1 ? 'days ' : 'day '}</span>}
@@ -208,31 +206,36 @@ const BonusItem = ({ data, fetchBonus }) => {
           <div className={styles.bonusSpec}>
             <span className={classNames(styles.label, styles.expired)}>Expired in</span>
             <span className={classNames(styles.value, styles.expired)}>
-              {data?.expires_at && DateText.formatDate(data?.expires_at)}
+              {timeLeftObj && DateText.formatDate(new Date(closerExpirationTime))}
             </span>
           </div>
-        }
+       )}
+       {!expired &&
         <div className={styles.actions}>
-          <span>{data?.name}</span>
-          {data?.status !== bonusStatus.CLAIMED ?
-
-            !expired && 
-              <Button 
-              theme={ButtonTheme.primaryButtonS}
-              disabled={true}
+          <div
+              className={copied ? styles.inputContainerCopied : styles.inputContainer}
+            >
+              <InputBox
+                containerClassName={styles.container}
+                type={'text'}
+                value={data?.name}
+                onClick={(e, val) => {
+                  setCopied(true);
+                  document.getSelection().removeAllRanges();
+                }}
+                theme={InputBoxTheme.copyToClipboardInput}
+              />
+            </div>
+          {data?.status === bonusStatus.CLAIMED &&
+            <Button 
+            theme={ButtonTheme.primaryButtonS}
+            onClick={() => console.log('activate')}
             >
               Activate
             </Button>
-            
-          :
-            <Button 
-              theme={ButtonTheme.secondaryButton}
-              onClick={handleCancelBonus}
-            >
-              Cancel
-            </Button>
           }
         </div>
+        }
       </div>
     )
   }
