@@ -64,5 +64,6 @@ export default {
   winners: '/winners',
   howItWorks: '/how-it-works',
   aml: '/aml-policy',
-  bonus: '/bonus'
+  bonus: '/bonus',
+  affiliates: '/affiliates',
 };
