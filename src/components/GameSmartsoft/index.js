@@ -40,7 +40,7 @@ const GameSmartsoft = ({ games, gameTitle, category, showHowtoLink, showPopup })
               key={`gamecard-${index}-`}
             >
               <Link
-                to={`/external-game/${game.TechnicalName}/${game.TechnicalCategory}`}
+                to={`/external-game/${game.TechnicalName}`}
                 className={classNames(
                   styles.game,
                   styles.gameLink

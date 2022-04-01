@@ -98,7 +98,7 @@ const actionTypes = {
     getBody: e => (
       <p className={styles.text}>
         Are you sure you want to cancel the bonus?
-        <strong>{e?.description}</strong>
+        <strong>{e?.name}</strong>
       </p>
     ),
   },

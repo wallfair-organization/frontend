@@ -46,12 +46,15 @@ const EvoplayGame = ({
 }) => {
   const user = useSelector(selectUser);
   const [gameMode, setGameMode] = useState(null);
-  const gameName = match?.params?.game
-  const gameCategory = match?.params?.category
+  
   const gameNumber = match?.params?.number
   const EXTERNAL_GAME_EVENT_ID = ObjectId(gameNumber)//game.id;
 
   const evoPlayGame = EVOPLAY_GAMES[gameNumber];
+
+  const gameName = evoPlayGame.name;
+  const gameCategory = evoPlayGame.game_sub_type;
+
   const filename = evoPlayGame.absolute_name.substring(evoPlayGame.absolute_name.lastIndexOf("\\") + 1);
 
   const dispatch = useDispatch();
@@ -71,6 +74,7 @@ const EvoplayGame = ({
       const demo = gameMode === 'demo' || !user.isLoggedIn;
       getUrlgame({returnUrl: window.location.origin, demo, UserId: userId, GameType: gameCategory, GameName: gameName, GameNumber: gameNumber, Provider: 'evoplay' })
         .then(({data}) => {
+          console.log({data});
           if(data?.url) {
             const gameUrl = data?.url;
             if(isMobile) {

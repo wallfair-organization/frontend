@@ -1,0 +1,38 @@
+@import '../../styles/all';
+
+.howItWorks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../data/images/how-it-works/background-coins.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.headline {
+  max-width: 940px;
+  width: 100%;
+  font-size: 50px;
+  line-height: 35px;
+  font-weight: bold;
+  color: $colorWhite;
+  position: relative;
+  margin: 75px 0;
+  text-align: center;
+
+  @media (max-width: $screen-md) {
+    margin: 0;
+  }
+}
+
+.container {
+  display: flex;
+  column-gap: 50px;
+
+  @media (max-width: $screen-md) {
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+  }
+}

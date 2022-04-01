@@ -30,7 +30,13 @@ const bonusStatus = {
   CLAIMED: 'CLAIMED',
   FINALIZED: 'FINALIZED',
   CANCELLED: 'CANCELLED',
-  // EXPIRED: 'EXPIRED',
+  EXPIRED: 'EXPIRED',
+}
+
+const gameURLMapping = {
+  EVOPLAY: '/evoplay-game/',
+  SMARTSOFT: '/external-game/',
+  SOFTSWISS: '/softswiss-game/',
 }
 
 const BonusItem = ({ data, fetchBonus }) => {
@@ -39,6 +45,8 @@ const BonusItem = ({ data, fetchBonus }) => {
   const prices = useSelector(selectPrices);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const expired = new Date(data?.expires_at) < new Date();
 
   const handleCancelBonus = useCallback(async () => {
     dispatch(PopupActions.show({popupType: PopupTheme.cancelBonus, options: {bonus: {...data, fetchBonus}} }));
@@ -85,6 +93,9 @@ const BonusItem = ({ data, fetchBonus }) => {
       : `${formatToFixed(+value, 0, true)}`
   }
 
+  const closerExpirationTime = Math.min(new Date(data?.expires_at).getTime(), new Date(data?.valid_until).getTime());
+  const timeLeftObj = calculateTimeLeft(new Date(closerExpirationTime));
+
   const renderMoneyBonus = () => {
     return (
       <div className={styles.content}>
@@ -95,69 +106,81 @@ const BonusItem = ({ data, fetchBonus }) => {
           </span>
         </div>
         <div className={styles.bonusSpec}>
+          <span className={styles.label}>Max bet</span><span className={styles.value}>
+            {`${convert(500)} ${gamesCurrency}`}
+          </span>
+        </div>
+        <div className={styles.bonusSpec}>
           <span className={styles.label}>Wagering conditions</span><span className={styles.value}>{data?.wagering}x</span>
         </div>
         <div className={styles.bonusSpec}>
           <span className={styles.label}>% of wagering reached</span><span className={styles.value}>{+data?.wagering > 0 ? (Math.min(100, +formatToFixed(data?.wagering_reached * 100,)) + '%') : '-'}</span>
         </div>
-        <div className={styles.bonusSpec}>
-          <span className={styles.label}>Expires in</span>
-          <span className={styles.value} title={DateText.formatDate(data?.expires_at)}>
-            {/* {data?.expires_at && DateText.formatDate(data?.expires_at)} */}
-            {' '}{timeLeftObj?.days > 0 && <span className={styles.timerValue}>{timeLeftObj?.days || 0} </span>}
-            {timeLeftObj?.days > 0 && <span className={styles.timerUnit}>{timeLeftObj?.days > 1 ? 'days ' : 'day '}</span>}
-            {timeLeftObj?.hours > 0 && <span className={styles.timerValue}>{timeLeftObj?.hours || 0} </span>}
-            {timeLeftObj?.hours > 0 &&<span className={styles.timerUnit}>hrs </span>}
-            {timeLeftObj?.minutes && <span className={styles.timerValue}>{timeLeftObj?.minutes || 0} </span>}
-            {timeLeftObj?.minutes &&<span className={styles.timerUnit}>min</span>}
-          </span>
-        </div>
-        <div className={styles.actions}>
-          <div
-            className={copied ? styles.inputContainerCopied : styles.inputContainer}
-          >
-            <InputBox
-              containerClassName={styles.container}
-              type={'text'}
-              value={data?.name}
-              onClick={(e, val) => {
-                setCopied(true);
-                document.getSelection().removeAllRanges();
-              }}
-              theme={InputBoxTheme.copyToClipboardInput}
-            />
-          </div>
-          {data?.status === bonusStatus.CLAIMED &&
-          +data?.wagering_reached < 1 &&
-            <button 
-              className={styles.cancelLink}
-              onClick={handleCancelBonus}
-            >
-              Cancel
-            </button>
-          }
 
-          {data?.status === bonusStatus.CLAIMED &&
-          +data?.wagering_reached >= 1 &&
-            <Button 
-              theme={ButtonTheme.primaryButtonS}
-              onClick={handleWithdrawBonus}
-              className={styles.withdrawButton}
+        {data?.status !== 'CANCELLED' && (
+        !expired && Object.keys(timeLeftObj).length > 0 ?
+          <div className={styles.bonusSpec}>
+            <span className={styles.label}>Expires in</span>
+            <span className={styles.value} title={DateText.formatDate(new Date(closerExpirationTime))}>
+              {/* {data?.expires_at && DateText.formatDate(data?.expires_at)} */}
+              {' '}{timeLeftObj?.days > 0 && <span className={styles.timerValue}>{timeLeftObj?.days || 0} </span>}
+              {timeLeftObj?.days > 0 && <span className={styles.timerUnit}>{timeLeftObj?.days > 1 ? 'days ' : 'day '}</span>}
+              {timeLeftObj?.hours > 0 && <span className={styles.timerValue}>{timeLeftObj?.hours || 0} </span>}
+              {timeLeftObj?.hours > 0 &&<span className={styles.timerUnit}>hrs </span>}
+              {timeLeftObj?.minutes && <span className={styles.timerValue}>{timeLeftObj?.minutes || 0} </span>}
+              {timeLeftObj?.minutes &&<span className={styles.timerUnit}>min</span>}
+            </span>
+          </div>
+        :
+          <div className={styles.bonusSpec}>
+            <span className={classNames(styles.label, styles.expired)}>Expired at</span>
+            <span className={classNames(styles.value, styles.expired)}>
+              {closerExpirationTime && DateText.formatDate((new Date(closerExpirationTime)))}
+            </span>
+          </div>
+        )}
+
+        {!expired &&
+          <div className={styles.actions}>
+            <div
+              className={copied ? styles.inputContainerCopied : styles.inputContainer}
             >
-              Withdraw Bonus
-            </Button>
-          }
-        </div>
+              <InputBox
+                containerClassName={styles.container}
+                type={'text'}
+                value={data?.name}
+                onClick={(e, val) => {
+                  setCopied(true);
+                  document.getSelection().removeAllRanges();
+                }}
+                theme={InputBoxTheme.copyToClipboardInput}
+              />
+            </div>
+            {data?.status === bonusStatus.CLAIMED &&
+            +data?.wagering_reached < 1 &&
+              <button 
+                className={styles.cancelLink}
+                onClick={handleCancelBonus}
+              >
+                Cancel
+              </button>
+            }
+
+            {data?.status === bonusStatus.CLAIMED &&
+            +data?.wagering_reached >= 1 &&
+              <Button 
+                theme={ButtonTheme.primaryButtonS}
+                onClick={handleWithdrawBonus}
+                className={styles.withdrawButton}
+              >
+                Withdraw Bonus
+              </Button>
+            }
+          </div>
+        }
       </div>
     )
   }
-
-  const timeLeftObj = calculateTimeLeft(new Date(data?.expires_at));
-  console.log(timeLeftObj);
-  const timeLeft = <>
-    
-  </>
-
 
   const renderFreeSpinBonus = () => {
     return (
@@ -171,35 +194,57 @@ const BonusItem = ({ data, fetchBonus }) => {
             {`${convert(data?.value)} ${gamesCurrency}`}
           </span>
         </div>
-        <div className={styles.bonusSpec}>
-          <span className={styles.label}>Expiration Date</span><span className={styles.value}>{data?.expires_at && DateText.formatDate(data?.expires_at)}</span>
-          <span className={styles.value}>
-            <span className={styles.timerValue}>{timeLeftObj?.days || 0}</span>
-            <span className={styles.timerUnit}>days </span>
-            <span className={styles.timerValue}>{timeLeftObj?.hours || 0}</span>
-            <span className={styles.timerUnit}>hrs </span>
-            <span className={styles.timerValue}>{timeLeftObj?.minutes || 0}</span>
-            <span className={styles.timerUnit}>min </span>
-          </span>
-        </div>
+       {data?.status !== 'CANCELLED' && (
+        !expired && Object.keys(timeLeftObj).length > 0 ?
+          <div className={styles.bonusSpec}>
+            <span className={styles.label}>Expires in</span>
+            <span className={styles.value} title={DateText.formatDate(new Date(closerExpirationTime))}>
+              {/* {data?.expires_at && DateText.formatDate(data?.expires_at)} */}
+              {' '}{timeLeftObj?.days > 0 && <span className={styles.timerValue}>{timeLeftObj?.days || 0} </span>}
+              {timeLeftObj?.days > 0 && <span className={styles.timerUnit}>{timeLeftObj?.days > 1 ? 'days ' : 'day '}</span>}
+              {timeLeftObj?.hours > 0 && <span className={styles.timerValue}>{timeLeftObj?.hours || 0} </span>}
+              {timeLeftObj?.hours > 0 &&<span className={styles.timerUnit}>hrs </span>}
+              {timeLeftObj?.minutes && <span className={styles.timerValue}>{timeLeftObj?.minutes || 0} </span>}
+              {timeLeftObj?.minutes &&<span className={styles.timerUnit}>min</span>}
+            </span>
+          </div>
+        :
+          <div className={styles.bonusSpec}>
+            <span className={classNames(styles.label, styles.expired)}>Expired in</span>
+            <span className={classNames(styles.value, styles.expired)}>
+              {timeLeftObj && DateText.formatDate(new Date(closerExpirationTime))}
+            </span>
+          </div>
+       )}
+       {!expired &&
         <div className={styles.actions}>
-          <span>{data?.name}</span>
-          {data?.status !== bonusStatus.CLAIMED ?
-            <Button 
-              theme={ButtonTheme.primaryButtonS}
-              disabled={true}
+          <div
+              className={copied ? styles.inputContainerCopied : styles.inputContainer}
             >
-              Activate
-            </Button>
-          :
+              <InputBox
+                containerClassName={styles.container}
+                type={'text'}
+                value={data?.name}
+                onClick={(e, val) => {
+                  setCopied(true);
+                  document.getSelection().removeAllRanges();
+                }}
+                theme={InputBoxTheme.copyToClipboardInput}
+              />
+            </div>
+          {data?.status === bonusStatus.CLAIMED &&
             <Button 
-              theme={ButtonTheme.secondaryButton}
-              onClick={handleCancelBonus}
+            theme={ButtonTheme.primaryButtonS}
+            onClick={() => {
+              console.log(`${gameURLMapping[data?.provider]}${data?.ref_id}`);
+              history.push(`${gameURLMapping[data?.provider]}${data?.ref_id}`);
+            }}
             >
-              Cancel
+              Launch
             </Button>
           }
         </div>
+        }
       </div>
     )
   }
@@ -208,6 +253,7 @@ const BonusItem = ({ data, fetchBonus }) => {
 
   return (
     <div className={styles.bonusItem}>
+      {data?.status === bonusStatus.EXPIRED && <div className={classNames(styles.statusLabel, styles.finalized)}>EXPIRED</div>}
       {data?.status === bonusStatus.CLAIMED && <div className={classNames(styles.statusLabel, styles.active)}>ACTIVE</div>}
       {data?.status === bonusStatus.FINALIZED && <div className={classNames(styles.statusLabel, styles.finalized)}>FINALIZED</div>}
       {data?.status === bonusStatus.CANCELLED && <div className={classNames(styles.statusLabel, styles.cancelled)}>CANCELLED</div>}

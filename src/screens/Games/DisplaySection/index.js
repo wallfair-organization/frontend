@@ -62,7 +62,7 @@ const DisplaySection = ({
       const name = cfg.absolute_name.substring(
         cfg.absolute_name.lastIndexOf('\\') + 1
       );
-      const evoPlayUrl = `/evoplay-game/${cfg.name}/${cfg.game_sub_type}/${game.gameKey}`;
+      const evoPlayUrl = `/evoplay-game/${game.gameKey}`;
       return (
         <div
           onClick={e => {
@@ -120,7 +120,7 @@ const DisplaySection = ({
       );
     }
     if (game.TechnicalName !== undefined) {
-      const smartSoftUrl = `/external-game/${game.TechnicalName}/${game.TechnicalCategory}`;
+      const smartSoftUrl = `/external-game/${game.TechnicalName}`;
 
       return (
         <div
