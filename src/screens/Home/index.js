@@ -201,7 +201,7 @@ const Home = authState => {
       <div className={styles.container}>
         <DiscordWidget />
         
-        {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' && isLoggedIn && <ClaimBonusWidget />}
+        {isLoggedIn && <ClaimBonusWidget />}
 
         {isPlayMoney && (
           <GainBanner

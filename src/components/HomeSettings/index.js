@@ -90,13 +90,13 @@ const HomeSettings = ({
           </div>
         )}
 
-        {loggedIn && process.env.REACT_APP_SHOW_UPCOMING_FEATURES === "true" &&
+        {loggedIn &&
           <div
             onClick={() => {history.pushState(Routes.bonus)}}
             className={classNames(styles.singleSettingHolder)}
           >
             <Icon
-              className={classNames(styles.referralIcon, styles.strokeIcon)}
+              className={classNames(styles.referralIcon, styles.fillIcon)}
               iconType={'wallet3'}
             />
             <p className={styles.settingTitle}>Bonus</p>
