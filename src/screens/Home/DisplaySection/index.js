@@ -55,7 +55,7 @@ const DisplaySection = (props) => {
     if(game.GameProvider === 'evoplay') {
       const cfg = game._cfg;
       const name = cfg.absolute_name.substring(cfg.absolute_name.lastIndexOf("\\") + 1);
-      const evoPlayUrl = `/evoplay-game/${cfg.name}/${cfg.game_sub_type}/${game.gameKey}`;
+      const evoPlayUrl = `/evoplay-game/${game.gameKey}`;
       return <div onClick={(e) => {
         handleGameClick(e,evoPlayUrl, game);
       }} key={name + game.GameProvider}>
@@ -105,7 +105,7 @@ const DisplaySection = (props) => {
         </Link></div>
     }
     if (game.TechnicalName !== undefined) {
-    const smartSoftUrl = `/external-game/${game.TechnicalName}/${game.TechnicalCategory}`;
+    const smartSoftUrl = `/external-game/${game.TechnicalName}`;
 
     return <div onClick={(e) => {
       handleGameClick(e, smartSoftUrl, game);

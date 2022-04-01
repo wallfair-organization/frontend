@@ -33,6 +33,12 @@ const bonusStatus = {
   EXPIRED: 'EXPIRED',
 }
 
+const gameURLMapping = {
+  EVOPLAY: '/evoplay-game/',
+  SMARTSOFT: '/external-game/',
+  SOFTSWISS: '/softswiss-game/',
+}
+
 const BonusItem = ({ data, fetchBonus }) => {
   const { gamesCurrency } = useSelector(selectUser);
   const [copied, setCopied] = useState(false);
@@ -229,9 +235,12 @@ const BonusItem = ({ data, fetchBonus }) => {
           {data?.status === bonusStatus.CLAIMED &&
             <Button 
             theme={ButtonTheme.primaryButtonS}
-            onClick={() => console.log('activate')}
+            onClick={() => {
+              console.log(`${gameURLMapping[data?.provider]}${data?.ref_id}`);
+              history.push(`${gameURLMapping[data?.provider]}${data?.ref_id}`);
+            }}
             >
-              Activate
+              Launch
             </Button>
           }
         </div>

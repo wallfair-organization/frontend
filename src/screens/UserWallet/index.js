@@ -262,19 +262,16 @@ const UserWallet = ({
                       {renderWalletPreferencesSection()}
                     </div>
 
-                    {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' &&
-                      <>
-                        <div className={styles.balanceToken}>
-                          <span>Balance WFAIR</span>
-                          <span>{`${formatToFixed(getBalanceByCurrency('WFAIR'), 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
-                        </div>
-                        <div className={styles.balanceToken}>
-                          <span>Bonus</span>
-                          <span>{`${formatToFixed(getBalanceByCurrency('BFAIR'), 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
-                        </div>
-                      </>
-                    }
-
+                    
+                    <div className={styles.balanceToken}>
+                      <span>Balance WFAIR</span>
+                      <span>{`${formatToFixed(getBalanceByCurrency('WFAIR'), 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
+                    </div>
+                    <div className={styles.balanceToken}>
+                      <span>Bonus</span>
+                      <span>{`${formatToFixed(getBalanceByCurrency('BFAIR'), 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
+                    </div>
+                    
                     <div className={styles.balanceToken}>
                       <span>Total Balance in WFAIR</span>
                       <span>{`${formatToFixed(balance, 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
