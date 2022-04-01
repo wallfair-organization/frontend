@@ -92,7 +92,7 @@ const HomeSettings = ({
 
         {loggedIn &&
           <div
-            onClick={() => {history.pushState(Routes.bonus)}}
+            onClick={() => {history.push(Routes.bonus)}}
             className={classNames(styles.singleSettingHolder)}
           >
             <Icon
