@@ -540,7 +540,7 @@ const Navbar = ({
           
           {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
 
-          {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === "true" && isLoggedIn() &&
+          {isLoggedIn() &&
             renderNavbarLink(`/bonus`, 'Bonus', null, 'menu-bonus')
           }
 
