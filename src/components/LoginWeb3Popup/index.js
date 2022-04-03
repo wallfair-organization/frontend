@@ -11,6 +11,7 @@ import * as crashGameApi from '../../api/crash-game';
 import * as Api from '../../api';
 import { useLocation } from 'react-router-dom';
 import { trackSignup } from 'config/gtm';
+import { RECAPTCHA_KEY } from 'constants/Api';
 
 const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
   const { active, library, account, deactivate } = useWeb3React();
@@ -32,6 +33,18 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
   const sid = localStorage.getItem('urlParam_sid') || params.get('sid');
   const cid = localStorage.getItem('urlParam_cid') || params.get('cid');
 
+  const handleReCaptchaVerify = () => {
+    return new Promise((resolve, _) => {
+      window.grecaptcha.ready(function () {
+        window.grecaptcha
+          .execute(RECAPTCHA_KEY, { action: 'join' })
+          .then(token => {
+            resolve(token);
+          })
+      });
+    });
+  };
+
   const loginSuccessful = (res) => {
     Api.setToken(res.session);
     crashGameApi.setToken(res.session);
@@ -44,26 +57,29 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
   }
 
   const signUp = () => {
-    loginWeb3({
-      address: account,
-      signResponse,
-      challenge,
-      username,
-      ref,
-      sid,
-      cid,
-    }).then(res => {
-      localStorage.removeItem('urlParam_ref');
-      localStorage.removeItem('urlParam_sid');
-      localStorage.removeItem('urlParam_cid');
-      loginSuccessful(res);
-      trackSignup('web3');
-    }).catch(e => {
-      console.error(e);
-      deactivate();
-      setProcessing(false);
-      hidePopup();
-      loginFailed('Login failed');
+    handleReCaptchaVerify().then(recaptchaToken => {
+      loginWeb3({
+        address: account,
+        signResponse,
+        challenge,
+        username,
+        ref,
+        sid,
+        cid,
+        recaptchaToken,
+      }).then(res => {
+        localStorage.removeItem('urlParam_ref');
+        localStorage.removeItem('urlParam_sid');
+        localStorage.removeItem('urlParam_cid');
+        loginSuccessful(res);
+        trackSignup('web3');
+      }).catch(e => {
+        console.error(e);
+        deactivate();
+        setProcessing(false);
+        hidePopup();
+        loginFailed('Login failed');
+      });
     });
   }
 
