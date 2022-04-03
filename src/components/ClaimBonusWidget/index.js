@@ -9,6 +9,8 @@ import { claimPromoCode } from 'api';
 import classNames from 'classnames';
 import { AlertActions } from 'store/actions/alert';
 import { useDispatch } from 'react-redux';
+import PopupTheme from 'components/Popup/PopupTheme';
+import { PopupActions } from 'store/actions/popup';
 
 const ClaimBonusWidget = ({ fetchBonus }) => {
   const history = useHistory();
@@ -35,7 +37,22 @@ const ClaimBonusWidget = ({ fetchBonus }) => {
     
     if (fetchBonus) {
       fetchBonus();
-    } 
+    }
+
+    console.log({result: result[0]});
+
+    dispatch(
+      PopupActions.show({
+        popupType: PopupTheme.popupBonus,
+        options: {
+          bonus: {
+            name: result[0],
+            description: 'description',
+            type:'BONUS'
+          }
+        },
+      })
+    );
     
   }, [bonusCode, history, dispatch, fetchBonus]); 
   
