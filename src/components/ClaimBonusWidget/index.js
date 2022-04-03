@@ -9,6 +9,7 @@ import { claimPromoCode } from 'api';
 import classNames from 'classnames';
 import { AlertActions } from 'store/actions/alert';
 import { useDispatch } from 'react-redux';
+import { RECAPTCHA_KEY } from 'constants/Api';
 
 const ClaimBonusWidget = ({ fetchBonus }) => {
   const history = useHistory();
@@ -16,10 +17,27 @@ const ClaimBonusWidget = ({ fetchBonus }) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
 
-  const handleConfirm = useCallback(async () => {
-    console.log(bonusCode);
+  const handleReCaptchaVerify = () => {
+    return new Promise((resolve, _) => {
+      window.grecaptcha.ready(function () {
+        window.grecaptcha
+          .execute(RECAPTCHA_KEY, { action: 'join' })
+          .then(token => {
+            resolve(token);
+          })
+      });
+    });
+  };
 
-    const result = await claimPromoCode(bonusCode);
+  const handleConfirm = useCallback(async () => {
+    const recaptchaToken = await handleReCaptchaVerify();
+    if (!recaptchaToken) {
+      console.log('recaptcha failed!');
+      dispatch(AlertActions.showError('Recaptcha verification failed! Please try again!'));
+      return;
+    }
+
+    const result = await claimPromoCode({promoCode: bonusCode, recaptchaToken});
 
     if (result?.response?.data?.status === 'error') {
       setErrorMessage(result.response.data.message);
