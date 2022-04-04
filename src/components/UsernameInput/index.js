@@ -1,40 +1,30 @@
-import { OnboardingActions } from "store/actions/onboarding";
 import styles from './styles.module.scss';
 import InputBox from '../InputBox';
 import { useEffect, useState } from "react";
-import { checkUsername } from '../../api';
+import { checkUsername, updateUser } from '../../api';
 import Button from "../Button";
 import ButtonTheme from "../Button/ButtonTheme";
 import Routes from "../../constants/Routes";
 import _ from 'lodash';
-import { connect } from "react-redux";
+import { faker } from '@faker-js/faker';
 
-const UsernameInput = ({
-  suggestion,
-  getSuggestion,
-  onSubmit,
-  updateUsername,
-  buttonText,
-}) => {
-  const [username, setUsername] = useState(suggestion || '');
+const UsernameInput = ({ onSubmit, buttonText, updateUsername }) => {
+  const [username, setUsername] = useState(faker.internet.userName());
   const [errorMessage, setErrorMessage] = useState();
 
   useEffect(() => {
-    if (!suggestion) {
-      getSuggestion();
-    }
-    setUsername(suggestion);
-  }, [suggestion]);
-
-  useEffect(() => {
-    updateUsername(username);
     const len = username.length;
     if (len < 3 || len > 25) {
       setErrorMessage('Username length should be from 3 to 25 characters long');
     } else {
       setErrorMessage('');
     }
-  }, [username]);
+    updateUsername(username);
+  }, [username, updateUsername]);
+
+  const getSuggestion = () => {
+    setUsername(faker.internet.userName());
+  };
 
   const onConfirm = async () => {
     //check unique username
@@ -58,7 +48,7 @@ const UsernameInput = ({
       );
     }
   };
-  
+
   return (
     <>
       <h2 className={styles.title}>How should we call you?</h2>
@@ -108,18 +98,4 @@ const UsernameInput = ({
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    suggestion: state.onboarding.suggestion,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getSuggestion: () => {
-      dispatch(OnboardingActions.getUsername());
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsernameInput);
+export default UsernameInput;
