@@ -1,4 +1,3 @@
-import { addPath } from 'graphql/jsutils/Path';
 import { OnboardingTypes, OnboardingSteps } from '../actions/onboarding';
 
 const initialState = {
@@ -48,11 +47,6 @@ const next = (action, state) => {
   }
 };
 
-const addSuggestion = (action, state) => {
-  return {...state,
-    suggestion: action.username
-  }
-}
 const reset = (action, state) => {
   return initialState;
 }
@@ -64,8 +58,6 @@ export default function (state = initialState, action) {
       return start(action, state);
     case OnboardingTypes.NEXT:
       return next(action, state);
-    case OnboardingTypes.ADD_USERNAME_SUGGESTION:
-      return addSuggestion(action, state);
     case OnboardingTypes.ADD_PHONE:
       return setPhone(action, state);
     case OnboardingTypes.RESET:
