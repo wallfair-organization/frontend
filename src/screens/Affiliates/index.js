@@ -79,7 +79,8 @@ const Affiliates = ({loggedIn, showPopup}) => {
             {!showForm ?
               <div className={styles.contentWrapper}>
                 <span className={styles.calculatorSample}>SAMPLE CALCULATION</span>
-                <span className={styles.calculatorTitle}>I WANT TO EARN MONTHLY</span>
+                {/* <span className={styles.calculatorTitle}>I WANT TO EARN MONTHLY</span> */}
+                <span className={styles.calculatorTitle}>MONTHLY EARNING</span>
                 <span className={styles.calculatorValue}>1,000 <span className={styles.calculatorCurrency}>USD</span></span>
 
                 <div className={styles.calcResult}>

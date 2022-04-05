@@ -9,6 +9,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   color: $colorWhite;
+  padding: 0 20px;
 
   & h1 {
     max-width: 700px;
@@ -24,6 +25,8 @@
 
     @media (max-width: $screen-md) {
       margin: 0;
+      font-size: 30px;
+      line-height: 40px;
     }
 
     & span {
@@ -45,6 +48,8 @@
 
     @media (max-width: $screen-md) {
       margin: 0;
+      font-size: 16px;
+      line-height: 40px;
     }
   }
 }
@@ -133,6 +138,7 @@
       }
 
       .paymentMethods {
+        width: 100%;
         margin: 0 auto;
       }
     }
@@ -143,6 +149,10 @@
     margin: 0 auto;
     gap: 15px;
     padding-top: 50px;
+
+    @media (max-width: $screen-md) {
+      flex-direction: column;
+    }
 
     .step {
       width: 100%;
@@ -184,6 +194,10 @@
     background-size: contain;
     background-position-y: center;
 
+    @media (max-width: $screen-md) {
+      background-image: none;
+    }
+
     & > h1 {
       margin: 0 auto;
       text-align: center;
@@ -196,6 +210,10 @@
       line-height: 50px;
       color: $colorWhite50;
       font-size: 16px;
+
+      @media (max-width: $screen-md) {
+        line-height: 20px;
+      }
     }
 
     .commissionsList {
@@ -251,6 +269,11 @@
         font-weight: bold;
         color: $colorWhite;
         line-height: 70px;
+
+        @media (max-width: $screen-md) {
+          font-size: 30px;
+          line-height: 40px;
+        }
       }
 
       & > p {
@@ -280,6 +303,11 @@
         font-size: 24px;
         font-weight: bold;
         line-height: 40px;
+
+        @media (max-width: $screen-md) {
+          font-size: 16px;
+          line-height: 30px;
+        }
       }
 
       & > p {
