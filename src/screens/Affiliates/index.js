@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import Button from "../../components/Button";
 import ButtonTheme from '../../components/Button/ButtonTheme';
 import { useHistory } from "react-router-dom";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { PopupActions } from "store/actions/popup";
 import authState from "constants/AuthState";
@@ -16,6 +16,7 @@ import Dropdown from "components/Dropdown";
 import { RECAPTCHA_KEY } from "constants/Api";
 import { AlertActions } from "store/actions/alert";
 import { sendMail } from "api";
+import { numberWithCommas } from "utils/common";
 
 const CONTACTTYPE = ['Telegram', 'WhatsApp', 'E-Mail'];
 
@@ -27,6 +28,9 @@ const Affiliates = ({loggedIn, showPopup}) => {
   const [mailSent, setMailSent] = useState(false);
   const [contactField1, setContactField1] = useState(''); 
   const [contactField2, setContactField2] = useState(''); 
+  const [amount, setAmount] = useState(1000); 
+  const [total, setTotal] = useState(4000); 
+  const [percent, setPercent] = useState(25); 
 
   const handleReCaptchaVerify = () => {
     return new Promise((resolve, _) => {
@@ -39,6 +43,26 @@ const Affiliates = ({loggedIn, showPopup}) => {
       });
     });
   };
+
+  const selectPerc = (value) => {
+    if (value < 1500) {
+      return 25;
+    } else if (value >= 1500 && value < 3500) {
+      return 30;
+    } else if (value >= 3500 && value < 8000) {
+      return 35;
+    } else if (value >= 8000) {
+      return 40;
+    }
+  }
+
+  useEffect(() => {
+    if(amount >= 0) {
+      const perc = selectPerc(amount)
+      setTotal(amount * (100/perc));
+      setPercent(perc);
+    }    
+  }, [amount]);
 
   const submitForm = useCallback(async () => {
     const recaptchaToken = await handleReCaptchaVerify();
@@ -81,11 +105,15 @@ const Affiliates = ({loggedIn, showPopup}) => {
                 <span className={styles.calculatorSample}>SAMPLE CALCULATION</span>
                 {/* <span className={styles.calculatorTitle}>I WANT TO EARN MONTHLY</span> */}
                 <span className={styles.calculatorTitle}>MONTHLY EARNING</span>
-                <span className={styles.calculatorValue}>1,000 <span className={styles.calculatorCurrency}>USD</span></span>
+                {/* <span className={styles.calculatorValue}>1,000 <span className={styles.calculatorCurrency}>USD</span></span> */}
+                <div className={styles.calculatorValue}>
+                  <Input className={styles.inputAmount} type="number" onChange={setAmount} value={amount} />
+                   <span className={styles.calculatorCurrency}>USD</span></div>
+
 
                 <div className={styles.calcResult}>
-                  <div className={styles.summaryItem}><span className={styles.label}>Casino Profit Required</span><span className={styles.value}>4,000 USD</span></div>
-                  <div className={styles.summaryItem}><span className={styles.label}>Commission Plan</span><span className={styles.value}>25%</span></div>
+                  <div className={styles.summaryItem}><span className={styles.label}>Casino Profit Required</span><span className={styles.value}>{numberWithCommas(Math.floor(total))} USD</span></div>
+                  <div className={styles.summaryItem}><span className={styles.label}>Commission Plan</span><span className={styles.value}>{percent}%</span></div>
                 </div>
 
                 <Button theme={ButtonTheme.primaryButtonM} className={styles.startButton} onClick={() => setShowForm(true)}>
@@ -106,9 +134,11 @@ const Affiliates = ({loggedIn, showPopup}) => {
                       options={CONTACTTYPE}
 
                     />
-                    <Input placeholder={'Enter username or phone number...'} onChange={setContactField2} value={contactField2} />
+                    <Input className={styles.userPhoneInput} placeholder={'Enter username or phone number...'} onChange={setContactField2} value={contactField2} />
                     
-                    <Button theme={ButtonTheme.primaryButtonM} className={styles.startButton} onClick={submitForm}>
+                    <Button 
+                      disabled={contactField1.length === 0 || contactField2.length === 0}
+                      theme={ButtonTheme.primaryButtonM} className={styles.startButton} onClick={submitForm}>
                       Send
                     </Button>
                   </>

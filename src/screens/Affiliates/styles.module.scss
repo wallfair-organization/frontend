@@ -85,6 +85,29 @@
       flex-direction: column;
       row-gap: 20px;
 
+      .userPhoneInput {
+        // min-width: 100px !important;
+        // flex: 1;
+        // margin-right: 20px;
+        padding: 10px 20px;
+        height: 50px;
+        border: none;
+        font-family: $fontDMSans;
+        font-size: 16px;
+        line-height: 24px;
+        color: $colorPrimary;
+        background-color: white;
+        border-radius: 8px;
+        &:focus {
+          outline: none;
+        }
+
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+
       .calculatorSample {
         width: 100%;
         color: $colorWhite;
@@ -103,6 +126,32 @@
         font-weight: bold;
         display: flex;
         align-items: center;
+
+        .inputAmount {
+          width: 100%;
+          max-width: 150px;
+          border: none;
+          border-radius: none;
+          padding: 18px 15px;
+          font-size: 30px;
+          color: $colorWhite;
+          background: transparent;
+          text-align: left;
+
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          &[type='number'] {
+            -moz-appearance: textfield;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
 
         .calculatorCurrency {
           padding: 0 20px;
