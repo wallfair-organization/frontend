@@ -1,19 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
-import { GameApi, setInitialEvoplaySession, getSoftswissgames } from 'api/casino-games';
+import { getSoftswissgames } from 'api/casino-games';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import BackLink from 'components/BackLink';
-import Spins from 'components/Spins';
-import GameAnimation from 'components/RouletteGameAnimation';
 import Chat from 'components/Chat';
-import useRosiData from 'hooks/useRosiData';
 import styles from './styles.module.scss';
 import { AlertActions } from '../../store/actions/alert';
-import { RosiGameActions } from '../../store/actions/rosi-game';
-import ContentFooter from 'components/ContentFooter';
 import ChatMessageType from 'components/ChatMessageWrapper/ChatMessageType';
 import { ChatActions } from 'store/actions/chat';
 import Share from '../../components/Share';
@@ -23,10 +17,7 @@ import IconType from 'components/Icon/IconType';
 import IconTheme from 'components/Icon/IconTheme';
 import { PopupActions } from 'store/actions/popup';
 import TabOptions from '../../components/TabOptions';
-import Routes from 'constants/Routes';
-import { getGameById, ObjectId } from '../../helper/Games';
-import { SOFTSWISS_GAMES, GAMES } from '../../constants/Games';
-import { UserActions } from 'store/actions/user';
+import { SOFTSWISS_GAMES } from '../../constants/Games';
 import EventActivitiesTabs from 'components/EventActivitiesTabs'
 import { isMobile } from 'react-device-detect';
 import { selectUser } from 'store/selectors/authentication';
@@ -35,26 +26,19 @@ import classNames from 'classnames';
 import _ from 'lodash';
 
 const SoftswissGame = ({
-  showPopup,
   history,
   connected,
   userId,
-  token,
-  refreshHighData,
-  refreshLuckyData,
-  updateUserBalance,
   match
 }) => {
   const user = useSelector(selectUser);
+
   const [gameMode, setGameMode] = useState(null);
+
   const gameIdentifier = match?.params?.game;
-
   const softswissGame = _.find(SOFTSWISS_GAMES, {identifier: gameIdentifier});
-  // console.log('softswissGame CFG', softswissGame);
-
   const gameName = softswissGame?.identifier ? softswissGame?.title : gameIdentifier;
-  const EXTERNAL_GAME_EVENT_ID = gameIdentifier//game.id;
-
+  const EXTERNAL_GAME_EVENT_ID = gameIdentifier;
   const filename = 'image';
 
   const dispatch = useDispatch();
@@ -65,14 +49,16 @@ const SoftswissGame = ({
   const chatTabOptions = [{ name: 'CHAT', index: 0 }];
 
   const handleHelpClick = useCallback(event => {
-    showPopup(PopupTheme.explanation);
+    dispatch(
+      PopupActions.show({
+        popupType: PopupTheme.explanation,
+      })
+    );
   }, []);
-
 
   useEffect(() => {
     //here we need to send query based on demo / real play
-    console.log(gameMode);
-    if(gameMode) {
+    if (gameMode) {
       const demo = gameMode === 'demo' || !user.isLoggedIn;
       console.log(demo);
       const device = isMobile ? "mobile" : "desktop";
@@ -99,7 +85,6 @@ const SoftswissGame = ({
   }, [gameMode])
 
   useEffect(() => {
-    console.log("EXTERNAL_GAME_EVENT_ID", EXTERNAL_GAME_EVENT_ID)
     dispatch(ChatActions.fetchByRoom({ roomId: EXTERNAL_GAME_EVENT_ID }));
   }, [dispatch, connected]);
 
@@ -163,17 +148,36 @@ const SoftswissGame = ({
             />
           </div>
 
-          {!gameMode &&
-            <div className={classNames(styles.mainContainer, styles.mainContainerPreview)}>
-            <div className={styles.gamePreviewContainer} style={{
-                backgroundImage: `url(/images/evoplay/${filename}_360x360.jpg)`,
-              }}
-            />
-              <SelectGameModePopup className={styles.gameModePopup} user={user} setGameMode={setGameMode} />
+          {!gameMode && (
+            <div
+              className={classNames(
+                styles.mainContainer,
+                styles.mainContainerPreview
+              )}
+            >
+              <div
+                className={styles.gamePreviewContainer}
+                style={{
+                  backgroundImage: `url(/images/evoplay/${filename}_360x360.jpg)`,
+                }}
+              />
+              <SelectGameModePopup
+                className={styles.gameModePopup}
+                user={user}
+                setGameMode={setGameMode}
+                funPlayEnabled={softswissGame?.producer === 'bgaming'}
+              />
             </div>
-          }
+          )}
 
-          {(gameMode && init) && <iframe allowFullScreen title={gameName} className={styles.mainContainer} src={init}/>}
+          {gameMode && init && (
+            <iframe
+              allowFullScreen
+              title={gameName}
+              className={styles.mainContainer}
+              src={init}
+            />
+          )}
           {isMiddleOrLargeDevice ? (
             <div className={styles.bottomWrapper}>
               {renderChat()}
@@ -191,29 +195,7 @@ const mapStateToProps = state => {
   return {
     connected: state.websockets.connected,
     userId: state.authentication.userId,
-    token: state.authentication.token,
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    refreshHighData: () => dispatch(RosiGameActions.fetchHighData()),
-    refreshLuckyData: () => dispatch(RosiGameActions.fetchLuckyData()),
-    hidePopup: () => {
-      dispatch(PopupActions.hide());
-    },
-    showPopup: (popupType, options) => {
-      dispatch(
-        PopupActions.show({
-          popupType,
-          options,
-        })
-      );
-    },
-    updateUserBalance: (userId) => {
-      dispatch(UserActions.fetch({ userId, forceFetch: true }));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SoftswissGame);
+export default connect(mapStateToProps, null)(SoftswissGame);
