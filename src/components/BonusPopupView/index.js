@@ -3,16 +3,13 @@ import { PopupActions } from 'store/actions/popup';
 import PopupTheme from '../Popup/PopupTheme';
 import { connect, useSelector } from 'react-redux';
 import ConfirmCongrat from '../../data/images/coins-popup.png';
-import ShadowAmount from '../../data/images/cashout-amount-shadow.png';
 import { TOKEN_NAME } from 'constants/Token';
-import { convertAmount, currencyDisplay } from 'helper/Currency';
+import { convertAmount } from 'helper/Currency';
 import { formatToFixed } from 'helper/FormatNumbers';
 import { selectUser } from 'store/selectors/authentication';
 import { selectPrices } from 'store/selectors/info-channel';
 import {ReactComponent as WLogo} from '../../data/images/bonus/w-logo-white.svg';
 import { calculateTimeLeft } from 'utils/common';
-import classNames from 'classnames';
-import DateText from 'helper/DateText';
 
 const bonusTypes = {
   FREESPIN: 'FREESPIN',
@@ -28,6 +25,8 @@ const BonusPopupView = ({ authentication, visible, hidePopup, options }) => {
   const prices = useSelector(selectPrices);
   
   const { bonus : data } = options;
+
+  console.log({data});
 
   const renderContentByType = () => {
     switch (data?.type) {
@@ -59,7 +58,7 @@ const BonusPopupView = ({ authentication, visible, hidePopup, options }) => {
       <div className={styles.content}>
         <div className={styles.bonusSpec}>
           <span className={styles.label}>Amount of the balance credited</span><span className={styles.value}>
-            {`${convert(data?.value)} ${gamesCurrency}`}
+            {`${convert(+data?.value)} ${gamesCurrency}`}
           </span>
         </div>
         <div className={styles.bonusSpec}>
@@ -70,16 +69,13 @@ const BonusPopupView = ({ authentication, visible, hidePopup, options }) => {
         <div className={styles.bonusSpec}>
           <span className={styles.label}>Wagering conditions</span><span className={styles.value}>{data?.wagering}x</span>
         </div>
-        <div className={styles.bonusSpec}>
+        {/* <div className={styles.bonusSpec}>
           <span className={styles.label}>% of wagering reached</span><span className={styles.value}>{+data?.wagering > 0 ? (Math.min(100, +formatToFixed(data?.wagering_reached * 100,)) + '%') : '-'}</span>
-        </div>
+        </div> */}
 
-        {data?.status !== 'CANCELLED' && (
-        Object.keys(timeLeftObj).length > 0 ?
-          <div className={styles.bonusSpec}>
+        {/* <div className={styles.bonusSpec}>
             <span className={styles.label}>Expires in</span>
             <span className={styles.value} title={DateText.formatDate(new Date(closerExpirationTime))}>
-              {/* {data?.expires_at && DateText.formatDate(data?.expires_at)} */}
               {' '}{timeLeftObj?.days > 0 && <span className={styles.timerValue}>{timeLeftObj?.days || 0} </span>}
               {timeLeftObj?.days > 0 && <span className={styles.timerUnit}>{timeLeftObj?.days > 1 ? 'days ' : 'day '}</span>}
               {timeLeftObj?.hours > 0 && <span className={styles.timerValue}>{timeLeftObj?.hours || 0} </span>}
@@ -88,14 +84,7 @@ const BonusPopupView = ({ authentication, visible, hidePopup, options }) => {
               {timeLeftObj?.minutes &&<span className={styles.timerUnit}>min</span>}
             </span>
           </div>
-        :
-          <div className={styles.bonusSpec}>
-            <span className={classNames(styles.label, styles.expired)}>Expired at</span>
-            <span className={classNames(styles.value, styles.expired)}>
-              {closerExpirationTime && DateText.formatDate((new Date(closerExpirationTime)))}
-            </span>
-          </div>
-        )}
+       */}
       </div>
     )
   }
@@ -111,12 +100,9 @@ const BonusPopupView = ({ authentication, visible, hidePopup, options }) => {
             {`${convert(data?.value)} ${gamesCurrency}`}
           </span>
         </div>
-       {data?.status !== 'CANCELLED' && (
-        Object.keys(timeLeftObj).length > 0 &&
-          <div className={styles.bonusSpec}>
+       {/* <div className={styles.bonusSpec}>
             <span className={styles.label}>Expires in</span>
             <span className={styles.value} title={DateText.formatDate(new Date(closerExpirationTime))}>
-              {/* {data?.expires_at && DateText.formatDate(data?.expires_at)} */}
               {' '}{timeLeftObj?.days > 0 && <span className={styles.timerValue}>{timeLeftObj?.days || 0} </span>}
               {timeLeftObj?.days > 0 && <span className={styles.timerUnit}>{timeLeftObj?.days > 1 ? 'days ' : 'day '}</span>}
               {timeLeftObj?.hours > 0 && <span className={styles.timerValue}>{timeLeftObj?.hours || 0} </span>}
@@ -125,7 +111,7 @@ const BonusPopupView = ({ authentication, visible, hidePopup, options }) => {
               {timeLeftObj?.minutes &&<span className={styles.timerUnit}>min</span>}
             </span>
           </div>
-       )}
+       */}
       </div>
     )
   }

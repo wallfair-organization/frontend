@@ -288,8 +288,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
       case PopupTheme.phoneNumber:
         return <PhonePopup initialOnboarding={options?.initialOnboarding} />;
       case PopupTheme.phoneVerification:
-        const initialOnboarding = _.get(options, 'initialOnboarding', true);
-        return <VerifyPhonePopup initialOnboarding={initialOnboarding} />;
+        const phoneNumber = _.get(options, 'phoneNumber', '');
+        return <VerifyPhonePopup phoneNumber={phoneNumber} />;
       case PopupTheme.disputes:
         return <DisputesPopup disputes={options?.disputes} />;
       case PopupTheme.cashoutPopupView:

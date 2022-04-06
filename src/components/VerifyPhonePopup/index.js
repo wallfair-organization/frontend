@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import styles from './styles.module.scss';
 import Button from '../Button';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import _ from 'lodash';
 import { OnboardingActions } from 'store/actions/onboarding';
 import ButtonTheme from 'components/Button/ButtonTheme';
@@ -10,17 +10,17 @@ import Routes from 'constants/Routes';
 import CodeInputFields from 'components/CodeInputFields';
 import { verifySms, sendSms} from 'api';
 import { trackSignupPhone } from 'config/gtm';
+import { AlertActions } from 'store/actions/alert';
+import { PopupActions } from 'store/actions/popup';
 
 const VerifyPhonePopup = ({
-  hidePopup = () => {},
-  showOnboardingFlowNext,
   phoneNumber,
   userId,
-  initialOnboarding
 }) => {
 
   const [code, setCode] = useState('');
   const [errorMessage, setErrorMessage] = useState();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setErrorMessage('');
@@ -41,13 +41,10 @@ const VerifyPhonePopup = ({
       
       if (!response.error) {
         setErrorMessage('');
-        showOnboardingFlowNext({
-          verified:true,
-          initialOnboarding,
-        });
-        trackSignupPhone();
+        
+        dispatch(AlertActions.showSuccess({message:'Phone verified successfully!'}));
+        dispatch(PopupActions.hide());
 
-        hidePopup();
       } else {
         setErrorMessage(
           <div>
@@ -73,7 +70,7 @@ const VerifyPhonePopup = ({
 
   return (
     <div className={styles.usernamePopup}>
-      <StepBar step={3} size={4} />
+      {/* <StepBar step={3} size={4} /> */}
       <h2 className={styles.title}>Code Verification</h2>
       <div className={styles.container}>
         <div className={styles.description}>
@@ -109,7 +106,7 @@ const VerifyPhonePopup = ({
             Verify
           </Button>
         </div>
-        <span className={styles.terms}>By continuing I accept the <a href={Routes.terms} target="_blank" rel="noreferrer">Terms and Conditions</a> and <a href={Routes.privacy} target="_blank" rel="noreferrer">Privacy Policy</a>. Also I confirm that I am over 18 years old.</span>
+        {/* <span className={styles.terms}>By continuing I accept the <a href={Routes.terms} target="_blank" rel="noreferrer">Terms and Conditions</a> and <a href={Routes.privacy} target="_blank" rel="noreferrer">Privacy Policy</a>. Also I confirm that I am over 18 years old.</span> */}
       </div>
     </div>
   );
@@ -118,24 +115,7 @@ const VerifyPhonePopup = ({
 const mapStateToProps = state => {
   return {
     userId: state.authentication.userId,
-    phoneNumber: state.onboarding.phoneNumber,
-    initialOnboarding: state.onboarding.initialOnboarding,
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    showOnboardingFlowNext: ({verified, initialOnboarding}) => {
-      dispatch(
-        OnboardingActions.next({
-            payload: {
-              verified,
-              initialOnboarding,
-            }
-        })
-      );
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(VerifyPhonePopup);
+export default connect(mapStateToProps, null)(VerifyPhonePopup);
