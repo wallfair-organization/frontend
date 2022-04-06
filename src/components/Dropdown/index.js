@@ -12,6 +12,7 @@ const Dropdown = ({
   setValue,
   placeholder,
   style,
+  className,
   ...rest
 }) => {
   const onChange = ({ value }) => {
@@ -24,7 +25,7 @@ const Dropdown = ({
     <>
       <div className={styles.dropdownContainer}>
         <ReactDropdown
-          className={classNames(styles.dropdown, style)}
+          className={classNames(styles.dropdown, className)}
           menuClassName={styles.dropdownMenu}
           controlClassName={styles.dropdownControl}
           placeholderClassName={styles.dropdownPlaceholder}

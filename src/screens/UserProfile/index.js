@@ -1,28 +1,20 @@
 import styles from './styles.module.scss';
 import _ from 'lodash';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BaseContainerWithNavbar from 'components/BaseContainerWithNavbar';
 import TabOptions from '../../components/TabOptions';
-import { getUserPublicInfo, getUserPublicStats } from '../../api';
+import { getUserPublicInfo } from '../../api';
 import { getProfilePictureUrl } from '../../helper/ProfilePicture';
-
-import ActivitiesTracker from '../../components/ActivitiesTracker';
-import Button from 'components/Button';
-import { connect, useDispatch, useSelector } from 'react-redux';
-import { AuthenticationActions } from 'store/actions/authentication';
+import { connect } from 'react-redux';
 import Leaderboard from 'components/Leaderboard';
 import BetTable from 'components/UserWalletTables/tables/BetTable';
 import useRosiData from 'hooks/useRosiData';
 import { RosiGameActions } from 'store/actions/rosi-game';
-const UserProfile = ({refreshMyBetsData}) => {
-  const matchMediaMobile = window.matchMedia(`(max-width: ${768}px)`).matches;
 
+const UserProfile = ({refreshMyBetsData}) => {
   const { userId } = useParams();
   const [user, setUser] = useState();
-  const [userStats, setUserStats] = useState();
-  const [suspendButtonVisible, setSuspendButtonVisible] = useState(false);
-  const [locked, setLocked] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
   const tabOptions = [
     { name: 'BETS PLACED', index: 0 },
@@ -34,17 +26,13 @@ const UserProfile = ({refreshMyBetsData}) => {
   // const sideTabOptions = [
   //   { name: 'Statistics', index: 0 },
   // ];
-  const currentUser = useSelector(state => state.authentication);
-  const dispatch = useDispatch();
   const { myBetsData } = useRosiData();
   const betsRow = myBetsData ? myBetsData: [];
 
 
   useEffect(() => {
-    refreshMyBetsData({ userId: userId });
+    refreshMyBetsData({ userId });
     fetchUser(userId);
-    fetchUserStats(userId);
-
   }, [userId]);
 
   const fetchUser = async userId => {
@@ -53,29 +41,10 @@ const UserProfile = ({refreshMyBetsData}) => {
     });
     const user = _.get(userResponse, 'data', null);
     setUser({ ...user, userId });
-    setLocked(user?.status === 'locked');
-    setSuspendButtonVisible(currentUser.admin && currentUser.userId !== userId);
-  };
-
-  const fetchUserStats = async userId => {
-    const statsResponse = await getUserPublicStats(userId).catch(err => {
-      console.error("Can't get user stats by id:", err);
-    });
-    const userStats = _.get(statsResponse, 'data.stats', null);
-    setUserStats(userStats);
   };
 
   const handleSwitchTab = option => {
     setTabIndex(option.index);
-  };
-
-  // const handleSwitchSideTab = option => {
-  //   setSideTabIndex(option.index);
-  // };
-
-  const onSuspendButtonClick = status => {
-    dispatch(AuthenticationActions.updateStatus({ userId, status }));
-    setLocked(status === 'locked');
   };
 
   const renderTabConditional = () => {
@@ -99,56 +68,8 @@ const UserProfile = ({refreshMyBetsData}) => {
             />
           </div>
         );
-      case 2:
-        return (
-          <div className={styles.sideContent}>
-            {/* <UserStatsSide /> */}
-          </div>
-        );
     }
   };
-
-  // const UserStatsSide = () => {
-  //   return (
-  //     <>
-  //       <div className={styles.statsBlock}>
-  //         <div className={styles.statItem}>
-  //           <div className={styles.statItemHead}>
-  //             <span>{userStats?.casinoGamePlayCount}</span> Games
-  //           </div>
-  //           <div className={styles.statItemHint}>Total casino games played</div>
-  //         </div>
-  //         <div className={styles.statItem}>
-  //           <div className={styles.statItemHead}>
-  //             <span>{userStats?.casinoGameCashoutCount}</span> Cashouts
-  //           </div>
-  //           <div className={styles.statItemHint}>Total casino cashouts</div>
-  //         </div>
-
-  //         <div className={styles.statItem}>
-  //           <div className={styles.statItemHead}>
-  //             <span>{userStats?.userBetsAmount?.totalBets}</span> Bets
-  //           </div>
-  //           <div className={styles.statItemHint}>Total bets</div>
-  //         </div>
-
-  //         <div className={styles.statItem}>
-  //           <div className={styles.statItemHead}>
-  //             <span>{userStats?.userBetsCashouts?.totalCashouts}</span> Cashouts
-  //           </div>
-  //           <div className={styles.statItemHint}>Total bet cashouts</div>
-  //         </div>
-
-  //         <div className={styles.statItem}>
-  //           <div className={styles.statItemHead}>
-  //             <span>{userStats?.userBetsRewards?.totalRewards}</span> Rewards
-  //           </div>
-  //           <div className={styles.statItemHint}>Total bet rewards</div>
-  //         </div>
-  //       </div>
-  //     </>
-  //   );
-  // };
 
   return (
     <BaseContainerWithNavbar withPaddingTop={true}>
@@ -173,16 +94,6 @@ const UserProfile = ({refreshMyBetsData}) => {
                     'This user has not provided an about info yet. How boring!'}{' '}
                 </p>
               </div>
-              {suspendButtonVisible && (
-                <Button
-                  className={styles.suspendButton}
-                  onClick={() =>
-                    onSuspendButtonClick(locked ? 'active' : 'locked')
-                  }
-                >
-                  {locked ? 'Reactivate' : 'Suspend'}
-                </Button>
-              )}
             </div>
           </div>
           <div className={styles.contentBlock}>
@@ -240,9 +151,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    
     refreshMyBetsData: data => dispatch(RosiGameActions.fetchMyBetsData(data)),
-    
   };
 };
 

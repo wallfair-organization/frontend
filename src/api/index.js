@@ -858,6 +858,19 @@ const withdrawBonus = (promoCode, ref = 'default') => {
   );
 };
 
+const sendMail = ({text, subject, recaptchaToken}) => {
+  return Api.post(ApiUrls.API_POST_SEND_EMAIL, {
+    text,
+    subject,
+    recaptchaToken
+  })
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: sendMail ', err);
+      return err;
+    });
+};
+
 export {
   Api,
   createBet,
@@ -952,4 +965,5 @@ export {
   claimPromoCode,
   cancelPromoCode,
   withdrawBonus,
+  sendMail,
 };
