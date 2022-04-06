@@ -1,12 +1,12 @@
 import Grid from '@material-ui/core/Grid';
-import classNames from "classnames";
+import classNames from 'classnames';
 import styles from '../styles.module.scss';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import StateBadge from '../../StateBadge';
-import moment from "moment";
+import moment from 'moment';
 import BetState from 'constants/BetState';
 import { calculateGain } from '../../../helper/Calculation';
-import { formatToFixed } from "helper/FormatNumbers";
+import { formatToFixed } from 'helper/FormatNumbers';
 import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../../store/actions/popup';
 import PopupTheme from '../../Popup/PopupTheme';
@@ -45,7 +45,12 @@ const getGain = trade => {
   return gain;
 };
 
-const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout }) => {
+const TradeRow = ({
+  data,
+  allowCashout,
+  showPulloutBetPopup,
+  onApproveCashout,
+}) => {
   const {
     bet,
     event,
@@ -58,15 +63,21 @@ const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout })
     direction,
   } = data;
   const gain = getGain(data);
-    const prices = useSelector(selectPrices);
-      const user = useSelector(selectUser);
-      const currency = user.gamesCurrency;
+  const prices = useSelector(selectPrices);
+  const user = useSelector(selectUser);
+  const currency = user.gamesCurrency;
 
   const convert = amount => {
     return currency !== TOKEN_NAME
       ? `${convertAmount(amount, prices[currency])}`
       : `${formatToFixed(amount, 0, true)}`;
-  }
+  };
+
+  const truncate = val => {
+    return val.length > 20
+      ? val.substr(0, 14) + '...' + val.substr(val.length - 6)
+      : val;
+  };
 
   return (
     <div className={styles.messageItem}>
@@ -75,11 +86,7 @@ const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout })
           <div className={classNames(styles.messageFirst, styles.messageLeft)}>
             <Link to={`/trade/${event.slug}`} className={styles.titleLink}>
               <div className={styles.titleWithBadge}>
-                {bet.question?.length > 20
-                  ? bet.question?.substr(0, 14) +
-                    '...' +
-                    bet.question?.substr(bet.question?.length - 6)
-                  : bet.question}
+                {truncate(bet.question)}
                 {status === 'active' && (
                   <StateBadge
                     state={bet.status.toLowerCase()}
@@ -94,7 +101,7 @@ const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout })
         </Grid>
         <Grid item xs>
           <div className={styles.messageCenter}>
-            <p>{bet.outcome}</p>
+            <p>{truncate(bet.outcome)}</p>
           </div>
         </Grid>
         <Grid item xs>
