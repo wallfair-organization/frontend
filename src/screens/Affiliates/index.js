@@ -168,7 +168,7 @@ const Affiliates = ({loggedIn, showPopup}) => {
 
           <div className={styles.commissionContainer}>
             <h1>Commision Plan <span>per month</span></h1>
-            <span className={styles.commissionDescription}>Lorem ipsum dolor sit amet, consetetur sadipsciting elitr.</span>
+            <span className={styles.commissionDescription}>Based on casino profit your players generate per month</span>
 
             <div className={styles.commissionsList}>
               <div className={styles.commission}>
@@ -203,11 +203,11 @@ const Affiliates = ({loggedIn, showPopup}) => {
           </div>
 
           <div className={styles.aboutContainer}>
-            <img src={''} alt='' />
+            {/* <img src={''} alt='' /> */}
             <div className={styles.content}>
-              {/* <span>LOREM IPPUM</span> */}
+              {/* <span>WALLFAIR.IO</span> */}
               <h2>About wallfair.io</h2>
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.</p>
+              <p>Wallfair is a betting and gaming platform allowing fair, social and fun entertainment on the blockchain.</p>
             </div>
           </div>
 
