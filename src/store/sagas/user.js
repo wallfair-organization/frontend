@@ -58,7 +58,7 @@ const fetchSucceeded = function* (action) {
   const userId = user.userId;
 
   if (userId === selfUserId) {
-    if (user.status === 'locked') {
+    if (['locked', 'banned'].includes(user.status)) {
       yield put(AuthenticationActions.logout());
     } else {
       const profilePicture = user.profilePicture;

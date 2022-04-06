@@ -16,6 +16,13 @@ let meta = {
     keywords:
       'wallfair, events, news, sports, esports, gaming, crypto',
   },
+  '/affiliates': {
+    title: 'Wallfair Affiliate Program',
+    description: 'Refer people to Wallfair and make money!',
+    image: 'https://app.wallfair.io/images/seo/tweet-card-120.jpg?v=4',
+    keywords:
+      'wallfair, events, esports, gaming, crypto, affiliate, casino, streamer',
+  },
   '/events': {
     title: 'Wallfair Events',
     description: 'Intense, high-paced and hilarious events for everyone',

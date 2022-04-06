@@ -14,7 +14,7 @@ import { numberWithCommas } from '../../../utils/common';
 import { addMetaMaskEthereum } from 'utils/helpers/ethereum';
 import WithdrawalSuccessPopup from 'components/WithdrawalSuccessPopup';
 import { selectUser } from 'store/selectors/authentication';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import EthereumLogoActive from '../../../data/icons/ethereum-logo-icon-active.svg';
 import PolygonLogoActive from '../../../data/icons/polygon-logo-active.svg';
 import NumberCommaInput from 'components/NumberCommaInput/NumberCommaInput';
@@ -23,6 +23,8 @@ import ReactTooltip from 'react-tooltip';
 import { FormGroup } from 'components/Form';
 import WithdrawalErrorPopup from 'components/WithdrawalErrorPopup';
 import Button from 'components/Button';
+import { RECAPTCHA_KEY } from 'constants/Api';
+import { AlertActions } from 'store/actions/alert';
 
 const minTokenWithdrawAmount = 1000;
 
@@ -35,6 +37,7 @@ const WithdrawTab = () => {
   const fooRef = useRef(null);
   let addressRef = useRef(null);
   let amountRef = useRef(null);
+  const dispatch = useDispatch();
 
   const account = ethers.utils.getAddress(window.ethereum?.selectedAddress);
   const [address, setAddress] = useState('');
@@ -178,8 +181,9 @@ const WithdrawTab = () => {
         return;
       }
 
-      const { withdraw_amount: withdrawAmount, withdraw_fee: withdrawFee } =
-        response?.data;
+      const withdrawAmount = response?.data?.withdraw_amount || 0;
+      const withdrawFee = response?.data?.withdraw_fee || 0;
+
       const parsedWithdrawAmount = parseFloat(withdrawAmount).toFixed(4);
       const parsedFees = parseFloat(withdrawFee).toFixed(4);
 
@@ -211,11 +215,31 @@ const WithdrawTab = () => {
     }
   };
 
+  const handleReCaptchaVerify = () => {
+    return new Promise((resolve, _) => {
+      window.grecaptcha.ready(function () {
+        window.grecaptcha
+          .execute(RECAPTCHA_KEY, { action: 'join' })
+          .then(token => {
+            resolve(token);
+          })
+      });
+    });
+  };
+
   const handleWithdraw = async () => {
+
+    const recaptchaToken = await handleReCaptchaVerify();
+    if (!recaptchaToken) {
+      dispatch(AlertActions.showError('Recaptcha verification failed! Please try again!'));
+      return;
+    }
+
     const payload = {
       amount: tokenAmount,
       network: activeNetwork,
       toAddress: address,
+      recaptchaToken
     };
 
     const { response, error } = await processWithdraw(payload);

@@ -142,8 +142,8 @@ const UserWallet = ({
   };
 
   const fetchTrades = () => {
-    getOpenBets().then(res => setOpenTrades(res.data));
-    getTradeHistory().then(res => setTradeHistory(res.data));
+    getOpenBets().then(res => setOpenTrades(res?.data || []));
+    getTradeHistory().then(res => setTradeHistory(res?.data || []));
   }
 
   useEffect(() => {

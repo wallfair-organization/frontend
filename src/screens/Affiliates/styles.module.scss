@@ -1,38 +1,382 @@
 @import '../../styles/all';
 
-.howItWorks {
+.affiliates {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../../data/images/how-it-works/background-coins.png');
+  background-image: url('../../data/images/affiliates/affiliates-bg.png');
   background-repeat: no-repeat;
   background-size: contain;
-}
-
-.headline {
-  max-width: 940px;
-  width: 100%;
-  font-size: 50px;
-  line-height: 35px;
-  font-weight: bold;
   color: $colorWhite;
-  position: relative;
-  margin: 75px 0;
-  text-align: center;
+  padding: 0 20px;
 
-  @media (max-width: $screen-md) {
-    margin: 0;
+  & h1 {
+    max-width: 700px;
+    width: 100%;
+    font-size: 50px;
+    line-height: 55px;
+    font-weight: bold;
+    color: $colorWhite;
+    position: relative;
+    margin: 0 0 75px;
+    text-align: center;
+    font-style: italic;
+
+    @media (max-width: $screen-md) {
+      margin: 0;
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    & span {
+      color: $colorLightYellow;
+    }
+  }
+
+  & h2 {
+    max-width: 940px;
+    width: 100%;
+    font-size: 20px;
+    line-height: 60px;
+    letter-spacing: 2px;
+    font-weight: normal;
+    color: $colorWhite;
+    position: relative;
+    margin: 45px 0 0;
+    text-align: center;
+
+    @media (max-width: $screen-md) {
+      margin: 0;
+      font-size: 16px;
+      line-height: 40px;
+    }
   }
 }
 
 .container {
   display: flex;
   column-gap: 50px;
+  flex-direction: column;
+  width: 100%;
 
   @media (max-width: $screen-md) {
     flex-direction: column;
     row-gap: 20px;
     align-items: center;
+  }
+
+  .calculatorContainer {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    max-width: 496px;
+    background: $colorPrimary66;
+    border-radius: 8px;
+
+    h2 {
+      font-size: 12px;
+      color: $colorWhite50;
+    }
+
+    .contentWrapper {
+      padding: 32px 77px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+
+      @media (max-width: $screen-md) {
+        padding: 32px 32px;
+      }
+
+      .dropdown {
+        @media (max-width: $screen-md) {
+          height: 50px;
+        }
+      }
+
+      .dropdownPlaceholder {
+        font-size: 16px;
+        color: #777;
+      }
+
+      .userPhoneInput {
+        padding: 10px 20px;
+        height: 50px;
+        border: none;
+        font-family: $fontDMSans;
+        font-size: 16px;
+        line-height: 24px;
+        color: #777;
+        background-color: white;
+        border-radius: 8px;
+        &:focus {
+          outline: none;
+        }
+
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+
+      .calculatorSample {
+        width: 100%;
+        color: $colorWhite;
+        font-size: 12px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .calculatorTitle {
+        color: $colorWhite50;
+        font-size: 12px;
+      }
+
+      .calculatorValue {
+        font-size: 44px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+
+        .inputAmount {
+          width: 100%;
+          max-width: 150px;
+          border: none;
+          border-radius: none;
+          padding: 18px 15px;
+          font-size: 30px;
+          color: $colorWhite;
+          background: transparent;
+          text-align: left;
+          font-weight: bold;
+
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          &[type='number'] {
+            -moz-appearance: textfield;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .calculatorCurrency {
+          padding: 0 20px;
+          font-size: 14px;
+          color: $colorWhite50;
+        }
+      }
+
+      .calcResult {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $colorWhite50;
+        .summaryItem {
+          display: flex;
+          justify-content: space-between;
+          .label {
+            font-size: 12px;
+            color: $colorWhite50;
+          }
+
+          .value {
+            font-size: 12px;
+            color: $colorWhite;
+          }
+        }
+      }
+
+      .startButton {
+        margin: 0 auto;
+        max-width: 215px;
+      }
+
+      .paymentMethods {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .stepsContainer {
+    display: flex;
+    margin: 0 auto;
+    gap: 15px;
+    padding-top: 50px;
+
+    @media (max-width: $screen-md) {
+      flex-direction: column;
+    }
+
+    .step {
+      width: 100%;
+      height: 154px;
+      max-width: 280px;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      align-items: center;
+      background: $colorLightPurple10;
+      padding: 13px 30px;
+
+      .icon {
+        font-size: 20px;
+      }
+      .title {
+        color: $colorLightYellow;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .description {
+        color: $colorWhite;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .commissionContainer {
+    max-width: 870px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 0;
+    margin: 0 auto;
+    background-image: url('../../data/images/affiliates/commission-bg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
+
+    @media (max-width: $screen-md) {
+      background-image: none;
+    }
+
+    & > h1 {
+      margin: 0 auto;
+      text-align: center;
+      max-width: 390px;
+      width: 100%;
+      font-style: normal;
+    }
+
+    & > .commissionDescription {
+      line-height: 50px;
+      color: $colorWhite50;
+      font-size: 16px;
+
+      @media (max-width: $screen-md) {
+        line-height: 20px;
+      }
+    }
+
+    .commissionsList {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      // width: 100%;
+      padding: 30px 20px 50px;
+
+      .commission {
+        width: 100%;
+        max-width: 470px;
+        background: $colorLightPurple10;
+        padding: 15px 30px;
+        display: flex;
+        column-gap: 30px;
+        .percentage {
+          color: $colorLightYellow;
+          font-weight: bold;
+          font-style: italic;
+        }
+        .condition {
+          color: $colorWhite50;
+        }
+      }
+    }
+
+    .earnButton {
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+
+  .aboutContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      & > span {
+        font-size: 16px;
+        color: $colorWhite50;
+      }
+
+      & > h2 {
+        margin: 0;
+        padding: 0 0 20px;
+        font-size: 50px;
+        font-weight: bold;
+        color: $colorWhite;
+        line-height: 70px;
+
+        @media (max-width: $screen-md) {
+          font-size: 30px;
+          line-height: 40px;
+        }
+      }
+
+      & > p {
+        font-size: 16px;
+        color: $colorWhite50;
+        width: 100%;
+        max-width: 800px;
+        text-align: justify;
+      }
+    }
+  }
+
+  .info {
+    display: inline-flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    margin: 70px auto;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+
+    .infoItem {
+      max-width: 500px;
+      width: 100%;
+
+      & > h4 {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 40px;
+
+        @media (max-width: $screen-md) {
+          font-size: 16px;
+          line-height: 30px;
+        }
+      }
+
+      & > p {
+        font-size: 16px;
+        color: $colorWhite50;
+      }
+    }
   }
 }

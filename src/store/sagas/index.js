@@ -19,7 +19,6 @@ import {
 import { AuthenticationTypes } from '../actions/authentication';
 import { BetTypes } from '../actions/bet';
 import { EventTypes } from '../actions/event';
-import { ChartTypes } from '../actions/chart-params';
 import { REHYDRATE } from 'redux-persist';
 import { TransactionTypes } from '../actions/transaction';
 import { UserTypes } from '../actions/user';
@@ -207,16 +206,7 @@ const root = function* () {
       [TransactionTypes.FETCH_WALLET_TRANSACTIONS],
       TransactionSagas.fetchWalletTransactions
     ),
-    // takeLatest(
-    //   [OnboardingTypes.START, OnboardingTypes.NEXT, OnboardingTypes.ADD_PHONE],
-    //   OnboardingSaga.loadOnboardingStep
-    // ),
-    // takeEvery([OnboardingTypes.START], OnboardingSaga.getUsernameSuggestion),
     takeLatest([OnboardingTypes.START], OnboardingSaga.startOnboarding),
-    takeEvery(
-      [OnboardingTypes.GET_USERNAME],
-      OnboardingSaga.getUsernameSuggestion
-    ),
     // @formatter:on
   ]);
 };
