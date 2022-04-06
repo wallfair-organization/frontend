@@ -426,7 +426,7 @@ const mapStateToProps = (state, ownProps) => {
   const gamesCurrency = state.authentication.preferences.gamesCurrency;
 
   return {
-    currency: gamesCurrency,
+    currency: gamesCurrency || TOKEN_NAME,
     users: _.get(state, 'user.users', []),
     events: _.get(state, 'event.events', []),
   };
