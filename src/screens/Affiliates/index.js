@@ -28,9 +28,9 @@ const Affiliates = ({loggedIn, showPopup}) => {
   const [mailSent, setMailSent] = useState(false);
   const [contactField1, setContactField1] = useState(''); 
   const [contactField2, setContactField2] = useState(''); 
-  const [amount, setAmount] = useState(1000); 
-  const [total, setTotal] = useState(4000); 
-  const [percent, setPercent] = useState(25); 
+  const [amount, setAmount] = useState(1500); 
+  const [total, setTotal] = useState(7500); 
+  const [percent, setPercent] = useState(20); 
 
   const handleReCaptchaVerify = () => {
     return new Promise((resolve, _) => {
@@ -46,13 +46,13 @@ const Affiliates = ({loggedIn, showPopup}) => {
 
   const selectPerc = (value) => {
     if (value < 1500) {
-      return 25;
+      return 15;
     } else if (value >= 1500 && value < 3500) {
-      return 30;
+      return 20;
     } else if (value >= 3500 && value < 8000) {
-      return 35;
+      return 25;
     } else if (value >= 8000) {
-      return 40;
+      return 30;
     }
   }
 
@@ -157,7 +157,7 @@ const Affiliates = ({loggedIn, showPopup}) => {
             <div className={styles.step}>
               <span className={styles.icon}>🎮</span>
               <span className={styles.title}>ADVERTISE</span>
-              <span className={styles.description}>Refer players to Wallfair on which you get up to 40% profit lifetime.</span>
+              <span className={styles.description}>Refer players to Wallfair on which you get up to 30% profit lifetime.</span>
             </div>
             <div className={styles.step}>
               <span className={styles.icon}>💰</span>
@@ -172,19 +172,19 @@ const Affiliates = ({loggedIn, showPopup}) => {
 
             <div className={styles.commissionsList}>
               <div className={styles.commission}>
-                <span className={styles.percentage}>25%</span>
+                <span className={styles.percentage}>15%</span>
                 <span className={styles.condition}>&lt; $5,000</span>
               </div>
                 <div className={styles.commission}>
-                  <span className={styles.percentage}>30%</span>
+                  <span className={styles.percentage}>20%</span>
                   <span className={styles.condition}>$5,000 to $10,000</span>
                 </div>
                 <div className={styles.commission}>
-                  <span className={styles.percentage}>35%</span>
+                  <span className={styles.percentage}>25%</span>
                   <span className={styles.condition}>$10,000 to $20,000</span>
                 </div>
                 <div className={styles.commission}>
-                  <span className={styles.percentage}>40%</span>
+                  <span className={styles.percentage}>30%</span>
                   <span className={styles.condition}>&gt; $20,000</span>
                 </div>
               
@@ -207,7 +207,7 @@ const Affiliates = ({loggedIn, showPopup}) => {
             <div className={styles.content}>
               {/* <span>WALLFAIR.IO</span> */}
               <h2>About wallfair.io</h2>
-              <p>Wallfair is a betting and gaming platform allowing fair, social and fun entertainment on the blockchain.</p>
+              <p>Wallfair is the entertainment platform for tomorrow available today. We offer licensed crypto gambling with a large number of coins and currencies and exclusive deals for our affiliates: If you decide to join, up to 30% of all deposits will be yours right after your fans and followers have placed their bets. These conditions are unprecedented and we offer them to you on a permanent basis.</p>
             </div>
           </div>
 
@@ -254,7 +254,7 @@ const Affiliates = ({loggedIn, showPopup}) => {
 
           <div className={styles.infoItem}>
             <h4>Deposit</h4>
-            <p>It pays off to attract deposits to the platform. 1 out of every 4 US$ in fiat and tokens goes straight to you.</p>
+            <p>It pays off to attract deposits to the platform. Up to 30% of the deposits goes straight to you.</p>
           </div>
 
           <div className={styles.infoItem}>
