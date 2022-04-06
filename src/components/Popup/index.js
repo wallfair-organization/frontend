@@ -52,6 +52,7 @@ import DisputesPopup from 'components/DisputesPopup';
 import CashoutPopupView from '../CashoutPopupView';
 import HowItWorksPopup from '../HowItWorksPopup';
 import LoginWeb3Popup from '../LoginWeb3Popup';
+import BonusPopupView from 'components/BonusPopupView';
 
 const Popup = ({ type, visible, options = {}, hidePopup }) => {
   const small = _.get(options, 'small', false);
@@ -287,8 +288,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
       case PopupTheme.phoneNumber:
         return <PhonePopup initialOnboarding={options?.initialOnboarding} />;
       case PopupTheme.phoneVerification:
-        const initialOnboarding = _.get(options, 'initialOnboarding', true);
-        return <VerifyPhonePopup initialOnboarding={initialOnboarding} />;
+        const phoneNumber = _.get(options, 'phoneNumber', '');
+        return <VerifyPhonePopup phoneNumber={phoneNumber} />;
       case PopupTheme.disputes:
         return <DisputesPopup disputes={options?.disputes} />;
       case PopupTheme.cashoutPopupView:
@@ -297,6 +298,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <HowItWorksPopup />;
       case PopupTheme.loginWeb3:
         return <LoginWeb3Popup />;
+      case PopupTheme.popupBonus:
+        return <BonusPopupView options={options} />;
     }
 
     return null;
