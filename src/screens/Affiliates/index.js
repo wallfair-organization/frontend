@@ -132,7 +132,8 @@ const Affiliates = ({loggedIn, showPopup}) => {
                       placeholder="How to contact you..."
                       setValue={setContactField1}
                       options={CONTACTTYPE}
-
+                      className={styles.dropdown}
+                      placeholderClassName={styles.dropdownPlaceholder}
                     />
                     <Input className={styles.userPhoneInput} placeholder={'Enter username or phone number...'} onChange={setContactField2} value={contactField2} />
                     

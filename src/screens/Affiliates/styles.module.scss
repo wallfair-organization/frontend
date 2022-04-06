@@ -85,17 +85,29 @@
       flex-direction: column;
       row-gap: 20px;
 
+      @media (max-width: $screen-md) {
+        padding: 32px 32px;
+      }
+
+      .dropdown {
+        @media (max-width: $screen-md) {
+          height: 50px;
+        }
+      }
+
+      .dropdownPlaceholder {
+        font-size: 16px;
+        color: #777;
+      }
+
       .userPhoneInput {
-        // min-width: 100px !important;
-        // flex: 1;
-        // margin-right: 20px;
         padding: 10px 20px;
         height: 50px;
         border: none;
         font-family: $fontDMSans;
         font-size: 16px;
         line-height: 24px;
-        color: $colorPrimary;
+        color: #777;
         background-color: white;
         border-radius: 8px;
         &:focus {

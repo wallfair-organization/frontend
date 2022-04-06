@@ -197,7 +197,7 @@ const DepositFiat = ({
           <div className={styles.inputRightContainer}>
             <div className={styles.innerContainer}>
               <Dropdown
-                style={styles.dropdown}
+                className={styles.dropdown}
                 value={selectedCurrency.label}
                 placeholder="Select currency..."
                 setValue={onCurrencyChange}
