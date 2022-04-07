@@ -444,6 +444,7 @@
       font-family: $fontDMSans;
       color: $colorWhite;
       cursor: pointer;
+      user-select: none;
     }
   }
 }
