@@ -8,14 +8,14 @@
   flex-direction: column;
   width: 100%;
 
-  .title {
+  & > .title {
     width: 100%;
-    padding: 50px 0 40px;
-    text-align: left;
+    padding: 50px 0 20px;
+    text-align: center;
     font-style: normal;
     font-weight: bold;
-    font-size: 34px;
-    color: $colorPrimary;
+    font-size: 30px;
+    color: $colorWhite;
     line-height: 30px;
   }
 
@@ -26,30 +26,18 @@
     .description {
       font-size: 16px;
       font-weight: 400;
-      color: $colorPrimary;
-      // white-space: nowrap;
-      padding-bottom: 20px;
+      color: $colorWhite50;
+      padding-bottom: 40px;
+      text-align: center;
 
       @media (max-width: $screen-xs) {
         white-space: normal;
       }
-
-      .randomizeButton {
-        font-weight: 400;
-        color: $colorPrimary;
-        text-decoration: underline;
-        cursor: pointer;
-      }
     }
 
-    // .inputBox {
-    //   width: 100%;
-    //   margin: 0 auto;
-
-    //   @media (max-width: $screen-sm) {
-    //     width: 100%;
-    //   }
-    // }
+    .inputBox {
+      margin-bottom: 30px;
+    }
 
     .buttons {
       display: flex;
@@ -61,17 +49,20 @@
 
       .button {
         width: 100%;
+        max-width: 400px;
         border: none;
         margin-top: 50px;
       }
     }
 
     .terms {
-      font-size: 14px;
+      font-size: 16px;
       color: $colorGrayLight1;
 
-      a {
+      .title {
+        font-size: 16px;
         text-decoration: underline;
+        color: $colorWhite;
       }
     }
 

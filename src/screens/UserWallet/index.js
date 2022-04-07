@@ -54,6 +54,7 @@ import { red } from '@material-ui/core/colors';
 import WalletFAQ from 'components/FAQ/WalletFAQ';
 import EventActivitiesTabs from 'components/EventActivitiesTabs';
 import ActivitiesTracker from 'components/ActivitiesTracker';
+import StakingWidget from 'components/StakingWidget';
 
 const UserWallet = ({
   connected,
@@ -438,6 +439,9 @@ const UserWallet = ({
           <div className={styles.paymentMethodIcons}>
             <PaymentMethodIcon onClick={showWalletDepositPopup} />
           </div>
+
+          {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' && <StakingWidget />}
+
           {/* {renderDepositBonusSection()} */}
           {renderStats()}
 
