@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 import { PopupActions } from 'store/actions/popup';
 import PopupTheme from '../Popup/PopupTheme';
 import { connect, useSelector } from 'react-redux';
-import ConfirmCongrat from '../../data/images/coins-popup.png';
+import CoinsFlying from '../../data/images/bonus/coins-flying.png';
 import { TOKEN_NAME } from 'constants/Token';
 import { convertAmount } from 'helper/Currency';
 import { formatToFixed } from 'helper/FormatNumbers';
@@ -10,6 +10,13 @@ import { selectUser } from 'store/selectors/authentication';
 import { selectPrices } from 'store/selectors/info-channel';
 import {ReactComponent as WLogo} from '../../data/images/bonus/w-logo-white.svg';
 import { calculateTimeLeft } from 'utils/common';
+import { type } from 'os';
+import InputBox from 'components/InputBox';
+import InputBoxTheme from 'components/InputBox/InputBoxTheme';
+import classNames from 'classnames';
+import { useState } from 'react';
+import ReactCanvasConfetti from 'react-canvas-confetti';
+import useConfettiAnimation from 'hooks/useConfettiAnimation';
 
 const bonusTypes = {
   FREESPIN: 'FREESPIN',
@@ -17,12 +24,13 @@ const bonusTypes = {
 }
 
 const BonusPopupView = ({ authentication, visible, hidePopup, options }) => {
-  // const { getAnimationInstance, canvasStyles } = useConfettiAnimation({
-  //   visible,
-  // });
+  const { getAnimationInstance, canvasStyles } = useConfettiAnimation({
+    visible: true,
+  });
 
   const { gamesCurrency } = useSelector(selectUser);
   const prices = useSelector(selectPrices);
+  const [copied, setCopied] = useState(false);
   
   const { bonus : data } = options;
 
@@ -85,6 +93,26 @@ const BonusPopupView = ({ authentication, visible, hidePopup, options }) => {
             </span>
           </div>
        */}
+
+       <div className={styles.actions}>
+          <div
+            className={copied ? styles.inputContainerCopied : styles.inputContainer}
+          >
+            <InputBox
+              containerClassName={styles.container}
+              type={'text'}
+              value={data?.name}
+              onClick={(e, val) => {
+                setCopied(true);
+                document.getSelection().removeAllRanges();
+              }}
+              theme={InputBoxTheme.copyToClipboardInput}
+            />
+          </div>
+          <div className={classNames(styles.statusLabel, styles.active)}>ACTIVE</div>
+        </div>
+
+       
       </div>
     )
   }
@@ -120,18 +148,20 @@ const BonusPopupView = ({ authentication, visible, hidePopup, options }) => {
     <div className={styles.bonusPopupContainer}>
       <WLogo />
       <span className={styles.headLine}>
-        {data?.name}
+        {/* {data?.description} */}
+        {data?.type === bonusTypes.BONUS && 'BONUS'}
+        {data?.type === bonusTypes.FREESPIN && 'FREE SPINS'}
       </span>
       <span className={styles.description}>
         {data?.description || ""}
       </span>
 
       {renderContentByType()}
-      <img className={styles.congratsConfetti} src={ConfirmCongrat} alt='confirm-congrat' />
-      {/* <ReactCanvasConfetti
+      <img className={styles.congratsConfetti} src={CoinsFlying} alt='coins flying around popup' />
+      <ReactCanvasConfetti
         refConfetti={getAnimationInstance}
         style={canvasStyles}
-      /> */}
+      />
     </div>
   );
 };

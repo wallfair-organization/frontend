@@ -50,18 +50,18 @@ const ClaimBonusWidget = ({ fetchBonus }) => {
       fetchBonus();
     }
 
-    // console.log({...result});
+    console.log({...result});
 
-    // dispatch(
-    //   PopupActions.show({
-    //     popupType: PopupTheme.popupBonus,
-    //     options: {
-    //       bonus: {
-    //         ...result
-    //       }
-    //     },
-    //   })
-    // );
+    dispatch(
+      PopupActions.show({
+        popupType: PopupTheme.popupBonus,
+        options: {
+          bonus: {
+            ...result
+          }
+        },
+      })
+    );
     
   }, [bonusCode, history, dispatch, fetchBonus]); 
   

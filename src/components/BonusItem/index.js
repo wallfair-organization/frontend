@@ -50,6 +50,7 @@ const BonusItem = ({ data, fetchBonus }) => {
 
   const handleCancelBonus = useCallback(async () => {
     dispatch(PopupActions.show({popupType: PopupTheme.cancelBonus, options: {bonus: {...data, fetchBonus}} }));
+    
   }, [data, fetchBonus, dispatch]);
 
   const handleWithdrawBonus = useCallback(async () => {
@@ -75,7 +76,6 @@ const BonusItem = ({ data, fetchBonus }) => {
       case bonusTypes.FREESPIN:
         return renderFreeSpinBonus();
         
-      
       case bonusTypes.BONUS:
         return renderMoneyBonus();
     

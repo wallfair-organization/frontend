@@ -4,115 +4,168 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: auto;
   width: 100%;
   // background-color: $colorWhite;
-  color: $colorPrimaryDark;
+  color: $colorWhite;
   border-radius: 10px;
   position: relative;
-  // min-width: 380px;
+  max-width: 440px;
+  position: relative;
 
-  .cashoutContent {
-    display: flex;
-    flex-direction: column;
+  .congratsConfetti {
+    position: absolute;
+    top: -20px;
+    // left: -40%;
+    pointer-events: none;
+    width: 150%;
+    @media (max-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  .content {
     align-items: center;
     width: 100%;
-    min-width: 300px;
+    // min-width: 300px;
     margin: 5px 0 20px;
     padding: 0 40px;
+    position: relative;
 
-    .cashoutAmount {
-      position: relative;
-      white-space: nowrap;
-      font-size: 66px;
-      font-weight: bold;
-
-      .amount {
-        position: relative;
-        z-index: 1;
-      }
-
-      .shadow {
-        position: absolute;
-        bottom: 10%;
-        left: -5%;
-        width: 110%;
-        z-index: 0;
-      }
-    }
-
-    .multiplier {
-      font-size: 51px;
-      font-weight: bold;
-      text-shadow: 2px 2px $colorPurpleTextShadow;
-    }
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
 
     @media (max-width: $screen-sm) {
       font-size: 16px;
+      padding: 0;
     }
-    .congratsConfetti {
-      position: absolute;
-      top: 0;
-      left: -20%;
-      pointer-events: none;
-      width: 140%;
+
+    .bonusSpec {
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 20px;
+      .label {
+        font-size: 12px;
+        color: $colorWhite;
+        opacity: 0.41;
+      }
+
+      .value {
+        font-size: 12px;
+        color: $colorWhite;
+        text-align: right;
+
+        &.expired {
+          opacity: 0.5;
+          color: $colorRedLight;
+        }
+      }
+    }
+
+    .actions {
+      color: $colorWhite;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+
+      .withdrawButton {
+        width: 140px;
+      }
+
+      .cancelLink {
+        color: $colorRedLight;
+        border: 0;
+        background: none;
+        text-decoration: underline;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      span:first-child {
+        word-wrap: break-word;
+        width: 50%;
+      }
+
       @media (max-width: $screen-sm) {
-        display: none;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .statusLabel {
+        background: $colorGreenLight;
+        padding: 5px 8px;
+        border-radius: 4px;
+        color: $colorPrimary;
+        font-weight: bold;
+        font-size: 12px;
+
+        &.active {
+          background: $colorGreenLight;
+        }
+        &.cancelled {
+          background: $colorRedLight;
+        }
+        &.finalized {
+          background: $colorOrangeLight;
+        }
       }
     }
   }
 
   .headLine {
-    font-size: 24px;
+    font-size: 27px;
     text-align: center;
     font-family: $fontDMSans;
     font-weight: bold;
-    margin-top: 20px;
+    font-style: italic;
+    color: $colorLightYellow;
+    margin: 20px 0;
   }
 
-  .shareContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .description {
+    font-size: 16px;
+    text-align: center;
+    font-family: $fontDMSans;
+    font-weight: bold;
+    color: $colorWhite;
+    margin: 0 0 20px 0;
+  }
+}
 
-    span {
-      font-size: 12px;
-      padding-bottom: 10px;
-    }
+.inputContainer,
+.inputContainerCopied {
+  .container {
+    margin-bottom: 0;
 
-    .shareButtons {
-      display: flex;
-      flex-direction: row;
-      column-gap: 5px;
+    & > div {
+      background: $colorWhite20 !important;
+      padding: 5px;
+      height: 30px;
 
-      .shareIcon {
-        width: 49px;
-        height: 49px;
-
-        svg > * {
-          fill: $colorYellow;
-        }
-
-        button,
-        svg {
-          width: 49px;
-          height: 49px;
-        }
-
-        path {
-          fill: $colorPrimary;
-        }
+      & > div {
+        right: 0 !important;
+        height: auto !important;
       }
     }
   }
 
-  .skipButton {
-    margin-top: 24px;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 12px;
-    text-decoration-line: underline;
-    color: #120e27;
-    cursor: pointer;
+  & > div {
+    margin-bottom: 5px;
+  }
+
+  &.inputContainerCopied {
+    input {
+      color: $colorGreenDarker !important;
+    }
+  }
+
+  input {
+    color: $colorWhite !important;
+    font-size: 14px;
   }
 }
