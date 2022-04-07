@@ -353,7 +353,10 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             ].includes(type) && styles.signUpNotificationPopupContainer
           )}
         >
-          <div className={styles.modalContent}>
+          <div className={classNames(
+            styles.modalContent, 
+            [PopupTheme.popupBonus].includes(type) ? styles.blueBg : null,
+          )}>
             <div className={styles.closeButtonContainer}>
               {![
                 PopupTheme.signUpNotificationSecond,
