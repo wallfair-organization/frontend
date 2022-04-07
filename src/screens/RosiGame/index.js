@@ -166,6 +166,7 @@ const RosiGame = ({
           // message: `${slug === GAMES['elonGame'].slug ? 'Elon Game' : 'Pump and Dump'}: Place Bet failed`,
         })
       );
+      setFlag(false);
     }
   }
 
