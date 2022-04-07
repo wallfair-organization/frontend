@@ -87,7 +87,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
   const [betted, setBetted] = useState(false);
   const { slug } = useParams();
 
-  const convertedMaxAmount = Math.floor(Math.min(userBalance, convertAmount(10000, prices[gamesCurrency])));
+  const convertedMaxAmount = Math.floor(Math.min(userBalanceConverted, convertAmount(10000, prices[gamesCurrency])));
 
   const userUnableToBet = amount < 1 || !canBet || gameOffline;
   const numberOfDemoPlays =
@@ -245,7 +245,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
     e.preventDefault();
     e.stopPropagation();
     if (userUnableToBet) return;
-    if (amount > userBalance) return;
+    if (amount > +userBalanceConverted) return;
 
     const payload = {
       amount,
@@ -256,7 +256,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
   };
   const placeAutoBet = async () => {
     if (userUnableToBet) return;
-    if (amount > userBalance) return;
+    if (amount > userBalanceConverted) return;
     const payload = {
       amount,
       accumulated: -amount,
@@ -398,12 +398,10 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
         !connected ||
         userUnableToBet ||
         isBetInQueue ||
-        (amount > userBalance && user.isLoggedIn)
+        (amount > userBalanceConverted && user.isLoggedIn)
       ) buttonEnable = true;
       if(amount === 0) buttonEnable = false;
-
-
-        //  else{
+        
         return (
           <Button
             role="button"
@@ -428,7 +426,6 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
               : 'Play Demo'}
           </Button>
         );
-      //  }
     } else if ((userPlacedABet && !isGameRunning) || isBetInQueue) {
       return (
         <>
@@ -643,7 +640,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                 setValue={onTokenNumberChange}
                 minValue={0}
                 decimalPlaces={0}
-                maxValue={Math.min(userBalance, convertedMaxAmount)}
+                maxValue={Math.min(userBalanceConverted, convertedMaxAmount)}
                 dataTrackingIds={{
                   inputFieldHalf: 'elongame-input-field-half',
                   inputFieldDouble: 'elongame-event-input-field-double',

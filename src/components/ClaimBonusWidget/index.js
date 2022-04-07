@@ -9,6 +9,8 @@ import { claimPromoCode } from 'api';
 import classNames from 'classnames';
 import { AlertActions } from 'store/actions/alert';
 import { useDispatch } from 'react-redux';
+import PopupTheme from 'components/Popup/PopupTheme';
+import { PopupActions } from 'store/actions/popup';
 import { RECAPTCHA_KEY } from 'constants/Api';
 
 const ClaimBonusWidget = ({ fetchBonus }) => {
@@ -17,33 +19,26 @@ const ClaimBonusWidget = ({ fetchBonus }) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
 
-  const handleReCaptchaVerify = () => {
-    return new Promise((resolve, _) => {
-      window.grecaptcha.ready(function () {
-        window.grecaptcha
-          .execute(RECAPTCHA_KEY, { action: 'join' })
-          .then(token => {
-            resolve(token);
-          })
-      });
-    });
-  };
-
   const handleConfirm = useCallback(async () => {
-    const recaptchaToken = await handleReCaptchaVerify();
-    if (!recaptchaToken) {
-      console.log('recaptcha failed!');
-      dispatch(AlertActions.showError('Recaptcha verification failed! Please try again!'));
-      return;
-    }
 
-    const result = await claimPromoCode({promoCode: bonusCode, recaptchaToken});
-
+    const result = await claimPromoCode({promoCode: bonusCode});
+    console.log('test ', result?.response);
     if (result?.response?.data?.status === 'error') {
       setErrorMessage(result.response.data.message);
       console.error(result.response.data.message);
 
       dispatch(AlertActions.showError({ message: result.response.data.message }));
+
+      if (result?.response.status === 403) {
+        console.log('403');
+        dispatch(
+          PopupActions.show({
+            popupType: PopupTheme.phoneNumber,
+            options: {},
+          })
+        );
+      }
+
       return;
     }
     
@@ -53,7 +48,20 @@ const ClaimBonusWidget = ({ fetchBonus }) => {
     
     if (fetchBonus) {
       fetchBonus();
-    } 
+    }
+
+    // console.log({...result});
+
+    // dispatch(
+    //   PopupActions.show({
+    //     popupType: PopupTheme.popupBonus,
+    //     options: {
+    //       bonus: {
+    //         ...result
+    //       }
+    //     },
+    //   })
+    // );
     
   }, [bonusCode, history, dispatch, fetchBonus]); 
   

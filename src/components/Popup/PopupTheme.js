@@ -51,4 +51,5 @@ export default {
   howItWorks: 'howItWorks',
   loginWeb3: 'loginWeb3',
   cancelBonus: 'cancelBonus',
+  popupBonus: 'popupBonus',
 };

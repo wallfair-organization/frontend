@@ -2,13 +2,15 @@ import React, {useEffect, useState} from 'react'
 import styles from './styles.module.scss';
 import InputBox from '../InputBox';
 import Button from '../Button';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import _ from 'lodash';
 import { OnboardingActions } from 'store/actions/onboarding';
 import ButtonTheme from 'components/Button/ButtonTheme';
 import StepBar from 'components/StepBar';
 import Routes from 'constants/Routes';
 import { sendSms } from 'api';
+import { PopupActions } from 'store/actions/popup';
+import PopupTheme from 'components/Popup/PopupTheme';
 
 const PhonePopup = ({
   hidePopup = () => {},
@@ -18,6 +20,7 @@ const PhonePopup = ({
   const [phoneNumber, setPhoneNumber] = useState();
   const [country, setCountry] = useState('49');
   const [errorMessage, setErrorMessage] = useState();
+  const dispatch = useDispatch();
 
   useEffect(() => {
       setErrorMessage('');
@@ -35,11 +38,18 @@ const PhonePopup = ({
       console.log(response);
       if (!response.error) {
         setErrorMessage('');
-        showOnboardingFlowNext({
-          phoneNumber: fullPhoneNumber,
-          initialOnboarding
-        });
-        hidePopup();
+
+        dispatch(
+          PopupActions.show({
+            popupType: PopupTheme.phoneVerification,
+            options: {
+              phoneNumber: fullPhoneNumber,
+              small: false,
+            },
+          })
+        );
+
+        // hidePopup();
       } else {
         setErrorMessage(
           <div>
@@ -56,7 +66,7 @@ const PhonePopup = ({
 
   return (
     <div className={styles.phonePopup}>
-      <StepBar step={2} size={4} />
+      {/* <StepBar step={2} size={4} /> */}
       <h2 className={styles.title}>Verify your phone number</h2>
       <div className={styles.container}>
         <div className={styles.description}>
@@ -88,7 +98,7 @@ const PhonePopup = ({
             Send verification code
           </Button>
         </div>
-        <span className={styles.terms}>By continuing I accept the <a href={Routes.terms} target="_blank" rel="noreferrer">Terms and Conditions</a> and <a href={Routes.privacy} target="_blank" rel="noreferrer">Privacy Policy</a>. Also I confirm that I am over 18 years old.</span>
+        {/* <span className={styles.terms}>By continuing I accept the <a href={Routes.terms} target="_blank" rel="noreferrer">Terms and Conditions</a> and <a href={Routes.privacy} target="_blank" rel="noreferrer">Privacy Policy</a>. Also I confirm that I am over 18 years old.</span> */}
       </div>
     </div>
   );
