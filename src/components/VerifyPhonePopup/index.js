@@ -12,6 +12,7 @@ import { verifySms, sendSms} from 'api';
 import { trackSignupPhone } from 'config/gtm';
 import { AlertActions } from 'store/actions/alert';
 import { PopupActions } from 'store/actions/popup';
+import {ReactComponent as WLogo} from '../../data/images/bonus/w-logo-white.svg';
 
 const VerifyPhonePopup = ({
   phoneNumber,
@@ -70,11 +71,11 @@ const VerifyPhonePopup = ({
 
   return (
     <div className={styles.usernamePopup}>
-      {/* <StepBar step={3} size={4} /> */}
+      <WLogo />
       <h2 className={styles.title}>Code Verification</h2>
       <div className={styles.container}>
         <div className={styles.description}>
-          Enter the code you received via SMS here
+          We have sent you an SMS with a 6-digit code, to verify your number. Enter your code here:
         </div>
         <CodeInputFields
           fields={6}
@@ -101,12 +102,15 @@ const VerifyPhonePopup = ({
             className={styles.button}
             disabledWithOverlay={false}
             disabled={!!errorMessage}
-            theme={ButtonTheme.primaryButtonXL}
+            theme={ButtonTheme.primaryButtonL}
           >
             Verify
           </Button>
         </div>
-        {/* <span className={styles.terms}>By continuing I accept the <a href={Routes.terms} target="_blank" rel="noreferrer">Terms and Conditions</a> and <a href={Routes.privacy} target="_blank" rel="noreferrer">Privacy Policy</a>. Also I confirm that I am over 18 years old.</span> */}
+        <div className={styles.terms}>
+          <span className={styles.title}>Why is this needed?</span>
+          <p>Phone verification is a security measure to protect Wallfair from bot spamming and attacks.</p>
+        </div>
       </div>
     </div>
   );

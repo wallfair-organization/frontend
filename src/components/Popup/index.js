@@ -355,7 +355,7 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         >
           <div className={classNames(
             styles.modalContent, 
-            [PopupTheme.popupBonus].includes(type) ? styles.blueBg : null,
+            [PopupTheme.popupBonus, PopupTheme.phoneNumber, PopupTheme.phoneVerification].includes(type) ? styles.blueBg : null,
           )}>
             <div className={styles.closeButtonContainer}>
               {![
