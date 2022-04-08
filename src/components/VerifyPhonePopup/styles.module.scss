@@ -6,15 +6,16 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 0 20px;
 
   .title {
     width: 100%;
-    padding: 50px 0 40px;
-    text-align: left;
+    padding: 40px 0 30px;
+    text-align: center;
     font-style: normal;
     font-weight: bold;
-    font-size: 34px;
-    color: $colorPrimary;
+    font-size: 30px;
+    color: $colorWhite;
     line-height: 30px;
   }
 
@@ -22,21 +23,15 @@
     max-width: 452px;
 
     .description {
+      width: 100%;
       font-size: 16px;
       font-weight: 400;
-      color: $colorPrimary;
-      white-space: nowrap;
-      padding-bottom: 20px;
+      color: $colorWhite50;
+      padding-bottom: 60px;
+      text-align: center;
 
       @media (max-width: $screen-xs) {
         white-space: normal;
-      }
-
-      .randomizeButton {
-        font-weight: 400;
-        color: $colorPrimary;
-        text-decoration: underline;
-        cursor: pointer;
       }
     }
 
@@ -61,6 +56,7 @@
         width: 100%;
         border: none;
         margin-top: 50px;
+        max-width: 400px;
       }
     }
 
@@ -80,7 +76,7 @@
 
       & > span {
         padding-top: 20px;
-        color: $colorBlack30;
+        color: $colorGrayLight1;
         font-size: 16px;
       }
 
@@ -89,9 +85,21 @@
         border: 0;
         background: none;
         text-decoration: underline;
-        color: $colorPrimary;
+        color: $colorWhite;
         padding: 0;
         cursor: pointer;
+        margin-bottom: 20px;
+      }
+    }
+
+    .terms {
+      font-size: 16px;
+      color: $colorGrayLight1;
+
+      .title {
+        font-size: 16px;
+        text-decoration: underline;
+        color: $colorWhite;
       }
     }
 
