@@ -1,13 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import { ReactComponent as LeftArrow } from '../../../data/icons/deposit/left-arrow.svg';
-import Button from 'components/Button';
 import PopupTheme from 'components/Popup/PopupTheme';
 import { connect } from 'react-redux';
 import { PopupActions } from 'store/actions/popup';
-import {
-  trackWalletFiatProceedPartner,
-} from 'config/gtm';
+import { trackWalletFiatProceedPartner } from 'config/gtm';
 import {
   convertCurrency,
   generateCryptopayChannel,
@@ -21,9 +18,9 @@ import useDebounce from 'hooks/useDebounce';
 import useDepositsCounter from 'hooks/useDepositsCounter';
 import { LIMIT_BONUS } from 'constants/Bonus';
 import { TransactionActions } from 'store/actions/transaction';
+import { ReactComponent as ButtonL } from '../../../data/backgrounds/buttons/button-l.svg';
+import classNames from 'classnames';
 
-// const stagingGoerliRampURL = "https://ri-widget-staging-goerli2.firebaseapp.com/";
-// const productionRampURL = 'https://buy.ramp.network/';
 const cryptoTransaction = 'BTC';
 
 const CURRENCY_OPTIONS = [
@@ -50,6 +47,7 @@ const DepositFiat = ({
   const [address, setAddress] = useState();
   const [errorFetchingChannel, setErrorFetchingChannel] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [generatedUrl, setGeneratedUrl] = useState(null);
   const depositCount = useDepositsCounter();
 
   useEffect(() => {
@@ -62,6 +60,8 @@ const DepositFiat = ({
   };
 
   const onInputAmountChange = async event => {
+    setLoading(true);
+
     if (currency > 0) {
       const convertCurrencyPayload = {
         convertFrom: selectedCurrency.label.toLocaleUpperCase(),
@@ -81,7 +81,16 @@ const DepositFiat = ({
       const expectedBonus =
         depositCount > 0 ? 0 : Math.min(LIMIT_BONUS, WfairTokenValue);
       setBonus(expectedBonus);
+
+      const res = await generateMoonpayUrl({
+        amount: currency,
+        currency: selectedCurrency.label,
+      });
+
+      setGeneratedUrl(res.response.data.url);
     }
+
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -106,25 +115,6 @@ const DepositFiat = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // const OnClickContinue = async () => {
-  //   if (currency && WFAIRToken) {
-  //     try {
-  //       trackWalletBuywithfiatRequest();
-  //       sendBuyWithFiat({
-  //         currency: selectedCurrency.label.toLocaleUpperCase(),
-  //         userId: user.userId,
-  //         email: user.email,
-  //         amount: currency,
-  //         estimate: WFAIRToken,
-  //       });
-
-  //       setRequestSent(true);
-  //     } catch (err) {
-  //       console.err('mail not sent!');
-  //     }
-  //   }
-  // };
-
   const onChangeAmount = useDebounce({
     callback: onInputAmountChange,
     delay: 500,
@@ -144,28 +134,6 @@ const DepositFiat = ({
         <span>Other payment methods</span>
       </div>
     );
-  };
-
-  const proceedWithMoonpay = async () => {
-    const windowRef = window.open();
-
-    setLoading(true);
-    const res = await generateMoonpayUrl({
-      amount: currency,
-      currency: selectedCurrency.label,
-    });
-
-    if (res.response.data.url) {
-      windowRef.location = res.response.data.url;
-      setTimeout(() => hidePopup(), 1000);
-    }
-
-    setLoading(false);
-  };
-
-  const handlePartnerClick = () => {
-    proceedWithMoonpay();
-    trackWalletFiatProceedPartner();
   };
 
   return (
@@ -234,19 +202,28 @@ const DepositFiat = ({
 
       <div className={styles.summary}>
         <span>
-          Incoming transactions are processed with <b>MATIC</b> via our
-          supplier Moonpay. The value will be automatically converted to{' '}
-          <b>WFAIR</b> once the transaction is completed.
+          Incoming transactions are processed with <b>MATIC</b> via our supplier
+          Moonpay. The value will be automatically converted to <b>WFAIR</b>{' '}
+          once the transaction is completed.
         </span>
       </div>
 
-      {currency > 0 && !loading ? (
-        <Button onClick={() => handlePartnerClick()}>
-          Proceed with partner
-        </Button>
-      ) : (
-        <Button disabled>Proceed with partner</Button>
-      )}
+      <a
+        className={classNames(
+          styles.primaryButton,
+          loading || currency <= 0 ? styles.disabled : null
+        )}
+        href={generatedUrl}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() => {
+          setTimeout(() => hidePopup(), 2000);
+          trackWalletFiatProceedPartner();
+        }}
+      >
+        <ButtonL />
+        <span>Proceed with partner</span>
+      </a>
     </div>
   );
 };
