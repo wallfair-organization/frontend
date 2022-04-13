@@ -19,7 +19,6 @@ import { EventActions } from '../actions/event';
 import { ChartParamsActions } from '../actions/chart-params';
 import {
   InfoChannelActions,
-  infoChannelActions,
 } from '../actions/info-channel';
 import trackedActivities from '../../components/ActivitiesTracker/trackedActivities';
 import { GAMES } from '../../constants/Games';
@@ -390,7 +389,7 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
     }
   }
   if (isEvoplayPage(currentAction, pathSlugs)) {
-    newRoomsToJoin.push(ObjectId(pathSlugs[1]));
+    newRoomsToJoin.push(pathSlugs[1]);
     newRoomsToJoin.push(UNIVERSAL_EVENTS_ROOM_ID);
   }
   if (isExternalPage(currentAction, pathSlugs)) {
