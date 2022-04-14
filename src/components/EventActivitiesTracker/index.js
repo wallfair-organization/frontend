@@ -169,6 +169,14 @@ const EventActivitiesTracker = ({
     return _.map(categoryFiltered, (activityMessage, index) => {
       let date = _.get(activityMessage, 'updatedAt');
 
+      if (!date) {
+        date = _.get(activityMessage, 'data.date');
+      }
+
+      if (!date) {
+        date = _.get(activityMessage, 'data.updatedAt');
+      }
+
       //try to get trade updatedAt date
       if (!date) {
         date = _.get(activityMessage, 'data.trade.updatedAt');
@@ -182,10 +190,6 @@ const EventActivitiesTracker = ({
       //try to get event updatedAt date
       if (!date) {
         date = _.get(activityMessage, 'data.event.date');
-      }
-
-      if (!date) {
-        date = _.get(activityMessage, 'data.updatedAt');
       }
 
       return (
