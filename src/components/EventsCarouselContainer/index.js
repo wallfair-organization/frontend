@@ -9,7 +9,6 @@ import BetCard from 'components/BetCard';
 import BetState from 'constants/BetState';
 import { PopupActions } from '../../store/actions/popup';
 import { OnboardingActions } from 'store/actions/onboarding';
-// import { useEventsFilter } from 'components/Events/hooks/useEventsFilter';
 import { isMobile } from 'react-device-detect';
 import { getMarketEvents } from 'api';
 
@@ -40,19 +39,11 @@ const EventsCarouselContainer = ({
   };
 
   const [page, setPage] = useState(0);
+  const [events, setEvents] = useState([]);
+  const [currentEvents, setCurrentEvents] = useState([]);
+  const [count, setCount] = useState();
+
   const limit = 4;
-
-  // const { events, count } = useEventsFilter(
-  //   statuses,
-  //   category,
-  //   page,
-  //   false,
-  //   COUNT,
-  //   undefined,
-  //   orderBy,
-  //   order
-  // );
-
   const params = {
     category,
     statuses,
@@ -61,10 +52,6 @@ const EventsCarouselContainer = ({
     orderBy,
     order,
   };
-
-  const [events, setEvents] = useState([]);
-  const [currentEvents, setCurrentEvents] = useState([]);
-  const [count, setCount] = useState();
 
   const getEvents = (page) => {
     getMarketEvents({
@@ -81,14 +68,10 @@ const EventsCarouselContainer = ({
     getEvents(page);
   }, []);
 
-  // LIMIT: 4
-  // PAGE: 0
   const setNext = () => {
     const p = page + 1;
     setPage(p);
-    // [0,1,2,3,4,5,6,7,8,9,10]
     if (events.length > limit * p) {
-      // debugger;
       setCurrentEvents(events.slice(p * limit));
     } else {
       getEvents(p);
