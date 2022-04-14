@@ -14,6 +14,7 @@ export function useEventsFilter(
 ) {
 
   const [events, setEvents] = useState([]);
+  const [count, setCount] = useState();
 
   useEffect(() => {
     if (getMarketEvents) {
@@ -37,9 +38,10 @@ export function useEventsFilter(
         }
 
         setEvents(filteredEvents);
+        setCount(res.count);
       });
     }
   }, []);
 
-  return { events };
+  return { events, count };
 }

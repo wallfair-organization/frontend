@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import _ from 'lodash';
@@ -9,8 +9,9 @@ import BetCard from 'components/BetCard';
 import BetState from 'constants/BetState';
 import { PopupActions } from '../../store/actions/popup';
 import { OnboardingActions } from 'store/actions/onboarding';
-import { useEventsFilter } from 'components/Events/hooks/useEventsFilter';
+// import { useEventsFilter } from 'components/Events/hooks/useEventsFilter';
 import { isMobile } from 'react-device-detect';
+import { getMarketEvents } from 'api';
 
 const EventsCarouselContainer = ({
   eventType = 'non-streamed',
@@ -38,79 +39,81 @@ const EventsCarouselContainer = ({
     },
   };
 
-  const { events } = useEventsFilter(statuses, category, undefined, false, undefined, undefined, orderBy, order);
+  const [page, setPage] = useState(0);
+  const limit = 4;
 
-  const [page, setPage] = useState(1);
-  const COUNT = 4;
-
-  // const [currentEvents, setCurrentEvents] = useState([]);
-  // const [allLoaded, setAllLoaded] = useState(false);
-  
-  // let params = {
-  //   eventType,
+  // const { events, count } = useEventsFilter(
   //   statuses,
   //   category,
-  //   deactivated,
   //   page,
-  //   count: COUNT,
-  // };
+  //   false,
+  //   COUNT,
+  //   undefined,
+  //   orderBy,
+  //   order
+  // );
 
-  // const getEvents = params => {
-  //   fetchEvents(params);
-  //   setCurrentEvents(events[eventType][state]);
-  //   setAllLoaded(events[eventType][state]?.length <= COUNT);
-  // };
+  const params = {
+    category,
+    statuses,
+    page,
+    limit,
+    orderBy,
+    order,
+  };
 
-  // useEffect(() => {
-  //   getEvents(params);
-  // }, [category]);
+  const [events, setEvents] = useState([]);
+  const [currentEvents, setCurrentEvents] = useState([]);
+  const [count, setCount] = useState();
 
-  // useEffect(() => {
-  //   const stateEvents = events[eventType][state];
-  //   setCurrentEvents(stateEvents);
+  const getEvents = (page) => {
+    getMarketEvents({
+      ...params,
+      page,
+    }).then(res => {
+      setCurrentEvents(res.events);
+      setEvents([...events, ...res.events]);
+      setCount(res.count);
+    });
+  }
 
-  //   if (stateEvents?.length !== 0) {
-  //     setAllLoaded(stateEvents?.length < COUNT);
-  //   } else if (page !== 1) {
-  //     setAllLoaded(true);
-  //     setPage(page - 1);
-  //   }
-  // }, [events, eventType, page, state]);
+  useEffect(() => {
+    getEvents(page);
+  }, []);
 
-  // const nextPage = () => {
-  //   const next = page + 1;
-  //   const query = { ...params, page: next };
-  //   fetchEvents(query);
-  //   setPage(next);
-  // };
+  // LIMIT: 4
+  // PAGE: 0
+  const setNext = () => {
+    const p = page + 1;
+    setPage(p);
+    // [0,1,2,3,4,5,6,7,8,9,10]
+    if (events.length > limit * p) {
+      // debugger;
+      setCurrentEvents(events.slice(p * limit));
+    } else {
+      getEvents(p);
+    }
+  }
 
-  // const previousPage = () => {
-  //   const previous = page - 1;
-  //   const query = { ...params, page: previous };
-  //   fetchEvents(query);
-  //   setPage(previous);
-  // };
-
-  // const showJoinPopup = useCallback(event => {
-  //   startOnboarding();
-  // }, []);
-
+  const setPrevious = () => {
+    const p = page - 1;
+    setPage(p);
+    setCurrentEvents(events.slice(p * limit));
+  };
 
   const renderBetCards = () => {
-    return _.map(events, (event) => {
+    return _.map(currentEvents, (event) => {
       const bet = event.bet;
       const betId = _.get(event.bet, 'id');
       const eventSlug = _.get(event, 'slug');
-      const betSlug = _.get(bet, 'slug');
       const tags = _.get(event, 'tags');
       const marketQuestion = _.get(bet, 'market_question');
       const outcomes = _.get(bet, 'outcomes');
 
       return (
         <Link
-          key={betId}
+          key={event.id}
           to={{
-            // pathname: `/trade/${eventSlug}/${betSlug}`,
             pathname: `/trade/${eventSlug}`,
             state: { fromLocation: location },
           }}
@@ -150,19 +153,17 @@ const EventsCarouselContainer = ({
   return (
     <CarouselContainer
       title={title ?? carouselProps[eventType].title}
-      titleLink={!isMobile && titleLink ? titleLink : carouselProps[eventType].titleLink}
-      titleLinkTo={titleLinkTo ?? carouselProps[eventType].titleLinkTo}
-      prevArrowInactive={page === 1}
-      nextArrowInactive={events.length <= COUNT}
-      // onNext={nextPage}
-      // onPrevious={previousPage}
-      onNext={() => {}}
-      onPrevious={() => {}}
-    >
-      {eventType === 'non-streamed' && events?.length > 0 &&
-        renderBetCards()
+      titleLink={
+        !isMobile && titleLink ? titleLink : carouselProps[eventType].titleLink
       }
-      {events?.length === 0 && (
+      titleLinkTo={titleLinkTo ?? carouselProps[eventType].titleLinkTo}
+      prevArrowInactive={page === 0}
+      nextArrowInactive={count - (page * limit) <= 4}
+      onNext={setNext}
+      onPrevious={setPrevious}
+    >
+      {eventType === 'non-streamed' && events.length > 0 && renderBetCards()}
+      {events.length === 0 && (
         <div className={styles.noEventsBox}>{noEventsMessage}</div>
       )}
     </CarouselContainer>

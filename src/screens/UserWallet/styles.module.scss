@@ -267,6 +267,7 @@
   line-height: 18px;
   padding-top: 24px;
   margin-left: 16px;
+  overflow-x: scroll;
 
   @media (max-width: $screen-md) {
     margin-left: 0px;
