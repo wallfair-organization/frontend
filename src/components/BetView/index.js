@@ -189,7 +189,7 @@ const BetView = ({
     return currency !== TOKEN_NAME
       ? `${convertAmount(+val, prices[currency], rev)}`
       : `${formatToFixed(+val, 0, true)}`;
-  }
+  };
 
   const showJoinPopup = () => {
     startOnboarding();
@@ -527,6 +527,19 @@ const BetView = ({
   // };
 
   const renderStateConditionalContent = () => {
+    const data = (label, value, opts = {}) => (
+      <div className={styles.resolutionData}>
+        <h3>{label}</h3>
+        <div
+          className={classNames(styles.value, {
+            [styles.smallText]: opts.smallText,
+          })}
+        >
+          {value}
+        </div>
+      </div>
+    );
+
     if (state === BetState.active || state === BetState.published) {
       return (
         <>
@@ -550,19 +563,6 @@ const BetView = ({
         'name',
       ]);
       const evidence = _.get(bet, 'evidence_actual');
-
-      const data = (label, value, opts = {}) => (
-        <div className={styles.resolutionData}>
-          <h3>{label}</h3>
-          <div
-            className={classNames(styles.value, {
-              [styles.smallText]: opts.smallText,
-            })}
-          >
-            {value}
-          </div>
-        </div>
-      );
 
       return (
         <div className={styles.resolvedBetLayout}>
@@ -632,6 +632,8 @@ const BetView = ({
             className={styles.canceledErrorText}
             errorText={'All participants will be refunded.'}
           />
+          {bet.note &&
+            data('Cancellation reason', bet.note, { smallText: true })}
         </div>
       );
     }
