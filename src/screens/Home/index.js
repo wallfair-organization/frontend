@@ -91,6 +91,22 @@ const Home = authState => {
     }
   }, [isLoggedIn, userState.phoneConfirmed, dispatch]);
 
+  const handleBonusQuery = () => {
+    const locationSearch = window.location.search;
+    const promoCode = new URLSearchParams(locationSearch).get('promocode');
+
+    if (promoCode) {
+      history.push({
+        pathname: Routes.bonus,
+        search: `?promocode=${promoCode}`,
+      });
+    }
+  };
+
+  useEffect(() => {
+    handleBonusQuery();
+  }, []);
+
   const renderGamesBanner = () => {
     return (
       <div className={styles.gameBannerContainer}>

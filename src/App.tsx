@@ -21,7 +21,7 @@ import RosiGame from './screens/RosiGame';
 // import MinesGame from './screens/MinesGame';
 import { PersistGate } from 'redux-persist/integration/react';
 import Games from './screens/Games';
-import UserWallet from './screens/UserWallet'
+import UserWallet from './screens/UserWallet';
 import Activities from './screens/Activities';
 import ResetPassword from './screens/ResetPassword';
 import UserProfile from './screens/UserProfile';
@@ -98,7 +98,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const el = document.querySelector(".preloader");
+    const el = document.querySelector('.preloader');
     if (el) {
       el.remove();
       setLoading(!isLoading);
@@ -130,38 +130,74 @@ const App = () => {
               <Route exact path={Routes.betApproveDirect} component={Home} />
               {/*<Route exact path={Routes.liveEvents} component={LiveEvents} />*/}
               <Route exact path={Routes.events} component={Events} />
-              <Route exact path={Routes.elonWallpaper} component={ElonWallPaper} />
+              <Route
+                exact
+                path={Routes.elonWallpaper}
+                component={ElonWallPaper}
+              />
               <Route exact path={Routes.rosiGame} component={RosiGame} />
               <Route exact path={Routes.activities} component={Activities} />
               <Route exact path={Routes.winners} component={Winners} />
               <Route path={Routes.verify} component={EmailVerification} />
               <Route path={Routes.resetPassword} component={ResetPassword} />
               <Route exact path={Routes.user} component={UserProfile} />
-              <Route exact path={Routes.leaderboard} component={LeaderboardPage} />
-              {showUpcoming && <Route exact path={Routes.externalGames} component={ExternalGames} />}
+              <Route
+                exact
+                path={Routes.leaderboard}
+                component={LeaderboardPage}
+              />
+              {showUpcoming && (
+                <Route
+                  exact
+                  path={Routes.externalGames}
+                  component={ExternalGames}
+                />
+              )}
               {/* <PrivateRoute path={Routes.rewards} component={Rewards} /> */}
               <Route exact path={Routes.provablyfair} component={Fair} />
               <Route exact path={Routes.terms} component={TermsConditions} />
               <Route exact path={Routes.aml} component={AMLPolicy} />
               <Route exact path={Routes.imprint} component={Imprint} />
               <Route exact path={Routes.privacy} component={PrivacyPolicy} />
-              <PrivateRoute exact path={Routes.wallet} component={realMoneyOnly ? UserWallet : PlayMoneyWallet} />
+              <PrivateRoute
+                exact
+                path={Routes.wallet}
+                component={realMoneyOnly ? UserWallet : PlayMoneyWallet}
+              />
               <PrivateRoute exact path={Routes.bonus} component={Bonus} />
               <Route exact path={Routes.howItWorks} component={HowItWorks} />
               <Route exact path={Routes.affiliates} component={Affiliates} />
-              
-              {realMoneyOnly && <>
-                <Route path={Routes.games} component={Games} />
-                {/* <Route exact path={Routes.rouletteGame} component={RouletteGame} /> */}
-                {/* <Route exact path={Routes.minesGame} component={MinesGame} /> */}
-                {/* <Route exact path={Routes.plinkoGame} component={PlinkoGame} /> */}
-                {/* <Route exact path={Routes.alpacannonGame} component={AlpacannonGame} /> */}
-                <Route exact path={Routes.evoplayGame} component={EvoplayGame} />
-                <Route exact path={Routes.softswissGame} component={SoftswissGame} />
-                <Route exact path={Routes.externalGame} component={ExternalGame} />
-                <Route exact path={Routes.responsibleGambling} component={ResponsibleGambling} />
-                {/* <Route exact path={Routes.kyc} component={KYCPolicy} /> */}
-              </>}
+
+              {realMoneyOnly && (
+                <>
+                  <Route path={Routes.games} component={Games} />
+                  {/* <Route exact path={Routes.rouletteGame} component={RouletteGame} /> */}
+                  {/* <Route exact path={Routes.minesGame} component={MinesGame} /> */}
+                  {/* <Route exact path={Routes.plinkoGame} component={PlinkoGame} /> */}
+                  {/* <Route exact path={Routes.alpacannonGame} component={AlpacannonGame} /> */}
+                  <Route
+                    exact
+                    path={Routes.evoplayGame}
+                    component={EvoplayGame}
+                  />
+                  <Route
+                    exact
+                    path={Routes.softswissGame}
+                    component={SoftswissGame}
+                  />
+                  <Route
+                    exact
+                    path={Routes.externalGame}
+                    component={ExternalGame}
+                  />
+                  <Route
+                    exact
+                    path={Routes.responsibleGambling}
+                    component={ResponsibleGambling}
+                  />
+                  {/* <Route exact path={Routes.kyc} component={KYCPolicy} /> */}
+                </>
+              )}
 
               <Redirect to={Routes.home} />
             </Switch>
