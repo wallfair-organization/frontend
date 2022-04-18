@@ -4,13 +4,30 @@
   padding: 20px 0;
 }
 .modalHeaderDesc {
-  color: $colorBlack;
+  color: #fff;
   font-size: 16px;
   font-weight: 700;
   font-family: $fontDMSans;
   text-align: center;
-  margin: 10px 0px 20px;
+  margin: 10px 0px 36px;
   padding: 0 15px;
+
+  .mainHeader {
+    display: block;
+    font-size: 27px;
+  }
+
+  .subHeader {
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.442297);
+    font-weight: normal;
+  }
+}
+
+.accountInfo {
+  color: #fff;
 }
 
 .modalHeaderTitle {
@@ -35,45 +52,75 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  color: #fff;
+  flex-direction: column;
 
   .optionWrap {
-    // flex: 0 0 45%;
     width: 100%;
-    max-width: 200px;
-    display: flex;
-    align-items: center;
+    max-width: 250px;
     height: 50px;
-    border-radius: 50px;
-    padding: 0 25px;
+    border-radius: 4px;
+    padding: 0 30px;
     cursor: pointer;
 
-    @media (max-width: 600px) {
-      // flex: 0 0 100%;
+    .optionMain {
+      display: inline-flex;
+      align-items: center;
       justify-content: flex-start;
+      width: 90%;
+      height: 100%;
     }
 
-    &:not(:last-child) {
-      margin-bottom: 15px;
+    &.MetaMask {
+      background-color: rgba(255, 255, 255, 1);
+      color: #000;
+    }
+
+    &.WalletConnect {
+      background-color: rgba(63, 149, 251, 1);
+      color: #fff;
+    }
+
+    &.GnosisSafe {
+      background-color: rgba(1, 140, 115, 1);
+      color: #fff;
     }
 
     &:hover {
-      background: $colorGrayLight;
-      box-shadow: 4px 4px 0 $colorGrayLight2;
+      &.MetaMask {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+
+      &.WalletConnect {
+        background-color: rgba(63, 149, 251, 0.8);
+      }
+
+      &.GnosisSafe {
+        background-color: rgba(1, 140, 115, 0.8);
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
     }
 
     img {
       margin-right: 15px;
-      max-width: 40px;
-      max-height: 40px;
-    }
+      max-width: 25px;
+      max-height: 25px;
 
-    span {
-      color: $colorBlack;
+      &.chevronRight {
+        margin-right: 0;
+        position: absolute;
+        margin: 18px;
+      }
     }
   }
 }
 .optionsWrap.optionsError {
   display: block;
+  text-align: center;
+
   strong {
     display: inline-block;
     font-size: 24px;
@@ -82,7 +129,7 @@
     position: relative;
     align-self: center;
     margin-bottom: 25px;
-    color: $colorBlack;
+    color: #fff;
 
     z-index: 2;
     &::after {
@@ -123,9 +170,14 @@
 }
 
 .colorGrey {
-  font-size: 12px;
-  line-height: 50px;
-  color: $colorGray;
+  font-size: 11px;
+  color: #767493;
   width: 100%;
+  margin-top: 50px;
   text-align: center;
+
+  .descLink {
+    color: #fff;
+    text-decoration: underline;
+  }
 }

@@ -1,15 +1,15 @@
 import {
-  // walletconnect,
+  walletconnect,
   injected,
-  // gnosisSafe,
+  gnosisSafe,
   // trezor,
   // walletlink,
 } from './connectors';
 // import TrezorIcon from '../data/icons/wallet/trezor.svg';
-// import GnosisIcon from '../data/icons/wallet/gnosis.svg';
+import GnosisIcon from '../data/icons/wallet/gnosis.svg';
 import MetaMaskIcon from '../data/icons/wallet/metamask.svg';
 // import CoinbaseIcon from '../data/icons/wallet/coinbase.svg';
-// import WallectConnectIcon from '../data/icons/wallet/wallet-connect.svg';
+import WallectConnectIcon from '../data/icons/wallet/wallet-connect.svg';
 
 export const SUPPORTED_WALLETS = {
   INJECTED: {
@@ -27,14 +27,14 @@ export const SUPPORTED_WALLETS = {
     mobile: true,
     iconURL: MetaMaskIcon,
   },
-  // WALLET_CONNECT: {
-  //   connector: walletconnect,
-  //   name: 'WalletConnect',
-  //   description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
-  //   href: null,
-  //   mobile: false,
-  //   iconURL: WallectConnectIcon,
-  // },
+  WALLET_CONNECT: {
+    connector: walletconnect,
+    name: 'WalletConnect',
+    description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
+    href: null,
+    mobile: false,
+    iconURL: WallectConnectIcon,
+  },
   // WALLET_LINK: {
   //   connector: walletlink,
   //   name: 'Coinbase Link',
@@ -43,13 +43,13 @@ export const SUPPORTED_WALLETS = {
   //   mobile: false,
   //   iconURL: CoinbaseIcon,
   // },
-  // GNOSIS_SAFE: {
-  //   connector: gnosisSafe,
-  //   name: 'Gnosis Safe',
-  //   description: 'Connect to Gnosis Safe app',
-  //   href: null,
-  //   iconURL: GnosisIcon,
-  // },
+  GNOSIS_SAFE: {
+    connector: gnosisSafe,
+    name: 'Gnosis Safe',
+    description: 'Connect to Gnosis Safe app',
+    href: null,
+    iconURL: GnosisIcon,
+  },
   // TREZOR: {
   //   connector: trezor,
   //   name: 'Trezor Wallet',

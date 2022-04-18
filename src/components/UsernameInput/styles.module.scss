@@ -1,12 +1,12 @@
 @import '../../styles/all';
 
 .title {
-  padding: 90px 0 40px;
+  padding: 30px 0 20px;
   text-align: left;
   font-style: normal;
   font-weight: bold;
-  font-size: 34px;
-  color: $colorPrimary;
+  font-size: 27px;
+  color: #fff;
   line-height: 30px;
 }
 
@@ -16,9 +16,10 @@
   .description {
     font-size: 16px;
     font-weight: 400;
-    color: $colorPrimary;
+    color: rgba(255, 255, 255, 0.442297);
     white-space: nowrap;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
+    text-align: center;
 
     @media (max-width: $screen-xs) {
       white-space: normal;
@@ -26,7 +27,7 @@
 
     .randomizeButton {
       font-weight: 400;
-      color: $colorPrimary;
+      color: #fff;
       text-decoration: underline;
       cursor: pointer;
     }
@@ -46,8 +47,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-
-    padding-bottom: 30px;
+    padding: 0 30px 50px 30px;
 
     .button {
       width: 100%;

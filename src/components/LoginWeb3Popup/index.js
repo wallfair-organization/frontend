@@ -1,3 +1,4 @@
+import styles from './styles.module.scss';
 import { useWeb3React } from '@web3-react/core';
 import { loginWeb3Challenge, loginWeb3 } from 'api';
 import ConnectWallet from 'components/ConnectWallet/ConnectWallet';
@@ -12,6 +13,8 @@ import * as Api from '../../api';
 import { useLocation } from 'react-router-dom';
 import { trackSignup } from 'config/gtm';
 import { RECAPTCHA_KEY } from 'constants/Api';
+import { ReactComponent as WLogo } from '../../data/images/bonus/w-logo-white.svg';
+import CoinsFlying from '../../data/images/bonus/coins-flying.png';
 
 const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
   const { active, library, account, deactivate } = useWeb3React();
@@ -40,12 +43,12 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
           .execute(RECAPTCHA_KEY, { action: 'join' })
           .then(token => {
             resolve(token);
-          })
+          });
       });
     });
   };
 
-  const loginSuccessful = (res) => {
+  const loginSuccessful = res => {
     Api.setToken(res.session);
     crashGameApi.setToken(res.session);
     loginSuccess({
@@ -54,7 +57,7 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
       admin: res.admin,
       shouldAcceptToS: res.shouldAcceptToS,
     });
-  }
+  };
 
   const signUp = () => {
     handleReCaptchaVerify().then(recaptchaToken => {
@@ -67,27 +70,30 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
         sid,
         cid,
         recaptchaToken,
-      }).then(res => {
-        localStorage.removeItem('urlParam_ref');
-        localStorage.removeItem('urlParam_sid');
-        localStorage.removeItem('urlParam_cid');
-        loginSuccessful(res);
-        trackSignup('web3');
-      }).catch(e => {
-        console.error(e);
-        deactivate();
-        setProcessing(false);
-        hidePopup();
-        loginFailed('Login failed');
-      });
+      })
+        .then(res => {
+          localStorage.removeItem('urlParam_ref');
+          localStorage.removeItem('urlParam_sid');
+          localStorage.removeItem('urlParam_cid');
+          loginSuccessful(res);
+          trackSignup('web3');
+        })
+        .catch(e => {
+          console.error(e);
+          deactivate();
+          setProcessing(false);
+          hidePopup();
+          loginFailed('Login failed');
+        });
     });
-  }
+  };
 
   const loginChallenge = async () => {
     try {
       setProcessing(true);
       const response = await loginWeb3Challenge(account);
       const signResponse = await signer.signMessage(response.challenge);
+
       if (response.existing) {
         const loginResponse = await loginWeb3({
           address: account,
@@ -106,7 +112,7 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
       deactivate();
       setProcessing(false);
     }
-  };  
+  };
 
   useEffect(() => {
     async function checkActive() {
@@ -119,10 +125,22 @@ const LoginWeb3Popup = ({ loginSuccess, loginFailed, hidePopup }) => {
 
   return (
     <>
-      {processing && <Loader />}
-      {showUsername ? 
-        <UsernameInput onSubmit={signUp} updateUsername={setUsername} buttonText='Sign up' /> : 
-        <ConnectWallet/>}
+      <WLogo />
+      <img
+        className={styles.congratsConfetti}
+        src={CoinsFlying}
+        alt="coins"
+      />
+      {processing && !showUsername && <Loader />}
+      {showUsername ? (
+        <UsernameInput
+          onSubmit={signUp}
+          updateUsername={setUsername}
+          buttonText="Sign up"
+        />
+      ) : (
+        <ConnectWallet />
+      )}
     </>
   );
 };

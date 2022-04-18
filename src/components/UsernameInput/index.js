@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import InputBox from '../InputBox';
 import { useEffect, useState } from "react";
-import { checkUsername, updateUser } from '../../api';
+import { checkUsername } from '../../api';
 import Button from "../Button";
 import ButtonTheme from "../Button/ButtonTheme";
 import Routes from "../../constants/Routes";
@@ -51,7 +51,7 @@ const UsernameInput = ({ onSubmit, buttonText, updateUsername }) => {
 
   return (
     <>
-      <h2 className={styles.title}>How should we call you?</h2>
+      <h3 className={styles.title}>How should we call you?</h3>
       <div className={styles.container}>
         <div className={styles.description}>
           Enter your username or{' '}

@@ -10,6 +10,8 @@ import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 import { injected } from '../../config/connectors';
 import { isMetamask } from '../../utils/detection';
 import MetaMaskIcon from '../../data/icons/wallet/metamask.svg';
+import { Link } from 'react-router-dom';
+import Routes from '../../constants/Routes';
 
 import {
   NoEthereumProviderError,
@@ -18,8 +20,6 @@ import {
 import { UserRejectedRequestError as UserRejectedRequestErrorWalletConnect } from '@web3-react/walletconnect-connector';
 
 import styles from './styles.module.scss';
-import Button from '../Button';
-import ButtonTheme from '../Button/ButtonTheme';
 
 const WALLET_VIEWS = {
   OPTIONS: 'OPTIONS',
@@ -214,9 +214,12 @@ const ConnectWallet = props => {
     if (walletError) return null;
     return (
       <>
-        <div
-          className={styles.modalHeaderDesc}
-        >{`Please select a wallet to connect to this app`}</div>
+        <div className={styles.modalHeaderDesc}>
+          <span className={styles.mainHeader}>Play. Trade. Earn.</span>
+          <span className={styles.subHeader}>
+            Choose a Wallet to connect this App
+          </span>
+        </div>
       </>
     );
   };
@@ -248,7 +251,19 @@ const ConnectWallet = props => {
         {walletView === WALLET_VIEWS.PENDING
           ? getContentLoading()
           : getContentWithOptions()}
-        <p className={styles.colorGrey}>Please ensure MetaMask is unlocked</p>
+        {!walletError && <p className={styles.colorGrey}>
+          Click „Sign in“ to agree to the collection of information in cookies,
+          I agree with{' '}
+          <Link data-tracking-id="footer-privacy" to={Routes.privacy}>
+            <span className={styles.descLink}>Privacy Policy</span>
+          </Link>{' '}
+          and with{' '}
+          <Link data-tracking-id="footer-terms" to={Routes.terms}>
+            <span className={styles.descLink}>Terms of Use</span>
+          </Link>
+          . Gambling isn't forbidding by my local authorities and I'm at least
+          18 years old.
+        </p> }
       </>
     );
   };

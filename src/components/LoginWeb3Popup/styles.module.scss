@@ -1,0 +1,11 @@
+@import '../../styles/all';
+
+.congratsConfetti {
+  position: absolute !important;
+  top: 45px;
+  pointer-events: none;
+  width: 130%;
+  @media (max-width: $screen-sm) {
+    display: none;
+  }
+}

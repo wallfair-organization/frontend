@@ -1,6 +1,8 @@
 import styles from './styles.module.scss';
+import classNames from 'classnames';
+import ChevronRight from '../../data/icons/arrow-right-gray.svg';
 
-export default function Option ({
+export default function Option({
   link = null,
   clickable = true,
   size,
@@ -14,14 +16,17 @@ export default function Option ({
 }) {
   return (
     <div
-      className={styles.optionWrap}
+      className={classNames(styles.optionWrap, styles[header.replace(' ', '')])}
       id={id}
       onClick={onClick}
       clickable={clickable && !active}
       active={active}
     >
-      {icon && <img src={icon} alt={header} />}
-      <span>{header}</span>
+      <div className={styles.optionMain}>
+        {icon && <img src={icon} alt={header} />}
+        <span>{header}</span>
+      </div>
+      <img src={ChevronRight} alt={header} className={styles.chevronRight} />
     </div>
   );
 }
