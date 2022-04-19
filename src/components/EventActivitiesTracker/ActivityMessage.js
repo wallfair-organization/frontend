@@ -1,16 +1,10 @@
 import _ from 'lodash';
-import Grid from '@material-ui/core/Grid';
-import styles from './styles.module.scss';
 import State from '../../helper/State';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
 import { formatToFixed, toNumericString } from 'helper/FormatNumbers';
-import { TOKEN_NAME } from '../../constants/Token';
-import { calculateGain } from '../../helper/Calculation';
-import medalCoin from '../../data/icons/medal-coin.png';
 import ActivityTableRow from './ActivityTableRow';
 import { roundToTwo } from '../../helper/FormatNumbers';
-import { getGameById } from '../../helper/Games';
+import { getActivityGameInfo } from '../../helper/Games';
 import { currencyDisplay } from 'helper/Currency';
 
 const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout, date, gameScreen = false }) => {
@@ -57,9 +51,7 @@ const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout, date, 
     const initialRewardAmount = isPlayMoney ? data?.rewardWfair : data?.reward;
     const rewardAmountFormatted = formatToFixed(initialRewardAmount ?? 0, 2, false);
     const rewardAmount = toNumericString(rewardAmountFormatted);
-    const gameName = data?.gameName;
-    const gameTypeId = data?.gameTypeId;
-    const gameLabel = getGameById(gameTypeId)?.name || gameName;
+    const gameLabel = getActivityGameInfo(data?.gameTypeId, data?.gameName);
     const multiplier = (_.has(data, 'crashFactor') ? data.crashFactor : data?.winMultiplier) || 0;
     const stakedAmount = isPlayMoney ? data?.stakedAmountWfair : data?.stakedAmount;
     const crashFactor = roundToTwo(multiplier);
@@ -94,7 +86,7 @@ const ActivityMessage = ({ activity, users, hideSecondaryColumns, layout, date, 
           crashFactor,
           gameLabel,
           gamesCurrency,
-          date
+          date,
         };
         return (
           <ActivityTableRow

@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import { formatToFixed } from 'helper/FormatNumbers';
 import { TOKEN_NAME } from '../../constants/Token';
 import { calculateGain } from '../../helper/Calculation';
-import { getGameById } from '../../helper/Games';
+import { getActivityGameInfo } from '../../helper/Games';
 import { currencyDisplay } from 'helper/Currency';
 import moment from 'moment';
 import { selectPrices } from 'store/selectors/info-channel';
@@ -89,6 +89,19 @@ const ActivityMessage = ({
     );
   };
 
+  const getGameInfo = data => {
+    return (
+      <a
+        className={'global-link-style'}
+        target={'_blank'}
+        href={`${window.location.origin}${data.link}`}
+        rel="noreferrer"
+      >
+        {data.title}
+      </a>
+    );
+  }
+
   const convertCurrency = value => {
     return currency !== TOKEN_NAME
       ? `${convertAmount(+value, prices[currency])}`
@@ -103,9 +116,8 @@ const ActivityMessage = ({
       event = State.getEvent(_.get(data, 'bet.event'), events);
     }
 
-    const gameName = data?.gameName;
-    const gameTypeId = data?.gameTypeId;
-    const gameLabel = getGameById(gameTypeId)?.name || gameName;
+    const gameInfo =
+      getActivityGameInfo(data?.gameTypeId, data?.gameName);
 
     switch (activity.type) {
       case 'Notification/EVENT_BET_CANCELED':
@@ -302,7 +314,7 @@ const ActivityMessage = ({
             <b>
               {formatToFixed(stakedAmount, numDecimals, true)} {gamesCurrency}
             </b>{' '}
-            bet on {gameLabel}.{' '}
+            bet on {getGameInfo(gameInfo)}.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
         );
@@ -329,7 +341,7 @@ const ActivityMessage = ({
                 ({gainValueCasino})
               </div>
             )}{' '}
-            from {gameLabel}.{' '}
+            from {getGameInfo(gameInfo)}.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
         );
@@ -384,7 +396,7 @@ const ActivityMessage = ({
             <b>
               {formatToFixed(stakedAmount, numDecimals, true)} {gamesCurrency}
             </b>{' '}
-            at {roundToTwo(multiplier)} {multiplierLabel} on {gameLabel}.{' '}
+            at {roundToTwo(multiplier)} {multiplierLabel} on {getGameInfo(gameInfo)}.{' '}
           </div>
           // TODO: Replace this hardcoded game name with actual one later
         );

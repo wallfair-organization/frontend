@@ -9,6 +9,30 @@ export const getGameNameById = (gameId) => {
   return getSoftswissGameName(gameId) ?? getEvoplayGameName(gameId) ?? getGameById(gameId)?.name ?? getExternalGameById(gameId) ?? 'Game';
 }
 
+export const getActivityGameInfo = (gameId, gameName) => {
+  return getSoftSwissGameInfo(gameId) || getEvoplayGameInfo(gameId) || getInternalGameInfo(gameId) || getSmartSoftGameInfo(gameName) || { title: 'Game', link: '/games' };
+}
+
+export const getSoftSwissGameInfo = (gameId) => {
+  const game = SOFTSWISS_GAMES.find(game => game.identifier === gameId);
+  return game ? { title: game.title, link: `/softswiss-game/${game.identifier}`} : null;
+}
+
+export const getEvoplayGameInfo = (gameId) => {
+   const game = EVOPLAY_GAMES[gameId];
+   return game ? { title: game.name, link: `/evoplay-game/${gameId}`} : null;
+}
+
+export const getInternalGameInfo = (gameId) => {
+  const game = getGameById(gameId);
+  return game ? { title: game.name, link: `/games/${game.slug}` } : null;
+}
+
+export const getSmartSoftGameInfo = (gameId) => {
+  const game = EXTERNAL_GAMES.find(game => gameId === game.TechnicalName);
+  return game ? { title: game.TechnicalName, link: `/external-game/${game.TechnicalName}` } : null;
+};
+
 export const getExternalGames = () => {
   return EXTERNAL_GAMES.map((game)=> {
     game.id = ObjectId(game.TechnicalName);
@@ -17,9 +41,8 @@ export const getExternalGames = () => {
 }
 
 export const getExternalGameById = (gameId) => {
-  
   return EXTERNAL_GAMES.find((game)=> {
-    return ObjectId(gameId) === ObjectId(game.TechnicalName);
+    return gameId === game.TechnicalName;
   })?.TechnicalName;
 }
 

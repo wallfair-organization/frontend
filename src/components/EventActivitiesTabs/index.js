@@ -1,6 +1,5 @@
 import { useEffect, memo, useState} from 'react';
 import styles from './styles.module.scss';
-import _ from 'lodash';
 import { connect, useDispatch } from 'react-redux';
 import EventActivitiesTracker from 'components/EventActivitiesTracker';
 import TabOptions from 'components/TabOptions';
