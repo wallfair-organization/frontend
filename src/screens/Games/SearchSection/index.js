@@ -15,7 +15,7 @@ const SearchSection = ({ setGames,
   setExternalGamesSoftswiss
  }) => {
   const gamesTitleList = [
-    'House Games',
+    // 'House Games',
     'Casino',
     'Slot',
     'Roulette',
