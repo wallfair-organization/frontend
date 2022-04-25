@@ -18,8 +18,7 @@ import IconType from 'components/Icon/IconType';
 import IconTheme from 'components/Icon/IconTheme';
 import { PopupActions } from 'store/actions/popup';
 import TabOptions from '../../components/TabOptions';
-import { ObjectId } from '../../helper/Games';
-import { GAMES } from '../../constants/Games';
+import { getExternalGameDataById, ObjectId } from '../../helper/Games';
 import { UserActions } from 'store/actions/user';
 import EventActivitiesTabs from 'components/EventActivitiesTabs'
 import { isMobile } from 'react-device-detect';
@@ -43,9 +42,14 @@ const RouletteGame = ({
 }) => {
   const user = useSelector(selectUser);
   const gameName = match?.params?.game
-  const gameCategory = match?.params?.category
 
   const EXTERNAL_GAME_EVENT_ID = ObjectId(gameName)//game.id;
+
+  const gameData = getExternalGameDataById(gameName);
+  console.log({gameData});
+
+  const gameCategory = gameData?.TechnicalCategory;
+  
   // const Api = new GameApi(game.url, token);
   const dispatch = useDispatch();
   const [bet, setBet] = useState({ready: true});

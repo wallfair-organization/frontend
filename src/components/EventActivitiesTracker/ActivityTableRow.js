@@ -12,6 +12,7 @@ import DateText from 'helper/DateText';
 import { useSelector } from 'react-redux';
 import { selectPrices } from 'store/selectors/info-channel';
 import { selectUser } from 'store/selectors/authentication';
+import { getGameNameById } from 'helper/Games';
 
 const UserLink = props => {
   const { userId, username } = props;
@@ -37,7 +38,9 @@ const extractNumber = (data) => {
 
 const ActivityTableRow = ({ data, type, gameLabel, hideSecondaryColumns = false, layout = 'compact', gameScreen = false}) => {
   const layoutCss = layout === 'compact' ? styles.compact : null;
-  gameLabel = gameLabel ?? (Object.values(GAMES).find(g => g.id.indexOf(data.gameId) > -1))?.name ?? "Game";
+  // gameLabel = gameLabel ?? (Object.values(GAMES).find(g => g.id.indexOf(data.gameId) > -1))?.name ?? "Game";
+  gameLabel = gameLabel ?? getGameNameById(data.gameId);
+  
   const {
     userId,
     username,

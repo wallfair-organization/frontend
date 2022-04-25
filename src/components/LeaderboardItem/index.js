@@ -7,6 +7,11 @@ import medalBronze from '../../data/icons/medal-third.png';
 import medalCoin from '../../data/icons/medal-coin.png';
 import { formatToFixed } from 'helper/FormatNumbers';
 import classNames from 'classnames';
+import { useSelector } from 'react-redux';
+import { selectPrices } from 'store/selectors/info-channel';
+import { selectUser } from 'store/selectors/authentication';
+import { convertAmount, currencyDisplay } from 'helper/Currency';
+import { TOKEN_NAME } from 'constants/Token';
 
 const LeaderboardItem = ({
   user,
@@ -16,6 +21,15 @@ const LeaderboardItem = ({
   onLoad,
   loadMore = true,
 }) => {
+
+  const prices = useSelector(selectPrices);
+  const { gamesCurrency: userCurrency } = useSelector(selectUser);
+
+  const amountWonUserCurrency = userCurrency === currencyDisplay(TOKEN_NAME) 
+  ? `${formatToFixed(user?.amountWon, 0, true)} ${currencyDisplay(TOKEN_NAME)}`
+  : `${formatToFixed(convertAmount(user?.amountWon, prices[userCurrency]), 2, true)} ${userCurrency}`;
+
+  
   const renderLoadButton = () => {
     return (
       <>
@@ -59,7 +73,7 @@ const LeaderboardItem = ({
               <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
             </p>
             <p className={style.firstBalance}>
-              {formatToFixed(user.amountWon, 0, true)}
+              {amountWonUserCurrency}
             </p>
           </div>
         </>
@@ -79,7 +93,7 @@ const LeaderboardItem = ({
               <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
             </p>
             <p className={style.secondBalance}>
-              {formatToFixed(user.amountWon, 0, true)}
+              {amountWonUserCurrency}
             </p>
           </div>
         </>
@@ -99,7 +113,7 @@ const LeaderboardItem = ({
               <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
             </p>
             <p className={style.thirdBalance}>
-              {formatToFixed(user.amountWon, 0, true)}
+              {amountWonUserCurrency}
             </p>
           </div>
         </>
@@ -119,7 +133,7 @@ const LeaderboardItem = ({
               <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
             </p>
             <p className={style.thirdBalance}>
-              {formatToFixed(user.amountWon, 0, true)}
+              {amountWonUserCurrency}
             </p>
           </div>
           {showLoadButton && loadMore && renderLoadButton()}
@@ -145,7 +159,7 @@ const LeaderboardItem = ({
               <Link to={`/user/${user._id}`}>{getUsername(user.username)}</Link>
             </p>
             <p className={style.entryBalance}>
-              {formatToFixed(user.amountWon, 0, true)}
+              {amountWonUserCurrency}
             </p>
           </div>
           {showLoadButton && loadMore && renderLoadButton()}

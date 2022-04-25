@@ -49,7 +49,7 @@
   }
 
   .content {
-    padding: 30px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
 
@@ -72,6 +72,11 @@
       .value {
         font-size: 12px;
         color: $colorWhite;
+
+        &.expired {
+          opacity: 0.5;
+          color: $colorRedLight;
+        }
       }
     }
 
@@ -81,6 +86,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      .withdrawButton {
+        width: 140px;
+      }
 
       .cancelLink {
         color: $colorRedLight;

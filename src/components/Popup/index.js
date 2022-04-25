@@ -52,10 +52,13 @@ import DisputesPopup from 'components/DisputesPopup';
 import CashoutPopupView from '../CashoutPopupView';
 import HowItWorksPopup from '../HowItWorksPopup';
 import LoginWeb3Popup from '../LoginWeb3Popup';
+import BonusPopupView from 'components/BonusPopupView';
 
 const Popup = ({ type, visible, options = {}, hidePopup }) => {
   const small = _.get(options, 'small', false);
   const maxWidth = _.get(options, 'maxWidth', false);
+
+  console.log(type);
 
   useEffect(() => {
     const close = e => {
@@ -240,6 +243,14 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             actionType={DialogActions.deleteBet}
           />
         );
+      case PopupTheme.cancelBonus:
+        console.log('cancelBonus');
+        return (
+          <DialogActionPopup
+            data={options?.bonus}
+            actionType={DialogActions.cancelBonus}
+          />
+        );
       case PopupTheme.auth:
         return (
           <AuthenticationPopup
@@ -277,8 +288,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
       case PopupTheme.phoneNumber:
         return <PhonePopup initialOnboarding={options?.initialOnboarding} />;
       case PopupTheme.phoneVerification:
-        const initialOnboarding = _.get(options, 'initialOnboarding', true);
-        return <VerifyPhonePopup initialOnboarding={initialOnboarding} />;
+        const phoneNumber = _.get(options, 'phoneNumber', '');
+        return <VerifyPhonePopup phoneNumber={phoneNumber} />;
       case PopupTheme.disputes:
         return <DisputesPopup disputes={options?.disputes} />;
       case PopupTheme.cashoutPopupView:
@@ -287,6 +298,8 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
         return <HowItWorksPopup />;
       case PopupTheme.loginWeb3:
         return <LoginWeb3Popup />;
+      case PopupTheme.popupBonus:
+        return <BonusPopupView options={options} />;
     }
 
     return null;
@@ -340,7 +353,10 @@ const Popup = ({ type, visible, options = {}, hidePopup }) => {
             ].includes(type) && styles.signUpNotificationPopupContainer
           )}
         >
-          <div className={styles.modalContent}>
+          <div className={classNames(
+            styles.modalContent, 
+            [PopupTheme.popupBonus, PopupTheme.phoneNumber, PopupTheme.phoneVerification].includes(type) ? styles.blueBg : null,
+          )}>
             <div className={styles.closeButtonContainer}>
               {![
                 PopupTheme.signUpNotificationSecond,

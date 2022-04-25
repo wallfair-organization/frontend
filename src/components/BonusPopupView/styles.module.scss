@@ -1,0 +1,171 @@
+@import '../../styles/all';
+
+.bonusPopupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  // background-color: $colorWhite;
+  color: $colorWhite;
+  border-radius: 10px;
+  position: relative;
+  max-width: 440px;
+  position: relative;
+
+  .congratsConfetti {
+    position: absolute;
+    top: -20px;
+    // left: -40%;
+    pointer-events: none;
+    width: 150%;
+    @media (max-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  .content {
+    align-items: center;
+    width: 100%;
+    // min-width: 300px;
+    margin: 5px 0 20px;
+    padding: 0 40px;
+    position: relative;
+
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $screen-sm) {
+      font-size: 16px;
+      padding: 0;
+    }
+
+    .bonusSpec {
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 20px;
+      .label {
+        font-size: 12px;
+        color: $colorWhite;
+        opacity: 0.41;
+      }
+
+      .value {
+        font-size: 12px;
+        color: $colorWhite;
+        text-align: right;
+
+        &.expired {
+          opacity: 0.5;
+          color: $colorRedLight;
+        }
+      }
+    }
+
+    .actions {
+      color: $colorWhite;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+
+      .withdrawButton {
+        width: 140px;
+      }
+
+      .cancelLink {
+        color: $colorRedLight;
+        border: 0;
+        background: none;
+        text-decoration: underline;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      span:first-child {
+        word-wrap: break-word;
+        width: 50%;
+      }
+
+      @media (max-width: $screen-sm) {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .statusLabel {
+        background: $colorGreenLight;
+        padding: 5px 8px;
+        border-radius: 4px;
+        color: $colorPrimary;
+        font-weight: bold;
+        font-size: 12px;
+
+        &.active {
+          background: $colorGreenLight;
+        }
+        &.cancelled {
+          background: $colorRedLight;
+        }
+        &.finalized {
+          background: $colorOrangeLight;
+        }
+      }
+    }
+  }
+
+  .headLine {
+    font-size: 27px;
+    text-align: center;
+    font-family: $fontDMSans;
+    font-weight: bold;
+    font-style: italic;
+    color: $colorLightYellow;
+    margin: 20px 0;
+  }
+
+  .description {
+    font-size: 16px;
+    text-align: center;
+    font-family: $fontDMSans;
+    font-weight: bold;
+    color: $colorWhite;
+    margin: 0 0 20px 0;
+  }
+}
+
+.inputContainer,
+.inputContainerCopied {
+  .container {
+    margin-bottom: 0;
+
+    & > div {
+      background: $colorWhite20 !important;
+      padding: 5px;
+      height: 30px;
+
+      & > div {
+        right: 0 !important;
+        height: auto !important;
+      }
+    }
+  }
+
+  & > div {
+    margin-bottom: 5px;
+  }
+
+  &.inputContainerCopied {
+    input {
+      color: $colorGreenDarker !important;
+    }
+  }
+
+  input {
+    color: $colorWhite !important;
+    font-size: 14px;
+  }
+}

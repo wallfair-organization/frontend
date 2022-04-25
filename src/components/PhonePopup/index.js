@@ -2,13 +2,16 @@ import React, {useEffect, useState} from 'react'
 import styles from './styles.module.scss';
 import InputBox from '../InputBox';
 import Button from '../Button';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import _ from 'lodash';
 import { OnboardingActions } from 'store/actions/onboarding';
 import ButtonTheme from 'components/Button/ButtonTheme';
 import StepBar from 'components/StepBar';
 import Routes from 'constants/Routes';
 import { sendSms } from 'api';
+import { PopupActions } from 'store/actions/popup';
+import PopupTheme from 'components/Popup/PopupTheme';
+import {ReactComponent as WLogo} from '../../data/images/bonus/w-logo-white.svg';
 
 const PhonePopup = ({
   hidePopup = () => {},
@@ -18,6 +21,7 @@ const PhonePopup = ({
   const [phoneNumber, setPhoneNumber] = useState();
   const [country, setCountry] = useState('49');
   const [errorMessage, setErrorMessage] = useState();
+  const dispatch = useDispatch();
 
   useEffect(() => {
       setErrorMessage('');
@@ -35,11 +39,18 @@ const PhonePopup = ({
       console.log(response);
       if (!response.error) {
         setErrorMessage('');
-        showOnboardingFlowNext({
-          phoneNumber: fullPhoneNumber,
-          initialOnboarding
-        });
-        hidePopup();
+
+        dispatch(
+          PopupActions.show({
+            popupType: PopupTheme.phoneVerification,
+            options: {
+              phoneNumber: fullPhoneNumber,
+              small: false,
+            },
+          })
+        );
+
+        // hidePopup();
       } else {
         setErrorMessage(
           <div>
@@ -56,11 +67,11 @@ const PhonePopup = ({
 
   return (
     <div className={styles.phonePopup}>
-      <StepBar step={2} size={4} />
-      <h2 className={styles.title}>Verify your phone number</h2>
+      <WLogo />
+      <h2 className={styles.title}>Not so fast!</h2>
       <div className={styles.container}>
         <div className={styles.description}>
-          We'll send you a SMS with a 6-digit code to verify your number
+          Before you can claim bonuses for the first time, you need to <b>verify your phone</b>. Your phone will be linked to your profile. This is a <b>one-time necessary step</b>.
         </div>
         <InputBox
           className={styles.inputBox}
@@ -83,12 +94,16 @@ const PhonePopup = ({
             className={styles.button}
             disabledWithOverlay={false}
             disabled={!!errorMessage}
-            theme={ButtonTheme.primaryButtonXL}
+            theme={ButtonTheme.primaryButtonL}
           >
-            Send verification code
+            Continue
           </Button>
         </div>
-        <span className={styles.terms}>By continuing I accept the <a href={Routes.terms} target="_blank" rel="noreferrer">Terms and Conditions</a> and <a href={Routes.privacy} target="_blank" rel="noreferrer">Privacy Policy</a>. Also I confirm that I am over 18 years old.</span>
+        <div className={styles.terms}>
+          <span className={styles.title}>Why is this needed?</span>
+          <p>Phone verification is a security measure to protect Wallfair from bot spamming and attacks.</p>
+        </div>
+
       </div>
     </div>
   );

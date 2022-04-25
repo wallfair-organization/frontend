@@ -50,7 +50,7 @@ const LEADERBOARD_TYPES = [
   },
   {
     key: 'high_games',
-    name: 'Highest cashouts from Games',
+    name: 'Total cashouts from Games',
   },
   {
     key: 'high_volume',
@@ -174,9 +174,9 @@ const Home = authState => {
             <h2 id="leaderboard">Daily Leaderboard</h2>
           </div>
           <div className={styles.leaderboardBlock}>
-            {LEADERBOARD_TYPES.map(type => {
+            {LEADERBOARD_TYPES.map((type, index) => {
               return (
-                <div className={styles.typeContainer}>
+                <div key={`leaderboard_${index}`} className={styles.typeContainer}>
                   <h3>{type.name}</h3>
                   <LeaderboardHome
                     className={styles.leaderboardItem}
@@ -201,7 +201,7 @@ const Home = authState => {
       <div className={styles.container}>
         <DiscordWidget />
         
-        {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' && <ClaimBonusWidget />}
+        {isLoggedIn && <ClaimBonusWidget />}
 
         {isPlayMoney && (
           <GainBanner

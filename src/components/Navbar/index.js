@@ -495,8 +495,14 @@ const Navbar = ({
             <img src={SamsungPay} alt="SamsungPay Logo"/>
             <div>
               <button onClick={() => {
+                if (!isLoggedIn()) {
+                  showPopup(PopupTheme.loginWeb3, { small: true });
+                  return;
+                }
+
                 history.push(Routes.wallet);
                 showWalletDepositPopup();
+                
               }}>Buy WFAIR</button>
               <Icon className={style.icon} iconType={IconType.arrowRight} />
             </div>
@@ -505,6 +511,11 @@ const Navbar = ({
               <span>No crypto? No problem!</span>
               <div>
                 <button onClick={() => {
+                  if (!isLoggedIn()) {
+                    showPopup(PopupTheme.loginWeb3, { small: true });
+                    return;
+                  }
+                  
                   history.push(Routes.wallet);
                   showWalletDepositPopup();
                 }}>Buy WFAIR</button>
@@ -540,15 +551,11 @@ const Navbar = ({
           
           {renderNavbarLink(`/games`, 'Games', null, 'menu-games')}
 
-          {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === "true" &&
+          {isLoggedIn() &&
             renderNavbarLink(`/bonus`, 'Bonus', null, 'menu-bonus')
           }
 
           {renderNavbarLink(`/activities`, 'Activities', null, 'menu-activities')}
-
-          
-          
-          
           
         </div>
         {/* <div className={style.linkWrapper}>

@@ -19,7 +19,6 @@ import { EventActions } from '../actions/event';
 import { ChartParamsActions } from '../actions/chart-params';
 import {
   InfoChannelActions,
-  infoChannelActions,
 } from '../actions/info-channel';
 import trackedActivities from '../../components/ActivitiesTracker/trackedActivities';
 import { GAMES } from '../../constants/Games';
@@ -344,7 +343,7 @@ const isExternalPage = (currentAction, pathSlugs) =>
   (pathSlugs.length > 1 || currentAction.length > 1);
 const isEvoplayPage = (currentAction, pathSlugs) =>
   (currentAction[0] === 'evoplay-game' || pathSlugs[0] === 'evoplay-game') &&
-  (pathSlugs.length > 2 || currentAction.length > 2);
+  (pathSlugs.length > 1 || currentAction.length > 1);
 const isSoftswissPage = (currentAction, pathSlugs) =>
   currentAction[0] === 'softswiss-game' || pathSlugs[0] === 'softswiss-game';
 
@@ -390,7 +389,7 @@ export function* joinOrLeaveRoomOnRouteChange(action) {
     }
   }
   if (isEvoplayPage(currentAction, pathSlugs)) {
-    newRoomsToJoin.push(ObjectId(pathSlugs[3]));
+    newRoomsToJoin.push(pathSlugs[1]);
     newRoomsToJoin.push(UNIVERSAL_EVENTS_ROOM_ID);
   }
   if (isExternalPage(currentAction, pathSlugs)) {

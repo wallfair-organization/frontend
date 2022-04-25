@@ -49,7 +49,7 @@ const GamesCarousel = ({loggedIn, userId, showPopup}) => {
   }, []);
 
   const onClickItemSecondBanner = useCallback(() => {
-    history.push('/evoplay-game/Unlimited%20Wishes/Slot/5759');
+    history.push('/evoplay-game/5759');
   }, []);
 
   // const onClickItemThirdBanner = useCallback(() => {

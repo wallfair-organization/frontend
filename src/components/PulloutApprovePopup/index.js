@@ -17,14 +17,14 @@ const PulloutApprovePopup = ({
   betData: { betId, amount, outcome, outcomeName },
   onApprove,
 }) => {
-  const { currency } = useSelector(selectUser);
+  const { gamesCurrency } = useSelector(selectUser);
 
   const onApprovePulloutClick = async () => {
     pullOutBet(betId, outcome)
       .then(_ => {
         hidePopup();
         showSuccess(
-          `Successfully cashed out ${amount} ${currencyDisplay(currency)}`
+          `Successfully cashed out ${amount} ${currencyDisplay(gamesCurrency)}`
         );
         onApprove(betId, outcome);
         trackApproveCashout({ eventTitle: outcomeName });
@@ -48,7 +48,7 @@ const PulloutApprovePopup = ({
       <p className={styles.pulloutText}>
         Are you sure you want to cash out&nbsp;
         <strong>
-          {amount} {currencyDisplay(currency)}
+          {amount} {currencyDisplay(gamesCurrency)}
         </strong>
         ?
       </p>

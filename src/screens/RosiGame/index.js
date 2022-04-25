@@ -162,9 +162,11 @@ const RosiGame = ({
     } catch (e) {
       dispatch(
         AlertActions.showError({
-          message: `${slug === GAMES['elonGame'].slug ? 'Elon Game' : 'Pump and Dump'}: Place Bet failed`,
+          message: `${e.response?.data || 'Place Bet failed'}`,
+          // message: `${slug === GAMES['elonGame'].slug ? 'Elon Game' : 'Pump and Dump'}: Place Bet failed`,
         })
       );
+      setFlag(false);
     }
   }
 

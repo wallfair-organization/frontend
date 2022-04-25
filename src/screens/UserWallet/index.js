@@ -54,6 +54,7 @@ import { red } from '@material-ui/core/colors';
 import WalletFAQ from 'components/FAQ/WalletFAQ';
 import EventActivitiesTabs from 'components/EventActivitiesTabs';
 import ActivitiesTracker from 'components/ActivitiesTracker';
+import StakingWidget from 'components/StakingWidget';
 
 const UserWallet = ({
   connected,
@@ -142,8 +143,8 @@ const UserWallet = ({
   };
 
   const fetchTrades = () => {
-    getOpenBets().then(res => setOpenTrades(res.data));
-    getTradeHistory().then(res => setTradeHistory(res.data));
+    getOpenBets().then(res => setOpenTrades(res?.data || []));
+    getTradeHistory().then(res => setTradeHistory(res?.data || []));
   }
 
   useEffect(() => {
@@ -262,19 +263,16 @@ const UserWallet = ({
                       {renderWalletPreferencesSection()}
                     </div>
 
-                    {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' &&
-                      <>
-                        <div className={styles.balanceToken}>
-                          <span>Balance WFAIR</span>
-                          <span>{`${formatToFixed(getBalanceByCurrency('WFAIR'), 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
-                        </div>
-                        <div className={styles.balanceToken}>
-                          <span>Bonus</span>
-                          <span>{`${formatToFixed(getBalanceByCurrency('BFAIR'), 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
-                        </div>
-                      </>
-                    }
-
+                    
+                    <div className={styles.balanceToken}>
+                      <span>Balance WFAIR</span>
+                      <span>{`${formatToFixed(getBalanceByCurrency('WFAIR'), 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
+                    </div>
+                    <div className={styles.balanceToken}>
+                      <span>Bonus</span>
+                      <span>{`${formatToFixed(getBalanceByCurrency('BFAIR'), 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
+                    </div>
+                    
                     <div className={styles.balanceToken}>
                       <span>Total Balance in WFAIR</span>
                       <span>{`${formatToFixed(balance, 0, true)} ${currencyDisplay(TOKEN_NAME)}`}</span>
@@ -441,6 +439,9 @@ const UserWallet = ({
           <div className={styles.paymentMethodIcons}>
             <PaymentMethodIcon onClick={showWalletDepositPopup} />
           </div>
+
+          {process.env.REACT_APP_SHOW_UPCOMING_FEATURES === 'true' && <StakingWidget />}
+
           {/* {renderDepositBonusSection()} */}
           {renderStats()}
 

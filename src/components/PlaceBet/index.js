@@ -87,6 +87,8 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
   const [betted, setBetted] = useState(false);
   const { slug } = useParams();
 
+  const convertedMaxAmount = Math.floor(Math.min(userBalanceConverted, convertAmount(10000, prices[gamesCurrency])));
+
   const userUnableToBet = amount < 1 || !canBet || gameOffline;
   const numberOfDemoPlays =
     Number(localStorage.getItem('numberOfElonGameDemoPlays')) || 0;
@@ -142,13 +144,13 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
   const onGuestAmountChange = event => {
     let value = _.get(event, 'target.value', 0);
     const amount = round(value, 0);
-    setAmount(amount <= 10000 ? amount : 10000);
+    setAmount(amount <= convertedMaxAmount ? amount : convertedMaxAmount);
   };
 
   const onBetAmountChanged = multiplier => {
     const changedValue = _.floor(amount * multiplier, 0);
-    if (changedValue > 10000) {
-      setAmount(10000);
+    if (changedValue > convertedMaxAmount) {
+      setAmount(convertedMaxAmount);
     } else if (changedValue < 0) {
       setAmount(0);
     } else {
@@ -243,7 +245,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
     e.preventDefault();
     e.stopPropagation();
     if (userUnableToBet) return;
-    if (amount > userBalance) return;
+    if (amount > +userBalanceConverted) return;
 
     const payload = {
       amount,
@@ -254,7 +256,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
   };
   const placeAutoBet = async () => {
     if (userUnableToBet) return;
-    if (amount > userBalance) return;
+    if (amount > userBalanceConverted) return;
     const payload = {
       amount,
       accumulated: -amount,
@@ -396,12 +398,10 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
         !connected ||
         userUnableToBet ||
         isBetInQueue ||
-        (amount > userBalance && user.isLoggedIn)
+        (amount > userBalanceConverted && user.isLoggedIn)
       ) buttonEnable = true;
       if(amount === 0) buttonEnable = false;
-
-
-        //  else{
+        
         return (
           <Button
             role="button"
@@ -426,7 +426,6 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
               : 'Play Demo'}
           </Button>
         );
-      //  }
     } else if ((userPlacedABet && !isGameRunning) || isBetInQueue) {
       return (
         <>
@@ -641,7 +640,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                 setValue={onTokenNumberChange}
                 minValue={0}
                 decimalPlaces={0}
-                maxValue={10000}
+                maxValue={Math.min(userBalanceConverted, convertedMaxAmount)}
                 dataTrackingIds={{
                   inputFieldHalf: 'elongame-input-field-half',
                   inputFieldDouble: 'elongame-event-input-field-double',
@@ -663,7 +662,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                   onChange={onGuestAmountChange}
                   step={0.01}
                   min="1"
-                  max={'10000'}
+                  max={convertedMaxAmount}
                 />
                 <span className={styles.eventTokenLabel}>
                   <span>{currencyDisplay(gamesCurrency)}</span>
@@ -683,7 +682,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                   </span>
                   <span
                     className={styles.buttonItem}
-                    onClick={() => setAmount(10000)}
+                    onClick={() => setAmount(convertedMaxAmount)}
                   >
                     Max
                   </span>
@@ -731,7 +730,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                 setValue={onTokenNumberChange}
                 minValue={0}
                 decimalPlaces={0}
-                maxValue={10000}
+                maxValue={convertedMaxAmount}
                 dataTrackingIds={{
                   inputFieldHalf: 'elongame-input-field-half',
                   inputFieldDouble: 'elongame-event-input-field-double',
@@ -753,7 +752,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                   onChange={onGuestAmountChange}
                   step={0.01}
                   min="1"
-                  max={'10000'}
+                  max={convertedMaxAmount}
                 />
                 <span className={styles.eventTokenLabel}>
                   <span>{currencyDisplay(gamesCurrency)}</span>
@@ -773,7 +772,7 @@ const PlaceBet = ({ connected, onBet, onCashout, onCancel }) => {
                   </span>
                   <span
                     className={styles.buttonItem}
-                    onClick={() => setAmount(10000)}
+                    onClick={() => setAmount(convertedMaxAmount)}
                   >
                     Max
                   </span>

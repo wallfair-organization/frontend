@@ -3,22 +3,24 @@ import ReactCanvasConfetti from 'react-canvas-confetti';
 import styles from './styles.module.scss';
 import LogoSplash from '../../data/images/wfair-logo-splash.png';
 import Button from 'components/Button';
-import HighlightType from 'components/Highlight/HighlightType';
 import classNames from 'classnames';
 import { PopupActions } from 'store/actions/popup';
 import PopupTheme from '../Popup/PopupTheme';
 import { connect, useSelector } from 'react-redux';
 import { calculateGain } from 'helper/Calculation';
 import { selectUser } from 'store/selectors/authentication';
-import { convert, currencyDisplay } from '../../helper/Currency';
+import { convert, currencyDisplay, convertAmount } from '../../helper/Currency';
+import { TOKEN_NAME } from '../../constants/Token';
 import Share from '../../components/Share';
 import routes from '../../constants/Routes';
 import useConfettiAnimation from 'hooks/useConfettiAnimation';
-import { toNumericString } from 'helper/FormatNumbers';
+import { toNumericString, formatToFixed } from 'helper/FormatNumbers';
 import ButtonTheme from 'components/Button/ButtonTheme';
+import { selectPrices } from 'store/selectors/info-channel';
 
 const BetApproveView = ({ visible, hidePopup, options }) => {
-  const { currency } = useSelector(selectUser);
+  const { gamesCurrency } = useSelector(selectUser);
+  const prices = useSelector(selectPrices);
 
   const { getAnimationInstance, canvasStyles } = useConfettiAnimation({
     visible,
@@ -28,8 +30,20 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
   const bet = _.get(options, 'data.bet');
   const event = _.get(options, 'data.event');
 
-  const amountPlaced = convert(_.get(trade, 'investment_amount', 0), currency);
-  const potentialOutcome = convert(_.get(trade, 'outcome_tokens', 0), currency);
+  const amountPlaced =
+    gamesCurrency !== TOKEN_NAME
+      ? `${convertAmount(
+          _.get(trade, 'investment_amount', 0),
+          prices[gamesCurrency],
+        )}`
+      : `${formatToFixed(_.get(trade, 'investment_amount', 0), 0, true)}`;
+
+  const potentialOutcome = gamesCurrency !== TOKEN_NAME
+    ? `${convertAmount(
+        _.get(trade, 'outcome_tokens', 0),
+        prices[gamesCurrency],
+      )}`
+    : `${formatToFixed(_.get(trade, 'outcome_tokens', 0), 0, true)}`;
   const potentialPercent = calculateGain(amountPlaced, potentialOutcome);
   const potentialPercentGain = _.get(potentialPercent, 'value');
   const potentialPercentType = _.get(potentialPercent, 'negative', false);
@@ -62,14 +76,15 @@ const BetApproveView = ({ visible, hidePopup, options }) => {
         <div className={classNames(styles.entry)}>
           <div className={styles.label}>Amount placed</div>
           <div className={classNames(styles.value, styles.alignRight)}>
-            {toNumericString(amountPlaced)} <span>{currencyDisplay(currency)}</span>
+            {toNumericString(amountPlaced)}{' '}
+            <span>{currencyDisplay(gamesCurrency)}</span>
           </div>
         </div>
         <div className={classNames(styles.entry)}>
           <div className={styles.label}>Potential outcome</div>
           <div className={classNames(styles.value, styles.alignRight)}>
             {toNumericString(potentialOutcome)}{' '}
-            <span>{currencyDisplay(currency)}</span>
+            <span>{currencyDisplay(gamesCurrency)}</span>
           </div>
         </div>
         <div className={classNames(styles.entry, styles.alignRight)}>

@@ -575,14 +575,15 @@ const getWalletTransactions = () => {
 const getWithdrawQuote = ({ amount, network }) => {
   return WithdrawServiceApi.post(ApiUrls.API_GETQUOTE, { amount, network })
     .then(response => ({ response }))
-    .catch(error => ({ error: error.response.data }));
+    .catch(error => ({ error: error?.response?.data }));
 };
 
-const processWithdraw = ({ amount, network, toAddress }) => {
+const processWithdraw = ({ amount, network, toAddress, recaptchaToken }) => {
   return WithdrawServiceApi.post(ApiUrls.API_WITHDRAW, {
     amount,
     network,
     to_address: toAddress,
+    recaptchaToken,
   })
     .then(response => ({ response }))
     .catch(error => ({ error: error.response.data }));
@@ -817,9 +818,10 @@ const getPromoCodes = statuses => {
     });
 };
 
-const claimPromoCode = (promoCode) => {
+const claimPromoCode = ({promoCode, recaptchaToken}) => {
   return Api.post(ApiUrls.API_POST_PROMO_CODES, {
-    promoCode
+    promoCode,
+    recaptchaToken
   })
     .then(res => res.data)
     .catch(err => {
@@ -840,6 +842,33 @@ const cancelPromoCode = (promoCode, ref = 'default') => {
         return error;
       }
     );
+};
+
+const withdrawBonus = (promoCode, ref = 'default') => {
+  return Api.post(ApiUrls.API_POST_WITHDRAW_BONUS, {
+    promoCode,
+    ref
+  })
+  .then(res => res.data)
+  .catch(
+    error => {
+      console.log('[API Error] called: withdraw bonus', error);
+      return error;
+    }
+  );
+};
+
+const sendMail = ({text, subject, recaptchaToken}) => {
+  return Api.post(ApiUrls.API_POST_SEND_EMAIL, {
+    text,
+    subject,
+    recaptchaToken
+  })
+    .then(res => res.data)
+    .catch(err => {
+      console.log('[API-Error]: sendMail ', err);
+      return err;
+    });
 };
 
 export {
@@ -935,4 +964,6 @@ export {
   getPromoCodes,
   claimPromoCode,
   cancelPromoCode,
+  withdrawBonus,
+  sendMail,
 };

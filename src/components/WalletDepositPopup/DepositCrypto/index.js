@@ -179,7 +179,7 @@ const DepositCrypto = ({ currency, showWalletDepositPopup, fetchWalletTransactio
         <span>Choose your currency</span>
         <div className={styles.inputContainer}>
           <Dropdown
-            style={styles.dropdown}
+            className={styles.dropdown}
             value={selectedCurrency.label}
             placeholder="Select currency..."
             setValue={onCurrencyChange}

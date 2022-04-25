@@ -224,3 +224,47 @@
     }
   }
 }
+
+.primaryButton {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: $colorBlack;
+  box-sizing: border-box;
+  border-radius: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: $fontDMSans;
+  padding: 8px 30px;
+  text-transform: none;
+  user-select: none;
+  text-align: center;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  span {
+    width: fit-content;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+    align-items: center;
+  }
+
+  & > svg {
+    width: 100%;
+    z-index: 0;
+    position: absolute;
+  }
+}

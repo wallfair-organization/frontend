@@ -26,9 +26,6 @@ const WFAIRTransfer = ({
   }
 
   provider.getGasPrice().then(async (currentGasPrice) => {
-    let gas_price = ethers.utils.formatUnits(currentGasPrice, 9);
-    console.log("Gas price in Gwei:", gas_price);
-
     const signer = provider?.getSigner();
 
     // .5 => 0.5 || 6. => 6.0
@@ -39,14 +36,22 @@ const WFAIRTransfer = ({
         ? tokenAmount + "0"
         : tokenAmount;
 
-    const transfer = contractAddress
-      ? new ethers.Contract(contractAddress, WFAIRAbi.abi, signer).transfer(
+    const contract = contractAddress ? new ethers.Contract(contractAddress, WFAIRAbi.abi, signer) : null;
+
+    const gasPrice = currentGasPrice; 
+
+    const transfer = contract
+      ? contract.transfer(
           toAddress,
-          ethers.utils.parseEther(String(tokenAmount))
+          ethers.utils.parseEther(String(tokenAmount)),
+          {
+            gasPrice,
+          }
         )
       : signer.sendTransaction({
           to: toAddress,
           value: ethers.utils.parseEther(String(tokenAmount)),
+          gasPrice,
         }); // transfer tokens
     transfer
       .then(tx => {

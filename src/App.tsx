@@ -52,6 +52,7 @@ import HowItWorks from 'screens/HowItWorks';
 import Web3Listener from './components/Web3Listener';
 import AMLPolicy from 'screens/AMLPolicy';
 import Bonus from 'screens/Bonus';
+import Affiliates from 'screens/Affiliates';
 
 const { store, persistor } = configStore();
 
@@ -145,9 +146,10 @@ const App = () => {
               <Route exact path={Routes.imprint} component={Imprint} />
               <Route exact path={Routes.privacy} component={PrivacyPolicy} />
               <PrivateRoute exact path={Routes.wallet} component={realMoneyOnly ? UserWallet : PlayMoneyWallet} />
+              <PrivateRoute exact path={Routes.bonus} component={Bonus} />
               <Route exact path={Routes.howItWorks} component={HowItWorks} />
-              <Route exact path={Routes.bonus} component={Bonus} />
-
+              <Route exact path={Routes.affiliates} component={Affiliates} />
+              
               {realMoneyOnly && <>
                 <Route path={Routes.games} component={Games} />
                 {/* <Route exact path={Routes.rouletteGame} component={RouletteGame} /> */}

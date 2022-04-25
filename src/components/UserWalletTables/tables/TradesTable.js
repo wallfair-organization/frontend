@@ -1,15 +1,19 @@
 import Grid from '@material-ui/core/Grid';
-import classNames from "classnames";
+import classNames from 'classnames';
 import styles from '../styles.module.scss';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import StateBadge from '../../StateBadge';
-import moment from "moment";
+import moment from 'moment';
 import BetState from 'constants/BetState';
 import { calculateGain } from '../../../helper/Calculation';
-import { formatToFixed } from "helper/FormatNumbers";
-import { connect } from "react-redux";
+import { formatToFixed } from 'helper/FormatNumbers';
+import { connect, useSelector } from 'react-redux';
 import { PopupActions } from '../../../store/actions/popup';
 import PopupTheme from '../../Popup/PopupTheme';
+import { selectPrices } from 'store/selectors/info-channel';
+import { selectUser } from 'store/selectors/authentication';
+import { TOKEN_NAME } from '../../../constants/Token';
+import { convertAmount } from 'helper/Currency';
 
 const isFinalizedTrade = status =>
   [BetState.closed, BetState.canceled, BetState.resolved].includes(status);
@@ -41,7 +45,12 @@ const getGain = trade => {
   return gain;
 };
 
-const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout }) => {
+const TradeRow = ({
+  data,
+  allowCashout,
+  showPulloutBetPopup,
+  onApproveCashout,
+}) => {
   const {
     bet,
     event,
@@ -54,6 +63,21 @@ const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout })
     direction,
   } = data;
   const gain = getGain(data);
+  const prices = useSelector(selectPrices);
+  const user = useSelector(selectUser);
+  const currency = user.gamesCurrency;
+
+  const convert = amount => {
+    return currency !== TOKEN_NAME
+      ? `${convertAmount(amount, prices[currency])}`
+      : `${formatToFixed(amount, 0, true)}`;
+  };
+
+  const truncate = val => {
+    return val.length > 20
+      ? val.substr(0, 14) + '...' + val.substr(val.length - 6)
+      : val;
+  };
 
   return (
     <div className={styles.messageItem}>
@@ -62,11 +86,7 @@ const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout })
           <div className={classNames(styles.messageFirst, styles.messageLeft)}>
             <Link to={`/trade/${event.slug}`} className={styles.titleLink}>
               <div className={styles.titleWithBadge}>
-                {bet.question?.length > 20
-                  ? bet.question?.substr(0, 14) +
-                    '...' +
-                    bet.question?.substr(bet.question?.length - 6)
-                  : bet.question}
+                {truncate(bet.question)}
                 {status === 'active' && (
                   <StateBadge
                     state={bet.status.toLowerCase()}
@@ -81,24 +101,20 @@ const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout })
         </Grid>
         <Grid item xs>
           <div className={styles.messageCenter}>
-            <p>{bet.outcome}</p>
+            <p>{truncate(bet.outcome)}</p>
           </div>
         </Grid>
         <Grid item xs>
           <div className={styles.messageCenter}>
             <p>
-              {formatToFixed(
-                direction === 'SELL' ? outcomeTokens : investmentAmount
-              )}
+              {convert(direction === 'SELL' ? outcomeTokens : investmentAmount)}
             </p>
           </div>
         </Grid>
         <Grid item xs>
           {allowCashout ? (
             <div className={styles.messageCenter}>
-              <p>
-                {formatToFixed(status === 'sold' ? sellAmount : outcomeTokens)}
-              </p>
+              <p>{convert(status === 'sold' ? sellAmount : outcomeTokens)}</p>
             </div>
           ) : (
             <div className={styles.messageCenter}>
@@ -137,24 +153,23 @@ const TradeRow = ({ data, allowCashout, showPulloutBetPopup, onApproveCashout })
             <div
               className={classNames(styles.messageLast, styles.messageRight)}
             >
-              {bet.status === BetState.active &&
-                !isFinalizedTrade(bet.status) && (
-                  <button
-                    className={styles.styledButton}
-                    onClick={() =>
-                      showPulloutBetPopup(
-                        bet.id,
-                        outcomeIndex,
-                        sellAmount,
-                        bet.outcome,
-                        onApproveCashout
-                      )
-                    }
-                    data-tracking-id="wallet-cashout"
-                  >
-                    Cashout
-                  </button>
-                )}
+              {bet.status === BetState.active && !isFinalizedTrade(bet.status) && (
+                <button
+                  className={styles.styledButton}
+                  onClick={() =>
+                    showPulloutBetPopup(
+                      bet.id,
+                      outcomeIndex,
+                      convert(sellAmount),
+                      bet.outcome,
+                      onApproveCashout
+                    )
+                  }
+                  data-tracking-id="wallet-cashout"
+                >
+                  Cashout
+                </button>
+              )}
             </div>
           </Grid>
         )}
