@@ -77,7 +77,7 @@ const Bonus = () => {
         <ClaimBonusWidget fetchBonus={fetchBonus} />
 
         <div className={styles.itemGrid}>
-          {bonusList
+          {bonusList && bonusList
             .filter(bonusItemData => bonusItemData.type === 'BONUS')
             .map(bonusItemData => <BonusItem fetchBonus={fetchBonus} data={bonusItemData} />)
           }
