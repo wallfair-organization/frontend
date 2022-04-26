@@ -227,7 +227,7 @@ const Home = authState => {
           />
         )}
 
-        {renderGamesBanner()}
+        {/* {renderGamesBanner()} */}
 
         {!isPlayMoney && (
           <DisplaySection

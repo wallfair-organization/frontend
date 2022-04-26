@@ -243,7 +243,7 @@ const Games = () => {
       <GamesCarousel />
       <div className={styles.container}>
 
-        {renderGamesBanner()}
+        {/* {renderGamesBanner()} */}
 
         <DisplaySection
           selectedGamesLabel={TOP_PICKS_GAMES.header}
