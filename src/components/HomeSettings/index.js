@@ -150,6 +150,19 @@ const HomeSettings = ({
             </div>
 
             <a
+              href="https://wfair.io"
+              target="_blank"
+              rel="noreferrer"
+              className={classNames(styles.singleSettingHolder)}
+            >
+              <Icon
+                className={classNames(styles.referralIcon, styles.fillIcon)}
+                iconType={'wfair'}
+              />
+              <p className={styles.settingTitle}>About us</p>
+            </a>
+
+            <a
               href={'https://staking.wallfair.io'}
               target='_blank'
               rel='noreferrer'
