@@ -150,7 +150,7 @@ const Navbar = ({
   };
 
   const renderNavbarLink = (route, text, isLogo = false, trackingId) => {
-    return (
+    return (route.indexOf("https://") === -1 ?
       <NavLink
         data-tracking-id={trackingId}
         to={route}
@@ -159,6 +159,8 @@ const Navbar = ({
       >
         {text}
       </NavLink>
+    :
+      <a href={route} target="_blank" rel="noreferrer" activeClassName={isLogo ? null : style.active}>{text}</a>
     );
   };
 
@@ -556,6 +558,8 @@ const Navbar = ({
           }
 
           {renderNavbarLink(`/activities`, 'Activities', null, 'menu-activities')}
+          
+          {renderNavbarLink(`https://wfair.io`, 'About us', null, 'menu-aboutus')}
           
         </div>
         {/* <div className={style.linkWrapper}>

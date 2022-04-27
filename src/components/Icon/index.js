@@ -84,6 +84,7 @@ import { ReactComponent as IconUserProfile } from '../../data/icons/user-profile
 import { ReactComponent as BalanceScaleSolid } from '../../data/icons/balance-scale-solid.svg';
 import { ReactComponent as IconDiscord } from '../../data/icons/discord.svg';
 import { ReactComponent as GiftIcon } from '../../data/icons/gift-icon.svg';
+import { ReactComponent as WFAIRIcon } from '../../data/icons/WFAIR.svg';
 
 const Icon = ({
   className,
@@ -181,7 +182,8 @@ const Icon = ({
       [IconType.balanceScaleSolid]: <BalanceScaleSolid />,
       [IconType.userProfile]: <IconUserProfile />,
       [IconType.discord]: <IconDiscord />,
-      [IconType.gift]: <GiftIcon />
+      [IconType.gift]: <GiftIcon />,
+      [IconType.wfair]: <WFAIRIcon />,
     });
   };
 

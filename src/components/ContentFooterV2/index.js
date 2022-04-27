@@ -63,21 +63,21 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                 <p>{'Provably Fair'}</p>
               </Link>
               <a
+                href="https://wfair.io"
+                target="_blank"
+                rel="noreferrer"
+                data-tracking-id="footer-source-code"
+              >
+                <p>About Us</p>
+              </a>
+
+              <a
                 href="https://wallfair.medium.com"
                 target="_blank"
                 rel="noreferrer"
                 data-tracking-id="footer-buy-wfair"
               >
                 <p>Blog</p>
-              </a>
-
-              <a
-                href="https://github.com/wallfair-organization"
-                target="_blank"
-                rel="noreferrer"
-                data-tracking-id="footer-source-code"
-              >
-                <p>Source Code</p>
               </a>
             </div>
 
@@ -112,6 +112,15 @@ const ContentFooter = ({ className = '', disclaimerHidden, setOpenDrawer }) => {
                 <Link data-tracking-id="footer-aml" to={Routes.aml}>
                   <p>{'AML Policy'}</p>
                 </Link>
+
+                <a
+                  href="https://github.com/wallfair-organization"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-tracking-id="footer-source-code"
+                >
+                  <p>Source Code</p>
+                </a>
 
                 {/* <div id="lang-switcher" className={styles.langSwitcher}/> */}
               </div>
