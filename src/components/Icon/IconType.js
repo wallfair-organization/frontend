@@ -81,4 +81,5 @@ export default {
   userProfile: 'userProfile',
   discord: 'discord',
   gift: 'gift',
+  wfair: 'wfair'
 };
