@@ -66,4 +66,5 @@ export default {
   aml: '/aml-policy',
   bonus: '/bonus',
   affiliates: '/affiliates',
+  whitelabel: '/whitelabel',
 };
